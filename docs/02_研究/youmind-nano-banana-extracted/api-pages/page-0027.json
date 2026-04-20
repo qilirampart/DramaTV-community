@@ -1,0 +1,512 @@
+{
+  "prompts": [
+    {
+      "id": 12913,
+      "title": "Nano Banana Pro 提示词：哈恰图良的《斯巴达克斯》",
+      "description": "一个提示词，指示 Nano Banana Pro 生成一张与哈恰图良的芭蕾舞剧《斯巴达克斯》 相关、特别是弗里吉亚柔板的图片，采用 《最终幻想》 风格或 “幻想系列” 的手法。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2037468676413362518",
+      "sourcePublishedAt": "2026-03-27T09:56:01.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ハチャトゥリアン\nバレヱ　スパルタクス\nフィーリアのアダージョ\n\n必殺\nファイナルファンタジー風\n幻想的にシリーズ",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679883929_zzfu10_HEaK9V2bIAAJOly.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679883929_zzfu10_HEaK9V2bIAAJOly-300x164.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "{argument name=\"composer\" default=\"Khachaturian\"}\n{argument name=\"ballet\" default=\"Ballet Spartacus\"}\n{argument name=\"piece\" default=\"Adagio of Phrygia\"}\n\n必杀技\n最终 幻想 风格 的 奇幻 系列",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词：哈恰图良的《斯巴达克斯》 一个提示词，指示 nano banana pro 生成一张与哈恰图良的芭蕾舞剧《斯巴达克斯》 相关、特别是弗里吉亚柔板的图片，采用 《最终幻想》 风格或 “幻想系列” 的手法。 ハチャトゥリアン\nバレヱ　スパルタクス\nフィーリアのアダージョ\n\n必殺\nファイナルファンタジー風\n幻想的にシリーズ {argument name=\"composer\" default=\"khachaturian\"}\n{argument name=\"ballet\" default=\"ballet spartacus\"}\n{argument name=\"piece\" default=\"adagio of phrygia\"}\n\n必杀技\n最终 幻想 风格 的 奇幻 系列 クラリネットクラリオンnobu 12913",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12865,
+      "title": "AI GPU 集群的技术蓝图",
+      "description": "一个高度详细的提示，用于让 Gemini Nano Banana Pro 生成一张未来主义的、电影般的图像，描绘一张技术蓝图在抛光黄铜绘图桌上转变为一个逼真的、自组装的 AI GPU 集群，并强调技术细节、光照和构图。",
+      "sourceLink": "https://x.com/oggii_0/status/2037468016221536262",
+      "sourcePublishedAt": "2026-03-27T09:53:24.000Z",
+      "author": {
+        "name": "Oogie",
+        "link": "https://x.com/oggii_0"
+      },
+      "content": "A detailed technical blueprint of a high-performance AI GPU cluster placed on a polished brass drafting table, with a photorealistic miniature AI server system self-assembling from it — multiple GPU accelerator units (sleek black and metallic modules with neon green accents) rising from the dimension lines, high-speed interconnect bridges threading through the tolerance annotations, and dense compute nodes forming from the grid layout.\n\nStacks of GPU cards slide into server chassis above the parts list, each unit locking in with precision. NVLink-style connectors and high-bandwidth interconnects assemble seamlessly between GPUs, forming a powerful parallel compute network. Rack-mounted AI servers emerge vertically, with layered compute blades building upward in perfect alignment.\n\nA liquid cooling system forms from exploded-diagram callouts — transparent cooling pipes with glowing coolant flowing through them, cold plates attaching to GPUs, and radiators assembling with high-performance fans. Heat dissipation fins and airflow channels dynamically shape around the system.\n\nA tiny engineer in futuristic protective gear stands on a GPU module inspecting circuits with a holographic diagnostic interface, while another miniature technician connects high-speed data cables into a switch unit. Fiber optic lines glow faintly, representing active data transfer.\n\nFunctional details illuminate — GPU core lights pulsing softly, status LEDs blinking in synchronized patterns, data streams visualized as glowing lines moving between nodes, and monitoring panels activating during assembly.\n\nSignature tools of the trade — precision screwdriver, thermal paste applicator, anti-static tools, fiber connectors, and a digital diagnostic tablet — rest across the blueprint’s title block, partially integrated into the scene.\n\nAll elements grow organically from the blueprint like a 3D mechanical diorama — circuit traces rising from printed schematics, GPU modules emerging from drawn outlines, cables threading through pencil grid lines. Seamless transformation from 2D blueprint into a fully operational AI infrastructure.\n\nLIGHTING:\nSoft studio lighting combined with strong neon green and cool blue glows from GPUs and data pathways. Subtle reflections from the brass surface and volumetric light enhancing depth.\n\nCAMERA & LENS:\nShot on a full-frame camera, 35mm lens. Slight low-angle perspective to emphasize scale and power. Cinematic depth of field with focus on central GPU cluster.\n\nCOMPOSITION:\nVertical 2:3 format. Central stacked GPU cluster rising upward with symmetrical balance. Clean negative space around edges with layered depth.\n\nSTYLE & MOOD:\nFuturistic, cinematic, high-end AI infrastructure aesthetic inspired by NVIDIA design language. Powerful, clean, and cutting-edge.\n\nDETAILS:\nUltra-detailed textures — matte black metal, glowing accents, micro circuitry, cooling liquid reflections, cable braiding, LED indicators. 8K resolution, HDR,",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679857399_jv9q38_HEaKU1hbwAEfD6i.jpg",
+        "https://cms-assets.youmind.com/media/1774679857294_y04bz4_HEaKUj8boAAwom8.jpg",
+        "https://cms-assets.youmind.com/media/1774679857480_8u44l4_HEaKUo4a4AA3nBr.jpg",
+        "https://cms-assets.youmind.com/media/1774679858065_i1yw3n_HEaKU3HbkAAXfqi.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679857399_jv9q38_HEaKU1hbwAEfD6i-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774679857294_y04bz4_HEaKUj8boAAwom8-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774679857480_8u44l4_HEaKUo4a4AA3nBr-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774679858065_i1yw3n_HEaKU3HbkAAXfqi-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张高性能 AI GPU 集群的详细技术蓝图，放置在抛光的黄铜绘图桌上，一个照片般逼真的微型 AI 服务器系统正从中自行组装——多个 GPU 加速单元（光滑的黑色金属模块，带有霓虹绿点缀）从尺寸标注线中升起，高速互连桥穿过公差标注，密集的计算节点从网格布局中形成。\n\n一叠叠 GPU 卡滑入零件清单上方的服务器机箱，每个单元都精确锁定。NVLink 风格的连接器和高带宽互连在 GPU 之间无缝组装，形成强大的并行计算网络。机架式 AI 服务器垂直出现，分层计算刀片完美对齐地向上构建。\n\n一个液体冷却系统从爆炸图标注中形成——透明冷却管道，其中流淌着发光的冷却液，冷却板连接到 GPU，散热器与高性能风扇组装。散热片和气流通道动态地围绕系统成形。\n\n一位身穿未来主义防护装备的微型工程师站在一个 GPU 模块上，使用全息诊断界面检查电路，而另一位微型技术员则将高速数据线连接到交换机单元。光纤线路发出微弱的光芒，代表着活跃的数据传输。\n\n功能细节被点亮——GPU 核心灯柔和地跳动，状态 LED 以同步模式闪烁，数据流被可视化为在节点之间移动的发光线条，监控面板在组装过程中激活。\n\n行业标志性工具——精密螺丝刀、导热膏涂抹器、防静电工具、光纤连接器和数字诊断平板电脑——放置在蓝图的标题栏上，部分融入场景。\n\n所有元素都从蓝图中自然生长，就像一个 3D 机械立体模型——电路走线从印刷原理图中升起，GPU 模块从绘制的轮廓中浮现，电缆穿过铅笔网格线。从 2D 蓝图到完全运行的 AI 基础设施的无缝转变。\n\n**灯光：**\n柔和的摄影棚灯光，结合了 GPU 和数据路径发出的强烈霓虹绿和冷蓝色光芒。黄铜表面微妙的反射和体积光增强了深度。\n\n**相机与镜头：**\n使用全画幅相机，35 毫米镜头拍摄。略微低角度视角，以强调规模和力量。电影般的景深，焦点集中在中央 GPU 集群。\n\n**构图：**\n垂直 2:3 构图。中央堆叠的 GPU 集群向上升起，呈现对称平衡。边缘周围干净的负空间，具有分层深度。\n\n**风格与氛围：**\n未来主义、电影感、高端 AI 基础设施美学，灵感来源于 NVIDIA 的设计语言。强大、简洁、前沿。\n\n**细节：**\n超高细节纹理——哑光黑色金属、发光点缀、微型电路、冷却液反射、电缆编织、LED 指示灯。8K 分辨率，HDR。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ai gpu 集群的技术蓝图 一个高度详细的提示，用于让 gemini nano banana pro 生成一张未来主义的、电影般的图像，描绘一张技术蓝图在抛光黄铜绘图桌上转变为一个逼真的、自组装的 ai gpu 集群，并强调技术细节、光照和构图。 a detailed technical blueprint of a high-performance ai gpu cluster placed on a polished brass drafting table, with a photorealistic miniature ai server system self-assembling from it — multiple gpu accelerator units (sleek black and metallic modules with neon green accents) rising from the dimension lines, high-speed interconnect bridges threading through the tolerance annotations, and dense compute nodes forming from the grid layout.\n\nstacks of gpu cards slide into server chassis above the parts list, each unit locking in with precision. nvlink-style connectors and high-bandwidth interconnects assemble seamlessly between gpus, forming a powerful parallel compute network. rack-mounted ai servers emerge vertically, with layered compute blades building upward in perfect alignment.\n\na liquid cooling system forms from exploded-diagram callouts — transparent cooling pipes with glowing coolant flowing through them, cold plates attaching to gpus, and radiators assembling with high-performance fans. heat dissipation fins and airflow channels dynamically shape around the system.\n\na tiny engineer in futuristic protective gear stands on a gpu module inspecting circuits with a holographic diagnostic interface, while another miniature technician connects high-speed data cables into a switch unit. fiber optic lines glow faintly, representing active data transfer.\n\nfunctional details illuminate — gpu core lights pulsing softly, status leds blinking in synchronized patterns, data streams visualized as glowing lines moving between nodes, and monitoring panels activating during assembly.\n\nsignature tools of the trade — precision screwdriver, thermal paste applicator, anti-static tools, fiber connectors, and a digital diagnostic tablet — rest across the blueprint’s title block, partially integrated into the scene.\n\nall elements grow organically from the blueprint like a 3d mechanical diorama — circuit traces rising from printed schematics, gpu modules emerging from drawn outlines, cables threading through pencil grid lines. seamless transformation from 2d blueprint into a fully operational ai infrastructure.\n\nlighting:\nsoft studio lighting combined with strong neon green and cool blue glows from gpus and data pathways. subtle reflections from the brass surface and volumetric light enhancing depth.\n\ncamera & lens:\nshot on a full-frame camera, 35mm lens. slight low-angle perspective to emphasize scale and power. cinematic depth of field with focus on central gpu cluster.\n\ncomposition:\nvertical 2:3 format. central stacked gpu cluster rising upward with symmetrical balance. clean negative space around edges with layered depth.\n\nstyle & mood:\nfuturistic, cinematic, high-end ai infrastructure aesthetic inspired by nvidia design language. powerful, clean, and cutting-edge.\n\ndetails:\nultra-detailed textures — matte black metal, glowing accents, micro circuitry, cooling liquid reflections, cable braiding, led indicators. 8k resolution, hdr, 一张高性能 ai gpu 集群的详细技术蓝图，放置在抛光的黄铜绘图桌上，一个照片般逼真的微型 ai 服务器系统正从中自行组装——多个 gpu 加速单元（光滑的黑色金属模块，带有霓虹绿点缀）从尺寸标注线中升起，高速互连桥穿过公差标注，密集的计算节点从网格布局中形成。\n\n一叠叠 gpu 卡滑入零件清单上方的服务器机箱，每个单元都精确锁定。nvlink 风格的连接器和高带宽互连在 gpu 之间无缝组装，形成强大的并行计算网络。机架式 ai 服务器垂直出现，分层计算刀片完美对齐地向上构建。\n\n一个液体冷却系统从爆炸图标注中形成——透明冷却管道，其中流淌着发光的冷却液，冷却板连接到 gpu，散热器与高性能风扇组装。散热片和气流通道动态地围绕系统成形。\n\n一位身穿未来主义防护装备的微型工程师站在一个 gpu 模块上，使用全息诊断界面检查电路，而另一位微型技术员则将高速数据线连接到交换机单元。光纤线路发出微弱的光芒，代表着活跃的数据传输。\n\n功能细节被点亮——gpu 核心灯柔和地跳动，状态 led 以同步模式闪烁，数据流被可视化为在节点之间移动的发光线条，监控面板在组装过程中激活。\n\n行业标志性工具——精密螺丝刀、导热膏涂抹器、防静电工具、光纤连接器和数字诊断平板电脑——放置在蓝图的标题栏上，部分融入场景。\n\n所有元素都从蓝图中自然生长，就像一个 3d 机械立体模型——电路走线从印刷原理图中升起，gpu 模块从绘制的轮廓中浮现，电缆穿过铅笔网格线。从 2d 蓝图到完全运行的 ai 基础设施的无缝转变。\n\n**灯光：**\n柔和的摄影棚灯光，结合了 gpu 和数据路径发出的强烈霓虹绿和冷蓝色光芒。黄铜表面微妙的反射和体积光增强了深度。\n\n**相机与镜头：**\n使用全画幅相机，35 毫米镜头拍摄。略微低角度视角，以强调规模和力量。电影般的景深，焦点集中在中央 gpu 集群。\n\n**构图：**\n垂直 2:3 构图。中央堆叠的 gpu 集群向上升起，呈现对称平衡。边缘周围干净的负空间，具有分层深度。\n\n**风格与氛围：**\n未来主义、电影感、高端 ai 基础设施美学，灵感来源于 nvidia 的设计语言。强大、简洁、前沿。\n\n**细节：**\n超高细节纹理——哑光黑色金属、发光点缀、微型电路、冷却液反射、电缆编织、led 指示灯。8k 分辨率，hdr。 oogie 12865",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12882,
+      "title": "高端 社交媒体 个人资料卡 编辑摄影",
+      "description": "这是给 Google Nano Banana Pro 的一个提示，用于生成一组超逼真、高端的时尚大片，重点展示一张光滑、哑光黑的社交媒体名片。它描述了两个场景：一个场景是年轻男子手持名片（浅景深），另一个场景是名片置于大理石上（影棚产品摄影），着重突出奢华品牌形象和超精细的纹理。",
+      "sourceLink": "https://x.com/john_my07/status/2037463311516856398",
+      "sourcePublishedAt": "2026-03-27T09:34:42.000Z",
+      "author": {
+        "name": "Johnn",
+        "link": "https://x.com/john_my07"
+      },
+      "content": "A photorealistic, high-end editorial photoshoot featuring a sleek matte-black social media profile card with rounded corners and minimalist typography, designed with a premium branding aesthetic.\nScene 1: A young man holding the card delicately with both hands, the card centered in the frame and in sharp focus while his face is softly blurred in the background. Natural skin tones, shallow depth of field, soft indoor lighting, cinematic portrait photography style, subtle bokeh, ultra-realistic textures.\nScene 2: The same card placed on a white marble surface, slightly angled. Clean studio product photography setup with soft diffused lighting, gentle shadows, and a modern minimalist composition that highlights the premium design.\nThe card interface shows a circular profile photo, a verified badge, the name “{argument name=\"profile name\" default=\"Johnn\"}”, username as given, a short bio related to AI and technology, joined date September 2024, and “{argument name=\"follower count\" default=\"6K Followers\"}.”\nPhotorealistic, luxury branding aesthetic, Apple-style product photography, 85 mm lens look, ultra-detailed textures, neutral color grading, professional editorial finish, 1:1 aspect ratio, ultra-clean modern visual style.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679866526_cn6e55_HEaGFS0bQAA04E7.jpg",
+        "https://cms-assets.youmind.com/media/1774679866511_yawsm3_HEaGFT0bYAAd2Zv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679866526_cn6e55_HEaGFS0bQAA04E7-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774679866511_yawsm3_HEaGFT0bYAAd2Zv-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实 的 高端 时尚 摄影，呈现 一张 光滑 的 哑光 黑色 社交 媒体 个人 资料 卡，带有 圆角 和 极简主义 排版，采用 高端 品牌 美学 设计。\n\n场景 1：一名 年轻 男子 双手 轻轻 托着 卡片，卡片 位于 画面 中央，对焦 清晰，而 他 的 脸部 在 背景 中 柔和 模糊。自然 肤色、浅 景深、柔和 室内 光线、电影式 人像 摄影 风格、微妙 散景、超逼真 纹理。\n\n场景 2：同一 张 卡片 放置 在 白色 大理石 表面 上，略微 倾斜。简洁 的 工作室 产品 摄影 布景，搭配 柔和 漫射 光线、温和 阴影，以及 突出 高端 设计 的 现代 极简主义 构图。\n\n卡片 界面 显示 一个 圆形 个人 资料 照片、一个 认证 徽章、姓名 “{argument name=\"profile name\" default=\"Johnn\"}”、用户名（如 提供）、一段 与 AI 和 技术 相关 的 简短 个人 简介、加入 日期 2024 年 9 月，以及 “{argument name=\"follower count\" default=\"6K Followers\"}。”\n\n超写实、奢华 品牌 美学、苹果式 产品 摄影、85 毫米 镜头 效果、超精细 纹理、中性 色彩 分级、专业 编辑 级 效果、1:1 宽高比、超简洁 现代 视觉 风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高端 社交媒体 个人资料卡 编辑摄影 这是给 google nano banana pro 的一个提示，用于生成一组超逼真、高端的时尚大片，重点展示一张光滑、哑光黑的社交媒体名片。它描述了两个场景：一个场景是年轻男子手持名片（浅景深），另一个场景是名片置于大理石上（影棚产品摄影），着重突出奢华品牌形象和超精细的纹理。 a photorealistic, high-end editorial photoshoot featuring a sleek matte-black social media profile card with rounded corners and minimalist typography, designed with a premium branding aesthetic.\nscene 1: a young man holding the card delicately with both hands, the card centered in the frame and in sharp focus while his face is softly blurred in the background. natural skin tones, shallow depth of field, soft indoor lighting, cinematic portrait photography style, subtle bokeh, ultra-realistic textures.\nscene 2: the same card placed on a white marble surface, slightly angled. clean studio product photography setup with soft diffused lighting, gentle shadows, and a modern minimalist composition that highlights the premium design.\nthe card interface shows a circular profile photo, a verified badge, the name “{argument name=\"profile name\" default=\"johnn\"}”, username as given, a short bio related to ai and technology, joined date september 2024, and “{argument name=\"follower count\" default=\"6k followers\"}.”\nphotorealistic, luxury branding aesthetic, apple-style product photography, 85 mm lens look, ultra-detailed textures, neutral color grading, professional editorial finish, 1:1 aspect ratio, ultra-clean modern visual style. 超写实 的 高端 时尚 摄影，呈现 一张 光滑 的 哑光 黑色 社交 媒体 个人 资料 卡，带有 圆角 和 极简主义 排版，采用 高端 品牌 美学 设计。\n\n场景 1：一名 年轻 男子 双手 轻轻 托着 卡片，卡片 位于 画面 中央，对焦 清晰，而 他 的 脸部 在 背景 中 柔和 模糊。自然 肤色、浅 景深、柔和 室内 光线、电影式 人像 摄影 风格、微妙 散景、超逼真 纹理。\n\n场景 2：同一 张 卡片 放置 在 白色 大理石 表面 上，略微 倾斜。简洁 的 工作室 产品 摄影 布景，搭配 柔和 漫射 光线、温和 阴影，以及 突出 高端 设计 的 现代 极简主义 构图。\n\n卡片 界面 显示 一个 圆形 个人 资料 照片、一个 认证 徽章、姓名 “{argument name=\"profile name\" default=\"johnn\"}”、用户名（如 提供）、一段 与 ai 和 技术 相关 的 简短 个人 简介、加入 日期 2024 年 9 月，以及 “{argument name=\"follower count\" default=\"6k followers\"}。”\n\n超写实、奢华 品牌 美学、苹果式 产品 摄影、85 毫米 镜头 效果、超精细 纹理、中性 色彩 分级、专业 编辑 级 效果、1:1 宽高比、超简洁 现代 视觉 风格。 johnn 12882",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12885,
+      "title": "西德尼·斯威尼 慵懒清晨 自拍模拟",
+      "description": "一个复杂的、JSON 结构化的提示词，旨在生成一张高度具体、逼真的图像，模拟一张手持智能手机自拍，其中一位女性（以 Sydney Sweeney 为参考）身穿家居服躺在床上，详细描述了身体特征、服装、姿势和相机特性。",
+      "sourceLink": "https://x.com/BananaPromptPro/status/2037462099031675184",
+      "sourcePublishedAt": "2026-03-27T09:29:53.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/BananaPromptPro"
+      },
+      "content": "photo_type: Handheld smartphone selfie, amateur indoor snapshot, captured on an iPhone 16 Pro front camera with typical arm distortion and lens curvature. subject: { age: Early 20s, body_type: Curvy and athletic, description: A woman with an oval face, large almond-shaped blue eyes, well-defined blonde eyebrows, and a straight, proportional nose. She has full, symmetrical lips and fair, smooth skin, framed by long, wavy blonde hair. She is lying on her stomach on a bed, propped up on her elbows. ethnicity: Caucasian, expression: A soft, relaxed smirk looking directly into the lens, gender: Female, mirror_rules: The mirror in the background shows minor streaks and dust, reflecting the opposite side of the room naturally. pose_description: Lying prone on a white bed, propped up by her elbows with her head tilted slightly. One hand is tucked under her chin. She is looking over her shoulder at the camera in a casual, intimate pose. tattoos: Roman numeral tattoo 'XXI-III-VXXI' in black ink on the inner left forearm; a large, dark-inked floral and skull motif tattoo covering the right hip and upper buttock. } clothing: { bottom: { color: White, details: High-waisted fit with visible side stitching, fabric: Elastic jersey cotton, type: Tight-fitting lounge shorts }, fit_and_physics: The fabric shows natural compression creases around the hips and waist; the white top's thin straps are slightly bunched near the shoulders. outerwear: { color: None, details: None, fabric: None, type: None }, shoes: { color: None, details: None, fabric: None, type: None }, top: { color: White, details: Minimalist design, thin straps, fabric: Ribbed stretch cotton, type: Crop top camisole } } hair: { color: Long, wavy blonde hair, interaction: Hair cascades over her shoulders and onto the white bedsheets in a natural, unstyled manner. style: Wavy blonde hair with a side part, showing some natural frizz and fine flyaway strands. } face: { description: Use the uploaded character reference image, keep all facial details 100% unchanged, eyebrows: Defined blonde eyebrows following the character reference, eyes: Almond-shaped blue eyes, lips: Full and symmetrical with a subtle mauve glossy tint, makeup: Clean winged eyeliner, mascara, and a natural-toned lip gloss } skin_texture: The skin is fair with a smooth texture, exhibiting a natural healthy sheen under room lighting. biological_features: { eye_complexity: Visible corneal reflections from the room window, realistic moisture in the tear ducts, and fine veins in the sclera. hair_strand_physics: Fine, individual blonde strands visible near the temples, with realistic weight and soft texture. skin_micro_texture: Visible vellus hair (peach fuzz) along the jawline, varied pore size on the nose and cheeks, and natural skin grain. subsurface_scattering: Soft light translucency through the edges of the ears and fingertips. vascularity_and_pigment: Faint blue veins visible on the inner forearm near the tattoo and slight pinkness on the knuckles. } texture_details: { environment: Wrinkled white cotton bedsheets, smooth white painted walls, and the brushed gold texture of a mirror frame. fabric: The matte, soft texture of white jersey fabric with slight stretching at the seams. hair: Silky but realistic blonde strands catching the ambient light with individual fiber definition. skin: Fair and smooth skin with natural imperfections like tiny moles and visible pores. } accessories: { device: iPhone held just outside the frame, creating a typical high-angle selfie perspective. eyewear: None, headwear: None, jewelry: None, props: White hydrangeas in a glass vase in the background, a white Prada shopping bag on a high shelf. } background: { atmosphere: Casual, bright, lived-in bedroom environment. elements: [Large gold-framed sliding mirror, White bed with rumpled sheets, White closet doors, Vases with white flowers, White shopping bag on a top shelf], lighting_interaction: Bright, flat natural light from a window, creating soft shadows and highlights across the bed. setting: An airy, bright bedroom with white decor. wall_color: Off-white } lighting: Natural daylight, flat and diffused throughout the room, typical of an indoor afternoon. color_grading: { LUT_application: None, contrast_curve: Standard iPhone HDR curve, preserving detail in both white sheets and dark tattoos. general_look: Natural, unedited smartphone photo look. saturation_boost: None, realistic and neutral colors. } camera: iPhone 16 Pro front-facing camera lens_type: Wide-angle smartphone lens resolution_and_aspect_ratio: 48MP, 3:4 aspect ratio style: Raw handheld snapshot, casual and unposed aesthetic. imperfections: Faint fingerprints and dust on the mirror glass, minor fabric pilling on the shorts, and natural wrinkles in the bedding. shot_type: High-angle selfie camera_settings: { aperture: f/11, dynamic_range: High (Smart HDR), focal_length: 24mm equivalent, iso: ISO 400, lens_distortion: Slight wide-angle stretching on the arm reaching toward the lens, optical_artifacts: { bokeh_quality: None, chromatic_aberration: None, focus_falloff: None, vignetting: Very subtle corner shading }, processing: Standard Apple Deep Fusion, shutter_speed: 1/125s, white_balance: Auto, slightly cool } sensor_atmosphere: { air_particles: Minimal dust motes visible in the window light haze_and_glare: Soft glare on the mirror surface iso_noise_structure: Fine, natural luminance noise typical of mobile sensors in indoor light sensor_bloom: None } vibe: Amateur, casual, personal photo document. overall_mood: Relaxed and intimate. color_mode: Vibrant full color action: Posing for a high-angle bedroom selfie. composition: { camera_angle_tilt: Tilted downward from a high handheld position depth_layering: Subject in sharp foreground, bed midground, mirror and wall decor in the background framing_rule: Handheld amateur framing, slightly off-center leading_lines: The lines of the bed and mirror frame lead toward the subject's face perspective: First-person selfie perspective symmetry_balance: Asymmetrical, casual arrangement } color_tone: Clean whites and soft neutrals with warm skin tones. depth_and_focus: Deep focus; everything from the subject's eyelashes to the background mirror is sharp and clear. final_director_notes: Maintain the specific blonde/blue identity from the reference. Ensure the tattoos are clearly rendered as described. The image must look like a raw, unedited iPhone photo with no background blur.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679867764_ubzmj5_HEaDx4PbUAA1P0y.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679867764_ubzmj5_HEaDx4PbUAA1P0y-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "该提示词已是英文。它描述了生成一张高角度自拍照，照片中是一位二十出头的女性，拥有曲线优美的健美身材、鹅蛋脸、蓝色杏仁状眼睛、金色波浪发和特定的纹身。她身穿白色露脐上衣和高腰短裤，俯卧在白色床上，肘部撑起身体。这张照片应看起来像一张业余的 iPhone 16 Pro 前置摄像头快照，采用自然光照，细节方面，例如可见的毛孔、汗毛和逼真的皮肤纹理。背景包括一个金色边框的镜子、白色床单、玻璃花瓶中的白色绣球花和一个白色 Prada 购物袋。相机设置包括 f/11 光圈、ISO 400、24mm 等效焦距，以及标准的 iPhone HDR 曲线，以呈现自然、未经编辑的外观。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "西德尼·斯威尼 慵懒清晨 自拍模拟 一个复杂的、json 结构化的提示词，旨在生成一张高度具体、逼真的图像，模拟一张手持智能手机自拍，其中一位女性（以 sydney sweeney 为参考）身穿家居服躺在床上，详细描述了身体特征、服装、姿势和相机特性。 photo_type: handheld smartphone selfie, amateur indoor snapshot, captured on an iphone 16 pro front camera with typical arm distortion and lens curvature. subject: { age: early 20s, body_type: curvy and athletic, description: a woman with an oval face, large almond-shaped blue eyes, well-defined blonde eyebrows, and a straight, proportional nose. she has full, symmetrical lips and fair, smooth skin, framed by long, wavy blonde hair. she is lying on her stomach on a bed, propped up on her elbows. ethnicity: caucasian, expression: a soft, relaxed smirk looking directly into the lens, gender: female, mirror_rules: the mirror in the background shows minor streaks and dust, reflecting the opposite side of the room naturally. pose_description: lying prone on a white bed, propped up by her elbows with her head tilted slightly. one hand is tucked under her chin. she is looking over her shoulder at the camera in a casual, intimate pose. tattoos: roman numeral tattoo 'xxi-iii-vxxi' in black ink on the inner left forearm; a large, dark-inked floral and skull motif tattoo covering the right hip and upper buttock. } clothing: { bottom: { color: white, details: high-waisted fit with visible side stitching, fabric: elastic jersey cotton, type: tight-fitting lounge shorts }, fit_and_physics: the fabric shows natural compression creases around the hips and waist; the white top's thin straps are slightly bunched near the shoulders. outerwear: { color: none, details: none, fabric: none, type: none }, shoes: { color: none, details: none, fabric: none, type: none }, top: { color: white, details: minimalist design, thin straps, fabric: ribbed stretch cotton, type: crop top camisole } } hair: { color: long, wavy blonde hair, interaction: hair cascades over her shoulders and onto the white bedsheets in a natural, unstyled manner. style: wavy blonde hair with a side part, showing some natural frizz and fine flyaway strands. } face: { description: use the uploaded character reference image, keep all facial details 100% unchanged, eyebrows: defined blonde eyebrows following the character reference, eyes: almond-shaped blue eyes, lips: full and symmetrical with a subtle mauve glossy tint, makeup: clean winged eyeliner, mascara, and a natural-toned lip gloss } skin_texture: the skin is fair with a smooth texture, exhibiting a natural healthy sheen under room lighting. biological_features: { eye_complexity: visible corneal reflections from the room window, realistic moisture in the tear ducts, and fine veins in the sclera. hair_strand_physics: fine, individual blonde strands visible near the temples, with realistic weight and soft texture. skin_micro_texture: visible vellus hair (peach fuzz) along the jawline, varied pore size on the nose and cheeks, and natural skin grain. subsurface_scattering: soft light translucency through the edges of the ears and fingertips. vascularity_and_pigment: faint blue veins visible on the inner forearm near the tattoo and slight pinkness on the knuckles. } texture_details: { environment: wrinkled white cotton bedsheets, smooth white painted walls, and the brushed gold texture of a mirror frame. fabric: the matte, soft texture of white jersey fabric with slight stretching at the seams. hair: silky but realistic blonde strands catching the ambient light with individual fiber definition. skin: fair and smooth skin with natural imperfections like tiny moles and visible pores. } accessories: { device: iphone held just outside the frame, creating a typical high-angle selfie perspective. eyewear: none, headwear: none, jewelry: none, props: white hydrangeas in a glass vase in the background, a white prada shopping bag on a high shelf. } background: { atmosphere: casual, bright, lived-in bedroom environment. elements: [large gold-framed sliding mirror, white bed with rumpled sheets, white closet doors, vases with white flowers, white shopping bag on a top shelf], lighting_interaction: bright, flat natural light from a window, creating soft shadows and highlights across the bed. setting: an airy, bright bedroom with white decor. wall_color: off-white } lighting: natural daylight, flat and diffused throughout the room, typical of an indoor afternoon. color_grading: { lut_application: none, contrast_curve: standard iphone hdr curve, preserving detail in both white sheets and dark tattoos. general_look: natural, unedited smartphone photo look. saturation_boost: none, realistic and neutral colors. } camera: iphone 16 pro front-facing camera lens_type: wide-angle smartphone lens resolution_and_aspect_ratio: 48mp, 3:4 aspect ratio style: raw handheld snapshot, casual and unposed aesthetic. imperfections: faint fingerprints and dust on the mirror glass, minor fabric pilling on the shorts, and natural wrinkles in the bedding. shot_type: high-angle selfie camera_settings: { aperture: f/11, dynamic_range: high (smart hdr), focal_length: 24mm equivalent, iso: iso 400, lens_distortion: slight wide-angle stretching on the arm reaching toward the lens, optical_artifacts: { bokeh_quality: none, chromatic_aberration: none, focus_falloff: none, vignetting: very subtle corner shading }, processing: standard apple deep fusion, shutter_speed: 1/125s, white_balance: auto, slightly cool } sensor_atmosphere: { air_particles: minimal dust motes visible in the window light haze_and_glare: soft glare on the mirror surface iso_noise_structure: fine, natural luminance noise typical of mobile sensors in indoor light sensor_bloom: none } vibe: amateur, casual, personal photo document. overall_mood: relaxed and intimate. color_mode: vibrant full color action: posing for a high-angle bedroom selfie. composition: { camera_angle_tilt: tilted downward from a high handheld position depth_layering: subject in sharp foreground, bed midground, mirror and wall decor in the background framing_rule: handheld amateur framing, slightly off-center leading_lines: the lines of the bed and mirror frame lead toward the subject's face perspective: first-person selfie perspective symmetry_balance: asymmetrical, casual arrangement } color_tone: clean whites and soft neutrals with warm skin tones. depth_and_focus: deep focus; everything from the subject's eyelashes to the background mirror is sharp and clear. final_director_notes: maintain the specific blonde/blue identity from the reference. ensure the tattoos are clearly rendered as described. the image must look like a raw, unedited iphone photo with no background blur. 该提示词已是英文。它描述了生成一张高角度自拍照，照片中是一位二十出头的女性，拥有曲线优美的健美身材、鹅蛋脸、蓝色杏仁状眼睛、金色波浪发和特定的纹身。她身穿白色露脐上衣和高腰短裤，俯卧在白色床上，肘部撑起身体。这张照片应看起来像一张业余的 iphone 16 pro 前置摄像头快照，采用自然光照，细节方面，例如可见的毛孔、汗毛和逼真的皮肤纹理。背景包括一个金色边框的镜子、白色床单、玻璃花瓶中的白色绣球花和一个白色 prada 购物袋。相机设置包括 f/11 光圈、iso 400、24mm 等效焦距，以及标准的 iphone hdr 曲线，以呈现自然、未经编辑的外观。 layla 🌙 12885",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12876,
+      "title": "比例扭曲的超现实概念摄影",
+      "description": "一个用于生成具有比例扭曲的超现实概念艺术摄影作品的提示词。主体坐在一颗巨大而逼真的人头上，置身于极简主义的现代室内。它需要使用参考图像来确定主体和巨大头部两者的确切面部特征和身份，并强调超现实的纹理和现代艺术的氛围。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2037461430388314570",
+      "sourcePublishedAt": "2026-03-27T09:27:13.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "Surreal conceptual scene with scale distortion, minimalist modern interior with soft natural light, wooden floor and clean geometric wall shapes, subject sitting casually with legs apart on top of an oversized realistic human head placed on the floor, wearing casual outfit ({argument name=\"outfit description\" default=\"green oversized sweater, beige pants, white sneakers\"}), using exact face and identity from reference image for both body and oversized head, head highly detailed and realistic with glasses and skin texture, body slightly cropped at neck creating surreal effect, subject pointing forward confidently, balanced composition, soft shadows, neutral color palette, clean aesthetic, ultra-realistic textures, conceptual art photography style, shot on Fujifilm GFX100, 50mm lens, f/2.8, high detail, modern art vibe",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679863319_4yoj3w_HEaEX1KaIAA2W-Y.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679863319_4yoj3w_HEaEX1KaIAA2W-Y-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超现实概念场景，带有比例扭曲，极简现代室内，柔和的自然光，木地板和简洁的几何墙面造型，主体随意地盘腿坐在地板上一个超大号的逼真人头顶上，穿着休闲服装（{argument name=\"outfit description\" default=\"绿色宽松毛衣、米色裤子、白色运动鞋\"}），身体和超大号头部都使用参考图像中的精确面部和身份，头部高度精细逼真，带有眼镜和皮肤纹理，身体在颈部略微裁剪，营造出超现实效果，主体自信地指向前方，构图平衡，柔和的阴影，中性色调，简洁美学，超逼真纹理，概念艺术摄影风格，使用 Fujifilm GFX100 拍摄，50mm 镜头，f/2.8 光圈，高细节，现代艺术氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "比例扭曲的超现实概念摄影 一个用于生成具有比例扭曲的超现实概念艺术摄影作品的提示词。主体坐在一颗巨大而逼真的人头上，置身于极简主义的现代室内。它需要使用参考图像来确定主体和巨大头部两者的确切面部特征和身份，并强调超现实的纹理和现代艺术的氛围。 surreal conceptual scene with scale distortion, minimalist modern interior with soft natural light, wooden floor and clean geometric wall shapes, subject sitting casually with legs apart on top of an oversized realistic human head placed on the floor, wearing casual outfit ({argument name=\"outfit description\" default=\"green oversized sweater, beige pants, white sneakers\"}), using exact face and identity from reference image for both body and oversized head, head highly detailed and realistic with glasses and skin texture, body slightly cropped at neck creating surreal effect, subject pointing forward confidently, balanced composition, soft shadows, neutral color palette, clean aesthetic, ultra-realistic textures, conceptual art photography style, shot on fujifilm gfx100, 50mm lens, f/2.8, high detail, modern art vibe 超现实概念场景，带有比例扭曲，极简现代室内，柔和的自然光，木地板和简洁的几何墙面造型，主体随意地盘腿坐在地板上一个超大号的逼真人头顶上，穿着休闲服装（{argument name=\"outfit description\" default=\"绿色宽松毛衣、米色裤子、白色运动鞋\"}），身体和超大号头部都使用参考图像中的精确面部和身份，头部高度精细逼真，带有眼镜和皮肤纹理，身体在颈部略微裁剪，营造出超现实效果，主体自信地指向前方，构图平衡，柔和的阴影，中性色调，简洁美学，超逼真纹理，概念艺术摄影风格，使用 fujifilm gfx100 拍摄，50mm 镜头，f/2.8 光圈，高细节，现代艺术氛围。 shreya♡ 12876",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12906,
+      "title": "超现实微型舞动合成照片提示",
+      "description": "一个用于生成超现实、高保真合成照片的提示词，该照片采用双尺度强制透视效果。它需要上传一张面部参考图，以在背景中创建一个巨大的、微笑的版本，并在前景中创建一个微型的、在智能手机屏幕上跳舞的版本，适用于 Nano Banana 2 或 Grok Imagine。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2037460003238600794",
+      "sourcePublishedAt": "2026-03-27T09:21:33.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "The Dancing Miniature \nA surreal, high-fidelity composite photograph featuring \"uploaded face as reference\" in a dual-scale forced perspective. In the soft-focus background, a giant version of the subject smiles warmly, wearing a light blue denim jacket , rendered with heavy bokeh. In the sharp foreground, a hand holds a horizontal smartphone with a bright red case. Perched delicately on the phone screen is a miniature, hyper-realistic version of \"uploaded face as reference\" striking a dynamic, gravity-defying dance pose, wearing matching denim attire, ripped jeans, and white sneakers. Bright natural daylight, vibrant saturation, sharp macro focus on the miniature and hand, 8k resolution, photorealistic texture, cinematic lighting. Ratio 9:16",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679880584_l97en5_HEaDDVAa0AAVHa3.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679880584_l97en5_HEaDDVAa0AAVHa3-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "舞动的微缩人像\n\n一张超现实、高保真的合成照片，采用双重比例的强迫透视手法，呈现“上传的面部作为参考”。在柔焦的背景中，一个巨大的主体形象温暖地微笑着，身穿浅蓝色牛仔夹克，呈现出强烈的焦外虚化效果。在清晰的前景中，一只手握着一部戴着鲜红色手机壳的横向智能手机。手机屏幕上精巧地栖息着一个微缩的、超现实的“上传的面部作为参考”版本，它摆出一个充满活力、反重力的舞蹈姿势，身穿配套的牛仔服装、破洞牛仔裤和白色运动鞋。明亮的自然日光，鲜艳的饱和度，对微缩人像和手部进行锐利的微距对焦，8K 分辨率，照片级真实感纹理，电影级灯光。比例 9:16。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实微型舞动合成照片提示 一个用于生成超现实、高保真合成照片的提示词，该照片采用双尺度强制透视效果。它需要上传一张面部参考图，以在背景中创建一个巨大的、微笑的版本，并在前景中创建一个微型的、在智能手机屏幕上跳舞的版本，适用于 nano banana 2 或 grok imagine。 the dancing miniature \na surreal, high-fidelity composite photograph featuring \"uploaded face as reference\" in a dual-scale forced perspective. in the soft-focus background, a giant version of the subject smiles warmly, wearing a light blue denim jacket , rendered with heavy bokeh. in the sharp foreground, a hand holds a horizontal smartphone with a bright red case. perched delicately on the phone screen is a miniature, hyper-realistic version of \"uploaded face as reference\" striking a dynamic, gravity-defying dance pose, wearing matching denim attire, ripped jeans, and white sneakers. bright natural daylight, vibrant saturation, sharp macro focus on the miniature and hand, 8k resolution, photorealistic texture, cinematic lighting. ratio 9:16 舞动的微缩人像\n\n一张超现实、高保真的合成照片，采用双重比例的强迫透视手法，呈现“上传的面部作为参考”。在柔焦的背景中，一个巨大的主体形象温暖地微笑着，身穿浅蓝色牛仔夹克，呈现出强烈的焦外虚化效果。在清晰的前景中，一只手握着一部戴着鲜红色手机壳的横向智能手机。手机屏幕上精巧地栖息着一个微缩的、超现实的“上传的面部作为参考”版本，它摆出一个充满活力、反重力的舞蹈姿势，身穿配套的牛仔服装、破洞牛仔裤和白色运动鞋。明亮的自然日光，鲜艳的饱和度，对微缩人像和手部进行锐利的微距对焦，8k 分辨率，照片级真实感纹理，电影级灯光。比例 9:16。 shreya♡ 12906",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12887,
+      "title": "4K 照片 修复 提示词",
+      "description": "一个简单的提示词，指示模型将一张旧的上传照片修复到 4K 分辨率，同时严格保留所有原始细节和真实性。",
+      "sourceLink": "https://x.com/michaelrabone/status/2037455166115393990",
+      "sourcePublishedAt": "2026-03-27T09:02:20.000Z",
+      "author": {
+        "name": "Michael Rabone",
+        "link": "https://x.com/michaelrabone"
+      },
+      "content": "Restore this old photo to 4K without\nchanging any details",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679868767_omqdy7_HEZ-SJJXoAAJkNz.jpg",
+        "https://cms-assets.youmind.com/media/1774679868828_job38u_HEZ-SJIXEAAFhOz.jpg",
+        "https://cms-assets.youmind.com/media/1774679868772_f54vz8_HEZ-SJLWUAAj_E5.jpg",
+        "https://cms-assets.youmind.com/media/1774679869277_9w2so6_HEZ-SJkaMAAQ7Bj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679868767_omqdy7_HEZ-SJJXoAAJkNz-300x225.jpg",
+        "https://cms-assets.youmind.com/media/1774679868828_job38u_HEZ-SJIXEAAFhOz-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774679868772_f54vz8_HEZ-SJLWUAAj_E5-300x225.jpg",
+        "https://cms-assets.youmind.com/media/1774679869277_9w2so6_HEZ-SJkaMAAQ7Bj-300x225.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "将这张旧照片无损修复至 4K",
+      "sourcePlatform": "twitter",
+      "searchIndex": "4k 照片 修复 提示词 一个简单的提示词，指示模型将一张旧的上传照片修复到 4k 分辨率，同时严格保留所有原始细节和真实性。 restore this old photo to 4k without\nchanging any details 将这张旧照片无损修复至 4k michael rabone 12887",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12868,
+      "title": "编辑肖像提示词结构",
+      "description": "一个高度结构化的 JSON 提示词，用于 Gemini Nano Banana Pro，旨在生成一张身穿黑色双排扣西装的男性主体的编辑/肖像照片，侧重于详细的构图、色彩配置文件、氛围感照明以及技术规格，以营造精致的都市奢华美学。",
+      "sourceLink": "https://x.com/pictsbyai/status/2037454016490230012",
+      "sourcePublishedAt": "2026-03-27T08:57:46.000Z",
+      "author": {
+        "name": "Picts by AI",
+        "link": "https://x.com/pictsbyai"
+      },
+      "content": "{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial/portrait\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"9:16\",\n\"layout\": \"single subject with contextual midground\",\n\"focal_points\": [\n\"Subject's face and sunglasses\",\n\"Subject's right hand resting near chin\"\n],\n\"visual_hierarchy\": \"Face/sunglasses -> hand gesture -> deep black lapels of the suit -> blurred vehicle in background\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"Deep Black\",\n\"hex\": \"#0a0a0a\",\n\"percentage\": \"45%\",\n\"role\": \"primary subject clothing and accessories\"\n},\n{\n\"color\": \"Warm Skin Tone\",\n\"hex\": \"#d2a688\",\n\"percentage\": \"15%\",\n\"role\": \"primary subject skin\"\n},\n{\n\"color\": \"Dark Slate Gray\",\n\"hex\": \"#2f353b\",\n\"percentage\": \"30%\",\n\"role\": \"background vehicle and environment\"\n},\n{\n\"color\": \"Muted Olive Green\",\n\"hex\": \"#3a4035\",\n\"percentage\": \"10%\",\n\"role\": \"background blurred foliage\"\n}\n],\n\"color_palette\": \"monochromatic darks with warm accents\",\n\"temperature\": \"neutral\",\n\"saturation\": \"desaturated\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural window/diffused outdoor daylight\",\n\"source_count\": \"single source\",\n\"direction\": \"diffused from above and slightly behind\",\n\"directionality\": \"diffused\",\n\"quality\": \"soft light\",\n\"intensity\": \"moody\",\n\"contrast_ratio\": \"medium contrast\",\n\"mood\": \"dramatic/sophisticated\",\n\"shadows\": {\n\"type\": \"soft gradual edges\",\n\"density\": \"gray\",\n\"placement\": \"under chin, jawline, and beneath lapels\",\n\"length\": \"short\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on hair texture, bridge of nose, top of right hand, and vehicle reflections\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"shallow\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial/street\",\n\"influences\": [\n\"Men's street style fashion photography\",\n\"Pitti Uomo editorial style\"\n],\n\"mood\": \"confident\",\n\"atmosphere\": \"Urban luxury and quiet sophistication\",\n\"visual_style\": \"clean/polished\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"Caucasian male with dark hair, beard, wearing a black double-breasted suit and black wayfarer-style sunglasses\",\n\"positioning\": \"center\",\n\"scale\": \"medium\",\n\"interaction\": \"isolated\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"no smile\",\n\"eyes\": \"hidden by sunglasses but directed away from camera\",\n\"eyebrows\": \"relaxed\",\n\"overall_emotion\": \"serious\",\n\"authenticity\": \"posed\"\n},\n\"hands_and_gestures\": {\n\"left_hand\": \"not visible\",\n\"right_hand\": \"raised to face, thumb resting unde\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679859674_27jx20_HEZ9ihvboAADK0c.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679859674_27jx20_HEZ9ihvboAADK0c-300x311.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"metadata\": {\n\"image_type\": \"照片\",\n\"primary_purpose\": \"编辑/肖像\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法\",\n\"aspect_ratio\": \"9:16\",\n\"layout\": \"单一主体，带有背景中景\",\n\"focal_points\": [\n\"主体的脸部和太阳镜\",\n\"主体靠近下巴的右手\"\n],\n\"visual_hierarchy\": \"脸部/太阳镜 -> 手势 -> 西装深黑色翻领 -> 背景模糊的车辆\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"深黑色\",\n\"hex\": \"#0a0a0a\",\n\"percentage\": \"45%\",\n\"role\": \"主要主体服装和配饰\"\n},\n{\n\"color\": \"暖色调肤色\",\n\"hex\": \"#d2a688\",\n\"percentage\": \"15%\",\n\"role\": \"主要主体肤色\"\n},\n{\n\"color\": \"深板岩灰\",\n\"hex\": \"#2f353b\",\n\"percentage\": \"30%\",\n\"role\": \"背景车辆和环境\"\n},\n{\n\"color\": \"柔和橄榄绿\",\n\"hex\": \"#3a4035\",\n\"percentage\": \"10%\",\n\"role\": \"背景模糊的植物\"\n}\n],\n\"color_palette\": \"单色暗调，带有暖色点缀\",\n\"temperature\": \"中性\",\n\"saturation\": \"去饱和\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然窗光/漫射户外日光\",\n\"source_count\": \"单一光源\",\n\"direction\": \"从上方和略微后方漫射\",\n\"directionality\": \"漫射\",\n\"quality\": \"柔和光线\",\n\"intensity\": \"情绪化\",\n\"contrast_ratio\": \"中等对比度\",\n\"mood\": \"戏剧性/精致\",\n\"shadows\": {\n\"type\": \"柔和渐变边缘\",\n\"density\": \"灰色\",\n\"placement\": \"下巴下方、下颌线和翻领下方\",\n\"length\": \"短\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"发丝纹理、鼻梁、右手背和车辆反光处\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度锐利\",\n\"grain\": \"无颗粒\",\n\"depth_of_field\": \"浅景深\",\n\"perspective\": \"正面\"\n},\n\"artistic_elements\": {\n\"genre\": \"编辑/街头\",\n\"influences\": [\n\"男士街头时尚摄影\",\n\"Pitti Uomo 编辑风格\"\n],\n\"mood\": \"自信\",\n\"atmosphere\": \"都市奢华与低调精致\",\n\"visual_style\": \"简洁/精致\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"深色头发、留胡须的白人男性，身穿黑色双排扣西装和黑色徒步旅行者款太阳镜\",\n\"positioning\": \"居中\",\n\"scale\": \"中等\",\n\"interaction\": \"孤立\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"无笑容\",\n\"eyes\": \"被太阳镜遮挡，但视线未看向镜头\",\n\"eyebrows\": \"放松\",\n\"overall_emotion\": \"严肃\",\n\"authenticity\": \"摆拍\"\n},\n\"hands_and_gestures\": {\n\"left_hand\": \"不可见\",\n\"right_hand\": \"抬至脸部，拇指置于\"\n}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "编辑肖像提示词结构 一个高度结构化的 json 提示词，用于 gemini nano banana pro，旨在生成一张身穿黑色双排扣西装的男性主体的编辑/肖像照片，侧重于详细的构图、色彩配置文件、氛围感照明以及技术规格，以营造精致的都市奢华美学。 {\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial/portrait\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"9:16\",\n\"layout\": \"single subject with contextual midground\",\n\"focal_points\": [\n\"subject's face and sunglasses\",\n\"subject's right hand resting near chin\"\n],\n\"visual_hierarchy\": \"face/sunglasses -> hand gesture -> deep black lapels of the suit -> blurred vehicle in background\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"deep black\",\n\"hex\": \"#0a0a0a\",\n\"percentage\": \"45%\",\n\"role\": \"primary subject clothing and accessories\"\n},\n{\n\"color\": \"warm skin tone\",\n\"hex\": \"#d2a688\",\n\"percentage\": \"15%\",\n\"role\": \"primary subject skin\"\n},\n{\n\"color\": \"dark slate gray\",\n\"hex\": \"#2f353b\",\n\"percentage\": \"30%\",\n\"role\": \"background vehicle and environment\"\n},\n{\n\"color\": \"muted olive green\",\n\"hex\": \"#3a4035\",\n\"percentage\": \"10%\",\n\"role\": \"background blurred foliage\"\n}\n],\n\"color_palette\": \"monochromatic darks with warm accents\",\n\"temperature\": \"neutral\",\n\"saturation\": \"desaturated\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural window/diffused outdoor daylight\",\n\"source_count\": \"single source\",\n\"direction\": \"diffused from above and slightly behind\",\n\"directionality\": \"diffused\",\n\"quality\": \"soft light\",\n\"intensity\": \"moody\",\n\"contrast_ratio\": \"medium contrast\",\n\"mood\": \"dramatic/sophisticated\",\n\"shadows\": {\n\"type\": \"soft gradual edges\",\n\"density\": \"gray\",\n\"placement\": \"under chin, jawline, and beneath lapels\",\n\"length\": \"short\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on hair texture, bridge of nose, top of right hand, and vehicle reflections\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"shallow\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial/street\",\n\"influences\": [\n\"men's street style fashion photography\",\n\"pitti uomo editorial style\"\n],\n\"mood\": \"confident\",\n\"atmosphere\": \"urban luxury and quiet sophistication\",\n\"visual_style\": \"clean/polished\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"caucasian male with dark hair, beard, wearing a black double-breasted suit and black wayfarer-style sunglasses\",\n\"positioning\": \"center\",\n\"scale\": \"medium\",\n\"interaction\": \"isolated\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"no smile\",\n\"eyes\": \"hidden by sunglasses but directed away from camera\",\n\"eyebrows\": \"relaxed\",\n\"overall_emotion\": \"serious\",\n\"authenticity\": \"posed\"\n},\n\"hands_and_gestures\": {\n\"left_hand\": \"not visible\",\n\"right_hand\": \"raised to face, thumb resting unde\" ```json\n{\n\"metadata\": {\n\"image_type\": \"照片\",\n\"primary_purpose\": \"编辑/肖像\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法\",\n\"aspect_ratio\": \"9:16\",\n\"layout\": \"单一主体，带有背景中景\",\n\"focal_points\": [\n\"主体的脸部和太阳镜\",\n\"主体靠近下巴的右手\"\n],\n\"visual_hierarchy\": \"脸部/太阳镜 -> 手势 -> 西装深黑色翻领 -> 背景模糊的车辆\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"深黑色\",\n\"hex\": \"#0a0a0a\",\n\"percentage\": \"45%\",\n\"role\": \"主要主体服装和配饰\"\n},\n{\n\"color\": \"暖色调肤色\",\n\"hex\": \"#d2a688\",\n\"percentage\": \"15%\",\n\"role\": \"主要主体肤色\"\n},\n{\n\"color\": \"深板岩灰\",\n\"hex\": \"#2f353b\",\n\"percentage\": \"30%\",\n\"role\": \"背景车辆和环境\"\n},\n{\n\"color\": \"柔和橄榄绿\",\n\"hex\": \"#3a4035\",\n\"percentage\": \"10%\",\n\"role\": \"背景模糊的植物\"\n}\n],\n\"color_palette\": \"单色暗调，带有暖色点缀\",\n\"temperature\": \"中性\",\n\"saturation\": \"去饱和\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然窗光/漫射户外日光\",\n\"source_count\": \"单一光源\",\n\"direction\": \"从上方和略微后方漫射\",\n\"directionality\": \"漫射\",\n\"quality\": \"柔和光线\",\n\"intensity\": \"情绪化\",\n\"contrast_ratio\": \"中等对比度\",\n\"mood\": \"戏剧性/精致\",\n\"shadows\": {\n\"type\": \"柔和渐变边缘\",\n\"density\": \"灰色\",\n\"placement\": \"下巴下方、下颌线和翻领下方\",\n\"length\": \"短\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"发丝纹理、鼻梁、右手背和车辆反光处\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度锐利\",\n\"grain\": \"无颗粒\",\n\"depth_of_field\": \"浅景深\",\n\"perspective\": \"正面\"\n},\n\"artistic_elements\": {\n\"genre\": \"编辑/街头\",\n\"influences\": [\n\"男士街头时尚摄影\",\n\"pitti uomo 编辑风格\"\n],\n\"mood\": \"自信\",\n\"atmosphere\": \"都市奢华与低调精致\",\n\"visual_style\": \"简洁/精致\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"深色头发、留胡须的白人男性，身穿黑色双排扣西装和黑色徒步旅行者款太阳镜\",\n\"positioning\": \"居中\",\n\"scale\": \"中等\",\n\"interaction\": \"孤立\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"无笑容\",\n\"eyes\": \"被太阳镜遮挡，但视线未看向镜头\",\n\"eyebrows\": \"放松\",\n\"overall_emotion\": \"严肃\",\n\"authenticity\": \"摆拍\"\n},\n\"hands_and_gestures\": {\n\"left_hand\": \"不可见\",\n\"right_hand\": \"抬至脸部，拇指置于\"\n}\n}\n``` picts by ai 12868",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12905,
+      "title": "Nano Banana 2 的 四 个 时尚 编辑 灵感",
+      "description": "适用于 Nano Banana 2 模型的四个独特的时尚大片摄影提示词，描绘了一位生有天使翅膀的年轻女性在多种场景下：极简主义摄影棚、戏剧性高对比度摄影棚、华丽的古典房间，以及一个雾气弥漫的工业户外场景。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2037427042027979091",
+      "sourcePublishedAt": "2026-03-27T07:10:35.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "Studio portrait of a young woman seated on the floor against a soft gray gradient backdrop. She wears a luxurious white silk blouse and tailored wide-leg trousers, paired with large white feather angel wings rising behind her. Legs folded to the side, hands resting gently on her knees, shoulders relaxed, head slightly tilted with a calm, soft gaze toward the camera. Medium-length black wavy hair framing her face. Focused spotlight from above creating a subtle halo effect with soft falloff into shadows. Clean minimal studio environment with visible feather texture and natural skin detail. Editorial fashion photography style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nPrompt 2.\n\nStudio portrait of a young woman standing against a black background, wearing an elegant white ruffled high-neck blouse with long sleeves and a matching flowing textured skirt, paired with large white feather angel wings extended behind her. Arms raised softly to the sides, head tilted upward toward the light with a serene, almost divine expression. Soft blonde wavy hair cascading over her shoulders. Strong directional spotlight from above-left creating dramatic highlights on her face and wings with deep surrounding shadows. High contrast with glowing feather detail and soft skin texture. Cinematic editorial fashion style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nPrompt 3.\n\nElegant interior portrait of a young woman seated on a grand piano in a classic ornate room with tall arched windows and soft daylight streaming in. She wears an elegant fitted ivory evening gown with intricate beadwork and delicate heels, paired with large white feather angel wings spread behind her. Legs crossed, one hand resting on the piano, shoulders relaxed, head slightly tilted with a soft, confident gaze. Styled dark wavy hair with a vintage finish, pearl choker necklace. Natural window light from the left creating soft highlights and gentle shadows across her face and wings. Warm neutral tones with detailed fabric and feather texture. Luxury editorial fashion photography style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nPrompt 4.\n\nFoggy outdoor portrait of a young woman crouching on the hood of a worn silver car in an abandoned industrial setting. She wears a sleek black leather motorcycle jacket over a fitted dark turtleneck and tailored pants, paired with large black feather wings spread behind her. Body low and balanced, arms resting over her knees, head slightly tilted forward with an intense, direct gaze. Long messy blonde hair with soft movement. Cool desaturated tones with heavy mist softening the background, faint silhouettes of debris and structures. Natural diffused light through fog creating soft contrast and muted highlights on the wings and metal surface. Cinematic dark fantasy fashion style, 85mm lens, shallow depth of field, aspect ratio 4:5.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679878613_9eu59l_HEZlGJiasAA91G6.jpg",
+        "https://cms-assets.youmind.com/media/1774679878545_iribuf_HEZlF6WbkAAHtbd.jpg",
+        "https://cms-assets.youmind.com/media/1774679878587_6u3338_HEZlF4HaoAET0Xd.jpg",
+        "https://cms-assets.youmind.com/media/1774679879534_aiyhdr_HEZlF5daMAItJ9G.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679878613_9eu59l_HEZlGJiasAA91G6-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774679878545_iribuf_HEZlF6WbkAAHtbd-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774679878587_6u3338_HEZlF4HaoAET0Xd-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774679879534_aiyhdr_HEZlF5daMAItJ9G-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "摄影棚肖像，一位年轻女子坐在地板上，背景是柔和的灰色渐变。她身穿奢华的白色丝绸衬衫和剪裁合体的阔腿裤，身后是一对巨大的白色羽毛天使翅膀，向上舒展。双腿侧向折叠，双手轻柔地搭在膝盖上，肩膀放松，头部微微倾斜，目光平静而柔和地望向镜头。中等长度的黑色波浪发型，勾勒出她的脸庞。上方聚焦的聚光灯营造出微妙的光晕效果，光线柔和地过渡到阴影中。简洁的极简主义摄影棚环境，羽毛纹理清晰可见，皮肤细节自然。编辑时尚摄影风格，85mm 镜头，浅景深，长宽比 4:5。\n\n摄影棚肖像，一位年轻女子站在黑色背景前，身穿优雅的白色荷叶边高领长袖衬衫和配套的飘逸纹理半身裙，身后是一对巨大的白色羽毛天使翅膀，向后伸展。双臂轻柔地向两侧抬起，头部向上倾斜，朝向光源，表情宁静，近乎神圣。柔软的金色波浪发型，瀑布般披散在她的肩上。左上方强烈的定向聚光灯在她的脸部和翅膀上营造出戏剧性的高光，周围是深邃的阴影。高对比度，羽毛细节闪耀，皮肤质感柔和。电影感编辑时尚风格，85mm 镜头，浅景深，长宽比 4:5。\n\n优雅的室内肖像，一位年轻女子坐在一架三角钢琴上，置身于一间经典的华丽房间中，高大的拱形窗户透进柔和的日光。她身穿优雅合身的象牙色晚礼服，饰有精致珠饰，搭配精致高跟鞋，身后是一对巨大的白色羽毛天使翅膀，展开着。双腿交叉，一只手搭在钢琴上，肩膀放松，头部微微倾斜，目光柔和而自信。经过造型的深色波浪发型，带有复古韵味，佩戴珍珠项圈。左侧的自然窗光在她的脸部和翅膀上营造出柔和的高光和轻微的阴影。暖中性色调，织物和羽毛纹理细节丰富。奢华编辑时尚摄影风格，85mm 镜头，浅景深，长宽比 4:5。\n\n雾蒙蒙的户外肖像，一位年轻女子蹲在一辆破旧的银色汽车引擎盖上，置身于废弃的工业环境中。她身穿时尚的黑色皮质摩托车夹克，内搭修身深色高领衫和剪裁合体的裤子，身后是一对巨大的黑色羽毛翅膀，展开着。身体低伏且保持平衡，双臂搭在膝盖上，头部微微前倾，目光强烈而直接。蓬松的金色长发，带有柔和的动感。冷色调去饱和，浓雾柔化了背景，隐约可见碎片和建筑物的轮廓。穿透雾气的自然漫射光在翅膀和金属表面营造出柔和的对比和低调的高光。电影感暗黑奇幻时尚风格，85mm 镜头，浅景深，长宽比 4:5。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的 四 个 时尚 编辑 灵感 适用于 nano banana 2 模型的四个独特的时尚大片摄影提示词，描绘了一位生有天使翅膀的年轻女性在多种场景下：极简主义摄影棚、戏剧性高对比度摄影棚、华丽的古典房间，以及一个雾气弥漫的工业户外场景。 studio portrait of a young woman seated on the floor against a soft gray gradient backdrop. she wears a luxurious white silk blouse and tailored wide-leg trousers, paired with large white feather angel wings rising behind her. legs folded to the side, hands resting gently on her knees, shoulders relaxed, head slightly tilted with a calm, soft gaze toward the camera. medium-length black wavy hair framing her face. focused spotlight from above creating a subtle halo effect with soft falloff into shadows. clean minimal studio environment with visible feather texture and natural skin detail. editorial fashion photography style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nprompt 2.\n\nstudio portrait of a young woman standing against a black background, wearing an elegant white ruffled high-neck blouse with long sleeves and a matching flowing textured skirt, paired with large white feather angel wings extended behind her. arms raised softly to the sides, head tilted upward toward the light with a serene, almost divine expression. soft blonde wavy hair cascading over her shoulders. strong directional spotlight from above-left creating dramatic highlights on her face and wings with deep surrounding shadows. high contrast with glowing feather detail and soft skin texture. cinematic editorial fashion style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nprompt 3.\n\nelegant interior portrait of a young woman seated on a grand piano in a classic ornate room with tall arched windows and soft daylight streaming in. she wears an elegant fitted ivory evening gown with intricate beadwork and delicate heels, paired with large white feather angel wings spread behind her. legs crossed, one hand resting on the piano, shoulders relaxed, head slightly tilted with a soft, confident gaze. styled dark wavy hair with a vintage finish, pearl choker necklace. natural window light from the left creating soft highlights and gentle shadows across her face and wings. warm neutral tones with detailed fabric and feather texture. luxury editorial fashion photography style, 85mm lens, shallow depth of field, aspect ratio 4:5.\n\nprompt 4.\n\nfoggy outdoor portrait of a young woman crouching on the hood of a worn silver car in an abandoned industrial setting. she wears a sleek black leather motorcycle jacket over a fitted dark turtleneck and tailored pants, paired with large black feather wings spread behind her. body low and balanced, arms resting over her knees, head slightly tilted forward with an intense, direct gaze. long messy blonde hair with soft movement. cool desaturated tones with heavy mist softening the background, faint silhouettes of debris and structures. natural diffused light through fog creating soft contrast and muted highlights on the wings and metal surface. cinematic dark fantasy fashion style, 85mm lens, shallow depth of field, aspect ratio 4:5. 摄影棚肖像，一位年轻女子坐在地板上，背景是柔和的灰色渐变。她身穿奢华的白色丝绸衬衫和剪裁合体的阔腿裤，身后是一对巨大的白色羽毛天使翅膀，向上舒展。双腿侧向折叠，双手轻柔地搭在膝盖上，肩膀放松，头部微微倾斜，目光平静而柔和地望向镜头。中等长度的黑色波浪发型，勾勒出她的脸庞。上方聚焦的聚光灯营造出微妙的光晕效果，光线柔和地过渡到阴影中。简洁的极简主义摄影棚环境，羽毛纹理清晰可见，皮肤细节自然。编辑时尚摄影风格，85mm 镜头，浅景深，长宽比 4:5。\n\n摄影棚肖像，一位年轻女子站在黑色背景前，身穿优雅的白色荷叶边高领长袖衬衫和配套的飘逸纹理半身裙，身后是一对巨大的白色羽毛天使翅膀，向后伸展。双臂轻柔地向两侧抬起，头部向上倾斜，朝向光源，表情宁静，近乎神圣。柔软的金色波浪发型，瀑布般披散在她的肩上。左上方强烈的定向聚光灯在她的脸部和翅膀上营造出戏剧性的高光，周围是深邃的阴影。高对比度，羽毛细节闪耀，皮肤质感柔和。电影感编辑时尚风格，85mm 镜头，浅景深，长宽比 4:5。\n\n优雅的室内肖像，一位年轻女子坐在一架三角钢琴上，置身于一间经典的华丽房间中，高大的拱形窗户透进柔和的日光。她身穿优雅合身的象牙色晚礼服，饰有精致珠饰，搭配精致高跟鞋，身后是一对巨大的白色羽毛天使翅膀，展开着。双腿交叉，一只手搭在钢琴上，肩膀放松，头部微微倾斜，目光柔和而自信。经过造型的深色波浪发型，带有复古韵味，佩戴珍珠项圈。左侧的自然窗光在她的脸部和翅膀上营造出柔和的高光和轻微的阴影。暖中性色调，织物和羽毛纹理细节丰富。奢华编辑时尚摄影风格，85mm 镜头，浅景深，长宽比 4:5。\n\n雾蒙蒙的户外肖像，一位年轻女子蹲在一辆破旧的银色汽车引擎盖上，置身于废弃的工业环境中。她身穿时尚的黑色皮质摩托车夹克，内搭修身深色高领衫和剪裁合体的裤子，身后是一对巨大的黑色羽毛翅膀，展开着。身体低伏且保持平衡，双臂搭在膝盖上，头部微微前倾，目光强烈而直接。蓬松的金色长发，带有柔和的动感。冷色调去饱和，浓雾柔化了背景，隐约可见碎片和建筑物的轮廓。穿透雾气的自然漫射光在翅膀和金属表面营造出柔和的对比和低调的高光。电影感暗黑奇幻时尚风格，85mm 镜头，浅景深，长宽比 4:5。 shreya♡ 12905",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12818,
+      "title": "电影级 3D 玩具角色演变序列提示词",
+      "description": "一个高度结构化的提示，针对 Gemini Nano Banana，旨在生成一张电影级的 16:9 图像，展示一个 3D 玩具角色跨越 6-8 个阶段的持续演变，强调绝对的形象完整性、对角线构图、低角度视角以及渐进式光照/景深。",
+      "sourceLink": "https://x.com/edizkan_/status/2037410692395909561",
+      "sourcePublishedAt": "2026-03-27T06:05:36.000Z",
+      "author": {
+        "name": "Edizkan ⭕🦇",
+        "link": "https://x.com/edizkan_"
+      },
+      "content": "A cinematic evolution sequence of the 3d toy character shown as multiple identical instances progressing from primitive to fully realized form across a single frame.\n🔒 LIKENESS INTEGRITY (ABSOLUTE PRIORITY)\n\nAll instances must preserve exactly:\n\n• proportions\n\n• eye shape, spacing, stylization\n\n• silhouette\n\n• material identity\nNo redesign. No added features. No anatomy change. Only pose progression is allowed.\n🧠 EVOLUTION STRUCTURE (MANDATORY)\n\nThe character appears repeated in a left-to-right progression of 6–8 stages:\n\n• earliest stage: crouched, compressed, almost animalistic or inactive\n\n• mid stages: gradual spine lift, awareness, balance emerging\n\n• final stage: fully upright, confident forward motion\nEach stage must feel like a natural transformation, not separate poses.\n\nMotion must read as a continuous evolution.\n🎥 CAMERA & PERSPECTIVE\n\nLow-angle cinematic shot, slightly below mid-body height of the final character\n\nShot with a 28–35mm lens to create subtle perspective compression and depth\n\nCamera positioned closer to the final evolved character, making it dominant in frame\n\nThe earliest forms recede into the background along a diagonal progression\n⚖️ COMPOSITION (CRITICAL)\n\nDiagonal layout from back-left (primitive) → front-right (evolved)\n\nForeground dominated by the final form, partially cropped for tension\n\nEarlier stages progressively smaller and more compressed into depth\n\nNo centered symmetry\n🎯 DEPTH OF FIELD (MANDATORY)\n\nPrimary focal plane locked on the most evolved character\n\nMid stages slightly softer\n\nEarliest stages fall into progressive blur\nNo full-frame sharpness\n💡 LIGHTING\n\nStrong directional light from the side or rear\n\nRim light increases progressively across evolution stages\n\nPrimitive forms sit more in shadow\n\nFinal form is clearly defined with sculptural light separation\n🌫 ATMOSPHERE\n\nSubtle haze or volumetric light to enhance depth layering\n\nLight falloff increases toward background\n\nOptional faint dust or particles to create dimensional space\n🎨 COLOR CONTROL\n\nPrimitive stages slightly desaturated and darker\n\nColor richness increases toward the final evolved form\n\nControlled contrast, no oversaturation\n🧱 SURFACE & MATERIAL\n\nMaintain exact original material identity\n\nEnhance micro-detail only on the focal character\n\nNo texture reinterpretation\n🔥 EMOTION\n\nInevitable transformation\n\nFrom instinct → awareness → dominance\n\nThe final character feels like the destination of a journey\n🚫 NEGATIVE CONSTRAINTS\n\nNo random poses\n\nNo redesign\n\nNo symmetry\n\nNo flat lighting\n\nNo full-body sharpness everywhere\n\nNo equal importance across all stages\nAspect Ratio: ar 16:9",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679870450_xwz2vk_HEZWIrwXgAEA-3_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679870450_xwz2vk_HEZWIrwXgAEA-3_-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个 3D 玩具角色的电影般演变序列，以多个相同实例的形式呈现，在单个画面中从原始形态演变为完全成熟的形态。\n🔒 形象完整性（绝对优先）\n\n所有实例必须精确保持：\n\n• 比例\n\n• 眼睛形状、间距、风格化\n\n• 轮廓\n\n• 材质特征\n不得重新设计。不得添加新特征。不得改变解剖结构。只允许姿态演变。\n🧠 演变结构（强制要求）\n\n角色以 6–8 个阶段的从左到右演变序列重复出现：\n\n• 最早阶段：蹲伏、紧缩，几乎呈动物性或不活跃状态\n\n• 中间阶段：脊柱逐渐抬起，意识和平衡感显现\n\n• 最终阶段：完全直立，自信地向前移动\n每个阶段都必须感觉是自然的转变，而非独立的姿态。\n\n动作必须呈现为连续的演变。\n🎥 摄像机与透视\n\n低角度电影镜头，略低于最终角色的身体中部高度\n\n使用 28–35mm 镜头拍摄，以营造微妙的透视压缩感和深度\n\n摄像机更靠近最终演变的角色，使其在画面中占据主导地位\n\n最早的形态沿对角线方向演进，退入背景\n⚖️ 构图（关键）\n\n对角线布局，从左后方（原始）→ 右前方（演变）\n\n前景由最终形态主导，部分裁剪以营造张力\n\n较早的阶段逐渐变小，并更深地压缩到景深中\n\n无中心对称\n🎯 景深（强制要求）\n\n主要焦平面锁定在最演变的角色上\n\n中间阶段略微柔和\n\n最早阶段逐渐模糊\n无全画面锐度\n💡 灯光\n\n强烈定向光从侧面或后方照射\n\n轮廓光在演变阶段中逐渐增强\n\n原始形态更多地处于阴影中\n\n最终形态通过雕塑般的光影分离清晰界定\n🌫 氛围\n\n微妙的薄雾或体积光，以增强深度分层\n\n光线衰减向背景方向增加\n\n可选的微弱灰尘或粒子，以营造空间感\n🎨 色彩控制\n\n原始阶段略微去饱和且更暗\n\n色彩丰富度向最终演变形态增加\n\n受控对比度，无过饱和\n🧱 表面与材质\n\n保持精确的原始材质特征\n\n仅在焦点角色上增强微观细节\n\n无纹理重新诠释\n🔥 情感\n\n必然的转变\n\n从本能 → 意识 → 主导\n\n最终角色感觉像是旅程的终点\n🚫 禁止事项\n\n无随机姿态\n\n无重新设计\n\n无对称\n\n无平光\n\n无全身各处锐度\n\n无所有阶段同等重要性\n宽高比：ar 16:9",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级 3d 玩具角色演变序列提示词 一个高度结构化的提示，针对 gemini nano banana，旨在生成一张电影级的 16:9 图像，展示一个 3d 玩具角色跨越 6-8 个阶段的持续演变，强调绝对的形象完整性、对角线构图、低角度视角以及渐进式光照/景深。 a cinematic evolution sequence of the 3d toy character shown as multiple identical instances progressing from primitive to fully realized form across a single frame.\n🔒 likeness integrity (absolute priority)\n\nall instances must preserve exactly:\n\n• proportions\n\n• eye shape, spacing, stylization\n\n• silhouette\n\n• material identity\nno redesign. no added features. no anatomy change. only pose progression is allowed.\n🧠 evolution structure (mandatory)\n\nthe character appears repeated in a left-to-right progression of 6–8 stages:\n\n• earliest stage: crouched, compressed, almost animalistic or inactive\n\n• mid stages: gradual spine lift, awareness, balance emerging\n\n• final stage: fully upright, confident forward motion\neach stage must feel like a natural transformation, not separate poses.\n\nmotion must read as a continuous evolution.\n🎥 camera & perspective\n\nlow-angle cinematic shot, slightly below mid-body height of the final character\n\nshot with a 28–35mm lens to create subtle perspective compression and depth\n\ncamera positioned closer to the final evolved character, making it dominant in frame\n\nthe earliest forms recede into the background along a diagonal progression\n⚖️ composition (critical)\n\ndiagonal layout from back-left (primitive) → front-right (evolved)\n\nforeground dominated by the final form, partially cropped for tension\n\nearlier stages progressively smaller and more compressed into depth\n\nno centered symmetry\n🎯 depth of field (mandatory)\n\nprimary focal plane locked on the most evolved character\n\nmid stages slightly softer\n\nearliest stages fall into progressive blur\nno full-frame sharpness\n💡 lighting\n\nstrong directional light from the side or rear\n\nrim light increases progressively across evolution stages\n\nprimitive forms sit more in shadow\n\nfinal form is clearly defined with sculptural light separation\n🌫 atmosphere\n\nsubtle haze or volumetric light to enhance depth layering\n\nlight falloff increases toward background\n\noptional faint dust or particles to create dimensional space\n🎨 color control\n\nprimitive stages slightly desaturated and darker\n\ncolor richness increases toward the final evolved form\n\ncontrolled contrast, no oversaturation\n🧱 surface & material\n\nmaintain exact original material identity\n\nenhance micro-detail only on the focal character\n\nno texture reinterpretation\n🔥 emotion\n\ninevitable transformation\n\nfrom instinct → awareness → dominance\n\nthe final character feels like the destination of a journey\n🚫 negative constraints\n\nno random poses\n\nno redesign\n\nno symmetry\n\nno flat lighting\n\nno full-body sharpness everywhere\n\nno equal importance across all stages\naspect ratio: ar 16:9 一个 3d 玩具角色的电影般演变序列，以多个相同实例的形式呈现，在单个画面中从原始形态演变为完全成熟的形态。\n🔒 形象完整性（绝对优先）\n\n所有实例必须精确保持：\n\n• 比例\n\n• 眼睛形状、间距、风格化\n\n• 轮廓\n\n• 材质特征\n不得重新设计。不得添加新特征。不得改变解剖结构。只允许姿态演变。\n🧠 演变结构（强制要求）\n\n角色以 6–8 个阶段的从左到右演变序列重复出现：\n\n• 最早阶段：蹲伏、紧缩，几乎呈动物性或不活跃状态\n\n• 中间阶段：脊柱逐渐抬起，意识和平衡感显现\n\n• 最终阶段：完全直立，自信地向前移动\n每个阶段都必须感觉是自然的转变，而非独立的姿态。\n\n动作必须呈现为连续的演变。\n🎥 摄像机与透视\n\n低角度电影镜头，略低于最终角色的身体中部高度\n\n使用 28–35mm 镜头拍摄，以营造微妙的透视压缩感和深度\n\n摄像机更靠近最终演变的角色，使其在画面中占据主导地位\n\n最早的形态沿对角线方向演进，退入背景\n⚖️ 构图（关键）\n\n对角线布局，从左后方（原始）→ 右前方（演变）\n\n前景由最终形态主导，部分裁剪以营造张力\n\n较早的阶段逐渐变小，并更深地压缩到景深中\n\n无中心对称\n🎯 景深（强制要求）\n\n主要焦平面锁定在最演变的角色上\n\n中间阶段略微柔和\n\n最早阶段逐渐模糊\n无全画面锐度\n💡 灯光\n\n强烈定向光从侧面或后方照射\n\n轮廓光在演变阶段中逐渐增强\n\n原始形态更多地处于阴影中\n\n最终形态通过雕塑般的光影分离清晰界定\n🌫 氛围\n\n微妙的薄雾或体积光，以增强深度分层\n\n光线衰减向背景方向增加\n\n可选的微弱灰尘或粒子，以营造空间感\n🎨 色彩控制\n\n原始阶段略微去饱和且更暗\n\n色彩丰富度向最终演变形态增加\n\n受控对比度，无过饱和\n🧱 表面与材质\n\n保持精确的原始材质特征\n\n仅在焦点角色上增强微观细节\n\n无纹理重新诠释\n🔥 情感\n\n必然的转变\n\n从本能 → 意识 → 主导\n\n最终角色感觉像是旅程的终点\n🚫 禁止事项\n\n无随机姿态\n\n无重新设计\n\n无对称\n\n无平光\n\n无全身各处锐度\n\n无所有阶段同等重要性\n宽高比：ar 16:9 edizkan ⭕🦇 12818",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12883,
+      "title": "身份一致性连拍模拟",
+      "description": "一个高度详细、结构化的提示词，旨在生成一张超现实的竖版照片，模拟智能手机连拍效果，确保在三个堆叠的帧中，脸部身份保持完美一致，同时描绘一个身穿特定服装、位于特定地点的男性，并带有自然的瑕疵。",
+      "sourceLink": "https://x.com/MrDasOnX/status/2037396204146081806",
+      "sourcePublishedAt": "2026-03-27T05:08:02.000Z",
+      "author": {
+        "name": "Mr Das",
+        "link": "https://x.com/MrDasOnX"
+      },
+      "content": "Use the uploaded reference photo as the only facial identity reference.\nThe same exact face must appear in all three frames.\nDo not change identity, do not beautify, do not stylize, do not reinterpret the face.\nFacial identity must stay perfectly consistent across all frames.\n\nUltra-realistic vertical photo divided into three equal stacked frames inside one single image.\nAll three frames show the same man, same clothes, same location, captured seconds apart like a casual smartphone burst photo.\nNatural imperfections allowed. Slight motion blur allowed. Identity must stay identical.\n\nLocation:\nOutdoor sidewalk in daylight.\nWhite plaster wall with Bougainvillea glabra climbing plants.\nNatural urban background, realistic, not staged.\n\nOutfit (locked):\nPastel yellow loose button-down shirt, top buttons open, sleeves rolled to forearms, untucked.\nOff-white straight fit trousers.\nMetal wristwatch.\nNo sunglasses.\n\nHair & face (locked):\nMedium length wavy messy hair.\nNatural skin texture, visible pores.\nNo beauty filter, no smoothing.\n\nTOP FRAME:\nBack angled shot, turning away.\nHand running through back of hair near neck.\nFace mostly hidden.\nSlight motion blur on hand and hair.\nCasual, unposed, Gen-Z energy.\n\nMIDDLE FRAME:\nClose-up of upper face.\nHair falling across forehead covering one eye.\nEyes half visible, looking sideways/down.\nSoft focus, slight motion softness.\nFeels accidental, intimate.\n\nBOTTOM FRAME:\nMid shot.\nLeaning casually against wall.\nOne hand near pocket or adjusting cuff.\nLooking away from camera.\nRelaxed, natural posture.\n\nLighting:\nNatural daylight, soft shadows, realistic phone camera look.\nNot cinematic, not studio, not HDR.\n\nStyle:\nUltra realistic\nsmartphone photo\nburst shot\nimperfect framing\nhuman, casual, real\nidentity locked\nsame person all frames",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679867387_vquntd_HEZJCzDa8AA8Wk1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679867387_vquntd_HEZJCzDa8AA8Wk1-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请使用上传的参考照片作为唯一的面部身份参考。\n完全相同的面孔必须出现在所有三个画面中。\n不要改变身份，不要美化，不要风格化，不要重新诠释面部。\n面部身份在所有画面中必须保持完美一致。\n\n一张超写实的竖幅照片，分成三个等高堆叠的画面，包含在一张图片中。\n所有三个画面都展示同一个男人，穿着同样的衣服，在同一个地点，拍摄时间仅相隔数秒，就像随意的智能手机连拍照片一样。\n允许存在自然的瑕疵。允许轻微的运动模糊。身份必须保持一致。\n\n地点：\n白天户外的 人行道。\n白色灰泥墙，上面有攀援的 叶子花。\n自然的城市背景，真实感，非摆拍。\n\n服装（锁定）：\n淡黄色宽松 纽扣衬衫，顶部纽扣敞开，袖子卷到前臂，未束进裤子。\n米白色直筒裤。\n金属腕表。\n无太阳镜。\n\n头发和面部（锁定）：\n中等长度的凌乱卷发。\n自然的皮肤纹理，毛孔可见。\n无美颜滤镜，无磨皮。\n\n顶部画面：\n背部斜角拍摄，转身离开。\n手穿过脑后靠近颈部的头发。\n面部大部分被遮挡。\n手和头发上带有轻微的运动模糊。\n随意，非摆拍，Z 世代的活力。\n\n中间画面：\n面部上半部分的特写。\n头发垂落在额头，遮住一只眼睛。\n眼睛半隐半现，侧视或向下看。\n柔焦，轻微的动态柔和感。\n感觉像是偶然捕捉，亲密。\n\n底部画面：\n中景镜头。\n随意地靠在墙上。\n一只手靠近口袋或在调整袖口。\n视线离开镜头。\n放松，自然的姿态。\n\n光线：\n自然日照，柔和的阴影，逼真的手机相机效果。\n非电影感，非影棚，非 HDR。\n\n风格：\n超写实\n智能手机照片\n连拍\n不完美的构图\n人性化，随意，真实\n身份锁定\n所有画面中是同一个人",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身份一致性连拍模拟 一个高度详细、结构化的提示词，旨在生成一张超现实的竖版照片，模拟智能手机连拍效果，确保在三个堆叠的帧中，脸部身份保持完美一致，同时描绘一个身穿特定服装、位于特定地点的男性，并带有自然的瑕疵。 use the uploaded reference photo as the only facial identity reference.\nthe same exact face must appear in all three frames.\ndo not change identity, do not beautify, do not stylize, do not reinterpret the face.\nfacial identity must stay perfectly consistent across all frames.\n\nultra-realistic vertical photo divided into three equal stacked frames inside one single image.\nall three frames show the same man, same clothes, same location, captured seconds apart like a casual smartphone burst photo.\nnatural imperfections allowed. slight motion blur allowed. identity must stay identical.\n\nlocation:\noutdoor sidewalk in daylight.\nwhite plaster wall with bougainvillea glabra climbing plants.\nnatural urban background, realistic, not staged.\n\noutfit (locked):\npastel yellow loose button-down shirt, top buttons open, sleeves rolled to forearms, untucked.\noff-white straight fit trousers.\nmetal wristwatch.\nno sunglasses.\n\nhair & face (locked):\nmedium length wavy messy hair.\nnatural skin texture, visible pores.\nno beauty filter, no smoothing.\n\ntop frame:\nback angled shot, turning away.\nhand running through back of hair near neck.\nface mostly hidden.\nslight motion blur on hand and hair.\ncasual, unposed, gen-z energy.\n\nmiddle frame:\nclose-up of upper face.\nhair falling across forehead covering one eye.\neyes half visible, looking sideways/down.\nsoft focus, slight motion softness.\nfeels accidental, intimate.\n\nbottom frame:\nmid shot.\nleaning casually against wall.\none hand near pocket or adjusting cuff.\nlooking away from camera.\nrelaxed, natural posture.\n\nlighting:\nnatural daylight, soft shadows, realistic phone camera look.\nnot cinematic, not studio, not hdr.\n\nstyle:\nultra realistic\nsmartphone photo\nburst shot\nimperfect framing\nhuman, casual, real\nidentity locked\nsame person all frames 请使用上传的参考照片作为唯一的面部身份参考。\n完全相同的面孔必须出现在所有三个画面中。\n不要改变身份，不要美化，不要风格化，不要重新诠释面部。\n面部身份在所有画面中必须保持完美一致。\n\n一张超写实的竖幅照片，分成三个等高堆叠的画面，包含在一张图片中。\n所有三个画面都展示同一个男人，穿着同样的衣服，在同一个地点，拍摄时间仅相隔数秒，就像随意的智能手机连拍照片一样。\n允许存在自然的瑕疵。允许轻微的运动模糊。身份必须保持一致。\n\n地点：\n白天户外的 人行道。\n白色灰泥墙，上面有攀援的 叶子花。\n自然的城市背景，真实感，非摆拍。\n\n服装（锁定）：\n淡黄色宽松 纽扣衬衫，顶部纽扣敞开，袖子卷到前臂，未束进裤子。\n米白色直筒裤。\n金属腕表。\n无太阳镜。\n\n头发和面部（锁定）：\n中等长度的凌乱卷发。\n自然的皮肤纹理，毛孔可见。\n无美颜滤镜，无磨皮。\n\n顶部画面：\n背部斜角拍摄，转身离开。\n手穿过脑后靠近颈部的头发。\n面部大部分被遮挡。\n手和头发上带有轻微的运动模糊。\n随意，非摆拍，z 世代的活力。\n\n中间画面：\n面部上半部分的特写。\n头发垂落在额头，遮住一只眼睛。\n眼睛半隐半现，侧视或向下看。\n柔焦，轻微的动态柔和感。\n感觉像是偶然捕捉，亲密。\n\n底部画面：\n中景镜头。\n随意地靠在墙上。\n一只手靠近口袋或在调整袖口。\n视线离开镜头。\n放松，自然的姿态。\n\n光线：\n自然日照，柔和的阴影，逼真的手机相机效果。\n非电影感，非影棚，非 hdr。\n\n风格：\n超写实\n智能手机照片\n连拍\n不完美的构图\n人性化，随意，真实\n身份锁定\n所有画面中是同一个人 mr das 12883",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12884,
+      "title": "超逼真 健达奇趣蛋 产品图",
+      "description": "生成一张超逼真的 Kinder Joy 奇趣蛋产品照片，照片中包装上印有特定的卡通人物插画，旁边放着一个细节丰富的收藏玩偶，并采用柔和的自然光和浅景深。",
+      "sourceLink": "https://x.com/doctorwasif/status/2037393068538679624",
+      "sourcePublishedAt": "2026-03-27T04:55:35.000Z",
+      "author": {
+        "name": "WasifAI",
+        "link": "https://x.com/doctorwasif"
+      },
+      "content": "A hyper-realistic product photo of a Kinder Joy surprise egg sitting on a wooden table. The egg packaging features a chibi/cartoon-style illustration of {argument name=\"character on packaging\" default=\"[image Uploaded]\"} posed against a graffiti brick wall background. Next to the egg sits a small detailed collectible figurine of {argument name=\"figurine character\" default=\"[image Uploaded]\"} in the same chibi art style shown on the packaging. Soft natural lighting, shallow depth of field, photorealistic quality.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679866600_l8h7d5_HEZGMiGakAAZALs.jpg",
+        "https://cms-assets.youmind.com/media/1774679866580_0b6eb2_HEZGMdpa0AAx6pM.jpg",
+        "https://cms-assets.youmind.com/media/1774679866922_z9ewgp_HEZGMpUasAATEcR.jpg",
+        "https://cms-assets.youmind.com/media/1774679867343_gw25bg_HEZGMsfbgAEB5wV.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679866600_l8h7d5_HEZGMiGakAAZALs-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774679866580_0b6eb2_HEZGMdpa0AAx6pM-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774679866922_z9ewgp_HEZGMpUasAATEcR-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774679867343_gw25bg_HEZGMsfbgAEB5wV-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张超写实的健达奇趣蛋产品照片，它正放在一张木桌上。蛋的包装上印有 {argument name=\"character on packaging\" default=\"[image Uploaded]\"} 的 Q 版/卡通风格插画，以涂鸦砖墙为背景。蛋旁边放着一个 {argument name=\"figurine character\" default=\"[image Uploaded]\"} 的小巧精致收藏级手办，采用与包装上相同的 Q 版艺术风格。柔和的自然光，浅景深，照片级写实品质。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真 健达奇趣蛋 产品图 生成一张超逼真的 kinder joy 奇趣蛋产品照片，照片中包装上印有特定的卡通人物插画，旁边放着一个细节丰富的收藏玩偶，并采用柔和的自然光和浅景深。 a hyper-realistic product photo of a kinder joy surprise egg sitting on a wooden table. the egg packaging features a chibi/cartoon-style illustration of {argument name=\"character on packaging\" default=\"[image uploaded]\"} posed against a graffiti brick wall background. next to the egg sits a small detailed collectible figurine of {argument name=\"figurine character\" default=\"[image uploaded]\"} in the same chibi art style shown on the packaging. soft natural lighting, shallow depth of field, photorealistic quality. 一张超写实的健达奇趣蛋产品照片，它正放在一张木桌上。蛋的包装上印有 {argument name=\"character on packaging\" default=\"[image uploaded]\"} 的 q 版/卡通风格插画，以涂鸦砖墙为背景。蛋旁边放着一个 {argument name=\"figurine character\" default=\"[image uploaded]\"} 的小巧精致收藏级手办，采用与包装上相同的 q 版艺术风格。柔和的自然光，浅景深，照片级写实品质。 wasifai 12884",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12863,
+      "title": "低角度时尚广告大片",
+      "description": "为 Nano Banana Pro 创建的提示，用于生成一张低角度的时尚大片，画面中有一位酷似 Ana de Armas 的 模特，并着重强调夸张的透视、高调照明，以及前景中一块大型奢华腕表的锐利焦点。",
+      "sourceLink": "https://x.com/Ankit_patel211/status/2037389793110409679",
+      "sourcePublishedAt": "2026-03-27T04:42:34.000Z",
+      "author": {
+        "name": "ANKIT PATEL 🇮🇳 | AI",
+        "link": "https://x.com/Ankit_patel211"
+      },
+      "content": "Low-angle fashion campaign photograph of a confident model resembling {argument name=\"model resemblance\" default=\"Ana de Armas\"} holding a large luxury wristwatch very close to the camera, exaggerated perspective with the hand and product dominating the foreground, full-body pose visible in the background, wide stance, dynamic posture, clean pure white studio background, high-key lighting, sharp focus on product, slight depth of field on the model, bold colorful outfit with strong contrast tones, modern beauty advertising aesthetic, ultra-clean composition, commercial studio photography, glossy packaging detail visible, crisp shadows",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679855737_309jr0_HEZDHQCbwAEAES2.jpg",
+        "https://cms-assets.youmind.com/media/1774679855686_9xmo9w_HEZDHOhaoAA1jhu.jpg",
+        "https://cms-assets.youmind.com/media/1774679855746_ea90ih_HEZDHP-aYAADPMX.jpg",
+        "https://cms-assets.youmind.com/media/1774679856590_8lmfwb_HEZDHTUaAAAKoN9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679855737_309jr0_HEZDHQCbwAEAES2-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774679855686_9xmo9w_HEZDHOhaoAA1jhu-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774679855746_ea90ih_HEZDHP-aYAADPMX-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774679856590_8lmfwb_HEZDHTUaAAAKoN9-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "低角度 时尚大片，一位自信的模特，酷似 {argument name=\"model resemblance\" default=\"Ana de Armas\"}，手持一款大型奢华腕表，极近距离地贴近镜头；夸张的透视效果使手部和产品占据前景主导地位，背景中可见模特的全身体态，宽阔的站姿，动感的姿势；纯净洁白的影棚背景，高调布光，产品锐利对焦，模特身上有轻微景深；她身着大胆的彩色服装，具有强烈对比色调，整体呈现出现代美妆广告美学，构图极其简洁，商业影棚摄影风格，光泽包装细节可见，并带有锐利阴影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "低角度时尚广告大片 为 nano banana pro 创建的提示，用于生成一张低角度的时尚大片，画面中有一位酷似 ana de armas 的 模特，并着重强调夸张的透视、高调照明，以及前景中一块大型奢华腕表的锐利焦点。 low-angle fashion campaign photograph of a confident model resembling {argument name=\"model resemblance\" default=\"ana de armas\"} holding a large luxury wristwatch very close to the camera, exaggerated perspective with the hand and product dominating the foreground, full-body pose visible in the background, wide stance, dynamic posture, clean pure white studio background, high-key lighting, sharp focus on product, slight depth of field on the model, bold colorful outfit with strong contrast tones, modern beauty advertising aesthetic, ultra-clean composition, commercial studio photography, glossy packaging detail visible, crisp shadows 低角度 时尚大片，一位自信的模特，酷似 {argument name=\"model resemblance\" default=\"ana de armas\"}，手持一款大型奢华腕表，极近距离地贴近镜头；夸张的透视效果使手部和产品占据前景主导地位，背景中可见模特的全身体态，宽阔的站姿，动感的姿势；纯净洁白的影棚背景，高调布光，产品锐利对焦，模特身上有轻微景深；她身着大胆的彩色服装，具有强烈对比色调，整体呈现出现代美妆广告美学，构图极其简洁，商业影棚摄影风格，光泽包装细节可见，并带有锐利阴影。 ankit patel 🇮🇳 | ai 12863",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12866,
+      "title": "超逼真的酸奶产品摄影",
+      "description": "给 Nano Banana 2 的一个提示词，用于生成超逼真的商业产品摄影，内容为一个蓝莓酸奶杯悬浮在空中，周围环绕着动态的、凝固的牛奶飞溅和新鲜蓝莓，强调高速摄影效果和电影级影棚布光。",
+      "sourceLink": "https://x.com/Taaruk_/status/2037369240060088592",
+      "sourcePublishedAt": "2026-03-27T03:20:53.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic commercial product photography of a blueberry yogurt cup floating mid-air, surrounded by a dynamic milk splash frozen in motion, fresh blueberries suspended around the product, creamy liquid forming elegant splash waves, soft purple gradient background, clean minimal aesthetic, glossy packaging with readable label, droplets and mist particles in the air, cinematic studio lighting, soft shadows, high-speed photography effect, ultra-detailed textures, advertising style, sharp focus, depth of field, 8K, photorealistic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679857793_dxcjki_HEYwhKYboAAkYFA.jpg",
+        "https://cms-assets.youmind.com/media/1774679857843_zts6ft_HEYwhE2bkAAbSTA.jpg",
+        "https://cms-assets.youmind.com/media/1774679858105_0xaguj_HEYwhGFbcAA1hLt.jpg",
+        "https://cms-assets.youmind.com/media/1774679858680_us4n90_HEYwhSMbQAAIAMj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679857793_dxcjki_HEYwhKYboAAkYFA-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1774679857843_zts6ft_HEYwhE2bkAAbSTA-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1774679858105_0xaguj_HEYwhGFbcAA1hLt-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774679858680_us4n90_HEYwhSMbQAAIAMj-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的商业产品摄影，一个蓝莓酸奶杯悬浮在空中，周围环绕着动态的牛奶飞溅，凝固在运动中，新鲜蓝莓悬浮在产品周围，奶油状液体形成优雅的飞溅波纹，柔和的紫色渐变背景，干净简约的美学，光泽的包装，带有清晰可读的标签，空气中的水滴和雾气颗粒，电影级工作室照明，柔和的阴影，高速摄影效果，超精细的纹理，广告风格，锐利对焦，景深，8K，照片级真实感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真的酸奶产品摄影 给 nano banana 2 的一个提示词，用于生成超逼真的商业产品摄影，内容为一个蓝莓酸奶杯悬浮在空中，周围环绕着动态的、凝固的牛奶飞溅和新鲜蓝莓，强调高速摄影效果和电影级影棚布光。 ultra-realistic commercial product photography of a blueberry yogurt cup floating mid-air, surrounded by a dynamic milk splash frozen in motion, fresh blueberries suspended around the product, creamy liquid forming elegant splash waves, soft purple gradient background, clean minimal aesthetic, glossy packaging with readable label, droplets and mist particles in the air, cinematic studio lighting, soft shadows, high-speed photography effect, ultra-detailed textures, advertising style, sharp focus, depth of field, 8k, photorealistic. 超逼真的商业产品摄影，一个蓝莓酸奶杯悬浮在空中，周围环绕着动态的牛奶飞溅，凝固在运动中，新鲜蓝莓悬浮在产品周围，奶油状液体形成优雅的飞溅波纹，柔和的紫色渐变背景，干净简约的美学，光泽的包装，带有清晰可读的标签，空气中的水滴和雾气颗粒，电影级工作室照明，柔和的阴影，高速摄影效果，超精细的纹理，广告风格，锐利对焦，景深，8k，照片级真实感。 taaruk 12866",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12864,
+      "title": "电影级 高尔夫球手 肖像",
+      "description": "给 Nano Banana Pro 的提示：生成一张高度逼真的电影感肖像，描绘一名打高尔夫球的年轻男子，重点突出他专注的姿势、时尚现代的穿着（黑色 T 恤、宽松长裤、西装外套），以及专业的体育摄影布光和构图。",
+      "sourceLink": "https://x.com/harboriis/status/2037357300739096963",
+      "sourcePublishedAt": "2026-03-27T02:33:27.000Z",
+      "author": {
+        "name": "Harboris",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "A highly realistic cinematic portrait of a young man playing golf on a well maintained golf course during a bright daytime. The green field stretches smoothly with neatly trimmed grass, sand bunkers, and distant trees under a clear blue sky.\n\nThe young man is positioned mid action, slightly bent forward in a focused stance as he prepares to hit a golf ball placed on the ground. He grips the golf club firmly, eyes locked on the ball with a calm and concentrated expression. His posture is balanced and natural, capturing the moment just before the swing.\n\nHe is wearing a stylish modern outfit with a black t shirt, black loose fit pants, and a fitted blazer that adds a premium fashion touch to the sporty look. The blazer moves slightly with the breeze, adding subtle motion. Clean sneakers complete the outfit.\n\nNext to him on the side is a golf bag kit standing upright, filled with clubs, adding realism to the scene. The golf ball is clearly visible on the grass in front of him, enhancing the action moment.\n\nNatural sunlight illuminates the scene, creating soft highlights on his face and outfit with realistic shadows falling on the grass. The background shows the wide open golf course softly blurred.\n\nCaptured like professional sports photography with a DSLR camera using a 70mm lens. Shallow depth of field keeps the subject sharp while the background softly fades. Ultra photorealistic lighting, cinematic color grading, high",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679855915_1ynzmk_HEYlqjCa8AAPzLy.jpg",
+        "https://cms-assets.youmind.com/media/1774679856882_fcvwxh_HEYlqlCbQAE2r9P.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679855915_1ynzmk_HEYlqjCa8AAPzLy-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1774679856882_fcvwxh_HEYlqlCbQAE2r9P-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "阳光明媚的白天，在一个维护良好的高尔夫球场上，一位年轻男子正在打高尔夫球，呈现出高度写实的电影感肖像。湛蓝的天空下，绿色的球场平坦延伸，草坪修剪整齐，点缀着沙坑和远处的树木。\n\n这位年轻男子正处于动作之中，身体微微前倾，姿态专注，准备击打地面上的高尔夫球。他紧握高尔夫球杆，双眼紧盯着球，表情平静而专注。他的姿势平衡而自然，捕捉到了挥杆前的瞬间。\n\n他身穿一套时尚现代的服装，包括黑色 T 恤、黑色宽松长裤和一件修身西装外套，为运动造型增添了高级时尚感。西装外套随微风轻微摆动，增添了微妙的动感。干净的运动鞋完善了整体造型。\n\n在他旁边，立着一个装满了球杆的高尔夫球包，为场景增添了真实感。高尔夫球在他面前的草地上清晰可见，突出了动作瞬间。\n\n自然阳光照亮了整个场景，在他的脸部和服装上形成了柔和的高光，并在草地上投下真实的阴影。背景是广阔的高尔夫球场，柔和地虚化。\n\n拍摄效果如同专业体育摄影，使用单反相机搭配 70mm 镜头。浅景深使主体清晰锐利，而背景则柔和虚化。超逼真的光照，电影级色彩分级，高",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级 高尔夫球手 肖像 给 nano banana pro 的提示：生成一张高度逼真的电影感肖像，描绘一名打高尔夫球的年轻男子，重点突出他专注的姿势、时尚现代的穿着（黑色 t 恤、宽松长裤、西装外套），以及专业的体育摄影布光和构图。 a highly realistic cinematic portrait of a young man playing golf on a well maintained golf course during a bright daytime. the green field stretches smoothly with neatly trimmed grass, sand bunkers, and distant trees under a clear blue sky.\n\nthe young man is positioned mid action, slightly bent forward in a focused stance as he prepares to hit a golf ball placed on the ground. he grips the golf club firmly, eyes locked on the ball with a calm and concentrated expression. his posture is balanced and natural, capturing the moment just before the swing.\n\nhe is wearing a stylish modern outfit with a black t shirt, black loose fit pants, and a fitted blazer that adds a premium fashion touch to the sporty look. the blazer moves slightly with the breeze, adding subtle motion. clean sneakers complete the outfit.\n\nnext to him on the side is a golf bag kit standing upright, filled with clubs, adding realism to the scene. the golf ball is clearly visible on the grass in front of him, enhancing the action moment.\n\nnatural sunlight illuminates the scene, creating soft highlights on his face and outfit with realistic shadows falling on the grass. the background shows the wide open golf course softly blurred.\n\ncaptured like professional sports photography with a dslr camera using a 70mm lens. shallow depth of field keeps the subject sharp while the background softly fades. ultra photorealistic lighting, cinematic color grading, high 阳光明媚的白天，在一个维护良好的高尔夫球场上，一位年轻男子正在打高尔夫球，呈现出高度写实的电影感肖像。湛蓝的天空下，绿色的球场平坦延伸，草坪修剪整齐，点缀着沙坑和远处的树木。\n\n这位年轻男子正处于动作之中，身体微微前倾，姿态专注，准备击打地面上的高尔夫球。他紧握高尔夫球杆，双眼紧盯着球，表情平静而专注。他的姿势平衡而自然，捕捉到了挥杆前的瞬间。\n\n他身穿一套时尚现代的服装，包括黑色 t 恤、黑色宽松长裤和一件修身西装外套，为运动造型增添了高级时尚感。西装外套随微风轻微摆动，增添了微妙的动感。干净的运动鞋完善了整体造型。\n\n在他旁边，立着一个装满了球杆的高尔夫球包，为场景增添了真实感。高尔夫球在他面前的草地上清晰可见，突出了动作瞬间。\n\n自然阳光照亮了整个场景，在他的脸部和服装上形成了柔和的高光，并在草地上投下真实的阴影。背景是广阔的高尔夫球场，柔和地虚化。\n\n拍摄效果如同专业体育摄影，使用单反相机搭配 70mm 镜头。浅景深使主体清晰锐利，而背景则柔和虚化。超逼真的光照，电影级色彩分级，高 harboris 12864",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12896,
+      "title": "结构化 超写实 iPhone 风格 提示词 适用于 Nano Banana Pro",
+      "description": "一个高度结构化、详细的类似 JSON 的提示词，专为 Nano Banana Pro 设计，用于指定相机设置 (iPhone 17 Pro Max, 35 毫米)、场景、光线、主体姿势、服装和拍摄角度，旨在实现超逼真的清晨 iPhone 原始写实感。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2037341647965687985",
+      "sourcePublishedAt": "2026-03-27T01:31:15.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"{argument name=\"camera model\" default=\"iPhone 17 Pro Max\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"raw morning iPhone realism, natural HDR, slight handheld softness\"\n  },\n  \"scene\": {\n    \"location\": \"sunlit bedroom near window\",\n    \"time\": \"early morning\",\n    \"atmosphere\": \"quiet, warm, slightly messy lived-in space\"\n  },\n  \"lighting\": {\n    \"type\": \"direct window light\",\n    \"temperature\": \"warm (5200K)\",\n    \"effect\": [\n      \"sunlight cutting across torso\",\n      \"soft glow through thin fabric\",\n      \"highlighted curves with shadow contrast\",\n      \"natural skin sheen\"\n    ]\n  },\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"standing very close to window\",\n      \"torso\": \"deep natural arch\",\n      \"hips\": \"pushed back slightly\",\n      \"arms\": \"both raised, hands in hair\"\n    },\n    \"expression\": {\n      \"eyes\": \"half-lidded direct eye contact\",\n      \"mouth\": \"slightly parted\",\n      \"energy\": \"slow, intentional, inviting\"\n    },\n    \"hair\": {\n      \"style\": \"messy, slightly tangled morning waves\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized white shirt\",\n        \"state\": \"barely buttoned, falling open naturally\",\n        \"fabric\": \"thin, semi-sheer cotton catching sunlight\"\n      },\n      \"bottom\": {\n        \"type\": \"ultra short sleep shorts\",\n        \"color\": \"{argument name=\"shorts color\" default=\"light grey\"}\",\n        \"fit\": \"riding slightly due to pose\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"slightly low, intimate distance\",\n    \"distance\": \"mid-close\",\n    \"focus\": \"face + torso sharp\",\n    \"imperfection\": \"minor handheld tilt\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679873571_60uzpj_HEYXblhaIAAHtl8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679873571_60uzpj_HEYXblhaIAAHtl8-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"camera\": \"{argument name=\\\"camera model\\\" default=\\\"iPhone 17 Pro Max\\\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"原始清晨 iPhone 真实感，自然 HDR，轻微手持柔和感\"\n  },\n  \"scene\": {\n    \"location\": \"窗边阳光充足的卧室\",\n    \"time\": \"清晨\",\n    \"atmosphere\": \"宁静、温暖、略显凌乱的生活空间\"\n  },\n  \"lighting\": {\n    \"type\": \"窗户直射光\",\n    \"temperature\": \"暖色 (5200K)\",\n    \"effect\": [\n      \"阳光穿过躯干\",\n      \"薄面料透出的柔和光晕\",\n      \"阴影对比下的突出曲线\",\n      \"自然的皮肤光泽\"\n    ]\n  },\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"站立，非常靠近窗户\",\n      \"torso\": \"深深的自然弓形躯干\",\n      \"hips\": \"臀部略微后推\",\n      \"arms\": \"双臂抬起，手插入头发中\"\n    },\n    \"expression\": {\n      \"eyes\": \"半闭的眼睛，直视镜头\",\n      \"mouth\": \"嘴唇微张\",\n      \"energy\": \"缓慢、刻意、诱人\"\n    },\n    \"hair\": {\n      \"style\": \"凌乱、略微打结的清晨波浪发\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"宽松的白色衬衫\",\n        \"state\": \"几乎未扣，自然敞开\",\n        \"fabric\": \"薄而半透明的棉质面料，捕捉阳光\"\n      },\n      \"bottom\": {\n        \"type\": \"超短睡裤\",\n        \"color\": \"{argument name=\\\"shorts color\\\" default=\\\"light grey\\\"}\",\n        \"fit\": \"因姿势而略微上移\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"略低角度，亲密距离\",\n    \"distance\": \"中近景\",\n    \"focus\": \"面部 + 躯干清晰\",\n    \"imperfection\": \"轻微手持倾斜\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "结构化 超写实 iphone 风格 提示词 适用于 nano banana pro 一个高度结构化、详细的类似 json 的提示词，专为 nano banana pro 设计，用于指定相机设置 (iphone 17 pro max, 35 毫米)、场景、光线、主体姿势、服装和拍摄角度，旨在实现超逼真的清晨 iphone 原始写实感。 {\n  \"meta\": {\n    \"camera\": \"{argument name=\"camera model\" default=\"iphone 17 pro max\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"raw morning iphone realism, natural hdr, slight handheld softness\"\n  },\n  \"scene\": {\n    \"location\": \"sunlit bedroom near window\",\n    \"time\": \"early morning\",\n    \"atmosphere\": \"quiet, warm, slightly messy lived-in space\"\n  },\n  \"lighting\": {\n    \"type\": \"direct window light\",\n    \"temperature\": \"warm (5200k)\",\n    \"effect\": [\n      \"sunlight cutting across torso\",\n      \"soft glow through thin fabric\",\n      \"highlighted curves with shadow contrast\",\n      \"natural skin sheen\"\n    ]\n  },\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"standing very close to window\",\n      \"torso\": \"deep natural arch\",\n      \"hips\": \"pushed back slightly\",\n      \"arms\": \"both raised, hands in hair\"\n    },\n    \"expression\": {\n      \"eyes\": \"half-lidded direct eye contact\",\n      \"mouth\": \"slightly parted\",\n      \"energy\": \"slow, intentional, inviting\"\n    },\n    \"hair\": {\n      \"style\": \"messy, slightly tangled morning waves\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized white shirt\",\n        \"state\": \"barely buttoned, falling open naturally\",\n        \"fabric\": \"thin, semi-sheer cotton catching sunlight\"\n      },\n      \"bottom\": {\n        \"type\": \"ultra short sleep shorts\",\n        \"color\": \"{argument name=\"shorts color\" default=\"light grey\"}\",\n        \"fit\": \"riding slightly due to pose\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"slightly low, intimate distance\",\n    \"distance\": \"mid-close\",\n    \"focus\": \"face + torso sharp\",\n    \"imperfection\": \"minor handheld tilt\"\n  }\n} ```json\n{\n  \"meta\": {\n    \"camera\": \"{argument name=\\\"camera model\\\" default=\\\"iphone 17 pro max\\\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"原始清晨 iphone 真实感，自然 hdr，轻微手持柔和感\"\n  },\n  \"scene\": {\n    \"location\": \"窗边阳光充足的卧室\",\n    \"time\": \"清晨\",\n    \"atmosphere\": \"宁静、温暖、略显凌乱的生活空间\"\n  },\n  \"lighting\": {\n    \"type\": \"窗户直射光\",\n    \"temperature\": \"暖色 (5200k)\",\n    \"effect\": [\n      \"阳光穿过躯干\",\n      \"薄面料透出的柔和光晕\",\n      \"阴影对比下的突出曲线\",\n      \"自然的皮肤光泽\"\n    ]\n  },\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"站立，非常靠近窗户\",\n      \"torso\": \"深深的自然弓形躯干\",\n      \"hips\": \"臀部略微后推\",\n      \"arms\": \"双臂抬起，手插入头发中\"\n    },\n    \"expression\": {\n      \"eyes\": \"半闭的眼睛，直视镜头\",\n      \"mouth\": \"嘴唇微张\",\n      \"energy\": \"缓慢、刻意、诱人\"\n    },\n    \"hair\": {\n      \"style\": \"凌乱、略微打结的清晨波浪发\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"宽松的白色衬衫\",\n        \"state\": \"几乎未扣，自然敞开\",\n        \"fabric\": \"薄而半透明的棉质面料，捕捉阳光\"\n      },\n      \"bottom\": {\n        \"type\": \"超短睡裤\",\n        \"color\": \"{argument name=\\\"shorts color\\\" default=\\\"light grey\\\"}\",\n        \"fit\": \"因姿势而略微上移\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"略低角度，亲密距离\",\n    \"distance\": \"中近景\",\n    \"focus\": \"面部 + 躯干清晰\",\n    \"imperfection\": \"轻微手持倾斜\"\n  }\n}\n``` shreya♡ 12896",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12914,
+      "title": "女性 举杯 的 电影感 特写",
+      "description": "一个详细的提示词，用于图像生成 (Nano Banana Pro) 和随后的视频生成 (Kling 3.0 Omni)。该提示词描述了电影般的特写镜头：一位女性正在享用美食和美酒，带着幸福甜美的笑容向镜头敬酒，并保持着亲密的距离。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2037337231875285457",
+      "sourcePublishedAt": "2026-03-27T01:13:42.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "美味しい料理とワインを心ゆくまで楽しみ、至福の表情でカメラに向かって乾杯しながら、親密な距離感で甘く微笑みかける女性のシネマティックなクローズアップ。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "电影特写镜头中，一位女士正尽情享用着美食佳酿，她带着幸福的神情向镜头举杯致意，并在近距离甜美地微笑着。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "女性 举杯 的 电影感 特写 一个详细的提示词，用于图像生成 (nano banana pro) 和随后的视频生成 (kling 3.0 omni)。该提示词描述了电影般的特写镜头：一位女性正在享用美食和美酒，带着幸福甜美的笑容向镜头敬酒，并保持着亲密的距离。 美味しい料理とワインを心ゆくまで楽しみ、至福の表情でカメラに向かって乾杯しながら、親密な距離感で甘く微笑みかける女性のシネマティックなクローズアップ。 电影特写镜头中，一位女士正尽情享用着美食佳酿，她带着幸福的神情向镜头举杯致意，并在近距离甜美地微笑着。 空想写真家 12914",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12886,
+      "title": "浪漫的芙蓉花数字肖像",
+      "description": "一个生成超写实数字肖像的提示词：基于上传的照片，描绘一位年轻女性，她拥有蓬松的深色头发，身着鲜艳的红色露肩连衣裙，并点缀着红色芙蓉花。画面强调温暖的光线和浪漫优雅的氛围。",
+      "sourceLink": "https://x.com/Aipromptslap/status/2037323784483729411",
+      "sourcePublishedAt": "2026-03-27T00:20:16.000Z",
+      "author": {
+        "name": "Ai Prompts Lab",
+        "link": "https://x.com/Aipromptslap"
+      },
+      "content": "Hyper-realistic digital portrait of a young woman [Use the first uploaded photo as reference] with voluminous dark brown wavy hair wearing a vibrant red off-shoulder dress. A large red hibiscus is tucked in her hair, with more hibiscus flowers and green leaves filling the right background. Soft, warm directional lighting highlights her smooth skin, glossy hair textures, and the crisp fabric folds. The color palette features bold reds, warm skin tones, and deep browns against a neutral beige background. Close-up composition, romantic and elegant atmosphere, 8k resolution, highly detailed masterpiece.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774679868684_89njtf_HEYHK0YbEAA7cw1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774679868684_89njtf_HEYHK0YbEAA7cw1-300x379.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实数字肖像，描绘了一位年轻女性，她拥有一头蓬松的深棕色波浪发，身穿一件鲜艳的红色露肩连衣裙。一朵硕大的红色扶桑花别在她的发间，更多的扶桑花和翠绿的叶子点缀着右侧背景。柔和、温暖的定向光线突显出她光滑的肌肤、光泽的发丝纹理以及清晰的布料褶皱。色彩搭配以大胆的红色、温暖的肤色和深棕色为主，映衬着中性的米色背景。特写构图，营造出浪漫优雅的氛围，8K 分辨率，高度精细的杰作。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "浪漫的芙蓉花数字肖像 一个生成超写实数字肖像的提示词：基于上传的照片，描绘一位年轻女性，她拥有蓬松的深色头发，身着鲜艳的红色露肩连衣裙，并点缀着红色芙蓉花。画面强调温暖的光线和浪漫优雅的氛围。 hyper-realistic digital portrait of a young woman [use the first uploaded photo as reference] with voluminous dark brown wavy hair wearing a vibrant red off-shoulder dress. a large red hibiscus is tucked in her hair, with more hibiscus flowers and green leaves filling the right background. soft, warm directional lighting highlights her smooth skin, glossy hair textures, and the crisp fabric folds. the color palette features bold reds, warm skin tones, and deep browns against a neutral beige background. close-up composition, romantic and elegant atmosphere, 8k resolution, highly detailed masterpiece. 超写实数字肖像，描绘了一位年轻女性，她拥有一头蓬松的深棕色波浪发，身穿一件鲜艳的红色露肩连衣裙。一朵硕大的红色扶桑花别在她的发间，更多的扶桑花和翠绿的叶子点缀着右侧背景。柔和、温暖的定向光线突显出她光滑的肌肤、光泽的发丝纹理以及清晰的布料褶皱。色彩搭配以大胆的红色、温暖的肤色和深棕色为主，映衬着中性的米色背景。特写构图，营造出浪漫优雅的氛围，8k 分辨率，高度精细的杰作。 ai prompts lab 12886",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 27,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

@@ -1,0 +1,469 @@
+{
+  "prompts": [
+    {
+      "id": 11411,
+      "title": "可爱 Cosplay 卧室亲吻场景提示",
+      "description": "一个详细的 JSON 提示，用于生成一个温馨、俏皮、充满爱意的场景：三位年轻女性（安娜·德·阿玛斯、萨布丽娜·卡彭特、艾玛·迈尔斯 的相似者）坐在一张床上，背景是一个柔和粉色的可爱动漫主题卧室，其中两人亲吻中间人物的脸颊。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2029141063575671285",
+      "sourcePublishedAt": "2026-03-04T10:25:03.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"English\",\n  \"scene\": {\n    \"environment\": \"Cozy cosplay bedroom in pastel pink tones\",\n    \"background_elements\": [\n      \"Light pink plush bedding\",\n      \"Sheer dreamy backdrop\",\n      \"Manga posters on walls\",\n      \"Glowing neon 'KeorUnreal'\"\n    ],\n    \"lighting\": \"Warm soft pinkish ambient light\"\n  },\n  \"subjects\": {\n    \"number\": \"Three young women ({argument name=\"subject one name\" default=\"Ana de Armas\"}, {argument name=\"subject two name\" default=\"Sabrina Carpenter\"}, {argument name=\"subject three name\" default=\"Emma Myers\"}) sitting together on bed\",\n    \"subject_one\": {\n      \"role\": \"Kissing middle girl on one cheek\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long dark brown high pigtails with colorful clips\",\n        \"makeup\": \"cute: winged eyeliner, rosy blush, glossy pink lips, heart sticker\",\n        \"expression\": \"eyes slightly closed, leaning warmly, sweet affectionate smile\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel yellow tank with Nami graphic\",\n        \"bottom\": \"low-rise pink/green checkerboard shorts\",\n        \"armwear\": \"soft pink ribbed arm warmers\",\n        \"accessories\": \"thin pastel choker, colorful hair clips/pins, stickers\"\n      }\n    },\n    \"subject_two\": {\n      \"role\": \"Middle woman being kissed on both cheeks\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long soft pastel pink/light blonde, loose with cute clips/bows\",\n        \"makeup\": \"kawaii: rosy blush, glossy pink lips, star sticker near eye\",\n        \"expression\": \"playful surprised bright smile, cheerful happy reaction\",\n        \"gaze\": \"direct eye contact with camera, smiling\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel lavender/blue camisole with kawaii print\",\n        \"bottom\": \"soft pastel pink/white lounge shorts/mini skirt\",\n        \"accessories\": \"thin pastel ribbon choker, cute pastel bow clips/pins, star/heart sticker\"\n      }\n    },\n    \"subject_three\": {\n      \"role\": \"Kissing middle girl on other cheek\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long blonde loose waves with cute pastel clips/bow accessories\",\n        \"makeup\": \"kawaii: rosy blush, glossy pink lips, small star sticker near eye\",\n        \"expression\": \"eyes slightly closed, leaning warmly to kiss, sweet affectionate friendly\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel orange camisole with Dragonball spheres graphic\",\n        \"bottom\": \"soft pastel pink/white lounge shorts/mini skirt\",\n        \"accessories\": \"thin pastel ribbon choker, cute pastel bow clips/pins, star/heart sticker\"\n      }\n    }\n  },\n  \"interaction\": {\n    \"action\": \"Subject one and subject three leaning in to gently kiss subject two on both cheeks\",\n    \"energy\": \"Warm playful sweet friendly affection, innocent cute best friend\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692198363_vyehw9_HCj1BupWoAEwXVI.jpg",
+        "https://cms-assets.youmind.com/media/1772692198354_2bsd8k_HCj1B0RWIAAW1Z6.jpg",
+        "https://cms-assets.youmind.com/media/1772692198370_350f90_HCj1B31aYAA-uGe.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692198363_vyehw9_HCj1BupWoAEwXVI-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772692198354_2bsd8k_HCj1B0RWIAAW1Z6-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772692198370_350f90_HCj1B31aYAA-uGe-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"简体中文\",\n  \"scene\": {\n    \"environment\": \"舒适的 Cosplay 卧室，以柔和的粉色调为主\",\n    \"background_elements\": [\n      \"浅粉色毛绒床上用品\",\n      \"薄纱般的梦幻背景\",\n      \"墙上的漫画海报\",\n      \"发光的霓虹灯字样“KeorUnreal”\"\n    ],\n    \"lighting\": \"温暖柔和的粉色环境光\"\n  },\n  \"subjects\": {\n    \"number\": \"三位年轻女性（{argument name=\\\"subject one name\\\" default=\\\"Ana de Armas\\\"}、{argument name=\\\"subject two name\\\" default=\\\"Sabrina Carpenter\\\"}、{argument name=\\\"subject three name\\\" default=\\\"Emma Myers\\\"}）一同坐在床上\",\n    \"subject_one\": {\n      \"role\": \"亲吻中间女孩的一侧脸颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"深棕色长发，扎着高高的双马尾，配有彩色发夹\",\n        \"makeup\": \"可爱：上扬眼线、玫瑰色腮红、亮粉色唇彩、心形贴纸\",\n        \"expression\": \"双眼微闭，温暖地倾身，带着甜美亲切的笑容\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡黄色背心，印有娜美（Nami）图案\",\n        \"bottom\": \"低腰粉绿棋盘格短裤\",\n        \"armwear\": \"柔软的粉色罗纹暖臂套\",\n        \"accessories\": \"细长的淡色项圈、彩色发夹/发卡、贴纸\"\n      }\n    },\n    \"subject_two\": {\n      \"role\": \"中间的女性，被亲吻双颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"柔顺的淡粉色/浅金色长发，随意散落，配有可爱的发夹/发饰\",\n        \"makeup\": \"卡哇伊：玫瑰色腮红、亮粉色唇彩、眼角附近有星星贴纸\",\n        \"expression\": \"俏皮惊喜的灿烂笑容，开朗愉快的反应\",\n        \"gaze\": \"与镜头直接眼神交流，面带微笑\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡紫色/蓝色吊带衫，印有卡哇伊图案\",\n        \"bottom\": \"柔软的淡粉色/白色休闲短裤/迷你裙\",\n        \"accessories\": \"细长的淡色丝带项圈、可爱的淡色蝴蝶结发夹/发卡、星星/心形贴纸\"\n      }\n    },\n    \"subject_three\": {\n      \"role\": \"亲吻中间女孩的另一侧脸颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"金色长发，波浪形散落，配有可爱的淡色发夹/蝴蝶结饰品\",\n        \"makeup\": \"卡哇伊：玫瑰色腮红、亮粉色唇彩、眼角附近有小星星贴纸\",\n        \"expression\": \"双眼微闭，温暖地倾身亲吻，甜美亲切友善\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡橙色吊带衫，印有龙珠（Dragonball）图案\",\n        \"bottom\": \"柔软的淡粉色/白色休闲短裤/迷你裙\",\n        \"accessories\": \"细长的淡色丝带项圈、可爱的淡色蝴蝶结发夹/发卡、星星/心形贴纸\"\n      }\n    }\n  },\n  \"interaction\": {\n    \"action\": \"主体一和主体三倾身，轻轻亲吻主体二的双颊\",\n    \"energy\": \"温暖俏皮、甜美友善的亲昵，纯真可爱的闺蜜情\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "可爱 cosplay 卧室亲吻场景提示 一个详细的 json 提示，用于生成一个温馨、俏皮、充满爱意的场景：三位年轻女性（安娜·德·阿玛斯、萨布丽娜·卡彭特、艾玛·迈尔斯 的相似者）坐在一张床上，背景是一个柔和粉色的可爱动漫主题卧室，其中两人亲吻中间人物的脸颊。 {\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"english\",\n  \"scene\": {\n    \"environment\": \"cozy cosplay bedroom in pastel pink tones\",\n    \"background_elements\": [\n      \"light pink plush bedding\",\n      \"sheer dreamy backdrop\",\n      \"manga posters on walls\",\n      \"glowing neon 'keorunreal'\"\n    ],\n    \"lighting\": \"warm soft pinkish ambient light\"\n  },\n  \"subjects\": {\n    \"number\": \"three young women ({argument name=\"subject one name\" default=\"ana de armas\"}, {argument name=\"subject two name\" default=\"sabrina carpenter\"}, {argument name=\"subject three name\" default=\"emma myers\"}) sitting together on bed\",\n    \"subject_one\": {\n      \"role\": \"kissing middle girl on one cheek\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long dark brown high pigtails with colorful clips\",\n        \"makeup\": \"cute: winged eyeliner, rosy blush, glossy pink lips, heart sticker\",\n        \"expression\": \"eyes slightly closed, leaning warmly, sweet affectionate smile\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel yellow tank with nami graphic\",\n        \"bottom\": \"low-rise pink/green checkerboard shorts\",\n        \"armwear\": \"soft pink ribbed arm warmers\",\n        \"accessories\": \"thin pastel choker, colorful hair clips/pins, stickers\"\n      }\n    },\n    \"subject_two\": {\n      \"role\": \"middle woman being kissed on both cheeks\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long soft pastel pink/light blonde, loose with cute clips/bows\",\n        \"makeup\": \"kawaii: rosy blush, glossy pink lips, star sticker near eye\",\n        \"expression\": \"playful surprised bright smile, cheerful happy reaction\",\n        \"gaze\": \"direct eye contact with camera, smiling\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel lavender/blue camisole with kawaii print\",\n        \"bottom\": \"soft pastel pink/white lounge shorts/mini skirt\",\n        \"accessories\": \"thin pastel ribbon choker, cute pastel bow clips/pins, star/heart sticker\"\n      }\n    },\n    \"subject_three\": {\n      \"role\": \"kissing middle girl on other cheek\",\n      \"appearance\": {\n        \"skin\": \"light\",\n        \"hair\": \"long blonde loose waves with cute pastel clips/bow accessories\",\n        \"makeup\": \"kawaii: rosy blush, glossy pink lips, small star sticker near eye\",\n        \"expression\": \"eyes slightly closed, leaning warmly to kiss, sweet affectionate friendly\"\n      },\n      \"outfit\": {\n        \"top\": \"sleeveless cropped pastel orange camisole with dragonball spheres graphic\",\n        \"bottom\": \"soft pastel pink/white lounge shorts/mini skirt\",\n        \"accessories\": \"thin pastel ribbon choker, cute pastel bow clips/pins, star/heart sticker\"\n      }\n    }\n  },\n  \"interaction\": {\n    \"action\": \"subject one and subject three leaning in to gently kiss subject two on both cheeks\",\n    \"energy\": \"warm playful sweet friendly affection, innocent cute best friend\"\n  }\n} ```json\n{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"简体中文\",\n  \"scene\": {\n    \"environment\": \"舒适的 cosplay 卧室，以柔和的粉色调为主\",\n    \"background_elements\": [\n      \"浅粉色毛绒床上用品\",\n      \"薄纱般的梦幻背景\",\n      \"墙上的漫画海报\",\n      \"发光的霓虹灯字样“keorunreal”\"\n    ],\n    \"lighting\": \"温暖柔和的粉色环境光\"\n  },\n  \"subjects\": {\n    \"number\": \"三位年轻女性（{argument name=\\\"subject one name\\\" default=\\\"ana de armas\\\"}、{argument name=\\\"subject two name\\\" default=\\\"sabrina carpenter\\\"}、{argument name=\\\"subject three name\\\" default=\\\"emma myers\\\"}）一同坐在床上\",\n    \"subject_one\": {\n      \"role\": \"亲吻中间女孩的一侧脸颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"深棕色长发，扎着高高的双马尾，配有彩色发夹\",\n        \"makeup\": \"可爱：上扬眼线、玫瑰色腮红、亮粉色唇彩、心形贴纸\",\n        \"expression\": \"双眼微闭，温暖地倾身，带着甜美亲切的笑容\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡黄色背心，印有娜美（nami）图案\",\n        \"bottom\": \"低腰粉绿棋盘格短裤\",\n        \"armwear\": \"柔软的粉色罗纹暖臂套\",\n        \"accessories\": \"细长的淡色项圈、彩色发夹/发卡、贴纸\"\n      }\n    },\n    \"subject_two\": {\n      \"role\": \"中间的女性，被亲吻双颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"柔顺的淡粉色/浅金色长发，随意散落，配有可爱的发夹/发饰\",\n        \"makeup\": \"卡哇伊：玫瑰色腮红、亮粉色唇彩、眼角附近有星星贴纸\",\n        \"expression\": \"俏皮惊喜的灿烂笑容，开朗愉快的反应\",\n        \"gaze\": \"与镜头直接眼神交流，面带微笑\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡紫色/蓝色吊带衫，印有卡哇伊图案\",\n        \"bottom\": \"柔软的淡粉色/白色休闲短裤/迷你裙\",\n        \"accessories\": \"细长的淡色丝带项圈、可爱的淡色蝴蝶结发夹/发卡、星星/心形贴纸\"\n      }\n    },\n    \"subject_three\": {\n      \"role\": \"亲吻中间女孩的另一侧脸颊\",\n      \"appearance\": {\n        \"skin\": \"白皙\",\n        \"hair\": \"金色长发，波浪形散落，配有可爱的淡色发夹/蝴蝶结饰品\",\n        \"makeup\": \"卡哇伊：玫瑰色腮红、亮粉色唇彩、眼角附近有小星星贴纸\",\n        \"expression\": \"双眼微闭，温暖地倾身亲吻，甜美亲切友善\"\n      },\n      \"outfit\": {\n        \"top\": \"无袖露脐淡橙色吊带衫，印有龙珠（dragonball）图案\",\n        \"bottom\": \"柔软的淡粉色/白色休闲短裤/迷你裙\",\n        \"accessories\": \"细长的淡色丝带项圈、可爱的淡色蝴蝶结发夹/发卡、星星/心形贴纸\"\n      }\n    }\n  },\n  \"interaction\": {\n    \"action\": \"主体一和主体三倾身，轻轻亲吻主体二的双颊\",\n    \"energy\": \"温暖俏皮、甜美友善的亲昵，纯真可爱的闺蜜情\"\n  }\n}\n``` keorunreal 11411",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11412,
+      "title": "超逼真护肤品摄影提示（钴蓝色）",
+      "description": "一个用于生成超逼真商业产品摄影的提示，内容为一支充满活力的钴蓝色护肤磨砂膏挤压管，强调单色美学、光泽表面和简洁的影棚背景。",
+      "sourceLink": "https://x.com/Taaruk_/status/2029138850698936655",
+      "sourcePublishedAt": "2026-03-04T10:16:16.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic commercial skincare product photography featuring a vibrant cobalt-blue squeeze tube labeled “{argument name=\"product name\" default=\"Fresho – Fresho Ness Scrub\"}” standing upright at the center of the frame. The tube has a glossy finish with clean white typography and a translucent flip-top cap, and it is placed on top of a matching blue product box that subtly displays the brand name on its side. The background is a seamless bright blue studio backdrop that enhances the monochromatic aesthetic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692198912_5whv4m_HCjzB67akAAl0zN.jpg",
+        "https://cms-assets.youmind.com/media/1772692198759_jcf9dy_HCjzBwXbcAAzBEn.jpg",
+        "https://cms-assets.youmind.com/media/1772692198898_25dcko_HCjzB5_bAAABTKb.jpg",
+        "https://cms-assets.youmind.com/media/1772692199790_bfppz0_HCjzB8AaMAAENNE.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692198912_5whv4m_HCjzB67akAAl0zN-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772692198759_jcf9dy_HCjzBwXbcAAzBEn-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772692198898_25dcko_HCjzB5_bAAABTKb-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772692199790_bfppz0_HCjzB8AaMAAENNE-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的商业护肤品摄影，画面中央立着一支充满活力的钴蓝色挤压管，上面标有“{argument name=\"product name\" default=\"Fresho – Fresho Ness Scrub\"}”。该软管表面光泽，印有简洁的白色字体，并配有半透明的掀盖，它放置在一个配套的蓝色产品盒上，盒身侧面巧妙地展示了品牌名称。背景是无缝的亮蓝色影棚背景，增强了单色美感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真护肤品摄影提示（钴蓝色） 一个用于生成超逼真商业产品摄影的提示，内容为一支充满活力的钴蓝色护肤磨砂膏挤压管，强调单色美学、光泽表面和简洁的影棚背景。 ultra-realistic commercial skincare product photography featuring a vibrant cobalt-blue squeeze tube labeled “{argument name=\"product name\" default=\"fresho – fresho ness scrub\"}” standing upright at the center of the frame. the tube has a glossy finish with clean white typography and a translucent flip-top cap, and it is placed on top of a matching blue product box that subtly displays the brand name on its side. the background is a seamless bright blue studio backdrop that enhances the monochromatic aesthetic. 超逼真的商业护肤品摄影，画面中央立着一支充满活力的钴蓝色挤压管，上面标有“{argument name=\"product name\" default=\"fresho – fresho ness scrub\"}”。该软管表面光泽，印有简洁的白色字体，并配有半透明的掀盖，它放置在一个配套的蓝色产品盒上，盒身侧面巧妙地展示了品牌名称。背景是无缝的亮蓝色影棚背景，增强了单色美感。 taaruk 11412",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11422,
+      "title": "巨型女性城市漫步视频提示",
+      "description": "一个用于生成超现实电影级视频的提示，内容是一名巨大的年轻女子走过现代化城市，高耸于摩天大楼之上，强调戏剧性的比例对比、低角度视角和动态照明。",
+      "sourceLink": "https://x.com/AIwithkhan/status/2029135835489251583",
+      "sourcePublishedAt": "2026-03-04T10:04:17.000Z",
+      "author": {
+        "name": "Smiling Khan",
+        "link": "https://x.com/AIwithkhan"
+      },
+      "content": "A giant young woman walking through a modern city street, towering over skyscrapers, her footsteps cracking the asphalt beneath her boots. She wears a brown leather jacket over a beige turtleneck sweater, a fitted brown skirt, ankle socks, and lace-up brown boots. Her long wavy hair flows naturally as she walks confidently. Below her, tiny cars and yellow taxis swerve around broken pavement, pedestrians scatter in shock at a crosswalk. Dust and debris rise dramatically around her feet. Cinematic perspective from low angle, dramatic scale contrast, ultra-realistic details, dynamic lighting, shallow depth of field, 8K resolution, highly detailed city environment, action scene, photorealistic, epic atmosphere.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692204257_3bcosp_HCjwQpsaIAAIn-F.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692204257_3bcosp_HCjwQpsaIAAIn-F-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位巨大的年轻女子走在现代都市街道上，她高耸于摩天大楼之上，脚下的沥青在她靴子踩踏下裂开。她身穿棕色皮夹克，内搭米色高领毛衣，下穿修身棕色短裙，配短袜和系带棕色靴子。她长长的波浪发自然地飘动着，自信地向前走。在她下方，微小的汽车和黄色出租车在破损的路面上穿梭，行人惊恐地在人行横道上四散奔逃。尘土和碎屑在她脚边剧烈扬起。电影般的低角度视角，戏剧性的比例对比，超现实细节，动态光影，浅景深，8K 分辨率，高度精细的城市环境，动作场景，照片级真实感，史诗般氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "巨型女性城市漫步视频提示 一个用于生成超现实电影级视频的提示，内容是一名巨大的年轻女子走过现代化城市，高耸于摩天大楼之上，强调戏剧性的比例对比、低角度视角和动态照明。 a giant young woman walking through a modern city street, towering over skyscrapers, her footsteps cracking the asphalt beneath her boots. she wears a brown leather jacket over a beige turtleneck sweater, a fitted brown skirt, ankle socks, and lace-up brown boots. her long wavy hair flows naturally as she walks confidently. below her, tiny cars and yellow taxis swerve around broken pavement, pedestrians scatter in shock at a crosswalk. dust and debris rise dramatically around her feet. cinematic perspective from low angle, dramatic scale contrast, ultra-realistic details, dynamic lighting, shallow depth of field, 8k resolution, highly detailed city environment, action scene, photorealistic, epic atmosphere. 一位巨大的年轻女子走在现代都市街道上，她高耸于摩天大楼之上，脚下的沥青在她靴子踩踏下裂开。她身穿棕色皮夹克，内搭米色高领毛衣，下穿修身棕色短裙，配短袜和系带棕色靴子。她长长的波浪发自然地飘动着，自信地向前走。在她下方，微小的汽车和黄色出租车在破损的路面上穿梭，行人惊恐地在人行横道上四散奔逃。尘土和碎屑在她脚边剧烈扬起。电影般的低角度视角，戏剧性的比例对比，超现实细节，动态光影，浅景深，8k 分辨率，高度精细的城市环境，动作场景，照片级真实感，史诗般氛围。 smiling khan 11422",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11416,
+      "title": "电影街头时尚摄影提示",
+      "description": "一个详细的提示，用于生成一段超现实的电影视频，内容是一位身着街头时尚的女性穿过城市人行横道，强调情绪化的灯光、运动模糊和《Vogue》杂志的编辑风格。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2029126639205191684",
+      "sourcePublishedAt": "2026-03-04T09:27:44.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "Ultra-realistic cinematic street fashion photography of a confident woman walking across a city crosswalk, wearing an oversized dark brown leather jacket, long black flowing skirt, and black knee-high boots. Wind blowing through her hair as she looks sideways with a calm confident expression. Urban downtown street environment with yellow taxis and pedestrians slightly blurred in the background, soft moody lighting, shallow depth of field, natural motion blur, editorial Vogue style, autumn color grading, shot on 85mm lens, high detail, cinematic composition, street style fashion campaign, photorealistic, 4k.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692201156_36h0lq_HCjn4PZawAMtt7Y.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692201156_36h0lq_HCjn4PZawAMtt7Y-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位自信的女性走过城市人行横道，身穿超大号深棕色皮夹克、黑色飘逸长裙和黑色及膝靴，拍摄超现实电影感的街头时尚照片。风吹拂着她的头发，她侧身凝视，表情平静而自信。背景是模糊的城市市中心街道环境，有黄色出租车和行人，柔和的氛围灯光，浅景深，自然运动模糊，Vogue 编辑风格，秋季调色，使用 85mm 镜头拍摄，高细节，电影构图，街头时尚大片，超逼真，4k。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影街头时尚摄影提示 一个详细的提示，用于生成一段超现实的电影视频，内容是一位身着街头时尚的女性穿过城市人行横道，强调情绪化的灯光、运动模糊和《vogue》杂志的编辑风格。 ultra-realistic cinematic street fashion photography of a confident woman walking across a city crosswalk, wearing an oversized dark brown leather jacket, long black flowing skirt, and black knee-high boots. wind blowing through her hair as she looks sideways with a calm confident expression. urban downtown street environment with yellow taxis and pedestrians slightly blurred in the background, soft moody lighting, shallow depth of field, natural motion blur, editorial vogue style, autumn color grading, shot on 85mm lens, high detail, cinematic composition, street style fashion campaign, photorealistic, 4k. 一位自信的女性走过城市人行横道，身穿超大号深棕色皮夹克、黑色飘逸长裙和黑色及膝靴，拍摄超现实电影感的街头时尚照片。风吹拂着她的头发，她侧身凝视，表情平静而自信。背景是模糊的城市市中心街道环境，有黄色出租车和行人，柔和的氛围灯光，浅景深，自然运动模糊，vogue 编辑风格，秋季调色，使用 85mm 镜头拍摄，高细节，电影构图，街头时尚大片，超逼真，4k。 synthia 11416",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11432,
+      "title": "Nano Banana Pro 主控提示模板 (JSON)",
+      "description": "Nano Banana Pro 的完整 JSON 模板，旨在结合所有技术和创意控制（场景、相机、灯光、色彩分级、文本、参考、角色），以生成完美的图像。",
+      "sourceLink": "https://x.com/thisdudelikesAI/status/2029119835830141293",
+      "sourcePublishedAt": "2026-03-04T09:00:42.000Z",
+      "author": {
+        "name": "Ryan Hart",
+        "link": "https://x.com/thisdudelikesAI"
+      },
+      "content": "{\n  \"generation_mode\": \"thinking|standard\",\n\n  \"output_specifications\": {\n    \"resolution\": \"1K|2K|4K\",\n    \"aspect_ratio\": \"16:9|1:1|9:16|custom\",\n    \"quality_priority\": \"speed|balanced|quality\"\n  },\n\n  \"scene_description\": {\n    \"primary_subject\": \"{argument name=\"primary subject\" default=\"[main focus of image]\"}\",\n    \"environment\": \"{argument name=\"environment\" default=\"[setting and background]\"}\",\n    \"atmosphere\": \"[mood and feeling]\",\n    \"style\": \"[visual aesthetic]\",\n    \"time_of_day\": \"[if relevant]\"\n  },\n\n  \"camera_controls\": {\n    \"angle\": \"[camera perspective]\",\n    \"focal_length\": \"[lens type - wide/standard/telephoto]\",\n    \"depth_of_field\": \"[shallow/deep, what's in focus]\",\n    \"composition\": \"[rule of thirds/centered/golden ratio/etc]\"\n  },\n\n  \"lighting_setup\": {\n    \"primary_light\": {\n      \"type\": \"[natural/studio/dramatic/soft]\",\n      \"direction\": \"[where light comes from]\",\n      \"intensity\": \"[bright/moderate/moody]\"\n    },\n    \"shadows\": \"[deep/subtle/minimal]\",\n    \"color_temperature\": \"[warm/cool/neutral]\",\n    \"special_effects\": \"[rim light/backlighting/etc if needed]\"\n  },\n\n  \"color_grading\": {\n    \"overall_tone\": \"[vibrant/muted/monochrome/etc]\",\n    \"color_palette\": [\"primary color\", \"secondary color\", \"accent color\"],\n    \"mood\": \"[emotional impact of colors]\"\n  },\n\n  \"text_elements\": [\n    {\n      \"text_content\": \"[exact text to render]\",\n      \"position\": \"[location in image]\",\n      \"font_style\": \"[typography description]\",\n      \"size\": \"[relative size]\",\n      \"color\": \"[text color]\",\n      \"effects\": \"[glow/shadow/3D/etc]\",\n      \"language\": \"[if not English]\"\n    }\n  ],\n\n  \"reference_images\": [\n    {\n      \"image_id\": 1,\n      \"purpose\": \"style reference|composition reference|color reference|character reference\",\n      \"extract_elements\": [\"specific elements to copy\"],\n      \"apply_to\": \"[where to use these elements]\",\n      \"transfer_intensity\": \"[0-100%]\"\n    }\n  ],\n\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"detailed_description\": \"[ethnicity, age, gender, facial features, hair, expression]\",\n      \"clothing\": \"[detailed outfit description]\",\n      \"pose\": \"[body position and gesture]\",\n      \"position_in_scene\": \"[spatial placement]\",\n      \"consistency_reference\": \"[image_id if maintaining across multiple generations]\"\n    }\n  ],\n\n  \"grounding\": {\n    \"enabled\": true|false,\n    \"search_queries\": [\"facts to verify\"],\n    \"data_requirements\": [\"specific information needed\"],\n    \"accuracy_priority\": \"high|medium\"\n  },\n\n  \"style_constraints\": {\n    \"artistic_style\": \"[photorealistic/illustration/3D render/watercolor/etc]\",\n    \"inspiration\": \"[specific artists or movements if relevant]\",\n    \"must_avoid\": [\"elements to exclude\"]\n  },\n\n  \"technical_requirements\": {\n    \"intended_use\": \"[social media/print/web/presentation]\",\n    \"safe_zones\": \"[areas to keep clear fo\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692210203_p3fahr_HCjhvLZawAIDbVH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692210203_p3fahr_HCjhvLZawAIDbVH-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"generation_mode\": \"thinking|standard\",\n\n  \"output_specifications\": {\n    \"resolution\": \"1K|2K|4K\",\n    \"aspect_ratio\": \"16:9|1:1|9:16|custom\",\n    \"quality_priority\": \"speed|balanced|quality\"\n  },\n\n  \"scene_description\": {\n    \"primary_subject\": \"{argument name=\\\"primary subject\\\" default=\\\"[图像的主要焦点]\\\"}\",\n    \"environment\": \"{argument name=\\\"environment\\\" default=\\\"[场景和背景]\\\"}\",\n    \"atmosphere\": \"[情绪和感觉]\",\n    \"style\": \"[视觉美学]\",\n    \"time_of_day\": \"[如果相关]\"\n  },\n\n  \"camera_controls\": {\n    \"angle\": \"[相机视角]\",\n    \"focal_length\": \"[镜头类型 - 广角/标准/长焦]\",\n    \"depth_of_field\": \"[浅景深/深景深，焦点所在]\",\n    \"composition\": \"[三分法/居中/黄金比例/等]\"\n  },\n\n  \"lighting_setup\": {\n    \"primary_light\": {\n      \"type\": \"[自然光/影棚光/戏剧光/柔光]\",\n      \"direction\": \"[光源方向]\",\n      \"intensity\": \"[明亮/适中/昏暗]\"\n    },\n    \"shadows\": \"[深/微妙/极少]\",\n    \"color_temperature\": \"[暖色/冷色/中性]\",\n    \"special_effects\": \"[轮廓光/逆光/等，如果需要]\"\n  },\n\n  \"color_grading\": {\n    \"overall_tone\": \"[鲜艳/柔和/单色/等]\",\n    \"color_palette\": [\"主色调\", \"次色调\", \"强调色\"],\n    \"mood\": \"[色彩的情感影响]\"\n  },\n\n  \"text_elements\": [\n    {\n      \"text_content\": \"[要渲染的确切文本]\",\n      \"position\": \"[图像中的位置]\",\n      \"font_style\": \"[字体描述]\",\n      \"size\": \"[相对大小]\",\n      \"color\": \"[文本颜色]\",\n      \"effects\": \"[发光/阴影/3D/等]\",\n      \"language\": \"[如果不是英文]\"\n    }\n  ],\n\n  \"reference_images\": [\n    {\n      \"image_id\": 1,\n      \"purpose\": \"style reference|composition reference|color reference|character reference\",\n      \"extract_elements\": [\"要复制的特定元素\"],\n      \"apply_to\": \"[这些元素的应用位置]\",\n      \"transfer_intensity\": \"[0-100%]\"\n    }\n  ],\n\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"detailed_description\": \"[种族、年龄、性别、面部特征、头发、表情]\",\n      \"clothing\": \"[详细的服装描述]\",\n      \"pose\": \"[身体姿势和手势]\",\n      \"position_in_scene\": \"[场景中的空间位置]\",\n      \"consistency_reference\": \"[如果要在多次生成中保持一致，则为 image_id]\"\n    }\n  ],\n\n  \"grounding\": {\n    \"enabled\": true|false,\n    \"search_queries\": [\"要验证的事实\"],\n    \"data_requirements\": [\"所需的具体信息\"],\n    \"accuracy_priority\": \"high|medium\"\n  },\n\n  \"style_constraints\": {\n    \"artistic_style\": \"[照片级真实感/插画/3D 渲染/水彩/等]\",\n    \"inspiration\": \"[如果相关，则为特定艺术家或流派]\",\n    \"must_avoid\": [\"要排除的元素\"]\n  },\n\n  \"technical_requirements\": {\n    \"intended_use\": \"[社交媒体/印刷品/网页/演示文稿]\",\n    \"safe_zones\": \"[要保持清晰的区域]\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 主控提示模板 (json) nano banana pro 的完整 json 模板，旨在结合所有技术和创意控制（场景、相机、灯光、色彩分级、文本、参考、角色），以生成完美的图像。 {\n  \"generation_mode\": \"thinking|standard\",\n\n  \"output_specifications\": {\n    \"resolution\": \"1k|2k|4k\",\n    \"aspect_ratio\": \"16:9|1:1|9:16|custom\",\n    \"quality_priority\": \"speed|balanced|quality\"\n  },\n\n  \"scene_description\": {\n    \"primary_subject\": \"{argument name=\"primary subject\" default=\"[main focus of image]\"}\",\n    \"environment\": \"{argument name=\"environment\" default=\"[setting and background]\"}\",\n    \"atmosphere\": \"[mood and feeling]\",\n    \"style\": \"[visual aesthetic]\",\n    \"time_of_day\": \"[if relevant]\"\n  },\n\n  \"camera_controls\": {\n    \"angle\": \"[camera perspective]\",\n    \"focal_length\": \"[lens type - wide/standard/telephoto]\",\n    \"depth_of_field\": \"[shallow/deep, what's in focus]\",\n    \"composition\": \"[rule of thirds/centered/golden ratio/etc]\"\n  },\n\n  \"lighting_setup\": {\n    \"primary_light\": {\n      \"type\": \"[natural/studio/dramatic/soft]\",\n      \"direction\": \"[where light comes from]\",\n      \"intensity\": \"[bright/moderate/moody]\"\n    },\n    \"shadows\": \"[deep/subtle/minimal]\",\n    \"color_temperature\": \"[warm/cool/neutral]\",\n    \"special_effects\": \"[rim light/backlighting/etc if needed]\"\n  },\n\n  \"color_grading\": {\n    \"overall_tone\": \"[vibrant/muted/monochrome/etc]\",\n    \"color_palette\": [\"primary color\", \"secondary color\", \"accent color\"],\n    \"mood\": \"[emotional impact of colors]\"\n  },\n\n  \"text_elements\": [\n    {\n      \"text_content\": \"[exact text to render]\",\n      \"position\": \"[location in image]\",\n      \"font_style\": \"[typography description]\",\n      \"size\": \"[relative size]\",\n      \"color\": \"[text color]\",\n      \"effects\": \"[glow/shadow/3d/etc]\",\n      \"language\": \"[if not english]\"\n    }\n  ],\n\n  \"reference_images\": [\n    {\n      \"image_id\": 1,\n      \"purpose\": \"style reference|composition reference|color reference|character reference\",\n      \"extract_elements\": [\"specific elements to copy\"],\n      \"apply_to\": \"[where to use these elements]\",\n      \"transfer_intensity\": \"[0-100%]\"\n    }\n  ],\n\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"detailed_description\": \"[ethnicity, age, gender, facial features, hair, expression]\",\n      \"clothing\": \"[detailed outfit description]\",\n      \"pose\": \"[body position and gesture]\",\n      \"position_in_scene\": \"[spatial placement]\",\n      \"consistency_reference\": \"[image_id if maintaining across multiple generations]\"\n    }\n  ],\n\n  \"grounding\": {\n    \"enabled\": true|false,\n    \"search_queries\": [\"facts to verify\"],\n    \"data_requirements\": [\"specific information needed\"],\n    \"accuracy_priority\": \"high|medium\"\n  },\n\n  \"style_constraints\": {\n    \"artistic_style\": \"[photorealistic/illustration/3d render/watercolor/etc]\",\n    \"inspiration\": \"[specific artists or movements if relevant]\",\n    \"must_avoid\": [\"elements to exclude\"]\n  },\n\n  \"technical_requirements\": {\n    \"intended_use\": \"[social media/print/web/presentation]\",\n    \"safe_zones\": \"[areas to keep clear fo\"\n  }\n} ```json\n{\n  \"generation_mode\": \"thinking|standard\",\n\n  \"output_specifications\": {\n    \"resolution\": \"1k|2k|4k\",\n    \"aspect_ratio\": \"16:9|1:1|9:16|custom\",\n    \"quality_priority\": \"speed|balanced|quality\"\n  },\n\n  \"scene_description\": {\n    \"primary_subject\": \"{argument name=\\\"primary subject\\\" default=\\\"[图像的主要焦点]\\\"}\",\n    \"environment\": \"{argument name=\\\"environment\\\" default=\\\"[场景和背景]\\\"}\",\n    \"atmosphere\": \"[情绪和感觉]\",\n    \"style\": \"[视觉美学]\",\n    \"time_of_day\": \"[如果相关]\"\n  },\n\n  \"camera_controls\": {\n    \"angle\": \"[相机视角]\",\n    \"focal_length\": \"[镜头类型 - 广角/标准/长焦]\",\n    \"depth_of_field\": \"[浅景深/深景深，焦点所在]\",\n    \"composition\": \"[三分法/居中/黄金比例/等]\"\n  },\n\n  \"lighting_setup\": {\n    \"primary_light\": {\n      \"type\": \"[自然光/影棚光/戏剧光/柔光]\",\n      \"direction\": \"[光源方向]\",\n      \"intensity\": \"[明亮/适中/昏暗]\"\n    },\n    \"shadows\": \"[深/微妙/极少]\",\n    \"color_temperature\": \"[暖色/冷色/中性]\",\n    \"special_effects\": \"[轮廓光/逆光/等，如果需要]\"\n  },\n\n  \"color_grading\": {\n    \"overall_tone\": \"[鲜艳/柔和/单色/等]\",\n    \"color_palette\": [\"主色调\", \"次色调\", \"强调色\"],\n    \"mood\": \"[色彩的情感影响]\"\n  },\n\n  \"text_elements\": [\n    {\n      \"text_content\": \"[要渲染的确切文本]\",\n      \"position\": \"[图像中的位置]\",\n      \"font_style\": \"[字体描述]\",\n      \"size\": \"[相对大小]\",\n      \"color\": \"[文本颜色]\",\n      \"effects\": \"[发光/阴影/3d/等]\",\n      \"language\": \"[如果不是英文]\"\n    }\n  ],\n\n  \"reference_images\": [\n    {\n      \"image_id\": 1,\n      \"purpose\": \"style reference|composition reference|color reference|character reference\",\n      \"extract_elements\": [\"要复制的特定元素\"],\n      \"apply_to\": \"[这些元素的应用位置]\",\n      \"transfer_intensity\": \"[0-100%]\"\n    }\n  ],\n\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"detailed_description\": \"[种族、年龄、性别、面部特征、头发、表情]\",\n      \"clothing\": \"[详细的服装描述]\",\n      \"pose\": \"[身体姿势和手势]\",\n      \"position_in_scene\": \"[场景中的空间位置]\",\n      \"consistency_reference\": \"[如果要在多次生成中保持一致，则为 image_id]\"\n    }\n  ],\n\n  \"grounding\": {\n    \"enabled\": true|false,\n    \"search_queries\": [\"要验证的事实\"],\n    \"data_requirements\": [\"所需的具体信息\"],\n    \"accuracy_priority\": \"high|medium\"\n  },\n\n  \"style_constraints\": {\n    \"artistic_style\": \"[照片级真实感/插画/3d 渲染/水彩/等]\",\n    \"inspiration\": \"[如果相关，则为特定艺术家或流派]\",\n    \"must_avoid\": [\"要排除的元素\"]\n  },\n\n  \"technical_requirements\": {\n    \"intended_use\": \"[社交媒体/印刷品/网页/演示文稿]\",\n    \"safe_zones\": \"[要保持清晰的区域]\"\n  }\n}\n``` ryan hart 11432",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11398,
+      "title": "角色一致性模板和示例提示",
+      "description": "一个模板和示例提示，演示如何在 Nano Banana Pro 中使用 JSON 参数，以在多张图像中保持角色一致性，特别是针对科技初创公司团队头脑风暴的场景。",
+      "sourceLink": "https://x.com/thisdudelikesAI/status/2029119768364769429",
+      "sourcePublishedAt": "2026-03-04T09:00:26.000Z",
+      "author": {
+        "name": "Ryan Hart",
+        "link": "https://x.com/thisdudelikesAI"
+      },
+      "content": "{\n  \"scene\": \"tech startup team brainstorming in modern office\",\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"description\": \"Asian female engineer, mid-20s, black hair in ponytail, wearing blue hoodie and glasses, confident expression\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"center, gesturing at whiteboard\"\n    },\n    {\n      \"character_id\": 2,\n      \"description\": \"Latino male developer, early-30s, beard, casual t-shirt, focused expression\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"left side, typing on laptop\"\n    }\n  ],\n  \"character_interactions\": \"collaborative and engaged, both focused on same project\",\n  \"maintain_across_series\": true\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692193412_fisa2i_HCjhrQqawAMozyQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692193412_fisa2i_HCjhrQqawAMozyQ-300x314.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": \"科技初创团队在现代办公室里进行头脑风暴\",\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"description\": \"亚洲女性工程师，25 岁左右，扎马尾辫的黑发，戴蓝色连帽衫和眼镜，表情自信\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"居中，在白板前比划\"\n    },\n    {\n      \"character_id\": 2,\n      \"description\": \"拉丁裔男性开发人员，30 岁出头，有胡须，穿休闲 T 恤，表情专注\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"左侧，在笔记本电脑上打字\"\n    }\n  ],\n  \"character_interactions\": \"协作且投入，两人都专注于同一个项目\",\n  \"maintain_across_series\": true\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "角色一致性模板和示例提示 一个模板和示例提示，演示如何在 nano banana pro 中使用 json 参数，以在多张图像中保持角色一致性，特别是针对科技初创公司团队头脑风暴的场景。 {\n  \"scene\": \"tech startup team brainstorming in modern office\",\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"description\": \"asian female engineer, mid-20s, black hair in ponytail, wearing blue hoodie and glasses, confident expression\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"center, gesturing at whiteboard\"\n    },\n    {\n      \"character_id\": 2,\n      \"description\": \"latino male developer, early-30s, beard, casual t-shirt, focused expression\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"left side, typing on laptop\"\n    }\n  ],\n  \"character_interactions\": \"collaborative and engaged, both focused on same project\",\n  \"maintain_across_series\": true\n} ```json\n{\n  \"scene\": \"科技初创团队在现代办公室里进行头脑风暴\",\n  \"characters\": [\n    {\n      \"character_id\": 1,\n      \"description\": \"亚洲女性工程师，25 岁左右，扎马尾辫的黑发，戴蓝色连帽衫和眼镜，表情自信\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"居中，在白板前比划\"\n    },\n    {\n      \"character_id\": 2,\n      \"description\": \"拉丁裔男性开发人员，30 岁出头，有胡须，穿休闲 t 恤，表情专注\",\n      \"consistency_priority\": \"high\",\n      \"position\": \"左侧，在笔记本电脑上打字\"\n    }\n  ],\n  \"character_interactions\": \"协作且投入，两人都专注于同一个项目\",\n  \"maintain_across_series\": true\n}\n``` ryan hart 11398",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11440,
+      "title": "用于相机和照明控制的 JSON 提示模板",
+      "description": "一个 JSON 模板和示例提示，演示如何在 Nano Banana Pro 中指定专业相机控制（角度、焦距、景深）和照明条件（类型、一天中的时间、情绪）以生成科技黑色电影场景。",
+      "sourceLink": "https://x.com/thisdudelikesAI/status/2029119737624674578",
+      "sourcePublishedAt": "2026-03-04T09:00:19.000Z",
+      "author": {
+        "name": "Ryan Hart",
+        "link": "https://x.com/thisdudelikesAI"
+      },
+      "content": "{\n  \"scene\": \"AI engineer working at futuristic desk with multiple holographic displays\",\n  \"camera\": {\n    \"angle\": \"over-the-shoulder, slightly elevated\",\n    \"focal_length\": \"50mm portrait lens\",\n    \"depth_of_field\": \"shallow, subject in sharp focus, background slightly blurred\"\n  },\n  \"lighting\": {\n    \"type\": \"dramatic side lighting with blue accent lights\",\n    \"time_of_day\": \"late night\",\n    \"mood\": \"focused, tech-noir atmosphere\",\n    \"shadows\": \"deep but not harsh\"\n  },\n  \"color_grade\": \"cool tones, teal and orange color scheme\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692214180_wsvj87_HCjhpb5awAUW6gj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692214180_wsvj87_HCjhpb5awAUW6gj-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": \"AI 工程师在未来主义风格的办公桌前工作，桌上有多块全息显示屏\",\n  \"camera\": {\n    \"angle\": \"过肩视角，略微抬高\",\n    \"focal_length\": \"50mm 人像镜头\",\n    \"depth_of_field\": \"景深较浅，主体清晰对焦，背景略微模糊\"\n  },\n  \"lighting\": {\n    \"type\": \"戏剧性的侧光，带有蓝色点缀光\",\n    \"time_of_day\": \"深夜\",\n    \"mood\": \"专注，科技黑色电影氛围\",\n    \"shadows\": \"深邃但不刺眼\"\n  },\n  \"color_grade\": \"冷色调，青色和橙色配色方案\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "用于相机和照明控制的 json 提示模板 一个 json 模板和示例提示，演示如何在 nano banana pro 中指定专业相机控制（角度、焦距、景深）和照明条件（类型、一天中的时间、情绪）以生成科技黑色电影场景。 {\n  \"scene\": \"ai engineer working at futuristic desk with multiple holographic displays\",\n  \"camera\": {\n    \"angle\": \"over-the-shoulder, slightly elevated\",\n    \"focal_length\": \"50mm portrait lens\",\n    \"depth_of_field\": \"shallow, subject in sharp focus, background slightly blurred\"\n  },\n  \"lighting\": {\n    \"type\": \"dramatic side lighting with blue accent lights\",\n    \"time_of_day\": \"late night\",\n    \"mood\": \"focused, tech-noir atmosphere\",\n    \"shadows\": \"deep but not harsh\"\n  },\n  \"color_grade\": \"cool tones, teal and orange color scheme\"\n} ```json\n{\n  \"scene\": \"ai 工程师在未来主义风格的办公桌前工作，桌上有多块全息显示屏\",\n  \"camera\": {\n    \"angle\": \"过肩视角，略微抬高\",\n    \"focal_length\": \"50mm 人像镜头\",\n    \"depth_of_field\": \"景深较浅，主体清晰对焦，背景略微模糊\"\n  },\n  \"lighting\": {\n    \"type\": \"戏剧性的侧光，带有蓝色点缀光\",\n    \"time_of_day\": \"深夜\",\n    \"mood\": \"专注，科技黑色电影氛围\",\n    \"shadows\": \"深邃但不刺眼\"\n  },\n  \"color_grade\": \"冷色调，青色和橙色配色方案\"\n}\n``` ryan hart 11440",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11439,
+      "title": "用于 AI 图像文本渲染的 JSON 提示模板",
+      "description": "一个 JSON 模板和示例提示，演示了如何使用 Nano Banana Pro 的文本渲染参数。这允许用户指定生成图像中文本元素的精确文本、位置、字体样式和大小。",
+      "sourceLink": "https://x.com/thisdudelikesAI/status/2029119705626362091",
+      "sourcePublishedAt": "2026-03-04T09:00:11.000Z",
+      "author": {
+        "name": "Ryan Hart",
+        "link": "https://x.com/thisdudelikesAI"
+      },
+      "content": "{\n  \"scene\": \"minimalist tech poster with gradient background\",\n  \"text_elements\": [\n    {\n      \"text\": \"AI Revolution 2025\",\n      \"position\": \"center, upper third\",\n      \"font_style\": \"bold, futuristic sans-serif, glowing effect\",\n      \"size\": \"large headline\"\n    },\n    {\n      \"text\": \"The future is now\",\n      \"position\": \"center, lower third\",\n      \"font_style\": \"elegant script, smaller subtitle\"\n    }\n  ]\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692212949_dvixdt_HCjhnofaUAAfVfN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692212949_dvixdt_HCjhnofaUAAfVfN-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": \"带有渐变背景的极简科技海报\",\n  \"text_elements\": [\n    {\n      \"text\": \"AI 革命 2025\",\n      \"position\": \"居中，上方三分之一处\",\n      \"font_style\": \"粗体，未来感无衬线字体，发光效果\",\n      \"size\": \"大标题\"\n    },\n    {\n      \"text\": \"未来已来\",\n      \"position\": \"居中，下方三分之一处\",\n      \"font_style\": \"优雅手写体，较小副标题\"\n    }\n  ]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "用于 ai 图像文本渲染的 json 提示模板 一个 json 模板和示例提示，演示了如何使用 nano banana pro 的文本渲染参数。这允许用户指定生成图像中文本元素的精确文本、位置、字体样式和大小。 {\n  \"scene\": \"minimalist tech poster with gradient background\",\n  \"text_elements\": [\n    {\n      \"text\": \"ai revolution 2025\",\n      \"position\": \"center, upper third\",\n      \"font_style\": \"bold, futuristic sans-serif, glowing effect\",\n      \"size\": \"large headline\"\n    },\n    {\n      \"text\": \"the future is now\",\n      \"position\": \"center, lower third\",\n      \"font_style\": \"elegant script, smaller subtitle\"\n    }\n  ]\n} ```json\n{\n  \"scene\": \"带有渐变背景的极简科技海报\",\n  \"text_elements\": [\n    {\n      \"text\": \"ai 革命 2025\",\n      \"position\": \"居中，上方三分之一处\",\n      \"font_style\": \"粗体，未来感无衬线字体，发光效果\",\n      \"size\": \"大标题\"\n    },\n    {\n      \"text\": \"未来已来\",\n      \"position\": \"居中，下方三分之一处\",\n      \"font_style\": \"优雅手写体，较小副标题\"\n    }\n  ]\n}\n``` ryan hart 11439",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11445,
+      "title": "用于定义画布尺寸的 JSON 提示模板",
+      "description": "一个 JSON 模板和一个示例提示，演示如何在 Nano Banana Pro 中指定图像生成的**分辨率**和**宽高比**（画布大小），以确保输出尺寸一致。",
+      "sourceLink": "https://x.com/thisdudelikesAI/status/2029119687343391041",
+      "sourcePublishedAt": "2026-03-04T09:00:07.000Z",
+      "author": {
+        "name": "Ryan Hart",
+        "link": "https://x.com/thisdudelikesAI"
+      },
+      "content": "{\n  \"scene\": \"futuristic AI workspace with holographic screens showing code\",\n  \"resolution\": \"4K\",\n  \"aspect_ratio\": \"16:9\",\n  \"style\": \"cinematic lighting, cyberpunk aesthetic, ultra-detailed\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692215653_cb1v3p_HCjhmfHbAAABnl0.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692215653_cb1v3p_HCjhmfHbAAABnl0-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": \"未来 AI 工作区，全息屏幕显示代码\",\n  \"resolution\": \"4K\",\n  \"aspect_ratio\": \"16:9\",\n  \"style\": \"电影级灯光，赛博朋克美学，超细节\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "用于定义画布尺寸的 json 提示模板 一个 json 模板和一个示例提示，演示如何在 nano banana pro 中指定图像生成的**分辨率**和**宽高比**（画布大小），以确保输出尺寸一致。 {\n  \"scene\": \"futuristic ai workspace with holographic screens showing code\",\n  \"resolution\": \"4k\",\n  \"aspect_ratio\": \"16:9\",\n  \"style\": \"cinematic lighting, cyberpunk aesthetic, ultra-detailed\"\n} ```json\n{\n  \"scene\": \"未来 ai 工作区，全息屏幕显示代码\",\n  \"resolution\": \"4k\",\n  \"aspect_ratio\": \"16:9\",\n  \"style\": \"电影级灯光，赛博朋克美学，超细节\"\n}\n``` ryan hart 11445",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11415,
+      "title": "自上而下的产品缩放视频提示",
+      "description": "一个用于生成短视频片段的提示，视频中展示一个产品罐子，保持俯视视角和参考图像中的调色板，同时摄像机缓慢推近。",
+      "sourceLink": "https://x.com/oggii_0/status/2029116168800485686",
+      "sourcePublishedAt": "2026-03-04T08:46:08.000Z",
+      "author": {
+        "name": "Oogie",
+        "link": "https://x.com/oggii_0"
+      },
+      "content": "Use the uploaded image as the exact visual reference for composition, jar design, orange slices, whole oranges, cinnamon sticks, lighting, and orange background. Maintain the same top-down perspective and color palette.\n\nCamera:\nTop-down camera angle (exactly as in the image).\nCamera slowly zooms in toward the jar.\nVery smooth and controlled movement.\nNo rotation.\nNo camera shake.\n\nAction:\n\nThe jar remains perfectly still in the center of the frame.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692201051_bkbkdo_HCjeX65aMAAk8z_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692201051_bkbkdo_HCjeX65aMAAk8z_-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请以上传图片作为精确的视觉参考，包括构图、罐子设计、橙片、完整橙子、肉桂棒、光线和橙色背景。保持相同的俯视视角和调色板。\n\n摄像机：\n俯视摄像机角度（与图片中完全一致）。\n摄像机缓慢地向罐子方向推近。\n非常平稳且受控的移动。\n无旋转。\n无摄像机抖动。\n\n动作：\n\n罐子在画面中央保持完全静止。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "自上而下的产品缩放视频提示 一个用于生成短视频片段的提示，视频中展示一个产品罐子，保持俯视视角和参考图像中的调色板，同时摄像机缓慢推近。 use the uploaded image as the exact visual reference for composition, jar design, orange slices, whole oranges, cinnamon sticks, lighting, and orange background. maintain the same top-down perspective and color palette.\n\ncamera:\ntop-down camera angle (exactly as in the image).\ncamera slowly zooms in toward the jar.\nvery smooth and controlled movement.\nno rotation.\nno camera shake.\n\naction:\n\nthe jar remains perfectly still in the center of the frame. 请以上传图片作为精确的视觉参考，包括构图、罐子设计、橙片、完整橙子、肉桂棒、光线和橙色背景。保持相同的俯视视角和调色板。\n\n摄像机：\n俯视摄像机角度（与图片中完全一致）。\n摄像机缓慢地向罐子方向推近。\n非常平稳且受控的移动。\n无旋转。\n无摄像机抖动。\n\n动作：\n\n罐子在画面中央保持完全静止。 oogie 11415",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11457,
+      "title": "Grok 视频提示：高速跳伞动作",
+      "description": "一个用于 Grok 的视频生成提示，使用 Nano Banana 2 生成的图像作为参考，专注于令人难以置信的跳伞技巧的超逼真、高速动作剪辑，并配有 EDM 配乐。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2029109212882846052",
+      "sourcePublishedAt": "2026-03-04T08:18:30.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nIncredible skydiving techniques, super-fast skydiving, super-super-fast, super-acrobatic skydiving tricks.\nMoving at super-super-super speed.\nAstonished audience.\nScene 2:\nThe parachute opens and the pilot lands at super-speed.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人表演，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人表演。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑组成。\n音乐：EDM\n场景 1：\n令人难以置信的跳伞技巧，超高速跳伞，超超高速，超高难度杂技跳伞特技。\n以超超超高速移动。\n观众震惊。\n场景 2：\n降落伞打开，飞行员以超高速着陆。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "grok 视频提示：高速跳伞动作 一个用于 grok 的视频生成提示，使用 nano banana 2 生成的图像作为参考，专注于令人难以置信的跳伞技巧的超逼真、高速动作剪辑，并配有 edm 配乐。 quality: live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nincredible skydiving techniques, super-fast skydiving, super-super-fast, super-acrobatic skydiving tricks.\nmoving at super-super-super speed.\nastonished audience.\nscene 2:\nthe parachute opens and the pilot lands at super-speed. 质量：真人表演，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人表演。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑组成。\n音乐：edm\n场景 1：\n令人难以置信的跳伞技巧，超高速跳伞，超超高速，超高难度杂技跳伞特技。\n以超超超高速移动。\n观众震惊。\n场景 2：\n降落伞打开，飞行员以超高速着陆。 とすくん 11457",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11425,
+      "title": "Ana de Armas 电影节抓拍提示词",
+      "description": "一个提示，用于生成一张安娜·德·阿玛斯（Ana de Armas）在热闹的户外夜间派对或音乐节上的写实抓拍照片，强调特定的服装、妆容、动态构图以及带散景效果的暖色环境光。",
+      "sourceLink": "https://x.com/Just_sharon7/status/2029106333799395552",
+      "sourcePublishedAt": "2026-03-04T08:07:03.000Z",
+      "author": {
+        "name": "Sharon Riley",
+        "link": "https://x.com/Just_sharon7"
+      },
+      "content": "Photorealistic candid shot of a lively outdoor night party or music festival crowd, energetic young people densely packed together, front and center Ana de Armas in her late 20s with long straight hair, radiant golden tan skin, dramatic glossy makeup, bold eyeliner, wearing a tight white sleeveless ruched mini dress / tank top dress with thin straps, large gold hoop earrings, layered gold necklaces, multiple chunky gold bracelets and bangles, posing seductively over her shoulder, looking directly at the camera with a flirty smile, one hand holding her phone high for a selfie, body slightly angled, legs crossed subtly, surrounded by excited friends pressing in close — a tall smiling guy in a beige trucker cap with deer logo, another guy in a dark pinstripe suit, girls in summer outfits, everyone holding up phones to take photos, colorful wristbands and festival vibes, warm golden hour / evening ambient lighting with bokeh city lights and crowd glow in the background, dynamic composition, high detail skin texture, sharp focus, Canon EOS R5, 50mm lens, natural candid photography style, vibrant and fun atmosphere --ar 2:3 --v 6 --q 2 --stylize 250",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692205572_68geoc_HCjVcRFbMAA3OiG.jpg",
+        "https://cms-assets.youmind.com/media/1772692205641_e9ky4e_HCjVcPWawAEb85x.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692205572_68geoc_HCjVcRFbMAA3OiG-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772692205641_e9ky4e_HCjVcPWawAEb85x-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张生动的户外夜间派对或音乐节人群的写实抓拍，精力充沛的年轻人密密麻麻地挤在一起，画面正中央是 20 多岁、留着长直发、皮肤晒成金黄色、容光焕发的 Ana de Armas，她化着浓艳的亮泽妆容，画着大胆的眼线，身穿紧身白色无袖褶皱迷你连衣裙/吊带背心裙，戴着大金色耳环、多层金色项链、多只粗大金色手链和手镯，摆出性感的过肩姿势，带着调情的微笑直视镜头，一只手高举手机自拍，身体略微倾斜，双腿巧妙地交叉，周围是兴奋地挤在一起的朋友们——一个戴着米色卡车司机帽（带有鹿形标志）的高个子微笑男生，另一个穿着深色细条纹西装的男生，以及穿着夏装的女生们，每个人都举着手机拍照，五彩缤纷的腕带和节日氛围，背景是温暖的黄金时段/傍晚环境光线，带有散景城市灯光和人群光晕，动态构图，高细节皮肤纹理，锐利对焦，佳能 EOS R5，50mm 镜头，自然抓拍摄影风格，充满活力和乐趣的氛围 --ar 2:3 --v 6 --q 2 --stylize 250",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ana de armas 电影节抓拍提示词 一个提示，用于生成一张安娜·德·阿玛斯（ana de armas）在热闹的户外夜间派对或音乐节上的写实抓拍照片，强调特定的服装、妆容、动态构图以及带散景效果的暖色环境光。 photorealistic candid shot of a lively outdoor night party or music festival crowd, energetic young people densely packed together, front and center ana de armas in her late 20s with long straight hair, radiant golden tan skin, dramatic glossy makeup, bold eyeliner, wearing a tight white sleeveless ruched mini dress / tank top dress with thin straps, large gold hoop earrings, layered gold necklaces, multiple chunky gold bracelets and bangles, posing seductively over her shoulder, looking directly at the camera with a flirty smile, one hand holding her phone high for a selfie, body slightly angled, legs crossed subtly, surrounded by excited friends pressing in close — a tall smiling guy in a beige trucker cap with deer logo, another guy in a dark pinstripe suit, girls in summer outfits, everyone holding up phones to take photos, colorful wristbands and festival vibes, warm golden hour / evening ambient lighting with bokeh city lights and crowd glow in the background, dynamic composition, high detail skin texture, sharp focus, canon eos r5, 50mm lens, natural candid photography style, vibrant and fun atmosphere --ar 2:3 --v 6 --q 2 --stylize 250 一张生动的户外夜间派对或音乐节人群的写实抓拍，精力充沛的年轻人密密麻麻地挤在一起，画面正中央是 20 多岁、留着长直发、皮肤晒成金黄色、容光焕发的 ana de armas，她化着浓艳的亮泽妆容，画着大胆的眼线，身穿紧身白色无袖褶皱迷你连衣裙/吊带背心裙，戴着大金色耳环、多层金色项链、多只粗大金色手链和手镯，摆出性感的过肩姿势，带着调情的微笑直视镜头，一只手高举手机自拍，身体略微倾斜，双腿巧妙地交叉，周围是兴奋地挤在一起的朋友们——一个戴着米色卡车司机帽（带有鹿形标志）的高个子微笑男生，另一个穿着深色细条纹西装的男生，以及穿着夏装的女生们，每个人都举着手机拍照，五彩缤纷的腕带和节日氛围，背景是温暖的黄金时段/傍晚环境光线，带有散景城市灯光和人群光晕，动态构图，高细节皮肤纹理，锐利对焦，佳能 eos r5，50mm 镜头，自然抓拍摄影风格，充满活力和乐趣的氛围 --ar 2:3 --v 6 --q 2 --stylize 250 sharon riley 11425",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11437,
+      "title": "复古相机女孩美学与运动后光彩瑜伽氛围提示",
+      "description": "为 Gemini Nano Banana Pro 模型准备的两个独立的 JSON 格式提示。第一个提示生成一张年轻女性手持复古相机，置身于柔和、唯美环境中的图像。第二个提示生成一张金发女性在明亮工作室中做瑜伽的图像，重点突出运动后的光泽。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2029093772055986547",
+      "sourcePublishedAt": "2026-03-04T07:17:08.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Vintage Camera Girl Aesthetic\",\n  \"description\": \"A young woman with long brown hair holding a vintage camera while standing indoors. She is wearing a soft floral mini dress with thin straps and a small red bow detail. Her makeup has a natural glow with rosy cheeks. The background has a vintage-style interior with green textured walls, wooden furniture, and a warm aesthetic atmosphere.\",\n  \"style\": \"soft aesthetic, vintage vibe, portrait photography\",\n  \"lighting\": \"natural soft indoor lighting\",\n  \"colors\": [\"beige\", \"soft pink\", \"brown\", \"green\"],\n  \"subject\": {\n    \"gender\": \"female\",\n    \"pose\": \"holding a camera and looking forward\",\n    \"hair\": \"long straight brown hair\",\n    \"outfit\": \"floral mini dress with thin straps and red bow\"\n  },\n  \"background\": \"vintage room with green textured wall and wooden furniture\",\n  \"mood\": \"calm, aesthetic, vintage\"\n}{\n  \"title\": \"Post-Workout Glow Yoga Vibes\",\n  \"description\": \"A young woman with blonde hair tied in a ponytail doing a yoga stretch on a mat inside a bright fitness studio. She is wearing a soft pink sports bra and white leggings, with visible post-workout glow and slightly flushed cheeks. Large windows allow natural light into the room, creating a clean and refreshing gym environment.\",\n  \"style\": \"fitness lifestyle, natural portrait\",\n  \"lighting\": \"bright natural daylight from large windows\",\n  \"colors\": [\"soft pink\", \"white\", \"skin tone\", \"light gray\", \"green\"],\n  \"subject\": {\n    \"gender\": \"female\",\n    \"activity\": \"yoga stretch / post-workout pose\",\n    \"hair\": \"blonde ponytail\",\n    \"outfit\": \"pink sports bra and white leggings\",\n    \"expression\": \"calm and slightly tired after workout\"\n  },\n  \"background\": \"modern fitness studio with large windows, plants, and yoga mat\",\n  \"mood\": \"fresh, healthy, energetic\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692212632_077fqs_HCjKCCzWEAAZi29.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692212632_077fqs_HCjKCCzWEAAZi29-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"复古相机女孩美学\",\n  \"description\": \"一位留着棕色长发的年轻女子，手持一台复古相机，站在室内。她穿着一件带有细肩带和小红色蝴蝶结细节的柔和碎花迷你连衣裙。她的妆容自然光泽，双颊泛红。背景是复古风格的室内，有绿色纹理墙壁、木制家具和温暖的审美氛围。\",\n  \"style\": \"柔和美学，复古氛围，肖像摄影\",\n  \"lighting\": \"自然柔和的室内照明\",\n  \"colors\": [\"米色\", \"柔和粉\", \"棕色\", \"绿色\"],\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"pose\": \"手持相机并向前看\",\n    \"hair\": \"棕色长直发\",\n    \"outfit\": \"带细肩带和红色蝴蝶结的碎花迷你连衣裙\"\n  },\n  \"background\": \"带有绿色纹理墙壁和木制家具的复古房间\",\n  \"mood\": \"平静，美学，复古\"\n}{\n  \"title\": \"运动后光彩瑜伽氛围\",\n  \"description\": \"一位扎着金色马尾辫的年轻女子，在明亮的健身房内垫子上做瑜伽伸展。她穿着柔软的粉色运动内衣和白色紧身裤，脸上可见运动后的光泽和微红的脸颊。大窗户让自然光线洒入室内，营造出干净清新的健身环境。\",\n  \"style\": \"健身生活方式，自然肖像\",\n  \"lighting\": \"大窗户透进的明亮自然日光\",\n  \"colors\": [\"柔和粉\", \"白色\", \"肤色\", \"浅灰色\", \"绿色\"],\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"activity\": \"瑜伽伸展 / 运动后姿势\",\n    \"hair\": \"金色马尾辫\",\n    \"outfit\": \"粉色运动内衣和白色紧身裤\",\n    \"expression\": \"运动后平静而略显疲惫\"\n  },\n  \"background\": \"带有大窗户、植物和瑜伽垫的现代健身房\",\n  \"mood\": \"清新，健康，活力\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "复古相机女孩美学与运动后光彩瑜伽氛围提示 为 gemini nano banana pro 模型准备的两个独立的 json 格式提示。第一个提示生成一张年轻女性手持复古相机，置身于柔和、唯美环境中的图像。第二个提示生成一张金发女性在明亮工作室中做瑜伽的图像，重点突出运动后的光泽。 {\n  \"title\": \"vintage camera girl aesthetic\",\n  \"description\": \"a young woman with long brown hair holding a vintage camera while standing indoors. she is wearing a soft floral mini dress with thin straps and a small red bow detail. her makeup has a natural glow with rosy cheeks. the background has a vintage-style interior with green textured walls, wooden furniture, and a warm aesthetic atmosphere.\",\n  \"style\": \"soft aesthetic, vintage vibe, portrait photography\",\n  \"lighting\": \"natural soft indoor lighting\",\n  \"colors\": [\"beige\", \"soft pink\", \"brown\", \"green\"],\n  \"subject\": {\n    \"gender\": \"female\",\n    \"pose\": \"holding a camera and looking forward\",\n    \"hair\": \"long straight brown hair\",\n    \"outfit\": \"floral mini dress with thin straps and red bow\"\n  },\n  \"background\": \"vintage room with green textured wall and wooden furniture\",\n  \"mood\": \"calm, aesthetic, vintage\"\n}{\n  \"title\": \"post-workout glow yoga vibes\",\n  \"description\": \"a young woman with blonde hair tied in a ponytail doing a yoga stretch on a mat inside a bright fitness studio. she is wearing a soft pink sports bra and white leggings, with visible post-workout glow and slightly flushed cheeks. large windows allow natural light into the room, creating a clean and refreshing gym environment.\",\n  \"style\": \"fitness lifestyle, natural portrait\",\n  \"lighting\": \"bright natural daylight from large windows\",\n  \"colors\": [\"soft pink\", \"white\", \"skin tone\", \"light gray\", \"green\"],\n  \"subject\": {\n    \"gender\": \"female\",\n    \"activity\": \"yoga stretch / post-workout pose\",\n    \"hair\": \"blonde ponytail\",\n    \"outfit\": \"pink sports bra and white leggings\",\n    \"expression\": \"calm and slightly tired after workout\"\n  },\n  \"background\": \"modern fitness studio with large windows, plants, and yoga mat\",\n  \"mood\": \"fresh, healthy, energetic\"\n} ```json\n{\n  \"title\": \"复古相机女孩美学\",\n  \"description\": \"一位留着棕色长发的年轻女子，手持一台复古相机，站在室内。她穿着一件带有细肩带和小红色蝴蝶结细节的柔和碎花迷你连衣裙。她的妆容自然光泽，双颊泛红。背景是复古风格的室内，有绿色纹理墙壁、木制家具和温暖的审美氛围。\",\n  \"style\": \"柔和美学，复古氛围，肖像摄影\",\n  \"lighting\": \"自然柔和的室内照明\",\n  \"colors\": [\"米色\", \"柔和粉\", \"棕色\", \"绿色\"],\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"pose\": \"手持相机并向前看\",\n    \"hair\": \"棕色长直发\",\n    \"outfit\": \"带细肩带和红色蝴蝶结的碎花迷你连衣裙\"\n  },\n  \"background\": \"带有绿色纹理墙壁和木制家具的复古房间\",\n  \"mood\": \"平静，美学，复古\"\n}{\n  \"title\": \"运动后光彩瑜伽氛围\",\n  \"description\": \"一位扎着金色马尾辫的年轻女子，在明亮的健身房内垫子上做瑜伽伸展。她穿着柔软的粉色运动内衣和白色紧身裤，脸上可见运动后的光泽和微红的脸颊。大窗户让自然光线洒入室内，营造出干净清新的健身环境。\",\n  \"style\": \"健身生活方式，自然肖像\",\n  \"lighting\": \"大窗户透进的明亮自然日光\",\n  \"colors\": [\"柔和粉\", \"白色\", \"肤色\", \"浅灰色\", \"绿色\"],\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"activity\": \"瑜伽伸展 / 运动后姿势\",\n    \"hair\": \"金色马尾辫\",\n    \"outfit\": \"粉色运动内衣和白色紧身裤\",\n    \"expression\": \"运动后平静而略显疲惫\"\n  },\n  \"background\": \"带有大窗户、植物和瑜伽垫的现代健身房\",\n  \"mood\": \"清新，健康，活力\"\n}\n``` zainab fatima 11437",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11451,
+      "title": "Vlog 风格视频生成提示，适用于 Nano Banana Pro 和 Google Veo 3.1（重复）",
+      "description": "一个详细的提示，用于生成一个逼真、高质量、Vlog 风格的视频，内容是一位女性讨论时尚。该提示详细说明了摄像机角度、灯光、构图、情绪、对话和背景音乐，以实现一种亲密、未经剪辑的观感。（这是推文 2029059260647391712 的副本）。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2029089459581468811",
+      "sourcePublishedAt": "2026-03-04T07:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象呈坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线来自[根据 UGC 风格的镜头添加逼真的光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 Vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 Vlog 时刻。\n\n这位女士的台词是：“今天的时尚亮点是[添加时尚特征]！”她用温柔的语气说着，同时触摸着自己的衣服。最后她笑了。\n\n背景音乐：播放着适合 Vlog 风格时尚氛围的舒适音乐。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "vlog 风格视频生成提示，适用于 nano banana pro 和 google veo 3.1（重复） 一个详细的提示，用于生成一个逼真、高质量、vlog 风格的视频，内容是一位女性讨论时尚。该提示详细说明了摄像机角度、灯光、构图、情绪、对话和背景音乐，以实现一种亲密、未经剪辑的观感。（这是推文 2029059260647391712 的副本）。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象呈坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线来自[根据 ugc 风格的镜头添加逼真的光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 vlog 时刻。\n\n这位女士的台词是：“今天的时尚亮点是[添加时尚特征]！”她用温柔的语气说着，同时触摸着自己的衣服。最后她笑了。\n\n背景音乐：播放着适合 vlog 风格时尚氛围的舒适音乐。 空想写真家 11451",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11395,
+      "title": "男孩从速写本中跃然而出的电影级 3D 插画",
+      "description": "一个复杂的 JSON 提示，用于创建一张超现实的 3D 插画：一个英俊的年轻男孩突破一本打开的速写本的纸张，强调细致的纹理、光照以及 2D 图画和 3D 人物之间的互动。",
+      "sourceLink": "https://x.com/Fujimoto_hina/status/2029088789810036834",
+      "sourcePublishedAt": "2026-03-04T06:57:20.000Z",
+      "author": {
+        "name": "Aegon",
+        "link": "https://x.com/Fujimoto_hina"
+      },
+      "content": "{\n  \"prompt\": \"A cinematic hyper-realistic 3D illustration of a handsome young boy with brown, messy hair and blue eyes, wearing a green hooded sweater and blue jeans, actively emerging from the pages of an open sketchbook. The sketchbook is placed on a worn, grain-rich wooden desk in a sun-drenched artist's studio. The pages show a detailed, intricate graphite pencil drawing of the same boy, but he is breaking through the paper, which is realistically torn and jagged where he exits. One of his 3D hands grips the torn paper edge tightly, while his other 3D arm rests naturally outside the pages on the desk surface, palms down. He looks out with an expression of surprise and wonder. A realistic human hand with detailed skin texture is visible in the foreground near the drawing, holding a traditional yellow wooden pencil, with the tip of the pencil close to the sketch, as if just having completed a part of the boy's form from which he is springing to life. Scattered pencil shavings, a large white eraser, and other art supplies like paintbrushes and jars are on the desk. Light from a large window in the background creates depth and a warm atmosphere. The rendering is high-resolution, with detailed textures for paper, graphite, wood grain, and skin.\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692192029_xcyulk_HCjFbn7awAIXG1Q.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692192029_xcyulk_HCjFbn7awAIXG1Q-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"prompt\": \"一张电影级的超现实 3D 插画，描绘了一个英俊的小男孩，他有着棕色凌乱的头发和蓝色的眼睛，身穿绿色连帽衫和蓝色牛仔裤，正生动地从一本打开的速写本页面中跃出。速写本放置在一张磨损、纹理丰富的木制书桌上，书桌位于阳光普照的艺术家工作室中。速写本的页面上展示着男孩的精细石墨铅笔画，但他正突破纸张，纸张在他跃出的地方真实地撕裂并参差不齐。他的一只 3D 手紧紧抓住撕裂的纸边缘，而另一只 3D 手臂则自然地放在页面外的书桌表面上，手掌朝下。他带着惊讶和好奇的表情向外看。前景中，靠近画作的地方，可见一只皮肤纹理细致的真实人手，正握着一支传统的黄色木铅笔，铅笔尖靠近素描，仿佛刚刚完成男孩身体的一部分，而他正从那里跃然而生。桌上散落着铅笔屑、一块大白色橡皮擦以及画笔和罐子等其他美术用品。背景中大窗户透出的光线营造出深度和温暖的氛围。渲染效果为高分辨率，纸张、石墨、木纹和皮肤的纹理都非常细致。\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "男孩从速写本中跃然而出的电影级 3d 插画 一个复杂的 json 提示，用于创建一张超现实的 3d 插画：一个英俊的年轻男孩突破一本打开的速写本的纸张，强调细致的纹理、光照以及 2d 图画和 3d 人物之间的互动。 {\n  \"prompt\": \"a cinematic hyper-realistic 3d illustration of a handsome young boy with brown, messy hair and blue eyes, wearing a green hooded sweater and blue jeans, actively emerging from the pages of an open sketchbook. the sketchbook is placed on a worn, grain-rich wooden desk in a sun-drenched artist's studio. the pages show a detailed, intricate graphite pencil drawing of the same boy, but he is breaking through the paper, which is realistically torn and jagged where he exits. one of his 3d hands grips the torn paper edge tightly, while his other 3d arm rests naturally outside the pages on the desk surface, palms down. he looks out with an expression of surprise and wonder. a realistic human hand with detailed skin texture is visible in the foreground near the drawing, holding a traditional yellow wooden pencil, with the tip of the pencil close to the sketch, as if just having completed a part of the boy's form from which he is springing to life. scattered pencil shavings, a large white eraser, and other art supplies like paintbrushes and jars are on the desk. light from a large window in the background creates depth and a warm atmosphere. the rendering is high-resolution, with detailed textures for paper, graphite, wood grain, and skin.\"\n} {\n  \"prompt\": \"一张电影级的超现实 3d 插画，描绘了一个英俊的小男孩，他有着棕色凌乱的头发和蓝色的眼睛，身穿绿色连帽衫和蓝色牛仔裤，正生动地从一本打开的速写本页面中跃出。速写本放置在一张磨损、纹理丰富的木制书桌上，书桌位于阳光普照的艺术家工作室中。速写本的页面上展示着男孩的精细石墨铅笔画，但他正突破纸张，纸张在他跃出的地方真实地撕裂并参差不齐。他的一只 3d 手紧紧抓住撕裂的纸边缘，而另一只 3d 手臂则自然地放在页面外的书桌表面上，手掌朝下。他带着惊讶和好奇的表情向外看。前景中，靠近画作的地方，可见一只皮肤纹理细致的真实人手，正握着一支传统的黄色木铅笔，铅笔尖靠近素描，仿佛刚刚完成男孩身体的一部分，而他正从那里跃然而生。桌上散落着铅笔屑、一块大白色橡皮擦以及画笔和罐子等其他美术用品。背景中大窗户透出的光线营造出深度和温暖的氛围。渲染效果为高分辨率，纸张、石墨、木纹和皮肤的纹理都非常细致。\"\n} aegon 11395",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11400,
+      "title": "柔和梦幻的洒红节肖像提示",
+      "description": "一个用于生成庆祝洒红节人物柔和、梦幻美学肖像的提示，重点是像薄雾般漂浮的柔和粉末、黄金时段光线和超精细的皮肤纹理。",
+      "sourceLink": "https://x.com/NikhilRajX/status/2029084465096442329",
+      "sourcePublishedAt": "2026-03-04T06:40:09.000Z",
+      "author": {
+        "name": "Nikhil",
+        "link": "https://x.com/NikhilRajX"
+      },
+      "content": "Soft dreamy aesthetic portrait of {argument name=\"person description\" default=\"[describe person]\"} celebrating Holi, pastel pink lavender yellow gulal powder gently floating around her face like mist, golden hour soft sunlight creating glowing rim light, serene joyful smile, ethereal atmosphere, shallow depth of field creamy bokeh, ultra-detailed skin texture, artistic photography style, 8k masterpiece",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692194541_k7e551_HCjBcYBawAAyehq.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692194541_k7e551_HCjBcYBawAAyehq-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "柔和梦幻的审美肖像，描绘了 {argument name=\"person description\" default=\"[describe person]\"} 庆祝洒红节的场景，淡粉色、薰衣草色和黄色的古拉尔粉末如薄雾般轻轻飘浮在她脸庞周围，金色时分的柔和阳光勾勒出光晕，宁静喜悦的笑容，空灵的氛围，浅景深奶油般散景，超详细的皮肤纹理，艺术摄影风格，8k 杰作",
+      "sourcePlatform": "twitter",
+      "searchIndex": "柔和梦幻的洒红节肖像提示 一个用于生成庆祝洒红节人物柔和、梦幻美学肖像的提示，重点是像薄雾般漂浮的柔和粉末、黄金时段光线和超精细的皮肤纹理。 soft dreamy aesthetic portrait of {argument name=\"person description\" default=\"[describe person]\"} celebrating holi, pastel pink lavender yellow gulal powder gently floating around her face like mist, golden hour soft sunlight creating glowing rim light, serene joyful smile, ethereal atmosphere, shallow depth of field creamy bokeh, ultra-detailed skin texture, artistic photography style, 8k masterpiece 柔和梦幻的审美肖像，描绘了 {argument name=\"person description\" default=\"[describe person]\"} 庆祝洒红节的场景，淡粉色、薰衣草色和黄色的古拉尔粉末如薄雾般轻轻飘浮在她脸庞周围，金色时分的柔和阳光勾勒出光晕，宁静喜悦的笑容，空灵的氛围，浅景深奶油般散景，超详细的皮肤纹理，艺术摄影风格，8k 杰作 nikhil 11400",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11447,
+      "title": "Vlog 风格视频生成提示语，适用于 Nano Banana Pro 和 Google Veo 3.1",
+      "description": "一个详细的提示，用于生成一个逼真、高质量、Vlog 风格的视频，内容是一位女性讨论时尚。该提示详细说明了摄像机角度、灯光、构图、情绪、对话和背景音乐，以实现一种亲密、未经剪辑的观感。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2029059260647391712",
+      "sourcePublishedAt": "2026-03-04T05:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "创建一个正对镜头的视频风格画面。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象应为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机运动。灯光来自 [添加符合 UGC 风格拍摄的真实灯光]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 Vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开口说话的真实 Vlog 瞬间。\n\n这位女士的台词是：“今天时尚的亮点是 [添加时尚特征]！”她以温柔的语调说出这句话，同时轻抚自己的衣服。说完后她微笑了。\n\n背景音乐：播放着适合 Vlog 风格时尚氛围的舒适音乐。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "vlog 风格视频生成提示语，适用于 nano banana pro 和 google veo 3.1 一个详细的提示，用于生成一个逼真、高质量、vlog 风格的视频，内容是一位女性讨论时尚。该提示详细说明了摄像机角度、灯光、构图、情绪、对话和背景音乐，以实现一种亲密、未经剪辑的观感。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 创建一个正对镜头的视频风格画面。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象应为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机运动。灯光来自 [添加符合 ugc 风格拍摄的真实灯光]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开口说话的真实 vlog 瞬间。\n\n这位女士的台词是：“今天时尚的亮点是 [添加时尚特征]！”她以温柔的语调说出这句话，同时轻抚自己的衣服。说完后她微笑了。\n\n背景音乐：播放着适合 vlog 风格时尚氛围的舒适音乐。 空想写真家 11447",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11449,
+      "title": "80 年代低保真快照提示",
+      "description": "一个旨在生成具有 80 年代智能手机快照外观和感觉的图像的提示，强调自然光、轻微的相机抖动、低分辨率和未经编辑的真实美学。",
+      "sourceLink": "https://x.com/genel_ai/status/2029044863380144285",
+      "sourcePublishedAt": "2026-03-04T04:02:47.000Z",
+      "author": {
+        "name": "GENEL | AI動画制作の今を知るなら",
+        "link": "https://x.com/genel_ai"
+      },
+      "content": "スマホで撮った日常のスナップ写真。80年代。自然光。少し手ブレしていて、低解像度ぎみ。無加工でリアル。\n↑に場所や被写体を追加",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "用智能手机拍摄的日常快照。1980 年代。自然光。略微抖动，低分辨率。未经编辑，真实感强。\n在上述内容中添加地点和主体",
+      "sourcePlatform": "twitter",
+      "searchIndex": "80 年代低保真快照提示 一个旨在生成具有 80 年代智能手机快照外观和感觉的图像的提示，强调自然光、轻微的相机抖动、低分辨率和未经编辑的真实美学。 スマホで撮った日常のスナップ写真。80年代。自然光。少し手ブレしていて、低解像度ぎみ。無加工でリアル。\n↑に場所や被写体を追加 用智能手机拍摄的日常快照。1980 年代。自然光。略微抖动，低分辨率。未经编辑，真实感强。\n在上述内容中添加地点和主体 genel | ai動画制作の今を知るなら 11449",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 103,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

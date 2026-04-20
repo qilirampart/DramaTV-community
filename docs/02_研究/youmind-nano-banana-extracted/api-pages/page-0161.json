@@ -1,0 +1,494 @@
+{
+  "prompts": [
+    {
+      "id": 10369,
+      "title": "逼真的咖啡馆生活场景拍摄提示",
+      "description": "一个旨在将上传图片转化为逼真、高质量生活照的提示，照片中主体随意地坐在一间高档现代咖啡馆里，强调暖色调灯光和浅景深。",
+      "sourceLink": "https://x.com/frametheory058/status/2024121351259201957",
+      "sourcePublishedAt": "2026-02-18T13:58:31.000Z",
+      "author": {
+        "name": "Nexora",
+        "link": "https://x.com/frametheory058"
+      },
+      "content": "Photorealistic lifestyle DSLR shot of the uploaded image as the subject casually seated at an upscale modern café with warm ambient lighting. Soft golden indoor tones, shallow depth of field with elegant background blur. Subject wears a refined smart-casual outfit — knit polo shirt, slim-fit trousers, minimalist sneakers. Natural candid pose, one arm resting on the table, subtle confident expression. Ultra-detailed facial features, realistic skin texture, premium lifestyle magazine aesthetic, 85mm lens, f/1.8, cinematic color balance.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483128057_pxhkz4_HBcfoD2a8AAPjsZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483128057_pxhkz4_HBcfoD2a8AAPjsZ-300x295.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "上传图片的主体人物，身着精致的商务休闲装——针织 Polo 衫、修身长裤、简约运动鞋，随意地坐在高档现代咖啡馆里。照片采用数码单反相机拍摄，呈现出逼真的生活化场景，暖色调环境光，柔和的金色室内色调，景深较浅，背景优雅地虚化。人物姿态自然随意，一只手臂搭在桌上，流露出微妙而自信的表情。面部特征超乎寻常地细致，皮肤纹理逼真，整体呈现出高端生活杂志的美学风格，85mm 镜头，f/1.8 光圈，电影般的色彩平衡。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "逼真的咖啡馆生活场景拍摄提示 一个旨在将上传图片转化为逼真、高质量生活照的提示，照片中主体随意地坐在一间高档现代咖啡馆里，强调暖色调灯光和浅景深。 photorealistic lifestyle dslr shot of the uploaded image as the subject casually seated at an upscale modern café with warm ambient lighting. soft golden indoor tones, shallow depth of field with elegant background blur. subject wears a refined smart-casual outfit — knit polo shirt, slim-fit trousers, minimalist sneakers. natural candid pose, one arm resting on the table, subtle confident expression. ultra-detailed facial features, realistic skin texture, premium lifestyle magazine aesthetic, 85mm lens, f/1.8, cinematic color balance. 上传图片的主体人物，身着精致的商务休闲装——针织 polo 衫、修身长裤、简约运动鞋，随意地坐在高档现代咖啡馆里。照片采用数码单反相机拍摄，呈现出逼真的生活化场景，暖色调环境光，柔和的金色室内色调，景深较浅，背景优雅地虚化。人物姿态自然随意，一只手臂搭在桌上，流露出微妙而自信的表情。面部特征超乎寻常地细致，皮肤纹理逼真，整体呈现出高端生活杂志的美学风格，85mm 镜头，f/1.8 光圈，电影般的色彩平衡。 nexora 10369",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10375,
+      "title": "原始混沌水墨海报提示",
+      "description": "生成一张高对比度、非写实的海报图像，风格为原始、混乱的墨迹涂鸦，使用极少的纯色（米色和橙色）。",
+      "sourceLink": "https://x.com/john_my07/status/2024121345735610465",
+      "sourcePublishedAt": "2026-02-18T13:58:29.000Z",
+      "author": {
+        "name": "Johnn",
+        "link": "https://x.com/john_my07"
+      },
+      "content": "{\n  \"style\": \"raw chaotic ink poster\",\n  \"subject\": \"face (use original reference only for proportions)\",\n  \"linework\": {\n    \"primary_method\": \"dense curved black scribble strokes\",\n    \"structure\": \"overlapping uneven lines\",\n    \"shading\": \"rough cross-hatching\",\n    \"symmetry\": \"slightly asymmetrical\"\n  },\n  \"rendering\": {\n    \"color_tone\": \"minimal flat beige\",\n    \"background\": \"solid flat orange\",\n    \"contrast\": \"high contrast\",\n    \"gradients\": false,\n    \"realism\": false,\n    \"3d_effects\": false,\n    \"polish\": \"none\"\n  },\n  \"details\": {\n    \"hair_and_shadows\": \"formed with tangled overlapping strokes\",\n    \"aura\": \"irregular tangled aura surrounding the face\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483130397_k506db_HBcfoopa4AA14_w.jpg",
+        "https://cms-assets.youmind.com/media/1771483130386_ofugs1_HBcfopZaAAAwdIM.jpg",
+        "https://cms-assets.youmind.com/media/1771483130601_zpwx45_HBcforua8AE48ZA.jpg",
+        "https://cms-assets.youmind.com/media/1771483130983_0j7a2o_HBcfosqbAAAs-uG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483130397_k506db_HBcfoopa4AA14_w-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1771483130386_ofugs1_HBcfopZaAAAwdIM-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1771483130601_zpwx45_HBcforua8AE48ZA-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1771483130983_0j7a2o_HBcfosqbAAAs-uG-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"style\": \"原始混沌泼墨海报\",\n  \"subject\": \"脸部（仅按原始参考图的比例）\",\n  \"linework\": {\n    \"primary_method\": \"密集弯曲的黑色涂鸦笔触\",\n    \"structure\": \"重叠不均的线条\",\n    \"shading\": \"粗糙的交叉影线\",\n    \"symmetry\": \"略微不对称\"\n  },\n  \"rendering\": {\n    \"color_tone\": \"极简平坦米色\",\n    \"background\": \"纯色平坦橙色\",\n    \"contrast\": \"高对比度\",\n    \"gradients\": false,\n    \"realism\": false,\n    \"3d_effects\": false,\n    \"polish\": \"无\"\n  },\n  \"details\": {\n    \"hair_and_shadows\": \"由缠结重叠的笔触形成\",\n    \"aura\": \"围绕脸部的不规则缠结光环\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "原始混沌水墨海报提示 生成一张高对比度、非写实的海报图像，风格为原始、混乱的墨迹涂鸦，使用极少的纯色（米色和橙色）。 {\n  \"style\": \"raw chaotic ink poster\",\n  \"subject\": \"face (use original reference only for proportions)\",\n  \"linework\": {\n    \"primary_method\": \"dense curved black scribble strokes\",\n    \"structure\": \"overlapping uneven lines\",\n    \"shading\": \"rough cross-hatching\",\n    \"symmetry\": \"slightly asymmetrical\"\n  },\n  \"rendering\": {\n    \"color_tone\": \"minimal flat beige\",\n    \"background\": \"solid flat orange\",\n    \"contrast\": \"high contrast\",\n    \"gradients\": false,\n    \"realism\": false,\n    \"3d_effects\": false,\n    \"polish\": \"none\"\n  },\n  \"details\": {\n    \"hair_and_shadows\": \"formed with tangled overlapping strokes\",\n    \"aura\": \"irregular tangled aura surrounding the face\"\n  }\n} ```json\n{\n  \"style\": \"原始混沌泼墨海报\",\n  \"subject\": \"脸部（仅按原始参考图的比例）\",\n  \"linework\": {\n    \"primary_method\": \"密集弯曲的黑色涂鸦笔触\",\n    \"structure\": \"重叠不均的线条\",\n    \"shading\": \"粗糙的交叉影线\",\n    \"symmetry\": \"略微不对称\"\n  },\n  \"rendering\": {\n    \"color_tone\": \"极简平坦米色\",\n    \"background\": \"纯色平坦橙色\",\n    \"contrast\": \"高对比度\",\n    \"gradients\": false,\n    \"realism\": false,\n    \"3d_effects\": false,\n    \"polish\": \"无\"\n  },\n  \"details\": {\n    \"hair_and_shadows\": \"由缠结重叠的笔触形成\",\n    \"aura\": \"围绕脸部的不规则缠结光环\"\n  }\n}\n``` johnn 10375",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10370,
+      "title": "图片编辑提示：移除手机和文字",
+      "description": "一个简单的图像编辑指令，指示模型从图像中移除一部手机和一个数字“4”，并调整手部姿势使其放松。",
+      "sourceLink": "https://x.com/benrzy/status/2024118464290398351",
+      "sourcePublishedAt": "2026-02-18T13:47:02.000Z",
+      "author": {
+        "name": "Ben Rzy",
+        "link": "https://x.com/benrzy"
+      },
+      "content": "Remove the phone and the hand should be just in a relaxed position. Remove the number 4 on the top left",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483128254_8d53z0_HBccpbRa4AEZs-Z.jpg",
+        "https://cms-assets.youmind.com/media/1771483128250_1e1zxs_HBccs1VasAEw7YH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483128254_8d53z0_HBccpbRa4AEZs-Z-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1771483128250_1e1zxs_HBccs1VasAEw7YH-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "移除手机，手部应该处于放松状态。移除左上角的数字 4。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图片编辑提示：移除手机和文字 一个简单的图像编辑指令，指示模型从图像中移除一部手机和一个数字“4”，并调整手部姿势使其放松。 remove the phone and the hand should be just in a relaxed position. remove the number 4 on the top left 移除手机，手部应该处于放松状态。移除左上角的数字 4。 ben rzy 10370",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10365,
+      "title": "Ana de Armas 冬日温馨肖像提示词",
+      "description": "一个高度详细、超现实的提示，旨在生成一张安娜·德·阿玛斯 (Ana de Armas) 在舒适冬季场景中的抓拍式高对比度肖像，强调特定的服装、光线和俏皮的表情。",
+      "sourceLink": "https://x.com/chatgptpaglu/status/2024114864965234953",
+      "sourcePublishedAt": "2026-02-18T13:32:44.000Z",
+      "author": {
+        "name": "yusra.",
+        "link": "https://x.com/chatgptpaglu"
+      },
+      "content": "{\n  \"prompt_structure\": {\n    \"subject_identity\": {\n      \"name\": \"{argument name=\"subject name\" default=\"Ana de Armas\"}\",\n      \"description\": \"The actress Ana de Armas, distinct hazel-green eyes, soft facial features, brunette hair, light olive complexion.\",\n      \"likeness_strength\": \"High fidelity, accurate facial structure.\"\n    },\n    \"expression_and_pose\": {\n      \"action\": \"Looking upwards towards the night sky, head tilted back playfully.\",\n      \"facial_expression\": \"Joyful and cute, smiling widely with tongue slightly sticking out in a playful manner, catching snowflakes.\",\n      \"angle\": \"Side profile to three-quarter view, candid snapshot style.\"\n    },\n    \"attire_and_accessories\": {\n      \"outerwear\": \"Voluminous, high-texture black faux fur coat.\",\n      \"inner_layer\": \"Light gray heather hoodie worn underneath, hood down.\",\n      \"accessories\": \"Black quilted luxury leather handbag (Chanel style) with a silver chain strap draped over the shoulder.\",\n      \"details\": \"Realistic fabric textures, fur distinct from the leather.\"\n    },\n    \"environment\": {\n      \"location\": \"Urban park at night, winter season.\",\n      \"background\": \"Tall leafless trees with snow-dusted branches, deep snow on the ground.\",\n      \"lighting_elements\": \" glowing spherical street lamps in the background creating bokeh, dark night sky.\"\n    },\n    \"technical_specifications\": {\n      \"visual_style\": \"Ultra-realistic, HDR (High Dynamic Range), candid paparazzi or influencer lifestyle photography.\",\n      \"lighting\": \"Flash photography aesthetic mixed with ambient street light, high contrast, sharp shadows.\",\n      \"resolution\": \"8k, detailed skin texture, visible pores, moisture in eyes, photorealistic snow texture.\",\n      \"aspect_ratio\": \"Vertical portrait (9:16)\"\n    }\n  }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483126162_ejxjh2_HBcZvdnawAA87hL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483126162_ejxjh2_HBcZvdnawAA87hL-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_structure\": {\n    \"subject_identity\": {\n      \"name\": \"{argument name=\\\"subject name\\\" default=\\\"Ana de Armas\\\"}\",\n      \"description\": \"女演员 Ana de Armas，独特的榛绿色眼睛，柔和的面部特征，棕色头发，浅橄榄色肤色。\",\n      \"likeness_strength\": \"高保真度，精确的面部结构。\"\n    },\n    \"expression_and_pose\": {\n      \"action\": \"抬头仰望夜空，头部俏皮地向后倾斜。\",\n      \"facial_expression\": \"快乐而可爱，咧嘴大笑，舌头俏皮地微伸，捕捉雪花。\",\n      \"angle\": \"侧面到四分之三视角，抓拍风格。\",\n    },\n    \"attire_and_accessories\": {\n      \"outerwear\": \"蓬松、高质感的黑色仿皮草外套。\",\n      \"inner_layer\": \"内搭浅灰色混色连帽衫，帽子放下。\",\n      \"accessories\": \"黑色绗缝奢华皮革手袋（香奈儿风格），银色链条肩带斜挎。\",\n      \"details\": \"逼真的织物纹理，皮草与皮革清晰可辨。\"\n    },\n    \"environment\": {\n      \"location\": \"夜晚的城市公园，冬季。\",\n      \"background\": \"高大光秃的树木，树枝上覆盖着积雪，地面上是厚厚的雪。\",\n      \"lighting_elements\": \"背景中发光的球形路灯形成散景效果，漆黑的夜空。\"\n    },\n    \"technical_specifications\": {\n      \"visual_style\": \"超现实主义，HDR（高动态范围），抓拍狗仔队或网红生活方式摄影。\",\n      \"lighting\": \"闪光灯摄影美学与环境街灯混合，高对比度，锐利阴影。\",\n      \"resolution\": \"8k，细致的皮肤纹理，可见毛孔，眼睛湿润，照片级真实的雪花纹理。\",\n      \"aspect_ratio\": \"垂直肖像（9:16）\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ana de armas 冬日温馨肖像提示词 一个高度详细、超现实的提示，旨在生成一张安娜·德·阿玛斯 (ana de armas) 在舒适冬季场景中的抓拍式高对比度肖像，强调特定的服装、光线和俏皮的表情。 {\n  \"prompt_structure\": {\n    \"subject_identity\": {\n      \"name\": \"{argument name=\"subject name\" default=\"ana de armas\"}\",\n      \"description\": \"the actress ana de armas, distinct hazel-green eyes, soft facial features, brunette hair, light olive complexion.\",\n      \"likeness_strength\": \"high fidelity, accurate facial structure.\"\n    },\n    \"expression_and_pose\": {\n      \"action\": \"looking upwards towards the night sky, head tilted back playfully.\",\n      \"facial_expression\": \"joyful and cute, smiling widely with tongue slightly sticking out in a playful manner, catching snowflakes.\",\n      \"angle\": \"side profile to three-quarter view, candid snapshot style.\"\n    },\n    \"attire_and_accessories\": {\n      \"outerwear\": \"voluminous, high-texture black faux fur coat.\",\n      \"inner_layer\": \"light gray heather hoodie worn underneath, hood down.\",\n      \"accessories\": \"black quilted luxury leather handbag (chanel style) with a silver chain strap draped over the shoulder.\",\n      \"details\": \"realistic fabric textures, fur distinct from the leather.\"\n    },\n    \"environment\": {\n      \"location\": \"urban park at night, winter season.\",\n      \"background\": \"tall leafless trees with snow-dusted branches, deep snow on the ground.\",\n      \"lighting_elements\": \" glowing spherical street lamps in the background creating bokeh, dark night sky.\"\n    },\n    \"technical_specifications\": {\n      \"visual_style\": \"ultra-realistic, hdr (high dynamic range), candid paparazzi or influencer lifestyle photography.\",\n      \"lighting\": \"flash photography aesthetic mixed with ambient street light, high contrast, sharp shadows.\",\n      \"resolution\": \"8k, detailed skin texture, visible pores, moisture in eyes, photorealistic snow texture.\",\n      \"aspect_ratio\": \"vertical portrait (9:16)\"\n    }\n  } ```json\n{\n  \"prompt_structure\": {\n    \"subject_identity\": {\n      \"name\": \"{argument name=\\\"subject name\\\" default=\\\"ana de armas\\\"}\",\n      \"description\": \"女演员 ana de armas，独特的榛绿色眼睛，柔和的面部特征，棕色头发，浅橄榄色肤色。\",\n      \"likeness_strength\": \"高保真度，精确的面部结构。\"\n    },\n    \"expression_and_pose\": {\n      \"action\": \"抬头仰望夜空，头部俏皮地向后倾斜。\",\n      \"facial_expression\": \"快乐而可爱，咧嘴大笑，舌头俏皮地微伸，捕捉雪花。\",\n      \"angle\": \"侧面到四分之三视角，抓拍风格。\",\n    },\n    \"attire_and_accessories\": {\n      \"outerwear\": \"蓬松、高质感的黑色仿皮草外套。\",\n      \"inner_layer\": \"内搭浅灰色混色连帽衫，帽子放下。\",\n      \"accessories\": \"黑色绗缝奢华皮革手袋（香奈儿风格），银色链条肩带斜挎。\",\n      \"details\": \"逼真的织物纹理，皮草与皮革清晰可辨。\"\n    },\n    \"environment\": {\n      \"location\": \"夜晚的城市公园，冬季。\",\n      \"background\": \"高大光秃的树木，树枝上覆盖着积雪，地面上是厚厚的雪。\",\n      \"lighting_elements\": \"背景中发光的球形路灯形成散景效果，漆黑的夜空。\"\n    },\n    \"technical_specifications\": {\n      \"visual_style\": \"超现实主义，hdr（高动态范围），抓拍狗仔队或网红生活方式摄影。\",\n      \"lighting\": \"闪光灯摄影美学与环境街灯混合，高对比度，锐利阴影。\",\n      \"resolution\": \"8k，细致的皮肤纹理，可见毛孔，眼睛湿润，照片级真实的雪花纹理。\",\n      \"aspect_ratio\": \"垂直肖像（9:16）\"\n    }\n  }\n}\n``` yusra. 10365",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10389,
+      "title": "AI 影响者比基尼肖像提示",
+      "description": "一个高度结构化的 JSON 提示，用于生成一张超现实的 AI 影响者（身材健美、湿润金发的成年女性）的半身照。她身穿红橙色扎染比基尼，置身于温暖的热带度假村露台，手中拿着一杯意式冰淇淋。",
+      "sourceLink": "https://x.com/ellas_pics/status/2024114594256445554",
+      "sourcePublishedAt": "2026-02-18T13:31:40.000Z",
+      "author": {
+        "name": "Ella",
+        "link": "https://x.com/ellas_pics"
+      },
+      "content": "{\n  “ar”: “4:5”,\n  “subject”: {\n    “type”: “adult woman”,\n    “age”: “mid-20s”,\n    “character_outline”: “fit physique with prominent, athletically sculpted curves; hair is long, wet, and blonde, falling loose around her shoulders”,\n    “expression”: “thoughtful, pensive expression with a slight frown, hand resting on her cheek”,\n    “gaze”: “looking slightly off-camera to the side”\n  },\n  “wardrobe”: {\n    “bikini”: {\n      “type”: “string bikini set”,\n      “color”: “red and orange tie-dye pattern”,\n      “top_detail”: “triangle cups with thin straps, designed for a fuller bust”,\n      “bottom_detail”: “matching bottoms with side ties, accentuating the hips”\n    },\n    “bag”: “small white textured shoulder bag tucked under her arm”\n  },\n“accessories”: {\n    “jewelry”: “layered gold pendant necklaces, a watch, and a bracelet on her left wrist”,\n    “other”: “holding a small cup of gelato with a spoon in her left hand”\n  },\n  “pose_action”: {\n    “shot_type”: “standing medium shot”,\n    “stance”: “standing casually with her weight on one leg, emphasizing her silhouette”,\n    “arms_hands”: “right hand touching her cheek in a pensive gesture; left hand holding the ice cream cup”,\n    “framing”: “centered composition capturing her from the mid-thigh up”\n  },\n  “scene”: {\n    “location”: “covered patio or open-air hallway of a resort or villa”,\n    “background”: “large dark wood door behind her; a large potted plant with green and purple leaves on the left; light beige stucco walls; a glimpse of a bright outdoor area through a doorway on the left”,\n    “atmosphere”: “warm, tropical vacation setting”\n  },\n“lighting”: {\n    “type”: “natural shaded daylight”,\n    “look”: “soft, diffused light filtering into the covered area, creating gentle shadows and highlighting the skin’s tanned texture and the wet hair”\n  },\n  “camera”: {\n    “device_vibe”: “high-quality candid photograph”,\n    “focus”: “sharp focus on the subject”,\n    “style”: “ultra-realistic, detailed image capturing the natural textures of skin, hair, fabric, and the environment”\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483136350_e9rrdb_HBcY7ePXcAAvvA3.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483136350_e9rrdb_HBcY7ePXcAAvvA3-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"ar\": \"4:5\",\n  \"subject\": {\n    \"type\": \"成年女性\",\n    \"age\": \"20 多岁\",\n    \"character_outline\": \"身材健美，曲线突出，充满运动感；头发长，湿润，金色，随意散落在肩上\",\n    \"expression\": \"若有所思，沉思的表情，略微蹙眉，手托着脸颊\",\n    \"gaze\": \"视线略微偏离镜头，看向侧面\"\n  },\n  \"wardrobe\": {\n    \"bikini\": {\n      \"type\": \"系带比基尼套装\",\n      \"color\": \"红橙色扎染图案\",\n      \"top_detail\": \"三角形罩杯，细肩带，专为丰满胸部设计\",\n      \"bottom_detail\": \"配套的系带比基尼下装，突出臀部线条\"\n    },\n    \"bag\": \"腋下夹着一个白色小巧的纹理感单肩包\"\n  },\n  \"accessories\": {\n    \"jewelry\": \"叠戴的金色吊坠项链，左手腕戴着手表和手链\",\n    \"other\": \"左手拿着一小杯意式冰淇淋和勺子\"\n  },\n  \"pose_action\": {\n    \"shot_type\": \"站立中景\",\n    \"stance\": \"随意站立，重心放在一条腿上，突出她的轮廓\",\n    \"arms_hands\": \"右手托着脸颊，呈沉思状；左手拿着冰淇淋杯\",\n    \"framing\": \"居中构图，从大腿中部向上拍摄\"\n  },\n  \"scene\": {\n    \"location\": \"度假村或别墅的带顶露台或开放式走廊\",\n    \"background\": \"身后是一扇巨大的深色木门；左侧有一盆大型盆栽，叶子呈绿色和紫色；浅米色灰泥墙；左侧门道透出一瞥明亮的户外区域\",\n    \"atmosphere\": \"温暖的热带度假氛围\"\n  },\n  \"lighting\": {\n    \"type\": \"自然遮蔽的日光\",\n    \"look\": \"柔和漫射的光线滤入有顶区域，营造出柔和的阴影，并突显皮肤的晒黑质感和湿润的头发\"\n  },\n  \"camera\": {\n    \"device_vibe\": \"高质量抓拍照片\",\n    \"focus\": \"主体对焦清晰\",\n    \"style\": \"超现实、细节丰富的图像，捕捉皮肤、头发、织物和环境的自然纹理\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ai 影响者比基尼肖像提示 一个高度结构化的 json 提示，用于生成一张超现实的 ai 影响者（身材健美、湿润金发的成年女性）的半身照。她身穿红橙色扎染比基尼，置身于温暖的热带度假村露台，手中拿着一杯意式冰淇淋。 {\n  “ar”: “4:5”,\n  “subject”: {\n    “type”: “adult woman”,\n    “age”: “mid-20s”,\n    “character_outline”: “fit physique with prominent, athletically sculpted curves; hair is long, wet, and blonde, falling loose around her shoulders”,\n    “expression”: “thoughtful, pensive expression with a slight frown, hand resting on her cheek”,\n    “gaze”: “looking slightly off-camera to the side”\n  },\n  “wardrobe”: {\n    “bikini”: {\n      “type”: “string bikini set”,\n      “color”: “red and orange tie-dye pattern”,\n      “top_detail”: “triangle cups with thin straps, designed for a fuller bust”,\n      “bottom_detail”: “matching bottoms with side ties, accentuating the hips”\n    },\n    “bag”: “small white textured shoulder bag tucked under her arm”\n  },\n“accessories”: {\n    “jewelry”: “layered gold pendant necklaces, a watch, and a bracelet on her left wrist”,\n    “other”: “holding a small cup of gelato with a spoon in her left hand”\n  },\n  “pose_action”: {\n    “shot_type”: “standing medium shot”,\n    “stance”: “standing casually with her weight on one leg, emphasizing her silhouette”,\n    “arms_hands”: “right hand touching her cheek in a pensive gesture; left hand holding the ice cream cup”,\n    “framing”: “centered composition capturing her from the mid-thigh up”\n  },\n  “scene”: {\n    “location”: “covered patio or open-air hallway of a resort or villa”,\n    “background”: “large dark wood door behind her; a large potted plant with green and purple leaves on the left; light beige stucco walls; a glimpse of a bright outdoor area through a doorway on the left”,\n    “atmosphere”: “warm, tropical vacation setting”\n  },\n“lighting”: {\n    “type”: “natural shaded daylight”,\n    “look”: “soft, diffused light filtering into the covered area, creating gentle shadows and highlighting the skin’s tanned texture and the wet hair”\n  },\n  “camera”: {\n    “device_vibe”: “high-quality candid photograph”,\n    “focus”: “sharp focus on the subject”,\n    “style”: “ultra-realistic, detailed image capturing the natural textures of skin, hair, fabric, and the environment”\n  }\n} ```json\n{\n  \"ar\": \"4:5\",\n  \"subject\": {\n    \"type\": \"成年女性\",\n    \"age\": \"20 多岁\",\n    \"character_outline\": \"身材健美，曲线突出，充满运动感；头发长，湿润，金色，随意散落在肩上\",\n    \"expression\": \"若有所思，沉思的表情，略微蹙眉，手托着脸颊\",\n    \"gaze\": \"视线略微偏离镜头，看向侧面\"\n  },\n  \"wardrobe\": {\n    \"bikini\": {\n      \"type\": \"系带比基尼套装\",\n      \"color\": \"红橙色扎染图案\",\n      \"top_detail\": \"三角形罩杯，细肩带，专为丰满胸部设计\",\n      \"bottom_detail\": \"配套的系带比基尼下装，突出臀部线条\"\n    },\n    \"bag\": \"腋下夹着一个白色小巧的纹理感单肩包\"\n  },\n  \"accessories\": {\n    \"jewelry\": \"叠戴的金色吊坠项链，左手腕戴着手表和手链\",\n    \"other\": \"左手拿着一小杯意式冰淇淋和勺子\"\n  },\n  \"pose_action\": {\n    \"shot_type\": \"站立中景\",\n    \"stance\": \"随意站立，重心放在一条腿上，突出她的轮廓\",\n    \"arms_hands\": \"右手托着脸颊，呈沉思状；左手拿着冰淇淋杯\",\n    \"framing\": \"居中构图，从大腿中部向上拍摄\"\n  },\n  \"scene\": {\n    \"location\": \"度假村或别墅的带顶露台或开放式走廊\",\n    \"background\": \"身后是一扇巨大的深色木门；左侧有一盆大型盆栽，叶子呈绿色和紫色；浅米色灰泥墙；左侧门道透出一瞥明亮的户外区域\",\n    \"atmosphere\": \"温暖的热带度假氛围\"\n  },\n  \"lighting\": {\n    \"type\": \"自然遮蔽的日光\",\n    \"look\": \"柔和漫射的光线滤入有顶区域，营造出柔和的阴影，并突显皮肤的晒黑质感和湿润的头发\"\n  },\n  \"camera\": {\n    \"device_vibe\": \"高质量抓拍照片\",\n    \"focus\": \"主体对焦清晰\",\n    \"style\": \"超现实、细节丰富的图像，捕捉皮肤、头发、织物和环境的自然纹理\"\n  }\n}\n``` ella 10389",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10393,
+      "title": "90 年代街头服饰汽车肖像提示",
+      "description": "生成一张逼真、随性的全身照片，内容为一名年轻男子夜晚倚靠在一辆改装过的白色丰田 Supra MK4 旁，强调粗犷的都市背景，使用“直射相机闪光灯”营造高对比度照明，并展现 90 年代街头服饰美学。",
+      "sourceLink": "https://x.com/harboriis/status/2024108704757653781",
+      "sourcePublishedAt": "2026-02-18T13:08:15.000Z",
+      "author": {
+        "name": "Harboriis",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "A realistic, candid full-body photo of a young man, use my face exact my reference image, leaning casually against the hood of a modified white Toyota Supra MK4 at night. Same beard, He has messy, wavy black hair (wolf cut) and is looking directly at the camera with a calm expression. He is wearing a silver chain necklace, an oversized dark charcoal grey corduroy crewneck sweatshirt with the text \"NEOPALESCENT\" inside an oval logo on the chest, baggy loose-fitting black denim jeans, and tan suede boots. His hands are in his pockets. The background is a gritty urban street corner with a concrete wall heavily covered in graffiti tags and Afux on wall. The lighting is \"direct camera flash\" style, creating hard shadows behind the subject and a high-contrast, vintage 90s streetwear aesthetic. 4k resolution, raw photo style, flash photography.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483137720_dbvxqg_HBcUI4kaIAA8_bu.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483137720_dbvxqg_HBcUI4kaIAA8_bu-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张写实、坦率的年轻男子全身照，使用我的脸部作为参考图像，他随意地靠在一辆改装过的白色丰田 Supra MK4 的引擎盖上，背景是夜晚。他留着和我一样的胡子，一头凌乱的波浪状黑发（狼尾发型），表情平静地直视镜头。他戴着一条银色项链，身穿一件超大号深炭灰色灯芯绒圆领运动衫，胸前有一个椭圆形标志，里面写着“NEOPALESCENT”字样，下身穿着宽松的黑色牛仔裤和棕褐色麂皮靴。他的双手插在口袋里。背景是一个粗犷的城市街角，混凝土墙上布满了涂鸦标签和 Afux 字样。灯光采用“直射闪光灯”风格，在拍摄对象身后形成硬阴影，营造出高对比度的 90 年代复古街头服饰美学。4K 分辨率，原始照片风格，闪光摄影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "90 年代街头服饰汽车肖像提示 生成一张逼真、随性的全身照片，内容为一名年轻男子夜晚倚靠在一辆改装过的白色丰田 supra mk4 旁，强调粗犷的都市背景，使用“直射相机闪光灯”营造高对比度照明，并展现 90 年代街头服饰美学。 a realistic, candid full-body photo of a young man, use my face exact my reference image, leaning casually against the hood of a modified white toyota supra mk4 at night. same beard, he has messy, wavy black hair (wolf cut) and is looking directly at the camera with a calm expression. he is wearing a silver chain necklace, an oversized dark charcoal grey corduroy crewneck sweatshirt with the text \"neopalescent\" inside an oval logo on the chest, baggy loose-fitting black denim jeans, and tan suede boots. his hands are in his pockets. the background is a gritty urban street corner with a concrete wall heavily covered in graffiti tags and afux on wall. the lighting is \"direct camera flash\" style, creating hard shadows behind the subject and a high-contrast, vintage 90s streetwear aesthetic. 4k resolution, raw photo style, flash photography. 一张写实、坦率的年轻男子全身照，使用我的脸部作为参考图像，他随意地靠在一辆改装过的白色丰田 supra mk4 的引擎盖上，背景是夜晚。他留着和我一样的胡子，一头凌乱的波浪状黑发（狼尾发型），表情平静地直视镜头。他戴着一条银色项链，身穿一件超大号深炭灰色灯芯绒圆领运动衫，胸前有一个椭圆形标志，里面写着“neopalescent”字样，下身穿着宽松的黑色牛仔裤和棕褐色麂皮靴。他的双手插在口袋里。背景是一个粗犷的城市街角，混凝土墙上布满了涂鸦标签和 afux 字样。灯光采用“直射闪光灯”风格，在拍摄对象身后形成硬阴影，营造出高对比度的 90 年代复古街头服饰美学。4k 分辨率，原始照片风格，闪光摄影。 harboriis 10393",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10411,
+      "title": "乡村牧场中的超丰满牛仔女郎",
+      "description": "一个结构化的 JSON 提示词，用于生成一张超逼真的女性图像，该女性在乡村牧场环境中拥有超极致、生物学上不可能的沙漏比例身材。主体身穿紧身牛仔裤和罗纹背心，强调了明亮自然阳光下织物与极致身体体积之间的张力。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2024108569449132477",
+      "sourcePublishedAt": "2026-02-18T13:07:43.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"meta\": {\n    \"quality\": \"ultra_photorealistic, raw style, 8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"bright natural sunlight, dappled shadows from trees\",\n    \"style\": \"amateur outdoor photo, no filter, sharp focus, realistic depth of field\"\n  },\n  \"scene\": {\n    \"location\": \"sunny rural ranch or farm with large oak trees and hanging moss, a brown horse standing in the background\",\n    \"atmosphere\": \"rustic, bright, and airy countryside vibe\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"body\": {\n      \"type\": \"hyper-extreme hourglass figure, non-standard proportions, biologically impossible ratio\",\n      \"Chest\": \"heavy full chest, deep cleavage, spilling out of the top\",\n      \"waist\": \"impossibly tiny waist, snatched corset-like definition\",\n      \"hips\": \"wide shelf hips, thick thighs, curvy silhouette\"\n    },\n    \"face\": {\n      \"features\": \"blonde hair in pigtail braids, natural beauty, minimal makeup, realistic skin texture, visible pores, slight imperfections\",\n      \"expression\": \"soft, confident gaze looking directly at the camera\"\n    },\n    \"outfit\": {\n      \"description\": \"weathered straw cowboy hat, white ribbed tank top, light wash denim jeans, brown leather belt with a large silver buckle, delicate necklaces\",\n      \"fit\": \"extremely tight tank top, bursting seams, struggling to contain volume, fabric under maximum tension\"\n    },\n    \"pose\": \"leaning forward slightly toward the camera, hands behind back, standing in front of a horse\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483145022_fztujf_HBcUAKWWMAAYtNq.jpg",
+        "https://cms-assets.youmind.com/media/1771483145046_tnvfh6_HBcUATnWEAE-5He.jpg",
+        "https://cms-assets.youmind.com/media/1771483145161_gla42r_HBcUAMiXYAEXhXm.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483145022_fztujf_HBcUAKWWMAAYtNq-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771483145046_tnvfh6_HBcUATnWEAE-5He-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771483145161_gla42r_HBcUAMiXYAEXhXm-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"quality\": \"超逼真、原始风格、8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"明亮的自然阳光，树木斑驳的阴影\",\n    \"style\": \"业余户外照片，无滤镜，锐利对焦，真实的景深\"\n  },\n  \"scene\": {\n    \"location\": \"阳光明媚的乡村牧场或农场，有高大的橡树和垂挂的苔藓，背景中站着一匹棕色马\",\n    \"atmosphere\": \"质朴、明亮、通风的乡村氛围\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"body\": {\n      \"type\": \"超极致沙漏身材，非标准比例，生物学上不可能的比例\",\n      \"Chest\": \"丰满的胸部，深邃的乳沟，从上衣中溢出\",\n      \"waist\": \"细得不可思议的腰部，紧身胸衣般的收束感\",\n      \"hips\": \"宽大的架子臀，粗壮的大腿，曲线玲珑的轮廓\"\n    },\n    \"face\": {\n      \"features\": \"金色头发，扎成麻花辫，自然美，淡妆，真实的皮肤纹理，可见毛孔，轻微瑕疵\",\n      \"expression\": \"柔和、自信的眼神，直视镜头\"\n    },\n    \"outfit\": {\n      \"description\": \"风化的草编牛仔帽，白色罗纹背心，浅色水洗牛仔裤，带有大银色搭扣的棕色皮带，精致的项链\",\n      \"fit\": \"极其紧身的背心，接缝处快要爆开，难以容纳的体积，面料处于最大张力状态\"\n    },\n    \"pose\": \"身体略微前倾，面向镜头，双手背在身后，站在马匹前方\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "乡村牧场中的超丰满牛仔女郎 一个结构化的 json 提示词，用于生成一张超逼真的女性图像，该女性在乡村牧场环境中拥有超极致、生物学上不可能的沙漏比例身材。主体身穿紧身牛仔裤和罗纹背心，强调了明亮自然阳光下织物与极致身体体积之间的张力。 {\n  \"meta\": {\n    \"quality\": \"ultra_photorealistic, raw style, 8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"bright natural sunlight, dappled shadows from trees\",\n    \"style\": \"amateur outdoor photo, no filter, sharp focus, realistic depth of field\"\n  },\n  \"scene\": {\n    \"location\": \"sunny rural ranch or farm with large oak trees and hanging moss, a brown horse standing in the background\",\n    \"atmosphere\": \"rustic, bright, and airy countryside vibe\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"body\": {\n      \"type\": \"hyper-extreme hourglass figure, non-standard proportions, biologically impossible ratio\",\n      \"chest\": \"heavy full chest, deep cleavage, spilling out of the top\",\n      \"waist\": \"impossibly tiny waist, snatched corset-like definition\",\n      \"hips\": \"wide shelf hips, thick thighs, curvy silhouette\"\n    },\n    \"face\": {\n      \"features\": \"blonde hair in pigtail braids, natural beauty, minimal makeup, realistic skin texture, visible pores, slight imperfections\",\n      \"expression\": \"soft, confident gaze looking directly at the camera\"\n    },\n    \"outfit\": {\n      \"description\": \"weathered straw cowboy hat, white ribbed tank top, light wash denim jeans, brown leather belt with a large silver buckle, delicate necklaces\",\n      \"fit\": \"extremely tight tank top, bursting seams, struggling to contain volume, fabric under maximum tension\"\n    },\n    \"pose\": \"leaning forward slightly toward the camera, hands behind back, standing in front of a horse\"\n  }\n} ```json\n{\n  \"meta\": {\n    \"quality\": \"超逼真、原始风格、8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"明亮的自然阳光，树木斑驳的阴影\",\n    \"style\": \"业余户外照片，无滤镜，锐利对焦，真实的景深\"\n  },\n  \"scene\": {\n    \"location\": \"阳光明媚的乡村牧场或农场，有高大的橡树和垂挂的苔藓，背景中站着一匹棕色马\",\n    \"atmosphere\": \"质朴、明亮、通风的乡村氛围\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"body\": {\n      \"type\": \"超极致沙漏身材，非标准比例，生物学上不可能的比例\",\n      \"chest\": \"丰满的胸部，深邃的乳沟，从上衣中溢出\",\n      \"waist\": \"细得不可思议的腰部，紧身胸衣般的收束感\",\n      \"hips\": \"宽大的架子臀，粗壮的大腿，曲线玲珑的轮廓\"\n    },\n    \"face\": {\n      \"features\": \"金色头发，扎成麻花辫，自然美，淡妆，真实的皮肤纹理，可见毛孔，轻微瑕疵\",\n      \"expression\": \"柔和、自信的眼神，直视镜头\"\n    },\n    \"outfit\": {\n      \"description\": \"风化的草编牛仔帽，白色罗纹背心，浅色水洗牛仔裤，带有大银色搭扣的棕色皮带，精致的项链\",\n      \"fit\": \"极其紧身的背心，接缝处快要爆开，难以容纳的体积，面料处于最大张力状态\"\n    },\n    \"pose\": \"身体略微前倾，面向镜头，双手背在身后，站在马匹前方\"\n  }\n}\n``` keorunreal 10411",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10421,
+      "title": "古埃及祭祀外星实体提示",
+      "description": "一个用于 Nano Banana Pro 的详细英文提示，用于生成一张图片，然后该图片在 Higgsfield Cinema Studio 2.0 中被用于制作视频。该提示描述了一个古埃及的单色、仪式性场景，其中涉及一场仪仗队、神圣几何图案，以及一个巨大、令人不安的异形实体主宰着整个场景。",
+      "sourceLink": "https://x.com/iX00AI/status/2024106995842974089",
+      "sourcePublishedAt": "2026-02-18T13:01:28.000Z",
+      "author": {
+        "name": "iX",
+        "link": "https://x.com/iX00AI"
+      },
+      "content": "Monochrome ritualistic scene set in ancient Egypt, a ceremonial procession of ancient Egyptian people moving a massive square stone block as part of a sacred rite, bodies arranged in deliberate patterns, synchronized movements, sand disturbed like ritual markings. A gigantic alien entity presides over the scene like an ancient god. Its skin is thick and cracked like elephant hide, aged and primordial; its legs are impossibly thin and unnaturally long like a deer’s, elevating its body into an inhuman silhouette. The face is deeply unsettling, elongated and expressionless, evoking Anunnaki-like beings and forgotten star gods. The alien radiates silent authority, worshipped rather than feared. High-contrast lighting, deep shadows, sacred geometry in composition, mythological atmosphere, surreal historical ritual, solemn and ominous mood, timeless and forbidden",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483148301_bja9mx_HBcSlMqaAAAqEZx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483148301_bja9mx_HBcSlMqaAAAqEZx-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "古埃及的单色仪式场景，古埃及人民举行庄严的游行，搬运一块巨大的方形石块，作为神圣仪式的一部分，身体以精心设计的图案排列，动作同步，沙子被搅动成仪式标记。一个巨大的外星生物像一位古老的神祇一样主宰着这个场景。它的皮肤厚实开裂，如同象皮，古老而原始；它的腿细得不可思议，长得不自然，像鹿腿一样，将它的身体抬高成非人的轮廓。它的面部令人深感不安，细长而毫无表情，让人联想到阿努纳奇（Anunnaki）般的生物和被遗忘的星辰之神。这个外星生物散发着无声的权威，受人崇拜而非恐惧。高对比度照明，深邃的阴影，构图中的神圣几何，神话般的氛围，超现实的历史仪式，庄严而 ominious 的情绪，永恒而禁忌。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "古埃及祭祀外星实体提示 一个用于 nano banana pro 的详细英文提示，用于生成一张图片，然后该图片在 higgsfield cinema studio 2.0 中被用于制作视频。该提示描述了一个古埃及的单色、仪式性场景，其中涉及一场仪仗队、神圣几何图案，以及一个巨大、令人不安的异形实体主宰着整个场景。 monochrome ritualistic scene set in ancient egypt, a ceremonial procession of ancient egyptian people moving a massive square stone block as part of a sacred rite, bodies arranged in deliberate patterns, synchronized movements, sand disturbed like ritual markings. a gigantic alien entity presides over the scene like an ancient god. its skin is thick and cracked like elephant hide, aged and primordial; its legs are impossibly thin and unnaturally long like a deer’s, elevating its body into an inhuman silhouette. the face is deeply unsettling, elongated and expressionless, evoking anunnaki-like beings and forgotten star gods. the alien radiates silent authority, worshipped rather than feared. high-contrast lighting, deep shadows, sacred geometry in composition, mythological atmosphere, surreal historical ritual, solemn and ominous mood, timeless and forbidden 古埃及的单色仪式场景，古埃及人民举行庄严的游行，搬运一块巨大的方形石块，作为神圣仪式的一部分，身体以精心设计的图案排列，动作同步，沙子被搅动成仪式标记。一个巨大的外星生物像一位古老的神祇一样主宰着这个场景。它的皮肤厚实开裂，如同象皮，古老而原始；它的腿细得不可思议，长得不自然，像鹿腿一样，将它的身体抬高成非人的轮廓。它的面部令人深感不安，细长而毫无表情，让人联想到阿努纳奇（anunnaki）般的生物和被遗忘的星辰之神。这个外星生物散发着无声的权威，受人崇拜而非恐惧。高对比度照明，深邃的阴影，构图中的神圣几何，神话般的氛围，超现实的历史仪式，庄严而 ominious 的情绪，永恒而禁忌。 ix 10421",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10381,
+      "title": "时尚编辑肖像摄影提示",
+      "description": "一个详细的提示，用于生成一张时尚编辑风格的年轻男士肖像，他身着蓬松的丝巾和超大款风衣，置身于透过反光窗户看到的城市咖啡馆中。画面强调纹理对比、低调的电影感灯光和现代高端时尚美学。",
+      "sourceLink": "https://x.com/Shorelyn_/status/2024106682801086808",
+      "sourcePublishedAt": "2026-02-18T13:00:13.000Z",
+      "author": {
+        "name": "Shore Lyn",
+        "link": "https://x.com/Shorelyn_"
+      },
+      "content": "An editorial fashion portrait of a young man wearing a voluminous silk scarf with bold high contrast polka dots, draped over a structured oversized trench coat made from matte olive green technical fabric. The styling highlights clean draping, sharp structure, and rich texture contrast. The setting is a busy city café, viewed through a reflective glass window that creates a soft double exposure feel with light streaks and reflections. Low key cinematic ambient lighting in warm sepia and ochre tones uses the window glow as gentle fill light. The mood feels modern, modest, and high fashion, with realistic cinematic detail and highly textured rendering.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483133427_cia8go_HBcR9XOacAA1TyV.jpg",
+        "https://cms-assets.youmind.com/media/1771483133432_m531ps_HBcRfYzaIAAm177.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483133427_cia8go_HBcR9XOacAA1TyV-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1771483133432_m531ps_HBcRfYzaIAAm177-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻男士的时尚编辑肖像照，他戴着一条宽大的真丝围巾，上面印有大胆的高对比度波点图案，围巾披在一件由哑光橄榄绿科技面料制成的结构感超大风衣上。造型突出了利落的垂坠感、鲜明的结构和丰富的纹理对比。场景设定在一个繁忙的城市咖啡馆，透过反光玻璃窗望去，窗户营造出柔和的双重曝光效果，伴随着光线轨迹和倒影。低调的电影式环境光线呈现出温暖的棕褐色和赭石色调，窗户的光晕作为柔和的补光。整体氛围现代、内敛且极具时尚感，具有逼真的电影细节和丰富的纹理渲染。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "时尚编辑肖像摄影提示 一个详细的提示，用于生成一张时尚编辑风格的年轻男士肖像，他身着蓬松的丝巾和超大款风衣，置身于透过反光窗户看到的城市咖啡馆中。画面强调纹理对比、低调的电影感灯光和现代高端时尚美学。 an editorial fashion portrait of a young man wearing a voluminous silk scarf with bold high contrast polka dots, draped over a structured oversized trench coat made from matte olive green technical fabric. the styling highlights clean draping, sharp structure, and rich texture contrast. the setting is a busy city café, viewed through a reflective glass window that creates a soft double exposure feel with light streaks and reflections. low key cinematic ambient lighting in warm sepia and ochre tones uses the window glow as gentle fill light. the mood feels modern, modest, and high fashion, with realistic cinematic detail and highly textured rendering. 一位年轻男士的时尚编辑肖像照，他戴着一条宽大的真丝围巾，上面印有大胆的高对比度波点图案，围巾披在一件由哑光橄榄绿科技面料制成的结构感超大风衣上。造型突出了利落的垂坠感、鲜明的结构和丰富的纹理对比。场景设定在一个繁忙的城市咖啡馆，透过反光玻璃窗望去，窗户营造出柔和的双重曝光效果，伴随着光线轨迹和倒影。低调的电影式环境光线呈现出温暖的棕褐色和赭石色调，窗户的光晕作为柔和的补光。整体氛围现代、内敛且极具时尚感，具有逼真的电影细节和丰富的纹理渲染。 shore lyn 10381",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10420,
+      "title": "以莫奈的风格生成德彪西的《小组曲：乘船》，并进行色彩修改",
+      "description": "以下是为 Nano Banana Pro (Gemini 3 Pro Image) 设计的图像生成提示词，它首先指示 AI 以莫奈的风格可视化德彪西的《小套曲：乘船》，然后修改指令，将水色改为闪耀的蓝色。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2024104624060498118",
+      "sourcePublishedAt": "2026-02-18T12:52:03.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ドビュッシー\n小組曲「小舟にて」を\nモネの「舟遊び」みたいな絵にして！\n\nその後\n水の色をキラキラ光る青にして！",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483147936_2xdzww_HBcQbAObwAAMZ51.jpg",
+        "https://cms-assets.youmind.com/media/1771483147999_9six6w_HBcQbAVa0AALLbs.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483147936_2xdzww_HBcQbAObwAAMZ51-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1771483147999_9six6w_HBcQbAVa0AALLbs-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "将德彪西的《小套曲》之《在船上》\n以莫奈《划船》的风格可视化！\n\n之后，\n将水色改为闪亮的蓝色！",
+      "sourcePlatform": "twitter",
+      "searchIndex": "以莫奈的风格生成德彪西的《小组曲：乘船》，并进行色彩修改 以下是为 nano banana pro (gemini 3 pro image) 设计的图像生成提示词，它首先指示 ai 以莫奈的风格可视化德彪西的《小套曲：乘船》，然后修改指令，将水色改为闪耀的蓝色。 ドビュッシー\n小組曲「小舟にて」を\nモネの「舟遊び」みたいな絵にして！\n\nその後\n水の色をキラキラ光る青にして！ 将德彪西的《小套曲》之《在船上》\n以莫奈《划船》的风格可视化！\n\n之后，\n将水色改为闪亮的蓝色！ クラリネットクラリオンnobu 10420",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10362,
+      "title": "奢华香水广告渲染提示（NOIR ÉLIXIR）",
+      "description": "一个高度详细、结构化的 JSON 提示，用于生成奢华香水瓶（“NOIR ÉLIXIR”）的 8K 超逼真商业渲染图。它详细说明了刻面水晶形状、烟熏黑色渐变、拉丝金色瓶盖、戏剧性的低调工作室照明，以及雾化薄雾和碎裂水晶碎片等漂浮元素。",
+      "sourceLink": "https://x.com/j_smeaton99/status/2024104039827578910",
+      "sourcePublishedAt": "2026-02-18T12:49:43.000Z",
+      "author": {
+        "name": "Jack",
+        "link": "https://x.com/j_smeaton99"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"luxury perfume bottle\",\n      \"brand_name\": \"NOIR ÉLIXIR\",\n      \"fragrance_line\": \"Midnight Reserve\",\n      \"container_shape\": \"faceted geometric crystal bottle with sharp elegant edges\",\n      \"material\": \"high-clarity glass with deep smoked black gradient tint\",\n      \"finish\": \"polished reflective surfaces with subtle matte facets\",\n      \"cap_design\": \"magnetic cap in brushed gold metal with engraved emblem\",\n      \"label_style\": \"minimal serif typography etched directly into glass with gold inlay\",\n      \"liquid_color\": \"dark amber with subtle golden undertones\"\n    },\n    \"composition\": {\n      \"scene_type\": \"ultra-cinematic luxury fragrance advertising photography\",\n      \"orientation\": \"vertical\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"dramatic diagonal hero angle\",\n      \"subject_position\": \"floating mid-air with slight forward tilt\",\n      \"motion\": \"atomized perfume mist trails and fluid fragrance ribbons suspended in motion\"\n    },\n    \"environment\": {\n      \"background\": \"deep black velvet gradient fading into shadow\",\n      \"atmosphere\": \"volumetric mist with delicate fragrance vapor swirling around the bottle\",\n      \"floating_elements\": [\n        \"atomized perfume droplets suspended mid-air\",\n        \"shattered crystal glass fragments catching highlights\",\n        \"dark orchid petals drifting slowly\",\n        \"glossy black citrus peel curls\",\n        \"fine gold dust particles sparkling in light\"\n      ],\n      \"surface_effects\": \"micro condensation beads and polished reflections enhancing realism\"\n    },\n    \"lighting\": {\n      \"style\": \"dramatic low-key studio lighting\",\n      \"key_light\": \"soft directional light sculpting the glass facets\",\n      \"rim_lights\": \"strong rim lights outlining silhouette and edges\",\n      \"accent_lights\": \"gold-toned specular highlights on cap and engraved details\",\n      \"shadow_depth\": \"deep cinematic shadows for luxury mood\",\n      \"contrast\": \"high contrast with controlled reflections and luminous highlights\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"obsidian black\", \"smoked charcoal\", \"deep amber\"],\n      \"accent_colors\": [\"metallic gold\", \"warm champagne glow\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"macro cinema prime lens\",\n      \"depth_of_field\": \"shallow depth isolating product from background\",\n      \"focus_point\": \"engraved logo and glass surface textures\",\n      \"bokeh\": \"smooth cinematic bokeh from reflective particles\",\n      \"detail_capture\": \"extreme micro-detail clarity\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8K ultra high definition\",\n      \"render_style\": \"hyper-realistic luxury commercial render\",\n      \"glass_physics\": \"accurate refraction and internal reflections\",\n      \"liquid_simulation\": \"physically accurate fluid dynamics\",\n      \"textures\": \"ultra-detailed crystal, metal, mist, and micro-droplet textures\",",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483124254_acirll_HBcP5DDawAApQ77.jpg",
+        "https://cms-assets.youmind.com/media/1771483124621_k5jtwr_HBcP5C6agAEeDtk.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483124254_acirll_HBcP5DDawAApQ77-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1771483124621_k5jtwr_HBcP5C6agAEeDtk-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"奢华香水瓶\",\n      \"brand_name\": \"NOIR ÉLIXIR\",\n      \"fragrance_line\": \"Midnight Reserve\",\n      \"container_shape\": \"刻面几何水晶瓶，边缘锐利优雅\",\n      \"material\": \"高透明度玻璃，带有深邃的烟熏黑色渐变色调\",\n      \"finish\": \"抛光反光表面，带有微妙的哑光刻面\",\n      \"cap_design\": \"拉丝金色金属磁性瓶盖，带有雕刻徽章\",\n      \"label_style\": \"极简衬线字体直接蚀刻在玻璃上，并镶嵌金色\",\n      \"liquid_color\": \"深琥珀色，带有微妙的金色底蕴\"\n    },\n    \"composition\": {\n      \"scene_type\": \"超电影感奢华香水广告摄影\",\n      \"orientation\": \"垂直\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"戏剧性的对角线英雄角度\",\n      \"subject_position\": \"悬浮在半空中，略微向前倾斜\",\n      \"motion\": \"雾化香水薄雾轨迹和流动的香氛丝带悬浮在运动中\"\n    },\n    \"environment\": {\n      \"background\": \"深黑色天鹅绒渐变，融入阴影\",\n      \"atmosphere\": \"体积雾气，精致的香氛蒸汽环绕瓶身\",\n      \"floating_elements\": [\n        \"悬浮在半空中的雾化香水液滴\",\n        \"捕捉高光的碎裂水晶玻璃碎片\",\n        \"缓慢飘落的深色兰花花瓣\",\n        \"光泽的黑色柑橘皮卷\",\n        \"在光线中闪烁的细小金粉颗粒\"\n      ],\n      \"surface_effects\": \"微凝结水珠和抛光反射增强真实感\"\n    },\n    \"lighting\": {\n      \"style\": \"戏剧性低调影棚灯光\",\n      \"key_light\": \"柔和的方向光雕塑玻璃刻面\",\n      \"rim_lights\": \"强烈的轮廓光勾勒出轮廓和边缘\",\n      \"accent_lights\": \"瓶盖和雕刻细节上的金色高光\",\n      \"shadow_depth\": \"深邃的电影感阴影营造奢华氛围\",\n      \"contrast\": \"高对比度，带有受控反射和发光高光\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"黑曜石黑\", \"烟熏炭灰\", \"深琥珀\"],\n      \"accent_colors\": [\"金属金\", \"温暖的香槟光泽\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"微距电影定焦镜头\",\n      \"depth_of_field\": \"浅景深，将产品与背景分离\",\n      \"focus_point\": \"雕刻的标志和玻璃表面纹理\",\n      \"bokeh\": \"反光颗粒产生的平滑电影感散景\",\n      \"detail_capture\": \"极致微细节清晰度\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8K 超高清\",\n      \"render_style\": \"超现实奢华商业渲染\",\n      \"glass_physics\": \"精确的折射和内部反射\",\n      \"liquid_simulation\": \"物理精确的流体动力学\",\n      \"textures\": \"超细节的水晶、金属、薄雾和微液滴纹理\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华香水广告渲染提示（noir élixir） 一个高度详细、结构化的 json 提示，用于生成奢华香水瓶（“noir élixir”）的 8k 超逼真商业渲染图。它详细说明了刻面水晶形状、烟熏黑色渐变、拉丝金色瓶盖、戏剧性的低调工作室照明，以及雾化薄雾和碎裂水晶碎片等漂浮元素。 {\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"luxury perfume bottle\",\n      \"brand_name\": \"noir élixir\",\n      \"fragrance_line\": \"midnight reserve\",\n      \"container_shape\": \"faceted geometric crystal bottle with sharp elegant edges\",\n      \"material\": \"high-clarity glass with deep smoked black gradient tint\",\n      \"finish\": \"polished reflective surfaces with subtle matte facets\",\n      \"cap_design\": \"magnetic cap in brushed gold metal with engraved emblem\",\n      \"label_style\": \"minimal serif typography etched directly into glass with gold inlay\",\n      \"liquid_color\": \"dark amber with subtle golden undertones\"\n    },\n    \"composition\": {\n      \"scene_type\": \"ultra-cinematic luxury fragrance advertising photography\",\n      \"orientation\": \"vertical\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"dramatic diagonal hero angle\",\n      \"subject_position\": \"floating mid-air with slight forward tilt\",\n      \"motion\": \"atomized perfume mist trails and fluid fragrance ribbons suspended in motion\"\n    },\n    \"environment\": {\n      \"background\": \"deep black velvet gradient fading into shadow\",\n      \"atmosphere\": \"volumetric mist with delicate fragrance vapor swirling around the bottle\",\n      \"floating_elements\": [\n        \"atomized perfume droplets suspended mid-air\",\n        \"shattered crystal glass fragments catching highlights\",\n        \"dark orchid petals drifting slowly\",\n        \"glossy black citrus peel curls\",\n        \"fine gold dust particles sparkling in light\"\n      ],\n      \"surface_effects\": \"micro condensation beads and polished reflections enhancing realism\"\n    },\n    \"lighting\": {\n      \"style\": \"dramatic low-key studio lighting\",\n      \"key_light\": \"soft directional light sculpting the glass facets\",\n      \"rim_lights\": \"strong rim lights outlining silhouette and edges\",\n      \"accent_lights\": \"gold-toned specular highlights on cap and engraved details\",\n      \"shadow_depth\": \"deep cinematic shadows for luxury mood\",\n      \"contrast\": \"high contrast with controlled reflections and luminous highlights\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"obsidian black\", \"smoked charcoal\", \"deep amber\"],\n      \"accent_colors\": [\"metallic gold\", \"warm champagne glow\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"macro cinema prime lens\",\n      \"depth_of_field\": \"shallow depth isolating product from background\",\n      \"focus_point\": \"engraved logo and glass surface textures\",\n      \"bokeh\": \"smooth cinematic bokeh from reflective particles\",\n      \"detail_capture\": \"extreme micro-detail clarity\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8k ultra high definition\",\n      \"render_style\": \"hyper-realistic luxury commercial render\",\n      \"glass_physics\": \"accurate refraction and internal reflections\",\n      \"liquid_simulation\": \"physically accurate fluid dynamics\",\n      \"textures\": \"ultra-detailed crystal, metal, mist, and micro-droplet textures\", ```json\n{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"奢华香水瓶\",\n      \"brand_name\": \"noir élixir\",\n      \"fragrance_line\": \"midnight reserve\",\n      \"container_shape\": \"刻面几何水晶瓶，边缘锐利优雅\",\n      \"material\": \"高透明度玻璃，带有深邃的烟熏黑色渐变色调\",\n      \"finish\": \"抛光反光表面，带有微妙的哑光刻面\",\n      \"cap_design\": \"拉丝金色金属磁性瓶盖，带有雕刻徽章\",\n      \"label_style\": \"极简衬线字体直接蚀刻在玻璃上，并镶嵌金色\",\n      \"liquid_color\": \"深琥珀色，带有微妙的金色底蕴\"\n    },\n    \"composition\": {\n      \"scene_type\": \"超电影感奢华香水广告摄影\",\n      \"orientation\": \"垂直\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"戏剧性的对角线英雄角度\",\n      \"subject_position\": \"悬浮在半空中，略微向前倾斜\",\n      \"motion\": \"雾化香水薄雾轨迹和流动的香氛丝带悬浮在运动中\"\n    },\n    \"environment\": {\n      \"background\": \"深黑色天鹅绒渐变，融入阴影\",\n      \"atmosphere\": \"体积雾气，精致的香氛蒸汽环绕瓶身\",\n      \"floating_elements\": [\n        \"悬浮在半空中的雾化香水液滴\",\n        \"捕捉高光的碎裂水晶玻璃碎片\",\n        \"缓慢飘落的深色兰花花瓣\",\n        \"光泽的黑色柑橘皮卷\",\n        \"在光线中闪烁的细小金粉颗粒\"\n      ],\n      \"surface_effects\": \"微凝结水珠和抛光反射增强真实感\"\n    },\n    \"lighting\": {\n      \"style\": \"戏剧性低调影棚灯光\",\n      \"key_light\": \"柔和的方向光雕塑玻璃刻面\",\n      \"rim_lights\": \"强烈的轮廓光勾勒出轮廓和边缘\",\n      \"accent_lights\": \"瓶盖和雕刻细节上的金色高光\",\n      \"shadow_depth\": \"深邃的电影感阴影营造奢华氛围\",\n      \"contrast\": \"高对比度，带有受控反射和发光高光\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"黑曜石黑\", \"烟熏炭灰\", \"深琥珀\"],\n      \"accent_colors\": [\"金属金\", \"温暖的香槟光泽\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"微距电影定焦镜头\",\n      \"depth_of_field\": \"浅景深，将产品与背景分离\",\n      \"focus_point\": \"雕刻的标志和玻璃表面纹理\",\n      \"bokeh\": \"反光颗粒产生的平滑电影感散景\",\n      \"detail_capture\": \"极致微细节清晰度\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8k 超高清\",\n      \"render_style\": \"超现实奢华商业渲染\",\n      \"glass_physics\": \"精确的折射和内部反射\",\n      \"liquid_simulation\": \"物理精确的流体动力学\",\n      \"textures\": \"超细节的水晶、金属、薄雾和微液滴纹理\"\n    }\n  }\n}\n``` jack 10362",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10343,
+      "title": "电影级写实人像，带微缩克隆体",
+      "description": "一个详细的提示，用于生成一张电影级的超写实肖像，需要根据上传的参考图像锁定特定的身份和构图。场景中，主体人物盘腿而坐，周围环绕着七个迷你版的、逼真的她自己，所有迷你版人物都共享相同的面部和姿势参考。",
+      "sourceLink": "https://x.com/CodeByPoonam/status/2024102292748992634",
+      "sourcePublishedAt": "2026-02-18T12:42:47.000Z",
+      "author": {
+        "name": "Poonam Soni",
+        "link": "https://x.com/CodeByPoonam"
+      },
+      "content": "'Use the uploaded reference image as the composition and pose reference.\nUse my uploaded face photo as the ONLY face reference for the main character.\n\n100% identity lock: same eyes, nose, lips, jawline, skin tone, hair texture. No change in ethnicity or facial structure. Real human photorealism, no Al plastic look.\n\nCreate a photorealistic cinematic portrait replicating the exact composition, pose, and surreal concept of the reference image. The main female subject is sitting cross-legged on a wooden floor with a warm smile.\n\nShe wears the identical red top puff sleeevs, denim jeans and yellow sneakers shoes . Surround him with seven miniature, realistic versions of himself (all sharing my face reference with slightly enlarged heads and playful expressions).\n\nTwo miniatures stand on her upturned palms, two sit on her shoulders, one pushes at her right shoe, one runs in the foreground, and one hugs her left knee from behind, matching the poses and placement from the reference image precisely.\n\nSoft high-quality studio lighting creates realistic soft shadows. Background: clean gradient grey studio wall.\n\nUltra-sharp, highly detailed textures, cinematic depth, photorealistic lighting, 8K quality, natural skin texture, no CGI look.\n\nNegative prompt: cartoon, 3D render, anime, chibi, painting, drawing, low quality, blurry, distorted face, bad anatomy, extra fingers, missing limbs, mismatched faces, different clothing colors, warped proportions, artifacts.\n\nAspect ratio: 4:5'",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483117032_wekmpp_HBcOTupaAAA0mEo.png"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483117032_wekmpp_HBcOTupaAAA0mEo-300x372.png"
+      ],
+      "language": "en",
+      "translatedContent": "请使用上传的参考图片作为构图和姿势参考。\n请使用我上传的面部照片作为主要人物的**唯一**面部参考。\n\n100% 身份锁定：相同的眼睛、鼻子、嘴唇、下颌线、肤色、发质。不改变种族或面部结构。真实人物的超写实风格，没有 AI 塑料感。\n\n创作一张超写实的电影感肖像，复刻参考图片的精确构图、姿势和超现实概念。主要女性人物盘腿坐在木地板上，面带温暖的微笑。\n\n她穿着一模一样的红色泡泡袖上衣、牛仔裤和黄色运动鞋。在她周围放置七个迷你版的、逼真的她自己（所有迷你版都使用我的面部参考，头部略微放大，表情俏皮）。\n\n两个迷你版站在她向上翻的手掌上，两个坐在她的肩膀上，一个推着她的右鞋，一个在前景奔跑，一个从后面抱着她的左膝，精确匹配参考图片中的姿势和位置。\n\n柔和的高品质影棚灯光营造出逼真的柔和阴影。背景：干净的渐变灰色影棚墙。\n\n超清晰、高细节纹理，电影级景深，超写实光影，8K 画质，自然皮肤纹理，无 CGI 感。\n\n负面提示：卡通、3D 渲染、动漫、Q 版、绘画、素描、低质量、模糊、扭曲的面部、糟糕的解剖结构、多余的手指、缺失的肢体、不匹配的面部、不同的服装颜色、扭曲的比例、伪影。\n\n宽高比：4:5",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级写实人像，带微缩克隆体 一个详细的提示，用于生成一张电影级的超写实肖像，需要根据上传的参考图像锁定特定的身份和构图。场景中，主体人物盘腿而坐，周围环绕着七个迷你版的、逼真的她自己，所有迷你版人物都共享相同的面部和姿势参考。 'use the uploaded reference image as the composition and pose reference.\nuse my uploaded face photo as the only face reference for the main character.\n\n100% identity lock: same eyes, nose, lips, jawline, skin tone, hair texture. no change in ethnicity or facial structure. real human photorealism, no al plastic look.\n\ncreate a photorealistic cinematic portrait replicating the exact composition, pose, and surreal concept of the reference image. the main female subject is sitting cross-legged on a wooden floor with a warm smile.\n\nshe wears the identical red top puff sleeevs, denim jeans and yellow sneakers shoes . surround him with seven miniature, realistic versions of himself (all sharing my face reference with slightly enlarged heads and playful expressions).\n\ntwo miniatures stand on her upturned palms, two sit on her shoulders, one pushes at her right shoe, one runs in the foreground, and one hugs her left knee from behind, matching the poses and placement from the reference image precisely.\n\nsoft high-quality studio lighting creates realistic soft shadows. background: clean gradient grey studio wall.\n\nultra-sharp, highly detailed textures, cinematic depth, photorealistic lighting, 8k quality, natural skin texture, no cgi look.\n\nnegative prompt: cartoon, 3d render, anime, chibi, painting, drawing, low quality, blurry, distorted face, bad anatomy, extra fingers, missing limbs, mismatched faces, different clothing colors, warped proportions, artifacts.\n\naspect ratio: 4:5' 请使用上传的参考图片作为构图和姿势参考。\n请使用我上传的面部照片作为主要人物的**唯一**面部参考。\n\n100% 身份锁定：相同的眼睛、鼻子、嘴唇、下颌线、肤色、发质。不改变种族或面部结构。真实人物的超写实风格，没有 ai 塑料感。\n\n创作一张超写实的电影感肖像，复刻参考图片的精确构图、姿势和超现实概念。主要女性人物盘腿坐在木地板上，面带温暖的微笑。\n\n她穿着一模一样的红色泡泡袖上衣、牛仔裤和黄色运动鞋。在她周围放置七个迷你版的、逼真的她自己（所有迷你版都使用我的面部参考，头部略微放大，表情俏皮）。\n\n两个迷你版站在她向上翻的手掌上，两个坐在她的肩膀上，一个推着她的右鞋，一个在前景奔跑，一个从后面抱着她的左膝，精确匹配参考图片中的姿势和位置。\n\n柔和的高品质影棚灯光营造出逼真的柔和阴影。背景：干净的渐变灰色影棚墙。\n\n超清晰、高细节纹理，电影级景深，超写实光影，8k 画质，自然皮肤纹理，无 cgi 感。\n\n负面提示：卡通、3d 渲染、动漫、q 版、绘画、素描、低质量、模糊、扭曲的面部、糟糕的解剖结构、多余的手指、缺失的肢体、不匹配的面部、不同的服装颜色、扭曲的比例、伪影。\n\n宽高比：4:5 poonam soni 10343",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10372,
+      "title": "超逼真 Chrome 墙壁突破提示词",
+      "description": "一个超现实的奢华运动广告提示，捕捉了一名精英短跑运动员冲破镜面液态铬墙的瞬间，要求面部与参考图像 100% 准确，并对金属破碎效果进行极致细节处理。",
+      "sourceLink": "https://x.com/frametheory058/status/2024099504396636344",
+      "sourcePublishedAt": "2026-02-18T12:31:42.000Z",
+      "author": {
+        "name": "Nexora",
+        "link": "https://x.com/frametheory058"
+      },
+      "content": "{\n  \"prompt\": \"Hyper-realistic luxury athletic advertising artwork capturing the exact millisecond an elite male sprinter bursts through a vertical wall made entirely of mirror-finish liquid chrome. The athlete’s face must match the uploaded reference image with 100% accuracy — identical facial structure, skin tone, eye shape, nose, lips, jawline, bone structure, hairline, facial hair (if any), natural skin texture, and expression dynamics. No beautification, no stylization, no morphing, no identity alteration. Preserve complete facial realism and authenticity.\\n\\nThe body is aggressively angled forward in a powerful sprint stance, muscles sharply defined, veins subtly visible, posture aerodynamic and explosive. Expression shows controlled determination exactly as in the reference image.\\n\\nWardrobe: matte obsidian aerodynamic sprint suit with razor-thin silver seam accents contouring the physique. Footwear: sleek gunmetal grey sprint shoes with carbon-fiber texture and minimal branding.\\n\\nImpact moment: metallic liquid chrome wall shattering outward in ultra high-speed frozen detail. Blade-like splashes, razor arcs, and suspended droplets reflect distorted micro-reflections of the athlete’s motion. The word \\\"BREAKTHROUGH\\\" appears physically embedded and fragmented within the chrome shards, integrated into the liquid metal surface.\\n\\nBackground: deep midnight black fading into subtle steel gradients for dramatic contrast. Studio lighting setup with high-contrast rim lighting, sharp specular highlights on chrome, crisp shadow falloff. Extreme macro clarity, 8K commercial sports photography realism blended with surreal metallic physics, high dynamic range, ultra-detailed textures.\",\n  \"ratio\": \"4:5\",\n  \"style\": \"commercial sports photography, hyper-realistic, luxury advertising\",\n  \"quality\": \"ultra high resolution, 8k, extreme detail\",\n  \"lighting\": \"dramatic studio lighting, rim light, high contrast, reflective highlights\",\n  \"camera\": \"low angle, 85",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483129405_3aog5q_HBcLvLQaoAAfdiZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483129405_3aog5q_HBcLvLQaoAAfdiZ-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"prompt\": \"超现实的奢华运动广告艺术作品，捕捉一位精英男性短跑运动员冲破一面完全由镜面液态铬制成的垂直墙壁的精确瞬间。运动员的面部必须与上传的参考图像 100% 准确匹配——面部结构、肤色、眼睛形状、鼻子、嘴唇、下颌线、骨骼结构、发际线、面部毛发（如有）、自然皮肤纹理和表情动态都必须完全一致。不得美化、不得风格化、不得变形、不得改变身份。保持面部的完全真实性和原真性。\\n\\n身体以强劲的冲刺姿态积极向前倾斜，肌肉线条分明，血管若隐若现，姿势符合空气动力学且富有爆发力。表情展现出与参考图像中完全一致的克制决心。\\n\\n服装：哑光黑曜石空气动力学短跑服，带有纤细的银色接缝，勾勒出健美体型。鞋履：光滑的炮铜灰色短跑鞋，带有碳纤维纹理和极简品牌标识。\\n\\n冲击瞬间：金属液态铬墙壁以超高速冻结的细节向外破碎。刀片状的飞溅物、锐利的弧线和悬浮的液滴反射出运动员运动的扭曲微小倒影。“BREAKTHROUGH”一词物理地嵌入并碎片化在铬碎片中，融入液态金属表面。\\n\\n背景：深邃的午夜黑色渐变为微妙的钢灰色，形成戏剧性的对比。影棚布光设置，高对比度轮廓光，铬上锐利的高光，清晰的阴影衰减。极致微距清晰度，8K 商业体育摄影的真实感与超现实的金属物理效果相结合，高动态范围，超详细纹理。\",\n  \"ratio\": \"4:5\",\n  \"style\": \"商业体育摄影、超现实、奢华广告\",\n  \"quality\": \"超高分辨率、8k、极致细节\",\n  \"lighting\": \"戏剧性影棚布光、轮廓光、高对比度、反射高光\",\n  \"camera\": \"低角度、85\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真 chrome 墙壁突破提示词 一个超现实的奢华运动广告提示，捕捉了一名精英短跑运动员冲破镜面液态铬墙的瞬间，要求面部与参考图像 100% 准确，并对金属破碎效果进行极致细节处理。 {\n  \"prompt\": \"hyper-realistic luxury athletic advertising artwork capturing the exact millisecond an elite male sprinter bursts through a vertical wall made entirely of mirror-finish liquid chrome. the athlete’s face must match the uploaded reference image with 100% accuracy — identical facial structure, skin tone, eye shape, nose, lips, jawline, bone structure, hairline, facial hair (if any), natural skin texture, and expression dynamics. no beautification, no stylization, no morphing, no identity alteration. preserve complete facial realism and authenticity.\\n\\nthe body is aggressively angled forward in a powerful sprint stance, muscles sharply defined, veins subtly visible, posture aerodynamic and explosive. expression shows controlled determination exactly as in the reference image.\\n\\nwardrobe: matte obsidian aerodynamic sprint suit with razor-thin silver seam accents contouring the physique. footwear: sleek gunmetal grey sprint shoes with carbon-fiber texture and minimal branding.\\n\\nimpact moment: metallic liquid chrome wall shattering outward in ultra high-speed frozen detail. blade-like splashes, razor arcs, and suspended droplets reflect distorted micro-reflections of the athlete’s motion. the word \\\"breakthrough\\\" appears physically embedded and fragmented within the chrome shards, integrated into the liquid metal surface.\\n\\nbackground: deep midnight black fading into subtle steel gradients for dramatic contrast. studio lighting setup with high-contrast rim lighting, sharp specular highlights on chrome, crisp shadow falloff. extreme macro clarity, 8k commercial sports photography realism blended with surreal metallic physics, high dynamic range, ultra-detailed textures.\",\n  \"ratio\": \"4:5\",\n  \"style\": \"commercial sports photography, hyper-realistic, luxury advertising\",\n  \"quality\": \"ultra high resolution, 8k, extreme detail\",\n  \"lighting\": \"dramatic studio lighting, rim light, high contrast, reflective highlights\",\n  \"camera\": \"low angle, 85 {\n  \"prompt\": \"超现实的奢华运动广告艺术作品，捕捉一位精英男性短跑运动员冲破一面完全由镜面液态铬制成的垂直墙壁的精确瞬间。运动员的面部必须与上传的参考图像 100% 准确匹配——面部结构、肤色、眼睛形状、鼻子、嘴唇、下颌线、骨骼结构、发际线、面部毛发（如有）、自然皮肤纹理和表情动态都必须完全一致。不得美化、不得风格化、不得变形、不得改变身份。保持面部的完全真实性和原真性。\\n\\n身体以强劲的冲刺姿态积极向前倾斜，肌肉线条分明，血管若隐若现，姿势符合空气动力学且富有爆发力。表情展现出与参考图像中完全一致的克制决心。\\n\\n服装：哑光黑曜石空气动力学短跑服，带有纤细的银色接缝，勾勒出健美体型。鞋履：光滑的炮铜灰色短跑鞋，带有碳纤维纹理和极简品牌标识。\\n\\n冲击瞬间：金属液态铬墙壁以超高速冻结的细节向外破碎。刀片状的飞溅物、锐利的弧线和悬浮的液滴反射出运动员运动的扭曲微小倒影。“breakthrough”一词物理地嵌入并碎片化在铬碎片中，融入液态金属表面。\\n\\n背景：深邃的午夜黑色渐变为微妙的钢灰色，形成戏剧性的对比。影棚布光设置，高对比度轮廓光，铬上锐利的高光，清晰的阴影衰减。极致微距清晰度，8k 商业体育摄影的真实感与超现实的金属物理效果相结合，高动态范围，超详细纹理。\",\n  \"ratio\": \"4:5\",\n  \"style\": \"商业体育摄影、超现实、奢华广告\",\n  \"quality\": \"超高分辨率、8k、极致细节\",\n  \"lighting\": \"戏剧性影棚布光、轮廓光、高对比度、反射高光\",\n  \"camera\": \"低角度、85\"\n} nexora 10372",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10328,
+      "title": "红色凝胶滤光片胶片接触印样 (9格拼贴)",
+      "description": "一个高度结构化的提示，用于生成同一位成年女性的 9 格电影接触印画拼贴，强调情绪化、感性的编辑风格，具有强烈的红色凝胶照明、厚重的胶片颗粒和每个画格的特定姿势，同时严格排除文字、吸烟元素和解剖学扭曲。",
+      "sourceLink": "https://x.com/astronomerozge1/status/2024099429481869662",
+      "sourcePublishedAt": "2026-02-18T12:31:24.000Z",
+      "author": {
+        "name": "Özge Döner",
+        "link": "https://x.com/astronomerozge1"
+      },
+      "content": "{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"red_gel_contact_sheet_9panel_no_text_no_smoking\",\n      \"language\": \"en\",\n      \"priority\": \"highest\",\n      \"version\": \"v1.0_RED_CONTACTSHEET_NO_TEXT_NO_CIG\"\n    },\n    \"input\": {\n      \"mode\": \"text_to_image\",\n      \"notes\": \"Create a red gel-lit film contact sheet / slide mount collage with 9 panels. Same adult woman in all frames. No text, no numbers, no logos, no watermark. No cigarettes, no smoking, no vape.\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"layout\": {\n        \"type\": \"grid\",\n        \"rows\": 3,\n        \"cols\": 3,\n        \"gutter\": \"thick_black_frames\"\n      },\n      \"sharpness\": \"lofi_soft\",\n      \"grain\": \"heavy_film\"\n    },\n    \"scene\": {\n      \"environment\": \"minimal indoor backdrop, close portrait framing, film slide/contact-sheet presentation\",\n      \"style\": \"analog contact sheet look with black slide mounts around each frame, slight dust/scratches, subtle light leaks\",\n      \"mood\": \"moody, sensual, editorial, not explicit\"\n    },\n    \"subject\": {\n      \"person\": \"adult woman\",\n      \"hair\": \"long dark hair, natural volume\",\n      \"makeup\": \"soft smoky eyes, glossy lips, warm blush under red light\",\n      \"accessories\": \"rings on fingers, delicate necklace, optional hoop earrings\",\n      \"wardrobe\": \"black or dark top, minimal straps\"\n    },\n    \"lighting\": {\n      \"style\": \"strong red gel key light with deep shadows\",\n      \"fill_light\": \"very minimal fill, high contrast\",\n      \"effect\": \"red monochrome cast with subtle skin highlights, cinematic\"\n    },\n    \"camera\": {\n      \"look\": \"film scan aesthetic\",\n      \"lens\": \"50mm portrait feel\",\n      \"depth_of_field\": \"shallow to moderate\",\n      \"imperfections\": \"grain, slight blur, film dust\"\n    },\n    \"poses\": {\n      \"panel_1\": \"3/4 portrait looking left, calm expression\",\n      \"panel_2\": \"close-up with fingers near lips (no cigarette), rings visible\",\n      \"panel_3\": \"profile looking down, hair falling over shoulder\",\n      \"panel_4\": \"close-up hands with rings and necklace detail (no cigarette)\",\n      \"panel_5\": \"front portrait, direct gaze to camera, neutral face\",\n      \"panel_6\": \"adjusting hair near forehead with one hand, thoughtful look\",\n      \"panel_7\": \"cropped lips/jawline close-up, glossy lips, moody shadow\",\n      \"panel_8\": \"eyes closed portrait, fingers resting on cheek\",\n      \"panel_9\": \"3/4 portrait looking right, subtle smile\"\n    },\n    \"negative_prompt\": \"text, numbers, letters, typography, captions, logo, watermark, cigarette, smoking, vape, joint, cigar, smoke, ash, lighter, flame, extra people, distorted anatomy, extra fingers, deformed hands, face distortion, cartoon\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483112587_8hwdjk_HBcLpo0XYAEpJb7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483112587_8hwdjk_HBcLpo0XYAEpJb7-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"red_gel_contact_sheet_9panel_no_text_no_smoking\",\n      \"language\": \"zh-Hans\",\n      \"priority\": \"highest\",\n      \"version\": \"v1.0_RED_CONTACTSHEET_NO_TEXT_NO_CIG\"\n    },\n    \"input\": {\n      \"mode\": \"text_to_image\",\n      \"notes\": \"创建一张用红色滤光片照明的胶片印样 / 幻灯片拼贴画，包含 9 个画格。所有画格中都是同一位成年女性。无文字、无数字、无标志、无水印。无香烟、无吸烟、无电子烟。\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"layout\": {\n        \"type\": \"grid\",\n        \"rows\": 3,\n        \"cols\": 3,\n        \"gutter\": \"thick_black_frames\"\n      },\n      \"sharpness\": \"lofi_soft\",\n      \"grain\": \"heavy_film\"\n    },\n    \"scene\": {\n      \"environment\": \"极简室内背景，特写肖像构图，胶片幻灯片/印样呈现\",\n      \"style\": \"模拟印样效果，每个画格周围有黑色幻灯片边框，轻微灰尘/划痕，细微漏光\",\n      \"mood\": \"忧郁、性感、时尚杂志风格，非露骨\"\n    },\n    \"subject\": {\n      \"person\": \"成年女性\",\n      \"hair\": \"长黑发，自然蓬松\",\n      \"makeup\": \"柔和烟熏妆，亮泽唇妆，红光下暖色腮红\",\n      \"accessories\": \"手指戴戒指，精致项链，可选耳环\",\n      \"wardrobe\": \"黑色或深色上衣，极简肩带\"\n    },\n    \"lighting\": {\n      \"style\": \"强烈的红色滤光片主光，深邃阴影\",\n      \"fill_light\": \"极少量补光，高对比度\",\n      \"effect\": \"红色单色调，皮肤有微妙高光，电影感\"\n    },\n    \"camera\": {\n      \"look\": \"胶片扫描美学\",\n      \"lens\": \"50mm 人像镜头感\",\n      \"depth_of_field\": \"浅景深至中等景深\",\n      \"imperfections\": \"颗粒感，轻微模糊，胶片灰尘\"\n    },\n    \"poses\": {\n      \"panel_1\": \"3/4 肖像，看向左侧，平静表情\",\n      \"panel_2\": \"特写，手指靠近嘴唇（无香烟），戒指可见\",\n      \"panel_3\": \"侧面，向下看，头发垂在肩上\",\n      \"panel_4\": \"特写手部，展示戒指和项链细节（无香烟）\",\n      \"panel_5\": \"正面肖像，直视镜头，中性表情\",\n      \"panel_6\": \"单手整理额头附近的头发，若有所思的表情\",\n      \"panel_7\": \"裁剪后的嘴唇/下颌线特写，亮泽唇妆，忧郁阴影\",\n      \"panel_8\": \"闭眼肖像，手指轻放在脸颊上\",\n      \"panel_9\": \"3/4 肖像，看向右侧，微妙微笑\"\n    },\n    \"negative_prompt\": \"文字, 数字, 字母, 排版, 说明文字, 标志, 水印, 香烟, 吸烟, 电子烟, 卷烟, 雪茄, 烟雾, 烟灰, 打火机, 火焰, 多余人物, 扭曲解剖结构, 多余手指, 变形的手, 面部扭曲, 卡通\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "红色凝胶滤光片胶片接触印样 (9格拼贴) 一个高度结构化的提示，用于生成同一位成年女性的 9 格电影接触印画拼贴，强调情绪化、感性的编辑风格，具有强烈的红色凝胶照明、厚重的胶片颗粒和每个画格的特定姿势，同时严格排除文字、吸烟元素和解剖学扭曲。 {\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"red_gel_contact_sheet_9panel_no_text_no_smoking\",\n      \"language\": \"en\",\n      \"priority\": \"highest\",\n      \"version\": \"v1.0_red_contactsheet_no_text_no_cig\"\n    },\n    \"input\": {\n      \"mode\": \"text_to_image\",\n      \"notes\": \"create a red gel-lit film contact sheet / slide mount collage with 9 panels. same adult woman in all frames. no text, no numbers, no logos, no watermark. no cigarettes, no smoking, no vape.\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"layout\": {\n        \"type\": \"grid\",\n        \"rows\": 3,\n        \"cols\": 3,\n        \"gutter\": \"thick_black_frames\"\n      },\n      \"sharpness\": \"lofi_soft\",\n      \"grain\": \"heavy_film\"\n    },\n    \"scene\": {\n      \"environment\": \"minimal indoor backdrop, close portrait framing, film slide/contact-sheet presentation\",\n      \"style\": \"analog contact sheet look with black slide mounts around each frame, slight dust/scratches, subtle light leaks\",\n      \"mood\": \"moody, sensual, editorial, not explicit\"\n    },\n    \"subject\": {\n      \"person\": \"adult woman\",\n      \"hair\": \"long dark hair, natural volume\",\n      \"makeup\": \"soft smoky eyes, glossy lips, warm blush under red light\",\n      \"accessories\": \"rings on fingers, delicate necklace, optional hoop earrings\",\n      \"wardrobe\": \"black or dark top, minimal straps\"\n    },\n    \"lighting\": {\n      \"style\": \"strong red gel key light with deep shadows\",\n      \"fill_light\": \"very minimal fill, high contrast\",\n      \"effect\": \"red monochrome cast with subtle skin highlights, cinematic\"\n    },\n    \"camera\": {\n      \"look\": \"film scan aesthetic\",\n      \"lens\": \"50mm portrait feel\",\n      \"depth_of_field\": \"shallow to moderate\",\n      \"imperfections\": \"grain, slight blur, film dust\"\n    },\n    \"poses\": {\n      \"panel_1\": \"3/4 portrait looking left, calm expression\",\n      \"panel_2\": \"close-up with fingers near lips (no cigarette), rings visible\",\n      \"panel_3\": \"profile looking down, hair falling over shoulder\",\n      \"panel_4\": \"close-up hands with rings and necklace detail (no cigarette)\",\n      \"panel_5\": \"front portrait, direct gaze to camera, neutral face\",\n      \"panel_6\": \"adjusting hair near forehead with one hand, thoughtful look\",\n      \"panel_7\": \"cropped lips/jawline close-up, glossy lips, moody shadow\",\n      \"panel_8\": \"eyes closed portrait, fingers resting on cheek\",\n      \"panel_9\": \"3/4 portrait looking right, subtle smile\"\n    },\n    \"negative_prompt\": \"text, numbers, letters, typography, captions, logo, watermark, cigarette, smoking, vape, joint, cigar, smoke, ash, lighter, flame, extra people, distorted anatomy, extra fingers, deformed hands, face distortion, cartoon\"\n  }\n} ```json\n{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"red_gel_contact_sheet_9panel_no_text_no_smoking\",\n      \"language\": \"zh-hans\",\n      \"priority\": \"highest\",\n      \"version\": \"v1.0_red_contactsheet_no_text_no_cig\"\n    },\n    \"input\": {\n      \"mode\": \"text_to_image\",\n      \"notes\": \"创建一张用红色滤光片照明的胶片印样 / 幻灯片拼贴画，包含 9 个画格。所有画格中都是同一位成年女性。无文字、无数字、无标志、无水印。无香烟、无吸烟、无电子烟。\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"layout\": {\n        \"type\": \"grid\",\n        \"rows\": 3,\n        \"cols\": 3,\n        \"gutter\": \"thick_black_frames\"\n      },\n      \"sharpness\": \"lofi_soft\",\n      \"grain\": \"heavy_film\"\n    },\n    \"scene\": {\n      \"environment\": \"极简室内背景，特写肖像构图，胶片幻灯片/印样呈现\",\n      \"style\": \"模拟印样效果，每个画格周围有黑色幻灯片边框，轻微灰尘/划痕，细微漏光\",\n      \"mood\": \"忧郁、性感、时尚杂志风格，非露骨\"\n    },\n    \"subject\": {\n      \"person\": \"成年女性\",\n      \"hair\": \"长黑发，自然蓬松\",\n      \"makeup\": \"柔和烟熏妆，亮泽唇妆，红光下暖色腮红\",\n      \"accessories\": \"手指戴戒指，精致项链，可选耳环\",\n      \"wardrobe\": \"黑色或深色上衣，极简肩带\"\n    },\n    \"lighting\": {\n      \"style\": \"强烈的红色滤光片主光，深邃阴影\",\n      \"fill_light\": \"极少量补光，高对比度\",\n      \"effect\": \"红色单色调，皮肤有微妙高光，电影感\"\n    },\n    \"camera\": {\n      \"look\": \"胶片扫描美学\",\n      \"lens\": \"50mm 人像镜头感\",\n      \"depth_of_field\": \"浅景深至中等景深\",\n      \"imperfections\": \"颗粒感，轻微模糊，胶片灰尘\"\n    },\n    \"poses\": {\n      \"panel_1\": \"3/4 肖像，看向左侧，平静表情\",\n      \"panel_2\": \"特写，手指靠近嘴唇（无香烟），戒指可见\",\n      \"panel_3\": \"侧面，向下看，头发垂在肩上\",\n      \"panel_4\": \"特写手部，展示戒指和项链细节（无香烟）\",\n      \"panel_5\": \"正面肖像，直视镜头，中性表情\",\n      \"panel_6\": \"单手整理额头附近的头发，若有所思的表情\",\n      \"panel_7\": \"裁剪后的嘴唇/下颌线特写，亮泽唇妆，忧郁阴影\",\n      \"panel_8\": \"闭眼肖像，手指轻放在脸颊上\",\n      \"panel_9\": \"3/4 肖像，看向右侧，微妙微笑\"\n    },\n    \"negative_prompt\": \"文字, 数字, 字母, 排版, 说明文字, 标志, 水印, 香烟, 吸烟, 电子烟, 卷烟, 雪茄, 烟雾, 烟灰, 打火机, 火焰, 多余人物, 扭曲解剖结构, 多余手指, 变形的手, 面部扭曲, 卡通\"\n  }\n}\n``` özge döner 10328",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10321,
+      "title": "电影感雨中时尚改造（图像到图像）",
+      "description": "一个高度详细、结构化的图生图提示，用于将女性参考图像转换为电影艺术时尚编辑照片。该提示要求保留女性的身份，同时改变她的姿势、服装（深午夜蓝色缎面连衣裙），并让她置身于梵高《星夜》风格雨伞下的可见雨景中。",
+      "sourceLink": "https://x.com/astronomerozge1/status/2024099158492123352",
+      "sourcePublishedAt": "2026-02-18T12:30:19.000Z",
+      "author": {
+        "name": "Özge Döner",
+        "link": "https://x.com/astronomerozge1"
+      },
+      "content": "{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"cinematic_rain_fashion_transformation\",\n      \"language\": \"en\",\n      \"priority\": \"highest\",\n      \"version\": \"v2.0_STARRY_RAIN_STANDING_LOOK\"\n    },\n    \"input\": {\n      \"mode\": \"image_to_image\",\n      \"reference_image_usage\": \"very_high\",\n      \"preserve_identity\": true,\n      \"preserve_facial_features\": true,\n      \"notes\": \"Preserve the same woman's facial identity and proportions. Transform pose to standing naturally under umbrella in rain. Remove coat completely.\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"sharpness\": \"cinematic_crisp\",\n      \"grain\": \"subtle_35mm_film\"\n    },\n    \"scene\": {\n      \"environment\": \"light stone architectural background softly blurred\",\n      \"weather\": \"visible rainfall with cinematic rain streaks and soft wet ground reflections\",\n      \"lighting\": \"overcast rainy daylight with moody contrast\",\n      \"mood\": \"romantic, artistic, dreamy celestial atmosphere\"\n    },\n    \"subject\": {\n      \"person\": \"adult woman\",\n      \"pose\": \"standing gracefully under umbrella, one hand holding umbrella handle, other arm relaxed naturally\",\n      \"expression\": \"soft introspective gaze\",\n      \"wardrobe\": {\n        \"dress\": \"deep midnight blue satin dress, fluid silhouette, elegant movement, glossy satin reflections\",\n        \"coat\": \"none\",\n        \"bag\": \"metallic deep gold structured handbag\",\n        \"boots\": \"knee-high boots matching the handbag tone (deep metallic gold or warm cognac tone), refined leather texture\"\n      }\n    },\n    \"umbrella\": {\n      \"color_base\": \"deep navy blue\",\n      \"design\": \"Van Gogh Starry Night inspired swirling sky pattern\",\n      \"details\": \"visible swirling brushstroke-style stars and moon in gold and cobalt tones, painterly texture effect on fabric\",\n      \"finish\": \"matte umbrella fabric with artistic printed texture\"\n    },\n    \"camera\": {\n      \"lens\": \"50mm prime\",\n      \"aperture\": \"f/2.0\",\n      \"focus\": \"sharp on subject, rain slightly motion-blurred\",\n      \"angle\": \"eye-level cinematic framing\"\n    },\n    \"style\": {\n      \"aesthetic\": \"cinematic art-fashion editorial\",\n      \"color_palette\": \"midnight blue, cobalt, warm gold, soft stone neutrals\",\n      \"texture_emphasis\": \"rain droplets on umbrella, satin sheen, painterly umbrella texture\",\n      \"retouching\": \"natural skin texture preserved\",\n      \"no\": \"AI glow, plastic skin, extra limbs, distorted anatomy, oversharpening, text, watermark\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483109599_n73x68_HBcLbmTWkAAOxtN.jpg",
+        "https://cms-assets.youmind.com/media/1771483109641_wzdj93_HBcLbmTWMAAM9nb.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483109599_n73x68_HBcLbmTWkAAOxtN-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771483109641_wzdj93_HBcLbmTWMAAM9nb-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"cinematic_rain_fashion_transformation\",\n      \"language\": \"zh-Hans\",\n      \"priority\": \"highest\",\n      \"version\": \"v2.0_STARRY_RAIN_STANDING_LOOK\"\n    },\n    \"input\": {\n      \"mode\": \"image_to_image\",\n      \"reference_image_usage\": \"very_high\",\n      \"preserve_identity\": true,\n      \"preserve_facial_features\": true,\n      \"notes\": \"保留同一位女性的面部特征和比例。将姿势转换为在雨中自然地撑伞站立。完全移除外套。\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"sharpness\": \"cinematic_crisp\",\n      \"grain\": \"subtle_35mm_film\"\n    },\n    \"scene\": {\n      \"environment\": \"浅色石材建筑背景，柔和模糊\",\n      \"weather\": \"可见降雨，带有电影般的雨丝和柔和湿润的地面反光\",\n      \"lighting\": \"阴沉多雨的白昼光线，带有忧郁的对比度\",\n      \"mood\": \"浪漫、艺术、梦幻般的星空氛围\"\n    },\n    \"subject\": {\n      \"person\": \"成年女性\",\n      \"pose\": \"优雅地撑伞站立，一只手握住伞柄，另一只手臂自然放松\",\n      \"expression\": \"柔和内省的凝视\",\n      \"wardrobe\": {\n        \"dress\": \"深午夜蓝色缎面连衣裙，流畅的廓形，优雅的律动，光泽的缎面反光\",\n        \"coat\": \"无\",\n        \"bag\": \"金属深金色结构感手袋\",\n        \"boots\": \"与手袋色调相配的及膝靴（深金属金色或暖干邑色），精致的皮革质感\"\n      }\n    },\n    \"umbrella\": {\n      \"color_base\": \"深海军蓝\",\n      \"design\": \"梵高《星月夜》风格的漩涡天空图案\",\n      \"details\": \"可见金色和钴蓝色调的漩涡笔触式星星和月亮，织物上具有绘画般的纹理效果\",\n      \"finish\": \"哑光伞面织物，带有艺术印花纹理\"\n    },\n    \"camera\": {\n      \"lens\": \"50mm 定焦镜头\",\n      \"aperture\": \"f/2.0\",\n      \"focus\": \"主体清晰，雨水略带动态模糊\",\n      \"angle\": \"与视线齐平的电影构图\"\n    },\n    \"style\": {\n      \"aesthetic\": \"电影艺术时尚大片\",\n      \"color_palette\": \"午夜蓝、钴蓝、暖金色、柔和石材中性色\",\n      \"texture_emphasis\": \"伞上的雨滴、缎面光泽、绘画般的伞面纹理\",\n      \"retouching\": \"保留自然皮肤纹理\",\n      \"no\": \"AI 光泽、塑料皮肤、多余肢体、扭曲解剖结构、过度锐化、文字、水印\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感雨中时尚改造（图像到图像） 一个高度详细、结构化的图生图提示，用于将女性参考图像转换为电影艺术时尚编辑照片。该提示要求保留女性的身份，同时改变她的姿势、服装（深午夜蓝色缎面连衣裙），并让她置身于梵高《星夜》风格雨伞下的可见雨景中。 {\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"cinematic_rain_fashion_transformation\",\n      \"language\": \"en\",\n      \"priority\": \"highest\",\n      \"version\": \"v2.0_starry_rain_standing_look\"\n    },\n    \"input\": {\n      \"mode\": \"image_to_image\",\n      \"reference_image_usage\": \"very_high\",\n      \"preserve_identity\": true,\n      \"preserve_facial_features\": true,\n      \"notes\": \"preserve the same woman's facial identity and proportions. transform pose to standing naturally under umbrella in rain. remove coat completely.\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"sharpness\": \"cinematic_crisp\",\n      \"grain\": \"subtle_35mm_film\"\n    },\n    \"scene\": {\n      \"environment\": \"light stone architectural background softly blurred\",\n      \"weather\": \"visible rainfall with cinematic rain streaks and soft wet ground reflections\",\n      \"lighting\": \"overcast rainy daylight with moody contrast\",\n      \"mood\": \"romantic, artistic, dreamy celestial atmosphere\"\n    },\n    \"subject\": {\n      \"person\": \"adult woman\",\n      \"pose\": \"standing gracefully under umbrella, one hand holding umbrella handle, other arm relaxed naturally\",\n      \"expression\": \"soft introspective gaze\",\n      \"wardrobe\": {\n        \"dress\": \"deep midnight blue satin dress, fluid silhouette, elegant movement, glossy satin reflections\",\n        \"coat\": \"none\",\n        \"bag\": \"metallic deep gold structured handbag\",\n        \"boots\": \"knee-high boots matching the handbag tone (deep metallic gold or warm cognac tone), refined leather texture\"\n      }\n    },\n    \"umbrella\": {\n      \"color_base\": \"deep navy blue\",\n      \"design\": \"van gogh starry night inspired swirling sky pattern\",\n      \"details\": \"visible swirling brushstroke-style stars and moon in gold and cobalt tones, painterly texture effect on fabric\",\n      \"finish\": \"matte umbrella fabric with artistic printed texture\"\n    },\n    \"camera\": {\n      \"lens\": \"50mm prime\",\n      \"aperture\": \"f/2.0\",\n      \"focus\": \"sharp on subject, rain slightly motion-blurred\",\n      \"angle\": \"eye-level cinematic framing\"\n    },\n    \"style\": {\n      \"aesthetic\": \"cinematic art-fashion editorial\",\n      \"color_palette\": \"midnight blue, cobalt, warm gold, soft stone neutrals\",\n      \"texture_emphasis\": \"rain droplets on umbrella, satin sheen, painterly umbrella texture\",\n      \"retouching\": \"natural skin texture preserved\",\n      \"no\": \"ai glow, plastic skin, extra limbs, distorted anatomy, oversharpening, text, watermark\"\n    }\n  }\n} ```json\n{\n  \"generation_request\": {\n    \"meta_data\": {\n      \"task_type\": \"cinematic_rain_fashion_transformation\",\n      \"language\": \"zh-hans\",\n      \"priority\": \"highest\",\n      \"version\": \"v2.0_starry_rain_standing_look\"\n    },\n    \"input\": {\n      \"mode\": \"image_to_image\",\n      \"reference_image_usage\": \"very_high\",\n      \"preserve_identity\": true,\n      \"preserve_facial_features\": true,\n      \"notes\": \"保留同一位女性的面部特征和比例。将姿势转换为在雨中自然地撑伞站立。完全移除外套。\"\n    },\n    \"output\": {\n      \"aspect_ratio\": \"4:5\",\n      \"resolution\": \"ultra_high\",\n      \"num_images\": 1,\n      \"sharpness\": \"cinematic_crisp\",\n      \"grain\": \"subtle_35mm_film\"\n    },\n    \"scene\": {\n      \"environment\": \"浅色石材建筑背景，柔和模糊\",\n      \"weather\": \"可见降雨，带有电影般的雨丝和柔和湿润的地面反光\",\n      \"lighting\": \"阴沉多雨的白昼光线，带有忧郁的对比度\",\n      \"mood\": \"浪漫、艺术、梦幻般的星空氛围\"\n    },\n    \"subject\": {\n      \"person\": \"成年女性\",\n      \"pose\": \"优雅地撑伞站立，一只手握住伞柄，另一只手臂自然放松\",\n      \"expression\": \"柔和内省的凝视\",\n      \"wardrobe\": {\n        \"dress\": \"深午夜蓝色缎面连衣裙，流畅的廓形，优雅的律动，光泽的缎面反光\",\n        \"coat\": \"无\",\n        \"bag\": \"金属深金色结构感手袋\",\n        \"boots\": \"与手袋色调相配的及膝靴（深金属金色或暖干邑色），精致的皮革质感\"\n      }\n    },\n    \"umbrella\": {\n      \"color_base\": \"深海军蓝\",\n      \"design\": \"梵高《星月夜》风格的漩涡天空图案\",\n      \"details\": \"可见金色和钴蓝色调的漩涡笔触式星星和月亮，织物上具有绘画般的纹理效果\",\n      \"finish\": \"哑光伞面织物，带有艺术印花纹理\"\n    },\n    \"camera\": {\n      \"lens\": \"50mm 定焦镜头\",\n      \"aperture\": \"f/2.0\",\n      \"focus\": \"主体清晰，雨水略带动态模糊\",\n      \"angle\": \"与视线齐平的电影构图\"\n    },\n    \"style\": {\n      \"aesthetic\": \"电影艺术时尚大片\",\n      \"color_palette\": \"午夜蓝、钴蓝、暖金色、柔和石材中性色\",\n      \"texture_emphasis\": \"伞上的雨滴、缎面光泽、绘画般的伞面纹理\",\n      \"retouching\": \"保留自然皮肤纹理\",\n      \"no\": \"ai 光泽、塑料皮肤、多余肢体、扭曲解剖结构、过度锐化、文字、水印\"\n    }\n  }\n}\n``` özge döner 10321",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10342,
+      "title": "逼真的牛头怪神话提示",
+      "description": "生成古希腊神话生物牛头怪的超精细、照片般逼真图像的提示，重点在于原创视角，不包含文字或标志。",
+      "sourceLink": "https://x.com/minuitIA/status/2024097832555180062",
+      "sourcePublishedAt": "2026-02-18T12:25:03.000Z",
+      "author": {
+        "name": "Minuit",
+        "link": "https://x.com/minuitIA"
+      },
+      "content": "Photography of the mythological creature minotaur from the time of Ancient Greece. Original viewpoint. Hyper-detailed, photorealistic, no text, no logo",
+      "media": [],
+      "language": "en",
+      "translatedContent": "古希腊时期神话生物牛头怪的摄影作品。独特的视角。超细节、照片般逼真、无文字、无标志。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "逼真的牛头怪神话提示 生成古希腊神话生物牛头怪的超精细、照片般逼真图像的提示，重点在于原创视角，不包含文字或标志。 photography of the mythological creature minotaur from the time of ancient greece. original viewpoint. hyper-detailed, photorealistic, no text, no logo 古希腊时期神话生物牛头怪的摄影作品。独特的视角。超细节、照片般逼真、无文字、无标志。 minuit 10342",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10334,
+      "title": "黄金时段下的时尚大片人像",
+      "description": "一个详细的提示，用于生成一张时尚大片风格的女性肖像照，她拥有铂金色头发和无瑕肌肤，身穿一件奢华的奶油色丝绸衬衫，置身于一个极简主义的奢华室内，金色的夕阳阳光透过大窗户倾泻而入，旨在呈现《Vogue》杂志风格的超现实 8K 效果。",
+      "sourceLink": "https://x.com/Ai_aylinfc/status/2024091834910425182",
+      "sourcePublishedAt": "2026-02-18T12:01:13.000Z",
+      "author": {
+        "name": "Aylin",
+        "link": "https://x.com/Ai_aylinfc"
+      },
+      "content": "High fashion editorial portrait of a breathtaking woman in her early 20s, long flowing platinum blonde hair cascading smoothly over her shoulders, icy piercing blue eyes with sharp clarity, flawless porcelain skin with a soft luminous glow, subtle rosy blush and natural glam makeup enhancing her delicate features, soft confident seductive smile, wearing a luxurious creamy white silk blouse with the collar slightly open and relaxed, elegant fabric texture visible with natural folds and sheen.\n\nSet inside a luxury minimalistic interior with warm neutral tones, soft beige walls, modern designer furniture blurred in the background, clean architectural lines, subtle gold accents reflecting light. Golden hour sunlight pouring in through large floor-to-ceiling windows, creating warm highlights and soft shadows across her face and hair, cinematic rim lighting effect, dreamy atmospheric glow.\n\nShot in film photography style on Arri Alexa, ultra-detailed skin texture, natural depth of field, sharp focus on eyes, creamy bokeh background, realistic color science, cinematic color grading with warm gold and soft ivory tones, high dynamic range, magazine cover quality, Vogue-inspired fashion editorial, 85mm lens look, shallow depth of field, professional studio-level composition, ultra realistic, 8K resolution, refined elegance, timeless luxury aesthetic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483114575_umyvop_HBcExfpaoAAa5MK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483114575_umyvop_HBcExfpaoAAa5MK-300x411.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位二十出头、令人惊艳的女性，身着高级时装的编辑肖像。她铂金色的长发柔顺地披散在肩上，冰蓝色眼眸锐利而清澈，无瑕的瓷肌散发着柔和的光泽，淡淡的玫瑰色腮红和自然迷人的妆容衬托出她精致的五官，嘴角挂着自信而诱人的微笑。她身穿一件奢华的米白色丝绸衬衫，领口微开，显得轻松随意，优雅的面料纹理清晰可见，带有自然的褶皱和光泽。\n\n置身于一个奢华简约的室内空间，色调温暖中性，米色墙壁柔和，现代设计师家具在背景中模糊，建筑线条简洁流畅，细微的金色点缀反射着光线。金色的夕阳通过巨大的落地窗倾泻而入，在她脸庞和发丝上投下温暖的高光和柔和的阴影，营造出电影般的轮廓光效果，梦幻般的氛围光晕。\n\n采用 Arri Alexa 电影摄影风格拍摄，皮肤纹理超乎寻常的细腻，自然的景深，眼睛对焦锐利，奶油般柔和的焦外背景，真实的色彩科学，电影般的色彩分级，以暖金色和柔和的象牙色为主，高动态范围，杂志封面品质，Vogue 风格的时尚大片，85mm 镜头效果，浅景深，专业影棚级别的构图，超现实主义，8K 分辨率，精致优雅，永恒的奢华美学。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黄金时段下的时尚大片人像 一个详细的提示，用于生成一张时尚大片风格的女性肖像照，她拥有铂金色头发和无瑕肌肤，身穿一件奢华的奶油色丝绸衬衫，置身于一个极简主义的奢华室内，金色的夕阳阳光透过大窗户倾泻而入，旨在呈现《vogue》杂志风格的超现实 8k 效果。 high fashion editorial portrait of a breathtaking woman in her early 20s, long flowing platinum blonde hair cascading smoothly over her shoulders, icy piercing blue eyes with sharp clarity, flawless porcelain skin with a soft luminous glow, subtle rosy blush and natural glam makeup enhancing her delicate features, soft confident seductive smile, wearing a luxurious creamy white silk blouse with the collar slightly open and relaxed, elegant fabric texture visible with natural folds and sheen.\n\nset inside a luxury minimalistic interior with warm neutral tones, soft beige walls, modern designer furniture blurred in the background, clean architectural lines, subtle gold accents reflecting light. golden hour sunlight pouring in through large floor-to-ceiling windows, creating warm highlights and soft shadows across her face and hair, cinematic rim lighting effect, dreamy atmospheric glow.\n\nshot in film photography style on arri alexa, ultra-detailed skin texture, natural depth of field, sharp focus on eyes, creamy bokeh background, realistic color science, cinematic color grading with warm gold and soft ivory tones, high dynamic range, magazine cover quality, vogue-inspired fashion editorial, 85mm lens look, shallow depth of field, professional studio-level composition, ultra realistic, 8k resolution, refined elegance, timeless luxury aesthetic. 一位二十出头、令人惊艳的女性，身着高级时装的编辑肖像。她铂金色的长发柔顺地披散在肩上，冰蓝色眼眸锐利而清澈，无瑕的瓷肌散发着柔和的光泽，淡淡的玫瑰色腮红和自然迷人的妆容衬托出她精致的五官，嘴角挂着自信而诱人的微笑。她身穿一件奢华的米白色丝绸衬衫，领口微开，显得轻松随意，优雅的面料纹理清晰可见，带有自然的褶皱和光泽。\n\n置身于一个奢华简约的室内空间，色调温暖中性，米色墙壁柔和，现代设计师家具在背景中模糊，建筑线条简洁流畅，细微的金色点缀反射着光线。金色的夕阳通过巨大的落地窗倾泻而入，在她脸庞和发丝上投下温暖的高光和柔和的阴影，营造出电影般的轮廓光效果，梦幻般的氛围光晕。\n\n采用 arri alexa 电影摄影风格拍摄，皮肤纹理超乎寻常的细腻，自然的景深，眼睛对焦锐利，奶油般柔和的焦外背景，真实的色彩科学，电影般的色彩分级，以暖金色和柔和的象牙色为主，高动态范围，杂志封面品质，vogue 风格的时尚大片，85mm 镜头效果，浅景深，专业影棚级别的构图，超现实主义，8k 分辨率，精致优雅，永恒的奢华美学。 aylin 10334",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10322,
+      "title": "超逼真奢华护肤品摄影",
+      "description": "一个高度详细的提示，用于生成超逼真的金色维生素 C 面部精华油瓶产品摄影，画面中一位女士优雅地与产品互动，周围环绕着动态飞溅的柠檬片，强调戏剧性光线和微距细节，营造出奢华的美容广告美学。",
+      "sourceLink": "https://x.com/pervez0123/status/2024089172601168244",
+      "sourcePublishedAt": "2026-02-18T11:50:39.000Z",
+      "author": {
+        "name": "Pervez Hussain",
+        "link": "https://x.com/pervez0123"
+      },
+      "content": "Hyper-realistic luxury skincare product photography of a premium golden Vitamin C facial oil serum in an elegant faceted glass dropper bottle, labeled \"LUMIRÓ ÉLIXIR VITAMIN C\" with sleek metallic silver cap and pipette, glowing warm amber-orange liquid inside, dramatically centered. A beautiful Western woman with radiant, glowing skin, long flowing hair, wearing a soft white silk robe, elegantly interacting with the product (holding the dropper or admiring the serum) positioned naturally beside the bottle. Surrounded by fresh juicy lemon slices exploding in dynamic motion, vibrant yellow citrus splashing vigorously with flying juice droplets, water splashes and ripples in high-speed freeze-frame effect. Bright radiant golden lighting, cinematic volumetric god rays, sparkling highlights and bokeh, ultra-detailed glass reflections, refreshing and luxurious beauty advertisement aesthetic, professional studio shot, macro lens details, 8k resolution, photorealistic, vibrant citrus tones, high contrast, dramatic liquid dynamics --ar 3:4 --stylize 250 --v 6 --q 2",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771483108707_nbmbar_HBcCXSRa8AAdBDm.jpg",
+        "https://cms-assets.youmind.com/media/1771483108766_mgc84g_HBcCXTwaIAA7ETC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771483108707_nbmbar_HBcCXSRa8AAdBDm-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1771483108766_mgc84g_HBcCXTwaIAA7ETC-300x493.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的奢华护肤品摄影，一款优质金色维生素 C 面部精华油，盛装在优雅的多面玻璃滴管瓶中，瓶身标有“LUMIRÓ ÉLIXIR VITAMIN C”，配有光滑的金属银色瓶盖和滴管，瓶内液体呈温暖的琥珀橙色，居中突出。一位美丽的西方女性，肌肤容光焕发，长发飘逸，身穿柔软的白色丝绸长袍，优雅地与产品互动（手持滴管或欣赏精华液），自然地置于瓶身旁边。周围是新鲜多汁的柠檬片，以动态姿态爆裂，充满活力的黄色柑橘汁液飞溅，水花四溅，涟漪荡漾，呈现高速定格效果。明亮璀璨的金色光线，电影般的体积光束，闪烁的亮点和散景，超详细的玻璃反光，清新奢华的美容广告美学，专业影棚拍摄，微距镜头细节，8k 分辨率，照片级真实感，鲜艳的柑橘色调，高对比度，戏剧性的液体动态效果 --ar 3:4 --stylize 250 --v 6 --q 2",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真奢华护肤品摄影 一个高度详细的提示，用于生成超逼真的金色维生素 c 面部精华油瓶产品摄影，画面中一位女士优雅地与产品互动，周围环绕着动态飞溅的柠檬片，强调戏剧性光线和微距细节，营造出奢华的美容广告美学。 hyper-realistic luxury skincare product photography of a premium golden vitamin c facial oil serum in an elegant faceted glass dropper bottle, labeled \"lumiró élixir vitamin c\" with sleek metallic silver cap and pipette, glowing warm amber-orange liquid inside, dramatically centered. a beautiful western woman with radiant, glowing skin, long flowing hair, wearing a soft white silk robe, elegantly interacting with the product (holding the dropper or admiring the serum) positioned naturally beside the bottle. surrounded by fresh juicy lemon slices exploding in dynamic motion, vibrant yellow citrus splashing vigorously with flying juice droplets, water splashes and ripples in high-speed freeze-frame effect. bright radiant golden lighting, cinematic volumetric god rays, sparkling highlights and bokeh, ultra-detailed glass reflections, refreshing and luxurious beauty advertisement aesthetic, professional studio shot, macro lens details, 8k resolution, photorealistic, vibrant citrus tones, high contrast, dramatic liquid dynamics --ar 3:4 --stylize 250 --v 6 --q 2 超逼真的奢华护肤品摄影，一款优质金色维生素 c 面部精华油，盛装在优雅的多面玻璃滴管瓶中，瓶身标有“lumiró élixir vitamin c”，配有光滑的金属银色瓶盖和滴管，瓶内液体呈温暖的琥珀橙色，居中突出。一位美丽的西方女性，肌肤容光焕发，长发飘逸，身穿柔软的白色丝绸长袍，优雅地与产品互动（手持滴管或欣赏精华液），自然地置于瓶身旁边。周围是新鲜多汁的柠檬片，以动态姿态爆裂，充满活力的黄色柑橘汁液飞溅，水花四溅，涟漪荡漾，呈现高速定格效果。明亮璀璨的金色光线，电影般的体积光束，闪烁的亮点和散景，超详细的玻璃反光，清新奢华的美容广告美学，专业影棚拍摄，微距镜头细节，8k 分辨率，照片级真实感，鲜艳的柑橘色调，高对比度，戏剧性的液体动态效果 --ar 3:4 --stylize 250 --v 6 --q 2 pervez hussain 10322",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 161,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

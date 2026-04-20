@@ -1,0 +1,476 @@
+{
+  "prompts": [
+    {
+      "id": 10839,
+      "title": "真人风格的杂技滑板特技（Grok 视频提示）",
+      "description": "此提示用于通过 Grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 Nano Banana Pro 生成的，并重复使用了源文章中的提示。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2026613369684504695",
+      "sourcePublishedAt": "2026-02-25T11:00:54.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nAcrobatic skateboard tricks at super-super-super-super-speed.\nScene 2:\nAcrobatic skateboard tricks at super-super-super-speed.",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "质量：真人实景，高速剪辑，多帧画面，24fps，照片级真实感，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑而成。\n音乐：EDM\n场景 1：\n超超超超高速的极限滑板特技。\n场景 2：\n超超超超高速的极限滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "真人风格的杂技滑板特技（grok 视频提示） 此提示用于通过 grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 nano banana pro 生成的，并重复使用了源文章中的提示。 quality: live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nacrobatic skateboard tricks at super-super-super-super-speed.\nscene 2:\nacrobatic skateboard tricks at super-super-super-speed. 质量：真人实景，高速剪辑，多帧画面，24fps，照片级真实感，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑而成。\n音乐：edm\n场景 1：\n超超超超高速的极限滑板特技。\n场景 2：\n超超超超高速的极限滑板特技。 とすくん 10839",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10837,
+      "title": "一位女士编织的电影感视频",
+      "description": "一个由 GPT-5 生成的电影级提示，用于图像生成（Nano Banana Pro）和视频生成（Kling 3.0 Omni）。主题是一位正在编织的女性，强调其精致的姿态、可爱感、温暖的柔和色彩和电影般的颗粒感。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2026613150276268322",
+      "sourcePublishedAt": "2026-02-25T11:00:02.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "テーマは編み物をする女性、繊細な仕草と可愛らしさを捉えたシネマティックな映像。柔らかく温かいパステル調の色調とフィルムライクな粒子感を特徴とし、浅い被写界深度で編み針や毛糸の質感を強調したクローズアップから、微笑む表情や完成品を掲げるシーンまでを滑らかに描く。自然光とリムライトによる立体感、穏やかで情緒的な雰囲気を重視した高品質な構成。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087652597_9ds4dc_HB-qh6tbwAAYVmZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087652597_9ds4dc_HB-qh6tbwAAYVmZ-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "主题是一位正在编织的女性，一段电影般的视频，捕捉了她精致的姿态和可爱之处。视频以柔和、温暖的马卡龙色调和电影般的颗粒感呈现，从强调针织针和毛线纹理的浅景深特写镜头，平滑过渡到她微笑着举起成品的情景。高质量的构图通过自然光和轮廓光强调了立体感，营造出一种宁静而富有情感的氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "一位女士编织的电影感视频 一个由 gpt-5 生成的电影级提示，用于图像生成（nano banana pro）和视频生成（kling 3.0 omni）。主题是一位正在编织的女性，强调其精致的姿态、可爱感、温暖的柔和色彩和电影般的颗粒感。 テーマは編み物をする女性、繊細な仕草と可愛らしさを捉えたシネマティックな映像。柔らかく温かいパステル調の色調とフィルムライクな粒子感を特徴とし、浅い被写界深度で編み針や毛糸の質感を強調したクローズアップから、微笑む表情や完成品を掲げるシーンまでを滑らかに描く。自然光とリムライトによる立体感、穏やかで情緒的な雰囲気を重視した高品質な構成。 主题是一位正在编织的女性，一段电影般的视频，捕捉了她精致的姿态和可爱之处。视频以柔和、温暖的马卡龙色调和电影般的颗粒感呈现，从强调针织针和毛线纹理的浅景深特写镜头，平滑过渡到她微笑着举起成品的情景。高质量的构图通过自然光和轮廓光强调了立体感，营造出一种宁静而富有情感的氛围。 空想写真家 10837",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10823,
+      "title": "超逼真赛博朋克工作室肖像",
+      "description": "生成一张超现实电影级工作室肖像的提示，描绘一个穿着黑色赛博朋克连帽衫的人，连帽衫上布满发光的霓虹橙色电路线条，强调戏剧性灯光和特定姿势。",
+      "sourceLink": "https://x.com/Naiknelofar788/status/2026603084760363062",
+      "sourcePublishedAt": "2026-02-25T10:20:02.000Z",
+      "author": {
+        "name": "simeon-sanai",
+        "link": "https://x.com/Naiknelofar788"
+      },
+      "content": "Ultra-realistic cinematic studio portrait using provided person only. Subject wears black cyberpunk hoodie fully covered in bright glowing neon-orange circuit lines and illuminated zipper, hood up, hands in pockets, three-quarter pose facing right, head slightly down. Round shutter glasses with glowing orange bars. Dramatic studio lighting, glow casting light spill. Smooth dark-to-burnt orange gradient background. Style locked.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087648655_9ib3at_HB_ww7jaoAAVPGt.jpg",
+        "https://cms-assets.youmind.com/media/1772087648663_06cftj_HB_ww7fbcAACHHL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087648655_9ib3at_HB_ww7jaoAAVPGt-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772087648663_06cftj_HB_ww7fbcAACHHL-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的电影级影棚肖像，仅使用提供的人物。主体身穿黑色赛博朋克连帽衫，连帽衫上布满明亮的霓虹橙色电路线条和发光的拉链，戴着兜帽，双手插兜，四分之三侧身姿势，面向右侧，头部略微向下。戴着带发光橙色横条的圆形百叶窗眼镜。戏剧性的影棚灯光，光线溢出。平滑的深色到焦橙色的渐变背景。风格锁定。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真赛博朋克工作室肖像 生成一张超现实电影级工作室肖像的提示，描绘一个穿着黑色赛博朋克连帽衫的人，连帽衫上布满发光的霓虹橙色电路线条，强调戏剧性灯光和特定姿势。 ultra-realistic cinematic studio portrait using provided person only. subject wears black cyberpunk hoodie fully covered in bright glowing neon-orange circuit lines and illuminated zipper, hood up, hands in pockets, three-quarter pose facing right, head slightly down. round shutter glasses with glowing orange bars. dramatic studio lighting, glow casting light spill. smooth dark-to-burnt orange gradient background. style locked. 超逼真的电影级影棚肖像，仅使用提供的人物。主体身穿黑色赛博朋克连帽衫，连帽衫上布满明亮的霓虹橙色电路线条和发光的拉链，戴着兜帽，双手插兜，四分之三侧身姿势，面向右侧，头部略微向下。戴着带发光橙色横条的圆形百叶窗眼镜。戏剧性的影棚灯光，光线溢出。平滑的深色到焦橙色的渐变背景。风格锁定。 simeon-sanai 10823",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10843,
+      "title": "Nano Banana Pro 图像生成提示词：Sabrina Carpenter 身着闺房时尚风",
+      "description": "一个详细的 JSON 格式图像生成提示，用于 Nano Banana Pro，描述了一位年轻女性，其形象酷似 Sabrina Carpenter，风格为柔和魅力/闺房时尚。该提示详细说明了主体细节（头发、面部、身体）、服装（鼠尾草绿抹胸和内裤）、环境（复古卧室）、姿势（坐在粉色天鹅绒椅子上）、灯光（温暖的玫瑰色光晕）以及技术相机设置（RAW 照片、50mm 镜头、f/2.8 光圈、8k 分辨率）。",
+      "sourceLink": "https://x.com/Artist04048661/status/2026602563194208697",
+      "sourcePublishedAt": "2026-02-25T10:17:58.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman with a strong resemblance to {argument name=\"subject name\" default=\"Sabrina Carpenter\"}.\",\n      \"hair\": \"Styled in two thick, loose blonde braids resting over the shoulders with soft, face-framing curtain bangs and a slight messy texture.\",\n      \"face\": \"Soft, ethereal expression with heavy-lidded eyes, dewy skin finish, visible skin pores, and soft peach-toned makeup.\",\n      \"body\": \"Slender physique with a soft, glowing skin texture and a subtle tattoo visible on the side of the ribcage.\"\n    },\n    \"attire\": {\n      \"clothing\": \"Minimalist sage green bandeau top paired with matching high-waisted briefs, featuring soft matte fabric that hugs the form.\",\n      \"style\": \"Soft Glamour / Boudoir Chic.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"Gold rings on the fingers\",\n        \"A purple hardcover book titled 'Written in the Stars' by Brianna Priest held in the right hand\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"A dreamy, vintage-inspired bedroom or dressing room.\",\n      \"background\": \"Soft pink walls, a plush velvet pink armchair, and floral patterned curtains creating a nostalgic, feminine atmosphere.\",\n      \"water\": \"None\"\n    },\n    \"pose\": {\n      \"posture\": \"Seated gracefully in a pink velvet chair, leaning forward slightly with the torso angled toward the camera.\",\n      \"arms\": \"Left arm draped over the back of the chair; right hand holding a book up near the shoulder.\",\n      \"angle\": \"Low-angle shot, looking slightly up at the subject.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Soft, diffused indoor lighting with a warm, rosy glow and subtle rim lighting on the skin to enhance texture.\",\n      \"mood\": \"Dreamy, cinematic, and intimate.\",\n      \"colors\": \"Pastel palette of dusty rose, sage green, and soft creams.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW photo.\",\n      \"lens\": \"50mm prime lens\",\n      \"aperture\": \"f/2.8 for a soft background blur\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"Hasselblad photography\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087654813_jtfirx_HB_wKzWWMAAFUPh.jpg",
+        "https://cms-assets.youmind.com/media/1772087654811_k65xo2_HB_wKzMXAAATUrx.jpg",
+        "https://cms-assets.youmind.com/media/1772087654810_h9vlu4_HB_wKzSXYAAued1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087654813_jtfirx_HB_wKzWWMAAFUPh-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772087654811_k65xo2_HB_wKzMXAAATUrx-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772087654810_h9vlu4_HB_wKzSXYAAued1-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位年轻女性，与 {argument name=\\\"subject name\\\" default=\\\"Sabrina Carpenter\\\"} 极为相似。\",\n      \"hair\": \"发型为两条粗大、蓬松的金色辫子，搭在双肩上，配有柔软、修饰脸型的法式刘海，略带凌乱感。\",\n      \"face\": \"柔和、空灵的表情，半闭的眼睛，水润的皮肤，可见的毛孔，以及柔和的桃色调妆容。\",\n      \"body\": \"身材苗条，皮肤柔软有光泽，肋骨侧面隐约可见一个纹身。\"\n    },\n    \"attire\": {\n      \"clothing\": \"极简鼠尾草绿色抹胸上衣搭配同色系高腰内裤，采用柔软哑光面料，紧贴身形。\",\n      \"style\": \"柔和魅力 / 闺房时尚。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"手指上的金色戒指\",\n        \"右手拿着一本名为《Written in the Stars》，作者为 Brianna Priest 的紫色精装书\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"梦幻般的复古风格卧室或更衣室。\",\n      \"background\": \"柔和的粉色墙壁、一张毛绒粉色天鹅绒扶手椅和花卉图案窗帘，营造出怀旧、女性化的氛围。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"优雅地坐在粉色天鹅绒椅子上，身体略微前倾，躯干面向镜头。\",\n      \"arms\": \"左臂搭在椅背上；右手将书举到靠近肩膀的位置。\",\n      \"angle\": \"低角度拍摄，略微仰视主体。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"柔和、漫射的室内照明，带有温暖的玫瑰色光晕，皮肤上微妙的边缘光线增强了质感。\",\n      \"mood\": \"梦幻、电影感、亲密。\",\n      \"colors\": \"粉玫瑰色、鼠尾草绿色和柔和奶油色的柔和调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实、RAW 照片。\",\n      \"lens\": \"50mm 定焦镜头\",\n      \"aperture\": \"f/2.8 以获得柔和的背景虚化\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超逼真纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 图像生成提示词：sabrina carpenter 身着闺房时尚风 一个详细的 json 格式图像生成提示，用于 nano banana pro，描述了一位年轻女性，其形象酷似 sabrina carpenter，风格为柔和魅力/闺房时尚。该提示详细说明了主体细节（头发、面部、身体）、服装（鼠尾草绿抹胸和内裤）、环境（复古卧室）、姿势（坐在粉色天鹅绒椅子上）、灯光（温暖的玫瑰色光晕）以及技术相机设置（raw 照片、50mm 镜头、f/2.8 光圈、8k 分辨率）。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman with a strong resemblance to {argument name=\"subject name\" default=\"sabrina carpenter\"}.\",\n      \"hair\": \"styled in two thick, loose blonde braids resting over the shoulders with soft, face-framing curtain bangs and a slight messy texture.\",\n      \"face\": \"soft, ethereal expression with heavy-lidded eyes, dewy skin finish, visible skin pores, and soft peach-toned makeup.\",\n      \"body\": \"slender physique with a soft, glowing skin texture and a subtle tattoo visible on the side of the ribcage.\"\n    },\n    \"attire\": {\n      \"clothing\": \"minimalist sage green bandeau top paired with matching high-waisted briefs, featuring soft matte fabric that hugs the form.\",\n      \"style\": \"soft glamour / boudoir chic.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"gold rings on the fingers\",\n        \"a purple hardcover book titled 'written in the stars' by brianna priest held in the right hand\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"a dreamy, vintage-inspired bedroom or dressing room.\",\n      \"background\": \"soft pink walls, a plush velvet pink armchair, and floral patterned curtains creating a nostalgic, feminine atmosphere.\",\n      \"water\": \"none\"\n    },\n    \"pose\": {\n      \"posture\": \"seated gracefully in a pink velvet chair, leaning forward slightly with the torso angled toward the camera.\",\n      \"arms\": \"left arm draped over the back of the chair; right hand holding a book up near the shoulder.\",\n      \"angle\": \"low-angle shot, looking slightly up at the subject.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"soft, diffused indoor lighting with a warm, rosy glow and subtle rim lighting on the skin to enhance texture.\",\n      \"mood\": \"dreamy, cinematic, and intimate.\",\n      \"colors\": \"pastel palette of dusty rose, sage green, and soft creams.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw photo.\",\n      \"lens\": \"50mm prime lens\",\n      \"aperture\": \"f/2.8 for a soft background blur\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"hasselblad photography\"\n      ]\n    }\n  }\n} ```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位年轻女性，与 {argument name=\\\"subject name\\\" default=\\\"sabrina carpenter\\\"} 极为相似。\",\n      \"hair\": \"发型为两条粗大、蓬松的金色辫子，搭在双肩上，配有柔软、修饰脸型的法式刘海，略带凌乱感。\",\n      \"face\": \"柔和、空灵的表情，半闭的眼睛，水润的皮肤，可见的毛孔，以及柔和的桃色调妆容。\",\n      \"body\": \"身材苗条，皮肤柔软有光泽，肋骨侧面隐约可见一个纹身。\"\n    },\n    \"attire\": {\n      \"clothing\": \"极简鼠尾草绿色抹胸上衣搭配同色系高腰内裤，采用柔软哑光面料，紧贴身形。\",\n      \"style\": \"柔和魅力 / 闺房时尚。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"手指上的金色戒指\",\n        \"右手拿着一本名为《written in the stars》，作者为 brianna priest 的紫色精装书\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"梦幻般的复古风格卧室或更衣室。\",\n      \"background\": \"柔和的粉色墙壁、一张毛绒粉色天鹅绒扶手椅和花卉图案窗帘，营造出怀旧、女性化的氛围。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"优雅地坐在粉色天鹅绒椅子上，身体略微前倾，躯干面向镜头。\",\n      \"arms\": \"左臂搭在椅背上；右手将书举到靠近肩膀的位置。\",\n      \"angle\": \"低角度拍摄，略微仰视主体。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"柔和、漫射的室内照明，带有温暖的玫瑰色光晕，皮肤上微妙的边缘光线增强了质感。\",\n      \"mood\": \"梦幻、电影感、亲密。\",\n      \"colors\": \"粉玫瑰色、鼠尾草绿色和柔和奶油色的柔和调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实、raw 照片。\",\n      \"lens\": \"50mm 定焦镜头\",\n      \"aperture\": \"f/2.8 以获得柔和的背景虚化\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超逼真纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n``` lexiprompt 10843",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10822,
+      "title": "霓虹灯高对比度肖像模板",
+      "description": "一个用于生成霓虹灯照明高对比度影棚肖像的主提示模板，允许自定义主体、主色、辅色和阴影类型。",
+      "sourceLink": "https://x.com/IqraSaifiii/status/2026569058762760382",
+      "sourcePublishedAt": "2026-02-25T08:04:50.000Z",
+      "author": {
+        "name": "Iqra Saifi",
+        "link": "https://x.com/IqraSaifiii"
+      },
+      "content": "\"Portrait of a {argument name=\"subject description\" default=\"[subject description]\"} in neon light, high contrast, studio shot, with {argument name=\"primary color\" default=\"[primary color]\"} and {argument name=\"secondary color\" default=\"[secondary color]\"} lighting, and {argument name=\"type of shadows\" default=\"[type of shadows]\"} on the face.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087647104_g8pcuy_HB_RHT8bMAAJvi6.jpg",
+        "https://cms-assets.youmind.com/media/1772087647134_0sq3ji_HB_Qv4WbUAAefYO.jpg",
+        "https://cms-assets.youmind.com/media/1772087647126_e85kk5_HB_RNzvaMAQNP3L.jpg",
+        "https://cms-assets.youmind.com/media/1772087647850_2sp865_HB_Rt54bMAAolMd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087647104_g8pcuy_HB_RHT8bMAAJvi6-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772087647134_0sq3ji_HB_Qv4WbUAAefYO-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772087647126_e85kk5_HB_RNzvaMAQNP3L-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772087647850_2sp865_HB_Rt54bMAAolMd-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "“一幅 {argument name=\"subject description\" default=\"[subject description]\"} 的肖像，霓虹灯光，高对比度，影棚拍摄，以 {argument name=\"primary color\" default=\"[primary color]\"} 和 {argument name=\"secondary color\" default=\"[secondary color]\"} 为主色调的灯光，脸上带有 {argument name=\"type of shadows\" default=\"[type of shadows]\"}。”",
+      "sourcePlatform": "twitter",
+      "searchIndex": "霓虹灯高对比度肖像模板 一个用于生成霓虹灯照明高对比度影棚肖像的主提示模板，允许自定义主体、主色、辅色和阴影类型。 \"portrait of a {argument name=\"subject description\" default=\"[subject description]\"} in neon light, high contrast, studio shot, with {argument name=\"primary color\" default=\"[primary color]\"} and {argument name=\"secondary color\" default=\"[secondary color]\"} lighting, and {argument name=\"type of shadows\" default=\"[type of shadows]\"} on the face.\" “一幅 {argument name=\"subject description\" default=\"[subject description]\"} 的肖像，霓虹灯光，高对比度，影棚拍摄，以 {argument name=\"primary color\" default=\"[primary color]\"} 和 {argument name=\"secondary color\" default=\"[secondary color]\"} 为主色调的灯光，脸上带有 {argument name=\"type of shadows\" default=\"[type of shadows]\"}。” iqra saifi 10822",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10819,
+      "title": "乡村红衣女牛仔肖像",
+      "description": "一个结构化提示，用于生成一张年轻女性在乡村田园背景下的高分辨率户外肖像，详细描述她的服装、环境（包括一匹马和木栅栏），以及所需的光线和构图。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2026567559588524399",
+      "sourcePublishedAt": "2026-02-25T07:58:52.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Rustic Red Cowgirl in Countryside\",\n  \"category\": \"Portrait Photography\",\n  \"description\": \"A high-resolution outdoor portrait of a young woman standing confidently in a peaceful countryside environment. She is wearing a fitted red ribbed tank top paired with light blue denim shorts and a brown leather belt. A straw cowboy hat sits naturally on her head, complementing her braided reddish hair. She is slightly leaning forward with a relaxed yet confident expression, creating a natural and engaging pose.\",\n  \"environment\": {\n    \"setting\": \"Rural farm\",\n    \"background\": \"A wooden fence with a brown horse standing behind it\",\n    \"surroundings\": \"Large green trees with hanging moss and scattered sunlight filtering through the branches\",\n    \"ground\": \"Natural soil with dry leaves and grass\"\n  },\n  \"outfit_details\": {\n    \"top_color\": \"Red\",\n    \"top_style\": \"Ribbed tank top\",\n    \"bottom_style\": \"Denim shorts\",\n    \"belt\": \"Brown leather belt\",\n    \"hat\": \"Straw cowboy hat\"\n  },\n  \"lighting\": {\n    \"type\": \"Natural daylight\",\n    \"effect\": \"Soft shadows with bright highlights\"\n  },\n  \"composition\": {\n    \"focus\": \"Subject centered in frame\",\n    \"depth\": \"Shallow depth of field with slightly blurred background\",\n    \"camera_style\": \"Portrait orientation\"\n  },\n  \"mood\": \"Calm, rustic, and countryside aesthetic\",\n  \"color_palette\": [\"Red\", \"Brown\", \"Green\", \"Blue\"],\n  \"image_quality\": \"Sharp and detailed\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087646520_d8i61g_HB_QcTVa8AI30Cx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087646520_d8i61g_HB_QcTVa8AI30Cx-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"乡村红衣女牛仔\",\n  \"category\": \"肖像摄影\",\n  \"description\": \"一张高分辨率的户外肖像照，一位年轻女性自信地站立在宁静的乡村环境中。她身穿一件合身的红色罗纹背心，搭配浅蓝色牛仔短裤和棕色皮带。一顶草编牛仔帽自然地戴在她的头上，与她编织的红棕色头发相得益彰。她身体微微前倾，表情放松而自信，姿态自然且引人入胜。\",\n  \"environment\": {\n    \"setting\": \"乡村农场\",\n    \"background\": \"一道木栅栏，栅栏后有一匹棕色马\",\n    \"surroundings\": \"高大的绿树，树上挂着苔藓，阳光透过树枝斑驳地洒落\",\n    \"ground\": \"铺满干枯树叶和青草的自然土壤\"\n  },\n  \"outfit_details\": {\n    \"top_color\": \"红色\",\n    \"top_style\": \"罗纹背心\",\n    \"bottom_style\": \"牛仔短裤\",\n    \"belt\": \"棕色皮带\",\n    \"hat\": \"草编牛仔帽\"\n  },\n  \"lighting\": {\n    \"type\": \"自然日光\",\n    \"effect\": \"柔和的阴影与明亮的高光\"\n  },\n  \"composition\": {\n    \"focus\": \"主体位于画面中央\",\n    \"depth\": \"浅景深，背景略微模糊\",\n    \"camera_style\": \"竖幅构图\"\n  },\n  \"mood\": \"宁静、质朴的乡村美学\",\n  \"color_palette\": [\"红色\", \"棕色\", \"绿色\", \"蓝色\"],\n  \"image_quality\": \"锐利且细节丰富\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "乡村红衣女牛仔肖像 一个结构化提示，用于生成一张年轻女性在乡村田园背景下的高分辨率户外肖像，详细描述她的服装、环境（包括一匹马和木栅栏），以及所需的光线和构图。 {\n  \"title\": \"rustic red cowgirl in countryside\",\n  \"category\": \"portrait photography\",\n  \"description\": \"a high-resolution outdoor portrait of a young woman standing confidently in a peaceful countryside environment. she is wearing a fitted red ribbed tank top paired with light blue denim shorts and a brown leather belt. a straw cowboy hat sits naturally on her head, complementing her braided reddish hair. she is slightly leaning forward with a relaxed yet confident expression, creating a natural and engaging pose.\",\n  \"environment\": {\n    \"setting\": \"rural farm\",\n    \"background\": \"a wooden fence with a brown horse standing behind it\",\n    \"surroundings\": \"large green trees with hanging moss and scattered sunlight filtering through the branches\",\n    \"ground\": \"natural soil with dry leaves and grass\"\n  },\n  \"outfit_details\": {\n    \"top_color\": \"red\",\n    \"top_style\": \"ribbed tank top\",\n    \"bottom_style\": \"denim shorts\",\n    \"belt\": \"brown leather belt\",\n    \"hat\": \"straw cowboy hat\"\n  },\n  \"lighting\": {\n    \"type\": \"natural daylight\",\n    \"effect\": \"soft shadows with bright highlights\"\n  },\n  \"composition\": {\n    \"focus\": \"subject centered in frame\",\n    \"depth\": \"shallow depth of field with slightly blurred background\",\n    \"camera_style\": \"portrait orientation\"\n  },\n  \"mood\": \"calm, rustic, and countryside aesthetic\",\n  \"color_palette\": [\"red\", \"brown\", \"green\", \"blue\"],\n  \"image_quality\": \"sharp and detailed\"\n} ```json\n{\n  \"title\": \"乡村红衣女牛仔\",\n  \"category\": \"肖像摄影\",\n  \"description\": \"一张高分辨率的户外肖像照，一位年轻女性自信地站立在宁静的乡村环境中。她身穿一件合身的红色罗纹背心，搭配浅蓝色牛仔短裤和棕色皮带。一顶草编牛仔帽自然地戴在她的头上，与她编织的红棕色头发相得益彰。她身体微微前倾，表情放松而自信，姿态自然且引人入胜。\",\n  \"environment\": {\n    \"setting\": \"乡村农场\",\n    \"background\": \"一道木栅栏，栅栏后有一匹棕色马\",\n    \"surroundings\": \"高大的绿树，树上挂着苔藓，阳光透过树枝斑驳地洒落\",\n    \"ground\": \"铺满干枯树叶和青草的自然土壤\"\n  },\n  \"outfit_details\": {\n    \"top_color\": \"红色\",\n    \"top_style\": \"罗纹背心\",\n    \"bottom_style\": \"牛仔短裤\",\n    \"belt\": \"棕色皮带\",\n    \"hat\": \"草编牛仔帽\"\n  },\n  \"lighting\": {\n    \"type\": \"自然日光\",\n    \"effect\": \"柔和的阴影与明亮的高光\"\n  },\n  \"composition\": {\n    \"focus\": \"主体位于画面中央\",\n    \"depth\": \"浅景深，背景略微模糊\",\n    \"camera_style\": \"竖幅构图\"\n  },\n  \"mood\": \"宁静、质朴的乡村美学\",\n  \"color_palette\": [\"红色\", \"棕色\", \"绿色\", \"蓝色\"],\n  \"image_quality\": \"锐利且细节丰富\"\n}\n``` zainab fatima 10819",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10835,
+      "title": "Vlog 风格时尚视频拍摄",
+      "description": "一个详细的提示，用于使用 Nano Banana Pro 生成图像，然后使用 Google Veo 3.1 生成视频。该提示描述了一个在私人空间中，以正面视角拍摄的女性，正在进行时尚 Vlog 介绍的逼真、高质量画面。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2026552745789108387",
+      "sourcePublishedAt": "2026-02-25T07:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "拍摄一个正面、视频风格的镜头。摄像机固定在与面部齐平的高度，并直接放置在拍摄对象前方。根据姿势和构图，拍摄对象呈坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线为 [根据 UGC 风格镜头添加逼真的光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、淡淡的微笑，仿佛即将开始对着镜头为 Vlog 讲话。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开口说话前的真实 Vlog 瞬间。\n\n女子的台词是：“今天的时尚亮点是 [添加时尚特征]！”她用温柔的语气说着，同时轻触自己的衣服。说完后她笑了。\n\n背景音乐：播放着舒适、Vlog 风格的音乐，适合时尚氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "vlog 风格时尚视频拍摄 一个详细的提示，用于使用 nano banana pro 生成图像，然后使用 google veo 3.1 生成视频。该提示描述了一个在私人空间中，以正面视角拍摄的女性，正在进行时尚 vlog 介绍的逼真、高质量画面。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 拍摄一个正面、视频风格的镜头。摄像机固定在与面部齐平的高度，并直接放置在拍摄对象前方。根据姿势和构图，拍摄对象呈坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线为 [根据 ugc 风格镜头添加逼真的光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、淡淡的微笑，仿佛即将开始对着镜头为 vlog 讲话。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开口说话前的真实 vlog 瞬间。\n\n女子的台词是：“今天的时尚亮点是 [添加时尚特征]！”她用温柔的语气说着，同时轻触自己的衣服。说完后她笑了。\n\n背景音乐：播放着舒适、vlog 风格的音乐，适合时尚氛围。 空想写真家 10835",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10842,
+      "title": "使用 ControlNet 约束的详细镜面自拍提示",
+      "description": "一个高度详细、结构化的图像生成提示，指定了主体（穿着特定服装、摆出特定姿势的年轻女性）、环境（卧室镜子自拍）、相机视角、光线、情绪和风格（抓拍、高物理真实感）。至关重要的是，它包含了广泛的 ControlNet 参数（OpenPose 和 Depth），并带有严格的约束条件，以锁定骨骼对齐、解剖比例和体积投影，同时使用长负面提示来避免风格化和人工增强。",
+      "sourceLink": "https://x.com/l_w_lorenzen/status/2026540915960197549",
+      "sourcePublishedAt": "2026-02-25T06:13:00.000Z",
+      "author": {
+        "name": "Lore",
+        "link": "https://x.com/l_w_lorenzen"
+      },
+      "content": "{\n\"subject\": \"Young woman, long blonde hair with face-framing highlights. Wearing tight white tank top showing distinct chest volume and fabric tension, grey flared trousers, black belt with silver buckle, and black strappy high heels. Gold bracelet on left wrist. Holding a dark green smartphone with three lenses.\",\n\"pose\": \"Crouching sideways, back arched. Torso twisted towards camera mirror. Right hand holds phone at face level. Left arm rests lightly on left thigh. Full body weight distributed on toes and heels.\",\n\"environment\": \"Bedroom interior. White unmade bed with pillows behind subject. White textured rug on dark wood floor. White walls. Vertical window blinds visible on the left.\",\n\"camera\": \"Mirror selfie perspective. Standard smartphone wide lens. Eye-level framing capturing full crouching figure.\",\n\"lighting\": \"Soft natural daylight from left window. Natural soft shadows cast to the right. High-key overall illumination.\",\n\"mood_and_expression\": \"Neutral expression, relaxed demeanor, direct gaze into phone mirror.\",\n\"style_and_realism\": \"Candid mirror selfie photograph. High physical realism, unmodified amateur style.\",\n\"colors_and_tone\": \"Neutral high-key palette. Dominant whites, greys, and blacks. Natural skin tones and blonde hair. Dark green accent from phone.\",\n\"quality_and_technical_details\": \"Sharp focus smartphone image. Visible natural textures on bed sheets, ribbed tank top, and rug.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose_full\",\n\"purpose\": \"Strictly lock skeletal alignment, anatomical proportions, torso orientation, and prevent structural or volumetric alteration\",\n\"constraints\": \"No limb length adjustment, no torso compression, no chest volume reduction, no posture change, no symmetry correction, no ribcage narrowing\",\n\"recommended_weight\": 1.2\n},\n\"depth_control\": {\n\"model_type\": \"depth_midas\",\n\"purpose\": \"Enforce exact volumetric projection, silhouette area equivalence, curvature depth integrity, and spatial layering\",\n\"constraints\": \"No depth flattening, no volumetric shrinkage, no perspective reinterpretation, no shadow softening, no foreground-background collapse, no artificial depth of field\",\n\"recommended_weight\": 1.25\n}\n},\n\"negative_prompt\": \"stylization, cinematic look, cinematic lighting, cinematic color grading, film look, film simulation, dramatic lighting, HDR effect, tonal remapping, teal and orange grading, DSLR simulation, portrait mode effect, bokeh, background blur, depth of field, lens blur, gaussian blur, soft focus, motion blur, atmospheric haze, volumetric light beams, glow effect, bloom, post-processing effects, AI enhancement, detail enhancement filters, artificial sharpening, oversharpening, skin smoothing, retouching, face enhancement, aesthetic correction, body normalization, shape refinement, geometric reinterpretation, anatomical distortion, breast reduction, volume compression, torso slimming, ribcage narrowing, sym\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087653917_mlsfoh_HB-4LAoaMAE68xx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087653917_mlsfoh_HB-4LAoaMAE68xx-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n\"subject\": \"一位年轻女性，金色长发，脸部周围有挑染。身穿紧身白色背心，胸部轮廓分明，面料紧绷，搭配灰色喇叭裤、黑色银扣皮带和黑色绑带高跟鞋。左手腕戴金色手链。手持一部带有三个镜头的深绿色智能手机。\",\n\"pose\": \"侧身蹲姿，背部弓起。躯干扭向镜头。右手将手机举至脸部高度。左臂轻搭在左大腿上。全身重量均匀分布在脚尖和脚跟。\",\n\"environment\": \"卧室内部。主体身后是白色凌乱的床和枕头。深色木地板上铺着白色纹理地毯。白色墙壁。左侧可见垂直百叶窗。\",\n\"camera\": \"镜面自拍视角。标准智能手机广角镜头。与视线齐平的构图，捕捉到完整的蹲姿人物。\",\n\"lighting\": \"来自左侧窗户的柔和自然日光。自然柔和的阴影投向右侧。整体高调照明。\",\n\"mood_and_expression\": \"表情中性，姿态放松，目光直视手机镜面。\",\n\"style_and_realism\": \"随性的镜面自拍照片。高度物理真实感，未经修改的业余风格。\",\n\"colors_and_tone\": \"中性高调配色。以白色、灰色和黑色为主。自然的肤色和金色头发。手机带来深绿色点缀。\",\n\"quality_and_technical_details\": \"对焦清晰的智能手机图像。床单、罗纹背心和地毯上可见自然的纹理。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose_full\",\n\"purpose\": \"严格锁定骨骼对齐、解剖比例、躯干方向，并防止结构或体积改变\",\n\"constraints\": \"不允许调整肢体长度、不允许压缩躯干、不允许减少胸部体积、不允许改变姿势、不允许校正对称性、不允许收窄胸腔\",\n\"recommended_weight\": 1.2\n},\n\"depth_control\": {\n\"model_type\": \"depth_midas\",\n\"purpose\": \"强制精确的体积投影、轮廓区域等效性、曲率深度完整性和空间分层\",\n\"constraints\": \"不允许深度扁平化、不允许体积收缩、不允许重新解释透视、不允许柔化阴影、不允许前景-背景塌陷、不允许人工景深\",\n\"recommended_weight\": 1.25\n}\n},\n\"negative_prompt\": \"风格化、电影感、电影灯光、电影调色、胶片感、胶片模拟、戏剧性灯光、HDR 效果、色调映射、青橙调色、单反模拟、人像模式效果、散景、背景模糊、景深、镜头模糊、高斯模糊、柔焦、运动模糊、大气雾霾、体积光束、发光效果、泛光、后期处理效果、AI 增强、细节增强滤镜、人工锐化、过度锐化、皮肤平滑、修饰、面部增强、美学修正、身体标准化、形状优化、几何重构、解剖扭曲、缩胸、体积压缩、躯干瘦身、胸腔收窄、对称\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用 controlnet 约束的详细镜面自拍提示 一个高度详细、结构化的图像生成提示，指定了主体（穿着特定服装、摆出特定姿势的年轻女性）、环境（卧室镜子自拍）、相机视角、光线、情绪和风格（抓拍、高物理真实感）。至关重要的是，它包含了广泛的 controlnet 参数（openpose 和 depth），并带有严格的约束条件，以锁定骨骼对齐、解剖比例和体积投影，同时使用长负面提示来避免风格化和人工增强。 {\n\"subject\": \"young woman, long blonde hair with face-framing highlights. wearing tight white tank top showing distinct chest volume and fabric tension, grey flared trousers, black belt with silver buckle, and black strappy high heels. gold bracelet on left wrist. holding a dark green smartphone with three lenses.\",\n\"pose\": \"crouching sideways, back arched. torso twisted towards camera mirror. right hand holds phone at face level. left arm rests lightly on left thigh. full body weight distributed on toes and heels.\",\n\"environment\": \"bedroom interior. white unmade bed with pillows behind subject. white textured rug on dark wood floor. white walls. vertical window blinds visible on the left.\",\n\"camera\": \"mirror selfie perspective. standard smartphone wide lens. eye-level framing capturing full crouching figure.\",\n\"lighting\": \"soft natural daylight from left window. natural soft shadows cast to the right. high-key overall illumination.\",\n\"mood_and_expression\": \"neutral expression, relaxed demeanor, direct gaze into phone mirror.\",\n\"style_and_realism\": \"candid mirror selfie photograph. high physical realism, unmodified amateur style.\",\n\"colors_and_tone\": \"neutral high-key palette. dominant whites, greys, and blacks. natural skin tones and blonde hair. dark green accent from phone.\",\n\"quality_and_technical_details\": \"sharp focus smartphone image. visible natural textures on bed sheets, ribbed tank top, and rug.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose_full\",\n\"purpose\": \"strictly lock skeletal alignment, anatomical proportions, torso orientation, and prevent structural or volumetric alteration\",\n\"constraints\": \"no limb length adjustment, no torso compression, no chest volume reduction, no posture change, no symmetry correction, no ribcage narrowing\",\n\"recommended_weight\": 1.2\n},\n\"depth_control\": {\n\"model_type\": \"depth_midas\",\n\"purpose\": \"enforce exact volumetric projection, silhouette area equivalence, curvature depth integrity, and spatial layering\",\n\"constraints\": \"no depth flattening, no volumetric shrinkage, no perspective reinterpretation, no shadow softening, no foreground-background collapse, no artificial depth of field\",\n\"recommended_weight\": 1.25\n}\n},\n\"negative_prompt\": \"stylization, cinematic look, cinematic lighting, cinematic color grading, film look, film simulation, dramatic lighting, hdr effect, tonal remapping, teal and orange grading, dslr simulation, portrait mode effect, bokeh, background blur, depth of field, lens blur, gaussian blur, soft focus, motion blur, atmospheric haze, volumetric light beams, glow effect, bloom, post-processing effects, ai enhancement, detail enhancement filters, artificial sharpening, oversharpening, skin smoothing, retouching, face enhancement, aesthetic correction, body normalization, shape refinement, geometric reinterpretation, anatomical distortion, breast reduction, volume compression, torso slimming, ribcage narrowing, sym\" {\n\"subject\": \"一位年轻女性，金色长发，脸部周围有挑染。身穿紧身白色背心，胸部轮廓分明，面料紧绷，搭配灰色喇叭裤、黑色银扣皮带和黑色绑带高跟鞋。左手腕戴金色手链。手持一部带有三个镜头的深绿色智能手机。\",\n\"pose\": \"侧身蹲姿，背部弓起。躯干扭向镜头。右手将手机举至脸部高度。左臂轻搭在左大腿上。全身重量均匀分布在脚尖和脚跟。\",\n\"environment\": \"卧室内部。主体身后是白色凌乱的床和枕头。深色木地板上铺着白色纹理地毯。白色墙壁。左侧可见垂直百叶窗。\",\n\"camera\": \"镜面自拍视角。标准智能手机广角镜头。与视线齐平的构图，捕捉到完整的蹲姿人物。\",\n\"lighting\": \"来自左侧窗户的柔和自然日光。自然柔和的阴影投向右侧。整体高调照明。\",\n\"mood_and_expression\": \"表情中性，姿态放松，目光直视手机镜面。\",\n\"style_and_realism\": \"随性的镜面自拍照片。高度物理真实感，未经修改的业余风格。\",\n\"colors_and_tone\": \"中性高调配色。以白色、灰色和黑色为主。自然的肤色和金色头发。手机带来深绿色点缀。\",\n\"quality_and_technical_details\": \"对焦清晰的智能手机图像。床单、罗纹背心和地毯上可见自然的纹理。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose_full\",\n\"purpose\": \"严格锁定骨骼对齐、解剖比例、躯干方向，并防止结构或体积改变\",\n\"constraints\": \"不允许调整肢体长度、不允许压缩躯干、不允许减少胸部体积、不允许改变姿势、不允许校正对称性、不允许收窄胸腔\",\n\"recommended_weight\": 1.2\n},\n\"depth_control\": {\n\"model_type\": \"depth_midas\",\n\"purpose\": \"强制精确的体积投影、轮廓区域等效性、曲率深度完整性和空间分层\",\n\"constraints\": \"不允许深度扁平化、不允许体积收缩、不允许重新解释透视、不允许柔化阴影、不允许前景-背景塌陷、不允许人工景深\",\n\"recommended_weight\": 1.25\n}\n},\n\"negative_prompt\": \"风格化、电影感、电影灯光、电影调色、胶片感、胶片模拟、戏剧性灯光、hdr 效果、色调映射、青橙调色、单反模拟、人像模式效果、散景、背景模糊、景深、镜头模糊、高斯模糊、柔焦、运动模糊、大气雾霾、体积光束、发光效果、泛光、后期处理效果、ai 增强、细节增强滤镜、人工锐化、过度锐化、皮肤平滑、修饰、面部增强、美学修正、身体标准化、形状优化、几何重构、解剖扭曲、缩胸、体积压缩、躯干瘦身、胸腔收窄、对称\"\n} lore 10842",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10836,
+      "title": "虚假新闻图片生成提示",
+      "description": "一个用于 Nano Banana Pro 的提示，根据用户 X 帖子的截图创建一张假新闻图片。该提示指定了水印、标题和滚动文本的文本叠加。",
+      "sourceLink": "https://x.com/Naonekozamurai/status/2026518195830665501",
+      "sourcePublishedAt": "2026-02-25T04:42:43.000Z",
+      "author": {
+        "name": "なお",
+        "link": "https://x.com/Naonekozamurai"
+      },
+      "content": "参照画像を紹介するフェイクニュース画像を作成して。\n画面左上に「フェイクNEWS」という透かし文字を入れる。 \n画面右上に「FIRE（Financial Independence, Retire Early）を目指す若者が急増」という見出しを入れる。 \n画面下に「5歳でFIREを目指す投資家まで出現」というテロップを入れる。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087652544_l7chqo_HB-iK5paMAIosJf.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087652544_l7chqo_HB-iK5paMAIosJf-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "制作一张介绍参考图片的假新闻图片。\n在屏幕左上角添加水印文字“FAKE NEWS”。\n在屏幕右上角添加标题“年轻人追求 FIRE（财务自由，提前退休）的人数迅速增加”。\n在屏幕底部添加滚动文字“甚至出现了 5 岁就立志 FIRE 的投资者”。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "虚假新闻图片生成提示 一个用于 nano banana pro 的提示，根据用户 x 帖子的截图创建一张假新闻图片。该提示指定了水印、标题和滚动文本的文本叠加。 参照画像を紹介するフェイクニュース画像を作成して。\n画面左上に「フェイクnews」という透かし文字を入れる。 \n画面右上に「fire（financial independence, retire early）を目指す若者が急増」という見出しを入れる。 \n画面下に「5歳でfireを目指す投資家まで出現」というテロップを入れる。 制作一张介绍参考图片的假新闻图片。\n在屏幕左上角添加水印文字“fake news”。\n在屏幕右上角添加标题“年轻人追求 fire（财务自由，提前退休）的人数迅速增加”。\n在屏幕底部添加滚动文字“甚至出现了 5 岁就立志 fire 的投资者”。 なお 10836",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10838,
+      "title": "真人风格的杂技滑板特技 (Grok 视频提示)",
+      "description": "此提示用于通过 Grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 Nano Banana Pro 生成的，并重复使用了源文章中的提示。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2026492340756701600",
+      "sourcePublishedAt": "2026-02-25T02:59:59.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nAcrobatic skateboard tricks at super-super-super-super-speed.\n\nScene 2:\nAcrobatic skateboard tricks at super-super-super-speed.",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "质量：真人实景，高速剪辑，多帧画面，24fps，超写实，高质量真人实景。2.5 倍速动作。\n剪辑：镜头由多个摄像机角度剪辑而成，包括航拍和无人机拍摄。\n音乐：EDM\n场景 1：\n超超超超高速的极限滑板特技。\n\n场景 2：\n超超超高速的极限滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "真人风格的杂技滑板特技 (grok 视频提示) 此提示用于通过 grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 nano banana pro 生成的，并重复使用了源文章中的提示。 quality: live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nacrobatic skateboard tricks at super-super-super-super-speed.\n\nscene 2:\nacrobatic skateboard tricks at super-super-super-speed. 质量：真人实景，高速剪辑，多帧画面，24fps，超写实，高质量真人实景。2.5 倍速动作。\n剪辑：镜头由多个摄像机角度剪辑而成，包括航拍和无人机拍摄。\n音乐：edm\n场景 1：\n超超超超高速的极限滑板特技。\n\n场景 2：\n超超超高速的极限滑板特技。 とすくん 10838",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10831,
+      "title": "真人风格的杂技滑板特技 (Grok 视频提示)",
+      "description": "此提示用于通过 Grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 Nano Banana Pro 生成的，并重复使用了源文章中的提示。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2026492337334231407",
+      "sourcePublishedAt": "2026-02-25T02:59:58.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nAcrobatic skateboard tricks at super-super-super-super-speed.\n\nScene 2:\nAcrobatic skateboard tricks at super-super-super-speed.",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "质量：真人实景，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑而成。\n音乐：EDM\n场景 1：\n超超超超高速的极限滑板特技。\n\n场景 2：\n超超超高速的极限滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "真人风格的杂技滑板特技 (grok 视频提示) 此提示用于通过 grok 生成一段视频，其中包含杂技滑板特技的高速实景镜头。随附的静态图像是使用 nano banana pro 生成的，并重复使用了源文章中的提示。 quality: live-action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live-action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nacrobatic skateboard tricks at super-super-super-super-speed.\n\nscene 2:\nacrobatic skateboard tricks at super-super-super-speed. 质量：真人实景，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机拍摄）的镜头剪辑而成。\n音乐：edm\n场景 1：\n超超超超高速的极限滑板特技。\n\n场景 2：\n超超超高速的极限滑板特技。 とすくん 10831",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10832,
+      "title": "蛋糕制作过程的电影级视频",
+      "description": "一个详细的电影级提示，用于图像生成（Nano Banana Pro）和随后的视频生成（Kling 3.0 Omni）。该提示概述了整个蛋糕制作过程，重点关注特写镜头、慢动作、灯光和摄像机操作。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2026490731901423690",
+      "sourcePublishedAt": "2026-02-25T02:53:35.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "ケーキ作りの工程を描くシネマティックな映像。粉をふるう繊細なクローズアップとスローモーションで始まり、リズミカルに生地を泡立てるオーバーヘッドショットへと続く。生地を型に流し込み、オーブンの中で温かく膨らむ様子を捉えた後、完成したケーキを一口食べて微笑む至福の瞬間を、柔らかな光と包み込むようなカメラワークで映し出す。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一段电影般的视频，描绘了制作蛋糕的过程。视频以特写镜头和慢动作开始，展现了筛面粉的精致细节，随后是一个俯拍镜头，捕捉了有节奏地搅打面糊的场景。它记录了面糊被倒入模具并在烤箱中温暖膨胀的过程，然后是品尝完成的蛋糕并露出幸福笑容的愉悦时刻，所有这些都通过柔和的灯光和沉浸式的镜头捕捉。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "蛋糕制作过程的电影级视频 一个详细的电影级提示，用于图像生成（nano banana pro）和随后的视频生成（kling 3.0 omni）。该提示概述了整个蛋糕制作过程，重点关注特写镜头、慢动作、灯光和摄像机操作。 ケーキ作りの工程を描くシネマティックな映像。粉をふるう繊細なクローズアップとスローモーションで始まり、リズミカルに生地を泡立てるオーバーヘッドショットへと続く。生地を型に流し込み、オーブンの中で温かく膨らむ様子を捉えた後、完成したケーキを一口食べて微笑む至福の瞬間を、柔らかな光と包み込むようなカメラワークで映し出す。 一段电影般的视频，描绘了制作蛋糕的过程。视频以特写镜头和慢动作开始，展现了筛面粉的精致细节，随后是一个俯拍镜头，捕捉了有节奏地搅打面糊的场景。它记录了面糊被倒入模具并在烤箱中温暖膨胀的过程，然后是品尝完成的蛋糕并露出幸福笑容的愉悦时刻，所有这些都通过柔和的灯光和沉浸式的镜头捕捉。 空想写真家 10832",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10814,
+      "title": "基于视觉参考的场景构图控制",
+      "description": "一个详细的视频生成提示，使用视觉参考图像来控制环境、光照、纹理、景深和色调。它指定了最终构图，但指示生成从一个空场景开始，不包括第一帧中的手和瓶子。",
+      "sourceLink": "https://x.com/oggii_0/status/2026472140866990241",
+      "sourcePublishedAt": "2026-02-25T01:39:43.000Z",
+      "author": {
+        "name": "Oogie",
+        "link": "https://x.com/oggii_0"
+      },
+      "content": "Use the uploaded image as the exact visual reference for environment, lighting mood, window background, blanket texture, depth of field, and color tone.\n\nImportant:\nThe reference image represents the FINAL composition only.\nThe first frame must NOT contain the hand.\nThe first frame must NOT contain the bottle.\nStart with an empty scene.\n\nStarting Frame:\nA cozy blanket in the foreground.\nSoft warm natural light coming through the window.\nBackground window blurred.\nNo hand.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087644345_wl7z1u_HB95obXbwAAF6qG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087644345_wl7z1u_HB95obXbwAAF6qG-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请使用上传的图片作为环境、光线氛围、窗户背景、毯子纹理、景深和色调的精确视觉参考。\n\n重要提示：\n参考图片仅代表最终构图。\n第一帧不得出现手。\n第一帧不得出现瓶子。\n从一个空场景开始。\n\n起始帧：\n前景是一条舒适的毯子。\n柔和温暖的自然光透过窗户射入。\n背景窗户模糊。\n没有手。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "基于视觉参考的场景构图控制 一个详细的视频生成提示，使用视觉参考图像来控制环境、光照、纹理、景深和色调。它指定了最终构图，但指示生成从一个空场景开始，不包括第一帧中的手和瓶子。 use the uploaded image as the exact visual reference for environment, lighting mood, window background, blanket texture, depth of field, and color tone.\n\nimportant:\nthe reference image represents the final composition only.\nthe first frame must not contain the hand.\nthe first frame must not contain the bottle.\nstart with an empty scene.\n\nstarting frame:\na cozy blanket in the foreground.\nsoft warm natural light coming through the window.\nbackground window blurred.\nno hand. 请使用上传的图片作为环境、光线氛围、窗户背景、毯子纹理、景深和色调的精确视觉参考。\n\n重要提示：\n参考图片仅代表最终构图。\n第一帧不得出现手。\n第一帧不得出现瓶子。\n从一个空场景开始。\n\n起始帧：\n前景是一条舒适的毯子。\n柔和温暖的自然光透过窗户射入。\n背景窗户模糊。\n没有手。 oogie 10814",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10828,
+      "title": "风格化柳条卡通雕像",
+      "description": "一个用于生成高度精细、超逼真的风格化漫画人物雕像的提示，该雕像完全由编织柳条/藤条材料制成，强调超逼真的纹理、影棚布光和艺术工艺。",
+      "sourceLink": "https://x.com/Taaruk_/status/2026461593282949339",
+      "sourcePublishedAt": "2026-02-25T00:57:48.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "A highly detailed stylized caricature figurine of a person made entirely from woven wicker / rattan material, big head and small body proportions, hyper-realistic texture with intricate basket weave patterns forming facial features, hair, and clothing. The figure stands on a small woven base placed on a wooden table. Background is a warm wooden wall with subtle brand logos or props. Studio lighting, soft shadows, shallow depth of field, ultra-detailed, 8K resolution, sharp focus, photorealistic, artistic craftsmanship, handcrafted sculpture look.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087649701_0tqhhw_HB9wErJa4AA_xv2.jpg",
+        "https://cms-assets.youmind.com/media/1772087649680_q5i5xl_HB9wEkHaMAApdE0.jpg",
+        "https://cms-assets.youmind.com/media/1772087649691_0fpc19_HB9wEhsbwAAZ5yT.jpg",
+        "https://cms-assets.youmind.com/media/1772087650416_02qv98_HB9wEyYbIAAVqsy.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087649701_0tqhhw_HB9wErJa4AA_xv2-300x384.jpg",
+        "https://cms-assets.youmind.com/media/1772087649680_q5i5xl_HB9wEkHaMAApdE0-300x384.jpg",
+        "https://cms-assets.youmind.com/media/1772087649691_0fpc19_HB9wEhsbwAAZ5yT-300x384.jpg",
+        "https://cms-assets.youmind.com/media/1772087650416_02qv98_HB9wEyYbIAAVqsy-300x384.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个高度精细、风格化的卡通人物雕像，完全由编织柳条/藤条材料制成，大头小身比例，超逼真的纹理，错综复杂的篮子编织图案构成了面部特征、头发和衣服。雕像立在一个小小的编织底座上，底座放在一张木桌上。背景是一面温暖的木墙，上面有细微的品牌标志或道具。工作室灯光，柔和的阴影，浅景深，超细节，8K 分辨率，锐利对焦，照片级真实感，艺术工艺，手工雕塑外观。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "风格化柳条卡通雕像 一个用于生成高度精细、超逼真的风格化漫画人物雕像的提示，该雕像完全由编织柳条/藤条材料制成，强调超逼真的纹理、影棚布光和艺术工艺。 a highly detailed stylized caricature figurine of a person made entirely from woven wicker / rattan material, big head and small body proportions, hyper-realistic texture with intricate basket weave patterns forming facial features, hair, and clothing. the figure stands on a small woven base placed on a wooden table. background is a warm wooden wall with subtle brand logos or props. studio lighting, soft shadows, shallow depth of field, ultra-detailed, 8k resolution, sharp focus, photorealistic, artistic craftsmanship, handcrafted sculpture look. 一个高度精细、风格化的卡通人物雕像，完全由编织柳条/藤条材料制成，大头小身比例，超逼真的纹理，错综复杂的篮子编织图案构成了面部特征、头发和衣服。雕像立在一个小小的编织底座上，底座放在一张木桌上。背景是一面温暖的木墙，上面有细微的品牌标志或道具。工作室灯光，柔和的阴影，浅景深，超细节，8k 分辨率，锐利对焦，照片级真实感，艺术工艺，手工雕塑外观。 taaruk 10828",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10816,
+      "title": "画廊品质的纪念海报，带纹理照片马赛克剪影",
+      "description": "一个复杂的提示，用于创建一张高质量的致敬海报，海报中央是一个黑白肖像剪影，内部填充着密集、有纹理的照片马赛克。该提示强调触感、分层和高级美学，避免扁平的数字拼贴作品，并包含严格的颜色、排版和构图指南。",
+      "sourceLink": "https://x.com/Naiknelofar788/status/2026459981932109865",
+      "sourcePublishedAt": "2026-02-25T00:51:24.000Z",
+      "author": {
+        "name": "simeon-sanai",
+        "link": "https://x.com/Naiknelofar788"
+      },
+      "content": "Create a refined, gallery-quality tribute poster built around a central portrait silhouette filled with a textured photo mosaic. The design should feel tactile, layered, and premium not like flat digital collage work. \n\nCentral Structure : The Vessel The central focus must be a large-scale, high-contrast black and white portrait silhouette of {argument name=\"person's name\" default=\"[Persons name]\"}.\nThis silhouette acts as the container for the internal visual narrative. It must be centered perfectly on the canvas. The Grid Fill and Mixed Media Textures The interior of the silhouette should be populated by a dense photo mosaic grid made from action shots throughout the person’s career. Critical Texture Direction Do not paste flat photos. Each grid cell should have artistic treatment to create a tactile, collage-like aesthetic. Incorporate a mix of the following textures selectively across different cells: Halftone dots (comic-book style raster patterns) \nFabric or embroidery textures suggesting jersey material or stitched patches Film grain or heavy noise on high-contrast action shots The result should feel handcrafted and layered rather than digitally assembled. \n\nColor Strategy Base palette: monochrome black and white. Introduce selective color overlays only on specific grid cells. The accent colors should relate to the relevant team, brand, or national flag. Use color sparingly to create visual rhythm and emphasis. \n\nTypography and Branding – Strict Micro-Scaling Top Left (The name) Write “{argument name=\"person's name\" default=\"[person name]\"}” using the font Inter Semibold. Kerning: tight negative kerning , Size: small and discreet. The name must occupy a maximum of 20% of the total canvas width. Do not make it large or dominant. \nTop Right (The symbol) Place the primary logo (Team, Brand, or Flag). Size: very small. It must occupy a maximum of 10% of the total canvas width. \n\nComposition and Background Background Use off-white or light grey. Include a visible high-quality paper or subtle concrete texture. Avoid flat digital white. \nAlignment Center the silhouette precisely. Maintain generous negative space around the figure to preserve elegance and balance.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087644388_0cns6m_HB9unObbYAAMR7w.jpg",
+        "https://cms-assets.youmind.com/media/1772087644364_y1nywr_HB9um_DaMAADa9t.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087644388_0cns6m_HB9unObbYAAMR7w-300x345.jpg",
+        "https://cms-assets.youmind.com/media/1772087644364_y1nywr_HB9um_DaMAADa9t-300x337.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张精致、画廊品质的致敬海报，以人物肖像剪影为中心，剪影内部填充纹理照片马赛克。设计应具有触感、层次感和高级感，而非扁平的数字拼贴作品。\n\n核心结构：载体 核心焦点必须是 {argument name=\"person's name\" default=\"[人物姓名]\"} 的大型、高对比度黑白肖像剪影。此剪影作为内部视觉叙事的容器。它必须完美居中于画布。网格填充和混合媒体纹理 剪影内部应填充由该人物职业生涯中的动作照片组成的密集照片马赛克网格。关键纹理方向 请勿粘贴扁平照片。每个网格单元都应经过艺术处理，以营造出触感、拼贴般的美感。在不同的单元格中选择性地融入以下纹理：半色调点（漫画书风格的栅格图案）、织物或刺绣纹理（暗示球衣材料或缝制补丁）、高对比度动作照片上的胶片颗粒或重噪点。最终效果应感觉像是手工制作和分层的，而非数字组装。\n\n色彩策略 基础调色板：单色黑白。仅在特定网格单元上引入选择性色彩叠加。强调色应与相关团队、品牌或国旗相关。谨慎使用色彩，以营造视觉节奏和强调。\n\n排版和品牌——严格的微缩比例 左上角（姓名）使用 Inter Semibold 字体书写“{argument name=\"person's name\" default=\"[人物姓名]\"}”。字距调整：紧密的负字距，大小：小而低调。姓名最多只能占据画布总宽度的 20%。请勿将其做得过大或过于突出。\n右上角（符号）放置主要标志（团队、品牌或旗帜）。大小：非常小。它最多只能占据画布总宽度的 10%。\n\n构图和背景 背景 使用米白色或浅灰色。包含清晰可见的高品质纸张纹理或微妙的混凝土纹理。避免扁平的数字白色。\n对齐 剪影精确居中。人物周围保留充足的负空间，以保持优雅和平衡。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "画廊品质的纪念海报，带纹理照片马赛克剪影 一个复杂的提示，用于创建一张高质量的致敬海报，海报中央是一个黑白肖像剪影，内部填充着密集、有纹理的照片马赛克。该提示强调触感、分层和高级美学，避免扁平的数字拼贴作品，并包含严格的颜色、排版和构图指南。 create a refined, gallery-quality tribute poster built around a central portrait silhouette filled with a textured photo mosaic. the design should feel tactile, layered, and premium not like flat digital collage work. \n\ncentral structure : the vessel the central focus must be a large-scale, high-contrast black and white portrait silhouette of {argument name=\"person's name\" default=\"[persons name]\"}.\nthis silhouette acts as the container for the internal visual narrative. it must be centered perfectly on the canvas. the grid fill and mixed media textures the interior of the silhouette should be populated by a dense photo mosaic grid made from action shots throughout the person’s career. critical texture direction do not paste flat photos. each grid cell should have artistic treatment to create a tactile, collage-like aesthetic. incorporate a mix of the following textures selectively across different cells: halftone dots (comic-book style raster patterns) \nfabric or embroidery textures suggesting jersey material or stitched patches film grain or heavy noise on high-contrast action shots the result should feel handcrafted and layered rather than digitally assembled. \n\ncolor strategy base palette: monochrome black and white. introduce selective color overlays only on specific grid cells. the accent colors should relate to the relevant team, brand, or national flag. use color sparingly to create visual rhythm and emphasis. \n\ntypography and branding – strict micro-scaling top left (the name) write “{argument name=\"person's name\" default=\"[person name]\"}” using the font inter semibold. kerning: tight negative kerning , size: small and discreet. the name must occupy a maximum of 20% of the total canvas width. do not make it large or dominant. \ntop right (the symbol) place the primary logo (team, brand, or flag). size: very small. it must occupy a maximum of 10% of the total canvas width. \n\ncomposition and background background use off-white or light grey. include a visible high-quality paper or subtle concrete texture. avoid flat digital white. \nalignment center the silhouette precisely. maintain generous negative space around the figure to preserve elegance and balance. 创作一张精致、画廊品质的致敬海报，以人物肖像剪影为中心，剪影内部填充纹理照片马赛克。设计应具有触感、层次感和高级感，而非扁平的数字拼贴作品。\n\n核心结构：载体 核心焦点必须是 {argument name=\"person's name\" default=\"[人物姓名]\"} 的大型、高对比度黑白肖像剪影。此剪影作为内部视觉叙事的容器。它必须完美居中于画布。网格填充和混合媒体纹理 剪影内部应填充由该人物职业生涯中的动作照片组成的密集照片马赛克网格。关键纹理方向 请勿粘贴扁平照片。每个网格单元都应经过艺术处理，以营造出触感、拼贴般的美感。在不同的单元格中选择性地融入以下纹理：半色调点（漫画书风格的栅格图案）、织物或刺绣纹理（暗示球衣材料或缝制补丁）、高对比度动作照片上的胶片颗粒或重噪点。最终效果应感觉像是手工制作和分层的，而非数字组装。\n\n色彩策略 基础调色板：单色黑白。仅在特定网格单元上引入选择性色彩叠加。强调色应与相关团队、品牌或国旗相关。谨慎使用色彩，以营造视觉节奏和强调。\n\n排版和品牌——严格的微缩比例 左上角（姓名）使用 inter semibold 字体书写“{argument name=\"person's name\" default=\"[人物姓名]\"}”。字距调整：紧密的负字距，大小：小而低调。姓名最多只能占据画布总宽度的 20%。请勿将其做得过大或过于突出。\n右上角（符号）放置主要标志（团队、品牌或旗帜）。大小：非常小。它最多只能占据画布总宽度的 10%。\n\n构图和背景 背景 使用米白色或浅灰色。包含清晰可见的高品质纸张纹理或微妙的混凝土纹理。避免扁平的数字白色。\n对齐 剪影精确居中。人物周围保留充足的负空间，以保持优雅和平衡。 simeon-sanai 10816",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10829,
+      "title": "卡拉瓦乔风格的麻将作弊道德画",
+      "description": "一个用于 Nano Banana Pro (Gemini 3 Pro Image) 的提示，要求创作一幅卡拉瓦乔风格的道德画作，描绘作弊行为，特别是麻将作弊。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026458960610668781",
+      "sourcePublishedAt": "2026-02-25T00:47:20.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "イカサマ系\nカラヴァッジョ\nみたいな教訓画を{argument name=\"game\" default=\"麻雀\"}で",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087651098_8ugdmo_HB9tro3boAEB3vs.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087651098_8ugdmo_HB9tro3boAEB3vs-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "作弊主题\n一幅像卡拉瓦乔画作般充满道德说教意味的画，背景设定在 {argument name=\"game\" default=\"麻将\"}。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "卡拉瓦乔风格的麻将作弊道德画 一个用于 nano banana pro (gemini 3 pro image) 的提示，要求创作一幅卡拉瓦乔风格的道德画作，描绘作弊行为，特别是麻将作弊。 イカサマ系\nカラヴァッジョ\nみたいな教訓画を{argument name=\"game\" default=\"麻雀\"}で 作弊主题\n一幅像卡拉瓦乔画作般充满道德说教意味的画，背景设定在 {argument name=\"game\" default=\"麻将\"}。 クラリネットクラリオンnobu 10829",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10802,
+      "title": "Final Fantasy 利维坦 VS 玩家与神圣几何",
+      "description": "三条提示的序列：第一条提示要求以奇幻风格描绘《最终幻想》召唤兽利维坦与玩家战斗的场景，随后是关于神圣几何学和神圣几何学与分形结构结合的提示。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026437677126729885",
+      "sourcePublishedAt": "2026-02-24T23:22:46.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"リヴァイアサン\"}VSプレイヤーを\n幻想的に\n\n次\n\n{argument name=\"テーマ1\" default=\"神聖幾何学\"}\n\n次\n\n神聖幾何学と{argument name=\"テーマ2\" default=\"フラクタル構造\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001540583_u47ljz_HB9aUvcaMAEzOAb.jpg",
+        "https://cms-assets.youmind.com/media/1772001540579_4dbyn1_HB9aUwkaMAE97KZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001540583_u47ljz_HB9aUvcaMAEzOAb-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001540579_4dbyn1_HB9aUwkaMAE97KZ-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "最终幻想\n{argument name=\"summon name\" default=\"Leviathan\"} 召唤兽与玩家的奇幻风格对决\n\n下一步\n\n{argument name=\"theme 1\" default=\"Sacred Geometry\"}\n\n下一步\n\n神圣几何与 {argument name=\"theme 2\" default=\"Fractal Structure\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "final fantasy 利维坦 vs 玩家与神圣几何 三条提示的序列：第一条提示要求以奇幻风格描绘《最终幻想》召唤兽利维坦与玩家战斗的场景，随后是关于神圣几何学和神圣几何学与分形结构结合的提示。 ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"リヴァイアサン\"}vsプレイヤーを\n幻想的に\n\n次\n\n{argument name=\"テーマ1\" default=\"神聖幾何学\"}\n\n次\n\n神聖幾何学と{argument name=\"テーマ2\" default=\"フラクタル構造\"} 最终幻想\n{argument name=\"summon name\" default=\"leviathan\"} 召唤兽与玩家的奇幻风格对决\n\n下一步\n\n{argument name=\"theme 1\" default=\"sacred geometry\"}\n\n下一步\n\n神圣几何与 {argument name=\"theme 2\" default=\"fractal structure\"} クラリネットクラリオンnobu 10802",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10807,
+      "title": "Nano Banana Pro 提示词：使用表情符号改变面部表情",
+      "description": "一个有趣又简单的 Nano Banana Pro (Gemini) 提示，它使用表情符号轻松改变生成图像中人物的面部表情。你可以使用 Gemini 免费测试此功能。",
+      "sourceLink": "https://x.com/tetumemo/status/2026435973853401336",
+      "sourcePublishedAt": "2026-02-24T23:16:00.000Z",
+      "author": {
+        "name": "テツメモ｜AI図解×検証｜Newsletter",
+        "link": "https://x.com/tetumemo"
+      },
+      "content": "この人に 4 つの絵文字の表情をさせて: {argument name=\"絵文字1\" default=\"😒\"} {argument name=\"絵文字2\" default=\"🤫\"}{argument name=\"絵文字3\" default=\"🙂\"}{argument name=\"絵文字4\" default=\"😉\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001541634_umf69c_HB9YxGzaMAMuXES.jpg",
+        "https://cms-assets.youmind.com/media/1772001541774_0gfn6e_HB9YxG2bgAAspIB.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001541634_umf69c_HB9YxGzaMAMuXES-300x387.jpg",
+        "https://cms-assets.youmind.com/media/1772001541774_0gfn6e_HB9YxG2bgAAspIB-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "让这个人拥有 4 种表情符号的表情：{argument name=\"emoji 1\" default=\"😒\"} {argument name=\"emoji 2\" default=\"🤫\"} {argument name=\"emoji 3\" default=\"🙂\"} {argument name=\"emoji 4\" default=\"😉\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词：使用表情符号改变面部表情 一个有趣又简单的 nano banana pro (gemini) 提示，它使用表情符号轻松改变生成图像中人物的面部表情。你可以使用 gemini 免费测试此功能。 この人に 4 つの絵文字の表情をさせて: {argument name=\"絵文字1\" default=\"😒\"} {argument name=\"絵文字2\" default=\"🤫\"}{argument name=\"絵文字3\" default=\"🙂\"}{argument name=\"絵文字4\" default=\"😉\"} 让这个人拥有 4 种表情符号的表情：{argument name=\"emoji 1\" default=\"😒\"} {argument name=\"emoji 2\" default=\"🤫\"} {argument name=\"emoji 3\" default=\"🙂\"} {argument name=\"emoji 4\" default=\"😉\"} テツメモ｜ai図解×検証｜newsletter 10807",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 136,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

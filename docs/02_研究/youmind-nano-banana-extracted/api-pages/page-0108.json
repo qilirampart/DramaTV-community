@@ -1,0 +1,525 @@
+{
+  "prompts": [
+    {
+      "id": 11310,
+      "title": "乐高积木套装设计提示模板",
+      "description": "一个用于生成乐高套装设计（包括包装盒和说明书）的提示模板，可根据特定主题（地点、电影、图像参考）和套装类型（冒险、建筑）进行设计。示例显示它是使用 Adobe Firefly 和 Nano Banana 2 制作的。",
+      "sourceLink": "https://x.com/GlennHasABeard/status/2028479876840210434",
+      "sourcePublishedAt": "2026-03-02T14:37:44.000Z",
+      "author": {
+        "name": "Glenn Williams",
+        "link": "https://x.com/GlennHasABeard"
+      },
+      "content": "Create a Lego set for [place, movie, image reference], [type of set, adventure, architecture] set, include box and instructions",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519726551_8u3myy_HCabsmiXIAEklYr.jpg",
+        "https://cms-assets.youmind.com/media/1772519726581_f1534s_HCabspLXwAEHqXP.jpg",
+        "https://cms-assets.youmind.com/media/1772519726577_e8dqvz_HCabsoEXwAAQ8C3.jpg",
+        "https://cms-assets.youmind.com/media/1772519727477_bh5o4x_HCabsq6XoAAAM_U.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519726551_8u3myy_HCabsmiXIAEklYr-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772519726581_f1534s_HCabspLXwAEHqXP-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772519726577_e8dqvz_HCabsoEXwAAQ8C3-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772519727477_bh5o4x_HCabsq6XoAAAM_U-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "为 {argument name=\"subject\" default=\"[地点、电影、图片参考]\"} 制作一个乐高套装，这是一个 {argument name=\"set type\" default=\"[套装类型、冒险、建筑]\"} 套装，包含盒子和说明书。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "乐高积木套装设计提示模板 一个用于生成乐高套装设计（包括包装盒和说明书）的提示模板，可根据特定主题（地点、电影、图像参考）和套装类型（冒险、建筑）进行设计。示例显示它是使用 adobe firefly 和 nano banana 2 制作的。 create a lego set for [place, movie, image reference], [type of set, adventure, architecture] set, include box and instructions 为 {argument name=\"subject\" default=\"[地点、电影、图片参考]\"} 制作一个乐高套装，这是一个 {argument name=\"set type\" default=\"[套装类型、冒险、建筑]\"} 套装，包含盒子和说明书。 glenn williams 11310",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11313,
+      "title": "3D 弹出式幻觉艺术作品提示",
+      "description": "一个为 Gemini 上的 Nano Banana Pro 设计的结构化提示，用于生成创意 3D 错觉艺术作品。图像描绘了一个可爱的小男孩，他正从放置在木制书桌上的螺旋笔记本页面中走出来。该提示详细说明了风格（半写实 3D 卡通）、服装以及错觉效果（下半身用铅笔素描，上半身完全写实并从中“弹出”）。",
+      "sourceLink": "https://x.com/NorthLooker/status/2028477737405743321",
+      "sourcePublishedAt": "2026-03-02T14:29:14.000Z",
+      "author": {
+        "name": "北望",
+        "link": "https://x.com/NorthLooker"
+      },
+      "content": "{\n  \"prompt\": \"A creative 3D illusion artwork of a cute young boy stepping out of a spiral notebook page placed on a wooden desk. The notebook has lined paper with handwritten text at the top. The boy appears in a semi-realistic 3D cartoon style, with soft messy brown hair, natural fresh face, and a cheerful smile. He is wearing a pastel oversized t-shirt, high-waisted light grey jeans, and clean white sneakers. His lower body is sketched in pencil on the notebook page, while his upper body looks fully realistic and popping out of the paper, creating a striking 3D illusion effect. Warm soft lighting, detailed wooden desk texture, shallow depth of field, ultra-detailed, high resolution.\",\n  \"style\": \"semi-realistic 3D cartoon\",\n  \"lighting\": \"warm soft lighting\",\n  \"resolution\": \"high resolution\",\n  \"effect\": \"3D pop-out illusion with pencil sketch lower body\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519728967_u923ha_HCaZv2cbwAAwTYF.jpg",
+        "https://cms-assets.youmind.com/media/1772519729034_uw92k1_HCaZv2aa0AALtOX.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519728967_u923ha_HCaZv2cbwAAwTYF-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1772519729034_uw92k1_HCaZv2aa0AALtOX-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"一幅富有创意的 3D 错觉艺术作品，描绘了一个可爱的年轻男孩从放在木桌上的螺旋笔记本页面中走出来。笔记本是带横线的纸张，顶部有手写文字。男孩呈现半写实 3D 卡通风格，拥有柔软凌乱的棕色头发，自然清新的面庞，以及开朗的笑容。他身穿柔和色调的超大号 T 恤，高腰浅灰色牛仔裤和干净的白色运动鞋。他的下半身在笔记本页面上以铅笔素描呈现，而上半身则看起来完全真实，从纸中跃然而出，营造出引人注目的 3D 错觉效果。温暖柔和的灯光，细致的木质桌面纹理，浅景深，超高细节，高分辨率。\",\n  \"style\": \"半写实 3D 卡通\",\n  \"lighting\": \"温暖柔和的灯光\",\n  \"resolution\": \"高分辨率\",\n  \"effect\": \"3D 跃出错觉，下半身铅笔素描\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 弹出式幻觉艺术作品提示 一个为 gemini 上的 nano banana pro 设计的结构化提示，用于生成创意 3d 错觉艺术作品。图像描绘了一个可爱的小男孩，他正从放置在木制书桌上的螺旋笔记本页面中走出来。该提示详细说明了风格（半写实 3d 卡通）、服装以及错觉效果（下半身用铅笔素描，上半身完全写实并从中“弹出”）。 {\n  \"prompt\": \"a creative 3d illusion artwork of a cute young boy stepping out of a spiral notebook page placed on a wooden desk. the notebook has lined paper with handwritten text at the top. the boy appears in a semi-realistic 3d cartoon style, with soft messy brown hair, natural fresh face, and a cheerful smile. he is wearing a pastel oversized t-shirt, high-waisted light grey jeans, and clean white sneakers. his lower body is sketched in pencil on the notebook page, while his upper body looks fully realistic and popping out of the paper, creating a striking 3d illusion effect. warm soft lighting, detailed wooden desk texture, shallow depth of field, ultra-detailed, high resolution.\",\n  \"style\": \"semi-realistic 3d cartoon\",\n  \"lighting\": \"warm soft lighting\",\n  \"resolution\": \"high resolution\",\n  \"effect\": \"3d pop-out illusion with pencil sketch lower body\"\n} ```json\n{\n  \"prompt\": \"一幅富有创意的 3d 错觉艺术作品，描绘了一个可爱的年轻男孩从放在木桌上的螺旋笔记本页面中走出来。笔记本是带横线的纸张，顶部有手写文字。男孩呈现半写实 3d 卡通风格，拥有柔软凌乱的棕色头发，自然清新的面庞，以及开朗的笑容。他身穿柔和色调的超大号 t 恤，高腰浅灰色牛仔裤和干净的白色运动鞋。他的下半身在笔记本页面上以铅笔素描呈现，而上半身则看起来完全真实，从纸中跃然而出，营造出引人注目的 3d 错觉效果。温暖柔和的灯光，细致的木质桌面纹理，浅景深，超高细节，高分辨率。\",\n  \"style\": \"半写实 3d 卡通\",\n  \"lighting\": \"温暖柔和的灯光\",\n  \"resolution\": \"高分辨率\",\n  \"effect\": \"3d 跃出错觉，下半身铅笔素描\"\n}\n``` 北望 11313",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11291,
+      "title": "涂鸦蜡笔画笔记本风格提示词",
+      "description": "一个用于生成高分辨率图像的提示，该图像模仿了学校笔记本风格的趣味蜡笔画。它需要使用参考图像来确定主体身份，并指定美学细节，例如不均匀的蜡笔笔触、粗体轮廓和蓝色横格纸上的涂鸦元素。",
+      "sourceLink": "https://x.com/Aipromptslap/status/2028476050783490068",
+      "sourcePublishedAt": "2026-03-02T14:22:32.000Z",
+      "author": {
+        "name": "Ai Prompts Lab",
+        "link": "https://x.com/Aipromptslap"
+      },
+      "content": "A High resolution a playful notebook-style crayon drawing of the person [Use the uploaded image as reference] , keeping the same face, hairstyle, and outfit. Also, draw with uneven crayon strokes and bold outlines for a hand-drawn effect. Meanwhile, add doodle-style elements like a sun, clouds, trees, and small colorful houses in the background on blue lined paper with a red margin. Next, make the image look like a fun school notebook sketch, full of bright colors and childlike charm. Finally, use a vertical portrait to complete the composition.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519715659_kjpcs1_HCaYM4CWAAAGE27.jpg",
+        "https://cms-assets.youmind.com/media/1772519715457_mohpbc_HCaYM4fbsAA8fwD.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519715659_kjpcs1_HCaYM4CWAAAGE27-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772519715457_mohpbc_HCaYM4fbsAA8fwD-300x396.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张高分辨率的涂鸦风格蜡笔画，描绘了一个人物（请参考上传的图片），保持相同的面部、发型和服装。同时，用不均匀的蜡笔笔触和粗体轮廓来营造手绘效果。背景是蓝色横线纸，带有红色边距，并添加了涂鸦风格的元素，如太阳、云朵、树木和彩色小房子。接下来，让图像看起来像一本有趣的学校笔记本草图，充满鲜艳的色彩和童趣。最后，使用垂直肖像构图来完成画面。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "涂鸦蜡笔画笔记本风格提示词 一个用于生成高分辨率图像的提示，该图像模仿了学校笔记本风格的趣味蜡笔画。它需要使用参考图像来确定主体身份，并指定美学细节，例如不均匀的蜡笔笔触、粗体轮廓和蓝色横格纸上的涂鸦元素。 a high resolution a playful notebook-style crayon drawing of the person [use the uploaded image as reference] , keeping the same face, hairstyle, and outfit. also, draw with uneven crayon strokes and bold outlines for a hand-drawn effect. meanwhile, add doodle-style elements like a sun, clouds, trees, and small colorful houses in the background on blue lined paper with a red margin. next, make the image look like a fun school notebook sketch, full of bright colors and childlike charm. finally, use a vertical portrait to complete the composition. 一张高分辨率的涂鸦风格蜡笔画，描绘了一个人物（请参考上传的图片），保持相同的面部、发型和服装。同时，用不均匀的蜡笔笔触和粗体轮廓来营造手绘效果。背景是蓝色横线纸，带有红色边距，并添加了涂鸦风格的元素，如太阳、云朵、树木和彩色小房子。接下来，让图像看起来像一本有趣的学校笔记本草图，充满鲜艳的色彩和童趣。最后，使用垂直肖像构图来完成画面。 ai prompts lab 11291",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11286,
+      "title": "奢华芒果奶昔飞溅摄影提示词",
+      "description": "一个高度结构化的提示，用于生成一张超逼真、高速的奢华芒果奶昔瓶商业照片，重点突出动态飞溅爆炸、特定光照效果（轮廓光、金色光晕）和技术相机细节（微距镜头、凝固运动捕捉）。",
+      "sourceLink": "https://x.com/j_smeaton99/status/2028475788082004403",
+      "sourcePublishedAt": "2026-03-02T14:21:29.000Z",
+      "author": {
+        "name": "Jack",
+        "link": "https://x.com/j_smeaton99"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"scene_type\": \"high-speed commercial luxury shake photography\",\n    \"product\": {\n      \"type\": \"elegant frosted glass bottle filled with velvety mango shake\",\n      \"brand_name\": \"{argument name=\"品牌名称\" default=\"MANGO AURÉLIA\"}\",\n      \"label_design\": \"minimalist vertical ivory label with embossed brushed-gold serif typography\",\n      \"liquid_color\": \"creamy golden mango with rich natural pulp swirls\"\n    },\n    \"composition\": {\n      \"action\": \"dynamic high-velocity creamy mango splash explosion\",\n      \"surrounding_elements\": [\n        \"sculptural waves of thick mango shake splashing outward\",\n        \"silky ribbons of rich mango puree suspended mid-air\",\n        \"floating fresh mango cubes with juicy glossy texture\",\n        \"mango slices with vibrant yellow-orange flesh\",\n        \"fine droplets of creamy golden mist catching the light\"\n      ],\n      \"placement\": \"centered hero bottle with a crisp reflection on a polished ivory marble surface\"\n    },\n    \"lighting\": {\n      \"style\": \"luxury glossy studio product lighting\",\n      \"effects\": [\n        \"sharp rim lighting to define bottle silhouette\",\n        \"brilliant highlights on creamy splashes and glossy mango surfaces\",\n        \"soft warm golden glow in the background for richness and elegance\"\n      ]\n    },\n    \"color_palette\": {\n      \"background\": \"smooth gradient of warm mango gold fading into soft champagne cream\",\n      \"accents\": \"vibrant mango yellow, tropical orange, brushed gold, and vanilla cream tones\"\n    },\n    \"technical_specs\": {\n      \"camera\": \"macro lens, eye-level angle\",\n      \"shutter\": \"ultra-fast freeze-motion capture\",\n      \"depth_of_field\": \"shallow focus on the label, gentle blur on dynamic splash elements\",\n      \"quality\": \"8K resolution, ultra-photorealistic texture\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519712386_42j9fk_HCaX-KYaMAA6KHW.jpg",
+        "https://cms-assets.youmind.com/media/1772519712477_iph8w1_HCaX-KWaoAAG_0u.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519712386_42j9fk_HCaX-KYaMAA6KHW-300x417.jpg",
+        "https://cms-assets.youmind.com/media/1772519712477_iph8w1_HCaX-KWaoAAG_0u-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"高速商业奢华奶昔摄影\",\n    \"product\": {\n      \"type\": \"优雅的磨砂玻璃瓶，内含丝滑芒果奶昔\",\n      \"brand_name\": \"{argument name=\\\"Brand Name\\\" default=\\\"MANGO AURÉLIA\\\"}\",\n      \"label_design\": \"极简主义的垂直象牙色标签，带有浮雕拉丝金衬线字体\",\n      \"liquid_color\": \"奶油金色芒果色，带有浓郁的天然果肉漩涡\"\n    },\n    \"composition\": {\n      \"action\": \"动态高速奶油芒果飞溅爆炸\",\n      \"surrounding_elements\": [\n        \"厚芒果奶昔雕塑般的波浪向外飞溅\",\n        \"丝滑的浓郁芒果泥彩带悬浮在半空中\",\n        \"漂浮的新鲜芒果块，带有多汁光泽的质感\",\n        \"果肉呈鲜艳黄橙色的芒果片\",\n        \"捕捉到光线的细小奶油金色雾滴\"\n      ],\n      \"placement\": \"居中放置的英雄瓶，在抛光的象牙色大理石表面上呈现清晰的倒影\"\n    },\n    \"lighting\": {\n      \"style\": \"奢华光泽工作室产品照明\",\n      \"effects\": [\n        \"锐利的边缘光勾勒出瓶身轮廓\",\n        \"奶油飞溅和光泽芒果表面上的璀璨高光\",\n        \"背景中柔和温暖的金色光芒，营造丰富和优雅感\"\n      ]\n    },\n    \"color_palette\": {\n      \"background\": \"温暖芒果金色渐变为柔和香槟奶油色的平滑渐变\",\n      \"accents\": \"鲜艳的芒果黄、热带橙、拉丝金和香草奶油色调\"\n    },\n    \"technical_specs\": {\n      \"camera\": \"微距镜头，平视角度\",\n      \"shutter\": \"超高速凝固运动捕捉\",\n      \"depth_of_field\": \"标签处浅景深，动态飞溅元素处柔和模糊\",\n      \"quality\": \"8K 分辨率，超逼真纹理\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华芒果奶昔飞溅摄影提示词 一个高度结构化的提示，用于生成一张超逼真、高速的奢华芒果奶昔瓶商业照片，重点突出动态飞溅爆炸、特定光照效果（轮廓光、金色光晕）和技术相机细节（微距镜头、凝固运动捕捉）。 {\n  \"master_prompt\": {\n    \"scene_type\": \"high-speed commercial luxury shake photography\",\n    \"product\": {\n      \"type\": \"elegant frosted glass bottle filled with velvety mango shake\",\n      \"brand_name\": \"{argument name=\"品牌名称\" default=\"mango aurélia\"}\",\n      \"label_design\": \"minimalist vertical ivory label with embossed brushed-gold serif typography\",\n      \"liquid_color\": \"creamy golden mango with rich natural pulp swirls\"\n    },\n    \"composition\": {\n      \"action\": \"dynamic high-velocity creamy mango splash explosion\",\n      \"surrounding_elements\": [\n        \"sculptural waves of thick mango shake splashing outward\",\n        \"silky ribbons of rich mango puree suspended mid-air\",\n        \"floating fresh mango cubes with juicy glossy texture\",\n        \"mango slices with vibrant yellow-orange flesh\",\n        \"fine droplets of creamy golden mist catching the light\"\n      ],\n      \"placement\": \"centered hero bottle with a crisp reflection on a polished ivory marble surface\"\n    },\n    \"lighting\": {\n      \"style\": \"luxury glossy studio product lighting\",\n      \"effects\": [\n        \"sharp rim lighting to define bottle silhouette\",\n        \"brilliant highlights on creamy splashes and glossy mango surfaces\",\n        \"soft warm golden glow in the background for richness and elegance\"\n      ]\n    },\n    \"color_palette\": {\n      \"background\": \"smooth gradient of warm mango gold fading into soft champagne cream\",\n      \"accents\": \"vibrant mango yellow, tropical orange, brushed gold, and vanilla cream tones\"\n    },\n    \"technical_specs\": {\n      \"camera\": \"macro lens, eye-level angle\",\n      \"shutter\": \"ultra-fast freeze-motion capture\",\n      \"depth_of_field\": \"shallow focus on the label, gentle blur on dynamic splash elements\",\n      \"quality\": \"8k resolution, ultra-photorealistic texture\"\n    }\n  }\n} ```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"高速商业奢华奶昔摄影\",\n    \"product\": {\n      \"type\": \"优雅的磨砂玻璃瓶，内含丝滑芒果奶昔\",\n      \"brand_name\": \"{argument name=\\\"brand name\\\" default=\\\"mango aurélia\\\"}\",\n      \"label_design\": \"极简主义的垂直象牙色标签，带有浮雕拉丝金衬线字体\",\n      \"liquid_color\": \"奶油金色芒果色，带有浓郁的天然果肉漩涡\"\n    },\n    \"composition\": {\n      \"action\": \"动态高速奶油芒果飞溅爆炸\",\n      \"surrounding_elements\": [\n        \"厚芒果奶昔雕塑般的波浪向外飞溅\",\n        \"丝滑的浓郁芒果泥彩带悬浮在半空中\",\n        \"漂浮的新鲜芒果块，带有多汁光泽的质感\",\n        \"果肉呈鲜艳黄橙色的芒果片\",\n        \"捕捉到光线的细小奶油金色雾滴\"\n      ],\n      \"placement\": \"居中放置的英雄瓶，在抛光的象牙色大理石表面上呈现清晰的倒影\"\n    },\n    \"lighting\": {\n      \"style\": \"奢华光泽工作室产品照明\",\n      \"effects\": [\n        \"锐利的边缘光勾勒出瓶身轮廓\",\n        \"奶油飞溅和光泽芒果表面上的璀璨高光\",\n        \"背景中柔和温暖的金色光芒，营造丰富和优雅感\"\n      ]\n    },\n    \"color_palette\": {\n      \"background\": \"温暖芒果金色渐变为柔和香槟奶油色的平滑渐变\",\n      \"accents\": \"鲜艳的芒果黄、热带橙、拉丝金和香草奶油色调\"\n    },\n    \"technical_specs\": {\n      \"camera\": \"微距镜头，平视角度\",\n      \"shutter\": \"超高速凝固运动捕捉\",\n      \"depth_of_field\": \"标签处浅景深，动态飞溅元素处柔和模糊\",\n      \"quality\": \"8k 分辨率，超逼真纹理\"\n    }\n  }\n}\n``` jack 11286",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11322,
+      "title": "樱桃汁瓶的 3D 商业镜头",
+      "description": "一个结构化的 JSON 提示词，用于生成一张超逼真的 3D 商业产品照片：一个高端樱桃汁瓶悬浮在半空中，重点突出凝结的水珠、高速冻结的飞溅效果，以及在浓郁红色渐变背景下的电影级影棚灯光。",
+      "sourceLink": "https://x.com/Fujimoto_hina/status/2028469125828207063",
+      "sourcePublishedAt": "2026-03-02T13:55:01.000Z",
+      "author": {
+        "name": "Aegon",
+        "link": "https://x.com/Fujimoto_hina"
+      },
+      "content": "{\n  \"prompt_name\": \"Prompt 17\",\n  \"description\": \"Ultra-realistic 3D commercial-style product shot of a premium cherry juice bottle suspended mid-air, covered in intricate condensation droplets reflecting ambient light for enhanced photorealism. The bottle appears fresh, vibrant, and slightly tilted for dynamic sophistication. Surrounding elements include high-speed frozen splashes of cherry juice, whole cherries, sharp ice cubes, floating stems, and fresh green leaves — all crisply defined with vibrant clarity. Background features a rich deep red to burgundy gradient evoking indulgence and premium quality. Cinematic studio lighting with bright highlights, crisp shadows, high contrast, and subtle reflective surface beneath the bottle. Label clearly visible with realistic reflections and depth. Overall aesthetic: luxurious, fresh, energetic, high-end commercial beverage advertising.\",\n  \"technical_specifications\": {\n    \"aspect_ratio\": \"4:5\",\n    \"resolution\": \"Ultra-HD\",\n    \"lighting\": \"Studio-style cinematic, bright highlights, subtle reflections, high contrast\",\n    \"detailing\": \"Extreme attention to condensation, droplets, and frozen high-speed motion elements\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519734244_7c5rpe_HCaRuxEacAANYoz.jpg",
+        "https://cms-assets.youmind.com/media/1772519734196_dl455v_HCaRusFbUAA5uGJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519734244_7c5rpe_HCaRuxEacAANYoz-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772519734196_dl455v_HCaRusFbUAA5uGJ-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_name\": \"提示词 17\",\n  \"description\": \"超逼真的 3D 商业风格产品照片，一个高级樱桃汁瓶悬浮在空中，瓶身覆盖着精致的冷凝水滴，反射着环境光，增强了照片的真实感。瓶子看起来新鲜、充满活力，略微倾斜，展现出动态的精致感。周围的元素包括高速凝固的樱桃汁飞溅、整颗樱桃、锋利的冰块、漂浮的茎和新鲜的绿叶——所有这些都清晰地呈现出鲜明的活力。背景是浓郁的深红色到勃艮第色的渐变，唤起奢华和高级品质。电影级的摄影棚灯光，带有明亮的高光、清晰的阴影、高对比度，以及瓶子下方微妙的反射表面。标签清晰可见，具有逼真的反射和深度。整体美学：奢华、清新、充满活力、高端商业饮料广告。\",\n  \"technical_specifications\": {\n    \"aspect_ratio\": \"4:5\",\n    \"resolution\": \"超高清\",\n    \"lighting\": \"摄影棚式电影级灯光，明亮高光，微妙反射，高对比度\",\n    \"detailing\": \"极致关注冷凝水、水滴和高速凝固的动态元素\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "樱桃汁瓶的 3d 商业镜头 一个结构化的 json 提示词，用于生成一张超逼真的 3d 商业产品照片：一个高端樱桃汁瓶悬浮在半空中，重点突出凝结的水珠、高速冻结的飞溅效果，以及在浓郁红色渐变背景下的电影级影棚灯光。 {\n  \"prompt_name\": \"prompt 17\",\n  \"description\": \"ultra-realistic 3d commercial-style product shot of a premium cherry juice bottle suspended mid-air, covered in intricate condensation droplets reflecting ambient light for enhanced photorealism. the bottle appears fresh, vibrant, and slightly tilted for dynamic sophistication. surrounding elements include high-speed frozen splashes of cherry juice, whole cherries, sharp ice cubes, floating stems, and fresh green leaves — all crisply defined with vibrant clarity. background features a rich deep red to burgundy gradient evoking indulgence and premium quality. cinematic studio lighting with bright highlights, crisp shadows, high contrast, and subtle reflective surface beneath the bottle. label clearly visible with realistic reflections and depth. overall aesthetic: luxurious, fresh, energetic, high-end commercial beverage advertising.\",\n  \"technical_specifications\": {\n    \"aspect_ratio\": \"4:5\",\n    \"resolution\": \"ultra-hd\",\n    \"lighting\": \"studio-style cinematic, bright highlights, subtle reflections, high contrast\",\n    \"detailing\": \"extreme attention to condensation, droplets, and frozen high-speed motion elements\"\n  }\n} ```json\n{\n  \"prompt_name\": \"提示词 17\",\n  \"description\": \"超逼真的 3d 商业风格产品照片，一个高级樱桃汁瓶悬浮在空中，瓶身覆盖着精致的冷凝水滴，反射着环境光，增强了照片的真实感。瓶子看起来新鲜、充满活力，略微倾斜，展现出动态的精致感。周围的元素包括高速凝固的樱桃汁飞溅、整颗樱桃、锋利的冰块、漂浮的茎和新鲜的绿叶——所有这些都清晰地呈现出鲜明的活力。背景是浓郁的深红色到勃艮第色的渐变，唤起奢华和高级品质。电影级的摄影棚灯光，带有明亮的高光、清晰的阴影、高对比度，以及瓶子下方微妙的反射表面。标签清晰可见，具有逼真的反射和深度。整体美学：奢华、清新、充满活力、高端商业饮料广告。\",\n  \"technical_specifications\": {\n    \"aspect_ratio\": \"4:5\",\n    \"resolution\": \"超高清\",\n    \"lighting\": \"摄影棚式电影级灯光，明亮高光，微妙反射，高对比度\",\n    \"detailing\": \"极致关注冷凝水、水滴和高速凝固的动态元素\"\n  }\n}\n``` aegon 11322",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11317,
+      "title": "超逼真奢华身体油产品摄影",
+      "description": "一个旨在生成超逼真奢华身体油瓶产品照片的提示，重点关注高细节、动态构图以及冷凝水和缎带等特定品牌元素。",
+      "sourceLink": "https://x.com/Taaruk_/status/2028467429161198076",
+      "sourcePublishedAt": "2026-03-02T13:48:16.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic luxury beauty product photography featuring a transparent amber-toned body oil bottle labeled “{argument name=\"product name\" default=\"the act\"}” with the variant name “{argument name=\"variant name\" default=\"VIRGIN\"}” clearly visible on the front. The bottle has a sleek black pump and is suspended mid-air in a dynamic floating composition. It is elegantly wrapped in a deep burgundy satin ribbon printed with “THE ACT” in white lettering, spiraling around the bottle without covering the main branding. Fine condensation droplets cover the glass",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519730164_vlgwvn_HCaQGAxa8AAVb7c.jpg",
+        "https://cms-assets.youmind.com/media/1772519730142_y2633m_HCaQES-asAI0jcI.jpg",
+        "https://cms-assets.youmind.com/media/1772519730192_tlq2yt_HCaQGA8akAAZ1iY.jpg",
+        "https://cms-assets.youmind.com/media/1772519731118_3orqn5_HCaQGBAboAAlLut.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519730164_vlgwvn_HCaQGAxa8AAVb7c-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519730142_y2633m_HCaQES-asAI0jcI-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519730192_tlq2yt_HCaQGA8akAAZ1iY-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519731118_3orqn5_HCaQGBAboAAlLut-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的奢华美妆产品摄影，展示了一款透明琥珀色身体油瓶，瓶身标有“{argument name=\"product name\" default=\"the act\"}”，变体名称“{argument name=\"variant name\" default=\"VIRGIN\"}”清晰可见于正面。瓶子配有时尚的黑色泵头，悬浮在空中，呈现出动态的漂浮构图。瓶身优雅地缠绕着一条深勃艮第色缎带，缎带上印有白色字母“THE ACT”，呈螺旋状环绕瓶身，但未遮盖主要品牌标识。玻璃瓶上布满了细小的冷凝水珠。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真奢华身体油产品摄影 一个旨在生成超逼真奢华身体油瓶产品照片的提示，重点关注高细节、动态构图以及冷凝水和缎带等特定品牌元素。 ultra-realistic luxury beauty product photography featuring a transparent amber-toned body oil bottle labeled “{argument name=\"product name\" default=\"the act\"}” with the variant name “{argument name=\"variant name\" default=\"virgin\"}” clearly visible on the front. the bottle has a sleek black pump and is suspended mid-air in a dynamic floating composition. it is elegantly wrapped in a deep burgundy satin ribbon printed with “the act” in white lettering, spiraling around the bottle without covering the main branding. fine condensation droplets cover the glass 超逼真的奢华美妆产品摄影，展示了一款透明琥珀色身体油瓶，瓶身标有“{argument name=\"product name\" default=\"the act\"}”，变体名称“{argument name=\"variant name\" default=\"virgin\"}”清晰可见于正面。瓶子配有时尚的黑色泵头，悬浮在空中，呈现出动态的漂浮构图。瓶身优雅地缠绕着一条深勃艮第色缎带，缎带上印有白色字母“the act”，呈螺旋状环绕瓶身，但未遮盖主要品牌标识。玻璃瓶上布满了细小的冷凝水珠。 taaruk 11317",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11309,
+      "title": "奢华美妆产品摄影提示",
+      "description": "这是一个为 Gemini 应用中的 Nano Banana Pro 设计的提示，用于创建超逼真的奢华美妆产品摄影。它详细描述了一个透明琥珀色瓶身的身体油，标签为“the act”和“VIRGIN”，悬浮在半空中，缠绕着一条勃艮第色缎带，瓶身覆盖着细小的冷凝水珠。",
+      "sourceLink": "https://x.com/Taaruk_/status/2028467428779544776",
+      "sourcePublishedAt": "2026-03-02T13:48:16.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic luxury beauty product photography featuring a transparent amber-toned body oil bottle labeled “the act” with the variant name “VIRGIN” clearly visible on the front. The bottle has a sleek black pump and is suspended mid-air in a dynamic floating composition. It is elegantly wrapped in a deep burgundy satin ribbon printed with “THE ACT” in white lettering, spiraling around the bottle without covering the main branding. Fine condensation droplets cover the glass",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519725994_zg9d37_HCaQGAxa8AAVb7c.jpg",
+        "https://cms-assets.youmind.com/media/1772519725927_erxykx_HCaQES-asAI0jcI.jpg",
+        "https://cms-assets.youmind.com/media/1772519725998_o9p4yi_HCaQGA8akAAZ1iY.jpg",
+        "https://cms-assets.youmind.com/media/1772519726892_0a7u0c_HCaQGBAboAAlLut.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519725994_zg9d37_HCaQGAxa8AAVb7c-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519725927_erxykx_HCaQES-asAI0jcI-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519725998_o9p4yi_HCaQGA8akAAZ1iY-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772519726892_0a7u0c_HCaQGBAboAAlLut-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的奢华美妆产品摄影，展示了一款透明琥珀色调的身体油瓶，瓶身标有“{argument name=\"product name\" default=\"the act\"}”，正面清晰可见变体名称“{argument name=\"variant name\" default=\"VIRGIN\"}”。瓶子配有时尚的黑色泵头，以动态的悬浮构图置于半空中。瓶身优雅地缠绕着一条深勃艮第色缎带，上面印有白色字母“THE ACT”，缎带呈螺旋状环绕瓶身，但未遮盖主要品牌标识。玻璃瓶上布满了细小的冷凝水珠。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华美妆产品摄影提示 这是一个为 gemini 应用中的 nano banana pro 设计的提示，用于创建超逼真的奢华美妆产品摄影。它详细描述了一个透明琥珀色瓶身的身体油，标签为“the act”和“virgin”，悬浮在半空中，缠绕着一条勃艮第色缎带，瓶身覆盖着细小的冷凝水珠。 ultra-realistic luxury beauty product photography featuring a transparent amber-toned body oil bottle labeled “the act” with the variant name “virgin” clearly visible on the front. the bottle has a sleek black pump and is suspended mid-air in a dynamic floating composition. it is elegantly wrapped in a deep burgundy satin ribbon printed with “the act” in white lettering, spiraling around the bottle without covering the main branding. fine condensation droplets cover the glass 超逼真的奢华美妆产品摄影，展示了一款透明琥珀色调的身体油瓶，瓶身标有“{argument name=\"product name\" default=\"the act\"}”，正面清晰可见变体名称“{argument name=\"variant name\" default=\"virgin\"}”。瓶子配有时尚的黑色泵头，以动态的悬浮构图置于半空中。瓶身优雅地缠绕着一条深勃艮第色缎带，上面印有白色字母“the act”，缎带呈螺旋状环绕瓶身，但未遮盖主要品牌标识。玻璃瓶上布满了细小的冷凝水珠。 taaruk 11309",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11284,
+      "title": "华丽盒式立体模型提示（赛博朋克酒吧）",
+      "description": "一个高度详细、结构化的提示模板（AUTO-THEME MASTER PROMPT），用于在一个华丽的盒子内生成一个超逼真的微缩立体模型，主题明确为赛博朋克酒吧。该提示规定了建筑整合、材料风格、照明和极致的微距细节。",
+      "sourceLink": "https://x.com/artingent/status/2028465809501331729",
+      "sourcePublishedAt": "2026-03-02T13:41:50.000Z",
+      "author": {
+        "name": "Artingent",
+        "link": "https://x.com/artingent"
+      },
+      "content": "Scene:\nORNATE BOX DIORAMA — AUTO-THEME MASTER PROMPT\n========================\nSMART VARIABLE GUIDE\nTHEME_LOCATION = {argument name=\"主题位置\" default=\"Cyberpunk pub\"}\nAUTO RULES:\n• If THEME_LOCATION is filled → automatically infer:\nPRIMARY_ACTIVITY\nSTAIR_TYPE\nCEILING_DETAILS\nTHEME_MATERIAL_STYLE\nPROP_LIST\nTHEME_LIGHT_SOURCE\nBASE_MATERIAL_COLOR\nTHEME_PALETTE\nFOCAL_SUBJECT\nAll inferred values must be logically consistent with THEME_LOCATION.\n• If THEME_LOCATION is blank → first invent a visually rich miniature environment theme, assign it to THEME_LOCATION, then automatically infer all other variables from it.\n• Always prioritize strong environmental storytelling, believable materials, and handcrafted miniature realism when inferring values.\n========================\nSUBJECT:\nA two-level miniature THEME_LOCATION where the ornate open box itself forms the architecture, the base container acting as the full ground floor chamber with the box walls serving directly as the structural walls. The sides of the box must contain functional doors and windows, with the front-facing side featuring a wide open doorway and visible windows. No side of the box may be removed, cut away, or missing. The box height:width:length ratio is 1:4:7 (the width four times the height). The scene features PRIMARY_ACTIVITY actively interacting with the environment. The structure must be fully integrated into the box material itself — not a room inserted inside, not a display frame, not a cutaway model. The ground floor must be constructed from the same material as the box exterior.\nENVIRONMENT:\nThe base of the ornate box forms the ground floor surface and foundation. Its interior sides transform into the architectural walls containing carved doorways and window openings seamlessly cut into the box sides and aligned with exterior ornamentation. A mezzanine or upper level is built above with structural elements attached directly to the box walls and connected via STAIR_TYPE. The inside of the open lid functions as the vaulted ceiling decorated with CEILING_DETAILS.\nDETAILS:\nIntricately carved ornate box styled according to THEME_MATERIAL_STYLE. Exterior ornamentation must continue logically into interior architecture. Doors and windows must be precisely cut into the box sides following decorative carving patterns. Include believable miniature structural joins where beams meet the container walls. Include ultra-fine theme-specific props such as PROP_LIST. Include floating dust, micro-surface wear, tactile handcrafted realism, and environmental storytelling details.\nSTYLE:\nUltra-realistic cinematic miniature diorama photography, museum-grade handcrafted realism, extreme macro detail, physically believable materials, strong architectural integration of container and structure.\nLIGHTING:\nPrimary lighting motivated by THEME_LIGHT_SOURCE combined with subtle environmental secondary lighting entering through box windows and openings. Volumetric dus",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519711914_mwmi19_HCaO3aebwAAcfDJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519711914_mwmi19_HCaO3aebwAAcfDJ-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "场景：\n华丽的盒子立体模型 — 自动主题主提示\n========================\n智能变量指南\nTHEME_LOCATION = {argument name=\"Theme Location\" default=\"赛博朋克酒吧\"}\n自动规则：\n• 如果 THEME_LOCATION 已填写 → 自动推断：\nPRIMARY_ACTIVITY\nSTAIR_TYPE\nCEILING_DETAILS\nTHEME_MATERIAL_STYLE\nPROP_LIST\nTHEME_LIGHT_SOURCE\nBASE_MATERIAL_COLOR\nTHEME_PALETTE\nFOCAL_SUBJECT\n所有推断值必须与 THEME_LOCATION 逻辑一致。\n• 如果 THEME_LOCATION 为空 → 首先构思一个视觉丰富的微缩环境主题，将其赋值给 THEME_LOCATION，然后自动推断所有其他变量。\n• 在推断值时，始终优先考虑强大的环境叙事、可信的材料和手工制作的微缩真实感。\n========================\n主题：\n一个两层微缩的 THEME_LOCATION，其中华丽的开放式盒子本身构成了建筑，底部容器作为完整的底层空间，盒子壁直接用作结构墙。盒子的侧面必须包含功能性门窗，正面则设有一个宽阔的开放式门口和可见的窗户。盒子的任何一侧都不得被移除、切掉或缺失。盒子的长宽高比例为 1:4:7（宽度是高度的四倍）。场景中 PRIMARY_ACTIVITY 正在积极地与环境互动。结构必须完全融入盒子材料本身 — 而不是插入其中的房间，不是展示框，也不是剖面模型。底层必须由与盒子外部相同的材料建造。\n环境：\n华丽盒子的底部构成底层表面和地基。其内部侧面转化为建筑墙壁，其中包含雕刻的门道和窗户开口，这些开口无缝地切入盒子侧面并与外部装饰对齐。一个夹层或上层建造在上方，结构元素直接连接到盒子墙壁，并通过 STAIR_TYPE 连接。打开的盖子内部用作拱形天花板，并装饰有 CEILING_DETAILS。\n细节：\n根据 THEME_MATERIAL_STYLE 风格雕刻的精美华丽盒子。外部装饰必须逻辑地延续到内部建筑中。门窗必须根据装饰雕刻图案精确地切入盒子侧面。包含可信的微缩结构连接，例如横梁与容器墙壁的连接处。包含超精细的主题特定道具，例如 PROP_LIST。包含漂浮的灰尘、微表面磨损、触感手工真实感和环境叙事细节。\n风格：\n超逼真的电影级微缩立体模型摄影、博物馆级手工真实感、极致微距细节、物理可信材料、容器与结构的高度建筑整合。\n照明：\n主要照明由 THEME_LIGHT_SOURCE 驱动，并结合通过盒子窗户和开口进入的微妙环境次级照明。体积感灰尘",
+      "sourcePlatform": "twitter",
+      "searchIndex": "华丽盒式立体模型提示（赛博朋克酒吧） 一个高度详细、结构化的提示模板（auto-theme master prompt），用于在一个华丽的盒子内生成一个超逼真的微缩立体模型，主题明确为赛博朋克酒吧。该提示规定了建筑整合、材料风格、照明和极致的微距细节。 scene:\nornate box diorama — auto-theme master prompt\n========================\nsmart variable guide\ntheme_location = {argument name=\"主题位置\" default=\"cyberpunk pub\"}\nauto rules:\n• if theme_location is filled → automatically infer:\nprimary_activity\nstair_type\nceiling_details\ntheme_material_style\nprop_list\ntheme_light_source\nbase_material_color\ntheme_palette\nfocal_subject\nall inferred values must be logically consistent with theme_location.\n• if theme_location is blank → first invent a visually rich miniature environment theme, assign it to theme_location, then automatically infer all other variables from it.\n• always prioritize strong environmental storytelling, believable materials, and handcrafted miniature realism when inferring values.\n========================\nsubject:\na two-level miniature theme_location where the ornate open box itself forms the architecture, the base container acting as the full ground floor chamber with the box walls serving directly as the structural walls. the sides of the box must contain functional doors and windows, with the front-facing side featuring a wide open doorway and visible windows. no side of the box may be removed, cut away, or missing. the box height:width:length ratio is 1:4:7 (the width four times the height). the scene features primary_activity actively interacting with the environment. the structure must be fully integrated into the box material itself — not a room inserted inside, not a display frame, not a cutaway model. the ground floor must be constructed from the same material as the box exterior.\nenvironment:\nthe base of the ornate box forms the ground floor surface and foundation. its interior sides transform into the architectural walls containing carved doorways and window openings seamlessly cut into the box sides and aligned with exterior ornamentation. a mezzanine or upper level is built above with structural elements attached directly to the box walls and connected via stair_type. the inside of the open lid functions as the vaulted ceiling decorated with ceiling_details.\ndetails:\nintricately carved ornate box styled according to theme_material_style. exterior ornamentation must continue logically into interior architecture. doors and windows must be precisely cut into the box sides following decorative carving patterns. include believable miniature structural joins where beams meet the container walls. include ultra-fine theme-specific props such as prop_list. include floating dust, micro-surface wear, tactile handcrafted realism, and environmental storytelling details.\nstyle:\nultra-realistic cinematic miniature diorama photography, museum-grade handcrafted realism, extreme macro detail, physically believable materials, strong architectural integration of container and structure.\nlighting:\nprimary lighting motivated by theme_light_source combined with subtle environmental secondary lighting entering through box windows and openings. volumetric dus 场景：\n华丽的盒子立体模型 — 自动主题主提示\n========================\n智能变量指南\ntheme_location = {argument name=\"theme location\" default=\"赛博朋克酒吧\"}\n自动规则：\n• 如果 theme_location 已填写 → 自动推断：\nprimary_activity\nstair_type\nceiling_details\ntheme_material_style\nprop_list\ntheme_light_source\nbase_material_color\ntheme_palette\nfocal_subject\n所有推断值必须与 theme_location 逻辑一致。\n• 如果 theme_location 为空 → 首先构思一个视觉丰富的微缩环境主题，将其赋值给 theme_location，然后自动推断所有其他变量。\n• 在推断值时，始终优先考虑强大的环境叙事、可信的材料和手工制作的微缩真实感。\n========================\n主题：\n一个两层微缩的 theme_location，其中华丽的开放式盒子本身构成了建筑，底部容器作为完整的底层空间，盒子壁直接用作结构墙。盒子的侧面必须包含功能性门窗，正面则设有一个宽阔的开放式门口和可见的窗户。盒子的任何一侧都不得被移除、切掉或缺失。盒子的长宽高比例为 1:4:7（宽度是高度的四倍）。场景中 primary_activity 正在积极地与环境互动。结构必须完全融入盒子材料本身 — 而不是插入其中的房间，不是展示框，也不是剖面模型。底层必须由与盒子外部相同的材料建造。\n环境：\n华丽盒子的底部构成底层表面和地基。其内部侧面转化为建筑墙壁，其中包含雕刻的门道和窗户开口，这些开口无缝地切入盒子侧面并与外部装饰对齐。一个夹层或上层建造在上方，结构元素直接连接到盒子墙壁，并通过 stair_type 连接。打开的盖子内部用作拱形天花板，并装饰有 ceiling_details。\n细节：\n根据 theme_material_style 风格雕刻的精美华丽盒子。外部装饰必须逻辑地延续到内部建筑中。门窗必须根据装饰雕刻图案精确地切入盒子侧面。包含可信的微缩结构连接，例如横梁与容器墙壁的连接处。包含超精细的主题特定道具，例如 prop_list。包含漂浮的灰尘、微表面磨损、触感手工真实感和环境叙事细节。\n风格：\n超逼真的电影级微缩立体模型摄影、博物馆级手工真实感、极致微距细节、物理可信材料、容器与结构的高度建筑整合。\n照明：\n主要照明由 theme_light_source 驱动，并结合通过盒子窗户和开口进入的微妙环境次级照明。体积感灰尘 artingent 11284",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11312,
+      "title": "夏洛克·福尔摩斯华丽橱柜立体模型提示",
+      "description": "一个复杂、结构化的提示模板，用于 Nano Banana 2 生成一个华丽橱柜立体模型的超现实渲染图。该立体模型必须包含三个架子，每个架子都描绘了《福尔摩斯历险记》中的一个场景。该提示使用可变指南来控制材料、风格、照明和摄像机角度，并对构图和结构提供了严格的指示（必须是开放式正面，无门）。",
+      "sourceLink": "https://x.com/artingent/status/2028465420756475917",
+      "sourcePublishedAt": "2026-03-02T13:40:18.000Z",
+      "author": {
+        "name": "Artingent",
+        "link": "https://x.com/artingent"
+      },
+      "content": "Variable Guide\n1. OVERALL_DIORAMA_THEME = Scenes from Adventures of Sherlock Holmes by Arthur Conan Doyle, in the order in which they are presented in the book\n2. CUPBOARD_BASE_MATERIAL = \n3. CUPBOARD_LINING_MATERIAL = \n4. RACK_MATERIAL = \n5. ORNAMENTATION_STYLE = [e.g., Gothic carved wood, Art Deco brass, Elven interlaced vines]\n6. ART_STYLE = Hyper-Realistic Render\n7. TOP_SHELF_SCENE = [Describe specific actions of miniature figures defining the scene]\n8. MIDDLE_SHELF_SCENE = [Describe specific actions of miniature figures defining the scene]\n9. BOTTOM_SHELF_SCENE = [Describe specific actions of miniature figures defining the scene]\n10. LIGHTING = \n11. CAMERA_ANGLE = A straight-on, front-facing view, captured from a moderately high angle looking distinctly downward.\n12. ASPECT_RATIO = 3:4\n\nGeneration Directives\n(Note: If any variable is left blank, intelligently infer the most appropriate detail based on the OVERALL_DIORAMA_THEME)\n\nDirective 1: Framing & Composition (Highest Priority)\nA direct, front-facing photograph captured from CAMERA_ANGLE. The composition must perfectly center the open display structure, looking down at a distinct angle into the shelves to clearly reveal the floor plates and top-down depth of the miniature objects within the dioramas, while ensuring the exterior side panels remain completely hidden. The entire free-standing structure must be completely visible with negative space around it against a simple background. The aspect ratio is 3:4.\n\nDirective 2: The Main Structure (Strict Constraints)\nRender the image in the style of ART_STYLE. The central object is a highly detailed, permanently open-front curio display structure. It must not possess doors, hinges, or door frames of any kind. The exterior is constructed from CUPBOARD_BASE_MATERIAL and detailed with ORNAMENTATION_STYLE. The interior back wall is lined with CUPBOARD_LINING_MATERIAL, and the individual shelves are made of RACK_MATERIAL.\n\nDirective 3: The Miniature Dioramas & Figures\nThe structure houses a cohesive miniature world divided across three shelves, adhering to the OVERALL_DIORAMA_THEME. Crucially, each shelf must contain miniature figures engaged in a specific narrative action.\n* Top Shelf: Miniature figures are depicted [TOP_SHELF_SCENE].\n* Middle Shelf: Miniature figures are depicted [MIDDLE_SHELF_SCENE].\n* Bottom Shelf: Miniature figures are depicted [BOTTOM_SHELF_SCENE].\nEnsure the scale clearly reads as miniature dioramas housed within a furniture piece.\n\nDirective 4: Atmosphere & Lighting\nThe scene is illuminated by LIGHTING. The lighting should cast appropriate micro-shadows within each shelf to emphasize the depth, the figures, and the miniature scale of the dioramas.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519728539_psugzr_HCaOVaEasAAR2n7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519728539_psugzr_HCaOVaEasAAR2n7-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "变量指南\n1. OVERALL_DIORAMA_THEME = {argument name=\"diorama theme\" default=\"阿瑟·柯南·道尔《福尔摩斯探案集》中的场景，按书中出现的顺序排列\"}\n2. CUPBOARD_BASE_MATERIAL = \n3. CUPBOARD_LINING_MATERIAL = \n4. RACK_MATERIAL = \n5. ORNAMENTATION_STYLE = [例如，哥特式雕花木、装饰艺术黄铜、精灵交织藤蔓]\n6. ART_STYLE = 超写实渲染\n7. TOP_SHELF_SCENE = {argument name=\"top shelf scene\" default=\"[描述定义场景的微缩人物的具体动作]\"}\n8. MIDDLE_SHELF_SCENE = [描述定义场景的微缩人物的具体动作]\n9. BOTTOM_SHELF_SCENE = [描述定义场景的微缩人物的具体动作]\n10. LIGHTING = \n11. CAMERA_ANGLE = 正面直视视角，从适度高位向下俯视。\n12. ASPECT_RATIO = 3:4\n\n生成指令\n（注意：如果任何变量留空，请根据 OVERALL_DIORAMA_THEME 智能推断最合适的细节）\n\n指令 1：构图与取景（最高优先级）\n从 CAMERA_ANGLE 拍摄的正面直视照片。构图必须将开放式展示结构完美居中，以独特的角度向下俯视货架，清晰展现微缩景观内部的地板和自上而下的深度，同时确保外部侧板完全隐藏。整个独立结构必须完全可见，周围留有负空间，背景简洁。宽高比为 3:4。\n\n指令 2：主体结构（严格限制）\n以 ART_STYLE 风格渲染图像。中心物体是一个高度精细、永久开放式正面陈列柜结构。它不得有任何形式的门、铰链或门框。外部由 CUPBOARD_BASE_MATERIAL 构成，并以 ORNAMENTATION_STYLE 装饰。内部背板衬有 CUPBOARD_LINING_MATERIAL，各个货架由 RACK_MATERIAL 制成。\n\n指令 3：微缩景观与人物\n该结构内含一个跨越三个货架的连贯微缩世界，遵循 OVERALL_DIORAMA_THEME。至关重要的是，每个货架都必须包含正在进行特定叙事动作的微缩人物。\n* 顶层货架：微缩人物描绘的是 [TOP_SHELF_SCENE]。\n* 中层货架：微缩人物描绘的是 [MIDDLE_SHELF_SCENE]。\n* 底层货架：微缩人物描绘的是 [BOTTOM_SHELF_SCENE]。\n确保比例清晰地显示为家具内部的微缩景观。\n\n指令 4：氛围与照明\n场景由 LIGHTING 照亮。照明应在每个货架内投射适当的微阴影，以强调景深、人物和微缩景观的微缩比例。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "夏洛克·福尔摩斯华丽橱柜立体模型提示 一个复杂、结构化的提示模板，用于 nano banana 2 生成一个华丽橱柜立体模型的超现实渲染图。该立体模型必须包含三个架子，每个架子都描绘了《福尔摩斯历险记》中的一个场景。该提示使用可变指南来控制材料、风格、照明和摄像机角度，并对构图和结构提供了严格的指示（必须是开放式正面，无门）。 variable guide\n1. overall_diorama_theme = scenes from adventures of sherlock holmes by arthur conan doyle, in the order in which they are presented in the book\n2. cupboard_base_material = \n3. cupboard_lining_material = \n4. rack_material = \n5. ornamentation_style = [e.g., gothic carved wood, art deco brass, elven interlaced vines]\n6. art_style = hyper-realistic render\n7. top_shelf_scene = [describe specific actions of miniature figures defining the scene]\n8. middle_shelf_scene = [describe specific actions of miniature figures defining the scene]\n9. bottom_shelf_scene = [describe specific actions of miniature figures defining the scene]\n10. lighting = \n11. camera_angle = a straight-on, front-facing view, captured from a moderately high angle looking distinctly downward.\n12. aspect_ratio = 3:4\n\ngeneration directives\n(note: if any variable is left blank, intelligently infer the most appropriate detail based on the overall_diorama_theme)\n\ndirective 1: framing & composition (highest priority)\na direct, front-facing photograph captured from camera_angle. the composition must perfectly center the open display structure, looking down at a distinct angle into the shelves to clearly reveal the floor plates and top-down depth of the miniature objects within the dioramas, while ensuring the exterior side panels remain completely hidden. the entire free-standing structure must be completely visible with negative space around it against a simple background. the aspect ratio is 3:4.\n\ndirective 2: the main structure (strict constraints)\nrender the image in the style of art_style. the central object is a highly detailed, permanently open-front curio display structure. it must not possess doors, hinges, or door frames of any kind. the exterior is constructed from cupboard_base_material and detailed with ornamentation_style. the interior back wall is lined with cupboard_lining_material, and the individual shelves are made of rack_material.\n\ndirective 3: the miniature dioramas & figures\nthe structure houses a cohesive miniature world divided across three shelves, adhering to the overall_diorama_theme. crucially, each shelf must contain miniature figures engaged in a specific narrative action.\n* top shelf: miniature figures are depicted [top_shelf_scene].\n* middle shelf: miniature figures are depicted [middle_shelf_scene].\n* bottom shelf: miniature figures are depicted [bottom_shelf_scene].\nensure the scale clearly reads as miniature dioramas housed within a furniture piece.\n\ndirective 4: atmosphere & lighting\nthe scene is illuminated by lighting. the lighting should cast appropriate micro-shadows within each shelf to emphasize the depth, the figures, and the miniature scale of the dioramas. 变量指南\n1. overall_diorama_theme = {argument name=\"diorama theme\" default=\"阿瑟·柯南·道尔《福尔摩斯探案集》中的场景，按书中出现的顺序排列\"}\n2. cupboard_base_material = \n3. cupboard_lining_material = \n4. rack_material = \n5. ornamentation_style = [例如，哥特式雕花木、装饰艺术黄铜、精灵交织藤蔓]\n6. art_style = 超写实渲染\n7. top_shelf_scene = {argument name=\"top shelf scene\" default=\"[描述定义场景的微缩人物的具体动作]\"}\n8. middle_shelf_scene = [描述定义场景的微缩人物的具体动作]\n9. bottom_shelf_scene = [描述定义场景的微缩人物的具体动作]\n10. lighting = \n11. camera_angle = 正面直视视角，从适度高位向下俯视。\n12. aspect_ratio = 3:4\n\n生成指令\n（注意：如果任何变量留空，请根据 overall_diorama_theme 智能推断最合适的细节）\n\n指令 1：构图与取景（最高优先级）\n从 camera_angle 拍摄的正面直视照片。构图必须将开放式展示结构完美居中，以独特的角度向下俯视货架，清晰展现微缩景观内部的地板和自上而下的深度，同时确保外部侧板完全隐藏。整个独立结构必须完全可见，周围留有负空间，背景简洁。宽高比为 3:4。\n\n指令 2：主体结构（严格限制）\n以 art_style 风格渲染图像。中心物体是一个高度精细、永久开放式正面陈列柜结构。它不得有任何形式的门、铰链或门框。外部由 cupboard_base_material 构成，并以 ornamentation_style 装饰。内部背板衬有 cupboard_lining_material，各个货架由 rack_material 制成。\n\n指令 3：微缩景观与人物\n该结构内含一个跨越三个货架的连贯微缩世界，遵循 overall_diorama_theme。至关重要的是，每个货架都必须包含正在进行特定叙事动作的微缩人物。\n* 顶层货架：微缩人物描绘的是 [top_shelf_scene]。\n* 中层货架：微缩人物描绘的是 [middle_shelf_scene]。\n* 底层货架：微缩人物描绘的是 [bottom_shelf_scene]。\n确保比例清晰地显示为家具内部的微缩景观。\n\n指令 4：氛围与照明\n场景由 lighting 照亮。照明应在每个货架内投射适当的微阴影，以强调景深、人物和微缩景观的微缩比例。 artingent 11312",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11338,
+      "title": "赛博朋克风格的霓虹灯肖像",
+      "description": "给 Nano Banana Pro 的一个提示，用于生成一张超现实、赛博现代风格的男性肖像，他戴着透明眼镜，穿着黑色运动衫，背景灯光为霓虹紫粉渐变。",
+      "sourceLink": "https://x.com/ChillaiKalan__/status/2028464474546737277",
+      "sourcePublishedAt": "2026-03-02T13:36:32.000Z",
+      "author": {
+        "name": "K",
+        "link": "https://x.com/ChillaiKalan__"
+      },
+      "content": "Ultra-realistic modern portrait of a man wearing transparent frame glasses and a black sweatshirt, looking slightly upward. Neon purple and pink gradient background lighting reflecting softly on glasses. Clean studio setup, cyber-modern aesthetic, soft rim lighting, sharp focus, 50mm lens, high detail, vibrant color grading.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519741494_7qkzc7_HCaNsD9bUAAEAMv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519741494_7qkzc7_HCaNsD9bUAAEAMv-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位男士戴着透明边框眼镜和黑色运动衫，略微抬头，呈现出超现实的现代肖像。霓虹紫和粉色渐变背景灯光柔和地反射在眼镜上。干净的影棚布景，赛博现代美学，柔和的轮廓光，锐利对焦，50mm 镜头，高细节，鲜艳的色彩分级。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克风格的霓虹灯肖像 给 nano banana pro 的一个提示，用于生成一张超现实、赛博现代风格的男性肖像，他戴着透明眼镜，穿着黑色运动衫，背景灯光为霓虹紫粉渐变。 ultra-realistic modern portrait of a man wearing transparent frame glasses and a black sweatshirt, looking slightly upward. neon purple and pink gradient background lighting reflecting softly on glasses. clean studio setup, cyber-modern aesthetic, soft rim lighting, sharp focus, 50mm lens, high detail, vibrant color grading. 一位男士戴着透明边框眼镜和黑色运动衫，略微抬头，呈现出超现实的现代肖像。霓虹紫和粉色渐变背景灯光柔和地反射在眼镜上。干净的影棚布景，赛博现代美学，柔和的轮廓光，锐利对焦，50mm 镜头，高细节，鲜艳的色彩分级。 k 11338",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11299,
+      "title": "身穿复古女仆装的 Sabrina Carpenter 分身",
+      "description": "为 Nano Banana Pro 设计的详细、结构化提示，用于生成一张逼真的图像：一位酷似 Sabrina Carpenter 的女性，身穿暴露的法式女仆装，置身于复古的 20 世纪 50 年代厨房。该提示详细说明了人物的身体特征、姿势、服装、场景细节、灯光和相机设置，以实现超逼真的效果。",
+      "sourceLink": "https://x.com/Noira_exe/status/2028464060195356929",
+      "sourcePublishedAt": "2026-03-02T13:34:53.000Z",
+      "author": {
+        "name": "Noira",
+        "link": "https://x.com/Noira_exe"
+      },
+      "content": "{\n  “subject”: {\n    “description”: “A full-body photograph of a woman resembling Sabrina Carpenter posing in a vintage 1950s kitchen.”,\n    “body”: {\n      “physique”: “A striking, curvaceous hourglass figure with pronounced natural proportions. She has an ample, full bust with deep cleavage pushed up by the outfit, a narrow, defined waist creating a strong curve, and shapely wide hips and rounded glutes creating a voluptuous silhouette prominent in the sitting pose.”,\n      “pose”: “Sitting elegantly on the dark retro Formica countertop, posing like a professional model. Her legs are crossed gracefully, showing off the stockings and heels. One hand is delicately placed on her thigh, the other rests on the counter behind her, supporting a slightly leaned-back, arched posture that emphasizes her hourglass silhouette. Her head is turned to look directly at the camera.”,\n“features”: “Uncanny resemblance to Sabrina Carpenter. Signature blonde hair with bangs styled in retro waves with volume. A small white lace maid headpiece. Playful makeup with red lips and natural skin texture. Sultry, alluring expression with a slight smile.”\n    },\n    “wardrobe”: {\n      “outfit”: “An extremely short micro-mini black satin french maid dress featuring elaborate white lace trim and frills, a small white apron tied at the waist, sheer black stockings with visible garters, and black high heels. The fit is extremely tight and corset-style in the bodice, snugly containing her curves.”,\n      “accessories”: “White lace maid headpiece.”\n    }\n  },\n  “pose_action”: “Sabrina Carpenter lookalike in a skimpy maid costume sitting elegantly on a retro kitchen counter, posing like a model with legs crossed and looking at the camera.”,\n  “scene”: {\n“environment”: “A retro 1950s style kitchen with a vintage, nostalgic, kitschy aesthetic.”,\n    “elements”: “Distinctive red, white, and black geometric patterned linoleum floor, green tiled lower walls, white cabinetry with red trim and handles, dark countertops, a vintage green stool, and a fruit-patterned wallpaper border near the ceiling.”,\n    “composition”: “A vertical (9:16) amateur full-body photograph framing her completely while seated on the counter.”\n  },\n  “lighting”: {\n    “setup”: “Bright retro indoor lighting mixed with natural light from a window.”,\n    “details”: “Creating a vintage film glow. No filter, sharp focus.”\n  },\n  “camera”: {\n    “technical”: “Ultra_photorealistic, raw style, 8k image captured on an iPhone 15 Pro Max. Amateur full-body photograph style.”,\n    “aspect_ratio”: “9:16”\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519721159_104aie_HCaNT_Ma4AA-Dif.jpg",
+        "https://cms-assets.youmind.com/media/1772519721296_zadfvn_HCaNT6SWgAAk1F1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519721159_104aie_HCaNT_Ma4AA-Dif-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772519721296_zadfvn_HCaNT6SWgAAk1F1-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"description\": \"一张酷似 {argument name=\\\"celebrity name\\\" default=\\\"Sabrina Carpenter\\\"} 的女性在复古 1950 年代厨房中摆姿势的全身照片。\",\n    \"body\": {\n      \"physique\": \"引人注目的沙漏型身材，曲线玲珑，比例自然突出。她胸部丰满，深邃的乳沟被服装衬托出来，腰部纤细，形成明显的曲线，臀部宽大圆润，坐姿时呈现出丰腴的轮廓。\",\n      \"pose\": \"优雅地坐在深色复古福米卡台面上，像专业模特一样摆姿势。她双腿优雅地交叉，展示着丝袜和高跟鞋。一只手轻柔地放在大腿上，另一只手放在身后的台面上，支撑着略微向后倾斜、拱起的姿势，突出了她的沙漏型身材。她的头转向正对着镜头。\",\n      \"features\": \"与 Sabrina Carpenter 惊人地相似。标志性的金色头发，刘海卷成复古波浪状，富有蓬松感。戴着一个白色蕾丝女仆头饰。俏皮的妆容，红唇，自然的皮肤纹理。带着一丝微笑，流露出诱人的魅力。\"\n    },\n    \"wardrobe\": {\n      \"outfit\": \"一件极短的超迷你黑色缎面法式女仆裙，饰有精致的白色蕾丝边和褶边，腰间系着一个白色小围裙，透明黑色丝袜配有可见的吊袜带，以及黑色高跟鞋。剪裁极其紧身，上身采用束身衣风格，紧密包裹着她的曲线。\",\n      \"accessories\": \"白色蕾丝女仆头饰。\"\n    }\n  },\n  \"pose_action\": \"酷似 Sabrina Carpenter 的女性穿着暴露的女仆装，优雅地坐在复古厨房台面上，像模特一样交叉双腿，看着镜头。\",\n  \"scene\": {\n    \"environment\": \"一个复古 1950 年代风格的厨房，具有怀旧、俗艳的美学。\",\n    \"elements\": \"独特的红、白、黑几何图案油毡地板，绿色瓷砖下墙，带红色饰边和把手的白色橱柜，深色台面，一个复古绿色凳子，以及天花板附近带有水果图案的壁纸边框。\",\n    \"composition\": \"一张垂直（9:16）的业余全身照片，在她坐在台面上时将其完全框住。\"\n  },\n  \"lighting\": {\n    \"setup\": \"明亮的复古室内照明与窗户透进的自然光混合。\",\n    \"details\": \"营造出复古电影般的柔光效果。无滤镜，对焦锐利。\"\n  },\n  \"camera\": {\n    \"technical\": \"超逼真、原始风格、8k 图像，使用 iPhone 15 Pro Max 拍摄。业余全身照片风格。\",\n    \"aspect_ratio\": \"9:16\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身穿复古女仆装的 sabrina carpenter 分身 为 nano banana pro 设计的详细、结构化提示，用于生成一张逼真的图像：一位酷似 sabrina carpenter 的女性，身穿暴露的法式女仆装，置身于复古的 20 世纪 50 年代厨房。该提示详细说明了人物的身体特征、姿势、服装、场景细节、灯光和相机设置，以实现超逼真的效果。 {\n  “subject”: {\n    “description”: “a full-body photograph of a woman resembling sabrina carpenter posing in a vintage 1950s kitchen.”,\n    “body”: {\n      “physique”: “a striking, curvaceous hourglass figure with pronounced natural proportions. she has an ample, full bust with deep cleavage pushed up by the outfit, a narrow, defined waist creating a strong curve, and shapely wide hips and rounded glutes creating a voluptuous silhouette prominent in the sitting pose.”,\n      “pose”: “sitting elegantly on the dark retro formica countertop, posing like a professional model. her legs are crossed gracefully, showing off the stockings and heels. one hand is delicately placed on her thigh, the other rests on the counter behind her, supporting a slightly leaned-back, arched posture that emphasizes her hourglass silhouette. her head is turned to look directly at the camera.”,\n“features”: “uncanny resemblance to sabrina carpenter. signature blonde hair with bangs styled in retro waves with volume. a small white lace maid headpiece. playful makeup with red lips and natural skin texture. sultry, alluring expression with a slight smile.”\n    },\n    “wardrobe”: {\n      “outfit”: “an extremely short micro-mini black satin french maid dress featuring elaborate white lace trim and frills, a small white apron tied at the waist, sheer black stockings with visible garters, and black high heels. the fit is extremely tight and corset-style in the bodice, snugly containing her curves.”,\n      “accessories”: “white lace maid headpiece.”\n    }\n  },\n  “pose_action”: “sabrina carpenter lookalike in a skimpy maid costume sitting elegantly on a retro kitchen counter, posing like a model with legs crossed and looking at the camera.”,\n  “scene”: {\n“environment”: “a retro 1950s style kitchen with a vintage, nostalgic, kitschy aesthetic.”,\n    “elements”: “distinctive red, white, and black geometric patterned linoleum floor, green tiled lower walls, white cabinetry with red trim and handles, dark countertops, a vintage green stool, and a fruit-patterned wallpaper border near the ceiling.”,\n    “composition”: “a vertical (9:16) amateur full-body photograph framing her completely while seated on the counter.”\n  },\n  “lighting”: {\n    “setup”: “bright retro indoor lighting mixed with natural light from a window.”,\n    “details”: “creating a vintage film glow. no filter, sharp focus.”\n  },\n  “camera”: {\n    “technical”: “ultra_photorealistic, raw style, 8k image captured on an iphone 15 pro max. amateur full-body photograph style.”,\n    “aspect_ratio”: “9:16”\n  }\n} ```json\n{\n  \"subject\": {\n    \"description\": \"一张酷似 {argument name=\\\"celebrity name\\\" default=\\\"sabrina carpenter\\\"} 的女性在复古 1950 年代厨房中摆姿势的全身照片。\",\n    \"body\": {\n      \"physique\": \"引人注目的沙漏型身材，曲线玲珑，比例自然突出。她胸部丰满，深邃的乳沟被服装衬托出来，腰部纤细，形成明显的曲线，臀部宽大圆润，坐姿时呈现出丰腴的轮廓。\",\n      \"pose\": \"优雅地坐在深色复古福米卡台面上，像专业模特一样摆姿势。她双腿优雅地交叉，展示着丝袜和高跟鞋。一只手轻柔地放在大腿上，另一只手放在身后的台面上，支撑着略微向后倾斜、拱起的姿势，突出了她的沙漏型身材。她的头转向正对着镜头。\",\n      \"features\": \"与 sabrina carpenter 惊人地相似。标志性的金色头发，刘海卷成复古波浪状，富有蓬松感。戴着一个白色蕾丝女仆头饰。俏皮的妆容，红唇，自然的皮肤纹理。带着一丝微笑，流露出诱人的魅力。\"\n    },\n    \"wardrobe\": {\n      \"outfit\": \"一件极短的超迷你黑色缎面法式女仆裙，饰有精致的白色蕾丝边和褶边，腰间系着一个白色小围裙，透明黑色丝袜配有可见的吊袜带，以及黑色高跟鞋。剪裁极其紧身，上身采用束身衣风格，紧密包裹着她的曲线。\",\n      \"accessories\": \"白色蕾丝女仆头饰。\"\n    }\n  },\n  \"pose_action\": \"酷似 sabrina carpenter 的女性穿着暴露的女仆装，优雅地坐在复古厨房台面上，像模特一样交叉双腿，看着镜头。\",\n  \"scene\": {\n    \"environment\": \"一个复古 1950 年代风格的厨房，具有怀旧、俗艳的美学。\",\n    \"elements\": \"独特的红、白、黑几何图案油毡地板，绿色瓷砖下墙，带红色饰边和把手的白色橱柜，深色台面，一个复古绿色凳子，以及天花板附近带有水果图案的壁纸边框。\",\n    \"composition\": \"一张垂直（9:16）的业余全身照片，在她坐在台面上时将其完全框住。\"\n  },\n  \"lighting\": {\n    \"setup\": \"明亮的复古室内照明与窗户透进的自然光混合。\",\n    \"details\": \"营造出复古电影般的柔光效果。无滤镜，对焦锐利。\"\n  },\n  \"camera\": {\n    \"technical\": \"超逼真、原始风格、8k 图像，使用 iphone 15 pro max 拍摄。业余全身照片风格。\",\n    \"aspect_ratio\": \"9:16\"\n  }\n}\n``` noira 11299",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11347,
+      "title": "超现实化妆品炼金术士肖像提示",
+      "description": "一个高度结构化的 JSON 提示，用于生成一张超现实、对称的半身照，描绘一位身处超现实、反重力炼金术士实验室中的“不安分的创造者”，强调纹理、临床照明和高端实用特效。",
+      "sourceLink": "https://x.com/timedoctor_nft/status/2028463595609075993",
+      "sourcePublishedAt": "2026-03-02T13:33:02.000Z",
+      "author": {
+        "name": "timedoctor.eth",
+        "link": "https://x.com/timedoctor_nft"
+      },
+      "content": "{\n  \"vibe_title_en\": \"Gravity-Defying Alchemist Atelier\",\n  \"master_prompt\": \"A hyper-realistic, centered medium shot of The Protagonist portrayed as a Restless Creator in a surreal, densely cluttered Cosmetic Alchemist's Laboratory. The composition is perfectly symmetrical. The subject stares forward with intense, ritualistic focus, hair slightly messy, wearing a deconstructed white couture shirt with sleeves rolled up, exuding raw energy. The environment is aggressively busy and textured: floor-to-ceiling apothecary shelves overflowing with thousands of glass vials, antique brushes, and spilling pigments. SURREAL ELEMENT: The clutter is experiencing a localized gravity failure; droplets of liquid gold, shards of mirrors, and clouds of setting powder are frozen in mid-air around the subject, captured as if they are high-end practical effects. Lighting is clinical and symmetrical: dual large soft-boxes from both sides creating even, shadow-less, porcelain skin tones. Shot on Phase One XF IQ4, 80mm lens, f/8 for depth, focusing on the tactile texture of the floating powder and the hyper-real skin pores. Cinematic color grading with rich ambers, dusty rose, and clinical whites.\",\n  \"meta\": {\n    \"intent\": \"Visual Storytelling\",\n    \"priorities\": \"Surrealism, Texture, Symmetrical Composition\",\n    \"device_profile\": \"High-End Studio Monitor\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"Centered Power-Mid, Absolute Horizontal Symmetry\",\n    \"layout\": \"Subject in center third, surrounded by dense framing elements\",\n    \"camera_angle\": \"Eye Level\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"Female\",\n    \"identity\": \"The Protagonist / The Alchemist\",\n    \"demographics\": \"Universal Adult\",\n    \"face\": \"Neutral but intense focus, minimal makeup, pore-visible texture\",\n    \"hair\": \"Slightly messy, pushed back or tied loosely, practical\",\n    \"body\": \"Shoulders square to camera, chest-up\",\n    \"expression\": \"Piercing gaze, lips slightly parted as if breathing out\",\n    \"pose\": \"Symmetrical stance, arms potentially interacting with floating objects\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"Deconstructed Couture Shirt\",\n        \"material\": \"Crisp Cotton Poplin\",\n        \"color\": \"Stark White\",\n        \"fit\": \"Oversized but tailored, sleeves rolled up\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"Protective Eye Gear (Optional/On Head)\",\n        \"color\": \"Brass/Glass\",\n        \"material\": \"Antique Metal\",\n        \"brand_style\": \"Steampunk Avant-Garde\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"Surreal Cosmetic Laboratory / Apothecary\",\n    \"surfaces\": \"Aged wood shelves, glass vials, spilling powder, floating liquid\",\n    \"depth\": \"Deep but cluttered background, bokeh on distant shelves\",\n    \"atmosphere\": \"Dusty, magical, suspended in time, high humidity\",\n    \"lens_interaction\": \"Particles of powder catching the light in",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519745330_c1m7eu_HCaM42rWUAAA36k.jpg",
+        "https://cms-assets.youmind.com/media/1772519746099_md306f_HCaM4yvWEAASSWn.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519745330_c1m7eu_HCaM42rWUAAA36k-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772519746099_md306f_HCaM4yvWEAASSWn-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"vibe_title_en\": \"反重力炼金术士工坊\",\n  \"master_prompt\": \"一张超现实的、居中特写镜头，描绘了主角作为一位不安分的创造者，置身于一个超现实、物品堆积如山的化妆品炼金术士实验室中。构图完美对称。主体眼神专注，带着仪式般的凝视，头发略显凌乱，身穿一件解构主义的白色高级定制衬衫，袖子卷起，散发出原始的能量。环境极其繁忙且富有质感：从地板到天花板的药剂师货架上堆满了成千上万的玻璃小瓶、古董刷子和溢出的颜料。超现实元素：杂物正在经历局部重力失效；液态黄金的液滴、镜子碎片和定妆粉的云团悬浮在主体周围的半空中，仿佛是高端的实景特效。灯光是临床般的对称：两侧各有一个大型柔光箱，营造出均匀、无阴影的瓷器般肤色。使用 Phase One XF IQ4 相机，80mm 镜头，f/8 光圈以获得景深，聚焦于漂浮粉末的触感纹理和超真实的皮肤毛孔。电影级的色彩分级，带有浓郁的琥珀色、灰粉色和临床白色。\",\n  \"meta\": {\n    \"intent\": \"视觉叙事\",\n    \"priorities\": \"超现实主义、纹理、对称构图\",\n    \"device_profile\": \"高端工作室显示器\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"居中强力中景，绝对水平对称\",\n    \"layout\": \"主体位于中间三分之一处，周围环绕着密集的构图元素\",\n    \"camera_angle\": \"平视\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"主角 / 炼金术士\",\n    \"demographics\": \"普遍成年人\",\n    \"face\": \"中性但专注的眼神，淡妆，毛孔可见的纹理\",\n    \"hair\": \"略显凌乱，向后梳或松散地扎起，实用\",\n    \"body\": \"肩膀正对镜头，胸部以上\",\n    \"expression\": \"锐利的凝视，嘴唇微张，仿佛正在呼气\",\n    \"pose\": \"对称站姿，手臂可能与漂浮物体互动\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"解构主义高级定制衬衫\",\n        \"material\": \"挺括的棉府绸\",\n        \"color\": \"纯白色\",\n        \"fit\": \"宽松但剪裁合身，袖子卷起\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"防护眼镜（可选/戴在头上）\",\n        \"color\": \"黄铜/玻璃\",\n        \"material\": \"古董金属\",\n        \"brand_style\": \"蒸汽朋克先锋派\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"超现实化妆品实验室 / 药剂店\",\n    \"surfaces\": \"老旧木质货架、玻璃小瓶、溢出的粉末、漂浮的液体\",\n    \"depth\": \"深邃但杂乱的背景，远处的货架有散景效果\",\n    \"atmosphere\": \"尘土飞扬、充满魔幻、时间停滞、高湿度\",\n    \"lens_interaction\": \"粉末颗粒捕捉到光线\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实化妆品炼金术士肖像提示 一个高度结构化的 json 提示，用于生成一张超现实、对称的半身照，描绘一位身处超现实、反重力炼金术士实验室中的“不安分的创造者”，强调纹理、临床照明和高端实用特效。 {\n  \"vibe_title_en\": \"gravity-defying alchemist atelier\",\n  \"master_prompt\": \"a hyper-realistic, centered medium shot of the protagonist portrayed as a restless creator in a surreal, densely cluttered cosmetic alchemist's laboratory. the composition is perfectly symmetrical. the subject stares forward with intense, ritualistic focus, hair slightly messy, wearing a deconstructed white couture shirt with sleeves rolled up, exuding raw energy. the environment is aggressively busy and textured: floor-to-ceiling apothecary shelves overflowing with thousands of glass vials, antique brushes, and spilling pigments. surreal element: the clutter is experiencing a localized gravity failure; droplets of liquid gold, shards of mirrors, and clouds of setting powder are frozen in mid-air around the subject, captured as if they are high-end practical effects. lighting is clinical and symmetrical: dual large soft-boxes from both sides creating even, shadow-less, porcelain skin tones. shot on phase one xf iq4, 80mm lens, f/8 for depth, focusing on the tactile texture of the floating powder and the hyper-real skin pores. cinematic color grading with rich ambers, dusty rose, and clinical whites.\",\n  \"meta\": {\n    \"intent\": \"visual storytelling\",\n    \"priorities\": \"surrealism, texture, symmetrical composition\",\n    \"device_profile\": \"high-end studio monitor\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"centered power-mid, absolute horizontal symmetry\",\n    \"layout\": \"subject in center third, surrounded by dense framing elements\",\n    \"camera_angle\": \"eye level\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"identity\": \"the protagonist / the alchemist\",\n    \"demographics\": \"universal adult\",\n    \"face\": \"neutral but intense focus, minimal makeup, pore-visible texture\",\n    \"hair\": \"slightly messy, pushed back or tied loosely, practical\",\n    \"body\": \"shoulders square to camera, chest-up\",\n    \"expression\": \"piercing gaze, lips slightly parted as if breathing out\",\n    \"pose\": \"symmetrical stance, arms potentially interacting with floating objects\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"deconstructed couture shirt\",\n        \"material\": \"crisp cotton poplin\",\n        \"color\": \"stark white\",\n        \"fit\": \"oversized but tailored, sleeves rolled up\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"protective eye gear (optional/on head)\",\n        \"color\": \"brass/glass\",\n        \"material\": \"antique metal\",\n        \"brand_style\": \"steampunk avant-garde\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"surreal cosmetic laboratory / apothecary\",\n    \"surfaces\": \"aged wood shelves, glass vials, spilling powder, floating liquid\",\n    \"depth\": \"deep but cluttered background, bokeh on distant shelves\",\n    \"atmosphere\": \"dusty, magical, suspended in time, high humidity\",\n    \"lens_interaction\": \"particles of powder catching the light in ```json\n{\n  \"vibe_title_en\": \"反重力炼金术士工坊\",\n  \"master_prompt\": \"一张超现实的、居中特写镜头，描绘了主角作为一位不安分的创造者，置身于一个超现实、物品堆积如山的化妆品炼金术士实验室中。构图完美对称。主体眼神专注，带着仪式般的凝视，头发略显凌乱，身穿一件解构主义的白色高级定制衬衫，袖子卷起，散发出原始的能量。环境极其繁忙且富有质感：从地板到天花板的药剂师货架上堆满了成千上万的玻璃小瓶、古董刷子和溢出的颜料。超现实元素：杂物正在经历局部重力失效；液态黄金的液滴、镜子碎片和定妆粉的云团悬浮在主体周围的半空中，仿佛是高端的实景特效。灯光是临床般的对称：两侧各有一个大型柔光箱，营造出均匀、无阴影的瓷器般肤色。使用 phase one xf iq4 相机，80mm 镜头，f/8 光圈以获得景深，聚焦于漂浮粉末的触感纹理和超真实的皮肤毛孔。电影级的色彩分级，带有浓郁的琥珀色、灰粉色和临床白色。\",\n  \"meta\": {\n    \"intent\": \"视觉叙事\",\n    \"priorities\": \"超现实主义、纹理、对称构图\",\n    \"device_profile\": \"高端工作室显示器\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"居中强力中景，绝对水平对称\",\n    \"layout\": \"主体位于中间三分之一处，周围环绕着密集的构图元素\",\n    \"camera_angle\": \"平视\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"主角 / 炼金术士\",\n    \"demographics\": \"普遍成年人\",\n    \"face\": \"中性但专注的眼神，淡妆，毛孔可见的纹理\",\n    \"hair\": \"略显凌乱，向后梳或松散地扎起，实用\",\n    \"body\": \"肩膀正对镜头，胸部以上\",\n    \"expression\": \"锐利的凝视，嘴唇微张，仿佛正在呼气\",\n    \"pose\": \"对称站姿，手臂可能与漂浮物体互动\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"解构主义高级定制衬衫\",\n        \"material\": \"挺括的棉府绸\",\n        \"color\": \"纯白色\",\n        \"fit\": \"宽松但剪裁合身，袖子卷起\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"防护眼镜（可选/戴在头上）\",\n        \"color\": \"黄铜/玻璃\",\n        \"material\": \"古董金属\",\n        \"brand_style\": \"蒸汽朋克先锋派\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"超现实化妆品实验室 / 药剂店\",\n    \"surfaces\": \"老旧木质货架、玻璃小瓶、溢出的粉末、漂浮的液体\",\n    \"depth\": \"深邃但杂乱的背景，远处的货架有散景效果\",\n    \"atmosphere\": \"尘土飞扬、充满魔幻、时间停滞、高湿度\",\n    \"lens_interaction\": \"粉末颗粒捕捉到光线\"\n  }\n}\n``` timedoctor.eth 11347",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11369,
+      "title": "猫咪偷看图片提示",
+      "description": "一个用于 Nano Banana 2 的提示，生成了一张猫咪从墙后探出头来，带着恳求的表情，同时忽略背景的图片。",
+      "sourceLink": "https://x.com/Naonekozamurai/status/2028459569840861326",
+      "sourcePublishedAt": "2026-03-02T13:17:03.000Z",
+      "author": {
+        "name": "なお",
+        "link": "https://x.com/Naonekozamurai"
+      },
+      "content": "画像の猫が、壁から顔を出して、かまって欲しそうな表情でこちらを見ている画像を作成してください。背景は無視して良い。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519756017_3opnub_HCaIqCMbsAAbZKx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519756017_3opnub_HCaIqCMbsAAbZKx-300x224.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "请创作一张图片，图中这只猫从墙壁后面探出头来，用一种渴望得到关注的表情看着我。你可以忽略背景。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "猫咪偷看图片提示 一个用于 nano banana 2 的提示，生成了一张猫咪从墙后探出头来，带着恳求的表情，同时忽略背景的图片。 画像の猫が、壁から顔を出して、かまって欲しそうな表情でこちらを見ている画像を作成してください。背景は無視して良い。 请创作一张图片，图中这只猫从墙壁后面探出头来，用一种渴望得到关注的表情看着我。你可以忽略背景。 なお 11369",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11296,
+      "title": "超逼真 Sabrina Carpenter 肖像提示",
+      "description": "一个极其详细、以生物特征为重点的 JSON 提示，用于生成 Sabrina Carpenter 的超写实肖像，其中详细说明了精确的面部结构、皮肤纹理、发型（双马尾辫，带几何发夹）和服装（罗纹短款背心，格子裤）。它包含针对骨骼变形和数字平滑的严格完整性检查。",
+      "sourceLink": "https://x.com/PinodiArt/status/2028454582389469269",
+      "sourcePublishedAt": "2026-03-02T12:57:13.000Z",
+      "author": {
+        "name": "Pinodi",
+        "link": "https://x.com/PinodiArt"
+      },
+      "content": "{\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\"人物参考\" default=\"Sabrina Carpenter\"}\",\n      \"facial_structure\": {\n        \"morphology\": \"Heart-shaped facial architecture with soft malar definition and a delicate mandibular line. High-fidelity replication of the philtrum and a pronounced Cupid's bow.\",\n        \"eyes\": \"Almond-shaped ocular structure with complex blue iris patterns (Hex: #5D8AA8). Hyper-realistic limbal rings and symmetrical lash distribution.\",\n        \"skin\": \"Fair complexion with authentic dermis textures, including fine pores and natural subsurface scattering (Hex: #FCE5D6). No digital smoothing or artificial filters.\",\n        \"lips\": \"Neutral closed-mouth posture with a high-gloss satin pink finish (Hex: #F48FB1). Precise vermilion border definition with anatomical lip volume preservation.\"\n      },\n      \"body\": {\n        \"somatotype\": \"Petite and slender ectomorphic build. Accurate representation of the subject's 1.52m height-to-frame proportions with a high waist-to-hip ratio.\",\n        \"lower_extremities\": \"Complete exposure of the lower limbs with high-resolution epidermal rendering. Detailed patellar (kneecap) anatomy and visible muscular tone in the quadriceps. No hosiery, no stockings, no fabric coverage on legs.\",\n        \"extremities\": \"Anatomically perfect hands and feet. Five distinct fingers and toes with realistic nail bed textures and joint articulation. One hand interacting naturally with the pigtail hair.\",\n        \"integrity\": \"Zero tolerance for skeletal distortion. Correct bone-to-muscle ratio in the clavicle and limb regions.\"\n      }\n    },\n    \"hair\": {\n      \"style\": \"Signature voluminous honey-blonde (#EADFB4) hair partitioned into high twin pigtails. Individual strand rendering with fine texture and natural specular highlights.\",\n      \"accessories\": \"Decorated with various pastel geometric clips. Left side: blue star (#87CEEB), purple flower (#DA70D6), pink star (#FF69B4), green rectangle (#32CD32). Right side: purple star, blue star, yellow star.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"Baby pink (Hex: #F8C3CD) sleeveless cropped tank top. Heavyweight ribbed cotton-poly blend with visible fiber weaving. Form-fitting silhouette with zero text or commercial branding.\",\n      \"graphic_on_top\": \"Central high-fidelity graphic of a stylized white feline character featuring a pink bow (Hex: #FF69B4), green attire (Hex: #8BC34A), and yellow accents.\",\n      \"bottom\": \"Compact-cut checkered bottoms with a high-waisted athletic hemline. Woven pattern consists of alternating yellow (Hex: #FFD700) and lime green (Hex: #D4E157) squares.\",\n      \"accessories\": \"Pink (Hex: #F48FB1) ribbed-knit fingerless arm warmers on both forearms with clear 1x1 knit texture definition.\"\n    },\n    \"pose_action\": {\n      \"description\": \"Seated centrally on a plush surface, facing the lens with a direct gaze. Left hand hol",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519718958_seue0g_HCaEj7AX0AA-ND3.jpg",
+        "https://cms-assets.youmind.com/media/1772519718956_gb38eq_HCaEnCXbYAA34fr.jpg",
+        "https://cms-assets.youmind.com/media/1772519718911_cvicpa_HCaElIDWsAAKWB8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519718958_seue0g_HCaEj7AX0AA-ND3-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772519718956_gb38eq_HCaEnCXbYAA34fr-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772519718911_cvicpa_HCaElIDWsAAKWB8-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\\\"Character Reference\\\" default=\\\"Sabrina Carpenter\\\"}\",\n      \"facial_structure\": {\n        \"morphology\": \"心形面部结构，颧骨柔和，下颌线精致。人中和唇弓高度逼真。\",\n        \"eyes\": \"杏仁状眼部结构，复杂的蓝色虹膜图案（十六进制：#5D8AA8）。超逼真的角膜缘环和对称的睫毛分布。\",\n        \"skin\": \"白皙肤色，具有真实的真皮纹理，包括细微毛孔和自然的次表面散射（十六进制：#FCE5D6）。无数字平滑或人工滤镜。\",\n        \"lips\": \"中性闭口姿态，高光泽缎面粉色（十六进制：#F48FB1）。精确的唇红缘定义，保留了唇部解剖体积。\"\n      },\n      \"body\": {\n        \"somatotype\": \"娇小纤细的外胚层体型。精确呈现主体 1.52 米的身高与体型比例，腰臀比高。\",\n        \"lower_extremities\": \"下肢完全暴露，高分辨率表皮渲染。详细的髌骨（膝盖骨）解剖结构和股四头肌可见的肌肉张力。腿部无丝袜、无长袜、无织物覆盖。\",\n        \"extremities\": \"解剖学上完美的手和脚。五个清晰的手指和脚趾，具有逼真的甲床纹理和关节铰接。一只手自然地与辫子互动。\",\n        \"integrity\": \"零容忍骨骼变形。锁骨和四肢区域的骨骼与肌肉比例正确。\"\n      }\n    },\n    \"hair\": {\n      \"style\": \"标志性的蓬松蜂蜜金色（#EADFB4）头发，分成高双马尾。单股发丝渲染，具有精细纹理和自然镜面高光。\",\n      \"accessories\": \"装饰有各种柔和的几何发夹。左侧：蓝色星星（#87CEEB）、紫色花朵（#DA70D6）、粉色星星（#FF69B4）、绿色矩形（#32CD32）。右侧：紫色星星、蓝色星星、黄色星星。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"婴儿粉色（十六进制：#F8C3CD）无袖短款背心。厚重罗纹棉涤混纺，可见纤维编织。修身廓形，无文字或商业品牌标识。\",\n      \"graphic_on_top\": \"中央高保真图形，描绘了一个程式化的白色猫科动物角色，带有粉色蝴蝶结（十六进制：#FF69B4）、绿色服装（十六进制：#8BC34A）和黄色点缀。\",\n      \"bottom\": \"紧凑剪裁的格子短裤，高腰运动下摆。编织图案由交替的黄色（十六进制：#FFD700）和青柠绿色（十六进制：#D4E157）方块组成。\",\n      \"accessories\": \"粉色（十六进制：#F48FB1）罗纹针织无指臂套，戴在双前臂上，具有清晰的 1x1 针织纹理定义。\"\n    },\n    \"pose_action\": {\n      \"description\": \"居中坐于柔软表面上，直视镜头。左手握\"\n    }\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真 sabrina carpenter 肖像提示 一个极其详细、以生物特征为重点的 json 提示，用于生成 sabrina carpenter 的超写实肖像，其中详细说明了精确的面部结构、皮肤纹理、发型（双马尾辫，带几何发夹）和服装（罗纹短款背心，格子裤）。它包含针对骨骼变形和数字平滑的严格完整性检查。 {\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\"人物参考\" default=\"sabrina carpenter\"}\",\n      \"facial_structure\": {\n        \"morphology\": \"heart-shaped facial architecture with soft malar definition and a delicate mandibular line. high-fidelity replication of the philtrum and a pronounced cupid's bow.\",\n        \"eyes\": \"almond-shaped ocular structure with complex blue iris patterns (hex: #5d8aa8). hyper-realistic limbal rings and symmetrical lash distribution.\",\n        \"skin\": \"fair complexion with authentic dermis textures, including fine pores and natural subsurface scattering (hex: #fce5d6). no digital smoothing or artificial filters.\",\n        \"lips\": \"neutral closed-mouth posture with a high-gloss satin pink finish (hex: #f48fb1). precise vermilion border definition with anatomical lip volume preservation.\"\n      },\n      \"body\": {\n        \"somatotype\": \"petite and slender ectomorphic build. accurate representation of the subject's 1.52m height-to-frame proportions with a high waist-to-hip ratio.\",\n        \"lower_extremities\": \"complete exposure of the lower limbs with high-resolution epidermal rendering. detailed patellar (kneecap) anatomy and visible muscular tone in the quadriceps. no hosiery, no stockings, no fabric coverage on legs.\",\n        \"extremities\": \"anatomically perfect hands and feet. five distinct fingers and toes with realistic nail bed textures and joint articulation. one hand interacting naturally with the pigtail hair.\",\n        \"integrity\": \"zero tolerance for skeletal distortion. correct bone-to-muscle ratio in the clavicle and limb regions.\"\n      }\n    },\n    \"hair\": {\n      \"style\": \"signature voluminous honey-blonde (#eadfb4) hair partitioned into high twin pigtails. individual strand rendering with fine texture and natural specular highlights.\",\n      \"accessories\": \"decorated with various pastel geometric clips. left side: blue star (#87ceeb), purple flower (#da70d6), pink star (#ff69b4), green rectangle (#32cd32). right side: purple star, blue star, yellow star.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"baby pink (hex: #f8c3cd) sleeveless cropped tank top. heavyweight ribbed cotton-poly blend with visible fiber weaving. form-fitting silhouette with zero text or commercial branding.\",\n      \"graphic_on_top\": \"central high-fidelity graphic of a stylized white feline character featuring a pink bow (hex: #ff69b4), green attire (hex: #8bc34a), and yellow accents.\",\n      \"bottom\": \"compact-cut checkered bottoms with a high-waisted athletic hemline. woven pattern consists of alternating yellow (hex: #ffd700) and lime green (hex: #d4e157) squares.\",\n      \"accessories\": \"pink (hex: #f48fb1) ribbed-knit fingerless arm warmers on both forearms with clear 1x1 knit texture definition.\"\n    },\n    \"pose_action\": {\n      \"description\": \"seated centrally on a plush surface, facing the lens with a direct gaze. left hand hol {\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\\\"character reference\\\" default=\\\"sabrina carpenter\\\"}\",\n      \"facial_structure\": {\n        \"morphology\": \"心形面部结构，颧骨柔和，下颌线精致。人中和唇弓高度逼真。\",\n        \"eyes\": \"杏仁状眼部结构，复杂的蓝色虹膜图案（十六进制：#5d8aa8）。超逼真的角膜缘环和对称的睫毛分布。\",\n        \"skin\": \"白皙肤色，具有真实的真皮纹理，包括细微毛孔和自然的次表面散射（十六进制：#fce5d6）。无数字平滑或人工滤镜。\",\n        \"lips\": \"中性闭口姿态，高光泽缎面粉色（十六进制：#f48fb1）。精确的唇红缘定义，保留了唇部解剖体积。\"\n      },\n      \"body\": {\n        \"somatotype\": \"娇小纤细的外胚层体型。精确呈现主体 1.52 米的身高与体型比例，腰臀比高。\",\n        \"lower_extremities\": \"下肢完全暴露，高分辨率表皮渲染。详细的髌骨（膝盖骨）解剖结构和股四头肌可见的肌肉张力。腿部无丝袜、无长袜、无织物覆盖。\",\n        \"extremities\": \"解剖学上完美的手和脚。五个清晰的手指和脚趾，具有逼真的甲床纹理和关节铰接。一只手自然地与辫子互动。\",\n        \"integrity\": \"零容忍骨骼变形。锁骨和四肢区域的骨骼与肌肉比例正确。\"\n      }\n    },\n    \"hair\": {\n      \"style\": \"标志性的蓬松蜂蜜金色（#eadfb4）头发，分成高双马尾。单股发丝渲染，具有精细纹理和自然镜面高光。\",\n      \"accessories\": \"装饰有各种柔和的几何发夹。左侧：蓝色星星（#87ceeb）、紫色花朵（#da70d6）、粉色星星（#ff69b4）、绿色矩形（#32cd32）。右侧：紫色星星、蓝色星星、黄色星星。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"婴儿粉色（十六进制：#f8c3cd）无袖短款背心。厚重罗纹棉涤混纺，可见纤维编织。修身廓形，无文字或商业品牌标识。\",\n      \"graphic_on_top\": \"中央高保真图形，描绘了一个程式化的白色猫科动物角色，带有粉色蝴蝶结（十六进制：#ff69b4）、绿色服装（十六进制：#8bc34a）和黄色点缀。\",\n      \"bottom\": \"紧凑剪裁的格子短裤，高腰运动下摆。编织图案由交替的黄色（十六进制：#ffd700）和青柠绿色（十六进制：#d4e157）方块组成。\",\n      \"accessories\": \"粉色（十六进制：#f48fb1）罗纹针织无指臂套，戴在双前臂上，具有清晰的 1x1 针织纹理定义。\"\n    },\n    \"pose_action\": {\n      \"description\": \"居中坐于柔软表面上，直视镜头。左手握\"\n    }\n  }\n} pinodi 11296",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11282,
+      "title": "假面骑士装甲变身序列提示",
+      "description": "一个详细的提示，用于生成一个动态视频序列：主体将一个发光的 Ridewatch 插入 Ziku-Driver 中，触发“机械揭示”变身成为装甲形态，最后以战斗姿态结束。专为 Veo 3.1 或 Nano Banana 2 等视频生成工具设计。",
+      "sourceLink": "https://x.com/oggii_0/status/2028452369311400392",
+      "sourcePublishedAt": "2026-03-02T12:48:26.000Z",
+      "author": {
+        "name": "Oogie",
+        "link": "https://x.com/oggii_0"
+      },
+      "content": "Subject inserts a glowing Ridewatch into the Ziku-Driver and spins it 360 degrees. A 'mechanical reveal' begins as white and gold armor plates materialize piece-by-piece, snapping onto the torso, shoulders, and legs with robotic precision. Rapidly rotating golden clock hands and glowing orange pixelated data streams wrap around her body against a giant glowing crescent moon background. The sequence concludes with the helmet visor flashing pink katakana eyes as she shifts into a powerful combat stance, executing a sharp martial arts strike with her white cape flowing majestically.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519710354_f5knxn_HCaCpT6a8AAFv9y.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519710354_f5knxn_HCaCpT6a8AAFv9y-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "她将一个发光的 Ridewatch 插入 Ziku-Driver 并将其旋转 360 度。随着白色和金色的装甲板一块块地具现化，机械地精准地扣合在躯干、肩膀和腿部，一场“机械揭示”开始了。快速旋转的金色时钟指针和发光的橙色像素化数据流环绕着她的身体，背景是一个巨大的发光新月。随着头盔面罩闪烁出粉红色的片假名眼睛，她摆出了一个强劲的战斗姿态，白色披风 majestically 飘动，同时施展出一次凌厉的武术攻击，整个变身序列随之结束。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "假面骑士装甲变身序列提示 一个详细的提示，用于生成一个动态视频序列：主体将一个发光的 ridewatch 插入 ziku-driver 中，触发“机械揭示”变身成为装甲形态，最后以战斗姿态结束。专为 veo 3.1 或 nano banana 2 等视频生成工具设计。 subject inserts a glowing ridewatch into the ziku-driver and spins it 360 degrees. a 'mechanical reveal' begins as white and gold armor plates materialize piece-by-piece, snapping onto the torso, shoulders, and legs with robotic precision. rapidly rotating golden clock hands and glowing orange pixelated data streams wrap around her body against a giant glowing crescent moon background. the sequence concludes with the helmet visor flashing pink katakana eyes as she shifts into a powerful combat stance, executing a sharp martial arts strike with her white cape flowing majestically. 她将一个发光的 ridewatch 插入 ziku-driver 并将其旋转 360 度。随着白色和金色的装甲板一块块地具现化，机械地精准地扣合在躯干、肩膀和腿部，一场“机械揭示”开始了。快速旋转的金色时钟指针和发光的橙色像素化数据流环绕着她的身体，背景是一个巨大的发光新月。随着头盔面罩闪烁出粉红色的片假名眼睛，她摆出了一个强劲的战斗姿态，白色披风 majestically 飘动，同时施展出一次凌厉的武术攻击，整个变身序列随之结束。 oogie 11282",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11304,
+      "title": "Nano Banana 布局保留提示",
+      "description": "一个旨在确保 Nano Banana 在渲染卧室时，严格保持元素（墙壁、门、搁架、固定装置）的精确结构布局、尺寸和位置的提示。这是一个侧重于约束条件的建筑渲染提示。",
+      "sourceLink": "https://x.com/EHuanglu/status/2028451423432929400",
+      "sourcePublishedAt": "2026-03-02T12:44:40.000Z",
+      "author": {
+        "name": "el.cine",
+        "link": "https://x.com/EHuanglu"
+      },
+      "content": "the prompt help nano banana strictly maintain the exact layout, wall positions, door swing, shelving placement, toilet and sink position, and dimensions as shown. No structural or proportional changes",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519723088_7vauaz_HCaB0LFbIAABmSb.jpg",
+        "https://cms-assets.youmind.com/media/1772519723272_zc0rx4_HCaB0Vgb0AAdWeh.jpg",
+        "https://cms-assets.youmind.com/media/1772519723474_oyse5b_HCaB0g1aUAA14p6.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519723088_7vauaz_HCaB0LFbIAABmSb-300x237.jpg",
+        "https://cms-assets.youmind.com/media/1772519723272_zc0rx4_HCaB0Vgb0AAdWeh-300x314.jpg",
+        "https://cms-assets.youmind.com/media/1772519723474_oyse5b_HCaB0g1aUAA14p6-300x314.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "提示词有助于 nano banana 严格保持所示的精确布局、墙体位置、开门方向、搁架位置、马桶和水槽位置以及尺寸。不得进行结构或比例上的改动。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 布局保留提示 一个旨在确保 nano banana 在渲染卧室时，严格保持元素（墙壁、门、搁架、固定装置）的精确结构布局、尺寸和位置的提示。这是一个侧重于约束条件的建筑渲染提示。 the prompt help nano banana strictly maintain the exact layout, wall positions, door swing, shelving placement, toilet and sink position, and dimensions as shown. no structural or proportional changes 提示词有助于 nano banana 严格保持所示的精确布局、墙体位置、开门方向、搁架位置、马桶和水槽位置以及尺寸。不得进行结构或比例上的改动。 el.cine 11304",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11316,
+      "title": "可爱风格温馨卧室肖像",
+      "description": "一个高度结构化的 JSON 提示，用于生成一张可爱、卡哇伊风格的年轻女性肖像，场景设定在一个舒适的淡粉色卧室中，详细描述了她的外貌、服装（Hello Kitty 上衣、格子短裤）、姿势和相机规格。",
+      "sourceLink": "https://x.com/Ankit_patel211/status/2028449147498729503",
+      "sourcePublishedAt": "2026-03-02T12:35:38.000Z",
+      "author": {
+        "name": "ANKIT PATEL 🇮🇳 | AI",
+        "link": "https://x.com/Ankit_patel211"
+      },
+      "content": "{\n\"prompt_type\": \"photo-based description\",\n\"language\": \"English\",\n\"scene\": {\n\"environment\": \"Soft, cozy bedroom setting with pastel pink tones\",\n\"background_elements\": [\n\"Light pink bedding with plush texture\",\n\"Sheer fabric backdrop creating a dreamy, diffused atmosphere\"\n],\n\"lighting\": \"Warm, soft ambient lighting with a pinkish hue\"\n},\n\"subject\": {\n\"appearance\": {\n\"gender_presentation\": \"female-presenting\",\n\"age_description\": \"young adult, lifestyle/fashion context only\",\n\"skin_tone\": \"light\",\n\"hair\": \"long dark brown hair styled in high pigtails, smooth and straight, decorated with colorful hair clips including stars and small pastel accessories\",\n\"makeup\": \"cute, stylized makeup with winged eyeliner, rosy blush, glossy pink lips, and a small heart-shaped face sticker on the cheek\",\n\"expression\": \"playful smile with a cheerful, friendly demeanor\",\n\"gaze\": \"direct eye contact with the camera\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"sleeveless cropped tank top\",\n\"color\": \"light pastel red\",\n\"design\": \"large HelloKitty graphic printed on the front\",\n\"fit\": \"close-fitting, cropped above the waist\"\n},\n\"bottom\": {\n\"type\": \"low-rise shorts\",\n\"color\": \"red and green\",\n\"pattern\": \"checkerboard pattern\",\n\"fit\": \"snug, casual lounge style\"\n},\n\"armwear\": {\n\"type\": \"ribbed arm warmers\",\n\"color\": \"soft pink\",\n\"length\": \"extending from wrists to just below the elbows\",\n\"fit\": \"slightly loose with gathered texture\"\n},\n\"accessories\": {\n\"choker\": \"thin pastel choker necklace\",\n\"hair_accessories\": \"multiple colorful clips and small decorative pins\",\n\"additional\": \"small decorative stickers on arms and face\"\n}\n},\n\"pose_and_posture\": {\n\"overall_position\": \"Subject seated on a bed in a relaxed, casual pose\",\n\"torso\": {\n\"orientation\": \"Upper body angled slightly toward the camera\",\n\"spine\": \"Upright with a gentle relaxed curve\",\n\"shoulders\": \"Relaxed and slightly forward\"\n},\n\"head_and_neck\": {\n\"neck\": \"Relaxed\",\n\"head_position\": \"Head tilted slightly to the right\",\n\"chin\": \"Slightly lowered, enhancing a playful expression\"\n},\n\"arms_and_hands\": {\n\"right_arm\": {\n\"position\": \"Raised to the side\",\n\"hand_position\": \"Right hand holding a section of hair\",\n\"gesture\": \"Playful hair-touching gesture\"\n},\n\"left_arm\": {\n\"position\": \"Lowered and relaxed\",\n\"hand_position\": \"Left hand resting casually near the thigh\"\n}\n},\n\"legs\": {\n\"position\": \"Legs bent and resting on the bed\",\n\"orientation\": \"Thighs angled diagonally relative to the camera\",\n\"posture\": \"Relaxed seated lounge position\"\n},\n\"pose_intent\": \"Pose conveys playful, cute, and casual kawaii-inspired energy\"\n},\n\"camera_and_composition\": {\n\"camera\": {\n\"camera_height\": \"Slightly above eye level\",\n\"camera_angle\": \"Mild downward angle\",\n\"framing\": \"Medium shot capturing head, torso, and upper legs\",\n\"lens_feel\": \"Portrait-style lens with soft perspective\"\n},\n\"composition\": \"Subject centered, with pastel colors dominating the frame\"\n},\n\"constraints\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519730510_cw1exb_HCZ_k1Sa4AAqeXo.jpg",
+        "https://cms-assets.youmind.com/media/1772519730492_jgb6zx_HCZ_kzIaoAA8kwO.jpg",
+        "https://cms-assets.youmind.com/media/1772519730537_a1zfy4_HCZ_kzGaAAEhk3W.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519730510_cw1exb_HCZ_k1Sa4AAqeXo-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772519730492_jgb6zx_HCZ_kzIaoAA8kwO-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772519730537_a1zfy4_HCZ_kzGaAAEhk3W-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"prompt_type\": \"photo-based description\",\n\"language\": \"Simplified Chinese\",\n\"scene\": {\n\"environment\": \"柔和、舒适的卧室场景，以柔和的粉色调为主\",\n\"background_elements\": [\n\"浅粉色床品，质地柔软蓬松\",\n\"薄纱背景，营造出梦幻、柔和的氛围\"\n],\n\"lighting\": \"温暖、柔和的环境光，带有一丝粉色调\"\n},\n\"subject\": {\n\"appearance\": {\n\"gender_presentation\": \"女性化呈现\",\n\"age_description\": \"年轻成人，仅限生活/时尚语境\",\n\"skin_tone\": \"浅色\",\n\"hair\": \"深棕色长发，梳成高高的双马尾，光滑笔直，点缀着彩色发夹，包括星星和小巧的柔和色配饰\",\n\"makeup\": \"可爱、风格化的妆容，带有上扬眼线、玫瑰色腮红、亮泽粉唇，脸颊上贴有心形小贴纸\",\n\"expression\": \"俏皮的笑容，带着开朗友好的神态\",\n\"gaze\": \"与镜头直接眼神接触\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"无袖短款背心\",\n\"color\": \"浅柔和红\",\n\"design\": \"正面印有大大的 Hello Kitty 图案\",\n\"fit\": \"紧身，裁剪至腰部以上\"\n},\n\"bottom\": {\n\"type\": \"低腰短裤\",\n\"color\": \"红绿相间\",\n\"pattern\": \"棋盘格图案\",\n\"fit\": \"紧身，休闲居家风格\"\n},\n\"armwear\": {\n\"type\": \"罗纹臂套\",\n\"color\": \"柔和粉\",\n\"length\": \"从手腕延伸至肘部下方\",\n\"fit\": \"略宽松，带有褶皱纹理\"\n},\n\"accessories\": {\n\"choker\": \"细款柔和色颈链\",\n\"hair_accessories\": \"多个彩色发夹和小巧的装饰性发卡\",\n\"additional\": \"手臂和脸上贴有小装饰贴纸\"\n}\n},\n\"pose_and_posture\": {\n\"overall_position\": \"主体以放松、休闲的姿势坐在床上\",\n\"torso\": {\n\"orientation\": \"上半身略微朝向镜头\",\n\"spine\": \"挺直，带有柔和放松的弧度\",\n\"shoulders\": \"放松并略微前倾\"\n},\n\"head_and_neck\": {\n\"neck\": \"放松\",\n\"head_position\": \"头部略微向右倾斜\",\n\"chin\": \"略微下巴，增强俏皮表情\"\n},\n\"arms_and_hands\": {\n\"right_arm\": {\n\"position\": \"抬至身体一侧\",\n\"hand_position\": \"右手握住一缕头发\",\n\"gesture\": \"俏皮地触摸头发的姿势\"\n},\n\"left_arm\": {\n\"position\": \"放下并放松\",\n\"hand_position\": \"左手随意地放在大腿附近\"\n}\n},\n\"legs\": {\n\"position\": \"双腿弯曲并放在床上\",\n\"orientation\": \"大腿相对于镜头呈对角线角度\",\n\"posture\": \"放松的坐姿，居家休闲姿态\"\n},\n\"pose_intent\": \"姿势传达出俏皮、可爱、休闲的卡哇伊风格能量\"\n},\n\"camera_and_composition\": {\n\"camera\": {\n\"camera_height\": \"略高于视线水平\",\n\"camera_angle\": \"轻微向下倾斜\",\n\"framing\": \"中景拍摄，捕捉头部、躯干和上半部分腿部\",\n\"lens_feel\": \"人像风格镜头，具有柔和的透视感\"\n},\n\"composition\": \"主体居中，柔和的色彩主导画面\"\n},\n\"constraints\": null\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "可爱风格温馨卧室肖像 一个高度结构化的 json 提示，用于生成一张可爱、卡哇伊风格的年轻女性肖像，场景设定在一个舒适的淡粉色卧室中，详细描述了她的外貌、服装（hello kitty 上衣、格子短裤）、姿势和相机规格。 {\n\"prompt_type\": \"photo-based description\",\n\"language\": \"english\",\n\"scene\": {\n\"environment\": \"soft, cozy bedroom setting with pastel pink tones\",\n\"background_elements\": [\n\"light pink bedding with plush texture\",\n\"sheer fabric backdrop creating a dreamy, diffused atmosphere\"\n],\n\"lighting\": \"warm, soft ambient lighting with a pinkish hue\"\n},\n\"subject\": {\n\"appearance\": {\n\"gender_presentation\": \"female-presenting\",\n\"age_description\": \"young adult, lifestyle/fashion context only\",\n\"skin_tone\": \"light\",\n\"hair\": \"long dark brown hair styled in high pigtails, smooth and straight, decorated with colorful hair clips including stars and small pastel accessories\",\n\"makeup\": \"cute, stylized makeup with winged eyeliner, rosy blush, glossy pink lips, and a small heart-shaped face sticker on the cheek\",\n\"expression\": \"playful smile with a cheerful, friendly demeanor\",\n\"gaze\": \"direct eye contact with the camera\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"sleeveless cropped tank top\",\n\"color\": \"light pastel red\",\n\"design\": \"large hellokitty graphic printed on the front\",\n\"fit\": \"close-fitting, cropped above the waist\"\n},\n\"bottom\": {\n\"type\": \"low-rise shorts\",\n\"color\": \"red and green\",\n\"pattern\": \"checkerboard pattern\",\n\"fit\": \"snug, casual lounge style\"\n},\n\"armwear\": {\n\"type\": \"ribbed arm warmers\",\n\"color\": \"soft pink\",\n\"length\": \"extending from wrists to just below the elbows\",\n\"fit\": \"slightly loose with gathered texture\"\n},\n\"accessories\": {\n\"choker\": \"thin pastel choker necklace\",\n\"hair_accessories\": \"multiple colorful clips and small decorative pins\",\n\"additional\": \"small decorative stickers on arms and face\"\n}\n},\n\"pose_and_posture\": {\n\"overall_position\": \"subject seated on a bed in a relaxed, casual pose\",\n\"torso\": {\n\"orientation\": \"upper body angled slightly toward the camera\",\n\"spine\": \"upright with a gentle relaxed curve\",\n\"shoulders\": \"relaxed and slightly forward\"\n},\n\"head_and_neck\": {\n\"neck\": \"relaxed\",\n\"head_position\": \"head tilted slightly to the right\",\n\"chin\": \"slightly lowered, enhancing a playful expression\"\n},\n\"arms_and_hands\": {\n\"right_arm\": {\n\"position\": \"raised to the side\",\n\"hand_position\": \"right hand holding a section of hair\",\n\"gesture\": \"playful hair-touching gesture\"\n},\n\"left_arm\": {\n\"position\": \"lowered and relaxed\",\n\"hand_position\": \"left hand resting casually near the thigh\"\n}\n},\n\"legs\": {\n\"position\": \"legs bent and resting on the bed\",\n\"orientation\": \"thighs angled diagonally relative to the camera\",\n\"posture\": \"relaxed seated lounge position\"\n},\n\"pose_intent\": \"pose conveys playful, cute, and casual kawaii-inspired energy\"\n},\n\"camera_and_composition\": {\n\"camera\": {\n\"camera_height\": \"slightly above eye level\",\n\"camera_angle\": \"mild downward angle\",\n\"framing\": \"medium shot capturing head, torso, and upper legs\",\n\"lens_feel\": \"portrait-style lens with soft perspective\"\n},\n\"composition\": \"subject centered, with pastel colors dominating the frame\"\n},\n\"constraints\" ```json\n{\n\"prompt_type\": \"photo-based description\",\n\"language\": \"simplified chinese\",\n\"scene\": {\n\"environment\": \"柔和、舒适的卧室场景，以柔和的粉色调为主\",\n\"background_elements\": [\n\"浅粉色床品，质地柔软蓬松\",\n\"薄纱背景，营造出梦幻、柔和的氛围\"\n],\n\"lighting\": \"温暖、柔和的环境光，带有一丝粉色调\"\n},\n\"subject\": {\n\"appearance\": {\n\"gender_presentation\": \"女性化呈现\",\n\"age_description\": \"年轻成人，仅限生活/时尚语境\",\n\"skin_tone\": \"浅色\",\n\"hair\": \"深棕色长发，梳成高高的双马尾，光滑笔直，点缀着彩色发夹，包括星星和小巧的柔和色配饰\",\n\"makeup\": \"可爱、风格化的妆容，带有上扬眼线、玫瑰色腮红、亮泽粉唇，脸颊上贴有心形小贴纸\",\n\"expression\": \"俏皮的笑容，带着开朗友好的神态\",\n\"gaze\": \"与镜头直接眼神接触\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"无袖短款背心\",\n\"color\": \"浅柔和红\",\n\"design\": \"正面印有大大的 hello kitty 图案\",\n\"fit\": \"紧身，裁剪至腰部以上\"\n},\n\"bottom\": {\n\"type\": \"低腰短裤\",\n\"color\": \"红绿相间\",\n\"pattern\": \"棋盘格图案\",\n\"fit\": \"紧身，休闲居家风格\"\n},\n\"armwear\": {\n\"type\": \"罗纹臂套\",\n\"color\": \"柔和粉\",\n\"length\": \"从手腕延伸至肘部下方\",\n\"fit\": \"略宽松，带有褶皱纹理\"\n},\n\"accessories\": {\n\"choker\": \"细款柔和色颈链\",\n\"hair_accessories\": \"多个彩色发夹和小巧的装饰性发卡\",\n\"additional\": \"手臂和脸上贴有小装饰贴纸\"\n}\n},\n\"pose_and_posture\": {\n\"overall_position\": \"主体以放松、休闲的姿势坐在床上\",\n\"torso\": {\n\"orientation\": \"上半身略微朝向镜头\",\n\"spine\": \"挺直，带有柔和放松的弧度\",\n\"shoulders\": \"放松并略微前倾\"\n},\n\"head_and_neck\": {\n\"neck\": \"放松\",\n\"head_position\": \"头部略微向右倾斜\",\n\"chin\": \"略微下巴，增强俏皮表情\"\n},\n\"arms_and_hands\": {\n\"right_arm\": {\n\"position\": \"抬至身体一侧\",\n\"hand_position\": \"右手握住一缕头发\",\n\"gesture\": \"俏皮地触摸头发的姿势\"\n},\n\"left_arm\": {\n\"position\": \"放下并放松\",\n\"hand_position\": \"左手随意地放在大腿附近\"\n}\n},\n\"legs\": {\n\"position\": \"双腿弯曲并放在床上\",\n\"orientation\": \"大腿相对于镜头呈对角线角度\",\n\"posture\": \"放松的坐姿，居家休闲姿态\"\n},\n\"pose_intent\": \"姿势传达出俏皮、可爱、休闲的卡哇伊风格能量\"\n},\n\"camera_and_composition\": {\n\"camera\": {\n\"camera_height\": \"略高于视线水平\",\n\"camera_angle\": \"轻微向下倾斜\",\n\"framing\": \"中景拍摄，捕捉头部、躯干和上半部分腿部\",\n\"lens_feel\": \"人像风格镜头，具有柔和的透视感\"\n},\n\"composition\": \"主体居中，柔和的色彩主导画面\"\n},\n\"constraints\": null\n}\n``` ankit patel 🇮🇳 | ai 11316",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11358,
+      "title": "爆炸视图产品设计图提示",
+      "description": "一个简洁的提示，用于生成产品或车辆的干净、三维爆炸图，带有材质点缀，强调高度精细的内部组件、影棚布光和产品摄影风格。",
+      "sourceLink": "https://x.com/Strength04_X/status/2028442638781984986",
+      "sourcePublishedAt": "2026-03-02T12:09:46.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "product design, {argument name=\"object or vehicle\" default=\"[object or vehicle with material accents]\"}, exploded view diagram, white background, three-dimensional, highly detailed internal components, studio lighting, product photography, best quality",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772519750823_kg7gtf_HCZ50ChbkAAcNFK.jpg",
+        "https://cms-assets.youmind.com/media/1772519750828_33ivx9_HCZ50CkbQAAQw0T.jpg",
+        "https://cms-assets.youmind.com/media/1772519750819_lvdpsr_HCZ50Dka0AAFQtC.jpg",
+        "https://cms-assets.youmind.com/media/1772519751567_zj27ix_HCZ50FMbgAEXndC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772519750823_kg7gtf_HCZ50ChbkAAcNFK-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1772519750828_33ivx9_HCZ50CkbQAAQw0T-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1772519750819_lvdpsr_HCZ50Dka0AAFQtC-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1772519751567_zj27ix_HCZ50FMbgAEXndC-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "产品设计，{argument name=\"object or vehicle\" default=\"[带有材质点缀的物体或车辆]\"}，爆炸图，白色背景，三维，高度精细的内部组件，影棚布光，产品摄影，最佳质量",
+      "sourcePlatform": "twitter",
+      "searchIndex": "爆炸视图产品设计图提示 一个简洁的提示，用于生成产品或车辆的干净、三维爆炸图，带有材质点缀，强调高度精细的内部组件、影棚布光和产品摄影风格。 product design, {argument name=\"object or vehicle\" default=\"[object or vehicle with material accents]\"}, exploded view diagram, white background, three-dimensional, highly detailed internal components, studio lighting, product photography, best quality 产品设计，{argument name=\"object or vehicle\" default=\"[带有材质点缀的物体或车辆]\"}，爆炸图，白色背景，三维，高度精细的内部组件，影棚布光，产品摄影，最佳质量 𝐌 11358",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 108,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

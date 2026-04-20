@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" modified="2026-04-07T21:10:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="dramatv-resource-discussion-map" name="资源层与讨论层对接图">
+    <mxGraphModel dx="2000" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="10" value="DramaTV 资源层与讨论层对接图&#xa;先稳住真实资源主线，再把独立讨论层挂上去" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="20" value="第一层：资源对象层（已接真实后端）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F3B66;strokeColor=#0B2947;fontColor=#F8FAFC;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="520" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="社区首页&#xa;/&#xa;GET /api/feed/home" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#082F49;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="230" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="视频详情页&#xa;/videos/[id]&#xa;详情 + 评论 + 点赞/收藏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="工作流详情页&#xa;/workflows/[id]&#xa;方法说明 + 评论 + 画布入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="作者主页&#xa;/creators/[id]&#xa;作品 + 工作流双列表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="494" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="发布页&#xa;/publish&#xa;视频草稿 + 工作流草稿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="494" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="画布运行态&#xa;/canvas/[runtimeId]&#xa;runtime + snapshot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="624" width="220" height="92" as="geometry" />
+        </mxCell>
+
+        <mxCell id="30" value="第二层：独立讨论层（前端骨架 / 接口预留）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B2100;strokeColor=#7C2D12;fontColor=#FFF7ED;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="520" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="讨论区首页&#xa;/discussions&#xa;提示词 / 制作经验 / 工作流经验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="230" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="讨论帖详情&#xa;/discussions/[slug]&#xa;经验帖结构 + 对象绑定说明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#CA8A04;fontColor=#713F12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="230" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="发帖 / 回帖 / 排序 / 搜索&#xa;当前先留接口位&#xa;不伪装成已可用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#F97316;fontColor=#7C2D12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="370" width="220" height="96" as="geometry" />
+        </mxCell>
+
+        <mxCell id="40" value="真实接口主线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0F172A;fontColor=#FFFFFF;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="220" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="GET /api/feed/home&#xa;GET /api/videos/{id}&#xa;GET /api/workflows/{id}&#xa;GET /api/creators/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="872" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="GET /api/comments&#xa;POST /api/comments&#xa;POST/DELETE /api/interactions/*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="320" y="872" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="POST/PUT /api/video-drafts&#xa;POST/PUT /api/workflow-drafts&#xa;GET /api/canvas-runtimes/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="600" y="872" width="250" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="50" value="讨论层预留接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0F172A;fontColor=#FFFFFF;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="790" width="220" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="GET /api/discussions/home&#xa;GET /api/discussions/threads/{slug}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3F1D0D;strokeColor=#7C2D12;fontColor=#FFEDD5;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="910" y="872" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="POST /api/discussions/threads&#xa;POST /api/discussions/replies&#xa;POST /api/discussions/threads/{id}/bindings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3F1D0D;strokeColor=#7C2D12;fontColor=#FFEDD5;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="910" y="1018" width="250" height="138" as="geometry" />
+        </mxCell>
+
+        <mxCell id="60" value="资源对象评论继续留在详情页" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38BDF8;fontColor=#0F172A;" edge="1" parent="1" source="21" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38BDF8;" edge="1" parent="1" source="21" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38BDF8;" edge="1" parent="1" source="22" target="24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;" edge="1" parent="1" source="23" target="26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="首页和详情页给讨论层入口" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F97316;fontColor=#7C2D12;" edge="1" parent="1" source="21" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F97316;" edge="1" parent="1" source="22" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F97316;" edge="1" parent="1" source="23" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F97316;" edge="1" parent="1" source="31" target="32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F97316;" edge="1" parent="1" source="32" target="33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;" edge="1" parent="1" source="22" target="42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;" edge="1" parent="1" source="23" target="42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;" edge="1" parent="1" source="31" target="51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;" edge="1" parent="1" source="32" target="52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

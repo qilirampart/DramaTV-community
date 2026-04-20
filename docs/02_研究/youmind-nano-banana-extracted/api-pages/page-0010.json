@@ -1,0 +1,484 @@
+{
+  "prompts": [
+    {
+      "id": 13199,
+      "title": "超写实电影感肖像，配以戏剧性光影",
+      "description": "一个用于生成超写实电影感肖像的提示词，画面为一名年轻男子回眸。图像采用戏剧性的影棚灯光，配以温暖的金色轮廓光，具有高对比度、清晰的焦点，呈现出时尚杂志的摄影风格。",
+      "sourceLink": "https://x.com/Taaruk_/status/2039925165870756307",
+      "sourcePublishedAt": "2026-04-03T04:37:14.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic cinematic portrait of a young man with short styled hair, beard, and glasses, wearing a mustard yellow t-shirt, looking back over his shoulder toward the camera, black background, dramatic studio lighting with warm golden rim light outlining the face and shoulders, soft key light on the face, high contrast, sharp focus, shallow depth of field, detailed skin texture, editorial fashion photography style, 85mm lens, moody atmosphere, 8K, photorealistic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284638252_rp02to_HE9FIJTa0AAVAP2.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284638252_rp02to_HE9FIJTa0AAVAP2-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感肖像，一名留着短发、胡须并佩戴眼镜的年轻男子，身穿芥末黄 T 恤，回眸看向镜头，黑色背景，戏剧性的影棚灯光，温暖的金色轮廓光勾勒出面部和肩部轮廓，面部带有柔和的主光，高对比度，清晰的焦点，浅景深，细腻的皮肤纹理，时尚杂志摄影风格，85mm 镜头，情绪化氛围，8K，照片级真实感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实电影感肖像，配以戏剧性光影 一个用于生成超写实电影感肖像的提示词，画面为一名年轻男子回眸。图像采用戏剧性的影棚灯光，配以温暖的金色轮廓光，具有高对比度、清晰的焦点，呈现出时尚杂志的摄影风格。 ultra-realistic cinematic portrait of a young man with short styled hair, beard, and glasses, wearing a mustard yellow t-shirt, looking back over his shoulder toward the camera, black background, dramatic studio lighting with warm golden rim light outlining the face and shoulders, soft key light on the face, high contrast, sharp focus, shallow depth of field, detailed skin texture, editorial fashion photography style, 85mm lens, moody atmosphere, 8k, photorealistic. 超写实电影感肖像，一名留着短发、胡须并佩戴眼镜的年轻男子，身穿芥末黄 t 恤，回眸看向镜头，黑色背景，戏剧性的影棚灯光，温暖的金色轮廓光勾勒出面部和肩部轮廓，面部带有柔和的主光，高对比度，清晰的焦点，浅景深，细腻的皮肤纹理，时尚杂志摄影风格，85mm 镜头，情绪化氛围，8k，照片级真实感。 taaruk 13199",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13223,
+      "title": "海滩时尚男士电影感竖版拼贴画",
+      "description": "这是一个用于 Google Gemini Nano Banana 2 的提示词，旨在创作一张电影感的三格竖版拼贴画，展示一位在黄金时刻宁静海滩上的时尚年轻男子。提示词详细说明了姿势、服装（大地色亚麻衬衫）、光影（温暖且富有情绪感）以及高级时尚杂志的审美风格，并要求使用参考照片以保持面部特征一致。",
+      "sourceLink": "https://x.com/MrDasOnX/status/2039915907162779888",
+      "sourcePublishedAt": "2026-04-03T04:00:26.000Z",
+      "author": {
+        "name": "Mr Das",
+        "link": "https://x.com/MrDasOnX"
+      },
+      "content": "A cinematic three-panel vertical collage featuring a stylish young man at a serene beach during golden hour. In the top panel, he is sitting on the sand with one knee up, resting his arm on it, gazing down thoughtfully as waves approach. In the middle panel, he stands facing the ocean with one hand running through his hair, shirt slightly flowing in the breeze, capturing a candid emotional moment. In the bottom panel, he is captured from a low-angle front shot, adjusting his dark sunglasses while looking toward the horizon with a confident, calm expression. He is wearing a crisp, earth-toned beige linen button-down shirt. The lighting is warm and moody with a soft teal-and-orange color grade, subtle film grain texture, and high-fashion editorial aesthetic. 4K resolution, hyper-realistic, emotional atmosphere, cinematic film still, 100% same face as reference photo, vertical 9:16 composition, slightly zoomed-in framing.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284655413_wibhga_HE88s5pbQAA9yLW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284655413_wibhga_HE88s5pbQAA9yLW-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张电影感的三格竖版拼贴画，展示了一位在黄金时刻宁静海滩上的时尚年轻男子。顶格画面中，他坐在沙滩上，单膝支起，手臂搭在膝盖上，若有所思地注视着涌来的海浪。中格画面中，他面向大海站立，单手穿过发丝，衬衫在微风中轻轻飘动，捕捉到一个自然流露的情绪瞬间。底格画面中，采用低角度正面拍摄，他正在调整深色墨镜，神情自信而从容地望向地平线。他身穿一件干练的大地色米色亚麻衬衫。光影温暖且富有情绪感，采用柔和的青橙色调，带有细腻的胶片颗粒质感，呈现出高级时尚杂志的审美风格。4K 分辨率，超写实，氛围感强，电影剧照质感，面部与参考照片 100% 一致，9:16 竖构图，略微放大的取景。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "海滩时尚男士电影感竖版拼贴画 这是一个用于 google gemini nano banana 2 的提示词，旨在创作一张电影感的三格竖版拼贴画，展示一位在黄金时刻宁静海滩上的时尚年轻男子。提示词详细说明了姿势、服装（大地色亚麻衬衫）、光影（温暖且富有情绪感）以及高级时尚杂志的审美风格，并要求使用参考照片以保持面部特征一致。 a cinematic three-panel vertical collage featuring a stylish young man at a serene beach during golden hour. in the top panel, he is sitting on the sand with one knee up, resting his arm on it, gazing down thoughtfully as waves approach. in the middle panel, he stands facing the ocean with one hand running through his hair, shirt slightly flowing in the breeze, capturing a candid emotional moment. in the bottom panel, he is captured from a low-angle front shot, adjusting his dark sunglasses while looking toward the horizon with a confident, calm expression. he is wearing a crisp, earth-toned beige linen button-down shirt. the lighting is warm and moody with a soft teal-and-orange color grade, subtle film grain texture, and high-fashion editorial aesthetic. 4k resolution, hyper-realistic, emotional atmosphere, cinematic film still, 100% same face as reference photo, vertical 9:16 composition, slightly zoomed-in framing. 一张电影感的三格竖版拼贴画，展示了一位在黄金时刻宁静海滩上的时尚年轻男子。顶格画面中，他坐在沙滩上，单膝支起，手臂搭在膝盖上，若有所思地注视着涌来的海浪。中格画面中，他面向大海站立，单手穿过发丝，衬衫在微风中轻轻飘动，捕捉到一个自然流露的情绪瞬间。底格画面中，采用低角度正面拍摄，他正在调整深色墨镜，神情自信而从容地望向地平线。他身穿一件干练的大地色米色亚麻衬衫。光影温暖且富有情绪感，采用柔和的青橙色调，带有细腻的胶片颗粒质感，呈现出高级时尚杂志的审美风格。4k 分辨率，超写实，氛围感强，电影剧照质感，面部与参考照片 100% 一致，9:16 竖构图，略微放大的取景。 mr das 13223",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13179,
+      "title": "为健身女孩打造的 9 宫格电影感健身旅程拼图",
+      "description": "这是一个为 Nano Banana 2 设计的复杂多帧提示词，旨在生成一张 9 宫格超写实电影感拼图，讲述一段完整的健身旅程故事，强调角色的一致性以及不同场景间的连贯性。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2039913444636590424",
+      "sourcePublishedAt": "2026-04-03T03:50:39.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "Ultra-realistic cinematic 9-photo collage collection telling a complete fitness journey story of a young athletic woman traveling from her home to the gym and returning back home, each frame showing a different scene and progression, strong visual storytelling, consistent character identity across all images (same face, same hairstyle, same gym outfit), natural body proportions, photorealistic skin texture, lifestyle editorial photography, no CGI, no illustration, ultra-detailed, 8K resolution.\nFrame 1: Inside her bedroom, she prepares for the gym, adjusting her workout clothes in front of a mirror, soft morning sunlight entering through the window, calm focused mood.\nFrame 2: At the home entrance, she picks up her gym bag and opens the door, natural indoor lighting, realistic home interior, storytelling beginning.\nFrame 3: Outside her house, she boards her bicycle, one foot on the pedal, preparing to ride, residential street background, cinematic morning light.\nFrame 4: She rides the bicycle on the street toward the gym, side-angle action shot, natural motion blur, dynamic composition, urban environment.\nFrame 5: She arrives at the gym exterior and parks her bicycle near the entrance, modern gym building with glass facade, confident expression, realistic reflections.\nFrame 6: Inside the gym, she performs an exercise such as lifting dumbbells or doing squats, focused expression, visible effort, professional gym environment, dramatic lighting.\nFrame 7: She takes a break and drinks water from a bottle, slightly sweaty, natural post-workout moment, blurred gym equipment background, candid realism.\nFrame 8: She exits the gym and walks toward her bicycle, carrying her gym bag, relaxed and satisfied expression, warm evening light, cinematic atmosphere.\nFrame 9: She rides her bicycle back toward home during golden hour sunset, peaceful and relaxed mood, cinematic street scene, storytelling conclusion.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284624894_hvvivj_HE86d4PbkAA2GVm.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284624894_hvvivj_HE86d4PbkAA2GVm-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感 9 宫格拼图合集，讲述一位年轻运动女性从家中出发前往健身房再返回家中的完整健身旅程。每一帧展示不同的场景与进程，具有极强的视觉叙事感，所有图像中的角色特征保持一致（相同的面部、发型及健身服），自然的身体比例，照片级皮肤质感，生活方式类杂志摄影风格，非 CGI，非插画，超细节，8K 分辨率。\n第 1 帧：在卧室里，她准备去健身房，对着镜子整理运动服，柔和的晨光从窗户射入，平静而专注的氛围。\n第 2 帧：在玄关处，她拿起健身包并打开房门，自然的室内光线，写实的家居内饰，故事的开端。\n第 3 帧：在房门外，她跨上自行车，一只脚踩在踏板上准备骑行，背景为住宅街道，电影感的晨光。\n第 4 帧：她骑着自行车在街道上前往健身房，侧面动作镜头，自然的动态模糊，动态构图，城市环境。\n第 5 帧：她到达健身房门口并将自行车停在入口附近，现代化的健身房建筑配有玻璃幕墙，自信的表情，写实的倒影。\n第 6 帧：在健身房内，她正在进行举哑铃或深蹲等锻炼，专注的表情，可见的努力，专业的健身环境，戏剧性的光影。\n第 7 帧：她休息并喝水，微微出汗，自然的运动后瞬间，背景为模糊的健身器材，抓拍式的写实感。\n第 8 帧：她走出健身房走向自行车，背着健身包，表情轻松满足，温暖的傍晚光线，电影感氛围。\n第 9 帧：她在黄金时刻的日落中骑车回家，宁静放松的氛围，电影感的街景，故事的结尾。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "为健身女孩打造的 9 宫格电影感健身旅程拼图 这是一个为 nano banana 2 设计的复杂多帧提示词，旨在生成一张 9 宫格超写实电影感拼图，讲述一段完整的健身旅程故事，强调角色的一致性以及不同场景间的连贯性。 ultra-realistic cinematic 9-photo collage collection telling a complete fitness journey story of a young athletic woman traveling from her home to the gym and returning back home, each frame showing a different scene and progression, strong visual storytelling, consistent character identity across all images (same face, same hairstyle, same gym outfit), natural body proportions, photorealistic skin texture, lifestyle editorial photography, no cgi, no illustration, ultra-detailed, 8k resolution.\nframe 1: inside her bedroom, she prepares for the gym, adjusting her workout clothes in front of a mirror, soft morning sunlight entering through the window, calm focused mood.\nframe 2: at the home entrance, she picks up her gym bag and opens the door, natural indoor lighting, realistic home interior, storytelling beginning.\nframe 3: outside her house, she boards her bicycle, one foot on the pedal, preparing to ride, residential street background, cinematic morning light.\nframe 4: she rides the bicycle on the street toward the gym, side-angle action shot, natural motion blur, dynamic composition, urban environment.\nframe 5: she arrives at the gym exterior and parks her bicycle near the entrance, modern gym building with glass facade, confident expression, realistic reflections.\nframe 6: inside the gym, she performs an exercise such as lifting dumbbells or doing squats, focused expression, visible effort, professional gym environment, dramatic lighting.\nframe 7: she takes a break and drinks water from a bottle, slightly sweaty, natural post-workout moment, blurred gym equipment background, candid realism.\nframe 8: she exits the gym and walks toward her bicycle, carrying her gym bag, relaxed and satisfied expression, warm evening light, cinematic atmosphere.\nframe 9: she rides her bicycle back toward home during golden hour sunset, peaceful and relaxed mood, cinematic street scene, storytelling conclusion. 超写实电影感 9 宫格拼图合集，讲述一位年轻运动女性从家中出发前往健身房再返回家中的完整健身旅程。每一帧展示不同的场景与进程，具有极强的视觉叙事感，所有图像中的角色特征保持一致（相同的面部、发型及健身服），自然的身体比例，照片级皮肤质感，生活方式类杂志摄影风格，非 cgi，非插画，超细节，8k 分辨率。\n第 1 帧：在卧室里，她准备去健身房，对着镜子整理运动服，柔和的晨光从窗户射入，平静而专注的氛围。\n第 2 帧：在玄关处，她拿起健身包并打开房门，自然的室内光线，写实的家居内饰，故事的开端。\n第 3 帧：在房门外，她跨上自行车，一只脚踩在踏板上准备骑行，背景为住宅街道，电影感的晨光。\n第 4 帧：她骑着自行车在街道上前往健身房，侧面动作镜头，自然的动态模糊，动态构图，城市环境。\n第 5 帧：她到达健身房门口并将自行车停在入口附近，现代化的健身房建筑配有玻璃幕墙，自信的表情，写实的倒影。\n第 6 帧：在健身房内，她正在进行举哑铃或深蹲等锻炼，专注的表情，可见的努力，专业的健身环境，戏剧性的光影。\n第 7 帧：她休息并喝水，微微出汗，自然的运动后瞬间，背景为模糊的健身器材，抓拍式的写实感。\n第 8 帧：她走出健身房走向自行车，背着健身包，表情轻松满足，温暖的傍晚光线，电影感氛围。\n第 9 帧：她在黄金时刻的日落中骑车回家，宁静放松的氛围，电影感的街景，故事的结尾。 synthia 13179",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13231,
+      "title": "图像修复 / 在图像中添加人物",
+      "description": "这是一条针对 Nano Banana Pro 的提示词，旨在引导模型将第二张图片中的人物添加到第一张图片的空蓝色座位上，同时保留现有人员，并指定输出高质量图像。",
+      "sourceLink": "https://x.com/Misako_ai07/status/2039910486700175485",
+      "sourcePublishedAt": "2026-04-03T03:38:54.000Z",
+      "author": {
+        "name": "Shion AI 改",
+        "link": "https://x.com/Misako_ai07"
+      },
+      "content": "1枚目の空いた青い席に2枚目の人物を座らせる。今座ってる人物は削除せず、空席に座らせる。8k超高画質。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284660070_jbrzjh_HE83xwJaMAAuRDi.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284660070_jbrzjh_HE83xwJaMAAuRDi-300x537.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "将第二张图片中的人物放置到第一张图片的空蓝色座位上。请勿删除当前已就座的人员；仅将该人物放置在空座位上。8k 超高质量。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图像修复 / 在图像中添加人物 这是一条针对 nano banana pro 的提示词，旨在引导模型将第二张图片中的人物添加到第一张图片的空蓝色座位上，同时保留现有人员，并指定输出高质量图像。 1枚目の空いた青い席に2枚目の人物を座らせる。今座ってる人物は削除せず、空席に座らせる。8k超高画質。 将第二张图片中的人物放置到第一张图片的空蓝色座位上。请勿删除当前已就座的人员；仅将该人物放置在空座位上。8k 超高质量。 shion ai 改 13231",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13182,
+      "title": "佩戴在模特身上的珠宝微距产品摄影",
+      "description": "一个用于生成微距风格、高分辨率珠宝（如戒指或耳环）产品照片的详细提示词，珠宝由背景虚化的女性模特佩戴。焦点精准聚焦于珠宝本身，采用黄金时刻的暖色调光线，并搭配奢华的背景纹理。",
+      "sourceLink": "https://x.com/SimplyAnnisa/status/2039909733868482911",
+      "sourcePublishedAt": "2026-04-03T03:35:54.000Z",
+      "author": {
+        "name": "Anissa",
+        "link": "https://x.com/SimplyAnnisa"
+      },
+      "content": "A macro-style, high-resolution product photograph focused with uncompromising precision on the tactile depth and intricate craftsmanship of the subject ({argument name=\"subject\" default=\"the detailed jewelry item, e.g., an ornate ring or filigree earrings\"}). The subject is centrally placed and prominently displayed, with every facet, metal texture, and gem clearly defined by sharp, precise light. While the subject is worn by an elegant female model, her features, skin, and hands are softly blurred and rendered secondary, acting only as a tactile context for the subject. A segment of the model's hand with stacked rings (which are part of the collection and softly in focus) may be visible near the subject, but strictly as a framing element and human scale reference, not a primary focus. Bathed in warm, directional golden hour light, the subject sparkles with a brilliant fire against a deeply blurred, indistinct, warm-toned luxury texture (like rich silk or polished wood) in the background. Critical sharpness is reserved exclusively for the subject.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284626710_mpeb8i_HE82kVpaAAAX-xt.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284626710_mpeb8i_HE82kVpaAAAX-xt-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张微距风格、高分辨率的产品照片，以极致的精度聚焦于主体（{argument name=\"subject\" default=\"精致的珠宝单品，例如华丽的戒指或金丝耳环\"}）的触感深度与精湛工艺。主体置于画面中央并突出显示，每一个切面、金属纹理和宝石都在锐利、精准的光线下清晰呈现。虽然主体由优雅的女性模特佩戴，但她的五官、皮肤和手部均经过柔化处理，仅作为主体的触感背景。模特佩戴叠戴戒指的手部细节（作为系列产品的一部分，处于轻微对焦状态）可能会出现在主体附近，但仅作为构图元素和人体比例参考，而非视觉焦点。在温暖的定向黄金时刻光线照射下，主体在背景中深度模糊、朦胧的暖色调奢华纹理（如高级丝绸或抛光木材）映衬下闪烁着耀眼的光芒。极致的锐度仅保留给主体。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "佩戴在模特身上的珠宝微距产品摄影 一个用于生成微距风格、高分辨率珠宝（如戒指或耳环）产品照片的详细提示词，珠宝由背景虚化的女性模特佩戴。焦点精准聚焦于珠宝本身，采用黄金时刻的暖色调光线，并搭配奢华的背景纹理。 a macro-style, high-resolution product photograph focused with uncompromising precision on the tactile depth and intricate craftsmanship of the subject ({argument name=\"subject\" default=\"the detailed jewelry item, e.g., an ornate ring or filigree earrings\"}). the subject is centrally placed and prominently displayed, with every facet, metal texture, and gem clearly defined by sharp, precise light. while the subject is worn by an elegant female model, her features, skin, and hands are softly blurred and rendered secondary, acting only as a tactile context for the subject. a segment of the model's hand with stacked rings (which are part of the collection and softly in focus) may be visible near the subject, but strictly as a framing element and human scale reference, not a primary focus. bathed in warm, directional golden hour light, the subject sparkles with a brilliant fire against a deeply blurred, indistinct, warm-toned luxury texture (like rich silk or polished wood) in the background. critical sharpness is reserved exclusively for the subject. 一张微距风格、高分辨率的产品照片，以极致的精度聚焦于主体（{argument name=\"subject\" default=\"精致的珠宝单品，例如华丽的戒指或金丝耳环\"}）的触感深度与精湛工艺。主体置于画面中央并突出显示，每一个切面、金属纹理和宝石都在锐利、精准的光线下清晰呈现。虽然主体由优雅的女性模特佩戴，但她的五官、皮肤和手部均经过柔化处理，仅作为主体的触感背景。模特佩戴叠戴戒指的手部细节（作为系列产品的一部分，处于轻微对焦状态）可能会出现在主体附近，但仅作为构图元素和人体比例参考，而非视觉焦点。在温暖的定向黄金时刻光线照射下，主体在背景中深度模糊、朦胧的暖色调奢华纹理（如高级丝绸或抛光木材）映衬下闪烁着耀眼的光芒。极致的锐度仅保留给主体。 anissa 13182",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13226,
+      "title": "美食银河：宇宙级印度街头小吃太阳系",
+      "description": "这是一个为 Nano Banana 2 设计的创意且详尽的提示词，旨在生成一张超现实、照片级真实的图像，展现漂浮在深空中的印度街头小吃。每种食物都代表一个天体（例如：坦都里烤饼作为太阳，脆球饼作为行星，咖喱角作为小行星）。提示词详细说明了光影、背景元素（香料星云、拉西银河）及艺术风格。",
+      "sourceLink": "https://x.com/commanderdgr8/status/2039908503058305284",
+      "sourcePublishedAt": "2026-04-03T03:31:01.000Z",
+      "author": {
+        "name": "Ashish Sheth",
+        "link": "https://x.com/commanderdgr8"
+      },
+      "content": "Create a cosmic/space scene where various Indian street foods are floating in deep space as if they are planets, moons, and celestial objects in a delicious galaxy.\n\nTHE FOOD SOLAR SYSTEM:\n- CENTER (Sun): A massive round tandoori roti, glowing from within like a star, with charred spots resembling sunspots, radiating warm golden light outward\n- PLANET 1 (closest): A perfect round golgappa/pani puri — crispy shell glistening, filled with spiced water visible through the opening. Tiny orbit ring of sev and chutney droplets.\n- PLANET 2: A round vada (medu vada) as a donut-shaped planet with a ring system made of coconut chutney\n- PLANET 3: A plate of round gulab jamuns as a cluster of sweet brown planets with syrup nebula around them\n- ASTEROID BELT: Dozens of floating samosas, pakoras, and bhel pieces scattered in a ring\n- PLANET 4 (gas giant): A huge round dahi vada — white yogurt surface like a cloudy gas giant, with tempering (tadka) marks resembling Jupiter's storms\n- COMET: A kebab skewer streaking across the scene with a trail of spice smoke and sparks\n- MOON: A round idli orbiting the dahi vada planet\n- NEBULA: A colorful cloud of turmeric (yellow), chili (red), and coriander (green) powders mixing in space, forming a stunning spice nebula\n\nBACKGROUND:\n- Deep space black with thousands of tiny stars (mustard seeds and cumin seeds floating as stars)\n- Distant galaxies made of swirling masala powder\n- The Milky Way visible but made of a stream of white lassi/buttermilk\n\nLIGHTING:\n- The tandoori roti \"sun\" provides warm orange light illuminating nearby foods\n- Each food item has its own subtle glow — the hot items emit warm light, the cold items (lassi, curd) emit cool blue light\n- Dramatic space lighting: stark bright highlights, deep black shadows, no atmosphere\n\nSTYLE: Photorealistic food photography meets NASA space photography. Every food item is rendered with appetite-triggering detail — crispy textures, steam, glistening oil, fresh garnishes — but floating in actual outer space with real stars and cosmic phenomena. This surreal combination is the kind of image people share saying \"this is the most Indian thing I've ever seen.\" 8K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284657172_qor3qr_HE81-SpWAAAmvxM.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284657172_qor3qr_HE81-SpWAAAmvxM-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建一个宇宙/太空场景，让各种印度街头小吃像行星、卫星和天体一样漂浮在深空中，构成一个美味的银河系。\n\n美食太阳系：\n- 中心（太阳）：一块巨大的圆形坦都里烤饼，像恒星一样从内部发光，焦痕如同太阳黑子，向外辐射出温暖的金色光芒\n- 行星 1（最近）：一个完美的圆形脆球饼（golgappa/pani puri）——酥脆的外壳闪闪发光，透过开口可以看到里面的香料水。周围环绕着由细脆面（sev）和酸辣酱液滴组成的小轨道环\n- 行星 2：一个圆形的瓦达（medu vada），像一颗甜甜圈形状的行星，带有由椰子酸辣酱组成的环系统\n- 行星 3：一盘圆形的古拉布果（gulab jamuns），像一簇甜美的棕色行星，周围环绕着糖浆星云\n- 小行星带：数十个漂浮的咖喱角（samosas）、巴克拉（pakoras）和爆米花（bhel）碎片散布在环中\n- 行星 4（气态巨行星）：一个巨大的圆形酸奶炸饼（dahi vada）——白色的酸奶表面如同多云的气态巨行星，调味（tadka）的痕迹酷似木星的风暴\n- 彗星：一串烤肉串划过场景，留下一道香料烟雾和火花的尾迹\n- 卫星：一个圆形的蒸米糕（idli）绕着酸奶炸饼行星运行\n- 星云：姜黄（黄色）、辣椒（红色）和香菜（绿色）粉末在太空中混合形成的彩色云团，构成壮丽的香料星云\n\n背景：\n- 深邃的黑色太空，点缀着数千颗微小的恒星（漂浮的芥末籽和孜然籽作为星星）\n- 由旋转的马萨拉粉末构成的遥远星系\n- 可见的银河系，但由一股白色的拉西（lassi）/酪乳流组成\n\n光影：\n- 坦都里烤饼“太阳”提供温暖的橙色光芒，照亮附近的食物\n- 每种食物都有其微妙的光泽——热食发出暖光，冷食（拉西、凝乳）发出冷蓝光\n- 戏剧性的太空光影：强烈的明亮高光，深邃的黑色阴影，无大气层\n\n风格：照片级真实的美食摄影与 NASA 太空摄影的结合。每一件食物都以令人垂涎的细节呈现——酥脆的质感、蒸汽、闪烁的油光、新鲜的装饰——同时漂浮在真实的深空之中，伴有真实的恒星和宇宙现象。这种超现实的组合正是那种人们会分享并感叹“这是我见过最印度的事物”的图像。8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "美食银河：宇宙级印度街头小吃太阳系 这是一个为 nano banana 2 设计的创意且详尽的提示词，旨在生成一张超现实、照片级真实的图像，展现漂浮在深空中的印度街头小吃。每种食物都代表一个天体（例如：坦都里烤饼作为太阳，脆球饼作为行星，咖喱角作为小行星）。提示词详细说明了光影、背景元素（香料星云、拉西银河）及艺术风格。 create a cosmic/space scene where various indian street foods are floating in deep space as if they are planets, moons, and celestial objects in a delicious galaxy.\n\nthe food solar system:\n- center (sun): a massive round tandoori roti, glowing from within like a star, with charred spots resembling sunspots, radiating warm golden light outward\n- planet 1 (closest): a perfect round golgappa/pani puri — crispy shell glistening, filled with spiced water visible through the opening. tiny orbit ring of sev and chutney droplets.\n- planet 2: a round vada (medu vada) as a donut-shaped planet with a ring system made of coconut chutney\n- planet 3: a plate of round gulab jamuns as a cluster of sweet brown planets with syrup nebula around them\n- asteroid belt: dozens of floating samosas, pakoras, and bhel pieces scattered in a ring\n- planet 4 (gas giant): a huge round dahi vada — white yogurt surface like a cloudy gas giant, with tempering (tadka) marks resembling jupiter's storms\n- comet: a kebab skewer streaking across the scene with a trail of spice smoke and sparks\n- moon: a round idli orbiting the dahi vada planet\n- nebula: a colorful cloud of turmeric (yellow), chili (red), and coriander (green) powders mixing in space, forming a stunning spice nebula\n\nbackground:\n- deep space black with thousands of tiny stars (mustard seeds and cumin seeds floating as stars)\n- distant galaxies made of swirling masala powder\n- the milky way visible but made of a stream of white lassi/buttermilk\n\nlighting:\n- the tandoori roti \"sun\" provides warm orange light illuminating nearby foods\n- each food item has its own subtle glow — the hot items emit warm light, the cold items (lassi, curd) emit cool blue light\n- dramatic space lighting: stark bright highlights, deep black shadows, no atmosphere\n\nstyle: photorealistic food photography meets nasa space photography. every food item is rendered with appetite-triggering detail — crispy textures, steam, glistening oil, fresh garnishes — but floating in actual outer space with real stars and cosmic phenomena. this surreal combination is the kind of image people share saying \"this is the most indian thing i've ever seen.\" 8k resolution. 创建一个宇宙/太空场景，让各种印度街头小吃像行星、卫星和天体一样漂浮在深空中，构成一个美味的银河系。\n\n美食太阳系：\n- 中心（太阳）：一块巨大的圆形坦都里烤饼，像恒星一样从内部发光，焦痕如同太阳黑子，向外辐射出温暖的金色光芒\n- 行星 1（最近）：一个完美的圆形脆球饼（golgappa/pani puri）——酥脆的外壳闪闪发光，透过开口可以看到里面的香料水。周围环绕着由细脆面（sev）和酸辣酱液滴组成的小轨道环\n- 行星 2：一个圆形的瓦达（medu vada），像一颗甜甜圈形状的行星，带有由椰子酸辣酱组成的环系统\n- 行星 3：一盘圆形的古拉布果（gulab jamuns），像一簇甜美的棕色行星，周围环绕着糖浆星云\n- 小行星带：数十个漂浮的咖喱角（samosas）、巴克拉（pakoras）和爆米花（bhel）碎片散布在环中\n- 行星 4（气态巨行星）：一个巨大的圆形酸奶炸饼（dahi vada）——白色的酸奶表面如同多云的气态巨行星，调味（tadka）的痕迹酷似木星的风暴\n- 彗星：一串烤肉串划过场景，留下一道香料烟雾和火花的尾迹\n- 卫星：一个圆形的蒸米糕（idli）绕着酸奶炸饼行星运行\n- 星云：姜黄（黄色）、辣椒（红色）和香菜（绿色）粉末在太空中混合形成的彩色云团，构成壮丽的香料星云\n\n背景：\n- 深邃的黑色太空，点缀着数千颗微小的恒星（漂浮的芥末籽和孜然籽作为星星）\n- 由旋转的马萨拉粉末构成的遥远星系\n- 可见的银河系，但由一股白色的拉西（lassi）/酪乳流组成\n\n光影：\n- 坦都里烤饼“太阳”提供温暖的橙色光芒，照亮附近的食物\n- 每种食物都有其微妙的光泽——热食发出暖光，冷食（拉西、凝乳）发出冷蓝光\n- 戏剧性的太空光影：强烈的明亮高光，深邃的黑色阴影，无大气层\n\n风格：照片级真实的美食摄影与 nasa 太空摄影的结合。每一件食物都以令人垂涎的细节呈现——酥脆的质感、蒸汽、闪烁的油光、新鲜的装饰——同时漂浮在真实的深空之中，伴有真实的恒星和宇宙现象。这种超现实的组合正是那种人们会分享并感叹“这是我见过最印度的事物”的图像。8k 分辨率。 ashish sheth 13226",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13224,
+      "title": "两幅戏剧性肖像：霓虹男子与黄金时刻女子",
+      "description": "这是一个适用于 Google Gemini 上 Nano Banana Pro 的提示词，包含两个不同的图像生成需求：一张由霓虹蓝紫光照亮的戴墨镜男子的戏剧性中景照，以及一张留着波波头、身穿黑色高领毛衣的年轻女性在充满活力的橙色背景和黄金时刻光影下的肖像照。",
+      "sourceLink": "https://x.com/ChillaiKalan__/status/2039904882799595703",
+      "sourcePublishedAt": "2026-04-03T03:16:38.000Z",
+      "author": {
+        "name": "K",
+        "link": "https://x.com/ChillaiKalan__"
+      },
+      "content": "3A middle shot of a white man wearing rich sunglasses. The lighting is dramatic, with neon blue and purple hues illuminating his face. The sunglasses lenses reflect the vibrant colors of the lighting. The man is looking upwards, with a serious expression. The background is a solid, gradient of purple and pink.\n4A portrait of a beauty young woman with a short bob haircut and bangs, looking slightly upwards. She is wearing a black turtleneck. The background is a vibrant orange, with a strong diagonal shadow cast across the upper left portion of the image. The lighting is dramatic, with warm golden hour tones highlighting her face and creating a soft glow. A shadow of her shoulder and head is visible on the right side of the frame.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284656499_j0frw8_HE8yrAbbwAApg5m.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284656499_j0frw8_HE8yrAbbwAApg5m-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "3 一张白人男子的中景照，佩戴着质感十足的墨镜。光影效果极具戏剧性，霓虹蓝和紫色的色调照亮了他的脸庞。墨镜镜片反射出鲜艳的光影色彩。男子正抬头仰望，表情严肃。背景为紫色和粉色的渐变纯色。\n4 一张年轻美女的肖像照，留着短波波头和刘海，微微抬头仰望。她身穿黑色高领毛衣。背景为充满活力的橙色，图像左上角投射出强烈的对角线阴影。光影效果极具戏剧性，温暖的黄金时刻色调突显了她的面部轮廓，营造出柔和的光晕。画面右侧可见她肩膀和头部的阴影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "两幅戏剧性肖像：霓虹男子与黄金时刻女子 这是一个适用于 google gemini 上 nano banana pro 的提示词，包含两个不同的图像生成需求：一张由霓虹蓝紫光照亮的戴墨镜男子的戏剧性中景照，以及一张留着波波头、身穿黑色高领毛衣的年轻女性在充满活力的橙色背景和黄金时刻光影下的肖像照。 3a middle shot of a white man wearing rich sunglasses. the lighting is dramatic, with neon blue and purple hues illuminating his face. the sunglasses lenses reflect the vibrant colors of the lighting. the man is looking upwards, with a serious expression. the background is a solid, gradient of purple and pink.\n4a portrait of a beauty young woman with a short bob haircut and bangs, looking slightly upwards. she is wearing a black turtleneck. the background is a vibrant orange, with a strong diagonal shadow cast across the upper left portion of the image. the lighting is dramatic, with warm golden hour tones highlighting her face and creating a soft glow. a shadow of her shoulder and head is visible on the right side of the frame. 3 一张白人男子的中景照，佩戴着质感十足的墨镜。光影效果极具戏剧性，霓虹蓝和紫色的色调照亮了他的脸庞。墨镜镜片反射出鲜艳的光影色彩。男子正抬头仰望，表情严肃。背景为紫色和粉色的渐变纯色。\n4 一张年轻美女的肖像照，留着短波波头和刘海，微微抬头仰望。她身穿黑色高领毛衣。背景为充满活力的橙色，图像左上角投射出强烈的对角线阴影。光影效果极具戏剧性，温暖的黄金时刻色调突显了她的面部轮廓，营造出柔和的光晕。画面右侧可见她肩膀和头部的阴影。 k 13224",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13194,
+      "title": "具有夸张鱼眼畸变效果的高级时尚大片",
+      "description": "一个用于生成年轻男性高级时尚大片的提示词，采用夸张的鱼眼镜头特写。画面构图大胆，背景为纯橙色，展现 Z 世代夏季时尚，并要求模型保持参考照片中的面部特征。",
+      "sourceLink": "https://x.com/harboriis/status/2039904399993225374",
+      "sourcePublishedAt": "2026-04-03T03:14:43.000Z",
+      "author": {
+        "name": "Harboris",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "Create a A high-fashion editorial image of a young man, of the person from the uploaded character reference photo. KEEP FACE FEATURES AS ORIGINAL at all times. A high-fashion editorial image captured in an exaggerated fisheye lens close-up. The camera is angled slightly from below, and the man is crouching or squatting forward with both hands resting on his knees, leaning his upper body toward the lens. His face is looking downward into the camera, exaggerated by fisheye distortion so it appears large and rounded, with cartoonish proportions. He has a neutral smile, relaxed and completely smile, expression confident but emotionless.\n\nHe wears a trendy, summery knitted shirt in a pastel green shade light, breathable, with visible texture, reflecting Gen Z summer fashion. He also wears oversized black-framed sunglasses, with lenses tinted in light green.\n\nThe background is a clean, solid orange color with soft, realistic studio lighting, creating gentle shadows cast from his head, shoulders, and arms.\n\nNo direct sunlight light is controlled and evenly diffused, like a fashion set. The overall style is playful, surreal, and modern, inspired by 2025 Gen Z fashion culture and bold editorial covers. Ultra-clean details, slight grain, bold composition.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284635525_k0ulcl_HE8yPYkaoAAInrd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284635525_k0ulcl_HE8yPYkaoAAInrd-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张年轻男性的高级时尚大片，人物需与上传的参考照片一致。请务必始终保持原始面部特征。这张高级时尚大片采用夸张的鱼眼镜头特写拍摄。相机略微从下方仰拍，男子向前蹲伏，双手放在膝盖上，上身向镜头倾斜。他的脸向下看着镜头，在鱼眼畸变的作用下显得又大又圆，带有卡通般的比例。他带着中性的微笑，神情放松，表情自信但没有情绪波动。\n\n他穿着一件时尚的夏季针织衫，颜色为浅绿色，轻盈透气，质感明显，体现了 Z 世代的夏季时尚风格。他还戴着超大号黑框太阳镜，镜片呈浅绿色。\n\n背景为干净的纯橙色，采用柔和逼真的影棚灯光，在他的头部、肩膀和手臂上投下柔和的阴影。\n\n没有直射光，光线经过控制并均匀漫射，如同时尚拍摄现场。整体风格俏皮、超现实且现代，灵感源自 2025 年 Z 世代时尚文化和大胆的时尚杂志封面。细节极其清晰，带有轻微颗粒感，构图大胆。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "具有夸张鱼眼畸变效果的高级时尚大片 一个用于生成年轻男性高级时尚大片的提示词，采用夸张的鱼眼镜头特写。画面构图大胆，背景为纯橙色，展现 z 世代夏季时尚，并要求模型保持参考照片中的面部特征。 create a a high-fashion editorial image of a young man, of the person from the uploaded character reference photo. keep face features as original at all times. a high-fashion editorial image captured in an exaggerated fisheye lens close-up. the camera is angled slightly from below, and the man is crouching or squatting forward with both hands resting on his knees, leaning his upper body toward the lens. his face is looking downward into the camera, exaggerated by fisheye distortion so it appears large and rounded, with cartoonish proportions. he has a neutral smile, relaxed and completely smile, expression confident but emotionless.\n\nhe wears a trendy, summery knitted shirt in a pastel green shade light, breathable, with visible texture, reflecting gen z summer fashion. he also wears oversized black-framed sunglasses, with lenses tinted in light green.\n\nthe background is a clean, solid orange color with soft, realistic studio lighting, creating gentle shadows cast from his head, shoulders, and arms.\n\nno direct sunlight light is controlled and evenly diffused, like a fashion set. the overall style is playful, surreal, and modern, inspired by 2025 gen z fashion culture and bold editorial covers. ultra-clean details, slight grain, bold composition. 创作一张年轻男性的高级时尚大片，人物需与上传的参考照片一致。请务必始终保持原始面部特征。这张高级时尚大片采用夸张的鱼眼镜头特写拍摄。相机略微从下方仰拍，男子向前蹲伏，双手放在膝盖上，上身向镜头倾斜。他的脸向下看着镜头，在鱼眼畸变的作用下显得又大又圆，带有卡通般的比例。他带着中性的微笑，神情放松，表情自信但没有情绪波动。\n\n他穿着一件时尚的夏季针织衫，颜色为浅绿色，轻盈透气，质感明显，体现了 z 世代的夏季时尚风格。他还戴着超大号黑框太阳镜，镜片呈浅绿色。\n\n背景为干净的纯橙色，采用柔和逼真的影棚灯光，在他的头部、肩膀和手臂上投下柔和的阴影。\n\n没有直射光，光线经过控制并均匀漫射，如同时尚拍摄现场。整体风格俏皮、超现实且现代，灵感源自 2025 年 z 世代时尚文化和大胆的时尚杂志封面。细节极其清晰，带有轻微颗粒感，构图大胆。 harboris 13194",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13196,
+      "title": "带有动态模糊条纹和双重曝光效果的男子",
+      "description": "一个用于生成图像的提示词：画面中一名男子静止站立，整个场景叠加了厚重的彩色水平动态模糊条纹，营造出“速度光”和双重曝光效果，使主体清晰的焦点与混乱的高速环境形成鲜明对比。",
+      "sourceLink": "https://x.com/rovvmut_/status/2039904241050173853",
+      "sourcePublishedAt": "2026-04-03T03:14:05.000Z",
+      "author": {
+        "name": "Heisenberg",
+        "link": "https://x.com/rovvmut_"
+      },
+      "content": "Generate an image of a man in the uploaded image in which the entire scene is layered with heavy, horizontal motion-blur streaks in shades of teal, yellow, and white, creating a \"speed-light\" effect. These colorful blurs must appear both behind the man and superimposed over his body and face, behaving like reflections on a glass mirror. A medium shot of a man standing perfectly still in the center of a frame, looking down at a red smartphone held with both hands. He is wearing a white t-shirt under a translucent, light gray windbreaker jacket and a dark wristwatch. The background is a chaotic, vibrant blur of horizontal light trails in colors of neon blue, orange, yellow, and white, suggesting a high-speed train or city traffic. Crucially, these colorful motion-blurred light streaks pass both behind and directly over the man's body, appearing semi-transparent as they overlap his torso and arms, creating a double-exposure effect. The man's face and hair are in sharp focus, showing a calm expression, contrasting with the high-speed motion of the environment. Cinematic lighting, hyper-realistic, 8k resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775284636650_dpp0n3_HE8yGB7aEAAVA1t.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775284636650_dpp0n3_HE8yGB7aEAAVA1t-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "生成一张基于上传图片的男子图像，整个场景叠加了青色、黄色和白色的厚重水平动态模糊条纹，营造出“速度光”效果。这些彩色模糊效果必须同时出现在男子身后及其身体和面部上方，呈现出如同玻璃镜面反射般的效果。画面为中景，一名男子在画面中心静止站立，双手拿着一部红色智能手机并低头注视。他身穿白色 T 恤，外搭一件半透明的浅灰色防风夹克，并佩戴一块深色手表。背景是霓虹蓝、橙色、黄色和白色的水平光轨，呈现出混乱且充满活力的模糊感，暗示着高速列车或城市交通。关键点在于，这些彩色的动态模糊光条必须同时穿过男子身后及其身体上方，在覆盖其躯干和手臂时呈现半透明状态，从而产生双重曝光效果。男子的面部和头发保持清晰对焦，表情平静，与高速运动的环境形成鲜明对比。电影级光效，超写实，8k 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "带有动态模糊条纹和双重曝光效果的男子 一个用于生成图像的提示词：画面中一名男子静止站立，整个场景叠加了厚重的彩色水平动态模糊条纹，营造出“速度光”和双重曝光效果，使主体清晰的焦点与混乱的高速环境形成鲜明对比。 generate an image of a man in the uploaded image in which the entire scene is layered with heavy, horizontal motion-blur streaks in shades of teal, yellow, and white, creating a \"speed-light\" effect. these colorful blurs must appear both behind the man and superimposed over his body and face, behaving like reflections on a glass mirror. a medium shot of a man standing perfectly still in the center of a frame, looking down at a red smartphone held with both hands. he is wearing a white t-shirt under a translucent, light gray windbreaker jacket and a dark wristwatch. the background is a chaotic, vibrant blur of horizontal light trails in colors of neon blue, orange, yellow, and white, suggesting a high-speed train or city traffic. crucially, these colorful motion-blurred light streaks pass both behind and directly over the man's body, appearing semi-transparent as they overlap his torso and arms, creating a double-exposure effect. the man's face and hair are in sharp focus, showing a calm expression, contrasting with the high-speed motion of the environment. cinematic lighting, hyper-realistic, 8k resolution. 生成一张基于上传图片的男子图像，整个场景叠加了青色、黄色和白色的厚重水平动态模糊条纹，营造出“速度光”效果。这些彩色模糊效果必须同时出现在男子身后及其身体和面部上方，呈现出如同玻璃镜面反射般的效果。画面为中景，一名男子在画面中心静止站立，双手拿着一部红色智能手机并低头注视。他身穿白色 t 恤，外搭一件半透明的浅灰色防风夹克，并佩戴一块深色手表。背景是霓虹蓝、橙色、黄色和白色的水平光轨，呈现出混乱且充满活力的模糊感，暗示着高速列车或城市交通。关键点在于，这些彩色的动态模糊光条必须同时穿过男子身后及其身体上方，在覆盖其躯干和手臂时呈现半透明状态，从而产生双重曝光效果。男子的面部和头发保持清晰对焦，表情平静，与高速运动的环境形成鲜明对比。电影级光效，超写实，8k 分辨率。 heisenberg 13196",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13227,
+      "title": "照片级写实的女性浇花场景",
+      "description": "这是一个用于通过 Nano Banana Pro 生成四张图像的提示词，随后使用 Kling 3.0 Omni 将其拼接成视频。该提示词描述了一个照片级写实、具有电影感的女性浇灌室内植物的场景。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2039891866540544391",
+      "sourcePublishedAt": "2026-04-03T02:24:54.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "女性がジョウロで観葉植物に水をやりながら微笑む、映画のような映像。彼女は身を乗り出し、濡れたみずみずしい緑の葉に愛情を込めて息を吹きかけ、それからゆっくりとカメラを見上げ、優しく無邪気な微笑みを浮かべながら満足そうに頷く。温かみのある自然光、非常に精緻でフォトリアリスティックな描写。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一张电影质感的画面，一位女性微笑着给室内植物浇水。她俯身凑近，深情地对着湿润、鲜嫩的绿叶呵气，随后缓慢抬头看向镜头，带着温柔纯真的微笑满意地点了点头。温暖的自然光，极其细腻且具有照片级的写实呈现。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "照片级写实的女性浇花场景 这是一个用于通过 nano banana pro 生成四张图像的提示词，随后使用 kling 3.0 omni 将其拼接成视频。该提示词描述了一个照片级写实、具有电影感的女性浇灌室内植物的场景。 女性がジョウロで観葉植物に水をやりながら微笑む、映画のような映像。彼女は身を乗り出し、濡れたみずみずしい緑の葉に愛情を込めて息を吹きかけ、それからゆっくりとカメラを見上げ、優しく無邪気な微笑みを浮かべながら満足そうに頷く。温かみのある自然光、非常に精緻でフォトリアリスティックな描写。 一张电影质感的画面，一位女性微笑着给室内植物浇水。她俯身凑近，深情地对着湿润、鲜嫩的绿叶呵气，随后缓慢抬头看向镜头，带着温柔纯真的微笑满意地点了点头。温暖的自然光，极其细腻且具有照片级的写实呈现。 空想写真家 13227",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13152,
+      "title": "Wes Anderson 风格的 Sydney Sweeney 糕点师",
+      "description": "一个用于 Nano Banana 2 的提示词，旨在生成一张电影感广角编辑摄影作品，画面中 Sydney Sweeney 扮演一位笨拙而迷人的美食糕点师，置身于一个极其对称、充满 Wes Anderson 风格的柔和色调厨房中。场景包含鼻尖上的糖霜、平衡着高耸蛋糕以及戴着厨师帽的博美犬等滑稽细节，将高级时尚与闹剧喜剧完美融合。",
+      "sourceLink": "https://x.com/iamdomprompt/status/2039833702620872854",
+      "sourcePublishedAt": "2026-04-02T22:33:47.000Z",
+      "author": {
+        "name": "Dominus Pellissier",
+        "link": "https://x.com/iamdomprompt"
+      },
+      "content": "A cinematic wide-angle editorial shot of {argument name=\"celebrity name\" default=\"Sydney Sweeney\"} as a clumsy yet charming gourmet pastry chef, set within a meticulously symmetrical Wes Anderson-inspired pastel kitchen. She is wearing a vintage 1950s-style ruffled mint-green apron over a floral lace dress, with a tiny, comical smudge of pink strawberry frosting on the tip of her nose. Her expression is a vivid mix of playful panic and a suppressed giggle as she precariously balances a towering, five-tier pastel cake decorated with intricate edible glitter stars and sugar pearls. \n\nIn the foreground, three round, fluffy Pomeranians wearing miniature white chef hats are playfully tugging at her silk shoelaces. The atmosphere is ethereal, with a light dusting of floating flour particles suspended in warm, golden volumetric sunlight streaming through a large window. High-fashion aesthetic blended with slapstick comedy. Shot on Hasselblad X2D 100C, 24mm wide-angle lens, f/2.8. Intricate textures of delicate lace, glossy icing, and soft fur. Vibrant pastel color palette, soft rim lighting, hyper-realistic, 8k resolution, whimsical and highly detailed. --ar 16:9",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198509719_5cvcfb_HE7xSfnaIAA6gw0.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198509719_5cvcfb_HE7xSfnaIAA6gw0-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张电影感广角编辑摄影作品，画面中 {argument name=\"celebrity name\" default=\"Sydney Sweeney\"} 扮演一位笨拙而迷人的美食糕点师，置身于一个极其对称、充满 Wes Anderson 风格的柔和色调厨房中。她身穿复古 1950 年代风格的薄荷绿荷叶边围裙，内搭碎花蕾丝裙，鼻尖上有一抹滑稽的粉色草莓糖霜。她表情生动，混合着顽皮的惊慌和忍俊不禁的笑意，正摇摇欲坠地平衡着一个高耸的五层柔和色调蛋糕，蛋糕上装饰着精致的可食用闪光星星和糖珠。\n\n前景中，三只圆滚滚、毛茸茸的博美犬戴着迷你白色厨师帽，正在顽皮地拉扯她的丝绸鞋带。氛围空灵，温暖的金色体积光透过大窗户射入，空气中悬浮着轻盈的浮动面粉颗粒。高级时尚美学与闹剧喜剧的融合。使用 Hasselblad X2D 100C 拍摄，24mm 广角镜头，f/2.8。精致的蕾丝、光亮的糖霜和柔软的皮毛纹理。鲜艳的柔和色调，柔和的轮廓光，超写实，8k 分辨率，充满奇思妙想且细节丰富。 --ar 16:9",
+      "sourcePlatform": "twitter",
+      "searchIndex": "wes anderson 风格的 sydney sweeney 糕点师 一个用于 nano banana 2 的提示词，旨在生成一张电影感广角编辑摄影作品，画面中 sydney sweeney 扮演一位笨拙而迷人的美食糕点师，置身于一个极其对称、充满 wes anderson 风格的柔和色调厨房中。场景包含鼻尖上的糖霜、平衡着高耸蛋糕以及戴着厨师帽的博美犬等滑稽细节，将高级时尚与闹剧喜剧完美融合。 a cinematic wide-angle editorial shot of {argument name=\"celebrity name\" default=\"sydney sweeney\"} as a clumsy yet charming gourmet pastry chef, set within a meticulously symmetrical wes anderson-inspired pastel kitchen. she is wearing a vintage 1950s-style ruffled mint-green apron over a floral lace dress, with a tiny, comical smudge of pink strawberry frosting on the tip of her nose. her expression is a vivid mix of playful panic and a suppressed giggle as she precariously balances a towering, five-tier pastel cake decorated with intricate edible glitter stars and sugar pearls. \n\nin the foreground, three round, fluffy pomeranians wearing miniature white chef hats are playfully tugging at her silk shoelaces. the atmosphere is ethereal, with a light dusting of floating flour particles suspended in warm, golden volumetric sunlight streaming through a large window. high-fashion aesthetic blended with slapstick comedy. shot on hasselblad x2d 100c, 24mm wide-angle lens, f/2.8. intricate textures of delicate lace, glossy icing, and soft fur. vibrant pastel color palette, soft rim lighting, hyper-realistic, 8k resolution, whimsical and highly detailed. --ar 16:9 一张电影感广角编辑摄影作品，画面中 {argument name=\"celebrity name\" default=\"sydney sweeney\"} 扮演一位笨拙而迷人的美食糕点师，置身于一个极其对称、充满 wes anderson 风格的柔和色调厨房中。她身穿复古 1950 年代风格的薄荷绿荷叶边围裙，内搭碎花蕾丝裙，鼻尖上有一抹滑稽的粉色草莓糖霜。她表情生动，混合着顽皮的惊慌和忍俊不禁的笑意，正摇摇欲坠地平衡着一个高耸的五层柔和色调蛋糕，蛋糕上装饰着精致的可食用闪光星星和糖珠。\n\n前景中，三只圆滚滚、毛茸茸的博美犬戴着迷你白色厨师帽，正在顽皮地拉扯她的丝绸鞋带。氛围空灵，温暖的金色体积光透过大窗户射入，空气中悬浮着轻盈的浮动面粉颗粒。高级时尚美学与闹剧喜剧的融合。使用 hasselblad x2d 100c 拍摄，24mm 广角镜头，f/2.8。精致的蕾丝、光亮的糖霜和柔软的皮毛纹理。鲜艳的柔和色调，柔和的轮廓光，超写实，8k 分辨率，充满奇思妙想且细节丰富。 --ar 16:9 dominus pellissier 13152",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13159,
+      "title": "Sydney Sweeney 80 年代复古未来主义合成波风格肖像",
+      "description": "一份为 Nano Banana 2 编写的详细电影感提示词，用于生成 Sydney Sweeney 的高级时装风格复古未来主义肖像。提示词指定了反射着霓虹紫网格的铬合金飞行员太阳镜、80 年代蓬松发型、洋红色与青色双色调灯光，以及合成波/蒸汽波氛围，并采用哈苏相机拍摄。",
+      "sourceLink": "https://x.com/iamdomprompt/status/2039833684472193239",
+      "sourcePublishedAt": "2026-04-02T22:33:43.000Z",
+      "author": {
+        "name": "Dominus Pellissier",
+        "link": "https://x.com/iamdomprompt"
+      },
+      "content": "Cinematic close-up portrait of {argument name=\"subject\" default=\"Sydney Sweeney\"} reimagined in a high-fashion 1980s retro-futuristic aesthetic. She is wearing oversized, ultra-polished chrome aviator sunglasses that feature a crisp, detailed reflection of a glowing neon violet grid stretching toward a digital sunset. Her styling includes voluminous, teased 80s-inspired hair with a soft sheen. The lighting is a dramatic dual-tone palette of hyper-vibrant magenta and electric cyan, utilizing volumetric fog and a sharp rim light to define her silhouette. Shot on Hasselblad X2D 100C, 85mm f/1.8 lens, f/2.8 aperture, 8k resolution, hyper-detailed skin texture, subsurface scattering, synthwave color grading, vaporwave atmosphere, professional studio lighting --ar 4:5",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198512548_4sqt13_HE7t23xWQAAJyK4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198512548_4sqt13_HE7t23xWQAAJyK4-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "电影感特写肖像，主角为 {argument name=\"subject\" default=\"Sydney Sweeney\"}，以 1980 年代高级时装复古未来主义美学重新构想。她佩戴着超大号、极具光泽感的铬合金飞行员太阳镜，镜片清晰细致地反射出延伸至数字日落的霓虹紫网格。造型包括 80 年代风格的蓬松、高耸发型，并带有柔和光泽。灯光采用超鲜艳的洋红色与电光青色双色调，利用体积雾和锐利的轮廓光勾勒出她的身形。使用哈苏 Hasselblad X2D 100C 拍摄，85mm f/1.8 镜头，f/2.8 光圈，8k 分辨率，超精细皮肤纹理，次表面散射，合成波色彩分级，蒸汽波氛围，专业影棚灯光 --ar 4:5",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sydney sweeney 80 年代复古未来主义合成波风格肖像 一份为 nano banana 2 编写的详细电影感提示词，用于生成 sydney sweeney 的高级时装风格复古未来主义肖像。提示词指定了反射着霓虹紫网格的铬合金飞行员太阳镜、80 年代蓬松发型、洋红色与青色双色调灯光，以及合成波/蒸汽波氛围，并采用哈苏相机拍摄。 cinematic close-up portrait of {argument name=\"subject\" default=\"sydney sweeney\"} reimagined in a high-fashion 1980s retro-futuristic aesthetic. she is wearing oversized, ultra-polished chrome aviator sunglasses that feature a crisp, detailed reflection of a glowing neon violet grid stretching toward a digital sunset. her styling includes voluminous, teased 80s-inspired hair with a soft sheen. the lighting is a dramatic dual-tone palette of hyper-vibrant magenta and electric cyan, utilizing volumetric fog and a sharp rim light to define her silhouette. shot on hasselblad x2d 100c, 85mm f/1.8 lens, f/2.8 aperture, 8k resolution, hyper-detailed skin texture, subsurface scattering, synthwave color grading, vaporwave atmosphere, professional studio lighting --ar 4:5 电影感特写肖像，主角为 {argument name=\"subject\" default=\"sydney sweeney\"}，以 1980 年代高级时装复古未来主义美学重新构想。她佩戴着超大号、极具光泽感的铬合金飞行员太阳镜，镜片清晰细致地反射出延伸至数字日落的霓虹紫网格。造型包括 80 年代风格的蓬松、高耸发型，并带有柔和光泽。灯光采用超鲜艳的洋红色与电光青色双色调，利用体积雾和锐利的轮廓光勾勒出她的身形。使用哈苏 hasselblad x2d 100c 拍摄，85mm f/1.8 镜头，f/2.8 光圈，8k 分辨率，超精细皮肤纹理，次表面散射，合成波色彩分级，蒸汽波氛围，专业影棚灯光 --ar 4:5 dominus pellissier 13159",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13142,
+      "title": "以 Sydney Sweeney 为原型的“星星”塔罗牌",
+      "description": "一个用于 Nano Banana 2 的提示词，旨在生成一张神秘的塔罗牌，画面为照片级写实的 Sydney Sweeney 饰演“星星”牌。图像结合了高级时装摄影与新艺术运动风格插画，细节包括生物发光的水面、天体图案以及浮雕金箔边框。",
+      "sourceLink": "https://x.com/iamdomprompt/status/2039833673462382739",
+      "sourcePublishedAt": "2026-04-02T22:33:40.000Z",
+      "author": {
+        "name": "Dominus Pellissier",
+        "link": "https://x.com/iamdomprompt"
+      },
+      "content": "A mystical tarot card featuring a photorealistic {argument name=\"celebrity name\" default=\"Sydney Sweeney\"} as 'The Star' Arcana. She is kneeling gracefully beside a bioluminescent, glowing pool, pouring shimmering celestial water infused with stardust from two ornate, filigreed silver amphorae. The artistic style is a breathtaking fusion of high-fashion photography and intricate Art Nouveau illustration, reminiscent of Alphonse Mucha. \n\nThe background features a grand, radiant eight-pointed star and swirling celestial patterns of constellations and cosmic nebulae. The card is framed by a heavy, embossed golden foil border with intricate floral and zodiac carvings. Text overlay: \"THE STAR\". \n\nShot on Hasselblad X2D, 85mm lens, f/2.8 for a sharp focus on her ethereal features with a soft, magical background. Lighting is a mix of soft volumetric moonlight, golden rim lighting, and a bioluminescent glow reflecting off her skin. Rich palette of midnight blue, burnished gold, and shimmering teal. --ar 2:3",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198504757_kqbk1q_HE7reSZXkAAWZW_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198504757_kqbk1q_HE7reSZXkAAWZW_-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张神秘的塔罗牌，画面为照片级写实的 {argument name=\"celebrity name\" default=\"Sydney Sweeney\"} 饰演“星星”牌。她优雅地跪在生物发光的发光水池旁，从两个华丽的银色镂空双耳瓶中倾倒出闪烁着星尘的璀璨天体之水。艺术风格是高级时装摄影与复杂的新艺术运动插画的惊艳融合，令人联想到 Alphonse Mucha 的作品。\n\n背景中有一个宏大、光芒四射的八角星，以及由星座和宇宙星云组成的旋转天体图案。卡牌由厚重的浮雕金箔边框环绕，上面刻有精致的花卉和黄道十二宫图案。文字叠加：“THE STAR”。\n\n使用 Hasselblad X2D 拍摄，85mm 镜头，f/2.8 光圈，确保对她空灵的五官进行锐利对焦，同时保持背景柔和梦幻。光影结合了柔和的体积月光、金色轮廓光以及反射在她皮肤上的生物发光。色调丰富，包含午夜蓝、磨光金和闪烁的青色。--ar 2:3",
+      "sourcePlatform": "twitter",
+      "searchIndex": "以 sydney sweeney 为原型的“星星”塔罗牌 一个用于 nano banana 2 的提示词，旨在生成一张神秘的塔罗牌，画面为照片级写实的 sydney sweeney 饰演“星星”牌。图像结合了高级时装摄影与新艺术运动风格插画，细节包括生物发光的水面、天体图案以及浮雕金箔边框。 a mystical tarot card featuring a photorealistic {argument name=\"celebrity name\" default=\"sydney sweeney\"} as 'the star' arcana. she is kneeling gracefully beside a bioluminescent, glowing pool, pouring shimmering celestial water infused with stardust from two ornate, filigreed silver amphorae. the artistic style is a breathtaking fusion of high-fashion photography and intricate art nouveau illustration, reminiscent of alphonse mucha. \n\nthe background features a grand, radiant eight-pointed star and swirling celestial patterns of constellations and cosmic nebulae. the card is framed by a heavy, embossed golden foil border with intricate floral and zodiac carvings. text overlay: \"the star\". \n\nshot on hasselblad x2d, 85mm lens, f/2.8 for a sharp focus on her ethereal features with a soft, magical background. lighting is a mix of soft volumetric moonlight, golden rim lighting, and a bioluminescent glow reflecting off her skin. rich palette of midnight blue, burnished gold, and shimmering teal. --ar 2:3 一张神秘的塔罗牌，画面为照片级写实的 {argument name=\"celebrity name\" default=\"sydney sweeney\"} 饰演“星星”牌。她优雅地跪在生物发光的发光水池旁，从两个华丽的银色镂空双耳瓶中倾倒出闪烁着星尘的璀璨天体之水。艺术风格是高级时装摄影与复杂的新艺术运动插画的惊艳融合，令人联想到 alphonse mucha 的作品。\n\n背景中有一个宏大、光芒四射的八角星，以及由星座和宇宙星云组成的旋转天体图案。卡牌由厚重的浮雕金箔边框环绕，上面刻有精致的花卉和黄道十二宫图案。文字叠加：“the star”。\n\n使用 hasselblad x2d 拍摄，85mm 镜头，f/2.8 光圈，确保对她空灵的五官进行锐利对焦，同时保持背景柔和梦幻。光影结合了柔和的体积月光、金色轮廓光以及反射在她皮肤上的生物发光。色调丰富，包含午夜蓝、磨光金和闪烁的青色。--ar 2:3 dominus pellissier 13142",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13149,
+      "title": "爆炸式倾斜视角三明治产品摄影",
+      "description": "这是为 Nano Banana 2 编写的提示词，旨在生成高端商业三明治产品摄影图。画面采用“爆炸式倾斜视角”，呈现三明治悬浮于半空、酱汁真实滴落的效果。场景包含飞溅的食材以及电影质感的明亮厨房渐变背景，突显清新健康的广告风格。",
+      "sourceLink": "https://x.com/Waqas_Inayat1/status/2039820744969064914",
+      "sourcePublishedAt": "2026-04-02T21:42:18.000Z",
+      "author": {
+        "name": "Waqas Inayat",
+        "link": "https://x.com/Waqas_Inayat1"
+      },
+      "content": "\"High-end commercial product photography of a ({argument name=\"product type\" default=\"sandwich\"}) labeled “({argument name=\"product name\" default=\"Fresh Stack Club\"})”, floating mid-air in a layered ({argument name=\"view style\" default=\"exploded tilt view\"}), vibrant (multi-layer textures) with sauce dripping realistically. Surrounded by flying (lettuce, tomato, bread crumbs). Background features a cinematic (bright kitchen gradient) with soft sunlight rays and depth blur for a fresh, healthy ad look\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198508391_ljxugt_HE7mJ3ZXwAApDqb.jpg",
+        "https://cms-assets.youmind.com/media/1775198508386_phuxci_HE7mJ33bcAAyx-P.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198508391_ljxugt_HE7mJ3ZXwAApDqb-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1775198508386_phuxci_HE7mJ33bcAAyx-P-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "\"高端商业产品摄影，主体为 ({argument name=\"product type\" default=\"三明治\"})，标签为“({argument name=\"product name\" default=\"Fresh Stack Club\"})”，以 ({argument name=\"view style\" default=\"爆炸式倾斜视角\"}) 悬浮于半空，呈现充满活力的（多层纹理）效果，并伴有真实的酱汁滴落。周围环绕着飞溅的（生菜、番茄、面包屑）。背景采用电影质感的（明亮厨房渐变），配以柔和的阳光射线和深度模糊，营造出清新健康的广告视觉效果\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "爆炸式倾斜视角三明治产品摄影 这是为 nano banana 2 编写的提示词，旨在生成高端商业三明治产品摄影图。画面采用“爆炸式倾斜视角”，呈现三明治悬浮于半空、酱汁真实滴落的效果。场景包含飞溅的食材以及电影质感的明亮厨房渐变背景，突显清新健康的广告风格。 \"high-end commercial product photography of a ({argument name=\"product type\" default=\"sandwich\"}) labeled “({argument name=\"product name\" default=\"fresh stack club\"})”, floating mid-air in a layered ({argument name=\"view style\" default=\"exploded tilt view\"}), vibrant (multi-layer textures) with sauce dripping realistically. surrounded by flying (lettuce, tomato, bread crumbs). background features a cinematic (bright kitchen gradient) with soft sunlight rays and depth blur for a fresh, healthy ad look\" \"高端商业产品摄影，主体为 ({argument name=\"product type\" default=\"三明治\"})，标签为“({argument name=\"product name\" default=\"fresh stack club\"})”，以 ({argument name=\"view style\" default=\"爆炸式倾斜视角\"}) 悬浮于半空，呈现充满活力的（多层纹理）效果，并伴有真实的酱汁滴落。周围环绕着飞溅的（生菜、番茄、面包屑）。背景采用电影质感的（明亮厨房渐变），配以柔和的阳光射线和深度模糊，营造出清新健康的广告视觉效果\" waqas inayat 13149",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13163,
+      "title": "极简卧室中的镜面自拍，搭配鲜艳服饰",
+      "description": "这是为 Nano Banana 2 编写的详细提示词，需要提供一张参考图以确定主体身份。它能生成一张现代极简风格卧室的写实镜面自拍，重点突出主体鲜艳的黄色和紫红色服饰与中性白/米色环境之间的强烈色彩对比。",
+      "sourceLink": "https://x.com/sumiturkude007/status/2039819159484436594",
+      "sourcePublishedAt": "2026-04-02T21:36:00.000Z",
+      "author": {
+        "name": "sammy",
+        "link": "https://x.com/sumiturkude007"
+      },
+      "content": "Use the provided reference image for the subject’s identity, face, body proportions, hair, and overall likeness. Do not change the subject’s appearance.\n\nMirror selfie in a bright, modern minimalist bedroom. The subject is wearing a fitted lemon-yellow spaghetti strap tank top with a scoop neckline, paired with tight-fitting fuchsia-pink cotton mini shorts. Accessories include a delicate gold chain necklace with a small circular pendant, a thin gold chain bracelet on the left wrist, and a beaded tan-colored bracelet on the right wrist. She is holding an iPhone with a light blue case decorated with colorful stickers, including a fish and abstract shapes.\n\nThe bedroom features plain white matte walls and a low wooden platform bed with a textured beige/tan duvet and soft pink pillows. Above the bed is a large rectangular abstract canvas painting in deep indigo blue.\n\nThe floor is light grey carpet partially covered by a large ornate Persian-style rug in deep red with black and cream geometric patterns. Additional elements include white curtains on a window to the far left, a black hard-shell equipment case on the floor, a discarded pink garment and a dark grey shirt lying on the rug, and a white paneled interior door on the right side.\n\nLighting is natural daylight coming from a side window, creating soft shadows and bright, even illumination.\n\nMirror selfie, medium full-body shot, portrait orientation (4:5 aspect ratio). High-resolution, photorealistic lifestyle image with strong color contrast between vibrant clothing, deep-toned decor, and neutral white surroundings.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198514131_jzzy9a_HE64K9Mb0AAmDsZ.jpg",
+        "https://cms-assets.youmind.com/media/1775198514138_rsayv5_HE64K9XbgAA0jWt.jpg",
+        "https://cms-assets.youmind.com/media/1775198514203_fjtdcd_HE64K88bEAAeE3s.jpg",
+        "https://cms-assets.youmind.com/media/1775198514856_b5yl8g_HE64LCxakAAoP18.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198514131_jzzy9a_HE64K9Mb0AAmDsZ-300x409.jpg",
+        "https://cms-assets.youmind.com/media/1775198514138_rsayv5_HE64K9XbgAA0jWt-300x408.jpg",
+        "https://cms-assets.youmind.com/media/1775198514203_fjtdcd_HE64K88bEAAeE3s-300x408.jpg",
+        "https://cms-assets.youmind.com/media/1775198514856_b5yl8g_HE64LCxakAAoP18-300x408.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请使用提供的参考图来确定主体的身份、面部、身体比例、发型和整体相似度。请勿更改主体的外貌。\n\n在明亮、现代的极简卧室中进行镜面自拍。主体身穿一件修身的柠檬黄细肩带背心，领口为圆领设计，搭配紧身的紫红色纯棉超短裤。配饰包括一条带有小圆吊坠的精致金链项链、左手腕上的一条细金链手链，以及右手腕上的一条棕褐色串珠手链。她拿着一部 iPhone，手机壳为浅蓝色，上面装饰着包括鱼和抽象形状在内的彩色贴纸。\n\n卧室配有纯白哑光墙面和一张低矮的木质平台床，床上铺着质感十足的米色/棕褐色被子和柔粉色枕头。床上方悬挂着一幅深靛蓝色的长方形抽象帆布画。\n\n地面铺设浅灰色地毯，部分被一块深红色、带有黑色和米色几何图案的大型华丽波斯风格地毯覆盖。其他元素包括最左侧窗户上的白色窗帘、地板上的黑色硬壳设备箱、地毯上散落的粉色衣物和深灰色衬衫，以及右侧的一扇白色镶板室内门。\n\n光线为侧窗射入的自然日光，营造出柔和的阴影和明亮均匀的照明效果。\n\n镜面自拍，中景全身照，纵向构图（4:5 纵横比）。高分辨率、写实风格的生活照，鲜艳的服饰、深色调的装饰与中性的白色环境之间形成了强烈的色彩对比。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "极简卧室中的镜面自拍，搭配鲜艳服饰 这是为 nano banana 2 编写的详细提示词，需要提供一张参考图以确定主体身份。它能生成一张现代极简风格卧室的写实镜面自拍，重点突出主体鲜艳的黄色和紫红色服饰与中性白/米色环境之间的强烈色彩对比。 use the provided reference image for the subject’s identity, face, body proportions, hair, and overall likeness. do not change the subject’s appearance.\n\nmirror selfie in a bright, modern minimalist bedroom. the subject is wearing a fitted lemon-yellow spaghetti strap tank top with a scoop neckline, paired with tight-fitting fuchsia-pink cotton mini shorts. accessories include a delicate gold chain necklace with a small circular pendant, a thin gold chain bracelet on the left wrist, and a beaded tan-colored bracelet on the right wrist. she is holding an iphone with a light blue case decorated with colorful stickers, including a fish and abstract shapes.\n\nthe bedroom features plain white matte walls and a low wooden platform bed with a textured beige/tan duvet and soft pink pillows. above the bed is a large rectangular abstract canvas painting in deep indigo blue.\n\nthe floor is light grey carpet partially covered by a large ornate persian-style rug in deep red with black and cream geometric patterns. additional elements include white curtains on a window to the far left, a black hard-shell equipment case on the floor, a discarded pink garment and a dark grey shirt lying on the rug, and a white paneled interior door on the right side.\n\nlighting is natural daylight coming from a side window, creating soft shadows and bright, even illumination.\n\nmirror selfie, medium full-body shot, portrait orientation (4:5 aspect ratio). high-resolution, photorealistic lifestyle image with strong color contrast between vibrant clothing, deep-toned decor, and neutral white surroundings. 请使用提供的参考图来确定主体的身份、面部、身体比例、发型和整体相似度。请勿更改主体的外貌。\n\n在明亮、现代的极简卧室中进行镜面自拍。主体身穿一件修身的柠檬黄细肩带背心，领口为圆领设计，搭配紧身的紫红色纯棉超短裤。配饰包括一条带有小圆吊坠的精致金链项链、左手腕上的一条细金链手链，以及右手腕上的一条棕褐色串珠手链。她拿着一部 iphone，手机壳为浅蓝色，上面装饰着包括鱼和抽象形状在内的彩色贴纸。\n\n卧室配有纯白哑光墙面和一张低矮的木质平台床，床上铺着质感十足的米色/棕褐色被子和柔粉色枕头。床上方悬挂着一幅深靛蓝色的长方形抽象帆布画。\n\n地面铺设浅灰色地毯，部分被一块深红色、带有黑色和米色几何图案的大型华丽波斯风格地毯覆盖。其他元素包括最左侧窗户上的白色窗帘、地板上的黑色硬壳设备箱、地毯上散落的粉色衣物和深灰色衬衫，以及右侧的一扇白色镶板室内门。\n\n光线为侧窗射入的自然日光，营造出柔和的阴影和明亮均匀的照明效果。\n\n镜面自拍，中景全身照，纵向构图（4:5 纵横比）。高分辨率、写实风格的生活照，鲜艳的服饰、深色调的装饰与中性的白色环境之间形成了强烈的色彩对比。 sammy 13163",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13154,
+      "title": "在布拉格吃冰淇淋的 Madelyn Cline 相似者",
+      "description": "这是一个用于 Nano Banana Pro 的 JSON 提示词，旨在生成一张超写实、原始拍摄风格的照片，内容为一名长相酷似 Madelyn Cline 的女性在黄昏时分的布拉格老城广场吃冰淇淋。该提示词指定了直接闪光灯与温暖的城市环境光相结合，营造出一种随性、放松的氛围。",
+      "sourceLink": "https://x.com/Ankit_patel211/status/2039806716469273083",
+      "sourcePublishedAt": "2026-04-02T20:46:33.000Z",
+      "author": {
+        "name": "ANKIT PATEL 🇮🇳 | AI",
+        "link": "https://x.com/Ankit_patel211"
+      },
+      "content": "{\n  \"subject\": \"{argument name=\"celebrity lookalike\" default=\"Madelyn Cline\"} lookalike in her early 20s with long blonde hair, fair skin with light tan, green eyes, subtle freckles, glossy lips. Long manicured nails. Wearing pastel yellow ribbed scoop-neck tank top and distressed blue denim cut-off shorts with 'Love' embroidery on border.\",\n  \"pose\": \"Leaning forward casually while eating an ice cream cone, candid mid-action moment\",\n  \"environment\": \"Prague old town square at twilight with warm lit architecture\",\n  \"camera\": \"Medium portrait, slight high angle\",\n  \"lighting\": \"Direct flash with warm ambient city lights\",\n  \"mood_and_expression\": \"Relaxed, spontaneous\",\n  \"style_and_realism\": \"Ultra photorealistic raw capture\",\n  \"colors_and_tone\": \"Soft yellow and blue contrast with warm city lights\",\n  \"quality_and_technical_details\": \"8k detail\",\n  \"aspect_ratio_and_output\": \"3:4\",\n  \"controlnet\": {\n    \"pose_control\": {\n      \"model_type\": \"DWPose\",\n      \"recommended_weight\": 1.0\n    },\n    \"depth_control\": {\n      \"model_type\": \"ZoeDepth\",\n      \"recommended_weight\": 0.85\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\n      \"filters\",\n      \"plastic skin\",\n      \"distortion\"\n    ]\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198510016_e7twnm_HE7ZUrqacAAg329.jpg",
+        "https://cms-assets.youmind.com/media/1775198510034_o6q5ez_HE7ZUuJbEAAPcIE.jpg",
+        "https://cms-assets.youmind.com/media/1775198510046_10xsw6_HE7ZUvcbIAEBJMG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198510016_e7twnm_HE7ZUrqacAAg329-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775198510034_o6q5ez_HE7ZUuJbEAAPcIE-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775198510046_10xsw6_HE7ZUvcbIAEBJMG-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"subject\": \"{argument name=\"celebrity lookalike\" default=\"Madelyn Cline\"} 相似者，20 岁出头，留着金色长发，皮肤白皙略带小麦色，绿色眼睛，有淡淡的雀斑，嘴唇有光泽。留着修长的美甲。身穿淡黄色罗纹圆领背心，搭配边缘带有“Love”刺绣的做旧蓝色牛仔短裤。\",\n  \"pose\": \"身体微微前倾，正在吃冰淇淋，捕捉随意的瞬间\",\n  \"environment\": \"黄昏时分的布拉格老城广场，背景是温暖的建筑灯光\",\n  \"camera\": \"中景人像，略微俯拍\",\n  \"lighting\": \"直接闪光灯与温暖的城市环境光\",\n  \"mood_and_expression\": \"放松，随性\",\n  \"style_and_realism\": \"超写实原始拍摄风格\",\n  \"colors_and_tone\": \"柔和的黄色与蓝色对比，映衬温暖的城市灯光\",\n  \"quality_and_technical_details\": \"8k 细节\",\n  \"aspect_ratio_and_output\": \"3:4\",\n  \"controlnet\": {\n    \"pose_control\": {\n      \"model_type\": \"DWPose\",\n      \"recommended_weight\": 1.0\n    },\n    \"depth_control\": {\n      \"model_type\": \"ZoeDepth\",\n      \"recommended_weight\": 0.85\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\n      \"滤镜\",\n      \"塑料感皮肤\",\n      \"畸变\"\n    ]\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "在布拉格吃冰淇淋的 madelyn cline 相似者 这是一个用于 nano banana pro 的 json 提示词，旨在生成一张超写实、原始拍摄风格的照片，内容为一名长相酷似 madelyn cline 的女性在黄昏时分的布拉格老城广场吃冰淇淋。该提示词指定了直接闪光灯与温暖的城市环境光相结合，营造出一种随性、放松的氛围。 {\n  \"subject\": \"{argument name=\"celebrity lookalike\" default=\"madelyn cline\"} lookalike in her early 20s with long blonde hair, fair skin with light tan, green eyes, subtle freckles, glossy lips. long manicured nails. wearing pastel yellow ribbed scoop-neck tank top and distressed blue denim cut-off shorts with 'love' embroidery on border.\",\n  \"pose\": \"leaning forward casually while eating an ice cream cone, candid mid-action moment\",\n  \"environment\": \"prague old town square at twilight with warm lit architecture\",\n  \"camera\": \"medium portrait, slight high angle\",\n  \"lighting\": \"direct flash with warm ambient city lights\",\n  \"mood_and_expression\": \"relaxed, spontaneous\",\n  \"style_and_realism\": \"ultra photorealistic raw capture\",\n  \"colors_and_tone\": \"soft yellow and blue contrast with warm city lights\",\n  \"quality_and_technical_details\": \"8k detail\",\n  \"aspect_ratio_and_output\": \"3:4\",\n  \"controlnet\": {\n    \"pose_control\": {\n      \"model_type\": \"dwpose\",\n      \"recommended_weight\": 1.0\n    },\n    \"depth_control\": {\n      \"model_type\": \"zoedepth\",\n      \"recommended_weight\": 0.85\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\n      \"filters\",\n      \"plastic skin\",\n      \"distortion\"\n    ]\n  }\n} {\n  \"subject\": \"{argument name=\"celebrity lookalike\" default=\"madelyn cline\"} 相似者，20 岁出头，留着金色长发，皮肤白皙略带小麦色，绿色眼睛，有淡淡的雀斑，嘴唇有光泽。留着修长的美甲。身穿淡黄色罗纹圆领背心，搭配边缘带有“love”刺绣的做旧蓝色牛仔短裤。\",\n  \"pose\": \"身体微微前倾，正在吃冰淇淋，捕捉随意的瞬间\",\n  \"environment\": \"黄昏时分的布拉格老城广场，背景是温暖的建筑灯光\",\n  \"camera\": \"中景人像，略微俯拍\",\n  \"lighting\": \"直接闪光灯与温暖的城市环境光\",\n  \"mood_and_expression\": \"放松，随性\",\n  \"style_and_realism\": \"超写实原始拍摄风格\",\n  \"colors_and_tone\": \"柔和的黄色与蓝色对比，映衬温暖的城市灯光\",\n  \"quality_and_technical_details\": \"8k 细节\",\n  \"aspect_ratio_and_output\": \"3:4\",\n  \"controlnet\": {\n    \"pose_control\": {\n      \"model_type\": \"dwpose\",\n      \"recommended_weight\": 1.0\n    },\n    \"depth_control\": {\n      \"model_type\": \"zoedepth\",\n      \"recommended_weight\": 0.85\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\n      \"滤镜\",\n      \"塑料感皮肤\",\n      \"畸变\"\n    ]\n  }\n} ankit patel 🇮🇳 | ai 13154",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13170,
+      "title": "适用于 Nano Banana Pro 的黑色电影风格“清洁工”肖像提示词",
+      "description": "这是一份为 Nano Banana Pro 编写的详细图像生成提示词，旨在创作一张黑白、黑色电影风格的中景肖像。画面主角为一名神情严肃的“清洁工”，站在光线昏暗的巷口，并对光影和构图有严格要求。提示词要求生成的角色必须精准还原附件图片中的面部特征、发型及眼镜。",
+      "sourceLink": "https://x.com/hxhxhx0916/status/2039788408189644954",
+      "sourcePublishedAt": "2026-04-02T19:33:48.000Z",
+      "author": {
+        "name": "hxhxhx0916",
+        "link": "https://x.com/hxhxhx0916"
+      },
+      "content": "一个面容冷峻的男子（100%参照附图人物面部特征、发型、眼镜）静立在一条昏暗小巷的入口处，只有一束微弱的光线照射在他的半边脸和身体上，光线将男人的脸和身体一分为二，另一半脸和身体隐入黑暗中，模糊不清。他身穿黑色衬衫和一件经典长款黑色大衣，在黑暗中几乎看不清面料。他垂下的手握着一支手枪。小巷在他身后渐渐消失在漆黑之中。照片采用强烈的黑色电影风格拍摄，中景黑白照。\n注意：1、不得更改他的面部特征。2、顶部硬光，但不得出现光源。3、光线只固定照射在指定的人物身体部位，光线不影响背景的色调、明暗。4、构图必须绝对居中。\n--ar 9:16",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198517612_3gowh3_HE7IrQNboAAYgG-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198517612_3gowh3_HE7IrQNboAAYgG--300x525.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "一位神情严肃的男子（面部特征、发型和眼镜需与附件图片 100% 一致）静静地站在光线昏暗的巷口。一束微弱的光线照亮了他半边脸和身体，将其一分为二；另一半则隐没在黑暗中。他身穿黑色衬衫和一件经典的黑色长款大衣，衣料几乎与黑暗融为一体。他垂下的手中握着一把手枪。巷子在他身后延伸至黑暗深处。这是一张中景黑白照片，具有强烈的黑色电影风格。\n\n注意：1. 不得改变其面部特征。2. 顶部有强烈的硬光，但不可见光源。3. 光线仅照亮男子身体的指定部位；光线不应影响背景的色调或亮度。4. 构图必须完美居中。\n\n--ar 9:16",
+      "sourcePlatform": "twitter",
+      "searchIndex": "适用于 nano banana pro 的黑色电影风格“清洁工”肖像提示词 这是一份为 nano banana pro 编写的详细图像生成提示词，旨在创作一张黑白、黑色电影风格的中景肖像。画面主角为一名神情严肃的“清洁工”，站在光线昏暗的巷口，并对光影和构图有严格要求。提示词要求生成的角色必须精准还原附件图片中的面部特征、发型及眼镜。 一个面容冷峻的男子（100%参照附图人物面部特征、发型、眼镜）静立在一条昏暗小巷的入口处，只有一束微弱的光线照射在他的半边脸和身体上，光线将男人的脸和身体一分为二，另一半脸和身体隐入黑暗中，模糊不清。他身穿黑色衬衫和一件经典长款黑色大衣，在黑暗中几乎看不清面料。他垂下的手握着一支手枪。小巷在他身后渐渐消失在漆黑之中。照片采用强烈的黑色电影风格拍摄，中景黑白照。\n注意：1、不得更改他的面部特征。2、顶部硬光，但不得出现光源。3、光线只固定照射在指定的人物身体部位，光线不影响背景的色调、明暗。4、构图必须绝对居中。\n--ar 9:16 一位神情严肃的男子（面部特征、发型和眼镜需与附件图片 100% 一致）静静地站在光线昏暗的巷口。一束微弱的光线照亮了他半边脸和身体，将其一分为二；另一半则隐没在黑暗中。他身穿黑色衬衫和一件经典的黑色长款大衣，衣料几乎与黑暗融为一体。他垂下的手中握着一把手枪。巷子在他身后延伸至黑暗深处。这是一张中景黑白照片，具有强烈的黑色电影风格。\n\n注意：1. 不得改变其面部特征。2. 顶部有强烈的硬光，但不可见光源。3. 光线仅照亮男子身体的指定部位；光线不应影响背景的色调或亮度。4. 构图必须完美居中。\n\n--ar 9:16 hxhxhx0916 13170",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13139,
+      "title": "台阶上的女性肖像及细节服饰",
+      "description": "这是一个为 Gemini Nano Banana Pro 设计的结构化提示词，详细描述了一位坐在赤陶台阶上的年轻女性肖像，涵盖了她的外貌、服装（蕾丝吊带背心、格子裙、蕾丝连裤袜）、配饰、场景以及光影效果，旨在生成高质量的写实图像。",
+      "sourceLink": "https://x.com/Serreh131306/status/2039783122410369312",
+      "sourcePublishedAt": "2026-04-02T19:12:48.000Z",
+      "author": {
+        "name": "Serrah ❀",
+        "link": "https://x.com/Serreh131306"
+      },
+      "content": "{\n  \"visual_details\": {\n    \"subject\": \"Young woman, long dark hair, brown eyes.\",\n    \"pose\": \"Sitting on steps, hand on chin, looking directly at camera.\",\n    \"clothing\": \"Black lace camisole, brown plaid mini skirt, black floral lace tights.\",\n    \"accessories\": \"Tortoiseshell cat-eye glasses, layered silver necklaces, bracelets, rings, black quilted chain bag.\",\n    \"setting\": \"Terracotta tiled steps, white tiled wall, dark doorway with 'STUDIO' text.\",\n    \"lighting\": \"Bright natural daylight, sharp shadows.\"\n  },\n  \"prompt\": \"Portrait of a young woman sitting on terracotta steps. Long dark hair, tortoiseshell cat-eye glasses, black lace camisole, brown plaid skirt, black floral lace tights. Layered silver jewelry. Hand resting on chin, serious expression, holding black quilted chain bag. White tiled wall background, dark doorway marked 'STUDIO'. Bright sunlight. 4k ultra quality, 9:16 canvas.\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198502883_pcrm82_HE7D7iBawAA0VFJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198502883_pcrm82_HE7D7iBawAA0VFJ-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"visual_details\": {\n    \"subject\": \"年轻女性，深色长发，棕色眼睛。\",\n    \"pose\": \"坐在台阶上，手托下巴，直视镜头。\",\n    \"clothing\": \"黑色蕾丝吊带背心，棕色格子迷你裙，黑色花卉蕾丝连裤袜。\",\n    \"accessories\": \"玳瑁色猫眼眼镜，叠戴银色项链，手链，戒指，黑色菱格纹链条包。\",\n    \"setting\": \"赤陶瓷砖台阶，白色瓷砖墙面，带有“STUDIO”字样的深色门洞。\",\n    \"lighting\": \"明亮的自然日光，轮廓分明的阴影。\"\n  },\n  \"prompt\": \"一位坐在赤陶台阶上的年轻女性肖像。深色长发，佩戴玳瑁色猫眼眼镜，身穿黑色蕾丝吊带背心、棕色格子裙和黑色花卉蕾丝连裤袜。叠戴银色首饰。手托下巴，表情严肃，手持黑色菱格纹链条包。背景为白色瓷砖墙和标有“STUDIO”的深色门洞。明亮的阳光。4k 超高清画质，9:16 画幅。\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "台阶上的女性肖像及细节服饰 这是一个为 gemini nano banana pro 设计的结构化提示词，详细描述了一位坐在赤陶台阶上的年轻女性肖像，涵盖了她的外貌、服装（蕾丝吊带背心、格子裙、蕾丝连裤袜）、配饰、场景以及光影效果，旨在生成高质量的写实图像。 {\n  \"visual_details\": {\n    \"subject\": \"young woman, long dark hair, brown eyes.\",\n    \"pose\": \"sitting on steps, hand on chin, looking directly at camera.\",\n    \"clothing\": \"black lace camisole, brown plaid mini skirt, black floral lace tights.\",\n    \"accessories\": \"tortoiseshell cat-eye glasses, layered silver necklaces, bracelets, rings, black quilted chain bag.\",\n    \"setting\": \"terracotta tiled steps, white tiled wall, dark doorway with 'studio' text.\",\n    \"lighting\": \"bright natural daylight, sharp shadows.\"\n  },\n  \"prompt\": \"portrait of a young woman sitting on terracotta steps. long dark hair, tortoiseshell cat-eye glasses, black lace camisole, brown plaid skirt, black floral lace tights. layered silver jewelry. hand resting on chin, serious expression, holding black quilted chain bag. white tiled wall background, dark doorway marked 'studio'. bright sunlight. 4k ultra quality, 9:16 canvas.\"\n} {\n  \"visual_details\": {\n    \"subject\": \"年轻女性，深色长发，棕色眼睛。\",\n    \"pose\": \"坐在台阶上，手托下巴，直视镜头。\",\n    \"clothing\": \"黑色蕾丝吊带背心，棕色格子迷你裙，黑色花卉蕾丝连裤袜。\",\n    \"accessories\": \"玳瑁色猫眼眼镜，叠戴银色项链，手链，戒指，黑色菱格纹链条包。\",\n    \"setting\": \"赤陶瓷砖台阶，白色瓷砖墙面，带有“studio”字样的深色门洞。\",\n    \"lighting\": \"明亮的自然日光，轮廓分明的阴影。\"\n  },\n  \"prompt\": \"一位坐在赤陶台阶上的年轻女性肖像。深色长发，佩戴玳瑁色猫眼眼镜，身穿黑色蕾丝吊带背心、棕色格子裙和黑色花卉蕾丝连裤袜。叠戴银色首饰。手托下巴，表情严肃，手持黑色菱格纹链条包。背景为白色瓷砖墙和标有“studio”的深色门洞。明亮的阳光。4k 超高清画质，9:16 画幅。\"\n} serrah ❀ 13139",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 10,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

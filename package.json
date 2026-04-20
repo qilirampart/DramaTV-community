@@ -1,0 +1,11 @@
+{
+  "name": "dramatv-community-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "dev:prototype": "npm --prefix archive/legacy-react-vite-prototype run dev",
+    "build:prototype": "npm --prefix archive/legacy-react-vite-prototype run build"
+  }
+}

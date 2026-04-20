@@ -1,0 +1,497 @@
+{
+  "prompts": [
+    {
+      "id": 10766,
+      "title": "使用闪光灯拍摄的超逼真夜间汽车肖像",
+      "description": "一个高度详细的提示，包括负面提示，用于生成一张超现实、高对比度的女性肖像，她坐在豪华轿车后座，在夜晚，使用机顶闪光灯直射，并保留参考图像中精确的身体比例。",
+      "sourceLink": "https://x.com/l_w_lorenzen/status/2026209336054456400",
+      "sourcePublishedAt": "2026-02-24T08:15:25.000Z",
+      "author": {
+        "name": "Lore",
+        "link": "https://x.com/l_w_lorenzen"
+      },
+      "content": "Ultra-realistic flash photography of the subject from the reference image sitting in the backseat of a luxury car at night.\n\nShe is reclining naturally across a black leather seat, holding a smartphone casually in one hand.\n\nWardrobe:\nBlack lace-trim camisole (non-sheer, modest coverage)\nDark tailored shorts\nLayered gold necklaces\nGold bracelets\nSubtle ankle jewelry\n\nBody proportions must remain EXACTLY as in the reference image.\nNo reshaping, no waist cinching, no curve exaggeration.\n\nCar interior:\nDark leather upholstery\nWood trim panels\nSubtle reflections on window glass\nNight city reflections visible outside\n\nLighting:\nDirect on-camera flash\nSharp highlights\nNatural skin texture\nHigh contrast\nGlossy but realistic skin response to flash\nNo studio diffusion\n\nStyle:\nCinematic nightlife aesthetic\nEditorial fashion photography\n35mm lens look\nShallow depth of field\nHigh detail\nLuxury atmosphere\n\n--------------------------------------\n\nSETTINGS:\nResolution: 1024x1792\nLighting: Direct flash + nighttime ambient background\nCamera: 35mm equivalent, f1.8, ISO 800\nQuality: High detail, photorealistic\n\n--------------------------------------\n\nNEGATIVE PROMPT:\nbody reshaping, waist cinching, exaggerated curves,\nface alteration, hair recolor,\nethnicity change, age shift,\nplastic skin, glam filter,\nblurry, low resolution,\noverexposed highlights,\ndistorted anatomy,\nextra limbs,\npoorly drawn hands,\noversaturated colors,\ncartoon, illustration, CGI,\nwatermark, text, logo",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001520632_e2ucxb_HB6KnyFbsAAJc10.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001520632_e2ucxb_HB6KnyFbsAAJc10-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "参照图中人物坐在豪华轿车后座，在夜晚环境下，使用超写实闪光摄影。\n\n她慵懒地斜倚在黑色皮质座椅上，一只手随意地拿着智能手机。\n\n服饰：\n黑色蕾丝边吊带背心（不透视，适度遮盖）\n深色定制短裤\n叠戴金色项链\n金色手链\n精致的脚踝饰品\n\n身体比例必须与参照图**完全一致**。\n不可重塑身形，不可收紧腰部，不可夸大曲线。\n\n汽车内饰：\n深色皮革内饰\n木纹饰板\n车窗玻璃上细微的反光\n窗外可见夜间城市倒影\n\n灯光：\n直射机内闪光灯\n锐利的高光\n自然的皮肤纹理\n高对比度\n皮肤对闪光的反应光泽但真实\n无影棚柔光\n\n风格：\n电影般的夜生活美学\n时尚杂志摄影\n35mm 镜头效果\n浅景深\n高细节\n奢华氛围\n\n--------------------------------------\n\n设置：\n分辨率：1024x1792\n灯光：直射闪光灯 + 夜晚环境背景光\n相机：35mm 等效焦距，f1.8，ISO 800\n质量：高细节，照片级真实感\n\n--------------------------------------\n\n负面提示词：\n身体重塑，收腰，夸张曲线，\n面部改动，头发改色，\n改变种族，年龄变化，\n塑料皮肤，美颜滤镜，\n模糊，低分辨率，\n高光过曝，\n解剖结构扭曲，\n多余肢体，\n手部绘制拙劣，\n颜色过饱和，\n卡通，插画，CGI，\n水印，文字，标志",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用闪光灯拍摄的超逼真夜间汽车肖像 一个高度详细的提示，包括负面提示，用于生成一张超现实、高对比度的女性肖像，她坐在豪华轿车后座，在夜晚，使用机顶闪光灯直射，并保留参考图像中精确的身体比例。 ultra-realistic flash photography of the subject from the reference image sitting in the backseat of a luxury car at night.\n\nshe is reclining naturally across a black leather seat, holding a smartphone casually in one hand.\n\nwardrobe:\nblack lace-trim camisole (non-sheer, modest coverage)\ndark tailored shorts\nlayered gold necklaces\ngold bracelets\nsubtle ankle jewelry\n\nbody proportions must remain exactly as in the reference image.\nno reshaping, no waist cinching, no curve exaggeration.\n\ncar interior:\ndark leather upholstery\nwood trim panels\nsubtle reflections on window glass\nnight city reflections visible outside\n\nlighting:\ndirect on-camera flash\nsharp highlights\nnatural skin texture\nhigh contrast\nglossy but realistic skin response to flash\nno studio diffusion\n\nstyle:\ncinematic nightlife aesthetic\neditorial fashion photography\n35mm lens look\nshallow depth of field\nhigh detail\nluxury atmosphere\n\n--------------------------------------\n\nsettings:\nresolution: 1024x1792\nlighting: direct flash + nighttime ambient background\ncamera: 35mm equivalent, f1.8, iso 800\nquality: high detail, photorealistic\n\n--------------------------------------\n\nnegative prompt:\nbody reshaping, waist cinching, exaggerated curves,\nface alteration, hair recolor,\nethnicity change, age shift,\nplastic skin, glam filter,\nblurry, low resolution,\noverexposed highlights,\ndistorted anatomy,\nextra limbs,\npoorly drawn hands,\noversaturated colors,\ncartoon, illustration, cgi,\nwatermark, text, logo 参照图中人物坐在豪华轿车后座，在夜晚环境下，使用超写实闪光摄影。\n\n她慵懒地斜倚在黑色皮质座椅上，一只手随意地拿着智能手机。\n\n服饰：\n黑色蕾丝边吊带背心（不透视，适度遮盖）\n深色定制短裤\n叠戴金色项链\n金色手链\n精致的脚踝饰品\n\n身体比例必须与参照图**完全一致**。\n不可重塑身形，不可收紧腰部，不可夸大曲线。\n\n汽车内饰：\n深色皮革内饰\n木纹饰板\n车窗玻璃上细微的反光\n窗外可见夜间城市倒影\n\n灯光：\n直射机内闪光灯\n锐利的高光\n自然的皮肤纹理\n高对比度\n皮肤对闪光的反应光泽但真实\n无影棚柔光\n\n风格：\n电影般的夜生活美学\n时尚杂志摄影\n35mm 镜头效果\n浅景深\n高细节\n奢华氛围\n\n--------------------------------------\n\n设置：\n分辨率：1024x1792\n灯光：直射闪光灯 + 夜晚环境背景光\n相机：35mm 等效焦距，f1.8，iso 800\n质量：高细节，照片级真实感\n\n--------------------------------------\n\n负面提示词：\n身体重塑，收腰，夸张曲线，\n面部改动，头发改色，\n改变种族，年龄变化，\n塑料皮肤，美颜滤镜，\n模糊，低分辨率，\n高光过曝，\n解剖结构扭曲，\n多余肢体，\n手部绘制拙劣，\n颜色过饱和，\n卡通，插画，cgi，\n水印，文字，标志 lore 10766",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10746,
+      "title": "动态 3D 浮动头像",
+      "description": "一个高度具体的提示，用于根据参考图像生成一个超风格化、动态的 3D 浮动头像肖像，特点是自信的表情、镶钻牙套、银色运动太阳镜和官方湖人队球衣标志，背景为带有霓虹灯点缀和强烈边缘照明的纯白色。",
+      "sourceLink": "https://x.com/Naiknelofar788/status/2026207647968743551",
+      "sourcePublishedAt": "2026-02-24T08:08:43.000Z",
+      "author": {
+        "name": "simeon-sanai",
+        "link": "https://x.com/Naiknelofar788"
+      },
+      "content": "Hyper-stylized dynamic 3D floating head portrait of the attached reference image, perfectly centered, upright, symmetrical, filling 80% of the 4:5 frame. No neck. No shoulder edges. Clean cut-out. Subject floating in white space.Predominantly white background enhanced with subtle tonal gradients and soft volumetric glow. A thin luminous neon halo ring glows behind the head, slightly diffused but clean and circular.\n\nFacial features match reference photo precisely. Expression: confident, dominant smirk with focused eye contact. Diamond-studded braces sparkle under sharp lighting.\n\nSleek silver sports sunglasses reflect digital stadium lights and neon streaks. Chrome stud earrings and polished silver chain subtly visible.\n\nOfficial lakers shirt strictly front view chest logo and sponsor visible only.\n\nLighting combines bright frontal fill with strong rim lights. Subtle neon reflections trace along jawline edges. Micro lens flares appear at high-intensity highlights.\n\nWhite-on-white energy with controlled neon accents. Futuristic champion aura. Glossy skin, exaggerated reflections, cinematic intensity.\n\nAspect ratio 4:5.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001507635_fwhmes_HB6JHiXagAAwLZE.jpg",
+        "https://cms-assets.youmind.com/media/1772001507828_wyaaih_HB6JHfybAAA__0D.jpg",
+        "https://cms-assets.youmind.com/media/1772001508278_yhapbq_HB6JHg1bkAA_FHm.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001507635_fwhmes_HB6JHiXagAAwLZE-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001507828_wyaaih_HB6JHfybAAA__0D-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001508278_yhapbq_HB6JHg1bkAA_FHm-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超风格化的动态 3D 浮动头像，基于所附参考图像，完美居中，直立，对称，占据 4:5 画面 80% 的空间。无颈部。无肩部边缘。干净的抠图。主体悬浮在白色空间中。以微妙的色调渐变和柔和的体积光增强的纯白色背景。头部后方有一个纤细的发光霓虹光环，略微扩散但清晰且呈圆形。\n\n面部特征与参考照片精确匹配。表情：自信、主导的坏笑，眼神专注。镶钻牙套在锐利灯光下闪闪发光。\n\n光滑的银色运动太阳镜反射着数字体育场灯光和霓虹条纹。镀铬耳钉和抛光银链隐约可见。\n\n官方湖人队球衣，仅正面胸部标志和赞助商可见。\n\n灯光结合了明亮的前部补光和强烈的轮廓光。微妙的霓虹反射沿着下颌线边缘勾勒。高强度高光处出现微小的镜头眩光。\n\n白色与白色的能量，辅以受控的霓虹点缀。未来冠军的光环。光泽肌肤，夸张反射，电影般的强度。\n\n长宽比 4:5。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "动态 3d 浮动头像 一个高度具体的提示，用于根据参考图像生成一个超风格化、动态的 3d 浮动头像肖像，特点是自信的表情、镶钻牙套、银色运动太阳镜和官方湖人队球衣标志，背景为带有霓虹灯点缀和强烈边缘照明的纯白色。 hyper-stylized dynamic 3d floating head portrait of the attached reference image, perfectly centered, upright, symmetrical, filling 80% of the 4:5 frame. no neck. no shoulder edges. clean cut-out. subject floating in white space.predominantly white background enhanced with subtle tonal gradients and soft volumetric glow. a thin luminous neon halo ring glows behind the head, slightly diffused but clean and circular.\n\nfacial features match reference photo precisely. expression: confident, dominant smirk with focused eye contact. diamond-studded braces sparkle under sharp lighting.\n\nsleek silver sports sunglasses reflect digital stadium lights and neon streaks. chrome stud earrings and polished silver chain subtly visible.\n\nofficial lakers shirt strictly front view chest logo and sponsor visible only.\n\nlighting combines bright frontal fill with strong rim lights. subtle neon reflections trace along jawline edges. micro lens flares appear at high-intensity highlights.\n\nwhite-on-white energy with controlled neon accents. futuristic champion aura. glossy skin, exaggerated reflections, cinematic intensity.\n\naspect ratio 4:5. 超风格化的动态 3d 浮动头像，基于所附参考图像，完美居中，直立，对称，占据 4:5 画面 80% 的空间。无颈部。无肩部边缘。干净的抠图。主体悬浮在白色空间中。以微妙的色调渐变和柔和的体积光增强的纯白色背景。头部后方有一个纤细的发光霓虹光环，略微扩散但清晰且呈圆形。\n\n面部特征与参考照片精确匹配。表情：自信、主导的坏笑，眼神专注。镶钻牙套在锐利灯光下闪闪发光。\n\n光滑的银色运动太阳镜反射着数字体育场灯光和霓虹条纹。镀铬耳钉和抛光银链隐约可见。\n\n官方湖人队球衣，仅正面胸部标志和赞助商可见。\n\n灯光结合了明亮的前部补光和强烈的轮廓光。微妙的霓虹反射沿着下颌线边缘勾勒。高强度高光处出现微小的镜头眩光。\n\n白色与白色的能量，辅以受控的霓虹点缀。未来冠军的光环。光泽肌肤，夸张反射，电影般的强度。\n\n长宽比 4:5。 simeon-sanai 10746",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10810,
+      "title": "Nano Banana Pro 提示词：9:16 壁纸生成",
+      "description": "一个 Nano Banana Pro 的模板提示，用于生成高质量的 9:16 手机壁纸，强调自然的留白、微妙的渐变和简洁性。",
+      "sourceLink": "https://x.com/ChatgptAIskill/status/2026205469874995244",
+      "sourcePublishedAt": "2026-02-24T08:00:03.000Z",
+      "author": {
+        "name": "ケンイチ | AIスキルアカデミー『誰でもわかるAI活用術』",
+        "link": "https://x.com/ChatgptAIskill"
+      },
+      "content": "Make a beautiful 9:16 wallpaper. Leave natural negative space near the top and bottom. Give the wallpaper a subtle top to bottom gradient. No blur effects or cropping. Keep the scene simple.\n({argument name=\"image concept\" default=\"[生成したい画像のイメージを入力]\"})",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001543764_6jyaz9_HB6DubIaoAA1t_C.jpg",
+        "https://cms-assets.youmind.com/media/1772001543656_hzk2z8_HB6DucjaYAAKG2S.jpg",
+        "https://cms-assets.youmind.com/media/1772001543916_es242v_HB6Dua_a4AAsvR9.jpg",
+        "https://cms-assets.youmind.com/media/1772001544616_5hdd6l_HB6DudCa0AIMPcP.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001543764_6jyaz9_HB6DubIaoAA1t_C-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001543656_hzk2z8_HB6DucjaYAAKG2S-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001543916_es242v_HB6Dua_a4AAsvR9-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001544616_5hdd6l_HB6DudCa0AIMPcP-300x538.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "制作一张精美的 9:16 壁纸。在顶部和底部留出自然的负空间。给壁纸一个微妙的从上到下的渐变。不要使用模糊效果或裁剪。保持场景简洁。\n（{argument name=\"image concept\" default=\"[输入您想要生成的图像概念]\"})",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词：9:16 壁纸生成 一个 nano banana pro 的模板提示，用于生成高质量的 9:16 手机壁纸，强调自然的留白、微妙的渐变和简洁性。 make a beautiful 9:16 wallpaper. leave natural negative space near the top and bottom. give the wallpaper a subtle top to bottom gradient. no blur effects or cropping. keep the scene simple.\n({argument name=\"image concept\" default=\"[生成したい画像のイメージを入力]\"}) 制作一张精美的 9:16 壁纸。在顶部和底部留出自然的负空间。给壁纸一个微妙的从上到下的渐变。不要使用模糊效果或裁剪。保持场景简洁。\n（{argument name=\"image concept\" default=\"[输入您想要生成的图像概念]\"}) ケンイチ | aiスキルアカデミー『誰でもわかるai活用術』 10810",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10775,
+      "title": "复古高中背景下 Rosé (BLACKPINK) 的电影感肖像",
+      "description": "一个高度详细、结构化的提示，用于生成 BLACKPINK 成员 Rosé (朴彩英) 的超逼真 8K 电影级肖像，采用 80 年代美式高时尚美学风格，置身于充满氛围感的高中教室中，强调光线、纹理和胶片模拟效果。",
+      "sourceLink": "https://x.com/youngcatwoman/status/2026205461796544665",
+      "sourcePublishedAt": "2026-02-24T08:00:01.000Z",
+      "author": {
+        "name": "Alice",
+        "link": "https://x.com/youngcatwoman"
+      },
+      "content": "{\n  \"image_prompt\": {\n    \"subject\": {\n      \"description\": \"Rosé (Park Chaeyoung) from BLACKPINK; striking, symmetrical facial features with her signature sharp jawline and high-fashion appeal; highly detailed skin texture with a fair, porcelain tone including visible pores and subtle natural imperfections; voluminous, textured strawberry blonde hair with realistic flyaways and depth.\",\n      \"expression\": \"Intense, soulful gaze directed at the lens; slight, enigmatic parting of the lips; cinematic presence.\",\n      \"ethnicity_style\": \"Korean; emphasizes sharp bone structure, monolid-leaning almond eyes with realistic depth, and natural beauty.\"\n    },\n    \"pose\": {\n      \"description\": \"Centered cinematic portrait; slight tilt of the head to catch the light; relaxed yet commanding posture that emphasizes the contrast between the structured jacket and the form-fitting bodysuit.\",\n      \"framing\": \"Upper body/waist-up shot.\",\n      \"aspect_ratio\": \"3:4\"\n    },\n    \"outfit\": {\n      \"base_layer\": \"Minimalist deep-v navy blue latex bodysuit with high-gloss reflective finish and sharp micro-creases at the joints.\",\n      \"outerwear\": \"Oversized 1980s vintage varsity jacket; emerald green heavy wool body with cream-colored aged leather sleeves; ribbed knit cuffs and collar; detailed circular 'Seoul High' school crest patch with intricate embroidery texture on the chest.\",\n      \"aesthetic\": \"High-fashion meets retro-nostalgia (80s Americana).\"\n    },\n    \"environment\": {\n      \"setting\": \"Atmospheric 1980s high school classroom; vintage academic aesthetic.\",\n      \"background_elements\": [\n        \"Large matte green chalkboard with faint chalk residue and ghosted handwriting.\",\n        \"Rows of weathered wooden and metal student desks.\",\n        \"Vintage rotating desk globe on a wooden stand.\",\n        \"Visible dust motes dancing in the air within the light beams.\"\n      ],\n      \"depth_of_field\": \"Shallow depth of field (f/1.8); subject in sharp focus while the classroom elements melt into a creamy, nostalgic bokeh.\"\n    },\n    \"lighting\": {\n      \"primary_source\": \"Cool-toned overhead fluorescent light, diffused and soft.\",\n      \"secondary_source\": \"Moody, directional side-lighting creating a rim light on the hair and jacket texture.\",\n      \"highlights\": \"Subtle specularity on the latex bodysuit and the leather sleeves of the varsity jacket; realistic light catch-lights in the eyes.\"\n    },\n    \"shot_technical\": {\n      \"camera\": \"Arri Alexa, 35mm film stock emulation.\",\n      \"lens\": \"35mm prime lens.\",\n      \"film_characteristics\": \"Fine film grain, subtle chromatic aberration at the edges, rich color grading with deep blues and organic greens, authentic cinematic texture.\",\n      \"quality\": \"8k resolution, photorealistic, hyper-detailed, period-accurate production design.\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001526498_moowwn_HB5uSgIaUAAYLoC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001526498_moowwn_HB5uSgIaUAAYLoC-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_prompt\": {\n    \"subject\": {\n      \"description\": \"BLACKPINK 的 Rosé (朴彩英)；引人注目、对称的面部特征，拥有她标志性的清晰下颌线和高级时尚感；高度细致的皮肤纹理，白皙的瓷器般肤色，包括可见的毛孔和细微的自然瑕疵；蓬松、有质感的草莓金色头发，带有逼真的飞散发丝和层次感。\",\n      \"expression\": \"强烈、深情的目光直视镜头；嘴唇微启，带着一丝神秘感；电影般的表现力。\",\n      \"ethnicity_style\": \"韩国人；强调清晰的骨骼结构，偏向单眼皮的杏仁眼，具有逼真的深度和自然美感。\"\n    },\n    \"pose\": {\n      \"description\": \"居中电影肖像；头部略微倾斜以捕捉光线；放松而又充满气势的姿态，强调了结构化夹克与紧身衣之间的对比。\",\n      \"framing\": \"上半身/腰部以上特写。\",\n      \"aspect_ratio\": \"3:4\"\n    },\n    \"outfit\": {\n      \"base_layer\": \"极简主义深 V 海军蓝乳胶紧身衣，具有高光泽反射效果和关节处清晰的微褶皱。\",\n      \"outerwear\": \"超大款 1980 年代复古棒球夹克；祖母绿色厚羊毛主体，配米色做旧皮革袖子；罗纹针织袖口和衣领；胸前有精细的圆形“首尔高中”校徽补丁，带有复杂的刺绣纹理。\",\n      \"aesthetic\": \"高级时尚与复古怀旧（80 年代美式风格）的结合。\"\n    },\n    \"environment\": {\n      \"setting\": \"充满氛围感的 1980 年代高中教室；复古学术美学。\",\n      \"background_elements\": [\n        \"大型哑光绿色黑板，带有淡淡的粉笔残留和模糊的笔迹。\",\n        \"一排排风化的木制和金属学生课桌。\",\n        \"木制支架上的复古旋转地球仪。\",\n        \"光束中可见的尘埃颗粒在空气中飞舞。\"\n      ],\n      \"depth_of_field\": \"浅景深 (f/1.8)；主体清晰对焦，而教室元素则融入柔和、怀旧的焦外虚化效果中。\"\n    },\n    \"lighting\": {\n      \"primary_source\": \"冷色调的顶部荧光灯，柔和漫射。\",\n      \"secondary_source\": \"情绪化的定向侧光，在头发和夹克纹理上形成轮廓光。\",\n      \"highlights\": \"乳胶紧身衣和棒球夹克皮革袖子上的细微高光；眼睛中逼真的眼神光。\"\n    },\n    \"shot_technical\": {\n      \"camera\": \"Arri Alexa，35mm 胶片模拟。\",\n      \"lens\": \"35mm 定焦镜头。\",\n      \"film_characteristics\": \"细腻的胶片颗粒，边缘细微的色差，深蓝色和有机绿色的丰富色彩分级，真实的电影质感。\",\n      \"quality\": \"8k 分辨率，照片级真实感，超高细节，符合时代背景的制作设计。\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "复古高中背景下 rosé (blackpink) 的电影感肖像 一个高度详细、结构化的提示，用于生成 blackpink 成员 rosé (朴彩英) 的超逼真 8k 电影级肖像，采用 80 年代美式高时尚美学风格，置身于充满氛围感的高中教室中，强调光线、纹理和胶片模拟效果。 {\n  \"image_prompt\": {\n    \"subject\": {\n      \"description\": \"rosé (park chaeyoung) from blackpink; striking, symmetrical facial features with her signature sharp jawline and high-fashion appeal; highly detailed skin texture with a fair, porcelain tone including visible pores and subtle natural imperfections; voluminous, textured strawberry blonde hair with realistic flyaways and depth.\",\n      \"expression\": \"intense, soulful gaze directed at the lens; slight, enigmatic parting of the lips; cinematic presence.\",\n      \"ethnicity_style\": \"korean; emphasizes sharp bone structure, monolid-leaning almond eyes with realistic depth, and natural beauty.\"\n    },\n    \"pose\": {\n      \"description\": \"centered cinematic portrait; slight tilt of the head to catch the light; relaxed yet commanding posture that emphasizes the contrast between the structured jacket and the form-fitting bodysuit.\",\n      \"framing\": \"upper body/waist-up shot.\",\n      \"aspect_ratio\": \"3:4\"\n    },\n    \"outfit\": {\n      \"base_layer\": \"minimalist deep-v navy blue latex bodysuit with high-gloss reflective finish and sharp micro-creases at the joints.\",\n      \"outerwear\": \"oversized 1980s vintage varsity jacket; emerald green heavy wool body with cream-colored aged leather sleeves; ribbed knit cuffs and collar; detailed circular 'seoul high' school crest patch with intricate embroidery texture on the chest.\",\n      \"aesthetic\": \"high-fashion meets retro-nostalgia (80s americana).\"\n    },\n    \"environment\": {\n      \"setting\": \"atmospheric 1980s high school classroom; vintage academic aesthetic.\",\n      \"background_elements\": [\n        \"large matte green chalkboard with faint chalk residue and ghosted handwriting.\",\n        \"rows of weathered wooden and metal student desks.\",\n        \"vintage rotating desk globe on a wooden stand.\",\n        \"visible dust motes dancing in the air within the light beams.\"\n      ],\n      \"depth_of_field\": \"shallow depth of field (f/1.8); subject in sharp focus while the classroom elements melt into a creamy, nostalgic bokeh.\"\n    },\n    \"lighting\": {\n      \"primary_source\": \"cool-toned overhead fluorescent light, diffused and soft.\",\n      \"secondary_source\": \"moody, directional side-lighting creating a rim light on the hair and jacket texture.\",\n      \"highlights\": \"subtle specularity on the latex bodysuit and the leather sleeves of the varsity jacket; realistic light catch-lights in the eyes.\"\n    },\n    \"shot_technical\": {\n      \"camera\": \"arri alexa, 35mm film stock emulation.\",\n      \"lens\": \"35mm prime lens.\",\n      \"film_characteristics\": \"fine film grain, subtle chromatic aberration at the edges, rich color grading with deep blues and organic greens, authentic cinematic texture.\",\n      \"quality\": \"8k resolution, photorealistic, hyper-detailed, period-accurate production design.\"\n    }\n  }\n} ```json\n{\n  \"image_prompt\": {\n    \"subject\": {\n      \"description\": \"blackpink 的 rosé (朴彩英)；引人注目、对称的面部特征，拥有她标志性的清晰下颌线和高级时尚感；高度细致的皮肤纹理，白皙的瓷器般肤色，包括可见的毛孔和细微的自然瑕疵；蓬松、有质感的草莓金色头发，带有逼真的飞散发丝和层次感。\",\n      \"expression\": \"强烈、深情的目光直视镜头；嘴唇微启，带着一丝神秘感；电影般的表现力。\",\n      \"ethnicity_style\": \"韩国人；强调清晰的骨骼结构，偏向单眼皮的杏仁眼，具有逼真的深度和自然美感。\"\n    },\n    \"pose\": {\n      \"description\": \"居中电影肖像；头部略微倾斜以捕捉光线；放松而又充满气势的姿态，强调了结构化夹克与紧身衣之间的对比。\",\n      \"framing\": \"上半身/腰部以上特写。\",\n      \"aspect_ratio\": \"3:4\"\n    },\n    \"outfit\": {\n      \"base_layer\": \"极简主义深 v 海军蓝乳胶紧身衣，具有高光泽反射效果和关节处清晰的微褶皱。\",\n      \"outerwear\": \"超大款 1980 年代复古棒球夹克；祖母绿色厚羊毛主体，配米色做旧皮革袖子；罗纹针织袖口和衣领；胸前有精细的圆形“首尔高中”校徽补丁，带有复杂的刺绣纹理。\",\n      \"aesthetic\": \"高级时尚与复古怀旧（80 年代美式风格）的结合。\"\n    },\n    \"environment\": {\n      \"setting\": \"充满氛围感的 1980 年代高中教室；复古学术美学。\",\n      \"background_elements\": [\n        \"大型哑光绿色黑板，带有淡淡的粉笔残留和模糊的笔迹。\",\n        \"一排排风化的木制和金属学生课桌。\",\n        \"木制支架上的复古旋转地球仪。\",\n        \"光束中可见的尘埃颗粒在空气中飞舞。\"\n      ],\n      \"depth_of_field\": \"浅景深 (f/1.8)；主体清晰对焦，而教室元素则融入柔和、怀旧的焦外虚化效果中。\"\n    },\n    \"lighting\": {\n      \"primary_source\": \"冷色调的顶部荧光灯，柔和漫射。\",\n      \"secondary_source\": \"情绪化的定向侧光，在头发和夹克纹理上形成轮廓光。\",\n      \"highlights\": \"乳胶紧身衣和棒球夹克皮革袖子上的细微高光；眼睛中逼真的眼神光。\"\n    },\n    \"shot_technical\": {\n      \"camera\": \"arri alexa，35mm 胶片模拟。\",\n      \"lens\": \"35mm 定焦镜头。\",\n      \"film_characteristics\": \"细腻的胶片颗粒，边缘细微的色差，深蓝色和有机绿色的丰富色彩分级，真实的电影质感。\",\n      \"quality\": \"8k 分辨率，照片级真实感，超高细节，符合时代背景的制作设计。\"\n    }\n  }\n}\n``` alice 10775",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10792,
+      "title": "极简主义黑白时尚三联画",
+      "description": "一个用于生成极简主义单色时尚专题三联画的提示，要求保留参考图像中模特的脸部、比例和外部特征。输出应包含三幅堆叠的电影风格画面，描绘一位留着深色短发的年轻男子。",
+      "sourceLink": "https://x.com/RealDreamer01/status/2026199099620683787",
+      "sourcePublishedAt": "2026-02-24T07:34:44.000Z",
+      "author": {
+        "name": "کٲشُر",
+        "link": "https://x.com/RealDreamer01"
+      },
+      "content": "Preserve the face, proportions, and external features of the model as in the reference. A minimalist monochrome fashion editorial triptych featuring three stacked cinematic frames. The subject is a young man with short dark hair and a",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001536141_1hwb4a_HB6BVtKb0AIMUQ8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001536141_1hwb4a_HB6BVtKb0AIMUQ8-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "保留模型面部、比例和外部特征与参考图一致。极简主义的单色时尚专题三联画，包含三个堆叠的电影风格画幅。主体是一位留着深色短发的年轻男子，身穿一件",
+      "sourcePlatform": "twitter",
+      "searchIndex": "极简主义黑白时尚三联画 一个用于生成极简主义单色时尚专题三联画的提示，要求保留参考图像中模特的脸部、比例和外部特征。输出应包含三幅堆叠的电影风格画面，描绘一位留着深色短发的年轻男子。 preserve the face, proportions, and external features of the model as in the reference. a minimalist monochrome fashion editorial triptych featuring three stacked cinematic frames. the subject is a young man with short dark hair and a 保留模型面部、比例和外部特征与参考图一致。极简主义的单色时尚专题三联画，包含三个堆叠的电影风格画幅。主体是一位留着深色短发的年轻男子，身穿一件 کٲشُر 10792",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10758,
+      "title": "哥特时尚肖像中的 AI 影响者",
+      "description": "一个简单的提示，用于生成一张 AI 影响者的肖像，风格为另类哥特时尚，特点是在室内环境中佩戴黑色亮面口罩和带钉皮革配饰。",
+      "sourceLink": "https://x.com/__degen_dev__/status/2026194753306370364",
+      "sourcePublishedAt": "2026-02-24T07:17:28.000Z",
+      "author": {
+        "name": "degen_dev - d/acc",
+        "link": "https://x.com/__degen_dev__"
+      },
+      "content": "AI influencer in alternative goth fashion wearing a black glossy face mask, spiked leather wrist cuffs, and long black nails in an indoor setting.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001515485_feirlh_HB59YsgWcAEAjTn.png"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001515485_feirlh_HB59YsgWcAEAjTn-300x400.png"
+      ],
+      "language": "en",
+      "translatedContent": "身穿另类哥特式时装的 AI 影响者，戴着黑色亮面口罩、铆钉皮革腕带，留着黑色长指甲，置身于室内场景。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "哥特时尚肖像中的 ai 影响者 一个简单的提示，用于生成一张 ai 影响者的肖像，风格为另类哥特时尚，特点是在室内环境中佩戴黑色亮面口罩和带钉皮革配饰。 ai influencer in alternative goth fashion wearing a black glossy face mask, spiked leather wrist cuffs, and long black nails in an indoor setting. 身穿另类哥特式时装的 ai 影响者，戴着黑色亮面口罩、铆钉皮革腕带，留着黑色长指甲，置身于室内场景。 degen_dev - d/acc 10758",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10737,
+      "title": "Origami 厨房横截面",
+      "description": "一个用于生成现代厨房大型折纸式剖面图的提示，其中所有元素（橱柜、岛台、电器）都呈现为折叠的纸飞机，并指定柔和的粉彩色调、可见的折叠线和自然日光。",
+      "sourceLink": "https://x.com/Strength04_X/status/2026188503453958575",
+      "sourcePublishedAt": "2026-02-24T06:52:38.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "A large-scale origami-style kitchen cutaway in color, filling most of the frame. All elements are made from folded paper planes: cabinets, countertops, island, backsplash, floor, window, and appliances simplified into geometric forms. Soft pastel colors (warm white cabinetry, pale sage or soft blue accents, light wood tones). Clear fold lines, layered paper depth, visible paper texture. Natural daylight, subtle shadows, modern minimal kitchen aesthetic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001503565_6xqmmv_HB53rLUa0AA_O14.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001503565_6xqmmv_HB53rLUa0AA_O14-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个大型的、折纸风格的彩色厨房剖面图，占据了画面的大部分。所有元素都由折叠的纸片构成：橱柜、台面、中岛、防溅板、地板、窗户和简化为几何形状的电器。柔和的马卡龙色调（暖白色橱柜、淡鼠尾草绿或柔和的蓝色点缀、浅木色调）。清晰的折痕、分层的纸张深度、可见的纸张纹理。自然日光、微妙的阴影、现代简约的厨房美学。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "origami 厨房横截面 一个用于生成现代厨房大型折纸式剖面图的提示，其中所有元素（橱柜、岛台、电器）都呈现为折叠的纸飞机，并指定柔和的粉彩色调、可见的折叠线和自然日光。 a large-scale origami-style kitchen cutaway in color, filling most of the frame. all elements are made from folded paper planes: cabinets, countertops, island, backsplash, floor, window, and appliances simplified into geometric forms. soft pastel colors (warm white cabinetry, pale sage or soft blue accents, light wood tones). clear fold lines, layered paper depth, visible paper texture. natural daylight, subtle shadows, modern minimal kitchen aesthetic. 一个大型的、折纸风格的彩色厨房剖面图，占据了画面的大部分。所有元素都由折叠的纸片构成：橱柜、台面、中岛、防溅板、地板、窗户和简化为几何形状的电器。柔和的马卡龙色调（暖白色橱柜、淡鼠尾草绿或柔和的蓝色点缀、浅木色调）。清晰的折痕、分层的纸张深度、可见的纸张纹理。自然日光、微妙的阴影、现代简约的厨房美学。 𝐌 10737",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10811,
+      "title": "夜间自信女高尔夫球手提示",
+      "description": "一个结构化提示，用于生成一张名为 Sophia Williams 的年轻女性图片，她留着红色卷发，身穿蓝色露脐运动上衣和紧身裤。场景是夜晚的高尔夫练习场，在明亮的体育场灯光下，远处可见城市灯光，强调健身和自信的主题。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2026184933627371920",
+      "sourcePublishedAt": "2026-02-24T06:38:27.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{ \"name\": \"{argument name=\"character name\" default=\"Sophia Williams\"}\", \"age_range\": \"Young Adult\", \"gender\": \"Female\", \"hair\": { \"color\": \"{argument name=\"hair color\" default=\"Red\"}\", \"style\": \"Curly\", \"length\": \"Medium\" }, \"outfit\": { \"top\": { \"type\": \"Crop athletic top\", \"color\": \"Blue\" }, \"bottom\": { \"type\": \"Fitted athletic pants\", \"color\": \"Blue\" } }, \"location\": { \"type\": \"Golf driving range\", \"time\": \"Night\", \"lighting\": \"Bright stadium lights\", \"background\": \"City lights visible in distance\" }, \"pose\": { \"body_position\": \"Standing, slightly turned\", \"object_held\": \"Golf club\", \"expression\": \"Confident and focused\" }, \"theme\": \"Fitness, confidence, and determination\", \"mood\": \"Strong, composed, and self-assured\" }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001545364_wnl0zf_HB50dWHXAAAiREI.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001545364_wnl0zf_HB50dWHXAAAiREI-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{ \"name\": \"{argument name=\"character name\" default=\"Sophia Williams\"}\", \"age_range\": \"青年\", \"gender\": \"女性\", \"hair\": { \"color\": \"{argument name=\"hair color\" default=\"Red\"}\", \"style\": \"卷发\", \"length\": \"中等\" }, \"outfit\": { \"top\": { \"type\": \"运动露脐上衣\", \"color\": \"蓝色\" }, \"bottom\": { \"type\": \"紧身运动裤\", \"color\": \"蓝色\" } }, \"location\": { \"type\": \"高尔夫练习场\", \"time\": \"夜晚\", \"lighting\": \"明亮的体育场灯光\", \"background\": \"远处可见城市灯光\" }, \"pose\": { \"body_position\": \"站立，身体略微侧转\", \"object_held\": \"高尔夫球杆\", \"expression\": \"自信专注\" }, \"theme\": \"健身、自信和决心\", \"mood\": \"强大、沉着、自信\" }",
+      "sourcePlatform": "twitter",
+      "searchIndex": "夜间自信女高尔夫球手提示 一个结构化提示，用于生成一张名为 sophia williams 的年轻女性图片，她留着红色卷发，身穿蓝色露脐运动上衣和紧身裤。场景是夜晚的高尔夫练习场，在明亮的体育场灯光下，远处可见城市灯光，强调健身和自信的主题。 { \"name\": \"{argument name=\"character name\" default=\"sophia williams\"}\", \"age_range\": \"young adult\", \"gender\": \"female\", \"hair\": { \"color\": \"{argument name=\"hair color\" default=\"red\"}\", \"style\": \"curly\", \"length\": \"medium\" }, \"outfit\": { \"top\": { \"type\": \"crop athletic top\", \"color\": \"blue\" }, \"bottom\": { \"type\": \"fitted athletic pants\", \"color\": \"blue\" } }, \"location\": { \"type\": \"golf driving range\", \"time\": \"night\", \"lighting\": \"bright stadium lights\", \"background\": \"city lights visible in distance\" }, \"pose\": { \"body_position\": \"standing, slightly turned\", \"object_held\": \"golf club\", \"expression\": \"confident and focused\" }, \"theme\": \"fitness, confidence, and determination\", \"mood\": \"strong, composed, and self-assured\" } { \"name\": \"{argument name=\"character name\" default=\"sophia williams\"}\", \"age_range\": \"青年\", \"gender\": \"女性\", \"hair\": { \"color\": \"{argument name=\"hair color\" default=\"red\"}\", \"style\": \"卷发\", \"length\": \"中等\" }, \"outfit\": { \"top\": { \"type\": \"运动露脐上衣\", \"color\": \"蓝色\" }, \"bottom\": { \"type\": \"紧身运动裤\", \"color\": \"蓝色\" } }, \"location\": { \"type\": \"高尔夫练习场\", \"time\": \"夜晚\", \"lighting\": \"明亮的体育场灯光\", \"background\": \"远处可见城市灯光\" }, \"pose\": { \"body_position\": \"站立，身体略微侧转\", \"object_held\": \"高尔夫球杆\", \"expression\": \"自信专注\" }, \"theme\": \"健身、自信和决心\", \"mood\": \"强大、沉着、自信\" } zainab fatima 10811",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10808,
+      "title": "Nano Banana Pro 提示词：最终幻想 利维坦 对战 玩家（赛博朋克）",
+      "description": "一个给 Nano Banana Pro（Gemini 3 Pro 图像）的提示，用于生成一张《最终幻想》召唤兽利维坦与玩家战斗的图像，以赛博朋克风格呈现。用户随后尝试将玩家数量增加到 9。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026183381806170288",
+      "sourcePublishedAt": "2026-02-24T06:32:17.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ファイナルファンタジー\n召喚獣リヴァイアサンVSプレイヤーをサイバーパンクで！\n↑\nサイバーパンク（テンプレート）\n\n次\nプレイヤーを9人に…",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001543784_owip3k_HB5zCxHasAIebJp.jpg",
+        "https://cms-assets.youmind.com/media/1772001543764_fjnwal_HB5zC0_bQAEgUM3.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001543784_owip3k_HB5zCxHasAIebJp-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001543764_fjnwal_HB5zC0_bQAEgUM3-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "最终幻想\n赛博朋克风格的召唤兽利维坦 VS 玩家！\n↑\n赛博朋克（模板）\n\n下一步\n让玩家人数变为 9 人……",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词：最终幻想 利维坦 对战 玩家（赛博朋克） 一个给 nano banana pro（gemini 3 pro 图像）的提示，用于生成一张《最终幻想》召唤兽利维坦与玩家战斗的图像，以赛博朋克风格呈现。用户随后尝试将玩家数量增加到 9。 ファイナルファンタジー\n召喚獣リヴァイアサンvsプレイヤーをサイバーパンクで！\n↑\nサイバーパンク（テンプレート）\n\n次\nプレイヤーを9人に… 最终幻想\n赛博朋克风格的召唤兽利维坦 vs 玩家！\n↑\n赛博朋克（模板）\n\n下一步\n让玩家人数变为 9 人…… クラリネットクラリオンnobu 10808",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10801,
+      "title": "泰坦与北斗百裂拳世代",
+      "description": "一个提示，要求描绘《最终幻想》召唤兽泰坦，它在画面中略小并靠后，同时散发出“北斗百裂拳”（北斗神拳百裂拳）风格的辐射。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026180619475292663",
+      "sourcePublishedAt": "2026-02-24T06:21:18.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "{argument name=\"召喚獣\" default=\"タイタン\"}をちょっと小さくして\n画面の奥に\n放射線で{argument name=\"技名\" default=\"北斗　百裂拳\"}　出させて",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001540357_m9jagy_HB5wh93bMAAYnLT.jpg",
+        "https://cms-assets.youmind.com/media/1772001540387_te2yxt_HB5wh93aoAAZ5Go.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001540357_m9jagy_HB5wh93bMAAYnLT-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001540387_te2yxt_HB5wh93aoAAZ5Go-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "让 {argument name=\"summon beast\" default=\"Titan\"} 稍微小一点\n在屏幕的后方\n让它以辐射的形式发出 {argument name=\"attack name\" default=\"Hokuto Hyakuretsu Ken\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "泰坦与北斗百裂拳世代 一个提示，要求描绘《最终幻想》召唤兽泰坦，它在画面中略小并靠后，同时散发出“北斗百裂拳”（北斗神拳百裂拳）风格的辐射。 {argument name=\"召喚獣\" default=\"タイタン\"}をちょっと小さくして\n画面の奥に\n放射線で{argument name=\"技名\" default=\"北斗　百裂拳\"}　出させて 让 {argument name=\"summon beast\" default=\"titan\"} 稍微小一点\n在屏幕的后方\n让它以辐射的形式发出 {argument name=\"attack name\" default=\"hokuto hyakuretsu ken\"} クラリネットクラリオンnobu 10801",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10799,
+      "title": "Final Fantasy 巴哈姆特 VS 玩家生成",
+      "description": "一个提示，要求以奇幻的方式描绘《最终幻想》召唤兽巴哈姆特与玩家角色战斗的场景。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026175930423713825",
+      "sourcePublishedAt": "2026-02-24T06:02:40.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"バハムート\"}VSプレイヤーを\n幻想的に",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001539833_vq1pv6_HB5sRE5bIAAszlp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001539833_vq1pv6_HB5sRE5bIAAszlp-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "最终幻想\n{argument name=\"summon name\" default=\"Bahamut\"} 召唤兽与玩家的奇幻风格对决",
+      "sourcePlatform": "twitter",
+      "searchIndex": "final fantasy 巴哈姆特 vs 玩家生成 一个提示，要求以奇幻的方式描绘《最终幻想》召唤兽巴哈姆特与玩家角色战斗的场景。 ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"バハムート\"}vsプレイヤーを\n幻想的に 最终幻想\n{argument name=\"summon name\" default=\"bahamut\"} 召唤兽与玩家的奇幻风格对决 クラリネットクラリオンnobu 10799",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10779,
+      "title": "金色时段海滩自拍，搭配粉色鲜花",
+      "description": "一个用于生成黄金时段超逼真海滩自拍的结构化提示。主体是一位年轻的红发女性，她用一朵亮粉色鲜花遮住一只眼睛。该提示指定了光线（黄金时段）、相机视角（自拍）和详细纹理（阳光亲吻的肌肤、水润的妆容），以获得逼真的效果。",
+      "sourceLink": "https://x.com/mizq06/status/2026175666765603159",
+      "sourcePublishedAt": "2026-02-24T06:01:38.000Z",
+      "author": {
+        "name": "Miz",
+        "link": "https://x.com/mizq06"
+      },
+      "content": "{\n  \"prompt\": \"Ultra-realistic beach selfie of a young woman with long wavy red hair standing on a rocky sandy beach at golden hour. She is holding a bright pink flower over one eye, looking directly at the camera with a soft, natural expression. She is wearing a white strapless top and a delicate gold heart necklace. Sun-kissed glowing skin with light freckles, dewy makeup, glossy lips. Ocean waves and scattered rocks in the background, warm sunset lighting, cinematic natural light, high detail, sharp focus, shallow depth of field, 4k resolution, photorealistic.\",\n  \"negative_prompt\": \"blurry, low resolution, overexposed, underexposed, distorted face, extra fingers, bad anatomy, watermark, text, logo\",\n  \"settings\": {\n    \"resolution\": \"1024x1536\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"selfie perspective\",\n    \"quality\": \"high detail, 4k\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001529597_batigu_HB5sBksbQAAy7gu.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001529597_batigu_HB5sBksbQAAy7gu-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"一位年轻女子，留着波浪状的红色长发，在黄金时段站在岩石沙滩上，拍摄超逼真的海滩自拍。她用一朵亮粉色的花遮住一只眼睛，面带柔和自然的表情，直视镜头。她穿着白色无肩带上衣，戴着精致的金色心形项链。皮肤晒得发亮，有淡淡的雀斑，妆容水润，嘴唇光泽。背景是海浪和散落的岩石，温暖的日落光线，电影般的自然光，高细节，锐利对焦，浅景深，4k 分辨率，照片般逼真。\",\n  \"negative_prompt\": \"模糊，低分辨率，过曝，欠曝，脸部扭曲，多余的手指，糟糕的解剖结构，水印，文字，标志\",\n  \"settings\": {\n    \"resolution\": \"1024x1536\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"selfie perspective\",\n    \"quality\": \"high detail, 4k\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "金色时段海滩自拍，搭配粉色鲜花 一个用于生成黄金时段超逼真海滩自拍的结构化提示。主体是一位年轻的红发女性，她用一朵亮粉色鲜花遮住一只眼睛。该提示指定了光线（黄金时段）、相机视角（自拍）和详细纹理（阳光亲吻的肌肤、水润的妆容），以获得逼真的效果。 {\n  \"prompt\": \"ultra-realistic beach selfie of a young woman with long wavy red hair standing on a rocky sandy beach at golden hour. she is holding a bright pink flower over one eye, looking directly at the camera with a soft, natural expression. she is wearing a white strapless top and a delicate gold heart necklace. sun-kissed glowing skin with light freckles, dewy makeup, glossy lips. ocean waves and scattered rocks in the background, warm sunset lighting, cinematic natural light, high detail, sharp focus, shallow depth of field, 4k resolution, photorealistic.\",\n  \"negative_prompt\": \"blurry, low resolution, overexposed, underexposed, distorted face, extra fingers, bad anatomy, watermark, text, logo\",\n  \"settings\": {\n    \"resolution\": \"1024x1536\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"selfie perspective\",\n    \"quality\": \"high detail, 4k\"\n  }\n} ```json\n{\n  \"prompt\": \"一位年轻女子，留着波浪状的红色长发，在黄金时段站在岩石沙滩上，拍摄超逼真的海滩自拍。她用一朵亮粉色的花遮住一只眼睛，面带柔和自然的表情，直视镜头。她穿着白色无肩带上衣，戴着精致的金色心形项链。皮肤晒得发亮，有淡淡的雀斑，妆容水润，嘴唇光泽。背景是海浪和散落的岩石，温暖的日落光线，电影般的自然光，高细节，锐利对焦，浅景深，4k 分辨率，照片般逼真。\",\n  \"negative_prompt\": \"模糊，低分辨率，过曝，欠曝，脸部扭曲，多余的手指，糟糕的解剖结构，水印，文字，标志\",\n  \"settings\": {\n    \"resolution\": \"1024x1536\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"selfie perspective\",\n    \"quality\": \"high detail, 4k\"\n  }\n}\n``` miz 10779",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10795,
+      "title": "最终幻想 伊弗利特 召唤兽生成",
+      "description": "一个提示，要求以奇幻或富有想象力的方式描绘《最终幻想》中的召唤兽伊弗利特。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026175366101090474",
+      "sourcePublishedAt": "2026-02-24T06:00:26.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"イフリート\"}を幻想的に",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001537687_q0xiic_HB5rwOFbkAEJ6he.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001537687_q0xiic_HB5rwOFbkAEJ6he-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "最终幻想\n{argument name=\"summon name\" default=\"Ifrit\"} 召唤兽，以奇幻风格呈现",
+      "sourcePlatform": "twitter",
+      "searchIndex": "最终幻想 伊弗利特 召唤兽生成 一个提示，要求以奇幻或富有想象力的方式描绘《最终幻想》中的召唤兽伊弗利特。 ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"イフリート\"}を幻想的に 最终幻想\n{argument name=\"summon name\" default=\"ifrit\"} 召唤兽，以奇幻风格呈现 クラリネットクラリオンnobu 10795",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10797,
+      "title": "最终幻想泰坦召唤生成",
+      "description": "一个提示，要求以奇幻或富有想象力的方式描绘《最终幻想》召唤兽泰坦。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026174881411522798",
+      "sourcePublishedAt": "2026-02-24T05:58:30.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"タイタン\"}を幻想的に",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001538916_rcorkv_HB5rUAiaoAA5pkI.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001538916_rcorkv_HB5rUAiaoAA5pkI-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "最终幻想\n{argument name=\"summon name\" default=\"Titan\"} 召唤兽，奇幻风格",
+      "sourcePlatform": "twitter",
+      "searchIndex": "最终幻想泰坦召唤生成 一个提示，要求以奇幻或富有想象力的方式描绘《最终幻想》召唤兽泰坦。 ファイナルファンタジー\n召喚獣{argument name=\"召喚獣名\" default=\"タイタン\"}を幻想的に 最终幻想\n{argument name=\"summon name\" default=\"titan\"} 召唤兽，奇幻风格 クラリネットクラリオンnobu 10797",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10756,
+      "title": "说唱歌手变身提示词",
+      "description": "一个提示，要求将现有图片转换成说唱歌手的形象，具体要求是紫色迷彩 BAPE 连帽衫、钻石项链和钻石牙套。",
+      "sourceLink": "https://x.com/BusyWorksBeats/status/2026174320356081722",
+      "sourcePublishedAt": "2026-02-24T05:56:17.000Z",
+      "author": {
+        "name": "Busy Works Beats",
+        "link": "https://x.com/BusyWorksBeats"
+      },
+      "content": "Make me a rapper with a purple camo BAPE hoodie, give me diamond chains and diamond grill. Keep this same image, just make me a rapper",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001515215_ck38ud_HB5pnMmXQAAmqc4.jpg",
+        "https://cms-assets.youmind.com/media/1772001515271_3weeyt_HB5qoFNXQAIiGbP.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001515215_ck38ud_HB5pnMmXQAAmqc4-300x200.jpg",
+        "https://cms-assets.youmind.com/media/1772001515271_3weeyt_HB5qoFNXQAIiGbP-300x201.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "把我变成一个穿着紫色迷彩 BAPE 连帽衫的说唱歌手，给我戴上钻石项链和钻石牙套。保持这个形象不变，把我变成一个说唱歌手。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "说唱歌手变身提示词 一个提示，要求将现有图片转换成说唱歌手的形象，具体要求是紫色迷彩 bape 连帽衫、钻石项链和钻石牙套。 make me a rapper with a purple camo bape hoodie, give me diamond chains and diamond grill. keep this same image, just make me a rapper 把我变成一个穿着紫色迷彩 bape 连帽衫的说唱歌手，给我戴上钻石项链和钻石牙套。保持这个形象不变，把我变成一个说唱歌手。 busy works beats 10756",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10793,
+      "title": "金色时段时尚男士户外肖像",
+      "description": "一个详细的提示，用于生成一张在黄金时段拍摄的时尚年轻男士的超逼真全身户外肖像。该提示详细说明了他的随意姿势（双手插兜）、服装（米色夹克、黑色 T 恤、宽松长裤）、环境（茂密的绿色植物）以及技术细节（电影级生活摄影、85mm 镜头、自然暖色调校色），以实现高分辨率的真实感。",
+      "sourceLink": "https://x.com/ZaraIrahh/status/2026169285316419840",
+      "sourcePublishedAt": "2026-02-24T05:36:16.000Z",
+      "author": {
+        "name": "Zara",
+        "link": "https://x.com/ZaraIrahh"
+      },
+      "content": "Ultra-realistic full-body outdoor portrait of a stylish young man walking casually along a sunlit path surrounded by dense green foliage. He is wearing a light beige textured jacket over a fitted black t-shirt, loose black trousers, and clean white sneakers. A subtle necklace is visible at his collar. His hands are in his pockets, posture relaxed and confident. Warm golden hour sunlight creates soft natural shadows and highlights on his face and clothing. Lush leafy trees fill the background with a creamy shallow depth of field. Cinematic lifestyle photography, 85mm lens, natural warm color grading, realistic skin texture, high detail fabric textures, ultra-detailed, 8k realism.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001536874_cy5bi0_HB5mNalXEAAXcBz.jpg",
+        "https://cms-assets.youmind.com/media/1772001536940_w0c558_HB5mNYWXoAE99jr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001536874_cy5bi0_HB5mNalXEAAXcBz-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772001536940_w0c558_HB5mNYWXoAE99jr-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位时尚的年轻男士在阳光普照的小径上随意漫步，周围是茂密的绿色植物，呈现出超逼真的全身户外肖像。他身穿一件浅米色纹理夹克，内搭修身黑色 T 恤，下穿宽松黑色长裤和干净的白色运动鞋。衣领处隐约可见一条精致的项链。他双手插兜，姿态放松而自信。温暖的黄金时段阳光在他的脸部和衣物上投射出柔和自然的阴影和高光。郁郁葱葱的树叶填满了背景，呈现出奶油般的浅景深效果。电影级生活摄影，85mm 镜头，自然暖色调，逼真的皮肤纹理，高细节面料纹理，超细节，8k 真实感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "金色时段时尚男士户外肖像 一个详细的提示，用于生成一张在黄金时段拍摄的时尚年轻男士的超逼真全身户外肖像。该提示详细说明了他的随意姿势（双手插兜）、服装（米色夹克、黑色 t 恤、宽松长裤）、环境（茂密的绿色植物）以及技术细节（电影级生活摄影、85mm 镜头、自然暖色调校色），以实现高分辨率的真实感。 ultra-realistic full-body outdoor portrait of a stylish young man walking casually along a sunlit path surrounded by dense green foliage. he is wearing a light beige textured jacket over a fitted black t-shirt, loose black trousers, and clean white sneakers. a subtle necklace is visible at his collar. his hands are in his pockets, posture relaxed and confident. warm golden hour sunlight creates soft natural shadows and highlights on his face and clothing. lush leafy trees fill the background with a creamy shallow depth of field. cinematic lifestyle photography, 85mm lens, natural warm color grading, realistic skin texture, high detail fabric textures, ultra-detailed, 8k realism. 一位时尚的年轻男士在阳光普照的小径上随意漫步，周围是茂密的绿色植物，呈现出超逼真的全身户外肖像。他身穿一件浅米色纹理夹克，内搭修身黑色 t 恤，下穿宽松黑色长裤和干净的白色运动鞋。衣领处隐约可见一条精致的项链。他双手插兜，姿态放松而自信。温暖的黄金时段阳光在他的脸部和衣物上投射出柔和自然的阴影和高光。郁郁葱葱的树叶填满了背景，呈现出奶油般的浅景深效果。电影级生活摄影，85mm 镜头，自然暖色调，逼真的皮肤纹理，高细节面料纹理，超细节，8k 真实感。 zara 10793",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10744,
+      "title": "新黑色杀手电影剧照",
+      "description": "一个详细的提示，用于生成一张杀手（基于上传图片）的全身电影剧照：他身穿定制黑色西装，与一只肌肉发达的杜宾犬和一把手枪站立在一辆复古肌肉车旁，强调忧郁的新黑色电影氛围、戏剧性的影棚灯光和超现实的纹理。",
+      "sourceLink": "https://x.com/rovvmut_/status/2026162681171075451",
+      "sourcePublishedAt": "2026-02-24T05:10:02.000Z",
+      "author": {
+        "name": "Heisenberg",
+        "link": "https://x.com/rovvmut_"
+      },
+      "content": "Full body cinematic shot of the person in the uploaded image as a hitman in a tailored black suit and tie standing in an empty studio space beside a muscular Doberman dog on a leash. The man has a bruised face with blood marks, messy shoulder-length hair, and a calm but intense expression. He is holding a pistol in one hand. Behind them is a vintage black muscle car with chrome rims partially visible in soft shadow. Minimalist grey background, dramatic studio lighting from above creating soft reflections on the glossy floor. Ultra realistic skin texture, cinematic depth of field, sharp focus, subtle fog in the background, moody atmosphere, 85mm lens look, volumetric light, film still from a neo-noir action movie, high dynamic range, photorealistic, 8k, symmetrical composition. 3:4 aspect ratio.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001507342_5fgnw1_HB5gOCYbMAAWz8T.jpg",
+        "https://cms-assets.youmind.com/media/1772001507423_yi0jgh_HB5gOEdaUAEmtmN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001507342_5fgnw1_HB5gOCYbMAAWz8T-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001507423_yi0jgh_HB5gOEdaUAEmtmN-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "上传图片中人物的全身电影镜头，他身穿定制的黑色西装和领带，扮演一名杀手，站在一个空荡荡的摄影棚里，旁边有一只系着皮带的肌肉发达的杜宾犬。这名男子脸上带着瘀伤和血迹，头发凌乱及肩，表情平静而专注。他一手持枪。他们身后是一辆复古黑色肌肉车，镀铬轮辋在柔和的阴影中若隐若现。简约的灰色背景，上方戏剧性的影棚灯光在光泽的地板上形成柔和的反射。超逼真的皮肤纹理，电影般的景深，锐利的焦点，背景中弥漫着微妙的薄雾，营造出一种忧郁的氛围，85 毫米镜头效果，体积光，新黑色动作电影的电影剧照，高动态范围，照片级真实感，8k，对称构图。3:4 宽高比。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "新黑色杀手电影剧照 一个详细的提示，用于生成一张杀手（基于上传图片）的全身电影剧照：他身穿定制黑色西装，与一只肌肉发达的杜宾犬和一把手枪站立在一辆复古肌肉车旁，强调忧郁的新黑色电影氛围、戏剧性的影棚灯光和超现实的纹理。 full body cinematic shot of the person in the uploaded image as a hitman in a tailored black suit and tie standing in an empty studio space beside a muscular doberman dog on a leash. the man has a bruised face with blood marks, messy shoulder-length hair, and a calm but intense expression. he is holding a pistol in one hand. behind them is a vintage black muscle car with chrome rims partially visible in soft shadow. minimalist grey background, dramatic studio lighting from above creating soft reflections on the glossy floor. ultra realistic skin texture, cinematic depth of field, sharp focus, subtle fog in the background, moody atmosphere, 85mm lens look, volumetric light, film still from a neo-noir action movie, high dynamic range, photorealistic, 8k, symmetrical composition. 3:4 aspect ratio. 上传图片中人物的全身电影镜头，他身穿定制的黑色西装和领带，扮演一名杀手，站在一个空荡荡的摄影棚里，旁边有一只系着皮带的肌肉发达的杜宾犬。这名男子脸上带着瘀伤和血迹，头发凌乱及肩，表情平静而专注。他一手持枪。他们身后是一辆复古黑色肌肉车，镀铬轮辋在柔和的阴影中若隐若现。简约的灰色背景，上方戏剧性的影棚灯光在光泽的地板上形成柔和的反射。超逼真的皮肤纹理，电影般的景深，锐利的焦点，背景中弥漫着微妙的薄雾，营造出一种忧郁的氛围，85 毫米镜头效果，体积光，新黑色动作电影的电影剧照，高动态范围，照片级真实感，8k，对称构图。3:4 宽高比。 heisenberg 10744",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10729,
+      "title": "逼真的雏菊拼贴画",
+      "description": "一个用于创建逼真 2x2 拼贴画的提示，拼贴画内容为一位年轻女性身处绿色森林中，特写镜头聚焦于她的手、眼睛和一张微笑的肖像，所有画面都包含一朵白色雏菊。该提示还指定了光线、氛围和分辨率。",
+      "sourceLink": "https://x.com/EdraakTechAi/status/2026148077573128514",
+      "sourcePublishedAt": "2026-02-24T04:12:00.000Z",
+      "author": {
+        "name": "Edraak Tech | إدراك تِك",
+        "link": "https://x.com/EdraakTechAi"
+      },
+      "content": "A photorealistic 2x2 collage of a young woman with long dark hair outdoors in a green forest. Top-left: A hand with purple nails and a silver watch holding a white daisy. Top-right: a close-up of an eye gazing at a daisy, the eye with brown-green iris, and a portion of the brow and hair.. Bottom-left: shows a hand arranging a daisy near an ear, with dark hair, visible is a gold earring. Bottom-right: A smiling close-up looking at the camera with the daisy in her hair. Dominant colors are natural greens, crisp white, and warm skin tones, lit by soft natural dappled daylight. Fine details include winged eyeliner, a white shirt, metallic watch reflections, and a blurred bokeh tree background. Serene, cheerful mood, 4k resolution, highly detailed.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001499052_cslpcy_HB5S7ZLW0AAsvNH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001499052_cslpcy_HB5S7ZLW0AAsvNH-300x498.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张逼真的 2x2 拼贴画，描绘了一位留着深色长发的年轻女子在绿色森林中的场景。左上：一只手，紫色指甲，戴着银色手表，握着一朵白色雏菊。右上：眼睛凝视雏菊的特写，眼睛有棕绿色虹膜，眉毛和头发的一部分可见。左下：一只手在耳朵附近整理雏菊，深色头发，可见金色耳环。右下：微笑着看向镜头，头发上戴着雏菊的特写。主色调是自然的绿色、清爽的白色和温暖的肤色，由柔和的斑驳日光照亮。精细细节包括飞扬的眼线、白色衬衫、金属手表反光和模糊的散景树背景。宁静、愉悦的氛围，4k 分辨率，高度详细。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "逼真的雏菊拼贴画 一个用于创建逼真 2x2 拼贴画的提示，拼贴画内容为一位年轻女性身处绿色森林中，特写镜头聚焦于她的手、眼睛和一张微笑的肖像，所有画面都包含一朵白色雏菊。该提示还指定了光线、氛围和分辨率。 a photorealistic 2x2 collage of a young woman with long dark hair outdoors in a green forest. top-left: a hand with purple nails and a silver watch holding a white daisy. top-right: a close-up of an eye gazing at a daisy, the eye with brown-green iris, and a portion of the brow and hair.. bottom-left: shows a hand arranging a daisy near an ear, with dark hair, visible is a gold earring. bottom-right: a smiling close-up looking at the camera with the daisy in her hair. dominant colors are natural greens, crisp white, and warm skin tones, lit by soft natural dappled daylight. fine details include winged eyeliner, a white shirt, metallic watch reflections, and a blurred bokeh tree background. serene, cheerful mood, 4k resolution, highly detailed. 一张逼真的 2x2 拼贴画，描绘了一位留着深色长发的年轻女子在绿色森林中的场景。左上：一只手，紫色指甲，戴着银色手表，握着一朵白色雏菊。右上：眼睛凝视雏菊的特写，眼睛有棕绿色虹膜，眉毛和头发的一部分可见。左下：一只手在耳朵附近整理雏菊，深色头发，可见金色耳环。右下：微笑着看向镜头，头发上戴着雏菊的特写。主色调是自然的绿色、清爽的白色和温暖的肤色，由柔和的斑驳日光照亮。精细细节包括飞扬的眼线、白色衬衫、金属手表反光和模糊的散景树背景。宁静、愉悦的氛围，4k 分辨率，高度详细。 edraak tech | إدراك تِك 10729",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 140,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

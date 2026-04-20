@@ -1,0 +1,727 @@
+.page {
+  width: min(1088px, calc(100vw - 40px));
+  margin: 0 auto;
+  padding: 12px 0 44px;
+  color: #111;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ececec;
+}
+
+.pageHeaderMain {
+  min-width: 0;
+}
+
+.brand {
+  color: #767676;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pageTitle {
+  display: grid;
+  gap: 2px;
+  margin: 6px 0 0;
+  font-size: clamp(30px, 4vw, 40px);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.pageIntro {
+  width: min(620px, 100%);
+  margin: 8px 0 0;
+  color: #767676;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.headerAction,
+.chip,
+.chipActive,
+.primaryButton,
+.secondaryButton,
+.detailDialogClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.headerAction {
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  color: #5f5f5f;
+  font-size: 13px;
+}
+
+.headerActionPrimary,
+.primaryButton {
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+}
+
+.pageHeaderStats {
+  min-width: 120px;
+  padding-top: 6px;
+  text-align: right;
+}
+
+.pageHeaderStats strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pageHeaderStats span {
+  display: block;
+  margin-top: 6px;
+  color: #767676;
+  font-size: 12px;
+}
+
+.promptPanel {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #fbfbfb;
+}
+
+.promptPanelHead,
+.toolbarRow,
+.toolbarMeta,
+.cardMeta,
+.cardFooter,
+.promptCardHead,
+.detailMeta,
+.detailLinks,
+.detailActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.promptPanelHead {
+  margin-bottom: 10px;
+  color: #767676;
+  font-size: 13px;
+}
+
+.promptBox {
+  width: 100%;
+  min-height: 66px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  line-height: 1.72;
+  resize: vertical;
+  outline: none;
+  font: inherit;
+}
+
+.toolbar {
+  padding: 10px 0 12px;
+  border-bottom: 1px solid #ececec;
+}
+
+.toolbarSummary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.toolbarSummaryLabel {
+  color: #767676;
+  font-size: 14px;
+}
+
+.toolbarSummary strong {
+  font-size: 18px;
+}
+
+.toolbarGroup,
+.toolbarControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.toolbarRow {
+  margin-top: 10px;
+}
+
+.toolbarMeta {
+  margin-top: 10px;
+  color: #767676;
+  font-size: 13px;
+}
+
+.chip {
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #6e6e6e;
+  font-size: 14px;
+}
+
+.chipActive {
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #111;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  font-size: 14px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(360px, 100%);
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #e1e1e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #767676;
+  font-size: 13px;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #111;
+  font: inherit;
+}
+
+.controlInline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.controlInlineLabel {
+  color: #767676;
+  font-size: 13px;
+}
+
+.feed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 14px;
+}
+
+.card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 12px;
+  grid-template-rows: auto auto auto auto auto 1fr auto;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.cardMeta {
+  display: grid;
+  gap: 8px;
+  min-height: 64px;
+  color: #a1a1a1;
+  font-size: 13px;
+}
+
+.cardMetaRow,
+.cardMetaLeft,
+.cardMetaRight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardMetaRow {
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 24px;
+}
+
+.cardMetaLeft,
+.cardMetaRight {
+  min-width: 0;
+}
+
+.cardMetaLeft {
+  flex-wrap: nowrap;
+}
+
+.cardMetaLeftSecondary,
+.cardMetaRight {
+  color: #a1a1a1;
+}
+
+.cardAuthor {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 24px;
+  max-width: 170px;
+  line-height: 1.2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.cardMetaRight {
+  justify-content: flex-end;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: #f3f3f3;
+  color: #5f5f5f;
+  font-size: 12px;
+}
+
+.cardTitle {
+  margin: 0;
+  display: -webkit-box;
+  min-height: 54px;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 1.34;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.previewFrame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  border: 2px solid #111;
+  border-radius: 16px;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.previewFrame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.02;
+  object-fit: cover;
+}
+
+.previewFallback {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  color: #8a8a8a;
+  font-size: 13px;
+}
+
+.previewButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.previewIcon {
+  position: relative;
+  width: 16px;
+  height: 10px;
+  border: 1.5px solid #111;
+  border-radius: 10px / 7px;
+}
+
+.previewIcon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #111;
+  transform: translate(-50%, -50%);
+}
+
+.previewOverlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.92) 62%);
+  color: #fff;
+}
+
+.previewDots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.previewDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.previewDotActive {
+  background: #f5cf52;
+}
+
+.previewLink {
+  font-size: 12px;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #5670a0;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.cardSummary,
+.detailSummary {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.cardSummary {
+  display: -webkit-box;
+  min-height: 68px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.promptCard,
+.detailPrompt {
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid #111;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.promptCard {
+  display: grid;
+  grid-template-rows: auto 220px;
+}
+
+.promptCardHead {
+  padding: 10px 12px;
+  background: #111;
+  color: #fff;
+}
+
+.promptCardHeadActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promptCardTitle {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.promptCardTag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+}
+
+.promptCardBody,
+.detailPromptBody {
+  position: relative;
+  padding: 12px;
+  background: #fff;
+}
+
+.promptCardBody {
+  overflow: auto;
+  padding: 14px 58px 14px 14px;
+}
+
+.promptCardBody pre,
+.detailPromptBody pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #282828;
+  font-family: Consolas, "SFMono-Regular", monospace;
+  font-size: 11.5px;
+  line-height: 1.68;
+}
+
+.promptCardBody pre {
+  min-height: 100%;
+  padding-bottom: 54px;
+}
+
+.promptCardCopy {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid #111;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #d9d9d9;
+  cursor: pointer;
+}
+
+.promptCardCopy::before,
+.promptCardCopy::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 14px;
+  border: 2px solid #111;
+  background: #fff;
+}
+
+.promptCardCopy::before {
+  top: 11px;
+  left: 14px;
+}
+
+.promptCardCopy::after {
+  top: 7px;
+  left: 18px;
+}
+
+.cardFooter {
+  justify-content: flex-end;
+}
+
+.secondaryButton {
+  border: 1px solid #dedede;
+  background: #fff;
+  color: #444;
+  font-size: 13px;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.detailDialog {
+  position: relative;
+  width: min(1088px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  padding: 22px;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.detailDialogClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #111;
+}
+
+.detailContent {
+  display: grid;
+  gap: 18px;
+}
+
+.detailTitle {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+}
+
+.detailImage {
+  overflow: hidden;
+  width: min(820px, 100%);
+  border: 2px solid #111;
+  border-radius: 18px;
+  background: #f4f4f4;
+}
+
+.detailImage img {
+  display: block;
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  background: #f4f4f4;
+}
+
+.emptyState {
+  padding: 36px 0;
+  color: #767676;
+  font-size: 14px;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 90;
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+}
+
+.headerAction:hover,
+.chip:hover,
+.chipActive:hover,
+.primaryButton:hover,
+.secondaryButton:hover,
+.detailDialogClose:hover,
+.previewFrame:hover,
+.promptCardCopy:hover,
+.textLink:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 900px) {
+  .pageHeader,
+  .toolbarRow,
+  .toolbarMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pageHeaderStats {
+    text-align: left;
+  }
+
+  .toolbarControls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .cardMetaRow {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100vw - 20px, 1088px);
+    padding-top: 18px;
+  }
+
+  .feed {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitle {
+    font-size: 40px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .previewFrame img {
+    aspect-ratio: 1.02 / 1;
+  }
+
+  .previewOverlay {
+    padding: 14px 15px;
+  }
+
+  .detailDialog {
+    padding: 18px;
+  }
+}

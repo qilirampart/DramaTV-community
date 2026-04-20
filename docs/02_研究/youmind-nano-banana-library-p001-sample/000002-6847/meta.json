@@ -1,0 +1,30 @@
+{
+  "rank": 2,
+  "id": 6847,
+  "title": "高级液态玻璃 Bento 网格产品信息图，含 8 个模块",
+  "description": "使用 bento grid 8 模块布局创建信息图，用户可以指定食品、药品、科技等类别中的任何产品名称，选择语言、背景样式和主网格样式。",
+  "language": "en",
+  "authorName": "Mansi Sanghani",
+  "authorLink": "https://x.com/MansiSanghani1",
+  "featured": true,
+  "sourceLink": "https://x.com/MansiSanghani1/status/2013550795224961492",
+  "sourcePublishedAt": "2026-01-20T11:04:00.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 1,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.png",
+      "02.png"
+    ],
+    "thumbs": []
+  }
+}

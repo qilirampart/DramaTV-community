@@ -1,0 +1,481 @@
+{
+  "prompts": [
+    {
+      "id": 13164,
+      "title": "Emilia Clarke 高级时装风格女学生大片",
+      "description": "这是一个为 Nano Banana 2 设计的高度结构化 JSON 提示词，旨在生成一张 Emilia Clarke 的超写实高级时装风格大片。场景设定在大学教室，主体身着大胆的女学生风格服装，跪在红色课桌上，强调清晰的对焦、干净的摄影棚灯光以及细腻的纹理渲染。",
+      "sourceLink": "https://x.com/AIARTGALLARY/status/2039655290925133939",
+      "sourcePublishedAt": "2026-04-02T10:44:50.000Z",
+      "author": {
+        "name": "AIARTGALLARY",
+        "link": "https://x.com/AIARTGALLARY"
+      },
+      "content": "{ \n“meta”: { “quality”: “ultra_photorealistic, raw style, 8k”, “camera”: “iPhone 15 Pro Max”, “lighting”: “bright, soft studio lighting, creating clean highlights on skin and clothing texture”, “style”: “high-fashion editorial, single-person focus”, “aspect_ratio”: “9:16” }, \n“scene”: { “location”: “A university classroom with blackboard on backdrop ”, “atmosphere”: “Chic, confident, and playful.” },\n “subject”: { “gender”: “female”, \n“name”: \"{argument name=\"subject name\" default=\"Emilia clarke\"}\", “body”: { “type”: “Realistic, naturally proportioned fit figure” }, \n“face”: { “features”: \"{argument name=\"face features\" default=\"emilia Clarke's distinct features, including her dark blonde hair (styled loosely with slight waves), bright wide set eyes, and a bold look.\"}\",\n “expression”: “Confident and slightly playful, with a direct gaze toward the camera.” }, \n“outfit”: { “description”: “dark red cropped short-sleeved collared shirt with a blue tie. Short pleated white mini skirt. Red nylon knee-high socks, subtly showing skin texture. Yellow patent leather heels.”, “fit”: “Tailored, modern, bold, schoolgirl-inspired.”, “accessory”: “None.” }, \n“pose”: “Kneeling on the red desk of university classroom with blackboard on backdrop with written 'Emilia' on it, angled slightly in a light side profile pose towards the left, but turning her head to gaze directly at the camera. Her right hand is thoughtfully resting under her chin, and her left hand is resting naturally on her knee, maintaining a confident posture.” }, \n“composition”: “Medium full-body shot capturing emilia Clarke from the knees up. Sharp focus on the detailed textures of her clothing, especially the knee-high socks and skirt pattern. The soft red background is seamless and clean, emphasizing the vibrant yellow tones of the outfit.” }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198515392_grmkhb_HE5PnVEXUAAi4ZG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198515392_grmkhb_HE5PnVEXUAAi4ZG-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{ \n“meta”: { “quality”: “超写实，原始风格，8k”, “camera”: “iPhone 15 Pro Max”, “lighting”: “明亮、柔和的摄影棚灯光，在皮肤和衣物纹理上营造出干净的高光”, “style”: “高级时装大片，单人聚焦”, “aspect_ratio”: “9:16” }, \n“scene”: { “location”: “背景为黑板的大学教室”, “atmosphere”: “时髦、自信且俏皮。” },\n “subject”: { “gender”: “女性”, \n“name”: \"{argument name=\"subject name\" default=\"Emilia Clarke\"}\", “body”: { “type”: “写实，比例自然的匀称身材” }, \n“face”: { “features”: \"{argument name=\"face features\" default=\"Emilia Clarke 的独特面部特征，包括深金色头发（略带波浪的松散造型）、明亮宽阔的眼睛以及大胆的神情。\"}\",\n “expression”: “自信且略带俏皮，直视镜头。” }, \n“outfit”: { “description”: “深红色短袖翻领短款衬衫，搭配蓝色领带。白色百褶超短裙。红色尼龙及膝袜，隐约透出皮肤质感。黄色漆皮高跟鞋。”, “fit”: “剪裁合身，现代，大胆，女学生风格。”, “accessory”: “无。” }, \n“pose”: “跪在大学教室的红色课桌上，背景黑板上写着‘Emilia’字样，身体略微向左侧倾斜，但头部转向直视镜头。右手托腮，左手自然地放在膝盖上，姿态自信。” }, \n“composition”: “中景全身照，捕捉 Emilia Clarke 从膝盖以上的部分。清晰对焦于衣物的细节纹理，尤其是及膝袜和裙子的图案。柔和的红色背景无缝且整洁，突显了服装鲜艳的黄色调。” }",
+      "sourcePlatform": "twitter",
+      "searchIndex": "emilia clarke 高级时装风格女学生大片 这是一个为 nano banana 2 设计的高度结构化 json 提示词，旨在生成一张 emilia clarke 的超写实高级时装风格大片。场景设定在大学教室，主体身着大胆的女学生风格服装，跪在红色课桌上，强调清晰的对焦、干净的摄影棚灯光以及细腻的纹理渲染。 { \n“meta”: { “quality”: “ultra_photorealistic, raw style, 8k”, “camera”: “iphone 15 pro max”, “lighting”: “bright, soft studio lighting, creating clean highlights on skin and clothing texture”, “style”: “high-fashion editorial, single-person focus”, “aspect_ratio”: “9:16” }, \n“scene”: { “location”: “a university classroom with blackboard on backdrop ”, “atmosphere”: “chic, confident, and playful.” },\n “subject”: { “gender”: “female”, \n“name”: \"{argument name=\"subject name\" default=\"emilia clarke\"}\", “body”: { “type”: “realistic, naturally proportioned fit figure” }, \n“face”: { “features”: \"{argument name=\"face features\" default=\"emilia clarke's distinct features, including her dark blonde hair (styled loosely with slight waves), bright wide set eyes, and a bold look.\"}\",\n “expression”: “confident and slightly playful, with a direct gaze toward the camera.” }, \n“outfit”: { “description”: “dark red cropped short-sleeved collared shirt with a blue tie. short pleated white mini skirt. red nylon knee-high socks, subtly showing skin texture. yellow patent leather heels.”, “fit”: “tailored, modern, bold, schoolgirl-inspired.”, “accessory”: “none.” }, \n“pose”: “kneeling on the red desk of university classroom with blackboard on backdrop with written 'emilia' on it, angled slightly in a light side profile pose towards the left, but turning her head to gaze directly at the camera. her right hand is thoughtfully resting under her chin, and her left hand is resting naturally on her knee, maintaining a confident posture.” }, \n“composition”: “medium full-body shot capturing emilia clarke from the knees up. sharp focus on the detailed textures of her clothing, especially the knee-high socks and skirt pattern. the soft red background is seamless and clean, emphasizing the vibrant yellow tones of the outfit.” } { \n“meta”: { “quality”: “超写实，原始风格，8k”, “camera”: “iphone 15 pro max”, “lighting”: “明亮、柔和的摄影棚灯光，在皮肤和衣物纹理上营造出干净的高光”, “style”: “高级时装大片，单人聚焦”, “aspect_ratio”: “9:16” }, \n“scene”: { “location”: “背景为黑板的大学教室”, “atmosphere”: “时髦、自信且俏皮。” },\n “subject”: { “gender”: “女性”, \n“name”: \"{argument name=\"subject name\" default=\"emilia clarke\"}\", “body”: { “type”: “写实，比例自然的匀称身材” }, \n“face”: { “features”: \"{argument name=\"face features\" default=\"emilia clarke 的独特面部特征，包括深金色头发（略带波浪的松散造型）、明亮宽阔的眼睛以及大胆的神情。\"}\",\n “expression”: “自信且略带俏皮，直视镜头。” }, \n“outfit”: { “description”: “深红色短袖翻领短款衬衫，搭配蓝色领带。白色百褶超短裙。红色尼龙及膝袜，隐约透出皮肤质感。黄色漆皮高跟鞋。”, “fit”: “剪裁合身，现代，大胆，女学生风格。”, “accessory”: “无。” }, \n“pose”: “跪在大学教室的红色课桌上，背景黑板上写着‘emilia’字样，身体略微向左侧倾斜，但头部转向直视镜头。右手托腮，左手自然地放在膝盖上，姿态自信。” }, \n“composition”: “中景全身照，捕捉 emilia clarke 从膝盖以上的部分。清晰对焦于衣物的细节纹理，尤其是及膝袜和裙子的图案。柔和的红色背景无缝且整洁，突显了服装鲜艳的黄色调。” } aiartgallary 13164",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13173,
+      "title": "电影感场景：人拥抱玩具贵宾犬",
+      "description": "这是一个用于 Nano Banana Pro 生成图像的电影感提示词，随后被用作 Kling 3.0 Omni 生成视频的帧。该提示词描述了一个柔焦、亲密的场景：一个人面带温柔微笑，拥抱着一只玩具贵宾犬。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2039628476614062139",
+      "sourcePublishedAt": "2026-04-02T08:58:17.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "シネマティックな照明とソフトフォーカスの中、優しく微笑む人物が飛び込んでくるトイプードルを抱きしめる。ふわふわの毛並みを撫でながら顔を寄せ合い、犬に頬を舐められて幸せそうに笑う、愛情に満ちたスローモーションの親密なシーン。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198518775_oj9d5c_HE43N7mawAAOuhc.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198518775_oj9d5c_HE43N7mawAAOuhc-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "在电影般的灯光和柔焦效果下，一个人面带温柔微笑，拥抱着跳入怀中的玩具贵宾犬。这是一个充满温情的慢动作亲密场景，他们抚摸着蓬松的毛发，脸贴着脸，那个人开心地笑着，小狗舔着他们的脸颊。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感场景：人拥抱玩具贵宾犬 这是一个用于 nano banana pro 生成图像的电影感提示词，随后被用作 kling 3.0 omni 生成视频的帧。该提示词描述了一个柔焦、亲密的场景：一个人面带温柔微笑，拥抱着一只玩具贵宾犬。 シネマティックな照明とソフトフォーカスの中、優しく微笑む人物が飛び込んでくるトイプードルを抱きしめる。ふわふわの毛並みを撫でながら顔を寄せ合い、犬に頬を舐められて幸せそうに笑う、愛情に満ちたスローモーションの親密なシーン。 在电影般的灯光和柔焦效果下，一个人面带温柔微笑，拥抱着跳入怀中的玩具贵宾犬。这是一个充满温情的慢动作亲密场景，他们抚摸着蓬松的毛发，脸贴着脸，那个人开心地笑着，小狗舔着他们的脸颊。 空想写真家 13173",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13141,
+      "title": "超写实电影感肖像：与迷你自我的互动",
+      "description": "这是一个为 Nano Banana 2 设计的提示词，旨在创作一幅艺术工作室中年轻男性的超写实电影感肖像。画面通过创意叙事构图，展示了一个微型版的他站在桌面上，强调了比例对比与超精细的纹理细节。",
+      "sourceLink": "https://x.com/Taaruk_/status/2039625508535885876",
+      "sourcePublishedAt": "2026-04-02T08:46:30.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic cinematic portrait of a young man sitting at a wooden desk in a cozy art studio, smiling warmly at the camera, with a tiny miniature version of himself standing on the table in front of him, perfectly detailed like a small figurine, surrounded by paint brushes, sketches, and art tools, warm ambient lighting from a desk lamp, shallow depth of field, soft bokeh background, creative storytelling composition, scale contrast illusion, hyper-detailed textures, 50mm lens, photorealistic, 8K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198504040_7r3cme_HE40koZbAAA9qkY.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198504040_7r3cme_HE40koZbAAA9qkY-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感肖像，一位年轻男子坐在舒适艺术工作室的木桌前，对着镜头温暖微笑，桌上站着一个微型版的他，细节完美如同精致手办，周围摆放着画笔、草图和艺术工具，台灯投射出温暖的环境光，浅景深效果，柔和的背景虚化，创意叙事构图，比例对比错觉，超精细纹理，50mm 镜头，照片级真实感，8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实电影感肖像：与迷你自我的互动 这是一个为 nano banana 2 设计的提示词，旨在创作一幅艺术工作室中年轻男性的超写实电影感肖像。画面通过创意叙事构图，展示了一个微型版的他站在桌面上，强调了比例对比与超精细的纹理细节。 ultra-realistic cinematic portrait of a young man sitting at a wooden desk in a cozy art studio, smiling warmly at the camera, with a tiny miniature version of himself standing on the table in front of him, perfectly detailed like a small figurine, surrounded by paint brushes, sketches, and art tools, warm ambient lighting from a desk lamp, shallow depth of field, soft bokeh background, creative storytelling composition, scale contrast illusion, hyper-detailed textures, 50mm lens, photorealistic, 8k. 超写实电影感肖像，一位年轻男子坐在舒适艺术工作室的木桌前，对着镜头温暖微笑，桌上站着一个微型版的他，细节完美如同精致手办，周围摆放着画笔、草图和艺术工具，台灯投射出温暖的环境光，浅景深效果，柔和的背景虚化，创意叙事构图，比例对比错觉，超精细纹理，50mm 镜头，照片级真实感，8k 分辨率。 taaruk 13141",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13172,
+      "title": "高端极简日式手机壁纸",
+      "description": "这是一条用于生成高端、极简、编辑风格手机壁纸（9:16 竖屏格式）的详细提示词，融合了日式美学。画面主体为一名年轻女性与抽象机械插画的互动，采用柔和的鼠尾草绿与米白色调。该提示词是基于在线模板的定制版本，展示了如何修改主体、文字和颜色等元素。",
+      "sourceLink": "https://x.com/weel_corp/status/2039618468937629895",
+      "sourcePublishedAt": "2026-04-02T08:18:31.000Z",
+      "author": {
+        "name": "WEEL メディア部｜生成AIの今をわかりやすく伝える",
+        "link": "https://x.com/weel_corp"
+      },
+      "content": "Create a premium smartphone wallpaper in vertical 9:16 format, Japanese minimal editorial aesthetic, quiet and refined, inspired by modern notebook-grid design and clean infographic illustration. Background: warm off-white paper texture with a very subtle light gray square grid across the whole canvas, soft natural paper feel, elegant and minimal, bright but not stark white. Composition: very sparse layout with large breathing room for a phone wallpaper, asymmetric balance, main illustration placed slightly below center, top and upper-middle area kept relatively open and calm, include only {argument name=\"subject\" default=\"one young woman\"} in a warm, friendly composition, she should be clearly integrated with the central machine and actively operating it, overall look should feel sophisticated, mature, and uncluttered. Illustration: a single minimalist isometric line-art machine / creative device / abstract workflow object, drawn with thin dark gray to black outlines, soft cream and pale gray fills, tiny accent details in muted {argument name=\"accent color\" default=\"sage green\"}, small geometric blocks or paper-like modules flowing through the device, include only one young woman placed naturally around the central object, interacting closely and affectionately, she should feel friendly, relaxed, and connected, show exactly one person only, no adults other than her, she should be clearly using and operating the machine, for example, her hand gently pressing or adjusting a control panel or button while receiving paper-like modules coming from the machine, her hands and posture should visibly connect to the machine so the interaction feels intentional and functional, the machine and the woman should feel like one unified scene rather than separate elements, the illustration should feel intelligent, stylish, and poetic rather than technical, high-end Japanese design taste, simple, neat, and tasteful. Typography: include only one very short English phrase \"{argument name=\"text\" default=\"WEEL\"}\" set in bold modern sans-serif typography, clean black text, medium size, not oversized, placed with strong alignment and generous spacing, the text should feel like part of the design, not like a poster headline. Color palette: off-white, soft gray, black, muted sage green only, low-saturation, elegant contrast, avoid loud neon colors. Style direction: minimal, premium, calm, smart, editorial, Japanese taste, beautiful negative space, clean geometry, subtle stationery mood, slightly futuristic but warm, suitable as a stylish wallpaper for adults. Output quality: ultra clean composition, high clarity, refine",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198518685_iyrf90_HE4uDBcawAApJY5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198518685_iyrf90_HE4uDBcawAApJY5-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建一个 9:16 竖屏格式的高端手机壁纸，采用日式极简编辑美学，风格安静且精致，灵感源自现代笔记本网格设计和简洁的信息图表插画。背景：温暖的米白色纸张纹理，整个画布上带有非常微妙的浅灰色方格，具有柔和的天然纸张质感，优雅且极简，明亮但不刺眼。构图：极其稀疏的布局，为手机壁纸留出充足的呼吸空间，非对称平衡，主体插画放置在略低于中心的位置，顶部和中上部区域保持相对开放与宁静，仅包含 {argument name=\"subject\" default=\"一位年轻女性\"}，构图温暖友好，她应与中央的机器完美融合并正在操作它，整体外观应显得成熟、精致且整洁。插画：一个极简的等距线稿机器 / 创意设备 / 抽象工作流对象，使用深灰色至黑色的细线条绘制，填充柔和的奶油色和浅灰色，在 {argument name=\"accent color\" default=\"鼠尾草绿\"} 的点缀下有微小的细节，小型几何块或纸质模块在设备中流动，仅包含一位年轻女性，自然地围绕在中心物体周围，互动亲密且自然，她应显得友好、放松且有联系感，画面中仅限一人，除她之外没有其他成年人，她应明确地在使用和操作机器，例如，她的手轻轻按压或调整控制面板或按钮，同时接收来自机器的纸质模块，她的手部和姿势应与机器产生明显的连接，使互动看起来是有意图且功能性的，机器和女性应感觉是一个统一的场景，而不是独立的元素，插画应感觉智能、时尚且富有诗意，而非技术化，具有高端日式设计品味，简洁、整齐且有格调。排版：仅包含一个非常简短的英文短语 \"{argument name=\"text\" default=\"WEEL\"}\"，使用粗体现代无衬线字体，纯黑色文字，中等大小，不过分夸张，放置时注重强对齐和宽裕的间距，文字应感觉像是设计的一部分，而不是海报标题。配色方案：米白色、柔和灰、黑色、仅限柔和的鼠尾草绿，低饱和度，优雅对比，避免刺眼的霓虹色。风格方向：极简、高端、冷静、智能、编辑风、日式品味、优美的留白、干净的几何形状、微妙的文具氛围、略带未来感但温暖，适合作为成年人的时尚壁纸。输出质量：超干净的构图，高清晰度，精炼",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高端极简日式手机壁纸 这是一条用于生成高端、极简、编辑风格手机壁纸（9:16 竖屏格式）的详细提示词，融合了日式美学。画面主体为一名年轻女性与抽象机械插画的互动，采用柔和的鼠尾草绿与米白色调。该提示词是基于在线模板的定制版本，展示了如何修改主体、文字和颜色等元素。 create a premium smartphone wallpaper in vertical 9:16 format, japanese minimal editorial aesthetic, quiet and refined, inspired by modern notebook-grid design and clean infographic illustration. background: warm off-white paper texture with a very subtle light gray square grid across the whole canvas, soft natural paper feel, elegant and minimal, bright but not stark white. composition: very sparse layout with large breathing room for a phone wallpaper, asymmetric balance, main illustration placed slightly below center, top and upper-middle area kept relatively open and calm, include only {argument name=\"subject\" default=\"one young woman\"} in a warm, friendly composition, she should be clearly integrated with the central machine and actively operating it, overall look should feel sophisticated, mature, and uncluttered. illustration: a single minimalist isometric line-art machine / creative device / abstract workflow object, drawn with thin dark gray to black outlines, soft cream and pale gray fills, tiny accent details in muted {argument name=\"accent color\" default=\"sage green\"}, small geometric blocks or paper-like modules flowing through the device, include only one young woman placed naturally around the central object, interacting closely and affectionately, she should feel friendly, relaxed, and connected, show exactly one person only, no adults other than her, she should be clearly using and operating the machine, for example, her hand gently pressing or adjusting a control panel or button while receiving paper-like modules coming from the machine, her hands and posture should visibly connect to the machine so the interaction feels intentional and functional, the machine and the woman should feel like one unified scene rather than separate elements, the illustration should feel intelligent, stylish, and poetic rather than technical, high-end japanese design taste, simple, neat, and tasteful. typography: include only one very short english phrase \"{argument name=\"text\" default=\"weel\"}\" set in bold modern sans-serif typography, clean black text, medium size, not oversized, placed with strong alignment and generous spacing, the text should feel like part of the design, not like a poster headline. color palette: off-white, soft gray, black, muted sage green only, low-saturation, elegant contrast, avoid loud neon colors. style direction: minimal, premium, calm, smart, editorial, japanese taste, beautiful negative space, clean geometry, subtle stationery mood, slightly futuristic but warm, suitable as a stylish wallpaper for adults. output quality: ultra clean composition, high clarity, refine 创建一个 9:16 竖屏格式的高端手机壁纸，采用日式极简编辑美学，风格安静且精致，灵感源自现代笔记本网格设计和简洁的信息图表插画。背景：温暖的米白色纸张纹理，整个画布上带有非常微妙的浅灰色方格，具有柔和的天然纸张质感，优雅且极简，明亮但不刺眼。构图：极其稀疏的布局，为手机壁纸留出充足的呼吸空间，非对称平衡，主体插画放置在略低于中心的位置，顶部和中上部区域保持相对开放与宁静，仅包含 {argument name=\"subject\" default=\"一位年轻女性\"}，构图温暖友好，她应与中央的机器完美融合并正在操作它，整体外观应显得成熟、精致且整洁。插画：一个极简的等距线稿机器 / 创意设备 / 抽象工作流对象，使用深灰色至黑色的细线条绘制，填充柔和的奶油色和浅灰色，在 {argument name=\"accent color\" default=\"鼠尾草绿\"} 的点缀下有微小的细节，小型几何块或纸质模块在设备中流动，仅包含一位年轻女性，自然地围绕在中心物体周围，互动亲密且自然，她应显得友好、放松且有联系感，画面中仅限一人，除她之外没有其他成年人，她应明确地在使用和操作机器，例如，她的手轻轻按压或调整控制面板或按钮，同时接收来自机器的纸质模块，她的手部和姿势应与机器产生明显的连接，使互动看起来是有意图且功能性的，机器和女性应感觉是一个统一的场景，而不是独立的元素，插画应感觉智能、时尚且富有诗意，而非技术化，具有高端日式设计品味，简洁、整齐且有格调。排版：仅包含一个非常简短的英文短语 \"{argument name=\"text\" default=\"weel\"}\"，使用粗体现代无衬线字体，纯黑色文字，中等大小，不过分夸张，放置时注重强对齐和宽裕的间距，文字应感觉像是设计的一部分，而不是海报标题。配色方案：米白色、柔和灰、黑色、仅限柔和的鼠尾草绿，低饱和度，优雅对比，避免刺眼的霓虹色。风格方向：极简、高端、冷静、智能、编辑风、日式品味、优美的留白、干净的几何形状、微妙的文具氛围、略带未来感但温暖，适合作为成年人的时尚壁纸。输出质量：超干净的构图，高清晰度，精炼 weel メディア部｜生成aiの今をわかりやすく伝える 13172",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13174,
+      "title": "身穿水手服少女的电影感场景",
+      "description": "这是一个详细的电影感提示词，用于通过 Nano Banana Pro 生成一系列图像，随后使用 Kling 3.0 Omni 将其制作成视频。该提示词描述了一位身穿黑色水手服的少女游览多个风景名胜的过程——包括海边坡道、阳光斑驳的神社、石板小巷、山顶公园以及日落时的防波堤，捕捉了她天真烂漫的笑容与迷人的姿态。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2039613813545394293",
+      "sourcePublishedAt": "2026-04-02T08:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "黒いセーラー服に赤いリボンと黒いブーツを身につけた少女が、青空の広がる海辺の坂道、木漏れ日の差す神社、石畳の古い路地裏、見晴らしの良い高台の公園、そして夕暮れの防波堤へと場面を巡るシネマティックな情景。海風に髪を揺らして無邪気に微笑む姿や、少し恥ずかしそうなウインク、軽やかにスキップしてスカートを翻す様子、ベンチで頬杖をつくあどけない表情など、彼女の魅力的な仕草を捉える。最後は美しい夕日を背に、満面の笑みで駆け寄りながら手を振る、透明感とエモーショナルな喜びに満ちた爽やかなビジュアル。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "电影感场景：一位身穿黑色水手服、系着红丝带、脚蹬黑色靴子的少女游览多个地点：蓝天下的海边坡道、阳光透过树叶洒下的神社、古老的石板小巷、视野开阔的山顶公园，以及黄昏时的防波堤。捕捉她迷人的姿态，例如她在海风中发丝飘动时天真烂漫的笑容、略带羞涩的眨眼、轻快跳跃时裙摆的摆动，以及在长椅上托腮时的纯真表情。最后，呈现出一幅充满透明感与情感愉悦的清新画面，背景是美丽的夕阳，她满脸笑容地奔跑而来并挥手致意。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身穿水手服少女的电影感场景 这是一个详细的电影感提示词，用于通过 nano banana pro 生成一系列图像，随后使用 kling 3.0 omni 将其制作成视频。该提示词描述了一位身穿黑色水手服的少女游览多个风景名胜的过程——包括海边坡道、阳光斑驳的神社、石板小巷、山顶公园以及日落时的防波堤，捕捉了她天真烂漫的笑容与迷人的姿态。 黒いセーラー服に赤いリボンと黒いブーツを身につけた少女が、青空の広がる海辺の坂道、木漏れ日の差す神社、石畳の古い路地裏、見晴らしの良い高台の公園、そして夕暮れの防波堤へと場面を巡るシネマティックな情景。海風に髪を揺らして無邪気に微笑む姿や、少し恥ずかしそうなウインク、軽やかにスキップしてスカートを翻す様子、ベンチで頬杖をつくあどけない表情など、彼女の魅力的な仕草を捉える。最後は美しい夕日を背に、満面の笑みで駆け寄りながら手を振る、透明感とエモーショナルな喜びに満ちた爽やかなビジュアル。 电影感场景：一位身穿黑色水手服、系着红丝带、脚蹬黑色靴子的少女游览多个地点：蓝天下的海边坡道、阳光透过树叶洒下的神社、古老的石板小巷、视野开阔的山顶公园，以及黄昏时的防波堤。捕捉她迷人的姿态，例如她在海风中发丝飘动时天真烂漫的笑容、略带羞涩的眨眼、轻快跳跃时裙摆的摆动，以及在长椅上托腮时的纯真表情。最后，呈现出一幅充满透明感与情感愉悦的清新画面，背景是美丽的夕阳，她满脸笑容地奔跑而来并挥手致意。 空想写真家 13174",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13138,
+      "title": "健身房自拍展示肱二头肌",
+      "description": "这是一个为 Gemini Nano Banana Pro 设计的结构化提示词，旨在生成一张年轻金发女性在健身房展示肱二头肌的写实照片，重点关注出汗的皮肤、服装、姿势以及高质量的技术规格等细节。",
+      "sourceLink": "https://x.com/Serreh131306/status/2039609920127914092",
+      "sourcePublishedAt": "2026-04-02T07:44:33.000Z",
+      "author": {
+        "name": "Serrah ❀",
+        "link": "https://x.com/Serreh131306"
+      },
+      "content": "{\n  \"image_prompt\": {\n    \"subject\": \"Young woman with blonde hair in a messy ponytail and bangs, sweaty skin.\",\n    \"clothing\": \"Light pink cropped tank top, matching light pink sweatpants.\",\n    \"pose\": \"Right arm raised flexing bicep, left hand resting on hip, serious expression looking at camera.\",\n    \"environment\": \"Gym interior, mirror reflection showing a rack of dumbbells and warm overhead lights.\",\n    \"technical_specs\": \"4k ultra quality, highly detailed, photorealistic, 9:16 canvas aspect ratio\",\n    \"full_prompt\": \"A young blonde woman with a messy ponytail, sweaty skin, wearing a pink crop top and pink sweatpants. She is flexing her right bicep with her left hand on her hip. Gym interior background with a mirror and dumbbell racks. 4k ultra quality, highly detailed, photorealistic, 9:16 canvas.\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198502723_8cgr50_HE4maaKWYAA1T9h.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198502723_8cgr50_HE4maaKWYAA1T9h-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_prompt\": {\n    \"subject\": \"年轻女性，留着凌乱的马尾辫和刘海，皮肤上有汗水。\",\n    \"clothing\": \"浅粉色露脐背心，搭配同色系浅粉色运动裤。\",\n    \"pose\": \"右臂抬起展示肱二头肌，左手叉腰，表情严肃地注视着镜头。\",\n    \"environment\": \"健身房内景，镜中反射出哑铃架和温暖的头顶灯光。\",\n    \"technical_specs\": \"4k 超高清，高度细节化，写实风格，9:16 画布比例\",\n    \"full_prompt\": \"一位留着凌乱马尾辫、皮肤上有汗水的年轻金发女性，身穿粉色露脐上衣和粉色运动裤。她正在展示右侧肱二头肌，左手叉腰。背景为健身房内景，有镜子和哑铃架。4k 超高清，高度细节化，写实风格，9:16 画布。\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "健身房自拍展示肱二头肌 这是一个为 gemini nano banana pro 设计的结构化提示词，旨在生成一张年轻金发女性在健身房展示肱二头肌的写实照片，重点关注出汗的皮肤、服装、姿势以及高质量的技术规格等细节。 {\n  \"image_prompt\": {\n    \"subject\": \"young woman with blonde hair in a messy ponytail and bangs, sweaty skin.\",\n    \"clothing\": \"light pink cropped tank top, matching light pink sweatpants.\",\n    \"pose\": \"right arm raised flexing bicep, left hand resting on hip, serious expression looking at camera.\",\n    \"environment\": \"gym interior, mirror reflection showing a rack of dumbbells and warm overhead lights.\",\n    \"technical_specs\": \"4k ultra quality, highly detailed, photorealistic, 9:16 canvas aspect ratio\",\n    \"full_prompt\": \"a young blonde woman with a messy ponytail, sweaty skin, wearing a pink crop top and pink sweatpants. she is flexing her right bicep with her left hand on her hip. gym interior background with a mirror and dumbbell racks. 4k ultra quality, highly detailed, photorealistic, 9:16 canvas.\"\n  }\n} {\n  \"image_prompt\": {\n    \"subject\": \"年轻女性，留着凌乱的马尾辫和刘海，皮肤上有汗水。\",\n    \"clothing\": \"浅粉色露脐背心，搭配同色系浅粉色运动裤。\",\n    \"pose\": \"右臂抬起展示肱二头肌，左手叉腰，表情严肃地注视着镜头。\",\n    \"environment\": \"健身房内景，镜中反射出哑铃架和温暖的头顶灯光。\",\n    \"technical_specs\": \"4k 超高清，高度细节化，写实风格，9:16 画布比例\",\n    \"full_prompt\": \"一位留着凌乱马尾辫、皮肤上有汗水的年轻金发女性，身穿粉色露脐上衣和粉色运动裤。她正在展示右侧肱二头肌，左手叉腰。背景为健身房内景，有镜子和哑铃架。4k 超高清，高度细节化，写实风格，9:16 画布。\"\n  }\n} serrah ❀ 13138",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13151,
+      "title": "巨型女性电影制作人与微缩模型",
+      "description": "这是为 Nano Banana 2 准备的提示词，旨在生成一个超写实的电影场景：一位巨型女性电影制作人正在专业摄影棚内调整一台三脚架上的微缩复古电影摄影机。一位优雅的小人儿像模特一样站在摄影机旁，通过戏剧性的柔光和超精细的纹理，突显出巨大的比例差异。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2039602803220591004",
+      "sourcePublishedAt": "2026-04-02T07:16:16.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "A hyper-realistic cinematic scene of a giant woman filmmaker carefully adjusting a miniature vintage film camera on a tripod, inside a professional studio setup. A tiny elegant woman in a flowing pastel blue dress stands beside the camera like a model on set. Surrounding them are detailed studio lights, softboxes, film reels, cables, and a clapperboard. The giant woman has soft natural makeup, blonde hair tied back, and an intense focused expression. Dramatic soft lighting, shallow depth of field, ultra-detailed textures, 8K, photorealistic, cinematic composition, studio photography, volumetric lighting.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198508714_ajcsa6_HE4f8NKbMAAbrI5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198508714_ajcsa6_HE4f8NKbMAAbrI5-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个超写实的电影场景，画面中一位巨型女性电影制作人正在专业摄影棚内仔细调整一台三脚架上的微缩复古电影摄影机。一位身着飘逸淡蓝色连衣裙的优雅小人儿像片场模特一样站在摄影机旁。周围环绕着精细的摄影棚灯光、柔光箱、胶片盘、线缆和场记板。这位巨型女性化着柔和的自然妆容，金发束在脑后，表情专注而凝重。戏剧性的柔光效果、浅景深、超精细纹理、8K 分辨率、照片级真实感、电影级构图、摄影棚摄影、体积光。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "巨型女性电影制作人与微缩模型 这是为 nano banana 2 准备的提示词，旨在生成一个超写实的电影场景：一位巨型女性电影制作人正在专业摄影棚内调整一台三脚架上的微缩复古电影摄影机。一位优雅的小人儿像模特一样站在摄影机旁，通过戏剧性的柔光和超精细的纹理，突显出巨大的比例差异。 a hyper-realistic cinematic scene of a giant woman filmmaker carefully adjusting a miniature vintage film camera on a tripod, inside a professional studio setup. a tiny elegant woman in a flowing pastel blue dress stands beside the camera like a model on set. surrounding them are detailed studio lights, softboxes, film reels, cables, and a clapperboard. the giant woman has soft natural makeup, blonde hair tied back, and an intense focused expression. dramatic soft lighting, shallow depth of field, ultra-detailed textures, 8k, photorealistic, cinematic composition, studio photography, volumetric lighting. 一个超写实的电影场景，画面中一位巨型女性电影制作人正在专业摄影棚内仔细调整一台三脚架上的微缩复古电影摄影机。一位身着飘逸淡蓝色连衣裙的优雅小人儿像片场模特一样站在摄影机旁。周围环绕着精细的摄影棚灯光、柔光箱、胶片盘、线缆和场记板。这位巨型女性化着柔和的自然妆容，金发束在脑后，表情专注而凝重。戏剧性的柔光效果、浅景深、超精细纹理、8k 分辨率、照片级真实感、电影级构图、摄影棚摄影、体积光。 synthia 13151",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13160,
+      "title": "羊群牧场中的田园风全身肖像",
+      "description": "这是一个为 Gemini Nano Banana 设计的提示词，用于生成一位女性站在郁郁葱葱、羊群遍布的牧场中的全身肖像。提示词详细描述了她深色系的叠穿造型（高领毛衣、工装夹克、长裤、靴子），并要求采用柔和的自然光，以营造宁静的田园氛围。",
+      "sourceLink": "https://x.com/Minahil42298354/status/2039600481681465575",
+      "sourcePublishedAt": "2026-04-02T07:07:03.000Z",
+      "author": {
+        "name": "Minahil",
+        "link": "https://x.com/Minahil42298354"
+      },
+      "content": "A full-body portrait of a woman standing in a lush, green rolling pasture filled with a large flock of grazing sheep. She is wearing a dark grey ribbed turtleneck sweater, an olive-green utility jacket, wide-leg black trousers, and brown leather Chelsea boots. The background features a soft-focus landscape of hilly farmland and hedgerows under an overcast, diffused sky. The lighting is natural and soft, creating a serene, pastoral atmosphere.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198513184_85kld5_HE4d1B5akAET3TM.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198513184_85kld5_HE4d1B5akAET3TM-300x528.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位女性的全身肖像，她站在一片郁郁葱葱、绿草如茵的起伏牧场上，周围是一大群正在吃草的绵羊。她身穿深灰色罗纹高领毛衣、橄榄绿色工装夹克、黑色阔腿长裤和棕色切尔西皮靴。背景是阴天漫射光线下，呈现出柔焦效果的丘陵农田和树篱景观。光线自然柔和，营造出一种宁静的田园氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "羊群牧场中的田园风全身肖像 这是一个为 gemini nano banana 设计的提示词，用于生成一位女性站在郁郁葱葱、羊群遍布的牧场中的全身肖像。提示词详细描述了她深色系的叠穿造型（高领毛衣、工装夹克、长裤、靴子），并要求采用柔和的自然光，以营造宁静的田园氛围。 a full-body portrait of a woman standing in a lush, green rolling pasture filled with a large flock of grazing sheep. she is wearing a dark grey ribbed turtleneck sweater, an olive-green utility jacket, wide-leg black trousers, and brown leather chelsea boots. the background features a soft-focus landscape of hilly farmland and hedgerows under an overcast, diffused sky. the lighting is natural and soft, creating a serene, pastoral atmosphere. 一位女性的全身肖像，她站在一片郁郁葱葱、绿草如茵的起伏牧场上，周围是一大群正在吃草的绵羊。她身穿深灰色罗纹高领毛衣、橄榄绿色工装夹克、黑色阔腿长裤和棕色切尔西皮靴。背景是阴天漫射光线下，呈现出柔焦效果的丘陵农田和树篱景观。光线自然柔和，营造出一种宁静的田园氛围。 minahil 13160",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13135,
+      "title": "微型草莓兔",
+      "description": "用户描述生成的图像带有甜美的草莓香气，并称其为“微型草莓兔”（Micro Strawberry Rabbit），同时提到这是一次生成成功的。这段描述性文字作为图像生成模型 nano-banana-pro 的提示词。",
+      "sourceLink": "https://x.com/nonoyam_0/status/2039592939698143463",
+      "sourcePublishedAt": "2026-04-02T06:37:05.000Z",
+      "author": {
+        "name": "𑣲노노얌💛",
+        "link": "https://x.com/nonoyam_0"
+      },
+      "content": "진짜 달달한 딸기향이야￼￼￼￼￼￼🍓\n1트만에 뽑았음\n이렇게 귀여운 마이크로딸기리빗이라니🐰🍓",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112289126_tcj6dt_HE4W99abAAAkOOE.jpg",
+        "https://cms-assets.youmind.com/media/1775112289364_s9mef8_HE4W99ba0AApZ9Y.jpg",
+        "https://cms-assets.youmind.com/media/1775112289300_oy7tbd_HE4W99baQAALuxD.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112289126_tcj6dt_HE4W99abAAAkOOE-300x301.jpg",
+        "https://cms-assets.youmind.com/media/1775112289364_s9mef8_HE4W99ba0AApZ9Y-300x376.jpg",
+        "https://cms-assets.youmind.com/media/1775112289300_oy7tbd_HE4W99baQAALuxD-300x400.jpg"
+      ],
+      "language": "ko",
+      "translatedContent": "闻起来真的有甜甜的草莓味￼￼￼￼￼￼🍓\n一次就生成成功了\n超可爱的微型草莓兔🐰🍓",
+      "sourcePlatform": "twitter",
+      "searchIndex": "微型草莓兔 用户描述生成的图像带有甜美的草莓香气，并称其为“微型草莓兔”（micro strawberry rabbit），同时提到这是一次生成成功的。这段描述性文字作为图像生成模型 nano-banana-pro 的提示词。 진짜 달달한 딸기향이야￼￼￼￼￼￼🍓\n1트만에 뽑았음\n이렇게 귀여운 마이크로딸기리빗이라니🐰🍓 闻起来真的有甜甜的草莓味￼￼￼￼￼￼🍓\n一次就生成成功了\n超可爱的微型草莓兔🐰🍓 𑣲노노얌💛 13135",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13161,
+      "title": "Margot Robbie 风格阳光 iPhone 摄影作品",
+      "description": "这是一个为 Nano Banana Pro 设计的结构化 JSON 提示词，旨在呈现一张受 Margot Robbie 启发、具有超写实阳光感的 iPhone 照片。内容详细描述了场景（豪华阳台、正午）、强光效果以及特定姿势（身着极简白色夏装，坐在栏杆上，双腿伸展）。",
+      "sourceLink": "https://x.com/bananababydoll/status/2039588389020934204",
+      "sourcePublishedAt": "2026-04-02T06:19:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"sunlit iphone shot, harsh daylight, natural highlights\"\n  },\n  \"scene\": {\n    \"location\": \"{argument name=\"location\" default=\"luxury balcony\"}\",\n    \"time\": \"midday\",\n    \"lighting\": \"direct sun shaping legs with hard shadows\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"margot robbie inspired\"}\",\n    \"pose\": {\n      \"position\": \"sitting on railing\",\n      \"legs\": \"long legs extended downward, one foot slightly forward toward camera\",\n      \"feet\": \"sunlit, defined with strong highlights\",\n      \"body\": \"upright confident posture\"\n    },\n    \"expression\": \"cool, effortless confidence\",\n    \"outfit\": \"{argument name=\"outfit\" default=\"minimal white summer dress\"}\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198513753_mzxy6p_HEaeLBxakAAtCzv.jpg",
+        "https://cms-assets.youmind.com/media/1775198513752_ko6mz3_HEaeLBqa0AA8MyJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198513753_mzxy6p_HEaeLBxakAAtCzv-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1775198513752_ko6mz3_HEaeLBqa0AA8MyJ-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"阳光 iPhone 摄影，强日光，自然高光\"\n  },\n  \"scene\": {\n    \"location\": \"{argument name=\\\"location\\\" default=\\\"豪华阳台\\\"}\",\n    \"time\": \"正午\",\n    \"lighting\": \"直射阳光勾勒腿部线条，带有强烈的阴影\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"Margot Robbie 风格\\\"}\",\n    \"pose\": {\n      \"position\": \"坐在栏杆上\",\n      \"legs\": \"双腿向下伸展，一只脚略微向镜头方向前伸\",\n      \"feet\": \"阳光照射，轮廓清晰，带有强烈的高光\",\n      \"body\": \"挺拔自信的姿态\"\n    },\n    \"expression\": \"冷峻、毫不费力的自信\",\n    \"outfit\": \"{argument name=\\\"outfit\\\" default=\\\"极简白色夏装\\\"}\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "margot robbie 风格阳光 iphone 摄影作品 这是一个为 nano banana pro 设计的结构化 json 提示词，旨在呈现一张受 margot robbie 启发、具有超写实阳光感的 iphone 照片。内容详细描述了场景（豪华阳台、正午）、强光效果以及特定姿势（身着极简白色夏装，坐在栏杆上，双腿伸展）。 {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"sunlit iphone shot, harsh daylight, natural highlights\"\n  },\n  \"scene\": {\n    \"location\": \"{argument name=\"location\" default=\"luxury balcony\"}\",\n    \"time\": \"midday\",\n    \"lighting\": \"direct sun shaping legs with hard shadows\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"margot robbie inspired\"}\",\n    \"pose\": {\n      \"position\": \"sitting on railing\",\n      \"legs\": \"long legs extended downward, one foot slightly forward toward camera\",\n      \"feet\": \"sunlit, defined with strong highlights\",\n      \"body\": \"upright confident posture\"\n    },\n    \"expression\": \"cool, effortless confidence\",\n    \"outfit\": \"{argument name=\"outfit\" default=\"minimal white summer dress\"}\"\n  }\n} {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"阳光 iphone 摄影，强日光，自然高光\"\n  },\n  \"scene\": {\n    \"location\": \"{argument name=\\\"location\\\" default=\\\"豪华阳台\\\"}\",\n    \"time\": \"正午\",\n    \"lighting\": \"直射阳光勾勒腿部线条，带有强烈的阴影\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"margot robbie 风格\\\"}\",\n    \"pose\": {\n      \"position\": \"坐在栏杆上\",\n      \"legs\": \"双腿向下伸展，一只脚略微向镜头方向前伸\",\n      \"feet\": \"阳光照射，轮廓清晰，带有强烈的高光\",\n      \"body\": \"挺拔自信的姿态\"\n    },\n    \"expression\": \"冷峻、毫不费力的自信\",\n    \"outfit\": \"{argument name=\\\"outfit\\\" default=\\\"极简白色夏装\\\"}\"\n  }\n} babydoll 13161",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13162,
+      "title": "明暗对照法超感官专注肖像",
+      "description": "这是一个为 Gemini Nano Banana 设计的电影级超写实提示词，聚焦于一位深度专注的年轻男性的特写肖像。强调戏剧性的明暗对照法（Chiaroscuro）光影，带有锐利的水平阴影、漂浮的金色粒子、空灵的神经连接，以及暗示超感官转变的动态模糊双重曝光效果。",
+      "sourceLink": "https://x.com/Minahil42298354/status/2039565522849636761",
+      "sourcePublishedAt": "2026-04-02T04:48:08.000Z",
+      "author": {
+        "name": "Minahil",
+        "link": "https://x.com/Minahil42298354"
+      },
+      "content": "A cinematic, hyper-realistic close-up portrait of a young man with curly hair, looking directly into the camera with an intense, focused expression. He has his fingers pressed to his temples as if in deep concentration or manifesting a thought. The lighting is dramatic, featuring Chiaroscuro effects with sharp, horizontal shadow patterns (blind shadows) cast across his face. To his left, glowing golden particles and ethereal neural-like connections float in the air. A ghostly, motion-blurred double exposure of his head appears to his right, suggesting a psychic or multidimensional shift. Dark, moody interior background with a soft window light. Shot on 85mm lens, f/1.8, 8k resolution, highly detailed skin texture.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198514434_fozbsw_HE3-AqrXAAEAglQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198514434_fozbsw_HE3-AqrXAAEAglQ-300x162.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张电影级、超写实的卷发年轻男性特写肖像，他直视镜头，表情专注而强烈。他的手指按在太阳穴上，仿佛正处于深度思考或具象化某种思维的状态。光影效果极具戏剧性，采用明暗对照法（Chiaroscuro），锐利的水平阴影（百叶窗阴影）投射在他的脸上。在他左侧，发光的金色粒子和空灵的神经状连接在空气中漂浮。在他右侧出现了一个半透明的、带有动态模糊的头部双重曝光影像，暗示着一种超感官或多维度的转变。背景为昏暗、情绪化的室内环境，带有柔和的窗光。使用 85mm 镜头拍摄，f/1.8 光圈，8k 分辨率，呈现高度细腻的皮肤纹理。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "明暗对照法超感官专注肖像 这是一个为 gemini nano banana 设计的电影级超写实提示词，聚焦于一位深度专注的年轻男性的特写肖像。强调戏剧性的明暗对照法（chiaroscuro）光影，带有锐利的水平阴影、漂浮的金色粒子、空灵的神经连接，以及暗示超感官转变的动态模糊双重曝光效果。 a cinematic, hyper-realistic close-up portrait of a young man with curly hair, looking directly into the camera with an intense, focused expression. he has his fingers pressed to his temples as if in deep concentration or manifesting a thought. the lighting is dramatic, featuring chiaroscuro effects with sharp, horizontal shadow patterns (blind shadows) cast across his face. to his left, glowing golden particles and ethereal neural-like connections float in the air. a ghostly, motion-blurred double exposure of his head appears to his right, suggesting a psychic or multidimensional shift. dark, moody interior background with a soft window light. shot on 85mm lens, f/1.8, 8k resolution, highly detailed skin texture. 一张电影级、超写实的卷发年轻男性特写肖像，他直视镜头，表情专注而强烈。他的手指按在太阳穴上，仿佛正处于深度思考或具象化某种思维的状态。光影效果极具戏剧性，采用明暗对照法（chiaroscuro），锐利的水平阴影（百叶窗阴影）投射在他的脸上。在他左侧，发光的金色粒子和空灵的神经状连接在空气中漂浮。在他右侧出现了一个半透明的、带有动态模糊的头部双重曝光影像，暗示着一种超感官或多维度的转变。背景为昏暗、情绪化的室内环境，带有柔和的窗光。使用 85mm 镜头拍摄，f/1.8 光圈，8k 分辨率，呈现高度细腻的皮肤纹理。 minahil 13162",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13123,
+      "title": "80 年代复古健美风的 Margot Robbie 替身",
+      "description": "一份为 Nano Banana Pro 准备的详细 JSON 提示词，用于生成一张超逼真的图像：身着 1980 年代复古健美服（紧身连衣裤、氨纶短裤、金色腰带）的 Margot Robbie 替身，在明亮的阳光下摆拍，呈现黄金时刻的质感，强调鲜艳的色彩和高技术画质。",
+      "sourceLink": "https://x.com/Artist04048661/status/2039536333329240331",
+      "sourcePublishedAt": "2026-04-02T02:52:09.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Woman with a strong resemblance to {argument name=\"subject name\" default=\"Margot Robbie\"}.\",\n      \"hair\": \"Voluminous messy updo bun, loose strands framing face, held back.\",\n      \"face\": \"Dramatic retro makeup, sharp eyeliner, matte skin finish.\",\n      \"body\": \"Athletic build, tanned smooth skin.\"\n    },\n    \"attire\": {\n      \"clothing\": \"High-cut geometric patterned leotard over pale yellow spandex shorts, wide gold belt.\",\n      \"style\": \"1980s retro aerobics fashion.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"Gold hoop earrings\",\n        \"Pink terrycloth headband\",\n        \"Pink wristbands\",\n        \"Clear blue tumbler with pink straw\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"Sunny outdoor paved pathway.\",\n      \"background\": \"Heavily blurred palm trees and hazy bright sky.\",\n      \"water\": \"None.\"\n    },\n    \"pose\": {\n      \"posture\": \"Standing facing away, twisting upper body to look back over shoulder.\",\n      \"arms\": \"One hand holding cup to lips, other hand resting on lower back.\",\n      \"angle\": \"Medium shot, eye-level.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Bright natural sunlight, warm golden hour glow, soft shadows.\",\n      \"mood\": \"Vibrant, energetic, nostalgic.\",\n      \"colors\": \"Neon pink, pale yellow, bright cyan, gold.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW photo.\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/1.8\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"Hasselblad photography\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775198520110_8f37cv_HE3jWSDWgAAbk6y.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775198520110_8f37cv_HE3jWSDWgAAbk6y-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"长相酷似 {argument name=\"subject name\" default=\"Margot Robbie\"} 的女性。\",\n      \"hair\": \"蓬松凌乱的盘发发髻，几缕碎发散落在脸颊旁，向后梳理。\",\n      \"face\": \"复古浓妆，精致的眼线，哑光肤质。\",\n      \"body\": \"健美体格，古铜色光滑肌肤。\"\n    },\n    \"attire\": {\n      \"clothing\": \"几何图案高开叉紧身连衣裤，外搭淡黄色氨纶短裤，配有宽大的金色腰带。\",\n      \"style\": \"1980 年代复古健美时尚。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"金色大圆耳环\",\n        \"粉色毛巾布发带\",\n        \"粉色护腕\",\n        \"透明蓝色水杯，配粉色吸管\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"阳光明媚的户外铺装小径。\",\n      \"background\": \"高度模糊的棕榈树和朦胧明亮的天空。\",\n      \"water\": \"无。\"\n    },\n    \"pose\": {\n      \"posture\": \"背对镜头站立，上半身扭转，回头看向后方。\",\n      \"arms\": \"一只手拿着杯子放在唇边，另一只手放在后腰处。\",\n      \"angle\": \"中景，平视角度。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"明亮的自然阳光，温暖的黄金时刻光泽，柔和的阴影。\",\n      \"mood\": \"充满活力、动感、怀旧。\",\n      \"colors\": \"霓虹粉、淡黄、亮青色、金色。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真写实，RAW 原片。\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/1.8\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超写实纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "80 年代复古健美风的 margot robbie 替身 一份为 nano banana pro 准备的详细 json 提示词，用于生成一张超逼真的图像：身着 1980 年代复古健美服（紧身连衣裤、氨纶短裤、金色腰带）的 margot robbie 替身，在明亮的阳光下摆拍，呈现黄金时刻的质感，强调鲜艳的色彩和高技术画质。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"woman with a strong resemblance to {argument name=\"subject name\" default=\"margot robbie\"}.\",\n      \"hair\": \"voluminous messy updo bun, loose strands framing face, held back.\",\n      \"face\": \"dramatic retro makeup, sharp eyeliner, matte skin finish.\",\n      \"body\": \"athletic build, tanned smooth skin.\"\n    },\n    \"attire\": {\n      \"clothing\": \"high-cut geometric patterned leotard over pale yellow spandex shorts, wide gold belt.\",\n      \"style\": \"1980s retro aerobics fashion.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"gold hoop earrings\",\n        \"pink terrycloth headband\",\n        \"pink wristbands\",\n        \"clear blue tumbler with pink straw\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"sunny outdoor paved pathway.\",\n      \"background\": \"heavily blurred palm trees and hazy bright sky.\",\n      \"water\": \"none.\"\n    },\n    \"pose\": {\n      \"posture\": \"standing facing away, twisting upper body to look back over shoulder.\",\n      \"arms\": \"one hand holding cup to lips, other hand resting on lower back.\",\n      \"angle\": \"medium shot, eye-level.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"bright natural sunlight, warm golden hour glow, soft shadows.\",\n      \"mood\": \"vibrant, energetic, nostalgic.\",\n      \"colors\": \"neon pink, pale yellow, bright cyan, gold.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw photo.\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/1.8\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"hasselblad photography\"\n      ]\n    }\n  }\n} {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"长相酷似 {argument name=\"subject name\" default=\"margot robbie\"} 的女性。\",\n      \"hair\": \"蓬松凌乱的盘发发髻，几缕碎发散落在脸颊旁，向后梳理。\",\n      \"face\": \"复古浓妆，精致的眼线，哑光肤质。\",\n      \"body\": \"健美体格，古铜色光滑肌肤。\"\n    },\n    \"attire\": {\n      \"clothing\": \"几何图案高开叉紧身连衣裤，外搭淡黄色氨纶短裤，配有宽大的金色腰带。\",\n      \"style\": \"1980 年代复古健美时尚。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"金色大圆耳环\",\n        \"粉色毛巾布发带\",\n        \"粉色护腕\",\n        \"透明蓝色水杯，配粉色吸管\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"阳光明媚的户外铺装小径。\",\n      \"background\": \"高度模糊的棕榈树和朦胧明亮的天空。\",\n      \"water\": \"无。\"\n    },\n    \"pose\": {\n      \"posture\": \"背对镜头站立，上半身扭转，回头看向后方。\",\n      \"arms\": \"一只手拿着杯子放在唇边，另一只手放在后腰处。\",\n      \"angle\": \"中景，平视角度。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"明亮的自然阳光，温暖的黄金时刻光泽，柔和的阴影。\",\n      \"mood\": \"充满活力、动感、怀旧。\",\n      \"colors\": \"霓虹粉、淡黄、亮青色、金色。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真写实，raw 原片。\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/1.8\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超写实纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n} lexiprompt 13123",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13168,
+      "title": "电影质感特写：女子审阅文件",
+      "description": "该提示词用于在 Nano Banana Pro 中生成四张图像，随后使用 Kling 3.0 Omni 将其制作成视频。提示词描述了一个电影质感的特写镜头序列，展示了一名女子用放大镜审阅旧文件的过程，并捕捉了她表情的变化。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2039509883226370191",
+      "sourcePublishedAt": "2026-04-02T01:07:03.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "シネマティックな照明の中、ルーペを手に古い書類を真剣に鑑定する可愛らしい女性。驚きの発見に目を丸くした後、満足げに品物を置き、カメラに向かって誇らしげに微笑むまでの表情の変化と繊細な手元の動きを捉えたクローズアップ映像。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "电影质感光影下，一名可爱的女子正神情专注地用放大镜审阅旧文件。特写镜头捕捉了她细微的手部动作和表情变化：先是因发现线索而双眼圆睁，随后心满意足地放下文件，最后对着镜头露出自豪的微笑。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影质感特写：女子审阅文件 该提示词用于在 nano banana pro 中生成四张图像，随后使用 kling 3.0 omni 将其制作成视频。提示词描述了一个电影质感的特写镜头序列，展示了一名女子用放大镜审阅旧文件的过程，并捕捉了她表情的变化。 シネマティックな照明の中、ルーペを手に古い書類を真剣に鑑定する可愛らしい女性。驚きの発見に目を丸くした後、満足げに品物を置き、カメラに向かって誇らしげに微笑むまでの表情の変化と繊細な手元の動きを捉えたクローズアップ映像。 电影质感光影下，一名可爱的女子正神情专注地用放大镜审阅旧文件。特写镜头捕捉了她细微的手部动作和表情变化：先是因发现线索而双眼圆睁，随后心满意足地放下文件，最后对着镜头露出自豪的微笑。 空想写真家 13168",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13128,
+      "title": "Millie Bobby Brown 的电影感节日摄影作品",
+      "description": "这是一个为 Nano Banana 2 设计的高细节、电影感、照片级真实感的提示词，用于生成 Millie Bobby Brown 在摩天轮附近的户外节日场景照片。提示词详细说明了人物外观、服装、动态姿势、光照条件（黄昏光线结合霓虹轮廓光）、相机设置（竖屏构图、长焦镜头、浅景深）以及整体氛围。",
+      "sourceLink": "https://x.com/Giulia_4i/status/2039474538212401240",
+      "sourcePublishedAt": "2026-04-01T22:46:36.000Z",
+      "author": {
+        "name": "Giulia",
+        "link": "https://x.com/Giulia_4i"
+      },
+      "content": "\"Create a highly detailed, cinematic, photorealistic lifestyle photograph of {argument name=\"subject\" default=\"Millie Bobby Brown\"} at an outdoor festival during early evening. She has long, slightly wavy hair and a playful expression, smiling with her teeth visible while looking back over her right shoulder directly at the camera. Her makeup is light and natural. She is wearing sunglasses resting on top of her head, large teal-colored drop-shaped earrings, and a bright yellow festival wristband on her right wrist.\n\nShe has a slim, fit body and is dressed in a light greenish-gray cropped short-sleeve t-shirt with a faded print on the front, paired with light blue ripped denim cut-off shorts. On her feet, she wears classic black high-top canvas sneakers with white laces, a white toe cap, and white soles.\n\nHer pose is dynamic and confident: she is standing with her back facing the camera, her torso twisted as she looks over her right shoulder. Her right arm is slightly raised with a relaxed hand near her waist, while her left arm hangs naturally. Her weight is mostly on her extended left leg, with her right leg slightly bent, creating a casual and energetic posture.\n\nThe setting is a lively outdoor festival, resembling an amusement park. In the background, there is a large Ferris wheel illuminated with neon pink and white lights along its spokes and rim. Blurred figures of people walking can be seen in the background, and the ground appears dark, like a temporary paved surface.\n\nThe lighting combines soft dusk light with strong, cool artificial ambient light coming from the Ferris wheel. The neon lights create a glowing rim light around her hair, shoulders, and silhouette, while a soft front fill light clearly illuminates her face and body.\n\nThe overall mood is vibrant, youthful, energetic, and cinematic, capturing the lively atmosphere of a summer festival. The color palette emphasizes neon pink, bright white, light denim blue, greenish-gray, black, and soft pink tones.\n\nThe image should be captured in a portrait orientation (9:16), using a slightly low camera angle and a tight framing (medium close-up or American shot), with the subject occupying almost the entire frame. Use a telephoto lens between 85mm and 135mm to compress perspective and emphasize the subject, with a shallow depth of field to keep her extremely sharp while the background remains softly blurred with bokeh. The final result should be highly detailed, with sharp focus on the subject, vibrant and contrasting colors, professional lighting, and 8K resolution quality.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112286065_i3xthk_HE2rSFhXkAAGgfN.jpg",
+        "https://cms-assets.youmind.com/media/1775112286121_ci0x0k_HE2rSMaboAAoGaX.jpg",
+        "https://cms-assets.youmind.com/media/1775112286153_qoy1f1_HE2rSJoXEAAym-q.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112286065_i3xthk_HE2rSFhXkAAGgfN-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775112286121_ci0x0k_HE2rSMaboAAoGaX-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775112286153_qoy1f1_HE2rSJoXEAAym-q-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "\"创作一张高细节、电影感、照片级真实感的生活化照片，主角是 {argument name=\"subject\" default=\"Millie Bobby Brown\"}，场景设定在傍晚的户外节日现场。她留着微卷的长发，表情俏皮，露齿微笑，正回头看向右肩，直视镜头。妆容清透自然。她头顶架着一副太阳镜，佩戴着硕大的青色水滴状耳环，右手腕戴着亮黄色的节日手环。\n\n她身材苗条匀称，身穿一件浅灰绿色的短袖露脐 T 恤，正面有褪色印花，搭配浅蓝色破洞牛仔短裤。脚穿经典的黑色高帮帆布鞋，配有白色鞋带、白色鞋头和白色鞋底。\n\n她的姿势动态十足且自信：背对镜头站立，上半身扭转，回头看向右肩。右手微微抬起，手部自然放松地垂在腰间，左臂自然下垂。重心主要落在伸直的左腿上，右腿微屈，呈现出一种随性而充满活力的姿态。\n\n背景是一个热闹的户外节日现场，类似于游乐园。背景中有一座巨大的摩天轮，轮辐和边缘闪烁着霓虹粉色和白色的灯光。背景中可以看到模糊的行人身影，地面呈现出深色，像是临时铺设的路面。\n\n光线结合了柔和的黄昏光和来自摩天轮的强烈冷色调人工环境光。霓虹灯在她的头发、肩膀和轮廓周围营造出明亮的轮廓光，而柔和的前补光则清晰地照亮了她的面部和身体。\n\n整体氛围充满活力、青春、动感且具有电影质感，捕捉到了夏季节日的热闹气息。色彩基调强调霓虹粉、亮白、浅牛仔蓝、灰绿、黑色和柔粉色调。\n\n图像应采用竖屏构图（9:16），使用略微仰拍的视角和紧凑的取景（中景或美式景别），使主体几乎占据整个画面。使用 85mm 到 135mm 之间的长焦镜头来压缩透视并突出主体，配合浅景深效果，确保主体极其清晰，同时背景保持柔和的虚化效果。最终成品应具备高细节、主体对焦锐利、色彩鲜艳且对比强烈、专业布光以及 8K 分辨率的品质。\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "millie bobby brown 的电影感节日摄影作品 这是一个为 nano banana 2 设计的高细节、电影感、照片级真实感的提示词，用于生成 millie bobby brown 在摩天轮附近的户外节日场景照片。提示词详细说明了人物外观、服装、动态姿势、光照条件（黄昏光线结合霓虹轮廓光）、相机设置（竖屏构图、长焦镜头、浅景深）以及整体氛围。 \"create a highly detailed, cinematic, photorealistic lifestyle photograph of {argument name=\"subject\" default=\"millie bobby brown\"} at an outdoor festival during early evening. she has long, slightly wavy hair and a playful expression, smiling with her teeth visible while looking back over her right shoulder directly at the camera. her makeup is light and natural. she is wearing sunglasses resting on top of her head, large teal-colored drop-shaped earrings, and a bright yellow festival wristband on her right wrist.\n\nshe has a slim, fit body and is dressed in a light greenish-gray cropped short-sleeve t-shirt with a faded print on the front, paired with light blue ripped denim cut-off shorts. on her feet, she wears classic black high-top canvas sneakers with white laces, a white toe cap, and white soles.\n\nher pose is dynamic and confident: she is standing with her back facing the camera, her torso twisted as she looks over her right shoulder. her right arm is slightly raised with a relaxed hand near her waist, while her left arm hangs naturally. her weight is mostly on her extended left leg, with her right leg slightly bent, creating a casual and energetic posture.\n\nthe setting is a lively outdoor festival, resembling an amusement park. in the background, there is a large ferris wheel illuminated with neon pink and white lights along its spokes and rim. blurred figures of people walking can be seen in the background, and the ground appears dark, like a temporary paved surface.\n\nthe lighting combines soft dusk light with strong, cool artificial ambient light coming from the ferris wheel. the neon lights create a glowing rim light around her hair, shoulders, and silhouette, while a soft front fill light clearly illuminates her face and body.\n\nthe overall mood is vibrant, youthful, energetic, and cinematic, capturing the lively atmosphere of a summer festival. the color palette emphasizes neon pink, bright white, light denim blue, greenish-gray, black, and soft pink tones.\n\nthe image should be captured in a portrait orientation (9:16), using a slightly low camera angle and a tight framing (medium close-up or american shot), with the subject occupying almost the entire frame. use a telephoto lens between 85mm and 135mm to compress perspective and emphasize the subject, with a shallow depth of field to keep her extremely sharp while the background remains softly blurred with bokeh. the final result should be highly detailed, with sharp focus on the subject, vibrant and contrasting colors, professional lighting, and 8k resolution quality.\" \"创作一张高细节、电影感、照片级真实感的生活化照片，主角是 {argument name=\"subject\" default=\"millie bobby brown\"}，场景设定在傍晚的户外节日现场。她留着微卷的长发，表情俏皮，露齿微笑，正回头看向右肩，直视镜头。妆容清透自然。她头顶架着一副太阳镜，佩戴着硕大的青色水滴状耳环，右手腕戴着亮黄色的节日手环。\n\n她身材苗条匀称，身穿一件浅灰绿色的短袖露脐 t 恤，正面有褪色印花，搭配浅蓝色破洞牛仔短裤。脚穿经典的黑色高帮帆布鞋，配有白色鞋带、白色鞋头和白色鞋底。\n\n她的姿势动态十足且自信：背对镜头站立，上半身扭转，回头看向右肩。右手微微抬起，手部自然放松地垂在腰间，左臂自然下垂。重心主要落在伸直的左腿上，右腿微屈，呈现出一种随性而充满活力的姿态。\n\n背景是一个热闹的户外节日现场，类似于游乐园。背景中有一座巨大的摩天轮，轮辐和边缘闪烁着霓虹粉色和白色的灯光。背景中可以看到模糊的行人身影，地面呈现出深色，像是临时铺设的路面。\n\n光线结合了柔和的黄昏光和来自摩天轮的强烈冷色调人工环境光。霓虹灯在她的头发、肩膀和轮廓周围营造出明亮的轮廓光，而柔和的前补光则清晰地照亮了她的面部和身体。\n\n整体氛围充满活力、青春、动感且具有电影质感，捕捉到了夏季节日的热闹气息。色彩基调强调霓虹粉、亮白、浅牛仔蓝、灰绿、黑色和柔粉色调。\n\n图像应采用竖屏构图（9:16），使用略微仰拍的视角和紧凑的取景（中景或美式景别），使主体几乎占据整个画面。使用 85mm 到 135mm 之间的长焦镜头来压缩透视并突出主体，配合浅景深效果，确保主体极其清晰，同时背景保持柔和的虚化效果。最终成品应具备高细节、主体对焦锐利、色彩鲜艳且对比强烈、专业布光以及 8k 分辨率的品质。\" giulia 13128",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13107,
+      "title": "2000 年代初风格：身着粉色西装外套的人物数码照片",
+      "description": "这是一个高度具体的提示词，用于生成具有 2000 年代初数码相机风格的超写实照片。画面主体身着色彩鲜艳的超大款粉色西装外套，坐在欧洲鹅卵石街道旁的咖啡桌前。包含详细的负面提示词以确保图像质量。",
+      "sourceLink": "https://x.com/Chryzleenprompt/status/2039470296743444885",
+      "sourcePublishedAt": "2026-04-01T22:29:44.000Z",
+      "author": {
+        "name": "Chryz leen",
+        "link": "https://x.com/Chryzleenprompt"
+      },
+      "content": "Create image: Use the attached reference image as a visual guide for the character’s appearance. Preserve key visual traits such as facial structure and overall proportions, while allowing small natural variations typical of real photography. The generated subject should clearly resemble the reference while remaining a natural photographic interpretation.\nA hyper-realistic photograph in the style of an authentic early 2000s digital photo captures the subject seated at a round marble-topped café table on a narrow European cobblestone street. The subject is positioned in a medium-wide shot, angled three-quarters toward the camera with the right elbow resting on the tabletop and the chin cradled gently in the palm of the hand. The person’s legs are crossed at the knee, with the top leg extended forward to reveal white low-top sneakers with flat cotton laces. The subject wears a vibrant, saturated {argument name=\"blazer color\" default=\"bubblegum-pink\"} oversized blazer with structured shoulders and wide notched lapels, paired with straight-leg light-wash denim jeans featuring exaggerated four-inch cuffs at the hem. A rectangular fuchsia pink clutch with a hard-shell finish rests on the table beside a small glass. The makeup aesthetic features a frosted pink lip with a high-shine gloss and a shimmering pale eyeshadow. The voluminous, long wavy hair is styled in heavy, face-framing layers. The background is a detailed urban scene with a massive stone medieval tower rising at the end of a corridor of multi-story buildings in shades of ochre and terracotta, decorated with climbing green vines and retractable canvas awnings. The image exhibits the distinct qualities of a vintage point-and-shoot camera, including a slight overexposure from a direct flash, noticeable digital noise in the shadows, and a flattened dynamic range that emphasizes the electric saturation of the pink attire against the weathered textures of the cobblestone street.\nAspect Ratio: 3:4\n\nNegative:\nextra limbs, extra hands, extra fingers, missing fingers, fused fingers, dislocated hands, broken wrists, unnatural hand pose, twisted arms, duplicated body parts, bad anatomy, incorrect anatomy, broken anatomy, impossible pose, warped body, distorted proportions, ai artifacts, poorly drawn hands, malformed anatomy",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112275466_xthbhz_HE2nbIfaUAAYIRK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112275466_xthbhz_HE2nbIfaUAAYIRK-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建图像：使用随附的参考图作为人物外观的视觉指南。保留面部结构和整体比例等关键视觉特征，同时允许真实摄影中常见的细微自然变化。生成的人物应清晰地呈现参考图特征，同时保持自然的摄影质感。\n\n一张具有 2000 年代初真实数码相机风格的超写实照片，捕捉了主体坐在狭窄欧洲鹅卵石街道旁大理石圆桌前的场景。主体采用中景拍摄，身体向镜头方向侧转四分之三，右肘靠在桌面上，下巴轻轻托在手掌中。双腿在膝盖处交叉，上方的腿向前伸展，露出带有扁平棉质鞋带的白色低帮运动鞋。主体身着一件色彩鲜艳、饱和度高的 {argument name=\"blazer color\" default=\"泡泡糖粉色\"} 超大款西装外套，肩部线条结构分明，配有宽大的缺角翻领，下身搭配直筒浅色牛仔裤，裤脚处有夸张的 4 英寸翻边。桌上放着一个长方形紫红色硬壳手拿包，旁边是一个小玻璃杯。妆容采用磨砂粉色唇妆，带有高光泽感，并配有闪亮的浅色眼影。丰盈的长波浪卷发采用厚重的修颜层次剪裁。背景是详细的城市景观，街道尽头矗立着一座巨大的中世纪石塔，两侧是赭色和赤陶色的多层建筑，装饰着攀爬的绿植和可伸缩的帆布遮阳棚。图像呈现出复古卡片相机的独特质感，包括直闪光灯造成的轻微过曝、阴影中明显的数码噪点，以及扁平化的动态范围，突显了粉色服装在风化鹅卵石街道纹理衬托下的电光饱和度。\n\n宽高比：3:4\n\n负面提示词：\n多余的肢体、多余的手、多余的手指、手指缺失、手指粘连、手部脱臼、手腕骨折、不自然的手部姿势、手臂扭曲、身体部位重复、糟糕的解剖结构、错误的解剖结构、破碎的解剖结构、不可能的姿势、身体变形、比例失调、AI 伪影、手部绘制拙劣、解剖结构畸形",
+      "sourcePlatform": "twitter",
+      "searchIndex": "2000 年代初风格：身着粉色西装外套的人物数码照片 这是一个高度具体的提示词，用于生成具有 2000 年代初数码相机风格的超写实照片。画面主体身着色彩鲜艳的超大款粉色西装外套，坐在欧洲鹅卵石街道旁的咖啡桌前。包含详细的负面提示词以确保图像质量。 create image: use the attached reference image as a visual guide for the character’s appearance. preserve key visual traits such as facial structure and overall proportions, while allowing small natural variations typical of real photography. the generated subject should clearly resemble the reference while remaining a natural photographic interpretation.\na hyper-realistic photograph in the style of an authentic early 2000s digital photo captures the subject seated at a round marble-topped café table on a narrow european cobblestone street. the subject is positioned in a medium-wide shot, angled three-quarters toward the camera with the right elbow resting on the tabletop and the chin cradled gently in the palm of the hand. the person’s legs are crossed at the knee, with the top leg extended forward to reveal white low-top sneakers with flat cotton laces. the subject wears a vibrant, saturated {argument name=\"blazer color\" default=\"bubblegum-pink\"} oversized blazer with structured shoulders and wide notched lapels, paired with straight-leg light-wash denim jeans featuring exaggerated four-inch cuffs at the hem. a rectangular fuchsia pink clutch with a hard-shell finish rests on the table beside a small glass. the makeup aesthetic features a frosted pink lip with a high-shine gloss and a shimmering pale eyeshadow. the voluminous, long wavy hair is styled in heavy, face-framing layers. the background is a detailed urban scene with a massive stone medieval tower rising at the end of a corridor of multi-story buildings in shades of ochre and terracotta, decorated with climbing green vines and retractable canvas awnings. the image exhibits the distinct qualities of a vintage point-and-shoot camera, including a slight overexposure from a direct flash, noticeable digital noise in the shadows, and a flattened dynamic range that emphasizes the electric saturation of the pink attire against the weathered textures of the cobblestone street.\naspect ratio: 3:4\n\nnegative:\nextra limbs, extra hands, extra fingers, missing fingers, fused fingers, dislocated hands, broken wrists, unnatural hand pose, twisted arms, duplicated body parts, bad anatomy, incorrect anatomy, broken anatomy, impossible pose, warped body, distorted proportions, ai artifacts, poorly drawn hands, malformed anatomy 创建图像：使用随附的参考图作为人物外观的视觉指南。保留面部结构和整体比例等关键视觉特征，同时允许真实摄影中常见的细微自然变化。生成的人物应清晰地呈现参考图特征，同时保持自然的摄影质感。\n\n一张具有 2000 年代初真实数码相机风格的超写实照片，捕捉了主体坐在狭窄欧洲鹅卵石街道旁大理石圆桌前的场景。主体采用中景拍摄，身体向镜头方向侧转四分之三，右肘靠在桌面上，下巴轻轻托在手掌中。双腿在膝盖处交叉，上方的腿向前伸展，露出带有扁平棉质鞋带的白色低帮运动鞋。主体身着一件色彩鲜艳、饱和度高的 {argument name=\"blazer color\" default=\"泡泡糖粉色\"} 超大款西装外套，肩部线条结构分明，配有宽大的缺角翻领，下身搭配直筒浅色牛仔裤，裤脚处有夸张的 4 英寸翻边。桌上放着一个长方形紫红色硬壳手拿包，旁边是一个小玻璃杯。妆容采用磨砂粉色唇妆，带有高光泽感，并配有闪亮的浅色眼影。丰盈的长波浪卷发采用厚重的修颜层次剪裁。背景是详细的城市景观，街道尽头矗立着一座巨大的中世纪石塔，两侧是赭色和赤陶色的多层建筑，装饰着攀爬的绿植和可伸缩的帆布遮阳棚。图像呈现出复古卡片相机的独特质感，包括直闪光灯造成的轻微过曝、阴影中明显的数码噪点，以及扁平化的动态范围，突显了粉色服装在风化鹅卵石街道纹理衬托下的电光饱和度。\n\n宽高比：3:4\n\n负面提示词：\n多余的肢体、多余的手、多余的手指、手指缺失、手指粘连、手部脱臼、手腕骨折、不自然的手部姿势、手臂扭曲、身体部位重复、糟糕的解剖结构、错误的解剖结构、破碎的解剖结构、不可能的姿势、身体变形、比例失调、ai 伪影、手部绘制拙劣、解剖结构畸形 chryz leen 13107",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13106,
+      "title": "暴雨中老人的黑白肖像",
+      "description": "这是一条详细的提示词，用于生成一张高对比度、质感粗犷的黑白特写肖像，描绘一位被暴雨淋透的老人。该提示词采用了特定的相机和胶片模拟设置（Leica M11, Ilford HP5），并呈现 Sebastiao Salgado 的摄影风格。",
+      "sourceLink": "https://x.com/kaanakz/status/2039467371111284817",
+      "sourcePublishedAt": "2026-04-01T22:18:07.000Z",
+      "author": {
+        "name": "Kaan",
+        "link": "https://x.com/kaanakz"
+      },
+      "content": "Weathered elderly male, wire-rimmed spectacles, drenched skin and hair, moisture-slicked jacket, macro texture, intense gaze, tight close-up, clinging water droplets, heavy downpour, blurred rain streaks, pitch-black atmosphere, high-contrast monochrome, chiaroscuro lighting, specular highlights, Leica M11 Monochrom, 50mm f/1.4, Ilford HP5 grain, pushed +2 stops, high micro-contrast, Sebastiao Salgado style, gritty realism, 1:1.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112275139_e2kqtr_HE2i-k6aoAAIqoy.jpg",
+        "https://cms-assets.youmind.com/media/1775112275227_rj08vu_HE2jDWgWwAAS2f9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112275139_e2kqtr_HE2i-k6aoAAIqoy-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1775112275227_rj08vu_HE2jDWgWwAAS2f9-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "饱经风霜的老年男性，佩戴金属框眼镜，皮肤和头发被雨水淋透，外套上满是湿润的痕迹，宏观纹理，目光深邃，紧凑特写，附着的水滴，倾盆大雨，模糊的雨丝，漆黑的氛围，高对比度黑白，明暗对照法照明，镜面高光，Leica M11 Monochrom，50mm f/1.4，Ilford HP5 颗粒感，增感 +2 档，高微对比度，Sebastiao Salgado 风格，粗犷写实，1:1。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "暴雨中老人的黑白肖像 这是一条详细的提示词，用于生成一张高对比度、质感粗犷的黑白特写肖像，描绘一位被暴雨淋透的老人。该提示词采用了特定的相机和胶片模拟设置（leica m11, ilford hp5），并呈现 sebastiao salgado 的摄影风格。 weathered elderly male, wire-rimmed spectacles, drenched skin and hair, moisture-slicked jacket, macro texture, intense gaze, tight close-up, clinging water droplets, heavy downpour, blurred rain streaks, pitch-black atmosphere, high-contrast monochrome, chiaroscuro lighting, specular highlights, leica m11 monochrom, 50mm f/1.4, ilford hp5 grain, pushed +2 stops, high micro-contrast, sebastiao salgado style, gritty realism, 1:1. 饱经风霜的老年男性，佩戴金属框眼镜，皮肤和头发被雨水淋透，外套上满是湿润的痕迹，宏观纹理，目光深邃，紧凑特写，附着的水滴，倾盆大雨，模糊的雨丝，漆黑的氛围，高对比度黑白，明暗对照法照明，镜面高光，leica m11 monochrom，50mm f/1.4，ilford hp5 颗粒感，增感 +2 档，高微对比度，sebastiao salgado 风格，粗犷写实，1:1。 kaan 13106",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13133,
+      "title": "Nano Banana 2 的图表风格提示词",
+      "description": "一套包含五种风格模板的提示词，用于通过 Nano Banana 2 生成稳定且结构化的图表。用户可以替换括号内的内容，以创建不同类型的视觉辅助工具，例如菜单式列表、处方单、登机牌、仪表盘 UI 以及诊断流程图。",
+      "sourceLink": "https://x.com/ChatgptAIskill/status/2039448975426879733",
+      "sourcePublishedAt": "2026-04-01T21:05:01.000Z",
+      "author": {
+        "name": "ケンイチ | AIスキルアカデミー『誰でもわかるAI活用術』",
+        "link": "https://x.com/ChatgptAIskill"
+      },
+      "content": "① お品書き風\n「{argument name=\"副業スキル\" default=\"副業で稼げるスキル\"}厳選5品」を和食料亭のお品書き風の図解にして。縦書き・毛筆・和紙風の背景で。\n\n② 処方箋風\n「{argument name=\"AIの使い方\" default=\"AIの正しい使い方\"}」を医療の処方箋風の図解にして。Rxマーク・白背景・医療ブルーで。\n\n③ 搭乗券風\n「{argument name=\"出発地\" default=\"AIなし生活\"}→{argument name=\"目的地\" default=\"AI活用後の生活\"}」を航空搭乗券風の図解にして。出発地・到着地・バーコード付きで。\n\n④ ダッシュボードUI風\n「{argument name=\"比較対象\" default=\"ChatGPT vs Claude\"}性能比較」をダークモードのダッシュボードUI風の図解にして。KPIカード・グラフ付きで。\n\n⑤ 診断チャート風\n「あなたに合う{argument name=\"AIツール\" default=\"AIツール\"}診断」をYes/No分岐のフローチャート風の図解にして。矢印・色分けノード付きで。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112288342_6nv3zt_HE2QnibbMAAf3cI.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112288342_6nv3zt_HE2QnibbMAAf3cI-300x400.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "① 菜单风格\n以日式餐厅菜单的风格，创建一个关于“5 个精选 {argument name=\"side job skills\" default=\"副业技能\"}”的图表。使用竖排文字、笔触效果以及类似和纸的背景。\n\n② 处方单风格\n以医疗处方单的风格，创建一个关于“{argument name=\"AI usage\" default=\"AI 的正确使用方法\"}”的图表。包含 Rx 标志、白色背景以及医疗蓝配色。\n\n③ 登机牌风格\n以航空公司登机牌的风格，创建一个关于“{argument name=\"departure point\" default=\"没有 AI 的生活\"} → {argument name=\"destination\" default=\"使用 AI 后的生活\"}”的图表。包含出发地、目的地以及条形码。\n\n④ 仪表盘 UI 风格\n以深色模式仪表盘 UI 的风格，创建一个对比“{argument name=\"comparison subjects\" default=\"ChatGPT 与 Claude\"}”性能的图表。包含 KPI 卡片和图表。\n\n⑤ 诊断流程图风格\n以“是/否”分支流程图的风格，为“{argument name=\"AI tool\" default=\"AI 工具\"}”创建一个适合你的诊断图表。包含箭头和颜色编码的节点。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的图表风格提示词 一套包含五种风格模板的提示词，用于通过 nano banana 2 生成稳定且结构化的图表。用户可以替换括号内的内容，以创建不同类型的视觉辅助工具，例如菜单式列表、处方单、登机牌、仪表盘 ui 以及诊断流程图。 ① お品書き風\n「{argument name=\"副業スキル\" default=\"副業で稼げるスキル\"}厳選5品」を和食料亭のお品書き風の図解にして。縦書き・毛筆・和紙風の背景で。\n\n② 処方箋風\n「{argument name=\"aiの使い方\" default=\"aiの正しい使い方\"}」を医療の処方箋風の図解にして。rxマーク・白背景・医療ブルーで。\n\n③ 搭乗券風\n「{argument name=\"出発地\" default=\"aiなし生活\"}→{argument name=\"目的地\" default=\"ai活用後の生活\"}」を航空搭乗券風の図解にして。出発地・到着地・バーコード付きで。\n\n④ ダッシュボードui風\n「{argument name=\"比較対象\" default=\"chatgpt vs claude\"}性能比較」をダークモードのダッシュボードui風の図解にして。kpiカード・グラフ付きで。\n\n⑤ 診断チャート風\n「あなたに合う{argument name=\"aiツール\" default=\"aiツール\"}診断」をyes/no分岐のフローチャート風の図解にして。矢印・色分けノード付きで。 ① 菜单风格\n以日式餐厅菜单的风格，创建一个关于“5 个精选 {argument name=\"side job skills\" default=\"副业技能\"}”的图表。使用竖排文字、笔触效果以及类似和纸的背景。\n\n② 处方单风格\n以医疗处方单的风格，创建一个关于“{argument name=\"ai usage\" default=\"ai 的正确使用方法\"}”的图表。包含 rx 标志、白色背景以及医疗蓝配色。\n\n③ 登机牌风格\n以航空公司登机牌的风格，创建一个关于“{argument name=\"departure point\" default=\"没有 ai 的生活\"} → {argument name=\"destination\" default=\"使用 ai 后的生活\"}”的图表。包含出发地、目的地以及条形码。\n\n④ 仪表盘 ui 风格\n以深色模式仪表盘 ui 的风格，创建一个对比“{argument name=\"comparison subjects\" default=\"chatgpt 与 claude\"}”性能的图表。包含 kpi 卡片和图表。\n\n⑤ 诊断流程图风格\n以“是/否”分支流程图的风格，为“{argument name=\"ai tool\" default=\"ai 工具\"}”创建一个适合你的诊断图表。包含箭头和颜色编码的节点。 ケンイチ | aiスキルアカデミー『誰でもわかるai活用術』 13133",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13095,
+      "title": "Anya Taylor Joy 风格 iPhone 杂志大片特写",
+      "description": "这是一个为 Google Nano Banana Pro 设计的结构化提示词，旨在生成一张由 Anya Taylor Joy 启发、超写实的高级时装杂志风格特写肖像。图像模拟 iPhone 17 Pro 的拍摄效果，利用强烈的侧面日光，营造出锐利的阴影并突显雕塑般的面部轮廓，传达出一种冷峻、克制且神秘的氛围。",
+      "sourceLink": "https://x.com/bananababydoll/status/2039437142800417169",
+      "sourcePublishedAt": "2026-04-01T20:18:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"iphone editorial close-up, natural grain, soft cinematic shadows\"\n  },\n\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"anya taylor joy inspired\"}\",\n    \"face\": {\n      \"structure\": \"elongated oval face, high cheekbones, wide-set eyes, delicate jawline\",\n      \"skin\": \"porcelain pale, smooth but realistic texture\",\n      \"expression\": \"stoic, distant, slightly mysterious\"\n    },\n    \"hair\": {\n      \"color\": \"platinum blonde\",\n      \"style\": \"long straight hair, slightly tucked behind ears, soft strands framing face\"\n    },\n    \"body\": {\n      \"type\": \"slender high-fashion physique\",\n      \"presence\": \"elegant, elongated lines\"\n    }\n  },\n\n  \"scene\": {\n    \"location\": \"minimalist interior wall\",\n    \"time\": \"late afternoon\",\n    \"atmosphere\": \"quiet, still, almost surreal\"\n  },\n\n  \"lighting\": {\n    \"type\": \"strong side daylight\",\n    \"effect\": \"sharp light slicing across face, deep shadow on one side, sculpted cheekbones\"\n  },\n\n  \"camera\": {\n    \"perspective\": \"close-up portrait\",\n    \"angle\": \"slightly low angle\",\n    \"distance\": \"face and upper torso\",\n    \"imperfection\": \"slight exposure imbalance, realistic iPhone HDR\"\n  },\n\n  \"outfit\": {\n    \"top\": \"minimal thin white top\",\n    \"details\": \"clean fabric, subtle tension, no distraction\"\n  },\n\n  \"vibe\": {\n    \"energy\": \"cold beauty, controlled presence\",\n    \"mood\": \"editorial stillness\",\n    \"aesthetic\": \"high fashion but captured casually\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775112268498_8848lv_HEad8MFX0AA57iH.jpg",
+        "https://cms-assets.youmind.com/media/1775112268502_9snnl6_HEad8MEXYAAzLrZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775112268498_8848lv_HEad8MFX0AA57iH-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775112268502_9snnl6_HEad8MEXYAAzLrZ-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"超写实\",\n    \"style\": \"iPhone 杂志大片特写，自然颗粒感，柔和的电影感阴影\"\n  },\n\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"Anya Taylor Joy 风格\\\"}\",\n    \"face\": {\n      \"structure\": \"修长的椭圆形脸，高颧骨，宽眼距，精致的下颌线\",\n      \"skin\": \"瓷白肤色，平滑但具有真实的纹理\",\n      \"expression\": \"冷漠，疏离，带有一丝神秘感\"\n    },\n    \"hair\": {\n      \"color\": \"铂金色\",\n      \"style\": \"长直发，微微别在耳后，柔和的发丝修饰脸型\"\n    },\n    \"body\": {\n      \"type\": \"纤细的高级时装模特体型\",\n      \"presence\": \"优雅，线条修长\"\n    }\n  },\n\n  \"scene\": {\n    \"location\": \"极简主义室内墙面\",\n    \"time\": \"午后\",\n    \"atmosphere\": \"安静，静止，近乎超现实\"\n  },\n\n  \"lighting\": {\n    \"type\": \"强烈的侧面日光\",\n    \"effect\": \"锐利的光线横切过面部，一侧呈现深邃阴影，突显雕塑般的颧骨\"\n  },\n\n  \"camera\": {\n    \"perspective\": \"特写肖像\",\n    \"angle\": \"微仰角\",\n    \"distance\": \"面部及上半身\",\n    \"imperfection\": \"轻微的曝光不平衡，真实的 iPhone HDR 效果\"\n  },\n\n  \"outfit\": {\n    \"top\": \"极简白色薄上衣\",\n    \"details\": \"干净的面料，微妙的褶皱，无干扰元素\"\n  },\n\n  \"vibe\": {\n    \"energy\": \"冷艳，克制的表现力\",\n    \"mood\": \"杂志般的静谧感\",\n    \"aesthetic\": \"高级时装感，但以随手拍的方式呈现\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "anya taylor joy 风格 iphone 杂志大片特写 这是一个为 google nano banana pro 设计的结构化提示词，旨在生成一张由 anya taylor joy 启发、超写实的高级时装杂志风格特写肖像。图像模拟 iphone 17 pro 的拍摄效果，利用强烈的侧面日光，营造出锐利的阴影并突显雕塑般的面部轮廓，传达出一种冷峻、克制且神秘的氛围。 {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"iphone editorial close-up, natural grain, soft cinematic shadows\"\n  },\n\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"anya taylor joy inspired\"}\",\n    \"face\": {\n      \"structure\": \"elongated oval face, high cheekbones, wide-set eyes, delicate jawline\",\n      \"skin\": \"porcelain pale, smooth but realistic texture\",\n      \"expression\": \"stoic, distant, slightly mysterious\"\n    },\n    \"hair\": {\n      \"color\": \"platinum blonde\",\n      \"style\": \"long straight hair, slightly tucked behind ears, soft strands framing face\"\n    },\n    \"body\": {\n      \"type\": \"slender high-fashion physique\",\n      \"presence\": \"elegant, elongated lines\"\n    }\n  },\n\n  \"scene\": {\n    \"location\": \"minimalist interior wall\",\n    \"time\": \"late afternoon\",\n    \"atmosphere\": \"quiet, still, almost surreal\"\n  },\n\n  \"lighting\": {\n    \"type\": \"strong side daylight\",\n    \"effect\": \"sharp light slicing across face, deep shadow on one side, sculpted cheekbones\"\n  },\n\n  \"camera\": {\n    \"perspective\": \"close-up portrait\",\n    \"angle\": \"slightly low angle\",\n    \"distance\": \"face and upper torso\",\n    \"imperfection\": \"slight exposure imbalance, realistic iphone hdr\"\n  },\n\n  \"outfit\": {\n    \"top\": \"minimal thin white top\",\n    \"details\": \"clean fabric, subtle tension, no distraction\"\n  },\n\n  \"vibe\": {\n    \"energy\": \"cold beauty, controlled presence\",\n    \"mood\": \"editorial stillness\",\n    \"aesthetic\": \"high fashion but captured casually\"\n  }\n} {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"超写实\",\n    \"style\": \"iphone 杂志大片特写，自然颗粒感，柔和的电影感阴影\"\n  },\n\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"anya taylor joy 风格\\\"}\",\n    \"face\": {\n      \"structure\": \"修长的椭圆形脸，高颧骨，宽眼距，精致的下颌线\",\n      \"skin\": \"瓷白肤色，平滑但具有真实的纹理\",\n      \"expression\": \"冷漠，疏离，带有一丝神秘感\"\n    },\n    \"hair\": {\n      \"color\": \"铂金色\",\n      \"style\": \"长直发，微微别在耳后，柔和的发丝修饰脸型\"\n    },\n    \"body\": {\n      \"type\": \"纤细的高级时装模特体型\",\n      \"presence\": \"优雅，线条修长\"\n    }\n  },\n\n  \"scene\": {\n    \"location\": \"极简主义室内墙面\",\n    \"time\": \"午后\",\n    \"atmosphere\": \"安静，静止，近乎超现实\"\n  },\n\n  \"lighting\": {\n    \"type\": \"强烈的侧面日光\",\n    \"effect\": \"锐利的光线横切过面部，一侧呈现深邃阴影，突显雕塑般的颧骨\"\n  },\n\n  \"camera\": {\n    \"perspective\": \"特写肖像\",\n    \"angle\": \"微仰角\",\n    \"distance\": \"面部及上半身\",\n    \"imperfection\": \"轻微的曝光不平衡，真实的 iphone hdr 效果\"\n  },\n\n  \"outfit\": {\n    \"top\": \"极简白色薄上衣\",\n    \"details\": \"干净的面料，微妙的褶皱，无干扰元素\"\n  },\n\n  \"vibe\": {\n    \"energy\": \"冷艳，克制的表现力\",\n    \"mood\": \"杂志般的静谧感\",\n    \"aesthetic\": \"高级时装感，但以随手拍的方式呈现\"\n  }\n} babydoll 13095",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 12,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

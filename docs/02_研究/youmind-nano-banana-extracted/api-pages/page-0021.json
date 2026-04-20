@@ -1,0 +1,524 @@
+{
+  "prompts": [
+    {
+      "id": 12977,
+      "title": "黑豹主题超写实人像提示词",
+      "description": "这是一份专为 Nano Banana 2 设计的详细提示词，旨在生成一张超写实、奢华杂志风格的人像照片。画面主体为一位年轻女性（使用参考身份），坐在干净的白色摄影棚内，身后有一只黑豹，身着柔粉色缎面束身裙。该提示词强调严格的身份保留及高对比度光影效果。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2038320613593641152",
+      "sourcePublishedAt": "2026-03-29T18:21:19.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "A portrait of a young woman sitting in a clean white studio with a black panther behind her, use reference image face, preserve identity strictly, do not change facial features, hair color, or eye color.\nOutfit: {argument name=\"outfit\" default=\"soft pink satin corset dress with feather details, fitted structure, smooth glossy texture\"}.\nPose: sitting on the floor with legs folded to the side, hands resting naturally, upright posture.\nExpression: calm, confident, serious.\nHair: long black hair, soft waves, sleek finish.\nAccessories: minimal, clean look.\nEnvironment: plain white studio background, minimal setup, strong contrast with black panther.\nLighting: soft studio lighting, even exposure, subtle shadows, high contrast between subject and background, sharp details.\nStyle: ultra realistic, high detail, luxury editorial, clean aesthetic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853744037_qw09bh_HEmRxmkasAAu3Vo.jpg",
+        "https://cms-assets.youmind.com/media/1774853744159_chwe0v_HEmRwrEboAAsiTm.jpg",
+        "https://cms-assets.youmind.com/media/1774853744317_ugh6fc_HEmRyk-a4AACn2j.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853744037_qw09bh_HEmRxmkasAAu3Vo-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853744159_chwe0v_HEmRwrEboAAsiTm-300x401.jpg",
+        "https://cms-assets.youmind.com/media/1774853744317_ugh6fc_HEmRyk-a4AACn2j-300x401.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻女性坐在干净的白色摄影棚内，身后有一只黑豹，使用参考图像面部，严格保留身份特征，不得改变面部特征、发色或瞳色。\n服装：{argument name=\"outfit\" default=\"柔粉色缎面束身裙，带有羽毛细节，修身剪裁，平滑光泽质感\"}。\n姿势：坐在地板上，双腿侧叠，双手自然放置，坐姿挺拔。\n表情：冷静、自信、严肃。\n发型：黑色长发，柔和波浪卷，质感顺滑。\n配饰：极简风格，干净利落。\n环境：纯白摄影棚背景，极简布置，与黑豹形成强烈对比。\n光影：柔和的摄影棚灯光，曝光均匀，阴影细腻，主体与背景对比强烈，细节清晰锐利。\n风格：超写实，高细节，奢华杂志风，干净的美学质感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黑豹主题超写实人像提示词 这是一份专为 nano banana 2 设计的详细提示词，旨在生成一张超写实、奢华杂志风格的人像照片。画面主体为一位年轻女性（使用参考身份），坐在干净的白色摄影棚内，身后有一只黑豹，身着柔粉色缎面束身裙。该提示词强调严格的身份保留及高对比度光影效果。 a portrait of a young woman sitting in a clean white studio with a black panther behind her, use reference image face, preserve identity strictly, do not change facial features, hair color, or eye color.\noutfit: {argument name=\"outfit\" default=\"soft pink satin corset dress with feather details, fitted structure, smooth glossy texture\"}.\npose: sitting on the floor with legs folded to the side, hands resting naturally, upright posture.\nexpression: calm, confident, serious.\nhair: long black hair, soft waves, sleek finish.\naccessories: minimal, clean look.\nenvironment: plain white studio background, minimal setup, strong contrast with black panther.\nlighting: soft studio lighting, even exposure, subtle shadows, high contrast between subject and background, sharp details.\nstyle: ultra realistic, high detail, luxury editorial, clean aesthetic. 一位年轻女性坐在干净的白色摄影棚内，身后有一只黑豹，使用参考图像面部，严格保留身份特征，不得改变面部特征、发色或瞳色。\n服装：{argument name=\"outfit\" default=\"柔粉色缎面束身裙，带有羽毛细节，修身剪裁，平滑光泽质感\"}。\n姿势：坐在地板上，双腿侧叠，双手自然放置，坐姿挺拔。\n表情：冷静、自信、严肃。\n发型：黑色长发，柔和波浪卷，质感顺滑。\n配饰：极简风格，干净利落。\n环境：纯白摄影棚背景，极简布置，与黑豹形成强烈对比。\n光影：柔和的摄影棚灯光，曝光均匀，阴影细腻，主体与背景对比强烈，细节清晰锐利。\n风格：超写实，高细节，奢华杂志风，干净的美学质感。 glena jenner 12977",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12959,
+      "title": "高端镜面自拍肖像",
+      "description": "一个为 Nano Banana Pro 设计的超写实提示词，用于生成一张 4:5 比例的镜面自拍肖像。主体（Sadie Sink、Scarlett Johansson 或 Sabrina Carpenter）身着淡紫色丝绸连衣裙，置身于高档室内环境，重点在于精准还原面部特征。",
+      "sourceLink": "https://x.com/sumiturkude007/status/2038306052350026093",
+      "sourcePublishedAt": "2026-03-29T17:23:27.000Z",
+      "author": {
+        "name": "sammy",
+        "link": "https://x.com/sumiturkude007"
+      },
+      "content": "Ultra-realistic 4:5 mirror selfie portrait in an upscale indoor setting. Use the reference image for the subject’s identity, face, and hair — preserve exact facial features, proportions, and likeness.\n\nThe subject is standing at an angle, taking a mirror selfie with her right arm raised holding a smartphone.\n\nShe is wearing a pale mauve silk dress with a deep plunging draped cowl neckline and delicate silver floral embroidery.\n\nAccessories include a dark smartphone with a multi-lens camera, long square-shaped nails with neutral polish, silver rings, layered silver bracelets or a watch, a thin pendant necklace, and dangling earrings.\n\nThe setting is an upscale bedroom or hotel room seen through a mirror reflection. Visible elements include a textured wall on the left and a bright circular lamp in the foreground. In the reflection, a lit bathroom with vertical slats and a patterned floor is visible, along with the edge of a bed with white sheets on the right.\n\nLighting is warm indoor lighting with strong uplighting from the foreground lamp, creating highlights and soft shadows across the subject.\n\nHigh detail, realistic textures, luxury editorial lifestyle photography style, sharp focus on the subject, shallow depth of field.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853734219_nrv4du_HEmEXuJaAAA-Twp.jpg",
+        "https://cms-assets.youmind.com/media/1774853734227_wg6420_HEmEXuEawAAWL7n.jpg",
+        "https://cms-assets.youmind.com/media/1774853734371_zxgv7j_HEmEXtfasAAxtre.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853734219_nrv4du_HEmEXuJaAAA-Twp-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774853734227_wg6420_HEmEXuEawAAWL7n-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774853734371_zxgv7j_HEmEXtfasAAxtre-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实 4:5 镜面自拍肖像，背景为高档室内环境。请参考提供的图像以确定主体的身份、面部和发型——务必精准保留面部特征、比例和相似度。\n\n主体呈侧身站立姿势，右手举起智能手机进行镜面自拍。\n\n她身着一件淡紫色丝绸连衣裙，采用深 V 领垂坠设计，并饰有精致的银色花卉刺绣。\n\n配饰包括一部带有多个摄像头的深色智能手机、涂有中性色指甲油的长方形美甲、银色戒指、叠戴的银色手链或手表、细吊坠项链以及垂坠耳环。\n\n场景为通过镜面反射呈现的高档卧室或酒店房间。可见元素包括左侧的纹理墙面和前景中明亮的圆形台灯。在反射中，可以看到带有垂直板条和图案地砖的明亮浴室，以及右侧铺有白色床单的床沿。\n\n光线为温暖的室内光，前景台灯提供强烈的向上照明，在主体身上形成高光和柔和的阴影。\n\n高细节、写实纹理、奢华杂志生活方式摄影风格，主体焦点清晰，浅景深。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高端镜面自拍肖像 一个为 nano banana pro 设计的超写实提示词，用于生成一张 4:5 比例的镜面自拍肖像。主体（sadie sink、scarlett johansson 或 sabrina carpenter）身着淡紫色丝绸连衣裙，置身于高档室内环境，重点在于精准还原面部特征。 ultra-realistic 4:5 mirror selfie portrait in an upscale indoor setting. use the reference image for the subject’s identity, face, and hair — preserve exact facial features, proportions, and likeness.\n\nthe subject is standing at an angle, taking a mirror selfie with her right arm raised holding a smartphone.\n\nshe is wearing a pale mauve silk dress with a deep plunging draped cowl neckline and delicate silver floral embroidery.\n\naccessories include a dark smartphone with a multi-lens camera, long square-shaped nails with neutral polish, silver rings, layered silver bracelets or a watch, a thin pendant necklace, and dangling earrings.\n\nthe setting is an upscale bedroom or hotel room seen through a mirror reflection. visible elements include a textured wall on the left and a bright circular lamp in the foreground. in the reflection, a lit bathroom with vertical slats and a patterned floor is visible, along with the edge of a bed with white sheets on the right.\n\nlighting is warm indoor lighting with strong uplighting from the foreground lamp, creating highlights and soft shadows across the subject.\n\nhigh detail, realistic textures, luxury editorial lifestyle photography style, sharp focus on the subject, shallow depth of field. 超写实 4:5 镜面自拍肖像，背景为高档室内环境。请参考提供的图像以确定主体的身份、面部和发型——务必精准保留面部特征、比例和相似度。\n\n主体呈侧身站立姿势，右手举起智能手机进行镜面自拍。\n\n她身着一件淡紫色丝绸连衣裙，采用深 v 领垂坠设计，并饰有精致的银色花卉刺绣。\n\n配饰包括一部带有多个摄像头的深色智能手机、涂有中性色指甲油的长方形美甲、银色戒指、叠戴的银色手链或手表、细吊坠项链以及垂坠耳环。\n\n场景为通过镜面反射呈现的高档卧室或酒店房间。可见元素包括左侧的纹理墙面和前景中明亮的圆形台灯。在反射中，可以看到带有垂直板条和图案地砖的明亮浴室，以及右侧铺有白色床单的床沿。\n\n光线为温暖的室内光，前景台灯提供强烈的向上照明，在主体身上形成高光和柔和的阴影。\n\n高细节、写实纹理、奢华杂志生活方式摄影风格，主体焦点清晰，浅景深。 sammy 12959",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12947,
+      "title": "Smash Burger 技术架构蓝图",
+      "description": "这是一个为 Nano Banana Pro 设计的高度专业化提示词，旨在生成一张深蓝色绘图纸上的经典 Smash Burger 技术架构蓝图。该提示词要求呈现超写实的食物渲染效果，包含精确的测量线、堆叠高度标注，以及通过发光 CAD 线条连接的详细标签，充分展示了模型处理复杂文本和技术保真度的能力。",
+      "sourceLink": "https://x.com/AllaAisling/status/2038299216313774139",
+      "sourcePublishedAt": "2026-03-29T16:56:17.000Z",
+      "author": {
+        "name": "Alexandra Aisling",
+        "link": "https://x.com/AllaAisling"
+      },
+      "content": "Technical architectural blueprint of a Classic Smash Burger on deep navy drafting paper. Hyperrealistic food hero centered-left, dramatically lit from upper left, warm studio spotlight, cross-section view revealing every layer in precise stack order, lacy-edged patties visible in full photorealistic color, cheese mid-cascade, bun toasted golden, sauce pooling at base catching warm light. Blueprint linework in electric blue, precise measurement lines, stack height callouts, patty thickness cross-section, bun diameter diagram, sauce trajectory arc, grid overlay. Labels connected by thin glowing CAD elbow-joint lines, no crossovers: \"{argument name=\"label 1\" default=\"BRIOCHE BUN sesame-crowned, butter-toasted, 11cm diameter\"}\" \"{argument name=\"label 2\" default=\"SMASH PATTY ×2  80/20 chuck, 85g each, crust-temp 220°C\"}\"  \"{argument name=\"label 3\" default=\"AMERICAN CHEESE  single-fold melt, 2 slices, full cascade}\"  \"CARAMELIZED ONION  45min low-heat, moisture-reduced, dark\"  \"BREAD & BUTTER PICKLE  4mm slice, brine-bright, translucent\"  \"HOUSE SAUCE  thousand island base, 18g applied, amber\". Labels clustered right and top, white Helvetica Neue Light uppercase, thin italic descriptors below. Compass rose bottom-left, scale bar bottom-center, revision block top-right. Title block double-border bottom-right: \"DISH: THE SMASH // CLASSIFICATION: AMERICAN CLASSIC // BUILD SPEC: Engineered to be the last burger you ever need.\" 4K, tack sharp, electric blue linework glowing softly, warm golden burger tones popping against cool navy. Craveable.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853727476_vzwqfl_HEl-TT4XYAAoOW2.jpg",
+        "https://cms-assets.youmind.com/media/1774853727475_u638wj_HEl-Po3XAAAHgZr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853727476_vzwqfl_HEl-TT4XYAAoOW2-300x142.jpg",
+        "https://cms-assets.youmind.com/media/1774853727475_u638wj_HEl-Po3XAAAHgZr-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "深蓝色绘图纸上的经典 Smash Burger 技术架构蓝图。超写实食物主体位于左侧中心，左上方有戏剧性的灯光照射，暖色调摄影棚聚光灯，剖面图精确展示每一层的堆叠顺序，蕾丝边缘的肉饼呈现全写实色彩，芝士处于半融化流淌状态，面包烤至金黄，酱汁在底部汇聚并反射出暖光。蓝图线条为电光蓝色，包含精确的测量线、堆叠高度标注、肉饼厚度剖面、面包直径图示、酱汁轨迹弧线及网格叠加。标签通过细长的发光 CAD 折线连接，无交叉：\"{argument name=\"label 1\" default=\"布里欧修面包：芝麻顶盖，黄油烘烤，直径 11 厘米\"}\" \"{argument name=\"label 2\" default=\"SMASH 肉饼 ×2：80/20 牛肉碎，每块 85 克，焦化温度 220°C\"}\" \"{argument name=\"label 3\" default=\"美式芝士：单折融化，2 片，完全覆盖\"}\" \"焦糖洋葱：小火慢熬 45 分钟，水分收干，色泽深邃\" \"酸黄瓜：4 毫米切片，盐渍鲜亮，半透明\" \"秘制酱汁：千岛酱基底，用量 18 克，琥珀色\"。标签集中在右侧和顶部，使用白色 Helvetica Neue Light 大写字体，下方配有纤细的斜体描述。左下角有罗盘玫瑰，底部中心有比例尺，右上角有修订栏。右下角双边框标题栏内容：\"菜品：THE SMASH // 分类：美式经典 // 结构规格：专为打造你终极汉堡体验而设计。\" 4K 分辨率，焦点清晰，电光蓝线条柔和发光，暖金色汉堡色调在冷色调深蓝背景下格外突出。令人垂涎欲滴。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "smash burger 技术架构蓝图 这是一个为 nano banana pro 设计的高度专业化提示词，旨在生成一张深蓝色绘图纸上的经典 smash burger 技术架构蓝图。该提示词要求呈现超写实的食物渲染效果，包含精确的测量线、堆叠高度标注，以及通过发光 cad 线条连接的详细标签，充分展示了模型处理复杂文本和技术保真度的能力。 technical architectural blueprint of a classic smash burger on deep navy drafting paper. hyperrealistic food hero centered-left, dramatically lit from upper left, warm studio spotlight, cross-section view revealing every layer in precise stack order, lacy-edged patties visible in full photorealistic color, cheese mid-cascade, bun toasted golden, sauce pooling at base catching warm light. blueprint linework in electric blue, precise measurement lines, stack height callouts, patty thickness cross-section, bun diameter diagram, sauce trajectory arc, grid overlay. labels connected by thin glowing cad elbow-joint lines, no crossovers: \"{argument name=\"label 1\" default=\"brioche bun sesame-crowned, butter-toasted, 11cm diameter\"}\" \"{argument name=\"label 2\" default=\"smash patty ×2  80/20 chuck, 85g each, crust-temp 220°c\"}\"  \"{argument name=\"label 3\" default=\"american cheese  single-fold melt, 2 slices, full cascade}\"  \"caramelized onion  45min low-heat, moisture-reduced, dark\"  \"bread & butter pickle  4mm slice, brine-bright, translucent\"  \"house sauce  thousand island base, 18g applied, amber\". labels clustered right and top, white helvetica neue light uppercase, thin italic descriptors below. compass rose bottom-left, scale bar bottom-center, revision block top-right. title block double-border bottom-right: \"dish: the smash // classification: american classic // build spec: engineered to be the last burger you ever need.\" 4k, tack sharp, electric blue linework glowing softly, warm golden burger tones popping against cool navy. craveable. 深蓝色绘图纸上的经典 smash burger 技术架构蓝图。超写实食物主体位于左侧中心，左上方有戏剧性的灯光照射，暖色调摄影棚聚光灯，剖面图精确展示每一层的堆叠顺序，蕾丝边缘的肉饼呈现全写实色彩，芝士处于半融化流淌状态，面包烤至金黄，酱汁在底部汇聚并反射出暖光。蓝图线条为电光蓝色，包含精确的测量线、堆叠高度标注、肉饼厚度剖面、面包直径图示、酱汁轨迹弧线及网格叠加。标签通过细长的发光 cad 折线连接，无交叉：\"{argument name=\"label 1\" default=\"布里欧修面包：芝麻顶盖，黄油烘烤，直径 11 厘米\"}\" \"{argument name=\"label 2\" default=\"smash 肉饼 ×2：80/20 牛肉碎，每块 85 克，焦化温度 220°c\"}\" \"{argument name=\"label 3\" default=\"美式芝士：单折融化，2 片，完全覆盖\"}\" \"焦糖洋葱：小火慢熬 45 分钟，水分收干，色泽深邃\" \"酸黄瓜：4 毫米切片，盐渍鲜亮，半透明\" \"秘制酱汁：千岛酱基底，用量 18 克，琥珀色\"。标签集中在右侧和顶部，使用白色 helvetica neue light 大写字体，下方配有纤细的斜体描述。左下角有罗盘玫瑰，底部中心有比例尺，右上角有修订栏。右下角双边框标题栏内容：\"菜品：the smash // 分类：美式经典 // 结构规格：专为打造你终极汉堡体验而设计。\" 4k 分辨率，焦点清晰，电光蓝线条柔和发光，暖金色汉堡色调在冷色调深蓝背景下格外突出。令人垂涎欲滴。 alexandra aisling 12947",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12944,
+      "title": "霓虹爆裂 Smash Burger",
+      "description": "这是一个为 Nano Banana Pro 准备的超详细提示词，旨在生成一张超写实风格的 Smash Burger 图片。画面采用霓虹灯光下的电影质感，让人联想到《银翼杀手 2049》的食品广告风格。提示词强调了悬浮的食材、电子标签以及色彩斑斓的辉光效果。",
+      "sourceLink": "https://x.com/AllaAisling/status/2038298590498414686",
+      "sourcePublishedAt": "2026-03-29T16:53:48.000Z",
+      "author": {
+        "name": "Alexandra Aisling",
+        "link": "https://x.com/AllaAisling"
+      },
+      "content": "Hyperreal smash burger floating against pitch black background, dramatically lit by neon electric yellow and deep red underlighting and rim lighting. Ingredients separated and suspended mid-air in a loose diagonal cascade, not stacked, dynamically scattered as if caught mid-build. Brioche bun crown tumbling with sesame seeds scattering like sparks, two smashed patties spinning with lacy crispy edges glowing in neon heat, american cheese sheet suspended mid-melt catching light like molten gold, pickles orbiting like satellites, caramelized onions drifting dark and glistening, house sauce ribbons floating in slow-motion amber arcs. Every texture hyperreal and craveable. Each floating ingredient has a glowing neon label tag on a wire, uppercase bold condensed font, backlit: \"{argument name=\"ingredient 1\" default=\"80/20 CHUCK\"}\", \"{argument name=\"ingredient 2\" default=\"DOUBLE SMASH\"}\", \"{argument name=\"ingredient 3\" default=\"AMERICAN MELT\"}\", \"BRIOCHE CROWN\", \"BRINE PICKLE\", \"HOUSE SAUCE\". Dish name in large neon sign typography at top: \"THE SMASH\". Subtitle: \"engineered at 3am\". Mood: street food energy at full volume, cinematic, electric. Style ref: Blade Runner 2049 meets hyperreal CGI food campaign. 4K, ultra sharp, chromatic aberration on edges, craveable.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853725439_hwvuhy_HEl9vg4bYAAbLMq.jpg",
+        "https://cms-assets.youmind.com/media/1774853725484_ad90ro_HEl9t-Da0AA2qqn.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853725439_hwvuhy_HEl9vg4bYAAbLMq-300x142.jpg",
+        "https://cms-assets.youmind.com/media/1774853725484_ad90ro_HEl9t-Da0AA2qqn-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实 Smash Burger 悬浮在纯黑背景中，被霓虹电光黄和深红色的底光及轮廓光戏剧性地照亮。食材分离并悬浮在半空中，呈现出松散的对角线级联状，而非堆叠在一起，仿佛在制作过程中被定格的动态瞬间。布里欧修面包顶层翻滚着，芝麻像火花一样四散；两块 Smash 肉饼旋转着，边缘呈现出酥脆的蕾丝状，在霓虹热光下闪烁；一片美国芝士悬浮在半融化状态，捕捉着如熔金般的光泽；酸黄瓜像卫星一样环绕；焦糖洋葱深邃而闪亮地漂浮着；自制酱料丝带在慢动作中划出琥珀色的弧线。每一处纹理都超写实且令人垂涎。每个悬浮的食材上都挂着一个带有电线的发光霓虹标签，采用大写粗体压缩字体，背光显示：\"{argument name=\"ingredient 1\" default=\"80/20 CHUCK\"}\", \"{argument name=\"ingredient 2\" default=\"DOUBLE SMASH\"}\", \"{argument name=\"ingredient 3\" default=\"AMERICAN MELT\"}\", \"BRIOCHE CROWN\", \"BRINE PICKLE\", \"HOUSE SAUCE\"。顶部以大型霓虹灯排版显示菜名：\"THE SMASH\"。副标题：\"engineered at 3am\"。氛围：街头美食能量全开，电影感，电子风。风格参考：《银翼杀手 2049》与超写实 CGI 食品广告的结合。4K 分辨率，超清晰，边缘带有色差效果，令人垂涎。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "霓虹爆裂 smash burger 这是一个为 nano banana pro 准备的超详细提示词，旨在生成一张超写实风格的 smash burger 图片。画面采用霓虹灯光下的电影质感，让人联想到《银翼杀手 2049》的食品广告风格。提示词强调了悬浮的食材、电子标签以及色彩斑斓的辉光效果。 hyperreal smash burger floating against pitch black background, dramatically lit by neon electric yellow and deep red underlighting and rim lighting. ingredients separated and suspended mid-air in a loose diagonal cascade, not stacked, dynamically scattered as if caught mid-build. brioche bun crown tumbling with sesame seeds scattering like sparks, two smashed patties spinning with lacy crispy edges glowing in neon heat, american cheese sheet suspended mid-melt catching light like molten gold, pickles orbiting like satellites, caramelized onions drifting dark and glistening, house sauce ribbons floating in slow-motion amber arcs. every texture hyperreal and craveable. each floating ingredient has a glowing neon label tag on a wire, uppercase bold condensed font, backlit: \"{argument name=\"ingredient 1\" default=\"80/20 chuck\"}\", \"{argument name=\"ingredient 2\" default=\"double smash\"}\", \"{argument name=\"ingredient 3\" default=\"american melt\"}\", \"brioche crown\", \"brine pickle\", \"house sauce\". dish name in large neon sign typography at top: \"the smash\". subtitle: \"engineered at 3am\". mood: street food energy at full volume, cinematic, electric. style ref: blade runner 2049 meets hyperreal cgi food campaign. 4k, ultra sharp, chromatic aberration on edges, craveable. 超写实 smash burger 悬浮在纯黑背景中，被霓虹电光黄和深红色的底光及轮廓光戏剧性地照亮。食材分离并悬浮在半空中，呈现出松散的对角线级联状，而非堆叠在一起，仿佛在制作过程中被定格的动态瞬间。布里欧修面包顶层翻滚着，芝麻像火花一样四散；两块 smash 肉饼旋转着，边缘呈现出酥脆的蕾丝状，在霓虹热光下闪烁；一片美国芝士悬浮在半融化状态，捕捉着如熔金般的光泽；酸黄瓜像卫星一样环绕；焦糖洋葱深邃而闪亮地漂浮着；自制酱料丝带在慢动作中划出琥珀色的弧线。每一处纹理都超写实且令人垂涎。每个悬浮的食材上都挂着一个带有电线的发光霓虹标签，采用大写粗体压缩字体，背光显示：\"{argument name=\"ingredient 1\" default=\"80/20 chuck\"}\", \"{argument name=\"ingredient 2\" default=\"double smash\"}\", \"{argument name=\"ingredient 3\" default=\"american melt\"}\", \"brioche crown\", \"brine pickle\", \"house sauce\"。顶部以大型霓虹灯排版显示菜名：\"the smash\"。副标题：\"engineered at 3am\"。氛围：街头美食能量全开，电影感，电子风。风格参考：《银翼杀手 2049》与超写实 cgi 食品广告的结合。4k 分辨率，超清晰，边缘带有色差效果，令人垂涎。 alexandra aisling 12944",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12978,
+      "title": "Q 版动漫手办微距摄影提示词",
+      "description": "这是一个供 Gemini Nano Banana 使用的提示词，旨在生成一张微距摄影照片，画面为一个坐在人手掌心里的微型 Q 版动漫手办，表情傲娇，重点呈现皮肤纹理的细节和手办的哑光质感，并配以柔和的自然光和背景虚化效果。",
+      "sourceLink": "https://x.com/Minahil42298354/status/2038294438678515830",
+      "sourcePublishedAt": "2026-03-29T16:37:18.000Z",
+      "author": {
+        "name": "Minahil",
+        "link": "https://x.com/Minahil42298354"
+      },
+      "content": "A macro photography shot of a tiny, palm-sized chibi anime figurine sitting in a person's open hand. The figure has messy deep {argument name=\"hair color\" default=\"purple\"} hair, purple eyes with an annoyed \"grumpy\" expression, and a small pouty mouth. A finger is gently pressing into the figure's soft, squishy cheek, causing a realistic indentation. The figure wears a small black collar with a golden bell. Soft natural lighting, bokeh background, high detail on the skin texture of the hand and the matte finish of the figurine.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853745368_osixp5_HEl5_K8awAA7s-I.jpg",
+        "https://cms-assets.youmind.com/media/1774853745462_uy5mrc_HEl5-tha4AAsZb4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853745368_osixp5_HEl5_K8awAA7s-I-300x441.jpg",
+        "https://cms-assets.youmind.com/media/1774853745462_uy5mrc_HEl5-tha4AAsZb4-300x443.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张微距摄影照片，画面为一个坐在人手掌心里的微型 Q 版动漫手办。手办留着凌乱的 {argument name=\"hair color\" default=\"紫色\"} 头发，有着紫色的眼睛，表情傲娇，嘴巴微微嘟起。一根手指正轻轻按压在手办柔软、Q 弹的脸颊上，留下了逼真的凹陷痕迹。手办戴着一个带有金色小铃铛的黑色项圈。采用柔和的自然光，背景虚化，并细腻呈现了手部皮肤纹理和手办的哑光质感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "q 版动漫手办微距摄影提示词 这是一个供 gemini nano banana 使用的提示词，旨在生成一张微距摄影照片，画面为一个坐在人手掌心里的微型 q 版动漫手办，表情傲娇，重点呈现皮肤纹理的细节和手办的哑光质感，并配以柔和的自然光和背景虚化效果。 a macro photography shot of a tiny, palm-sized chibi anime figurine sitting in a person's open hand. the figure has messy deep {argument name=\"hair color\" default=\"purple\"} hair, purple eyes with an annoyed \"grumpy\" expression, and a small pouty mouth. a finger is gently pressing into the figure's soft, squishy cheek, causing a realistic indentation. the figure wears a small black collar with a golden bell. soft natural lighting, bokeh background, high detail on the skin texture of the hand and the matte finish of the figurine. 一张微距摄影照片，画面为一个坐在人手掌心里的微型 q 版动漫手办。手办留着凌乱的 {argument name=\"hair color\" default=\"紫色\"} 头发，有着紫色的眼睛，表情傲娇，嘴巴微微嘟起。一根手指正轻轻按压在手办柔软、q 弹的脸颊上，留下了逼真的凹陷痕迹。手办戴着一个带有金色小铃铛的黑色项圈。采用柔和的自然光，背景虚化，并细腻呈现了手部皮肤纹理和手办的哑光质感。 minahil 12978",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12979,
+      "title": "电影感低角度御宅族卧室肖像提示词",
+      "description": "这是一个为 Nano Banana 2 设计的高度结构化 JSON 提示词，旨在生成一张超写实、低角度的电影感肖像。画面主角为 Sabrina Carpenter，她盘腿坐在装饰密集的御宅族卧室中，强调特定的霓虹灯光、丰富的背景元素（动漫海报、毛绒玩具）以及精准的人物特征。",
+      "sourceLink": "https://x.com/Ankit_patel211/status/2038274029522678247",
+      "sourcePublishedAt": "2026-03-29T15:16:12.000Z",
+      "author": {
+        "name": "ANKIT PATEL 🇮🇳 | AI",
+        "link": "https://x.com/Ankit_patel211"
+      },
+      "content": "{\n  \"meta\": {\n    \"quality\": \"ultra_photorealistic, raw style, 8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"intimate indoor setting, dominated by striking pink neon LED lights on the ceiling, with soft ambient fill\",\n    \"style\": \"cinematic low-angle portrait, detailed character study\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"An authentic anime fan’s bedroom with lavender walls, filled with a dense, curated collection of otaku culture items. The ceiling features striking linear pink neon LED lights. A neon written 'Love' on wall in backdrop. The background includes all the specific posters from the room setup, notably a large, detailed Dragon Ball poster on the left wall, a ‘Sakamoto Days’ poster, a ‘Naruto’ poster, a ‘The Apothecary Diaries’ poster and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls. White floating shelves are filled with diverse manga volumes and various collectible figurines. A string hangs from the ceiling fan with a small charm and plush. On the bed, there is a large, detailed snake body pillow, a yellow Labubu plush, and a Judy Hopps plush. The bed is covered in a black sheet and a lavender blanket.\",\n    \"atmosphere\": \"Cozy, vibrant, immersed in otaku culture.\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"name\": \"{argument name=\"subject name\" default=\"Sabrina Carpenter\"}\",\n    \"body\": {\n      \"type\": \"Realistic, naturally proportioned figure with clean skin, no tattoos on either arm.\",\n      \"nails\": {\n        \"description\": \"All fingernails and toenails are meticulously painted with glossy electric yellow nail polish.\"\n      }\n    },\n    \"face\": {\n      \"features\": \"Distinctive features, high-fashion makeup, blonde hair styled with soft waves, smiling warmly and directly at the camera.\",\n      \"expression\": \"Warm, poised, and confident.\"\n    },\n    \"outfit\": {\n      \"description\": \"Matching soft blue ribbed cotton athletic set (blue sports bra and blue high-waisted leggings).\",\n      \"fit\": \"Casually fitted, sporty modern.\"\n    },\n    \"accessories\": {\n      \"details\": \"A single diamond bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain with star pendant necklace are present.\"\n    },\n    \"pose\": \"Seated cross-legged in the middle of the bed, viewed from a very low perspective. Her right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. Her left hand, with glossy pink fingernails, is casually running through her hair. Her right hand rests near her right knee. The anime plushies and body pillow are in place behind her.\"\n  },\n  \"composition\": \"Close-up, extreme low-angle shot. The frame is dominated by the large, detailed foreground and Sabrina Carpenter’s face. Focus is sharp on both. The background (anime bedroom) is[TRUNCATED]\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853745488_yshhma_HElm5akbMAAIJm6.jpg",
+        "https://cms-assets.youmind.com/media/1774853745779_iqdz4g_HElm3B4bgAAJccm.jpg",
+        "https://cms-assets.youmind.com/media/1774853745489_ghsrgm_HElm0_WbAAEtEFm.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853745488_yshhma_HElm5akbMAAIJm6-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853745779_iqdz4g_HElm3B4bgAAJccm-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853745489_ghsrgm_HElm0_WbAAEtEFm-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"私密的室内环境，以天花板上醒目的粉色霓虹 LED 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影感低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间充满真实感的动漫迷卧室，墙壁为淡紫色，摆满了精心收集的御宅文化周边。天花板上有醒目的线性粉色霓虹 LED 灯。背景墙上有一个霓虹灯书写的“Love”字样。背景包含了房间布置中的所有特定海报，特别是左侧墙上的一张大型精细《龙珠》海报、《坂本日常》海报、《火影忍者》海报、《药屋少女的呢喃》海报，以及覆盖可见墙面的多张装裱或未装裱的动漫角色插画和墙面艺术品。白色浮动搁板上摆满了各种漫画书和收藏级手办。天花板吊扇上垂下一根挂着小挂件和毛绒玩具的绳子。床上有一个大型精细的蛇形抱枕、一个黄色 Labubu 毛绒玩具和一个朱迪·霍普斯毛绒玩具。床上铺着黑色床单和淡紫色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\"subject name\" default=\"Sabrina Carpenter\"}\",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了亮面电光黄指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"特征鲜明，高阶时尚妆容，金色波浪卷发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的浅蓝色罗纹棉质运动套装（蓝色运动内衣和蓝色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一条钻石手链，左手食指戴着一枚银戒指，佩戴着一条精致的星形吊坠金项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，从极低的角度拍摄。她的右脚非常大，占据了近景的视觉中心，左脚紧随其后稍靠后方。她的左手涂着亮面粉色指甲油，正随意地拨弄头发。右手放在右膝附近。动漫毛绒玩具和抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由前景中巨大的细节和 Sabrina Carpenter 的面部主导。焦点同时对准两者。背景（动漫卧室）是[已截断]\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感低角度御宅族卧室肖像提示词 这是一个为 nano banana 2 设计的高度结构化 json 提示词，旨在生成一张超写实、低角度的电影感肖像。画面主角为 sabrina carpenter，她盘腿坐在装饰密集的御宅族卧室中，强调特定的霓虹灯光、丰富的背景元素（动漫海报、毛绒玩具）以及精准的人物特征。 {\n  \"meta\": {\n    \"quality\": \"ultra_photorealistic, raw style, 8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"intimate indoor setting, dominated by striking pink neon led lights on the ceiling, with soft ambient fill\",\n    \"style\": \"cinematic low-angle portrait, detailed character study\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"an authentic anime fan’s bedroom with lavender walls, filled with a dense, curated collection of otaku culture items. the ceiling features striking linear pink neon led lights. a neon written 'love' on wall in backdrop. the background includes all the specific posters from the room setup, notably a large, detailed dragon ball poster on the left wall, a ‘sakamoto days’ poster, a ‘naruto’ poster, a ‘the apothecary diaries’ poster and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls. white floating shelves are filled with diverse manga volumes and various collectible figurines. a string hangs from the ceiling fan with a small charm and plush. on the bed, there is a large, detailed snake body pillow, a yellow labubu plush, and a judy hopps plush. the bed is covered in a black sheet and a lavender blanket.\",\n    \"atmosphere\": \"cozy, vibrant, immersed in otaku culture.\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"name\": \"{argument name=\"subject name\" default=\"sabrina carpenter\"}\",\n    \"body\": {\n      \"type\": \"realistic, naturally proportioned figure with clean skin, no tattoos on either arm.\",\n      \"nails\": {\n        \"description\": \"all fingernails and toenails are meticulously painted with glossy electric yellow nail polish.\"\n      }\n    },\n    \"face\": {\n      \"features\": \"distinctive features, high-fashion makeup, blonde hair styled with soft waves, smiling warmly and directly at the camera.\",\n      \"expression\": \"warm, poised, and confident.\"\n    },\n    \"outfit\": {\n      \"description\": \"matching soft blue ribbed cotton athletic set (blue sports bra and blue high-waisted leggings).\",\n      \"fit\": \"casually fitted, sporty modern.\"\n    },\n    \"accessories\": {\n      \"details\": \"a single diamond bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain with star pendant necklace are present.\"\n    },\n    \"pose\": \"seated cross-legged in the middle of the bed, viewed from a very low perspective. her right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. her left hand, with glossy pink fingernails, is casually running through her hair. her right hand rests near her right knee. the anime plushies and body pillow are in place behind her.\"\n  },\n  \"composition\": \"close-up, extreme low-angle shot. the frame is dominated by the large, detailed foreground and sabrina carpenter’s face. focus is sharp on both. the background (anime bedroom) is[truncated]\" {\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"私密的室内环境，以天花板上醒目的粉色霓虹 led 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影感低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间充满真实感的动漫迷卧室，墙壁为淡紫色，摆满了精心收集的御宅文化周边。天花板上有醒目的线性粉色霓虹 led 灯。背景墙上有一个霓虹灯书写的“love”字样。背景包含了房间布置中的所有特定海报，特别是左侧墙上的一张大型精细《龙珠》海报、《坂本日常》海报、《火影忍者》海报、《药屋少女的呢喃》海报，以及覆盖可见墙面的多张装裱或未装裱的动漫角色插画和墙面艺术品。白色浮动搁板上摆满了各种漫画书和收藏级手办。天花板吊扇上垂下一根挂着小挂件和毛绒玩具的绳子。床上有一个大型精细的蛇形抱枕、一个黄色 labubu 毛绒玩具和一个朱迪·霍普斯毛绒玩具。床上铺着黑色床单和淡紫色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\"subject name\" default=\"sabrina carpenter\"}\",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了亮面电光黄指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"特征鲜明，高阶时尚妆容，金色波浪卷发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的浅蓝色罗纹棉质运动套装（蓝色运动内衣和蓝色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一条钻石手链，左手食指戴着一枚银戒指，佩戴着一条精致的星形吊坠金项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，从极低的角度拍摄。她的右脚非常大，占据了近景的视觉中心，左脚紧随其后稍靠后方。她的左手涂着亮面粉色指甲油，正随意地拨弄头发。右手放在右膝附近。动漫毛绒玩具和抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由前景中巨大的细节和 sabrina carpenter 的面部主导。焦点同时对准两者。背景（动漫卧室）是[已截断]\" ankit patel 🇮🇳 | ai 12979",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12958,
+      "title": "超写实兔八哥理发场景",
+      "description": "这是为 Nano Banana 2.0 编写的提示词，旨在生成一张电影感、超写实的特写镜头：一只 3D 写实风格的兔八哥身穿理发师制服，在复古理发店背景下，将“HARE TONIC”倒在一位神情焦虑的男士头上。",
+      "sourceLink": "https://x.com/de_mon010/status/2038263197925253176",
+      "sourcePublishedAt": "2026-03-29T14:33:10.000Z",
+      "author": {
+        "name": "Karlos",
+        "link": "https://x.com/de_mon010"
+      },
+      "content": "Cinematic 8k hyper-realistic close-up shot. A 3D realistic Bugs Bunny, faithful to his classic design but with detailed fur texture, wearing a white barber uniform. He is holding a bottle labeled \"HARE TONIC\" and pouring liquid onto the head of a sitting man. Man [photos reference with hair] has a worried and nervous expression, water dripping down his face. Vintage barbershop background with a mirror. Dynamic lighting, high detail, photorealistic rendering style",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853732751_yx5cgd_HEldkigbwAAH1Mc.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853732751_yx5cgd_HEldkigbwAAH1Mc-300x225.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "电影感 8k 超写实特写镜头。一只 3D 写实风格的兔八哥，在保留经典造型的同时呈现出细腻的毛发质感，身穿白色理发师制服。它手持标有“HARE TONIC”字样的瓶子，正将液体倒在一位坐着的男士头上。男士 [参考照片发型] 表情焦虑紧张，水珠顺着脸颊滴落。背景为复古理发店，带有镜子。动态光影，高细节，照片级渲染风格",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实兔八哥理发场景 这是为 nano banana 2.0 编写的提示词，旨在生成一张电影感、超写实的特写镜头：一只 3d 写实风格的兔八哥身穿理发师制服，在复古理发店背景下，将“hare tonic”倒在一位神情焦虑的男士头上。 cinematic 8k hyper-realistic close-up shot. a 3d realistic bugs bunny, faithful to his classic design but with detailed fur texture, wearing a white barber uniform. he is holding a bottle labeled \"hare tonic\" and pouring liquid onto the head of a sitting man. man [photos reference with hair] has a worried and nervous expression, water dripping down his face. vintage barbershop background with a mirror. dynamic lighting, high detail, photorealistic rendering style 电影感 8k 超写实特写镜头。一只 3d 写实风格的兔八哥，在保留经典造型的同时呈现出细腻的毛发质感，身穿白色理发师制服。它手持标有“hare tonic”字样的瓶子，正将液体倒在一位坐着的男士头上。男士 [参考照片发型] 表情焦虑紧张，水珠顺着脸颊滴落。背景为复古理发店，带有镜子。动态光影，高细节，照片级渲染风格 karlos 12958",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12963,
+      "title": "超现实花园清晨时尚编辑人像",
+      "description": "这是一个为 Nano Banana 2 设计的超写实提示词，旨在生成一张极具电影质感的时尚编辑人像。画面中 Sabrina Carpenter 赤脚坐在郁郁葱葱花园里的质朴石盆边缘，与一尊石质小天使雕像互动，沐浴在温暖的琥珀色晨光中。",
+      "sourceLink": "https://x.com/Giulia_4i/status/2038261129315574108",
+      "sourcePublishedAt": "2026-03-29T14:24:56.000Z",
+      "author": {
+        "name": "Giulia",
+        "link": "https://x.com/Giulia_4i"
+      },
+      "content": "\"A photorealistic, highly stylized cinematic lifestyle editorial portrait of {argument name=\"subject name\" default=\"Sabrina Carpenter\"} sitting casually barefoot on the edge of a rustic stone basin in a lush garden during the early morning. She is wearing an oversized, light yellow button-down collared shirt, worn loosely and wide open at the front, with partially rolled-up sleeves and her bare legs visible. Her blonde hair is styled in a messy high bun with delicate, loose strands beautifully framing her face. She has subtle natural makeup, dark burgundy nail polish, a thin delicate necklace with a small dark pendant, and small stud earrings.\nHer pose is relaxed and slightly surreal: her right leg is bent with the knee raised, while her left arm wraps around a weathered, greenish stone cherub statue of a similar size to her. Her left hand brings a black coffee cup to her lips, and she wears a soft, gently amused expression. Her right hand rests near her feet, loosely holding the handle of a small, vintage lilac ceramic pitcher decorated with painted roses and green leaves.\nThe whimsical, intimate scene is bathed in warm, golden amber sunrise light filtering through the trees, creating a soft rim light on her hair and the statue. A soft, flattering directional light casts delicate natural shadows on her face and shirt. The background features beautifully blurred earthy green foliage, trees, a subtle glimpse of a metal fence, and pink and deep red flowers, resulting in a stunning soft bokeh effect. Shot as a medium portrait from an eye-level angle using a telephoto lens (85mm) for a shallow depth of field. Professional lighting, 8K resolution, sharp focus on her face and the coffee cup, realistic textures, vintage aesthetic. --ar 9:16\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853735751_kgzkkz_HElbsTFWoAAHL1F.jpg",
+        "https://cms-assets.youmind.com/media/1774853735707_5cevrt_HElbsY6bMAEYcOp.jpg",
+        "https://cms-assets.youmind.com/media/1774853735853_cptgop_HElbsbqW8AAtEj3.jpg",
+        "https://cms-assets.youmind.com/media/1774853736673_1ehr1b_HElbse8aIAEFae9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853735751_kgzkkz_HElbsTFWoAAHL1F-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853735707_5cevrt_HElbsY6bMAEYcOp-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853735853_cptgop_HElbsbqW8AAtEj3-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853736673_1ehr1b_HElbse8aIAEFae9-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "\"一张超写实、极具电影质感的时尚编辑人像，画面中 {argument name=\"subject name\" default=\"Sabrina Carpenter\"} 在清晨时分赤脚随意地坐在郁郁葱葱花园里的质朴石盆边缘。她穿着一件超大号的浅黄色翻领衬衫，领口敞开，袖子半卷，露出双腿。金色的头发梳成凌乱的高丸子头，几缕细碎的发丝柔美地修饰着脸庞。妆容自然精致，涂着深酒红色指甲油，佩戴一条带有小巧深色吊坠的精致项链和一对小耳钉。\n她的姿态放松且略带超现实感：右腿弯曲，膝盖抬起，左臂环抱着一尊与她体型相当、风化且泛着绿意的石质小天使雕像。她左手拿着一杯黑咖啡凑近唇边，表情柔和而带着一丝笑意。右手放在脚边，松松地握着一个复古淡紫色陶瓷水罐的把手，水罐上绘有玫瑰和绿叶图案。\n这个奇幻而亲密的场景沐浴在温暖的琥珀色晨光中，阳光透过树木洒下，在她的头发和雕像边缘勾勒出柔和的轮廓光。柔和且修饰脸型的定向光在她的脸部和衬衫上投下细腻的自然阴影。背景是虚化得极美的泥土色绿植、树木、隐约可见的金属栅栏以及粉色和深红色的花朵，呈现出令人惊艳的柔焦效果。采用中景人像构图，平视角度拍摄，使用 85mm 长焦镜头以获得浅景深效果。专业布光，8K 分辨率，面部和咖啡杯焦点清晰，纹理真实，复古美学。 --ar 9:16\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实花园清晨时尚编辑人像 这是一个为 nano banana 2 设计的超写实提示词，旨在生成一张极具电影质感的时尚编辑人像。画面中 sabrina carpenter 赤脚坐在郁郁葱葱花园里的质朴石盆边缘，与一尊石质小天使雕像互动，沐浴在温暖的琥珀色晨光中。 \"a photorealistic, highly stylized cinematic lifestyle editorial portrait of {argument name=\"subject name\" default=\"sabrina carpenter\"} sitting casually barefoot on the edge of a rustic stone basin in a lush garden during the early morning. she is wearing an oversized, light yellow button-down collared shirt, worn loosely and wide open at the front, with partially rolled-up sleeves and her bare legs visible. her blonde hair is styled in a messy high bun with delicate, loose strands beautifully framing her face. she has subtle natural makeup, dark burgundy nail polish, a thin delicate necklace with a small dark pendant, and small stud earrings.\nher pose is relaxed and slightly surreal: her right leg is bent with the knee raised, while her left arm wraps around a weathered, greenish stone cherub statue of a similar size to her. her left hand brings a black coffee cup to her lips, and she wears a soft, gently amused expression. her right hand rests near her feet, loosely holding the handle of a small, vintage lilac ceramic pitcher decorated with painted roses and green leaves.\nthe whimsical, intimate scene is bathed in warm, golden amber sunrise light filtering through the trees, creating a soft rim light on her hair and the statue. a soft, flattering directional light casts delicate natural shadows on her face and shirt. the background features beautifully blurred earthy green foliage, trees, a subtle glimpse of a metal fence, and pink and deep red flowers, resulting in a stunning soft bokeh effect. shot as a medium portrait from an eye-level angle using a telephoto lens (85mm) for a shallow depth of field. professional lighting, 8k resolution, sharp focus on her face and the coffee cup, realistic textures, vintage aesthetic. --ar 9:16\" \"一张超写实、极具电影质感的时尚编辑人像，画面中 {argument name=\"subject name\" default=\"sabrina carpenter\"} 在清晨时分赤脚随意地坐在郁郁葱葱花园里的质朴石盆边缘。她穿着一件超大号的浅黄色翻领衬衫，领口敞开，袖子半卷，露出双腿。金色的头发梳成凌乱的高丸子头，几缕细碎的发丝柔美地修饰着脸庞。妆容自然精致，涂着深酒红色指甲油，佩戴一条带有小巧深色吊坠的精致项链和一对小耳钉。\n她的姿态放松且略带超现实感：右腿弯曲，膝盖抬起，左臂环抱着一尊与她体型相当、风化且泛着绿意的石质小天使雕像。她左手拿着一杯黑咖啡凑近唇边，表情柔和而带着一丝笑意。右手放在脚边，松松地握着一个复古淡紫色陶瓷水罐的把手，水罐上绘有玫瑰和绿叶图案。\n这个奇幻而亲密的场景沐浴在温暖的琥珀色晨光中，阳光透过树木洒下，在她的头发和雕像边缘勾勒出柔和的轮廓光。柔和且修饰脸型的定向光在她的脸部和衬衫上投下细腻的自然阴影。背景是虚化得极美的泥土色绿植、树木、隐约可见的金属栅栏以及粉色和深红色的花朵，呈现出令人惊艳的柔焦效果。采用中景人像构图，平视角度拍摄，使用 85mm 长焦镜头以获得浅景深效果。专业布光，8k 分辨率，面部和咖啡杯焦点清晰，纹理真实，复古美学。 --ar 9:16\" giulia 12963",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12968,
+      "title": "星云中帆船的触感刺绣挂毯",
+      "description": "这是为 Nano Banana Pro 编写的描述性提示词，用于生成一幅触感刺绣挂毯的局部图像。挂毯描绘了一艘木制帆船在旋转的星云之海中航行，强调了清晰可见的针脚纹理、层叠的丝线，以及纺织品表面温暖浪漫的暮光感。",
+      "sourceLink": "https://x.com/ai_with_shah/status/2038258870628364674",
+      "sourcePublishedAt": "2026-03-29T14:15:58.000Z",
+      "author": {
+        "name": "Shah",
+        "link": "https://x.com/ai_with_shah"
+      },
+      "content": "Tactile embroidered tapestry fragment showing a lone wooden sailing ship navigating a sea of swirling nebulae, visible stitch textures and layered thread in deep navy, gold, and starlit silver, trailing mist like loose floss caught in wind, warm romantic twilight glow on the textile surface.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853738361_lv4ys5_HElZimQWsAABWSr.jpg",
+        "https://cms-assets.youmind.com/media/1774853738425_heh8vc_HElZiisbQAAcF6S.jpg",
+        "https://cms-assets.youmind.com/media/1774853738956_lhofh8_HElZimwawAAnB0N.jpg",
+        "https://cms-assets.youmind.com/media/1774853739521_q5rud5_HElZimxbIAEp3-s.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853738361_lv4ys5_HElZimQWsAABWSr-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774853738425_heh8vc_HElZiisbQAAcF6S-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774853738956_lhofh8_HElZimwawAAnB0N-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774853739521_q5rud5_HElZimxbIAEp3-s-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "触感刺绣挂毯局部，展现了一艘孤独的木制帆船在旋转的星云之海中航行；深海军蓝、金色和星光银色的针脚纹理清晰可见，层叠的丝线如同被风吹散的松散绣花线般拖曳出薄雾，纺织品表面笼罩着温暖浪漫的暮光。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "星云中帆船的触感刺绣挂毯 这是为 nano banana pro 编写的描述性提示词，用于生成一幅触感刺绣挂毯的局部图像。挂毯描绘了一艘木制帆船在旋转的星云之海中航行，强调了清晰可见的针脚纹理、层叠的丝线，以及纺织品表面温暖浪漫的暮光感。 tactile embroidered tapestry fragment showing a lone wooden sailing ship navigating a sea of swirling nebulae, visible stitch textures and layered thread in deep navy, gold, and starlit silver, trailing mist like loose floss caught in wind, warm romantic twilight glow on the textile surface. 触感刺绣挂毯局部，展现了一艘孤独的木制帆船在旋转的星云之海中航行；深海军蓝、金色和星光银色的针脚纹理清晰可见，层叠的丝线如同被风吹散的松散绣花线般拖曳出薄雾，纺织品表面笼罩着温暖浪漫的暮光。 shah 12968",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12969,
+      "title": "奇幻赛博朋克巷弄网络",
+      "description": "这是为 Nano Banana Pro 准备的提示词，旨在生成一个赛博朋克风格、雨水浸润的巷弄网络微缩世界。",
+      "sourceLink": "https://x.com/artingent/status/2038255848229929210",
+      "sourcePublishedAt": "2026-03-29T14:03:57.000Z",
+      "author": {
+        "name": "Artingent",
+        "link": "https://x.com/artingent"
+      },
+      "content": "Whimsical miniature world depiction of a rain-soaked alley network in cyberpunk style.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853741111_3h1xja_HElWEL4bEAEqiNB.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853741111_3h1xja_HElWEL4bEAEqiNB-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "赛博朋克风格、雨水浸润的巷弄网络微缩世界描绘。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奇幻赛博朋克巷弄网络 这是为 nano banana pro 准备的提示词，旨在生成一个赛博朋克风格、雨水浸润的巷弄网络微缩世界。 whimsical miniature world depiction of a rain-soaked alley network in cyberpunk style. 赛博朋克风格、雨水浸润的巷弄网络微缩世界描绘。 artingent 12969",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12972,
+      "title": "金色金字塔舞台上的戏剧性剪影",
+      "description": "这是一个供 Gemini Nano Banana 使用的提示词，旨在生成一张戏剧性的广角镜头照片：一位女性剪影站在发光的阶梯状金色金字塔舞台前，强调高对比度、空灵的氛围以及黑色抛光地面上的强烈反射。",
+      "sourceLink": "https://x.com/Minahil42298354/status/2038255481798488150",
+      "sourcePublishedAt": "2026-03-29T14:02:30.000Z",
+      "author": {
+        "name": "Minahil",
+        "link": "https://x.com/Minahil42298354"
+      },
+      "content": "A dramatic wide shot of a female silhouette standing in front of a glowing, tiered golden pyramid stage. The stage emits a fiery, amber light with crackling energy effects. Sharp, vertical blue laser beams cut through the dark atmosphere from above. The floor is a polished, black reflective surface creating a perfect mirror image of the scene. Cinematic lighting, high contrast, ethereal and mysterious atmosphere.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853742264_emykyt_HElWjppWIAAV9Ri.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853742264_emykyt_HElWjppWIAAV9Ri-300x528.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张戏剧性的广角镜头照片，展现了一位女性剪影站在发光的阶梯状金色金字塔舞台前。舞台散发出炽热的琥珀色光芒，并伴有噼啪作响的能量特效。锐利的垂直蓝色激光束从上方穿透黑暗的氛围。地面是抛光的黑色反射表面，完美呈现了场景的镜像。电影级灯光，高对比度，营造出空灵而神秘的氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "金色金字塔舞台上的戏剧性剪影 这是一个供 gemini nano banana 使用的提示词，旨在生成一张戏剧性的广角镜头照片：一位女性剪影站在发光的阶梯状金色金字塔舞台前，强调高对比度、空灵的氛围以及黑色抛光地面上的强烈反射。 a dramatic wide shot of a female silhouette standing in front of a glowing, tiered golden pyramid stage. the stage emits a fiery, amber light with crackling energy effects. sharp, vertical blue laser beams cut through the dark atmosphere from above. the floor is a polished, black reflective surface creating a perfect mirror image of the scene. cinematic lighting, high contrast, ethereal and mysterious atmosphere. 一张戏剧性的广角镜头照片，展现了一位女性剪影站在发光的阶梯状金色金字塔舞台前。舞台散发出炽热的琥珀色光芒，并伴有噼啪作响的能量特效。锐利的垂直蓝色激光束从上方穿透黑暗的氛围。地面是抛光的黑色反射表面，完美呈现了场景的镜像。电影级灯光，高对比度，营造出空灵而神秘的氛围。 minahil 12972",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12988,
+      "title": "四格漫画：数字的魔法",
+      "description": "这是一个与 Nano Banana Pro (Gemini 3 Pro Image) 配合使用的提示词，旨在生成名为“数字的魔法”的四格漫画，展示财务数据（如赤字和预算）如何通过政治手段被操纵或重新包装为“投资”。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038254719551029699",
+      "sourcePublishedAt": "2026-03-29T13:59:28.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "決算や予算の数字が、政治的な魔法によってどのように見え方を変えるのか\n\n赤字を投資と言い換えるだけで、あら不思議。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853752508_6gtj87_HElV3IRaAAAWdPa.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853752508_6gtj87_HElV3IRaAAAWdPa-300x164.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "结算和预算数据如何通过政治魔法改变其外观。\n\n只需将赤字重新表述为投资，见证奇迹的时刻。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画：数字的魔法 这是一个与 nano banana pro (gemini 3 pro image) 配合使用的提示词，旨在生成名为“数字的魔法”的四格漫画，展示财务数据（如赤字和预算）如何通过政治手段被操纵或重新包装为“投资”。 決算や予算の数字が、政治的な魔法によってどのように見え方を変えるのか\n\n赤字を投資と言い換えるだけで、あら不思議。 结算和预算数据如何通过政治魔法改变其外观。\n\n只需将赤字重新表述为投资，见证奇迹的时刻。 クラリネットクラリオンnobu 12988",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12956,
+      "title": "豪华顶层公寓夜景写实人像",
+      "description": "这是为 Nano Banana Pro 准备的详细提示词，旨在生成一张豪华顶层公寓阳台的夜景人像。重点刻画一位倚靠在玻璃栏杆上的超模，采用 iPhone 夜景奢华写实风格，并呈现城市灯光的倒影。",
+      "sourceLink": "https://x.com/bananababydoll/status/2038254097015672893",
+      "sourcePublishedAt": "2026-03-29T13:57:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"{argument name=\"camera model\" default=\"iPhone 17 Pro\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"iphone night luxury realism, soft HDR, subtle grain\"\n  },\n  \"scene\": {\n    \"location\": \"luxury penthouse balcony\",\n    \"time\": \"11:48 PM\",\n    \"atmosphere\": \"city skyline glowing below, warm summer night\"\n  },\n  \"lighting\": {\n    \"primary\": \"warm balcony ambient lights\",\n    \"secondary\": \"city light reflections\",\n    \"effect\": \"golden highlights on skin, deep shadows on curves\"\n  },\n  \"subject\": {\n    \"appearance\": \"tall blonde american supermodel, long legs, defined waist, confident aura\",\n    \"pose\": {\n      \"position\": \"leaning slightly forward on glass railing\",\n      \"body\": \"hips back, torso angled\",\n      \"head\": \"turned back toward camera\"\n    },\n    \"expression\": {\n      \"eyes\": \"sharp, inviting\",\n      \"mouth\": \"soft parted confident smirk\",\n      \"energy\": \"she knows exactly what she’s doing\"\n    },\n    \"hair\": {\n      \"style\": \"long blonde hair, soft waves flowing with night breeze\"\n    },\n    \"outfit\": {\n      \"dress\": {\n        \"type\": \"{argument name=\"dress type\" default=\"ultra thin red silk mini dress\"}\",\n        \"fit\": \"body-hugging, tension at hips and chest\",\n        \"details\": \"slight side slip, fabric catching light\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"slightly low angle\",\n    \"distance\": \"mid shot\",\n    \"imperfection\": \"tiny motion blur from handheld\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853732649_fdqyeh_HDnUunpWgAAGNok.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853732649_fdqyeh_HDnUunpWgAAGNok-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"camera\": \"{argument name=\\\"camera model\\\" default=\\\"iPhone 17 Pro\\\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"iphone 夜景奢华写实，柔和 HDR，细腻噪点\"\n  },\n  \"scene\": {\n    \"location\": \"豪华顶层公寓阳台\",\n    \"time\": \"晚上 11:48\",\n    \"atmosphere\": \"下方城市天际线闪烁，温暖的夏夜\"\n  },\n  \"lighting\": {\n    \"primary\": \"温暖的阳台环境光\",\n    \"secondary\": \"城市灯光倒影\",\n    \"effect\": \"皮肤上的金色高光，曲线处的深邃阴影\"\n  },\n  \"subject\": {\n    \"appearance\": \"高挑的金发美国超模，修长双腿，腰身线条分明，气场自信\",\n    \"pose\": {\n      \"position\": \"身体微微前倾，倚靠在玻璃栏杆上\",\n      \"body\": \"臀部后翘，躯干倾斜\",\n      \"head\": \"回眸看向镜头\"\n    },\n    \"expression\": {\n      \"eyes\": \"锐利且迷人\",\n      \"mouth\": \"双唇微张，带着自信的浅笑\",\n      \"energy\": \"眼神中流露出掌控全场的气质\"\n    },\n    \"hair\": {\n      \"style\": \"金色长发，在夜风中呈现柔和的波浪感\"\n    },\n    \"outfit\": {\n      \"dress\": {\n        \"type\": \"{argument name=\\\"dress type\\\" default=\\\"超薄红色丝绸迷你裙\\\"}\",\n        \"fit\": \"紧身剪裁，在臀部和胸部呈现张力\",\n        \"details\": \"侧边微开叉，面料捕捉光影\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"微仰角\",\n    \"distance\": \"中景\",\n    \"imperfection\": \"手持拍摄带来的轻微动态模糊\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "豪华顶层公寓夜景写实人像 这是为 nano banana pro 准备的详细提示词，旨在生成一张豪华顶层公寓阳台的夜景人像。重点刻画一位倚靠在玻璃栏杆上的超模，采用 iphone 夜景奢华写实风格，并呈现城市灯光的倒影。 {\n  \"meta\": {\n    \"camera\": \"{argument name=\"camera model\" default=\"iphone 17 pro\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"iphone night luxury realism, soft hdr, subtle grain\"\n  },\n  \"scene\": {\n    \"location\": \"luxury penthouse balcony\",\n    \"time\": \"11:48 pm\",\n    \"atmosphere\": \"city skyline glowing below, warm summer night\"\n  },\n  \"lighting\": {\n    \"primary\": \"warm balcony ambient lights\",\n    \"secondary\": \"city light reflections\",\n    \"effect\": \"golden highlights on skin, deep shadows on curves\"\n  },\n  \"subject\": {\n    \"appearance\": \"tall blonde american supermodel, long legs, defined waist, confident aura\",\n    \"pose\": {\n      \"position\": \"leaning slightly forward on glass railing\",\n      \"body\": \"hips back, torso angled\",\n      \"head\": \"turned back toward camera\"\n    },\n    \"expression\": {\n      \"eyes\": \"sharp, inviting\",\n      \"mouth\": \"soft parted confident smirk\",\n      \"energy\": \"she knows exactly what she’s doing\"\n    },\n    \"hair\": {\n      \"style\": \"long blonde hair, soft waves flowing with night breeze\"\n    },\n    \"outfit\": {\n      \"dress\": {\n        \"type\": \"{argument name=\"dress type\" default=\"ultra thin red silk mini dress\"}\",\n        \"fit\": \"body-hugging, tension at hips and chest\",\n        \"details\": \"slight side slip, fabric catching light\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"slightly low angle\",\n    \"distance\": \"mid shot\",\n    \"imperfection\": \"tiny motion blur from handheld\"\n  }\n} {\n  \"meta\": {\n    \"camera\": \"{argument name=\\\"camera model\\\" default=\\\"iphone 17 pro\\\"}\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"iphone 夜景奢华写实，柔和 hdr，细腻噪点\"\n  },\n  \"scene\": {\n    \"location\": \"豪华顶层公寓阳台\",\n    \"time\": \"晚上 11:48\",\n    \"atmosphere\": \"下方城市天际线闪烁，温暖的夏夜\"\n  },\n  \"lighting\": {\n    \"primary\": \"温暖的阳台环境光\",\n    \"secondary\": \"城市灯光倒影\",\n    \"effect\": \"皮肤上的金色高光，曲线处的深邃阴影\"\n  },\n  \"subject\": {\n    \"appearance\": \"高挑的金发美国超模，修长双腿，腰身线条分明，气场自信\",\n    \"pose\": {\n      \"position\": \"身体微微前倾，倚靠在玻璃栏杆上\",\n      \"body\": \"臀部后翘，躯干倾斜\",\n      \"head\": \"回眸看向镜头\"\n    },\n    \"expression\": {\n      \"eyes\": \"锐利且迷人\",\n      \"mouth\": \"双唇微张，带着自信的浅笑\",\n      \"energy\": \"眼神中流露出掌控全场的气质\"\n    },\n    \"hair\": {\n      \"style\": \"金色长发，在夜风中呈现柔和的波浪感\"\n    },\n    \"outfit\": {\n      \"dress\": {\n        \"type\": \"{argument name=\\\"dress type\\\" default=\\\"超薄红色丝绸迷你裙\\\"}\",\n        \"fit\": \"紧身剪裁，在臀部和胸部呈现张力\",\n        \"details\": \"侧边微开叉，面料捕捉光影\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"微仰角\",\n    \"distance\": \"中景\",\n    \"imperfection\": \"手持拍摄带来的轻微动态模糊\"\n  }\n} babydoll 12956",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12976,
+      "title": "超清写实真人与风格化 3D 漫画形象构图提示词",
+      "description": "一份为 Gemini Nano Banana 2 编写的详细提示词，旨在生成一张包含真人主体及其风格化 3D 漫画形象的单帧图像，强调真人主体严格的身份一致性，并为漫画形象赋予夸张的 Pixar/Disney 风格，同时包含特定的构图与光影要求。",
+      "sourceLink": "https://x.com/Goodmanprotocol/status/2038253799962468623",
+      "sourcePublishedAt": "2026-03-29T13:55:49.000Z",
+      "author": {
+        "name": "Saul Goodman",
+        "link": "https://x.com/Goodmanprotocol"
+      },
+      "content": "Proportions, skin tone, hairstyle, and all recognizable features. Do not alter or stylize the real face.\nComposition & Framing:\n\nFull-body vertical shot with a clean, centered layout. The real subject stands on the right, and the caricature stands on the left at approximately 50–60% of the real subject’s height. The real subject casually rests one elbow on the caricature’s oversized head, creating a natural, playful interaction.\nReal Subject (Photographic):\n\nUltra-realistic rendering with natural skin texture and fine detail. Expression is warm, relaxed, and confident.\nPose & Style (IMPORTANT):\n\nThe subject stands in a slightly cool, stylish posture — relaxed stance with subtle asymmetry (one leg slightly forward or weight shifted), shoulders loose, not stiff. The hand resting on the caricature should feel effortless and natural.\nClothing (Match Reference):\n\n{argument name=\"clothing\" default=\"Gray crewneck sweater (fine knit texture, ribbed cuffs/hem), classic blue jeans (straight fit), and clean white sneakers\"}. Keep textures realistic and clearly visible.\n3D Caricature (Stylized Version):\n\nPixar/Disney-inspired 3D style with exaggerated proportions — large expressive head and smaller body. The height should be noticeably shorter, around the real subject's waist level.\nFacial features must remain recognizable but enhanced — larger eyes, softer forms, slightly amplified smile.\nEmotion & Body Movement (IMPORTANT):\n\nExpression is more playful and animated than the real subject\n\nEyes brighter and more expressive, smile slightly exaggerated\nBody posture must NOT be stiff — use a natural, lively stance\n\nAdd subtle movement according to the real subject's personality\n\nPose should feel like a living, animated character, not a rigid figurine\nClothing:\n\nExact 1:1 stylized recreation of the real subject’s outfit with soft 3D textures.\nLighting & Environment:\n\nSoft, diffused studio lighting from the upper-left, creating smooth highlights and gentle shadows. Clean light-gray gradient seamless background(lighter in the inner areas).\nOutput Style:\n\nUltra-clean, cinematic, high-detail render with strong contrast between realistic human and stylized 3D character. Both subjects grounded with soft natural shadows.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853743905_2bin9v_HElVBfvbQAAz-YW.jpg",
+        "https://cms-assets.youmind.com/media/1774853744016_4rsnca_HElVBdja4AA9Jh4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853744016_4rsnca_HElVBdja4AA9Jh4-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "比例、肤色、发型及所有可识别特征。请勿对真实面部进行任何修改或风格化处理。\n构图与取景：\n\n全身垂直构图，布局简洁居中。真人主体位于右侧，漫画形象位于左侧，高度约为真人主体的 50%–60%。真人主体的一只手肘自然地搭在漫画形象的大头上，营造出自然、俏皮的互动感。\n真人主体（摄影级）：\n\n超写实渲染，呈现自然的皮肤纹理与细腻细节。表情温暖、放松且自信。\n姿势与风格（重要）：\n\n主体呈现出一种略带酷感的时尚姿态——站姿放松，带有微妙的不对称感（一条腿略微靠前或重心偏移），肩膀自然下垂，不僵硬。搭在漫画形象上的手应感觉轻松自然。\n服装（匹配参考）：\n\n{argument name=\"clothing\" default=\"灰色圆领毛衣（细针织纹理，罗纹袖口/下摆）、经典蓝色牛仔裤（直筒版型）以及干净的白色运动鞋\"}。保持纹理真实且清晰可见。\n3D 漫画形象（风格化版本）：\n\nPixar/Disney 风格的 3D 设计，采用夸张的比例——大而富有表现力的头部与较小的身体。高度应明显更矮，大约在真人主体的腰部位置。\n面部特征必须保持可识别性但有所增强——眼睛更大、轮廓更柔和、笑容略微夸张。\n情感与肢体动作（重要）：\n\n表情比真人主体更俏皮、更生动\n\n眼睛更明亮、更具表现力，笑容略显夸张\n身体姿态绝不能僵硬——使用自然、活泼的站姿\n\n根据真人主体的个性添加微妙的动作\n\n姿势应感觉像是一个鲜活的动画角色，而非僵硬的玩偶\n服装：\n\n真人主体服装的 1:1 风格化还原，带有柔和的 3D 纹理。\n光影与环境：\n\n来自左上方的柔和漫射摄影棚灯光，营造出平滑的高光和柔和的阴影。干净的浅灰色渐变无缝背景（内部区域较亮）。\n输出风格：\n\n超清、电影感、高细节渲染，在写实真人与风格化 3D 角色之间形成强烈对比。两个主体均需带有柔和的自然阴影，以确保落地感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超清写实真人与风格化 3d 漫画形象构图提示词 一份为 gemini nano banana 2 编写的详细提示词，旨在生成一张包含真人主体及其风格化 3d 漫画形象的单帧图像，强调真人主体严格的身份一致性，并为漫画形象赋予夸张的 pixar/disney 风格，同时包含特定的构图与光影要求。 proportions, skin tone, hairstyle, and all recognizable features. do not alter or stylize the real face.\ncomposition & framing:\n\nfull-body vertical shot with a clean, centered layout. the real subject stands on the right, and the caricature stands on the left at approximately 50–60% of the real subject’s height. the real subject casually rests one elbow on the caricature’s oversized head, creating a natural, playful interaction.\nreal subject (photographic):\n\nultra-realistic rendering with natural skin texture and fine detail. expression is warm, relaxed, and confident.\npose & style (important):\n\nthe subject stands in a slightly cool, stylish posture — relaxed stance with subtle asymmetry (one leg slightly forward or weight shifted), shoulders loose, not stiff. the hand resting on the caricature should feel effortless and natural.\nclothing (match reference):\n\n{argument name=\"clothing\" default=\"gray crewneck sweater (fine knit texture, ribbed cuffs/hem), classic blue jeans (straight fit), and clean white sneakers\"}. keep textures realistic and clearly visible.\n3d caricature (stylized version):\n\npixar/disney-inspired 3d style with exaggerated proportions — large expressive head and smaller body. the height should be noticeably shorter, around the real subject's waist level.\nfacial features must remain recognizable but enhanced — larger eyes, softer forms, slightly amplified smile.\nemotion & body movement (important):\n\nexpression is more playful and animated than the real subject\n\neyes brighter and more expressive, smile slightly exaggerated\nbody posture must not be stiff — use a natural, lively stance\n\nadd subtle movement according to the real subject's personality\n\npose should feel like a living, animated character, not a rigid figurine\nclothing:\n\nexact 1:1 stylized recreation of the real subject’s outfit with soft 3d textures.\nlighting & environment:\n\nsoft, diffused studio lighting from the upper-left, creating smooth highlights and gentle shadows. clean light-gray gradient seamless background(lighter in the inner areas).\noutput style:\n\nultra-clean, cinematic, high-detail render with strong contrast between realistic human and stylized 3d character. both subjects grounded with soft natural shadows. 比例、肤色、发型及所有可识别特征。请勿对真实面部进行任何修改或风格化处理。\n构图与取景：\n\n全身垂直构图，布局简洁居中。真人主体位于右侧，漫画形象位于左侧，高度约为真人主体的 50%–60%。真人主体的一只手肘自然地搭在漫画形象的大头上，营造出自然、俏皮的互动感。\n真人主体（摄影级）：\n\n超写实渲染，呈现自然的皮肤纹理与细腻细节。表情温暖、放松且自信。\n姿势与风格（重要）：\n\n主体呈现出一种略带酷感的时尚姿态——站姿放松，带有微妙的不对称感（一条腿略微靠前或重心偏移），肩膀自然下垂，不僵硬。搭在漫画形象上的手应感觉轻松自然。\n服装（匹配参考）：\n\n{argument name=\"clothing\" default=\"灰色圆领毛衣（细针织纹理，罗纹袖口/下摆）、经典蓝色牛仔裤（直筒版型）以及干净的白色运动鞋\"}。保持纹理真实且清晰可见。\n3d 漫画形象（风格化版本）：\n\npixar/disney 风格的 3d 设计，采用夸张的比例——大而富有表现力的头部与较小的身体。高度应明显更矮，大约在真人主体的腰部位置。\n面部特征必须保持可识别性但有所增强——眼睛更大、轮廓更柔和、笑容略微夸张。\n情感与肢体动作（重要）：\n\n表情比真人主体更俏皮、更生动\n\n眼睛更明亮、更具表现力，笑容略显夸张\n身体姿态绝不能僵硬——使用自然、活泼的站姿\n\n根据真人主体的个性添加微妙的动作\n\n姿势应感觉像是一个鲜活的动画角色，而非僵硬的玩偶\n服装：\n\n真人主体服装的 1:1 风格化还原，带有柔和的 3d 纹理。\n光影与环境：\n\n来自左上方的柔和漫射摄影棚灯光，营造出平滑的高光和柔和的阴影。干净的浅灰色渐变无缝背景（内部区域较亮）。\n输出风格：\n\n超清、电影感、高细节渲染，在写实真人与风格化 3d 角色之间形成强烈对比。两个主体均需带有柔和的自然阴影，以确保落地感。 saul goodman 12976",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12964,
+      "title": "阳光乡村饮奶肖像",
+      "description": "为 Nano Banana Pro 准备的详细提示词，用于生成一位年轻女性（Kylie Jenner、Kendall Jenner、Sydney Sweeney 或 Sadie Sink）坐在阳光明媚的乡村田野中，从玻璃瓶中喝牛奶的图像，背景中有一头牛，强调严格的身份锁定和自然光效。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2038243515709149192",
+      "sourcePublishedAt": "2026-03-29T13:14:57.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman sitting in a sunlit countryside field drinking milk from a glass bottle, Use uploaded reference image, keep identity exact\",\n      \"identity_lock\": \"STRICT — Use uploaded reference image, keep identity exact. Preserve facial structure, skin tone, eyes, proportions. Do not alter identity.\",\n      \"pose\": {\n        \"body_position\": \"sitting on the ground in a relaxed leaning pose\",\n        \"torso\": \"slightly reclined backward supported by one arm\",\n        \"head_position\": \"tilted slightly back and to the side while drinking\",\n        \"arms\": \"one hand holding a glass milk bottle near lips, other arm extended behind for support\",\n        \"legs\": \"one leg bent casually, the other extended out of frame\",\n        \"posture\": \"natural relaxed countryside pose\",\n        \"expression\": \"eyes gently closed or relaxed while drinking\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"Use uploaded reference image, keep identity exact\",\n      \"expression\": \"calm, natural, soft enjoyment expression\",\n      \"skin\": \"realistic skin texture with visible pores and slight sun glow\",\n      \"eyes\": \"natural relaxed eyelids, soft shadows\",\n      \"imperfections\": \"subtle asymmetry, natural skin variation\"\n    },\n    \"hair\": {\n      \"instruction\": \"Preserve hairstyle exactly\",\n      \"style\": \"long brunette hair tied into a low side ponytail with a white ribbon\",\n      \"details\": \"soft natural strands, slight movement from breeze\"\n    },\n    \"makeup\": {\n      \"style\": \"natural soft glam\",\n      \"skin_finish\": \"light sun-kissed glow\",\n      \"eyes\": \"neutral tones with soft eyeliner and mascara\",\n      \"lips\": \"natural pink tone with slight gloss\",\n      \"imperfection\": \"slightly uneven blending for realism\"\n    },\n    \"clothing\": {\n      \"outfit\": \"{argument name=\"dress color and pattern\" default=\"light beige dress with black polka dots\"}\",\n      \"fit\": \"flowy feminine fit with soft fabric folds\",\n      \"details\": \"short sleeves, lightweight fabric reacting to sunlight\"\n    },\n    \"environment\": {\n      \"setting\": \"open countryside field\",\n      \"background\": \"large black and white cow standing behind subject, grassy field with wildflowers, blue sky with soft clouds\",\n      \"ground\": \"dry grass mixed with small flowers and natural texture\",\n      \"props\": \"glass milk bottle with slight milk spill detail\"\n    },\n    \"lighting\": {\n      \"type\": \"natural sunlight\",\n      \"style\": \"bright midday rural sunlight\",\n      \"effect\": \"warm highlights and soft natural shadows\",\n      \"shadows\": \"directional shadows on grass and body\",\n      \"imperfections\": \"slight highlight clipping and natural exposure variation\"\n    },\n    \"camera\": {\n      \"type\": \"DSLR\",\n      \"lens\": \"50mm\",\n      \"angle\": \"slightly low angle, close to ground perspective\",\n      \"distance\": \"medium shot\",\n      \"focus\": \"sharp focus on subject, sligh\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853736247_5g7fnn_HElLp_pbIAALuuo.jpg",
+        "https://cms-assets.youmind.com/media/1774853736150_p3ht5r_HElLqdFbYAAmbn3.jpg",
+        "https://cms-assets.youmind.com/media/1774853736411_m9hy4f_HElLphxa8AA6hSc.jpg",
+        "https://cms-assets.youmind.com/media/1774853737190_9khkp6_HElLq6_aUAEaXC1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853736247_5g7fnn_HElLp_pbIAALuuo-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774853736150_p3ht5r_HElLqdFbYAAmbn3-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774853736411_m9hy4f_HElLphxa8AA6hSc-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774853737190_9khkp6_HElLq6_aUAEaXC1-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"年轻女性坐在阳光明媚的乡村田野中，从玻璃瓶中喝牛奶。使用上传的参考图像，保持身份完全一致\",\n      \"identity_lock\": \"严格 — 使用上传的参考图像，保持身份完全一致。保留面部结构、肤色、眼睛和比例。请勿改变身份。\",\n      \"pose\": {\n        \"body_position\": \"以放松的姿势坐在地上\",\n        \"torso\": \"身体微微后仰，由一只手臂支撑\",\n        \"head_position\": \"喝牛奶时头部微微向后并向一侧倾斜\",\n        \"arms\": \"一只手拿着玻璃牛奶瓶靠近嘴唇，另一只手臂向后伸展以支撑身体\",\n        \"legs\": \"一条腿随意弯曲，另一条腿延伸至画面外\",\n        \"posture\": \"自然的乡村放松姿势\",\n        \"expression\": \"喝牛奶时眼睛轻轻闭上或处于放松状态\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"使用上传的参考图像，保持身份完全一致\",\n      \"expression\": \"平静、自然、柔和的享受表情\",\n      \"skin\": \"逼真的皮肤纹理，带有可见的毛孔和轻微的阳光光泽\",\n      \"eyes\": \"自然的放松眼睑，柔和的阴影\",\n      \"imperfections\": \"细微的不对称感，自然的皮肤变化\"\n    },\n    \"hair\": {\n      \"instruction\": \"完全保留发型\",\n      \"style\": \"深棕色长发，扎成低侧马尾，系有白色丝带\",\n      \"details\": \"柔和的自然发丝，微风吹拂下的轻微动感\"\n    },\n    \"makeup\": {\n      \"style\": \"自然柔和的妆容\",\n      \"skin_finish\": \"轻微的阳光亲吻感光泽\",\n      \"eyes\": \"中性色调，配以柔和的眼线和睫毛膏\",\n      \"lips\": \"自然的粉色调，带有轻微的光泽\",\n      \"imperfection\": \"为了真实感，晕染略微不均匀\"\n    },\n    \"clothing\": {\n      \"outfit\": \"{argument name=\"dress color and pattern\" default=\"带有黑色波点的浅米色连衣裙\"}\",\n      \"fit\": \"飘逸的女性化剪裁，带有柔软的织物褶皱\",\n      \"details\": \"短袖，轻盈的织物在阳光下呈现出质感\"\n    },\n    \"environment\": {\n      \"setting\": \"开阔的乡村田野\",\n      \"background\": \"主体后方站着一头巨大的黑白花牛，草地上开着野花，蓝天上有柔和的云朵\",\n      \"ground\": \"干草混合着小花和自然纹理\",\n      \"props\": \"玻璃牛奶瓶，带有轻微的牛奶溢出细节\"\n    },\n    \"lighting\": {\n      \"type\": \"自然阳光\",\n      \"style\": \"明亮的正午乡村阳光\",\n      \"effect\": \"温暖的高光和柔和的自然阴影\",\n      \"shadows\": \"草地和身体上的定向阴影\",\n      \"imperfections\": \"轻微的高光溢出和自然的曝光变化\"\n    },\n    \"camera\": {\n      \"type\": \"单反相机 (DSLR)\",\n      \"lens\": \"50mm\",\n      \"angle\": \"略微低角度，接近地面的视角\",\n      \"distance\": \"中景\",\n      \"focus\": \"焦点清晰对准主体\"\n    }\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "阳光乡村饮奶肖像 为 nano banana pro 准备的详细提示词，用于生成一位年轻女性（kylie jenner、kendall jenner、sydney sweeney 或 sadie sink）坐在阳光明媚的乡村田野中，从玻璃瓶中喝牛奶的图像，背景中有一头牛，强调严格的身份锁定和自然光效。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman sitting in a sunlit countryside field drinking milk from a glass bottle, use uploaded reference image, keep identity exact\",\n      \"identity_lock\": \"strict — use uploaded reference image, keep identity exact. preserve facial structure, skin tone, eyes, proportions. do not alter identity.\",\n      \"pose\": {\n        \"body_position\": \"sitting on the ground in a relaxed leaning pose\",\n        \"torso\": \"slightly reclined backward supported by one arm\",\n        \"head_position\": \"tilted slightly back and to the side while drinking\",\n        \"arms\": \"one hand holding a glass milk bottle near lips, other arm extended behind for support\",\n        \"legs\": \"one leg bent casually, the other extended out of frame\",\n        \"posture\": \"natural relaxed countryside pose\",\n        \"expression\": \"eyes gently closed or relaxed while drinking\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"use uploaded reference image, keep identity exact\",\n      \"expression\": \"calm, natural, soft enjoyment expression\",\n      \"skin\": \"realistic skin texture with visible pores and slight sun glow\",\n      \"eyes\": \"natural relaxed eyelids, soft shadows\",\n      \"imperfections\": \"subtle asymmetry, natural skin variation\"\n    },\n    \"hair\": {\n      \"instruction\": \"preserve hairstyle exactly\",\n      \"style\": \"long brunette hair tied into a low side ponytail with a white ribbon\",\n      \"details\": \"soft natural strands, slight movement from breeze\"\n    },\n    \"makeup\": {\n      \"style\": \"natural soft glam\",\n      \"skin_finish\": \"light sun-kissed glow\",\n      \"eyes\": \"neutral tones with soft eyeliner and mascara\",\n      \"lips\": \"natural pink tone with slight gloss\",\n      \"imperfection\": \"slightly uneven blending for realism\"\n    },\n    \"clothing\": {\n      \"outfit\": \"{argument name=\"dress color and pattern\" default=\"light beige dress with black polka dots\"}\",\n      \"fit\": \"flowy feminine fit with soft fabric folds\",\n      \"details\": \"short sleeves, lightweight fabric reacting to sunlight\"\n    },\n    \"environment\": {\n      \"setting\": \"open countryside field\",\n      \"background\": \"large black and white cow standing behind subject, grassy field with wildflowers, blue sky with soft clouds\",\n      \"ground\": \"dry grass mixed with small flowers and natural texture\",\n      \"props\": \"glass milk bottle with slight milk spill detail\"\n    },\n    \"lighting\": {\n      \"type\": \"natural sunlight\",\n      \"style\": \"bright midday rural sunlight\",\n      \"effect\": \"warm highlights and soft natural shadows\",\n      \"shadows\": \"directional shadows on grass and body\",\n      \"imperfections\": \"slight highlight clipping and natural exposure variation\"\n    },\n    \"camera\": {\n      \"type\": \"dslr\",\n      \"lens\": \"50mm\",\n      \"angle\": \"slightly low angle, close to ground perspective\",\n      \"distance\": \"medium shot\",\n      \"focus\": \"sharp focus on subject, sligh\"\n    }\n  }\n} {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"年轻女性坐在阳光明媚的乡村田野中，从玻璃瓶中喝牛奶。使用上传的参考图像，保持身份完全一致\",\n      \"identity_lock\": \"严格 — 使用上传的参考图像，保持身份完全一致。保留面部结构、肤色、眼睛和比例。请勿改变身份。\",\n      \"pose\": {\n        \"body_position\": \"以放松的姿势坐在地上\",\n        \"torso\": \"身体微微后仰，由一只手臂支撑\",\n        \"head_position\": \"喝牛奶时头部微微向后并向一侧倾斜\",\n        \"arms\": \"一只手拿着玻璃牛奶瓶靠近嘴唇，另一只手臂向后伸展以支撑身体\",\n        \"legs\": \"一条腿随意弯曲，另一条腿延伸至画面外\",\n        \"posture\": \"自然的乡村放松姿势\",\n        \"expression\": \"喝牛奶时眼睛轻轻闭上或处于放松状态\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"使用上传的参考图像，保持身份完全一致\",\n      \"expression\": \"平静、自然、柔和的享受表情\",\n      \"skin\": \"逼真的皮肤纹理，带有可见的毛孔和轻微的阳光光泽\",\n      \"eyes\": \"自然的放松眼睑，柔和的阴影\",\n      \"imperfections\": \"细微的不对称感，自然的皮肤变化\"\n    },\n    \"hair\": {\n      \"instruction\": \"完全保留发型\",\n      \"style\": \"深棕色长发，扎成低侧马尾，系有白色丝带\",\n      \"details\": \"柔和的自然发丝，微风吹拂下的轻微动感\"\n    },\n    \"makeup\": {\n      \"style\": \"自然柔和的妆容\",\n      \"skin_finish\": \"轻微的阳光亲吻感光泽\",\n      \"eyes\": \"中性色调，配以柔和的眼线和睫毛膏\",\n      \"lips\": \"自然的粉色调，带有轻微的光泽\",\n      \"imperfection\": \"为了真实感，晕染略微不均匀\"\n    },\n    \"clothing\": {\n      \"outfit\": \"{argument name=\"dress color and pattern\" default=\"带有黑色波点的浅米色连衣裙\"}\",\n      \"fit\": \"飘逸的女性化剪裁，带有柔软的织物褶皱\",\n      \"details\": \"短袖，轻盈的织物在阳光下呈现出质感\"\n    },\n    \"environment\": {\n      \"setting\": \"开阔的乡村田野\",\n      \"background\": \"主体后方站着一头巨大的黑白花牛，草地上开着野花，蓝天上有柔和的云朵\",\n      \"ground\": \"干草混合着小花和自然纹理\",\n      \"props\": \"玻璃牛奶瓶，带有轻微的牛奶溢出细节\"\n    },\n    \"lighting\": {\n      \"type\": \"自然阳光\",\n      \"style\": \"明亮的正午乡村阳光\",\n      \"effect\": \"温暖的高光和柔和的自然阴影\",\n      \"shadows\": \"草地和身体上的定向阴影\",\n      \"imperfections\": \"轻微的高光溢出和自然的曝光变化\"\n    },\n    \"camera\": {\n      \"type\": \"单反相机 (dslr)\",\n      \"lens\": \"50mm\",\n      \"angle\": \"略微低角度，接近地面的视角\",\n      \"distance\": \"中景\",\n      \"focus\": \"焦点清晰对准主体\"\n    }\n  }\n} glena jenner 12964",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12952,
+      "title": "电影感低角度御宅族卧室肖像",
+      "description": "为 Nano Banana Pro 设计的高细节、超写实提示词，聚焦于 Jennifer Lawrence 在地道御宅族主题卧室中的电影感低角度肖像，强调前景中足部的细节以及鲜艳的粉色霓虹灯光。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2038243332254580803",
+      "sourcePublishedAt": "2026-03-29T13:14:13.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  “meta”: {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “intimate indoor setting, dominated by striking pink neon LED lights on the ceiling, with soft ambient fill”,\n    “style”: “cinematic low-angle portrait, detailed character study”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “An authentic anime fan’s bedroom with lavender walls, filled with a dense, curated collection of otaku culture items. The ceiling features striking linear pink neon LED lights.A lights. A neon written 'KeorUnreal' on wall in backdrop. The background includes all the specific posters from the room setup, notably a large, detailed dragon spheres Dragonball poster on the left wall, a ‘Sakamoto days’ poster, a ‘Naruto' poster, a 'The apothecary diaries' poster and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls.\nWhite floating shelves are filled with diverse manga volumes and various collectible figurines. A string hangs from the ceiling fan with a small charm and plush. On the bed, there is a large, detailed snake body pillow, a yellow Labubu plush, and a Judy hoops plush. The bed is covered in a black sheet and a lavender blanket.”,\n    “atmosphere”: “Cozy, vibrant, immersed in otaku culture.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"Jennifer Lawrence\"} ”,\n    “body”: {\n      “type”: “Realistic, naturally proportioned figure with clean skin, no tattoos on either arm.”,\n      “nails”: {\n        “description”: “All fingernails and toenails are meticulously painted with a glossy electric yellow with draws nail polish.”\n      }\n    },\n    “face”: {\n      “features”: “Distinctive features, high-fashion makeup, wavy blonde hair, smiling warmly and directly at the camera.”,\n      “expression”: “Warm, poised, and confident.”\n    },\n“outfit”: {\n      “description”: “Matching pink ribbed cotton athletic set (pink sports bra and pink high-waisted leggings).”,\n      “fit”: “Casually fitted, sporty modern.”\n    },\n    “accessories”: {\n      “details”: “A single diamond bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain with star pendant necklace are present.”\n    },\n    “pose”: “Seated cross-legged in the middle of the bed, viewed from a very low perspective. Her bare right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. Her left hand, with glossy pink fingernails, is casually running through her hair. Her right hand rests near her right knee. The anime plushies and body pillow are in place behind her.”\n  },\n“composition”: “Close-up, extreme low-angle shot. The frame is dominated by the large, detailed foreground feet (with pink toenails) and {argument name=\"subject name\" default=\"Jennifer Lawrence\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853730124_szm0ja_HElLf_cWwAAkUDQ.jpg",
+        "https://cms-assets.youmind.com/media/1774853730142_uceo4n_HElLgHTWMAA7rJG.jpg",
+        "https://cms-assets.youmind.com/media/1774853730205_j3xs9j_HElLgCwbAAAq0-L.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853730124_szm0ja_HElLf_cWwAAkUDQ-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853730142_uceo4n_HElLgHTWMAA7rJG-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853730205_j3xs9j_HElLgCwbAAAq0-L-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"私密的室内环境，以天花板上醒目的粉色霓虹 LED 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影感低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间地道的动漫迷卧室，墙壁呈淡紫色，摆满了精心收藏的御宅文化周边。天花板上装饰着醒目的线性粉色霓虹 LED 灯。背景墙上写有霓虹灯文字“KeorUnreal”。背景包含了房间布置中的所有特定海报，特别是左侧墙上大幅且细节丰富的《龙珠》海报、一张《坂本日常》海报、《火影忍者》海报、《药屋少女的呢喃》海报，以及覆盖两面可见墙壁的多幅装裱与未装裱的动漫角色插画和墙面艺术品。\n白色浮动搁板上摆满了各种漫画书和收藏级手办。天花板风扇上垂下一根挂着小挂饰和毛绒玩具的绳子。床上放着一个大型且细节丰富的蛇形抱枕、一个黄色 Labubu 毛绒玩具和一个 Judy Hopps 毛绒玩具。床上铺着黑色床单和淡紫色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"Jennifer Lawrence\\\"} \",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了亮眼的电光黄指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"五官鲜明，高定妆容，波浪金发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的粉色罗纹棉质运动套装（粉色运动内衣和粉色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一只钻石手链，左手食指戴着一枚银戒指，颈间佩戴着一条精致的星形吊坠金项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，以极低的视角拍摄。她赤裸的右脚在画面中显得非常大，占据了近景位置，左脚略微靠后。她的左手涂着亮眼的粉色指甲油，正随意地穿过发丝。右手放在右膝附近。动漫毛绒玩具和抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由前景中巨大且细节丰富的足部（带有粉色脚趾甲）和 {argument name=\\\"subject name\\\" default=\\\"Jennifer Lawrence\\\"} 主导。\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感低角度御宅族卧室肖像 为 nano banana pro 设计的高细节、超写实提示词，聚焦于 jennifer lawrence 在地道御宅族主题卧室中的电影感低角度肖像，强调前景中足部的细节以及鲜艳的粉色霓虹灯光。 {\n  “meta”: {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “intimate indoor setting, dominated by striking pink neon led lights on the ceiling, with soft ambient fill”,\n    “style”: “cinematic low-angle portrait, detailed character study”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “an authentic anime fan’s bedroom with lavender walls, filled with a dense, curated collection of otaku culture items. the ceiling features striking linear pink neon led lights.a lights. a neon written 'keorunreal' on wall in backdrop. the background includes all the specific posters from the room setup, notably a large, detailed dragon spheres dragonball poster on the left wall, a ‘sakamoto days’ poster, a ‘naruto' poster, a 'the apothecary diaries' poster and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls.\nwhite floating shelves are filled with diverse manga volumes and various collectible figurines. a string hangs from the ceiling fan with a small charm and plush. on the bed, there is a large, detailed snake body pillow, a yellow labubu plush, and a judy hoops plush. the bed is covered in a black sheet and a lavender blanket.”,\n    “atmosphere”: “cozy, vibrant, immersed in otaku culture.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"jennifer lawrence\"} ”,\n    “body”: {\n      “type”: “realistic, naturally proportioned figure with clean skin, no tattoos on either arm.”,\n      “nails”: {\n        “description”: “all fingernails and toenails are meticulously painted with a glossy electric yellow with draws nail polish.”\n      }\n    },\n    “face”: {\n      “features”: “distinctive features, high-fashion makeup, wavy blonde hair, smiling warmly and directly at the camera.”,\n      “expression”: “warm, poised, and confident.”\n    },\n“outfit”: {\n      “description”: “matching pink ribbed cotton athletic set (pink sports bra and pink high-waisted leggings).”,\n      “fit”: “casually fitted, sporty modern.”\n    },\n    “accessories”: {\n      “details”: “a single diamond bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain with star pendant necklace are present.”\n    },\n    “pose”: “seated cross-legged in the middle of the bed, viewed from a very low perspective. her bare right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. her left hand, with glossy pink fingernails, is casually running through her hair. her right hand rests near her right knee. the anime plushies and body pillow are in place behind her.”\n  },\n“composition”: “close-up, extreme low-angle shot. the frame is dominated by the large, detailed foreground feet (with pink toenails) and {argument name=\"subject name\" default=\"jennifer lawrence\"} {\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"私密的室内环境，以天花板上醒目的粉色霓虹 led 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影感低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间地道的动漫迷卧室，墙壁呈淡紫色，摆满了精心收藏的御宅文化周边。天花板上装饰着醒目的线性粉色霓虹 led 灯。背景墙上写有霓虹灯文字“keorunreal”。背景包含了房间布置中的所有特定海报，特别是左侧墙上大幅且细节丰富的《龙珠》海报、一张《坂本日常》海报、《火影忍者》海报、《药屋少女的呢喃》海报，以及覆盖两面可见墙壁的多幅装裱与未装裱的动漫角色插画和墙面艺术品。\n白色浮动搁板上摆满了各种漫画书和收藏级手办。天花板风扇上垂下一根挂着小挂饰和毛绒玩具的绳子。床上放着一个大型且细节丰富的蛇形抱枕、一个黄色 labubu 毛绒玩具和一个 judy hopps 毛绒玩具。床上铺着黑色床单和淡紫色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"jennifer lawrence\\\"} \",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了亮眼的电光黄指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"五官鲜明，高定妆容，波浪金发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的粉色罗纹棉质运动套装（粉色运动内衣和粉色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一只钻石手链，左手食指戴着一枚银戒指，颈间佩戴着一条精致的星形吊坠金项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，以极低的视角拍摄。她赤裸的右脚在画面中显得非常大，占据了近景位置，左脚略微靠后。她的左手涂着亮眼的粉色指甲油，正随意地穿过发丝。右手放在右膝附近。动漫毛绒玩具和抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由前景中巨大且细节丰富的足部（带有粉色脚趾甲）和 {argument name=\\\"subject name\\\" default=\\\"jennifer lawrence\\\"} 主导。\"\n} keorunreal 12952",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12960,
+      "title": "“软妹”运动风篮球场时尚大片",
+      "description": "一份为 Nano Banana Pro 准备的详细提示词，旨在生成一张 Anya Taylor-Joy 的生活方式时尚大片。画面呈现“软妹邂逅运动风”的美学风格，她在黄金时刻蹲在户外篮球场上，强调严格的身份锁定和照片级真实细节。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2038238546008719546",
+      "sourcePublishedAt": "2026-03-29T12:55:12.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman squatting on an outdoor basketball court holding a basketball close to her face, Use uploaded reference image, keep identity exact\",\n      \"identity_lock\": \"STRICT — Use uploaded reference image, keep identity exact. Preserve facial features, skin tone, eyes, and proportions. Do not alter identity.\",\n      \"pose\": {\n        \"body_position\": \"deep squat position with heels raised slightly\",\n        \"legs\": \"knees bent fully, feet close together\",\n        \"torso\": \"upright with slight forward lean\",\n        \"arms\": \"one hand holding basketball near cheek, other arm relaxed near knee\",\n        \"head_position\": \"tilted slightly toward ball\",\n        \"expression\": \"soft confident gaze toward camera with slightly parted lips\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"Use uploaded reference image, keep identity exact\",\n      \"expression\": \"confident, relaxed, slightly playful\",\n      \"skin\": \"realistic texture with visible pores and natural glow from sunlight\",\n      \"eyes\": \"sharp with warm sunlight reflections\",\n      \"imperfections\": \"natural asymmetry and skin variation\"\n    },\n    \"hair\": {\n      \"instruction\": \"Preserve hairstyle exactly\",\n      \"style\": \"long straight hair falling over shoulders\",\n      \"details\": \"natural movement, slight wind or softness\"\n    },\n    \"makeup\": {\n      \"style\": \"natural glam\",\n      \"skin_finish\": \"warm sunlit glow\",\n      \"eyes\": \"light eyeliner and mascara\",\n      \"lips\": \"natural glossy tone\",\n      \"imperfection\": \"slightly imperfect blending for realism\"\n    },\n    \"clothing\": {\n      \"outfit\": \"white fitted crop top and orange athletic shorts\",\n      \"footwear\": \"clear high-heeled shoes with socks\",\n      \"accessories\": \"bracelets and glasses\",\n      \"details\": \"natural fabric folds, slight stretch\"\n    },\n    \"environment\": {\n      \"setting\": \"outdoor basketball court\",\n      \"surface\": \"reddish court with white curved line markings\",\n      \"props\": \"basketball with visible branding\",\n      \"background\": \"trees, fence posts, and soft blurred park environment\"\n    },\n    \"lighting\": {\n      \"type\": \"golden hour sunlight\",\n      \"style\": \"warm directional light from side\",\n      \"effect\": \"strong warm highlights and soft long shadows\",\n      \"shadows\": \"soft elongated shadows on ground\",\n      \"imperfections\": \"slight overexposure on highlights\"\n    },\n    \"camera\": {\n      \"type\": \"digital camera\",\n      \"lens\": \"50mm\",\n      \"angle\": \"slightly low angle at subject level\",\n      \"distance\": \"medium full-body framing\",\n      \"focus\": \"sharp on subject with soft background blur\",\n      \"imperfections\": \"slight lens softness, natural grain\"\n    },\n    \"composition\": {\n      \"style\": \"lifestyle editorial\",\n      \"framing\": \"full body centered composition\",\n      \"balance\": \"subject centered with leading court l\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853734577_3o3kn6_HElHJlJagAAayTY.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853734577_3o3kn6_HElHJlJagAAayTY-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"年轻女性蹲在户外篮球场上，将篮球贴近脸部。使用上传的参考图，保持身份完全一致\",\n      \"identity_lock\": \"严格执行 — 使用上传的参考图，保持身份完全一致。保留面部特征、肤色、眼睛和比例。不得改变身份。\",\n      \"pose\": {\n        \"body_position\": \"深蹲姿势，脚后跟略微抬起\",\n        \"legs\": \"膝盖完全弯曲，双脚并拢\",\n        \"torso\": \"躯干挺直，略微前倾\",\n        \"arms\": \"一只手将篮球持于脸颊旁，另一只手臂自然放松靠近膝盖\",\n        \"head_position\": \"头部略微向球的方向倾斜\",\n        \"expression\": \"柔和自信地注视镜头，嘴唇微张\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"使用上传的参考图，保持身份完全一致\",\n      \"expression\": \"自信、放松、略带俏皮\",\n      \"skin\": \"真实的皮肤质感，可见毛孔，带有阳光下的自然光泽\",\n      \"eyes\": \"眼神锐利，映照出温暖的阳光\",\n      \"imperfections\": \"自然的非对称感和皮肤纹理变化\"\n    },\n    \"hair\": {\n      \"instruction\": \"完全保留发型\",\n      \"style\": \"长直发垂落在肩头\",\n      \"details\": \"自然的动态感，带有微风吹拂的柔和感\"\n    },\n    \"makeup\": {\n      \"style\": \"自然妆感\",\n      \"skin_finish\": \"温暖的阳光光泽\",\n      \"eyes\": \"淡眼线和睫毛膏\",\n      \"lips\": \"自然的唇彩质感\",\n      \"imperfection\": \"略显不完美的晕染，以增加真实感\"\n    },\n    \"clothing\": {\n      \"outfit\": \"白色修身短款上衣和橙色运动短裤\",\n      \"footwear\": \"透明高跟鞋搭配袜子\",\n      \"accessories\": \"手镯和眼镜\",\n      \"details\": \"自然的布料褶皱，轻微的弹性感\"\n    },\n    \"environment\": {\n      \"setting\": \"户外篮球场\",\n      \"surface\": \"红色的球场地面，带有白色的弧形线条标记\",\n      \"props\": \"带有可见品牌标识的篮球\",\n      \"background\": \"树木、围栏立柱以及柔和模糊的公园环境\"\n    },\n    \"lighting\": {\n      \"type\": \"黄金时刻阳光\",\n      \"style\": \"来自侧面的温暖定向光\",\n      \"effect\": \"强烈的暖色高光和柔和的长阴影\",\n      \"shadows\": \"地面上柔和且拉长的阴影\",\n      \"imperfections\": \"高光处略微过曝\"\n    },\n    \"camera\": {\n      \"type\": \"数码相机\",\n      \"lens\": \"50mm\",\n      \"angle\": \"略微低角度，与主体水平\",\n      \"distance\": \"中景全身构图\",\n      \"focus\": \"主体清晰，背景柔和虚化\",\n      \"imperfections\": \"轻微的镜头柔焦感，自然的颗粒感\"\n    },\n    \"composition\": {\n      \"style\": \"生活方式时尚大片\",\n      \"framing\": \"全身居中构图\",\n      \"balance\": \"主体居中，带有引导性的球场线条\"\n    }\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "“软妹”运动风篮球场时尚大片 一份为 nano banana pro 准备的详细提示词，旨在生成一张 anya taylor-joy 的生活方式时尚大片。画面呈现“软妹邂逅运动风”的美学风格，她在黄金时刻蹲在户外篮球场上，强调严格的身份锁定和照片级真实细节。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman squatting on an outdoor basketball court holding a basketball close to her face, use uploaded reference image, keep identity exact\",\n      \"identity_lock\": \"strict — use uploaded reference image, keep identity exact. preserve facial features, skin tone, eyes, and proportions. do not alter identity.\",\n      \"pose\": {\n        \"body_position\": \"deep squat position with heels raised slightly\",\n        \"legs\": \"knees bent fully, feet close together\",\n        \"torso\": \"upright with slight forward lean\",\n        \"arms\": \"one hand holding basketball near cheek, other arm relaxed near knee\",\n        \"head_position\": \"tilted slightly toward ball\",\n        \"expression\": \"soft confident gaze toward camera with slightly parted lips\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"use uploaded reference image, keep identity exact\",\n      \"expression\": \"confident, relaxed, slightly playful\",\n      \"skin\": \"realistic texture with visible pores and natural glow from sunlight\",\n      \"eyes\": \"sharp with warm sunlight reflections\",\n      \"imperfections\": \"natural asymmetry and skin variation\"\n    },\n    \"hair\": {\n      \"instruction\": \"preserve hairstyle exactly\",\n      \"style\": \"long straight hair falling over shoulders\",\n      \"details\": \"natural movement, slight wind or softness\"\n    },\n    \"makeup\": {\n      \"style\": \"natural glam\",\n      \"skin_finish\": \"warm sunlit glow\",\n      \"eyes\": \"light eyeliner and mascara\",\n      \"lips\": \"natural glossy tone\",\n      \"imperfection\": \"slightly imperfect blending for realism\"\n    },\n    \"clothing\": {\n      \"outfit\": \"white fitted crop top and orange athletic shorts\",\n      \"footwear\": \"clear high-heeled shoes with socks\",\n      \"accessories\": \"bracelets and glasses\",\n      \"details\": \"natural fabric folds, slight stretch\"\n    },\n    \"environment\": {\n      \"setting\": \"outdoor basketball court\",\n      \"surface\": \"reddish court with white curved line markings\",\n      \"props\": \"basketball with visible branding\",\n      \"background\": \"trees, fence posts, and soft blurred park environment\"\n    },\n    \"lighting\": {\n      \"type\": \"golden hour sunlight\",\n      \"style\": \"warm directional light from side\",\n      \"effect\": \"strong warm highlights and soft long shadows\",\n      \"shadows\": \"soft elongated shadows on ground\",\n      \"imperfections\": \"slight overexposure on highlights\"\n    },\n    \"camera\": {\n      \"type\": \"digital camera\",\n      \"lens\": \"50mm\",\n      \"angle\": \"slightly low angle at subject level\",\n      \"distance\": \"medium full-body framing\",\n      \"focus\": \"sharp on subject with soft background blur\",\n      \"imperfections\": \"slight lens softness, natural grain\"\n    },\n    \"composition\": {\n      \"style\": \"lifestyle editorial\",\n      \"framing\": \"full body centered composition\",\n      \"balance\": \"subject centered with leading court l\"\n    }\n  }\n} {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"年轻女性蹲在户外篮球场上，将篮球贴近脸部。使用上传的参考图，保持身份完全一致\",\n      \"identity_lock\": \"严格执行 — 使用上传的参考图，保持身份完全一致。保留面部特征、肤色、眼睛和比例。不得改变身份。\",\n      \"pose\": {\n        \"body_position\": \"深蹲姿势，脚后跟略微抬起\",\n        \"legs\": \"膝盖完全弯曲，双脚并拢\",\n        \"torso\": \"躯干挺直，略微前倾\",\n        \"arms\": \"一只手将篮球持于脸颊旁，另一只手臂自然放松靠近膝盖\",\n        \"head_position\": \"头部略微向球的方向倾斜\",\n        \"expression\": \"柔和自信地注视镜头，嘴唇微张\"\n      }\n    },\n    \"face_details\": {\n      \"instruction\": \"使用上传的参考图，保持身份完全一致\",\n      \"expression\": \"自信、放松、略带俏皮\",\n      \"skin\": \"真实的皮肤质感，可见毛孔，带有阳光下的自然光泽\",\n      \"eyes\": \"眼神锐利，映照出温暖的阳光\",\n      \"imperfections\": \"自然的非对称感和皮肤纹理变化\"\n    },\n    \"hair\": {\n      \"instruction\": \"完全保留发型\",\n      \"style\": \"长直发垂落在肩头\",\n      \"details\": \"自然的动态感，带有微风吹拂的柔和感\"\n    },\n    \"makeup\": {\n      \"style\": \"自然妆感\",\n      \"skin_finish\": \"温暖的阳光光泽\",\n      \"eyes\": \"淡眼线和睫毛膏\",\n      \"lips\": \"自然的唇彩质感\",\n      \"imperfection\": \"略显不完美的晕染，以增加真实感\"\n    },\n    \"clothing\": {\n      \"outfit\": \"白色修身短款上衣和橙色运动短裤\",\n      \"footwear\": \"透明高跟鞋搭配袜子\",\n      \"accessories\": \"手镯和眼镜\",\n      \"details\": \"自然的布料褶皱，轻微的弹性感\"\n    },\n    \"environment\": {\n      \"setting\": \"户外篮球场\",\n      \"surface\": \"红色的球场地面，带有白色的弧形线条标记\",\n      \"props\": \"带有可见品牌标识的篮球\",\n      \"background\": \"树木、围栏立柱以及柔和模糊的公园环境\"\n    },\n    \"lighting\": {\n      \"type\": \"黄金时刻阳光\",\n      \"style\": \"来自侧面的温暖定向光\",\n      \"effect\": \"强烈的暖色高光和柔和的长阴影\",\n      \"shadows\": \"地面上柔和且拉长的阴影\",\n      \"imperfections\": \"高光处略微过曝\"\n    },\n    \"camera\": {\n      \"type\": \"数码相机\",\n      \"lens\": \"50mm\",\n      \"angle\": \"略微低角度，与主体水平\",\n      \"distance\": \"中景全身构图\",\n      \"focus\": \"主体清晰，背景柔和虚化\",\n      \"imperfections\": \"轻微的镜头柔焦感，自然的颗粒感\"\n    },\n    \"composition\": {\n      \"style\": \"生活方式时尚大片\",\n      \"framing\": \"全身居中构图\",\n      \"balance\": \"主体居中，带有引导性的球场线条\"\n    }\n  }\n} glena jenner 12960",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12984,
+      "title": "2000 年代日本郊区旧录像风格",
+      "description": "这是一个与 Google Gemini 3.1 上的 Nano Banana Pro 配合使用的提示词，旨在生成具有 2000 年代氛围、呈现旧录像风格的日本郊区图像。",
+      "sourceLink": "https://x.com/PSN62595111/status/2038236732500345194",
+      "sourcePublishedAt": "2026-03-29T12:48:00.000Z",
+      "author": {
+        "name": "PSN用アカウント",
+        "link": "https://x.com/PSN62595111"
+      },
+      "content": "a Japanese suburb in the the 2000s atmosphere that like an old footage",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853748669_xm0v8z_HEUi1nHbYAE3pWj.jpg",
+        "https://cms-assets.youmind.com/media/1774853748597_4u70ry_HEUi1mPboAAPZ92.jpg",
+        "https://cms-assets.youmind.com/media/1774853748691_1odmjt_HEUi1nGbYAE3w1V.jpg",
+        "https://cms-assets.youmind.com/media/1774853749938_sovzib_HEUi1nPbYAQQD3j.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853748669_xm0v8z_HEUi1nHbYAE3pWj-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774853748597_4u70ry_HEUi1mPboAAPZ92-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774853748691_1odmjt_HEUi1nGbYAE3w1V-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774853749938_sovzib_HEUi1nPbYAQQD3j-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "2000 年代氛围的日本郊区，呈现旧录像风格",
+      "sourcePlatform": "twitter",
+      "searchIndex": "2000 年代日本郊区旧录像风格 这是一个与 google gemini 3.1 上的 nano banana pro 配合使用的提示词，旨在生成具有 2000 年代氛围、呈现旧录像风格的日本郊区图像。 a japanese suburb in the the 2000s atmosphere that like an old footage 2000 年代氛围的日本郊区，呈现旧录像风格 psn用アカウント 12984",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 21,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

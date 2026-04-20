@@ -1,0 +1,511 @@
+{
+  "prompts": [
+    {
+      "id": 10762,
+      "title": "阳光街景，纹身女子骑着踏板车（JSON 格式）",
+      "description": "一个结构化的 JSON 提示词，用于生成一张逼真、充满活力的生活方式照片：一位自信、纹身密布的金发女性，在热带都市环境中，明亮的阳光下，坐在一辆薄荷绿色的复古踏板车上。",
+      "sourceLink": "https://x.com/NattyWindstorm/status/2026293382352691667",
+      "sourcePublishedAt": "2026-02-24T13:49:23.000Z",
+      "author": {
+        "name": "Natty Windstorm",
+        "link": "https://x.com/NattyWindstorm"
+      },
+      "content": "{\n  \"prompt\": \"A sunlit street scene with a confident blonde woman sitting on a mint green vintage scooter. She has extensive floral tattoos covering her arms, legs, and neck. She is wearing a sleeveless textured mini dress with side cutouts and decorative gold chain details. The setting is a tropical urban street lined with palm trees and parked cars under bright midday sunlight. The mood is vibrant, carefree, and summery. High-resolution, sharp focus, natural lighting, shallow depth of field, candid lifestyle photography.\",\n  \"style\": \"realistic, lifestyle, summer aesthetic\",\n  \"lighting\": \"bright natural sunlight\",\n  \"camera\": \"35mm lens, shallow depth of field\",\n  \"quality\": \"high-resolution, detailed, sharp focus\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001518493_9knhnu_HB7XFNcbAAEdKQy.jpg",
+        "https://cms-assets.youmind.com/media/1772001518562_ehtsvs_HB7XFNobgAEzvxA.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001518493_9knhnu_HB7XFNcbAAEdKQy-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001518562_ehtsvs_HB7XFNobgAEzvxA-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"阳光明媚的街道场景，一位自信的金发女子坐在一辆薄荷绿色的复古摩托车上。她的手臂、腿部和颈部布满了大面积的花卉纹身。她穿着一件无袖的纹理迷你连衣裙，两侧有镂空设计和装饰性的金色链条细节。背景是热带城市街道，两旁是棕榈树和停放的汽车，在明亮的午间阳光下。氛围充满活力、无忧无虑，充满夏日气息。高分辨率、锐利对焦、自然光照、浅景深、抓拍式生活摄影。\",\n  \"style\": \"写实、生活化、夏日美学\",\n  \"lighting\": \"明亮的自然阳光\",\n  \"camera\": \"35mm 镜头、浅景深\",\n  \"quality\": \"高分辨率、细节丰富、锐利对焦\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "阳光街景，纹身女子骑着踏板车（json 格式） 一个结构化的 json 提示词，用于生成一张逼真、充满活力的生活方式照片：一位自信、纹身密布的金发女性，在热带都市环境中，明亮的阳光下，坐在一辆薄荷绿色的复古踏板车上。 {\n  \"prompt\": \"a sunlit street scene with a confident blonde woman sitting on a mint green vintage scooter. she has extensive floral tattoos covering her arms, legs, and neck. she is wearing a sleeveless textured mini dress with side cutouts and decorative gold chain details. the setting is a tropical urban street lined with palm trees and parked cars under bright midday sunlight. the mood is vibrant, carefree, and summery. high-resolution, sharp focus, natural lighting, shallow depth of field, candid lifestyle photography.\",\n  \"style\": \"realistic, lifestyle, summer aesthetic\",\n  \"lighting\": \"bright natural sunlight\",\n  \"camera\": \"35mm lens, shallow depth of field\",\n  \"quality\": \"high-resolution, detailed, sharp focus\"\n} ```json\n{\n  \"prompt\": \"阳光明媚的街道场景，一位自信的金发女子坐在一辆薄荷绿色的复古摩托车上。她的手臂、腿部和颈部布满了大面积的花卉纹身。她穿着一件无袖的纹理迷你连衣裙，两侧有镂空设计和装饰性的金色链条细节。背景是热带城市街道，两旁是棕榈树和停放的汽车，在明亮的午间阳光下。氛围充满活力、无忧无虑，充满夏日气息。高分辨率、锐利对焦、自然光照、浅景深、抓拍式生活摄影。\",\n  \"style\": \"写实、生活化、夏日美学\",\n  \"lighting\": \"明亮的自然阳光\",\n  \"camera\": \"35mm 镜头、浅景深\",\n  \"quality\": \"高分辨率、细节丰富、锐利对焦\"\n}\n``` natty windstorm 10762",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10794,
+      "title": "哆啦 A 梦电影场景生成",
+      "description": "一个基于哆啦 A 梦电影《大雄的魔界大冒险》的图像生成提示，特别描绘了与角色迪马翁的对峙。该提示使用了日文标题和名称。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026290290622165268",
+      "sourcePublishedAt": "2026-02-24T13:37:06.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "のび太の魔界大冒険\nVS{argument name=\"敵キャラクター\" default=\"デマオン\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001537687_nbso6a_HB7URsja4AARqgb.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001537687_nbso6a_HB7URsja4AARqgb-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "大雄的魔界大冒险\nVS {argument name=\"enemy character\" default=\"恶魔\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "哆啦 a 梦电影场景生成 一个基于哆啦 a 梦电影《大雄的魔界大冒险》的图像生成提示，特别描绘了与角色迪马翁的对峙。该提示使用了日文标题和名称。 のび太の魔界大冒険\nvs{argument name=\"敵キャラクター\" default=\"デマオン\"} 大雄的魔界大冒险\nvs {argument name=\"enemy character\" default=\"恶魔\"} クラリネットクラリオンnobu 10794",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10809,
+      "title": "Nano Banana Pro 提示词：塔罗牌 18（月亮）与 Mális Mizer 和双鱼座",
+      "description": "一个为 Nano Banana Pro (Gemini 3 Pro Image) 设计的复杂提示，用于根据塔罗牌 18 (月亮) 生成图像，并融入视觉系乐队 Mális Mizer、厄洛斯和阿芙洛狄忒的元素，以及边缘的圆形双鱼座图案。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026286591719997717",
+      "sourcePublishedAt": "2026-02-24T13:22:24.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "タロット18番月\nマリスミゼルみたいに…\n\n次\nエロスとアフロディーテを入れて\n\n表と裏\n　\n余白に魚座を一周させて",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001542683_rabyb0_HB7Q6Lya0AAnV4p.jpg",
+        "https://cms-assets.youmind.com/media/1772001542604_qdkukx_HB7Q6NGaYAEPmk8.jpg",
+        "https://cms-assets.youmind.com/media/1772001543354_wgcrt3_HB7Q6LybAAAh236.jpg",
+        "https://cms-assets.youmind.com/media/1772001544093_xxg82u_HB7Q6NHbgAA0hzH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001542683_rabyb0_HB7Q6Lya0AAnV4p-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001542604_qdkukx_HB7Q6NGaYAEPmk8-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001543354_wgcrt3_HB7Q6LybAAAh236-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001544093_xxg82u_HB7Q6NHbgAA0hzH-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "塔罗牌 18 月亮\n像 Mális Mizer 一样……\n\n下一张\n包括厄洛斯和阿芙罗狄蒂\n\n正面和背面\n\n让双鱼座环绕边缘",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词：塔罗牌 18（月亮）与 mális mizer 和双鱼座 一个为 nano banana pro (gemini 3 pro image) 设计的复杂提示，用于根据塔罗牌 18 (月亮) 生成图像，并融入视觉系乐队 mális mizer、厄洛斯和阿芙洛狄忒的元素，以及边缘的圆形双鱼座图案。 タロット18番月\nマリスミゼルみたいに…\n\n次\nエロスとアフロディーテを入れて\n\n表と裏\n　\n余白に魚座を一周させて 塔罗牌 18 月亮\n像 mális mizer 一样……\n\n下一张\n包括厄洛斯和阿芙罗狄蒂\n\n正面和背面\n\n让双鱼座环绕边缘 クラリネットクラリオンnobu 10809",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10730,
+      "title": "双人肖像，带详细姿势和服装规格",
+      "description": "一个复杂、高度详细的 JSON 提示，旨在生成一张包含两个主体（主体 1 坐在沙发上，主体 2 坐在地板上）在现代客厅中的图像，其中详细说明了精确的身体姿势、服装细节（连体衣、连裤袜、高跟鞋）和织物表现。",
+      "sourceLink": "https://x.com/rowundd/status/2026276093175427113",
+      "sourcePublishedAt": "2026-02-24T12:40:41.000Z",
+      "author": {
+        "name": "Rowund",
+        "link": "https://x.com/rowundd"
+      },
+      "content": "{\n  \"scene_overview\": {\n    \"subjects_count\": 2,\n    \"environment\": \"Indoor modern living space with a sofa, wooden floor, large windows, neutral walls\",\n    \"focus\": \"Precise body poses and outfit placement\"\n  },\n  \"subjects\": [ \n    {\n      \"subject_id\": \"Subject_1\"\n      \"pose_reference\": \"Photo 1 adapted to a sofa\",\n      \"body_position\": {\n        \"position\": \"Seated on a sofa\",\n        \"seat_contact\": \"Pelvis centered on the sofa cushion\"\n      },\n      \"leg_position\": {\n        \"stance\": \"Legs spread apart symmetrically\",\n        \"thighs\": \"Angled outward from the hips\",\n        \"knees\": \"Bent at approximately 90 degrees\",\n        \"feet\": \"Feet planted firmly on the floor in front of the sofa\",\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"Torso upright with a slight forward lean\",\n        \"spine\": \"Straight with controlled tension\"\n      },\n      \"arms_and_hands\": {\n        \"arms\": \"Both arms lowered between the legs\",\n        \"hands\": \"Hands resting close together near the knees\"\n      },\n      \"head_and_neck\": {\n        \"head_position\": \"Head upright with a subtle downward tilt\",\n        \"neck\": \"Elongated and relaxed\"\n      },\n      \"clothing_and_accessories\": {\n        \"outfit\": \"Fitted navy blue short-sleeve romper with a deep V neckline trimmed in white, closely hugging the torso and hips\",\n        \"fabric\": \"Textured stretch knit fabric\",\n        \"legwear\": \"black sheer pantyhose, white socks\",\n        \"footwear\": \"Delicate strappy high-heeled sandals in a matching yellow tone\",\n        \"accessories\": {\n          \"headwear\": \"Matching yellow headband\",\n          \"jewelry\": \"Minimal jewelry\"\n        },\n        \"fabric_behavior\": \"Fabric stretched smoothly across the waist, hips, and thighs due to seated posture\"\n \n      \"subject_id\": \"Subject_2\",\n      \"pose_reference\": \"Photo 2 adapted to floor position\",\n      \"body_position\": {\n        \"position\": \"Seated on the floor at the foot of Subject_1\",\n        \"relative_location\": \"Centered between Subject_1’s feet, closer to the foreground\"\n      },\n      \"leg_position\": {\n        \"primary_leg\": {\n          \"position\": \"Raised upward at a strong diagonal angle\",\n          \"knee\": \"Fully extended\",\n          \"hip_angle\": \"Hip strongly flexed to lift the leg upward\"\n        },\n        \"secondary_leg\": {\n          \"position\": \"Bent and folded on the floor\",\n          \"knee_contact\": \"Knee resting on the floor for support\"\n        },\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"Torso leaning slightly backward\",\n        \"spine\": \"Natural relaxed curve\"\n      },\n      \"arms_and_hands\": {\n        \"supporting_arm\": \"One arm extended backward with the palm on the floor\",\n        \"free_arm\": \"Other arm resting along the thigh or floor\"\n      },\n      \"head_and_neck\": {\n        \"head",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001498477_n0p236_HB7HXLbWUAEEZzv.jpg",
+        "https://cms-assets.youmind.com/media/1772001498519_y6b1da_HB7HXKXXgAAJqQo.jpg",
+        "https://cms-assets.youmind.com/media/1772001498979_rv8pzh_HB7HXKpXIAAiScf.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001498477_n0p236_HB7HXLbWUAEEZzv-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001498519_y6b1da_HB7HXKXXgAAJqQo-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001498979_rv8pzh_HB7HXKpXIAAiScf-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene_overview\": {\n    \"subjects_count\": 2,\n    \"environment\": \"室内现代起居空间，配有沙发、木地板、大窗户、中性色墙壁\",\n    \"focus\": \"精确的身体姿势和服装摆放\"\n  },\n  \"subjects\": [\n    {\n      \"subject_id\": \"Subject_1\",\n      \"pose_reference\": \"照片 1 调整为沙发姿势\",\n      \"body_position\": {\n        \"position\": \"坐在沙发上\",\n        \"seat_contact\": \"骨盆居中于沙发垫上\"\n      },\n      \"leg_position\": {\n        \"stance\": \"双腿对称分开\",\n        \"thighs\": \"大腿从臀部向外倾斜\",\n        \"knees\": \"膝盖弯曲约 90 度\",\n        \"feet\": \"双脚稳稳地踩在沙发前的地板上\",\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"躯干挺直，略微前倾\",\n        \"spine\": \"脊柱挺直，保持受控的张力\"\n      },\n      \"arms_and_hands\": {\n        \"arms\": \"双臂垂于两腿之间\",\n        \"hands\": \"双手靠近膝盖，并拢放置\"\n      },\n      \"head_and_neck\": {\n        \"head_position\": \"头部正直，略微向下倾斜\",\n        \"neck\": \"颈部伸长且放松\"\n      },\n      \"clothing_and_accessories\": {\n        \"outfit\": \"合身的藏蓝色短袖连体衣，深 V 领口饰有白色边，紧贴躯干和臀部\",\n        \"fabric\": \"有纹理的弹力针织面料\",\n        \"legwear\": \"黑色透明连裤袜，白色袜子\",\n        \"footwear\": \"精致的黄色系带高跟凉鞋\",\n        \"accessories\": {\n          \"headwear\": \"配套的黄色发带\",\n          \"jewelry\": \"极简首饰\"\n        },\n        \"fabric_behavior\": \"由于坐姿，面料在腰部、臀部和大腿处平滑拉伸\"\n      }\n    },\n    {\n      \"subject_id\": \"Subject_2\",\n      \"pose_reference\": \"照片 2 调整为地板姿势\",\n      \"body_position\": {\n        \"position\": \"坐在 Subject_1 脚下的地板上\",\n        \"relative_location\": \"位于 Subject_1 双脚之间，更靠近前景\"\n      },\n      \"leg_position\": {\n        \"primary_leg\": {\n          \"position\": \"向上抬起，呈强烈的对角线角度\",\n          \"knee\": \"完全伸展\",\n          \"hip_angle\": \"髋部强烈屈曲以抬起腿部\"\n        },\n        \"secondary_leg\": {\n          \"position\": \"弯曲并折叠在地板上\",\n          \"knee_contact\": \"膝盖靠在地板上以作支撑\"\n        },\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"躯干略微向后倾斜\",\n        \"spine\": \"自然放松的曲线\"\n      },\n      \"arms_and_hands\": {\n        \"supporting_arm\": \"一只手臂向后伸展，手掌放在地板上\",\n        \"free_arm\": \"另一只手臂沿着大腿或地板放置\"\n      },\n      \"head_and_neck\": {\n        \"head\": \"\"\n      }\n    }\n  ]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "双人肖像，带详细姿势和服装规格 一个复杂、高度详细的 json 提示，旨在生成一张包含两个主体（主体 1 坐在沙发上，主体 2 坐在地板上）在现代客厅中的图像，其中详细说明了精确的身体姿势、服装细节（连体衣、连裤袜、高跟鞋）和织物表现。 {\n  \"scene_overview\": {\n    \"subjects_count\": 2,\n    \"environment\": \"indoor modern living space with a sofa, wooden floor, large windows, neutral walls\",\n    \"focus\": \"precise body poses and outfit placement\"\n  },\n  \"subjects\": [ \n    {\n      \"subject_id\": \"subject_1\"\n      \"pose_reference\": \"photo 1 adapted to a sofa\",\n      \"body_position\": {\n        \"position\": \"seated on a sofa\",\n        \"seat_contact\": \"pelvis centered on the sofa cushion\"\n      },\n      \"leg_position\": {\n        \"stance\": \"legs spread apart symmetrically\",\n        \"thighs\": \"angled outward from the hips\",\n        \"knees\": \"bent at approximately 90 degrees\",\n        \"feet\": \"feet planted firmly on the floor in front of the sofa\",\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"torso upright with a slight forward lean\",\n        \"spine\": \"straight with controlled tension\"\n      },\n      \"arms_and_hands\": {\n        \"arms\": \"both arms lowered between the legs\",\n        \"hands\": \"hands resting close together near the knees\"\n      },\n      \"head_and_neck\": {\n        \"head_position\": \"head upright with a subtle downward tilt\",\n        \"neck\": \"elongated and relaxed\"\n      },\n      \"clothing_and_accessories\": {\n        \"outfit\": \"fitted navy blue short-sleeve romper with a deep v neckline trimmed in white, closely hugging the torso and hips\",\n        \"fabric\": \"textured stretch knit fabric\",\n        \"legwear\": \"black sheer pantyhose, white socks\",\n        \"footwear\": \"delicate strappy high-heeled sandals in a matching yellow tone\",\n        \"accessories\": {\n          \"headwear\": \"matching yellow headband\",\n          \"jewelry\": \"minimal jewelry\"\n        },\n        \"fabric_behavior\": \"fabric stretched smoothly across the waist, hips, and thighs due to seated posture\"\n \n      \"subject_id\": \"subject_2\",\n      \"pose_reference\": \"photo 2 adapted to floor position\",\n      \"body_position\": {\n        \"position\": \"seated on the floor at the foot of subject_1\",\n        \"relative_location\": \"centered between subject_1’s feet, closer to the foreground\"\n      },\n      \"leg_position\": {\n        \"primary_leg\": {\n          \"position\": \"raised upward at a strong diagonal angle\",\n          \"knee\": \"fully extended\",\n          \"hip_angle\": \"hip strongly flexed to lift the leg upward\"\n        },\n        \"secondary_leg\": {\n          \"position\": \"bent and folded on the floor\",\n          \"knee_contact\": \"knee resting on the floor for support\"\n        },\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"torso leaning slightly backward\",\n        \"spine\": \"natural relaxed curve\"\n      },\n      \"arms_and_hands\": {\n        \"supporting_arm\": \"one arm extended backward with the palm on the floor\",\n        \"free_arm\": \"other arm resting along the thigh or floor\"\n      },\n      \"head_and_neck\": {\n        \"head ```json\n{\n  \"scene_overview\": {\n    \"subjects_count\": 2,\n    \"environment\": \"室内现代起居空间，配有沙发、木地板、大窗户、中性色墙壁\",\n    \"focus\": \"精确的身体姿势和服装摆放\"\n  },\n  \"subjects\": [\n    {\n      \"subject_id\": \"subject_1\",\n      \"pose_reference\": \"照片 1 调整为沙发姿势\",\n      \"body_position\": {\n        \"position\": \"坐在沙发上\",\n        \"seat_contact\": \"骨盆居中于沙发垫上\"\n      },\n      \"leg_position\": {\n        \"stance\": \"双腿对称分开\",\n        \"thighs\": \"大腿从臀部向外倾斜\",\n        \"knees\": \"膝盖弯曲约 90 度\",\n        \"feet\": \"双脚稳稳地踩在沙发前的地板上\",\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"躯干挺直，略微前倾\",\n        \"spine\": \"脊柱挺直，保持受控的张力\"\n      },\n      \"arms_and_hands\": {\n        \"arms\": \"双臂垂于两腿之间\",\n        \"hands\": \"双手靠近膝盖，并拢放置\"\n      },\n      \"head_and_neck\": {\n        \"head_position\": \"头部正直，略微向下倾斜\",\n        \"neck\": \"颈部伸长且放松\"\n      },\n      \"clothing_and_accessories\": {\n        \"outfit\": \"合身的藏蓝色短袖连体衣，深 v 领口饰有白色边，紧贴躯干和臀部\",\n        \"fabric\": \"有纹理的弹力针织面料\",\n        \"legwear\": \"黑色透明连裤袜，白色袜子\",\n        \"footwear\": \"精致的黄色系带高跟凉鞋\",\n        \"accessories\": {\n          \"headwear\": \"配套的黄色发带\",\n          \"jewelry\": \"极简首饰\"\n        },\n        \"fabric_behavior\": \"由于坐姿，面料在腰部、臀部和大腿处平滑拉伸\"\n      }\n    },\n    {\n      \"subject_id\": \"subject_2\",\n      \"pose_reference\": \"照片 2 调整为地板姿势\",\n      \"body_position\": {\n        \"position\": \"坐在 subject_1 脚下的地板上\",\n        \"relative_location\": \"位于 subject_1 双脚之间，更靠近前景\"\n      },\n      \"leg_position\": {\n        \"primary_leg\": {\n          \"position\": \"向上抬起，呈强烈的对角线角度\",\n          \"knee\": \"完全伸展\",\n          \"hip_angle\": \"髋部强烈屈曲以抬起腿部\"\n        },\n        \"secondary_leg\": {\n          \"position\": \"弯曲并折叠在地板上\",\n          \"knee_contact\": \"膝盖靠在地板上以作支撑\"\n        },\n        \"legs_crossed\": false\n      },\n      \"torso\": {\n        \"orientation\": \"躯干略微向后倾斜\",\n        \"spine\": \"自然放松的曲线\"\n      },\n      \"arms_and_hands\": {\n        \"supporting_arm\": \"一只手臂向后伸展，手掌放在地板上\",\n        \"free_arm\": \"另一只手臂沿着大腿或地板放置\"\n      },\n      \"head_and_neck\": {\n        \"head\": \"\"\n      }\n    }\n  ]\n}\n``` rowund 10730",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10778,
+      "title": "Sabrina Carpenter 的超精细电影感肖像",
+      "description": "一个极其详细、结构化的 JSON 提示词，旨在生成 Sabrina Carpenter 的超写实图像。它指定了生物特征数据、身体形态（0.7 的腰臀比）、服装（猩红色迷你连衣裙、银色细高跟鞋）、厨房台面上的特定低角度姿势，以及具有高次表面散射的复杂三点式影棚照明。",
+      "sourceLink": "https://x.com/PinodiArt/status/2026271955167445097",
+      "sourcePublishedAt": "2026-02-24T12:24:15.000Z",
+      "author": {
+        "name": "Pinodi",
+        "link": "https://x.com/PinodiArt"
+      },
+      "content": "{\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\"biometric reference\" default=\"Sabrina Carpenter\"}\",\n      \"facial_morphology\": \"Heart-shaped face with high-set zygomatic arches, defined mandible line, and a soft philtrum. Prominent, rounded forehead and a straight nasal bridge with a slightly upturned apex.\",\n      \"dentition\": \"Natural dental alignment, maxillary central incisors with slight dominance, bright white enamel finish, visible buccal corridor during a neutral or slight parting of lips.\",\n      \"iris_pattern\": \"Heterogeneous iris texture with radial furrows, distinct pupillary zone, and a deep cerulean hue with darker limbal rings.\",\n      \"hair\": \"Voluminous, layered blonde hair with warm golden undertones, fine follicle texture, and natural scalp integration.\"\n    },\n    \"body\": {\n      \"somatotype\": \"Petite mesomorph with high muscle-to-fat ratio and defined bone structure.\",\n      \"morphology\": \"Accurate 0.7 waist-to-hip ratio, slender waistline, toned rectus abdominis, and defined quadricep/patellar anatomy. Natural soft tissue distribution over the iliac crest.\",\n      \"skin_texture\": \"High-fidelity dermis with visible pores, subtle subcutaneous vascularity in extremities, and a warm porcelain finish. HEX: #F5E1D2.\",\n      \"limbs\": \"Slender upper and lower extremities, articulated phalanges, clear nail bed definition with white polish. Feet in extreme plantar flexion with visible metatarsal alignment.\"\n    },\n    \"wardrobe\": {\n      \"apparel\": \"Mini-length bodycon dress in vibrant scarlet. Fabric: Fine-knit stretch silk with micro-ribbing texture and subtle specular highlights. HEX: #E0115F.\",\n      \"footwear\": \"Metallic silver stiletto sandals with slender ankle straps and chrome-finished heels. Material: Polished calfskin leather with high reflectivity. HEX: #C0C0C0.\"\n    },\n    \"pose_action\": {\n      \"description\": \"Seated atop a polished kitchen counter in a low-angle perspective. Knees are acutely flexed and pulled toward the chest, creating a compact triangular composition. Hands are positioned laterally on the counter surface for support. Head is slightly tilted with a direct, neutral gaze toward the lens.\",\n      \"anatomical_tension\": \"Weight distribution focused on the gluteal region, visible tension in the gastrocnemius muscles due to high-heel elevation.\"\n    },\n    \"scene\": {\n      \"environment\": \"Modern minimalist kitchen interior. Primary surface is a white quartz countertop with high gloss finish. Background features a dark-toned staircase with vertical railings and neutral grey walls.\",\n      \"atmosphere\": \"Clean, spacious, and upscale domestic setting.\"\n    },\n    \"lighting\": {\n      \"setup\": \"Three-point studio lighting adapted for an interior setting. Primary softbox (Key) from 45-degree angle, subtle rim lighting to define hair and shoulder silhouettes. High subsurface scattering on skin surfaces.\",\n      \"effects\": \"Specular hig\"\n    }\n  }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001527185_08l60q_HB7DWGHXcAAsN_K.jpg",
+        "https://cms-assets.youmind.com/media/1772001527269_w0esds_HB7DYYTWQAAASvT.jpg",
+        "https://cms-assets.youmind.com/media/1772001527245_q0svyy_HB7DXXxXIAAGRiZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001527185_08l60q_HB7DWGHXcAAsN_K-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001527269_w0esds_HB7DYYTWQAAASvT-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001527245_q0svyy_HB7DXXxXIAAGRiZ-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\\\"biometric reference\\\" default=\\\"Sabrina Carpenter\\\"}\",\n      \"facial_morphology\": \"心形脸，颧弓高耸，下颌线分明，人中柔和。额头饱满圆润，鼻梁挺直，鼻尖略微上翘。\",\n      \"dentition\": \"牙齿自然排列，上颌中切牙略显突出，牙釉质洁白亮丽，嘴唇自然微张时可见颊廊。\",\n      \"iris_pattern\": \"虹膜纹理不均，有放射状沟纹，瞳孔区清晰，深天蓝色，边缘环较暗。\",\n      \"hair\": \"蓬松分层金色头发，暖金色底调，发丝细软，与头皮自然融合。\"\n    },\n    \"body\": {\n      \"somatotype\": \"娇小的中胚层体型，肌肉脂肪比例高，骨骼结构分明。\",\n      \"morphology\": \"精确的 0.7 腰臀比，腰肢纤细，腹直肌紧致，股四头肌/髌骨解剖结构清晰。髂嵴上方软组织分布自然。\",\n      \"skin_texture\": \"高保真真皮，毛孔可见，四肢皮下血管轻微可见，暖瓷色光泽。HEX: #F5E1D2。\",\n      \"limbs\": \"四肢纤细，指骨关节分明，甲床清晰，涂有白色指甲油。双脚极度跖屈，跖骨排列可见。\",\n      \"wardrobe\": {\n        \"apparel\": \"猩红色迷你紧身连衣裙。面料：细针织弹力丝绸，带有微罗纹纹理和细微镜面高光。HEX: #E0115F。\",\n        \"footwear\": \"金属银色细高跟凉鞋，配有纤细的踝带和镀铬鞋跟。材质：抛光小牛皮，高反射率。HEX: #C0C0C0。\"\n      }\n    },\n    \"pose_action\": {\n      \"description\": \"以低角度视角坐在一张抛光的厨房台面上。双膝急剧弯曲并拉向胸部，形成紧凑的三角形构图。双手侧向放置在台面以作支撑。头部略微倾斜，目光直视镜头，表情中性。\",\n      \"anatomical_tension\": \"重心集中在臀部区域，由于高跟鞋的抬高作用，腓肠肌可见张力。\"\n    },\n    \"scene\": {\n      \"environment\": \"现代简约厨房内部。主要表面是高光泽度的白色石英台面。背景是深色调的楼梯，带有垂直栏杆和中性灰色墙壁。\",\n      \"atmosphere\": \"干净、宽敞、高档的家居环境。\"\n    },\n    \"lighting\": {\n      \"setup\": \"为室内环境调整的三点式影室布光。主柔光箱（Key）呈 45 度角，微妙的轮廓光勾勒头发和肩部轮廓。皮肤表面有高次表面散射。\",\n      \"effects\": \"镜面高\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sabrina carpenter 的超精细电影感肖像 一个极其详细、结构化的 json 提示词，旨在生成 sabrina carpenter 的超写实图像。它指定了生物特征数据、身体形态（0.7 的腰臀比）、服装（猩红色迷你连衣裙、银色细高跟鞋）、厨房台面上的特定低角度姿势，以及具有高次表面散射的复杂三点式影棚照明。 {\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\"biometric reference\" default=\"sabrina carpenter\"}\",\n      \"facial_morphology\": \"heart-shaped face with high-set zygomatic arches, defined mandible line, and a soft philtrum. prominent, rounded forehead and a straight nasal bridge with a slightly upturned apex.\",\n      \"dentition\": \"natural dental alignment, maxillary central incisors with slight dominance, bright white enamel finish, visible buccal corridor during a neutral or slight parting of lips.\",\n      \"iris_pattern\": \"heterogeneous iris texture with radial furrows, distinct pupillary zone, and a deep cerulean hue with darker limbal rings.\",\n      \"hair\": \"voluminous, layered blonde hair with warm golden undertones, fine follicle texture, and natural scalp integration.\"\n    },\n    \"body\": {\n      \"somatotype\": \"petite mesomorph with high muscle-to-fat ratio and defined bone structure.\",\n      \"morphology\": \"accurate 0.7 waist-to-hip ratio, slender waistline, toned rectus abdominis, and defined quadricep/patellar anatomy. natural soft tissue distribution over the iliac crest.\",\n      \"skin_texture\": \"high-fidelity dermis with visible pores, subtle subcutaneous vascularity in extremities, and a warm porcelain finish. hex: #f5e1d2.\",\n      \"limbs\": \"slender upper and lower extremities, articulated phalanges, clear nail bed definition with white polish. feet in extreme plantar flexion with visible metatarsal alignment.\"\n    },\n    \"wardrobe\": {\n      \"apparel\": \"mini-length bodycon dress in vibrant scarlet. fabric: fine-knit stretch silk with micro-ribbing texture and subtle specular highlights. hex: #e0115f.\",\n      \"footwear\": \"metallic silver stiletto sandals with slender ankle straps and chrome-finished heels. material: polished calfskin leather with high reflectivity. hex: #c0c0c0.\"\n    },\n    \"pose_action\": {\n      \"description\": \"seated atop a polished kitchen counter in a low-angle perspective. knees are acutely flexed and pulled toward the chest, creating a compact triangular composition. hands are positioned laterally on the counter surface for support. head is slightly tilted with a direct, neutral gaze toward the lens.\",\n      \"anatomical_tension\": \"weight distribution focused on the gluteal region, visible tension in the gastrocnemius muscles due to high-heel elevation.\"\n    },\n    \"scene\": {\n      \"environment\": \"modern minimalist kitchen interior. primary surface is a white quartz countertop with high gloss finish. background features a dark-toned staircase with vertical railings and neutral grey walls.\",\n      \"atmosphere\": \"clean, spacious, and upscale domestic setting.\"\n    },\n    \"lighting\": {\n      \"setup\": \"three-point studio lighting adapted for an interior setting. primary softbox (key) from 45-degree angle, subtle rim lighting to define hair and shoulder silhouettes. high subsurface scattering on skin surfaces.\",\n      \"effects\": \"specular hig\"\n    }\n  } ```json\n{\n  \"subject\": {\n    \"identity\": {\n      \"biometric_reference\": \"{argument name=\\\"biometric reference\\\" default=\\\"sabrina carpenter\\\"}\",\n      \"facial_morphology\": \"心形脸，颧弓高耸，下颌线分明，人中柔和。额头饱满圆润，鼻梁挺直，鼻尖略微上翘。\",\n      \"dentition\": \"牙齿自然排列，上颌中切牙略显突出，牙釉质洁白亮丽，嘴唇自然微张时可见颊廊。\",\n      \"iris_pattern\": \"虹膜纹理不均，有放射状沟纹，瞳孔区清晰，深天蓝色，边缘环较暗。\",\n      \"hair\": \"蓬松分层金色头发，暖金色底调，发丝细软，与头皮自然融合。\"\n    },\n    \"body\": {\n      \"somatotype\": \"娇小的中胚层体型，肌肉脂肪比例高，骨骼结构分明。\",\n      \"morphology\": \"精确的 0.7 腰臀比，腰肢纤细，腹直肌紧致，股四头肌/髌骨解剖结构清晰。髂嵴上方软组织分布自然。\",\n      \"skin_texture\": \"高保真真皮，毛孔可见，四肢皮下血管轻微可见，暖瓷色光泽。hex: #f5e1d2。\",\n      \"limbs\": \"四肢纤细，指骨关节分明，甲床清晰，涂有白色指甲油。双脚极度跖屈，跖骨排列可见。\",\n      \"wardrobe\": {\n        \"apparel\": \"猩红色迷你紧身连衣裙。面料：细针织弹力丝绸，带有微罗纹纹理和细微镜面高光。hex: #e0115f。\",\n        \"footwear\": \"金属银色细高跟凉鞋，配有纤细的踝带和镀铬鞋跟。材质：抛光小牛皮，高反射率。hex: #c0c0c0。\"\n      }\n    },\n    \"pose_action\": {\n      \"description\": \"以低角度视角坐在一张抛光的厨房台面上。双膝急剧弯曲并拉向胸部，形成紧凑的三角形构图。双手侧向放置在台面以作支撑。头部略微倾斜，目光直视镜头，表情中性。\",\n      \"anatomical_tension\": \"重心集中在臀部区域，由于高跟鞋的抬高作用，腓肠肌可见张力。\"\n    },\n    \"scene\": {\n      \"environment\": \"现代简约厨房内部。主要表面是高光泽度的白色石英台面。背景是深色调的楼梯，带有垂直栏杆和中性灰色墙壁。\",\n      \"atmosphere\": \"干净、宽敞、高档的家居环境。\"\n    },\n    \"lighting\": {\n      \"setup\": \"为室内环境调整的三点式影室布光。主柔光箱（key）呈 45 度角，微妙的轮廓光勾勒头发和肩部轮廓。皮肤表面有高次表面散射。\",\n      \"effects\": \"镜面高\"\n    }\n  }\n}\n``` pinodi 10778",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10755,
+      "title": "极简奢华护肤品摄影（4 种变体）",
+      "description": "以下是四个详细的提示，用于生成琥珀色玻璃精华瓶的高端、超逼真产品摄影，重点是极简构图、暖色调照明和奢华护肤品广告美学。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2026270010814136482",
+      "sourcePublishedAt": "2026-02-24T12:16:31.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Prompt 1 – Minimal Luxury Skincare Product\n\nMinimalist studio product photography of an amber glass dropper serum bottle with white cap, labeled “ma:nyo Galac Whitening Vita Serum”, placed between large textured white stones, soft beige background, warm sunlight casting natural shadows, subtle golden glow reflecting through the glass, small delicate dried flowers beside the bottle, glossy reflective surface, high-end skincare advertisement, ultra-realistic, 85mm lens, shallow depth of field, soft diffused lighting, clean aesthetic, 8k resolution.\n\n——\n\nPrompt 2 – Warm Glow Stone Setup\n\nPremium cosmetic product shot of an orange serum bottle with dropper, centered between sculptural white rocks, warm light glowing from behind the right stone creating a soft amber rim light, minimal neutral background, delicate beige flowers placed behind, glossy table reflection, luxury skincare campaign style, cinematic lighting, high detail texture, soft shadows, modern minimal composition, photorealistic, studio lighting, 8k.\n\n——\n\nPrompt 3 – Symmetrical Clean Composition\n\nHigh-end skincare product photography, transparent amber serum bottle with white dropper cap, centered composition, surrounded by white organic stones, subtle golden light illuminating from behind one rock, soft pastel flowers in background, neutral matte backdrop, reflective surface, natural sunlight effect, soft contrast, commercial beauty ad style, ultra sharp focus, shallow depth of field, realistic textures, 85mm photography.\n\n——\n\nPrompt 4 – Angled Editorial Shot\n\nLuxury beauty editorial shot of an amber glass vitamin serum bottle slightly tilted and resting against white textured rocks, warm internal glow effect behind the stones, soft natural sunlight from the side, muted beige background, minimal dried floral accent, glossy reflection on surface, modern Korean skincare aesthetic, clean branding, photorealistic, high detail, soft cinematic shadows, 8k resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001513542_l079kw_HB7B08PbkAATvmK.jpg",
+        "https://cms-assets.youmind.com/media/1772001513427_1ps3zh_HB7B08SagAAtcXZ.jpg",
+        "https://cms-assets.youmind.com/media/1772001513593_n9rz8z_HB7B08PaIAAMUnn.jpg",
+        "https://cms-assets.youmind.com/media/1772001514590_xzzh4f_HB7B08PbwAA-t02.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001513542_l079kw_HB7B08PbkAATvmK-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001513427_1ps3zh_HB7B08SagAAtcXZ-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001513593_n9rz8z_HB7B08PaIAAMUnn-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001514590_xzzh4f_HB7B08PbwAA-t02-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "Prompt 1 – 极简奢华护肤品\n\n极简主义影棚产品摄影：一个琥珀色玻璃滴管精华瓶，白色瓶盖，标签为“ma:nyo Galac Whitening Vita Serum”，置于大块纹理白色石头之间，柔和的米色背景，温暖的阳光投下自然阴影，玻璃瓶透出微妙的金色光泽，瓶身旁点缀着小巧精致的干花，光泽反射表面，高端护肤品广告，超现实主义，85mm 镜头，浅景深，柔和漫射光，干净美学，8k 分辨率。\n\n——\n\nPrompt 2 – 暖光石景布置\n\n高端化妆品产品拍摄：一个橙色滴管精华瓶，居中放置在雕塑般的白色岩石之间，右侧石头后方透出温暖的光芒，形成柔和的琥珀色轮廓光，极简中性背景，后方点缀精致的米色花朵，光泽桌面反射，奢华护肤品广告风格，电影级灯光，高细节纹理，柔和阴影，现代极简构图，照片级真实感，影棚灯光，8k。\n\n——\n\nPrompt 3 – 对称简洁构图\n\n高端护肤品摄影：透明琥珀色精华瓶，白色滴管盖，居中构图，周围环绕白色有机石块，一块石头后方透出微妙的金色光线，背景是柔和的粉彩色花朵，中性哑光背景，反射表面，自然阳光效果，柔和对比度，商业美妆广告风格，超清晰对焦，浅景深，逼真纹理，85mm 摄影。\n\n——\n\nPrompt 4 – 斜角杂志大片\n\n奢华美妆杂志大片：一个琥珀色玻璃维生素精华瓶，略微倾斜，倚靠在白色纹理岩石上，石头后方有温暖的内部发光效果，侧面射入柔和的自然阳光，柔和的米色背景，极简干花点缀，表面有光泽反射，现代韩式护肤美学，简洁品牌标识，照片级真实感，高细节，柔和电影感阴影，8k 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "极简奢华护肤品摄影（4 种变体） 以下是四个详细的提示，用于生成琥珀色玻璃精华瓶的高端、超逼真产品摄影，重点是极简构图、暖色调照明和奢华护肤品广告美学。 prompt 1 – minimal luxury skincare product\n\nminimalist studio product photography of an amber glass dropper serum bottle with white cap, labeled “ma:nyo galac whitening vita serum”, placed between large textured white stones, soft beige background, warm sunlight casting natural shadows, subtle golden glow reflecting through the glass, small delicate dried flowers beside the bottle, glossy reflective surface, high-end skincare advertisement, ultra-realistic, 85mm lens, shallow depth of field, soft diffused lighting, clean aesthetic, 8k resolution.\n\n——\n\nprompt 2 – warm glow stone setup\n\npremium cosmetic product shot of an orange serum bottle with dropper, centered between sculptural white rocks, warm light glowing from behind the right stone creating a soft amber rim light, minimal neutral background, delicate beige flowers placed behind, glossy table reflection, luxury skincare campaign style, cinematic lighting, high detail texture, soft shadows, modern minimal composition, photorealistic, studio lighting, 8k.\n\n——\n\nprompt 3 – symmetrical clean composition\n\nhigh-end skincare product photography, transparent amber serum bottle with white dropper cap, centered composition, surrounded by white organic stones, subtle golden light illuminating from behind one rock, soft pastel flowers in background, neutral matte backdrop, reflective surface, natural sunlight effect, soft contrast, commercial beauty ad style, ultra sharp focus, shallow depth of field, realistic textures, 85mm photography.\n\n——\n\nprompt 4 – angled editorial shot\n\nluxury beauty editorial shot of an amber glass vitamin serum bottle slightly tilted and resting against white textured rocks, warm internal glow effect behind the stones, soft natural sunlight from the side, muted beige background, minimal dried floral accent, glossy reflection on surface, modern korean skincare aesthetic, clean branding, photorealistic, high detail, soft cinematic shadows, 8k resolution. prompt 1 – 极简奢华护肤品\n\n极简主义影棚产品摄影：一个琥珀色玻璃滴管精华瓶，白色瓶盖，标签为“ma:nyo galac whitening vita serum”，置于大块纹理白色石头之间，柔和的米色背景，温暖的阳光投下自然阴影，玻璃瓶透出微妙的金色光泽，瓶身旁点缀着小巧精致的干花，光泽反射表面，高端护肤品广告，超现实主义，85mm 镜头，浅景深，柔和漫射光，干净美学，8k 分辨率。\n\n——\n\nprompt 2 – 暖光石景布置\n\n高端化妆品产品拍摄：一个橙色滴管精华瓶，居中放置在雕塑般的白色岩石之间，右侧石头后方透出温暖的光芒，形成柔和的琥珀色轮廓光，极简中性背景，后方点缀精致的米色花朵，光泽桌面反射，奢华护肤品广告风格，电影级灯光，高细节纹理，柔和阴影，现代极简构图，照片级真实感，影棚灯光，8k。\n\n——\n\nprompt 3 – 对称简洁构图\n\n高端护肤品摄影：透明琥珀色精华瓶，白色滴管盖，居中构图，周围环绕白色有机石块，一块石头后方透出微妙的金色光线，背景是柔和的粉彩色花朵，中性哑光背景，反射表面，自然阳光效果，柔和对比度，商业美妆广告风格，超清晰对焦，浅景深，逼真纹理，85mm 摄影。\n\n——\n\nprompt 4 – 斜角杂志大片\n\n奢华美妆杂志大片：一个琥珀色玻璃维生素精华瓶，略微倾斜，倚靠在白色纹理岩石上，石头后方有温暖的内部发光效果，侧面射入柔和的自然阳光，柔和的米色背景，极简干花点缀，表面有光泽反射，现代韩式护肤美学，简洁品牌标识，照片级真实感，高细节，柔和电影感阴影，8k 分辨率。 kashberg 10755",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10761,
+      "title": "超逼真甜点商业摄影（JSON 格式）",
+      "description": "一个高度结构化的 JSON 提示，用于生成三种不同甜点（华夫筒、威化卷、冰淇淋）的超逼真商业产品摄影，强调凝固的动态、戏剧性的灯光和奢华的视觉效果。",
+      "sourceLink": "https://x.com/iamrealsnow/status/2026268895238353351",
+      "sourcePublishedAt": "2026-02-24T12:12:05.000Z",
+      "author": {
+        "name": "Snow",
+        "link": "https://x.com/iamrealsnow"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"global_settings\": {\n      \"resolution\": \"8K UHD\",\n      \"aspect_ratio\": \"3:4 vertical\",\n      \"image_quality\": \"ultra high detail, hyper-realistic, AI-enhanced commercial product photography\",\n      \"focus\": \"sharp foreground, cinematic depth of field\",\n      \"lighting\": \"studio-grade dramatic lighting with glowing highlights\",\n      \"background_style\": \"smooth gradient with bokeh particles and floating droplets\",\n      \"color_palette\": \"warm caramel, chocolate brown, golden orange\",\n      \"motion\": \"frozen mid-air splash and floating elements\"\n    },\n\n    \"Module_1_Image_1_Style\": {\n      \"subject\": \"two waffle cones filled with glossy caramel cream\",\n      \"composition\": \"two cones crossing diagonally in mid-air, forming an X-like pose\",\n      \"cones\": {\n        \"material\": \"crispy waffle cone\",\n        \"texture\": \"deep grid pattern, golden baked surface, visible crisp edges\",\n        \"shape\": \"long tapered cones, slightly angled toward each other\"\n      },\n      \"filling\": {\n        \"type\": \"thick caramel cream\",\n        \"appearance\": \"smooth, glossy, swirled peak on top\",\n        \"color\": \"deep caramel brown with reflective highlights\"\n      },\n      \"liquid_effects\": {\n        \"caramel_splash\": \"dynamic caramel splash erupting behind and around cones\",\n        \"droplets\": \"numerous suspended caramel droplets of varying sizes\"\n      },\n      \"background\": {\n        \"color\": \"bright glowing orange\",\n        \"effects\": \"soft bokeh circles, spark-like highlights\"\n      },\n      \"mood\": \"energetic, indulgent, premium dessert advertisement\"\n    },\n\n    \"Module_2_Image_2_Style\": {\n      \"subject\": \"chocolate-coated wafer rolls with hazelnut filling\",\n      \"composition\": \"multiple wafer rolls crossing and floating diagonally in mid-air\",\n      \"wafer_rolls\": {\n        \"outer_coating\": \"milk chocolate with crunchy nut-studded texture\",\n        \"surface_detail\": \"uneven nut clusters embedded in chocolate coating\",\n        \"interior\": \"visible hollow wafer with creamy chocolate center\"\n      },\n      \"additional_elements\": {\n        \"chocolate_blocks\": \"rectangular chocolate pieces with embossed letter 'B'\",\n        \"nuts\": \"halved hazelnuts and small nut fragments floating around\",\n        \"chocolate_splash\": \"fluid chocolate splash flowing behind wafer rolls\"\n      },\n      \"background\": {\n        \"color\": \"dark warm brown gradient\",\n        \"effects\": \"floating particles, depth-enhancing blur\"\n      },\n      \"lighting\": {\n        \"style\": \"warm directional lighting\",\n        \"highlights\": \"glossy reflections on chocolate surfaces\"\n      },\n      \"mood\": \"rich, bold, indulgent chocolate-focused commercial aesthetic\"\n    },\n\n    \"Module_3_Image_3_Style\": {\n      \"subject\": \"cookie-coated ice cream dessert with chocolate cup top\",\n      \"composition\": \"single dessert angled diagonally, centered, surrounded by motion\",\n      \"dessert_body\": {\n        \"coating\": \"creamy white ice",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001517689_nd04gq_HB7A0JJbUAEUriv.jpg",
+        "https://cms-assets.youmind.com/media/1772001517656_iso5gk_HB7A0JRaUAEYcSE.jpg",
+        "https://cms-assets.youmind.com/media/1772001517678_me3hps_HB7A0JJbsAEJS5D.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001517689_nd04gq_HB7A0JJbUAEUriv-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001517656_iso5gk_HB7A0JRaUAEYcSE-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001517678_me3hps_HB7A0JJbsAEJS5D-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"global_settings\": {\n      \"resolution\": \"8K UHD\",\n      \"aspect_ratio\": \"3:4 垂直\",\n      \"image_quality\": \"超高细节、超现实、AI 增强的商业产品摄影\",\n      \"focus\": \"前景锐利，电影级景深\",\n      \"lighting\": \"影棚级戏剧性照明，带有发光高光\",\n      \"background_style\": \"平滑渐变，带有散景粒子和漂浮水滴\",\n      \"color_palette\": \"暖焦糖色、巧克力棕色、金橙色\",\n      \"motion\": \"空中凝固的飞溅和漂浮元素\"\n    },\n    \"Module_1_Image_1_Style\": {\n      \"subject\": \"两个装满光泽焦糖奶油的华夫筒\",\n      \"composition\": \"两个蛋筒在空中对角交叉，形成 X 形姿态\",\n      \"cones\": {\n        \"material\": \"酥脆华夫筒\",\n        \"texture\": \"深格纹图案，金黄色烘烤表面，可见酥脆边缘\",\n        \"shape\": \"细长锥形筒，略微向彼此倾斜\"\n      },\n      \"filling\": {\n        \"type\": \"浓稠焦糖奶油\",\n        \"appearance\": \"光滑、有光泽、顶部呈螺旋状\",\n        \"color\": \"深焦糖棕色，带有反光高光\"\n      },\n      \"liquid_effects\": {\n        \"caramel_splash\": \"蛋筒后面和周围迸发出的动态焦糖飞溅\",\n        \"droplets\": \"大量悬浮的、大小不一的焦糖水滴\"\n      },\n      \"background\": {\n        \"color\": \"明亮发光的橙色\",\n        \"effects\": \"柔和的散景光圈，火花般的高光\"\n      },\n      \"mood\": \"充满活力、放纵、高端甜点广告\"\n    },\n    \"Module_2_Image_2_Style\": {\n      \"subject\": \"巧克力涂层威化卷，内含榛子馅\",\n      \"composition\": \"多个威化卷在空中对角交叉漂浮\",\n      \"wafer_rolls\": {\n        \"outer_coating\": \"牛奶巧克力，带有酥脆的坚果镶嵌质地\",\n        \"surface_detail\": \"嵌入巧克力涂层中的不规则坚果簇\",\n        \"interior\": \"可见中空威化，内含奶油巧克力中心\"\n      },\n      \"additional_elements\": {\n        \"chocolate_blocks\": \"带有浮雕字母 'B' 的矩形巧克力块\",\n        \"nuts\": \"漂浮在周围的半个榛子和小坚果碎屑\",\n        \"chocolate_splash\": \"威化卷后面流动的巧克力飞溅\"\n      },\n      \"background\": {\n        \"color\": \"深暖棕色渐变\",\n        \"effects\": \"漂浮粒子，增强景深的模糊效果\"\n      },\n      \"lighting\": {\n        \"style\": \"暖色定向照明\",\n        \"highlights\": \"巧克力表面上的光泽反射\"\n      },\n      \"mood\": \"浓郁、大胆、放纵的巧克力主题商业美学\"\n    },\n    \"Module_3_Image_3_Style\": {\n      \"subject\": \"饼干涂层冰淇淋甜点，顶部有巧克力杯\",\n      \"composition\": \"单个甜点对角倾斜，居中，周围有动态效果\",\n      \"dessert_body\": {\n        \"coating\": \"奶油白色冰\"\n      }\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真甜点商业摄影（json 格式） 一个高度结构化的 json 提示，用于生成三种不同甜点（华夫筒、威化卷、冰淇淋）的超逼真商业产品摄影，强调凝固的动态、戏剧性的灯光和奢华的视觉效果。 {\n  \"master_prompt\": {\n    \"global_settings\": {\n      \"resolution\": \"8k uhd\",\n      \"aspect_ratio\": \"3:4 vertical\",\n      \"image_quality\": \"ultra high detail, hyper-realistic, ai-enhanced commercial product photography\",\n      \"focus\": \"sharp foreground, cinematic depth of field\",\n      \"lighting\": \"studio-grade dramatic lighting with glowing highlights\",\n      \"background_style\": \"smooth gradient with bokeh particles and floating droplets\",\n      \"color_palette\": \"warm caramel, chocolate brown, golden orange\",\n      \"motion\": \"frozen mid-air splash and floating elements\"\n    },\n\n    \"module_1_image_1_style\": {\n      \"subject\": \"two waffle cones filled with glossy caramel cream\",\n      \"composition\": \"two cones crossing diagonally in mid-air, forming an x-like pose\",\n      \"cones\": {\n        \"material\": \"crispy waffle cone\",\n        \"texture\": \"deep grid pattern, golden baked surface, visible crisp edges\",\n        \"shape\": \"long tapered cones, slightly angled toward each other\"\n      },\n      \"filling\": {\n        \"type\": \"thick caramel cream\",\n        \"appearance\": \"smooth, glossy, swirled peak on top\",\n        \"color\": \"deep caramel brown with reflective highlights\"\n      },\n      \"liquid_effects\": {\n        \"caramel_splash\": \"dynamic caramel splash erupting behind and around cones\",\n        \"droplets\": \"numerous suspended caramel droplets of varying sizes\"\n      },\n      \"background\": {\n        \"color\": \"bright glowing orange\",\n        \"effects\": \"soft bokeh circles, spark-like highlights\"\n      },\n      \"mood\": \"energetic, indulgent, premium dessert advertisement\"\n    },\n\n    \"module_2_image_2_style\": {\n      \"subject\": \"chocolate-coated wafer rolls with hazelnut filling\",\n      \"composition\": \"multiple wafer rolls crossing and floating diagonally in mid-air\",\n      \"wafer_rolls\": {\n        \"outer_coating\": \"milk chocolate with crunchy nut-studded texture\",\n        \"surface_detail\": \"uneven nut clusters embedded in chocolate coating\",\n        \"interior\": \"visible hollow wafer with creamy chocolate center\"\n      },\n      \"additional_elements\": {\n        \"chocolate_blocks\": \"rectangular chocolate pieces with embossed letter 'b'\",\n        \"nuts\": \"halved hazelnuts and small nut fragments floating around\",\n        \"chocolate_splash\": \"fluid chocolate splash flowing behind wafer rolls\"\n      },\n      \"background\": {\n        \"color\": \"dark warm brown gradient\",\n        \"effects\": \"floating particles, depth-enhancing blur\"\n      },\n      \"lighting\": {\n        \"style\": \"warm directional lighting\",\n        \"highlights\": \"glossy reflections on chocolate surfaces\"\n      },\n      \"mood\": \"rich, bold, indulgent chocolate-focused commercial aesthetic\"\n    },\n\n    \"module_3_image_3_style\": {\n      \"subject\": \"cookie-coated ice cream dessert with chocolate cup top\",\n      \"composition\": \"single dessert angled diagonally, centered, surrounded by motion\",\n      \"dessert_body\": {\n        \"coating\": \"creamy white ice ```json\n{\n  \"master_prompt\": {\n    \"global_settings\": {\n      \"resolution\": \"8k uhd\",\n      \"aspect_ratio\": \"3:4 垂直\",\n      \"image_quality\": \"超高细节、超现实、ai 增强的商业产品摄影\",\n      \"focus\": \"前景锐利，电影级景深\",\n      \"lighting\": \"影棚级戏剧性照明，带有发光高光\",\n      \"background_style\": \"平滑渐变，带有散景粒子和漂浮水滴\",\n      \"color_palette\": \"暖焦糖色、巧克力棕色、金橙色\",\n      \"motion\": \"空中凝固的飞溅和漂浮元素\"\n    },\n    \"module_1_image_1_style\": {\n      \"subject\": \"两个装满光泽焦糖奶油的华夫筒\",\n      \"composition\": \"两个蛋筒在空中对角交叉，形成 x 形姿态\",\n      \"cones\": {\n        \"material\": \"酥脆华夫筒\",\n        \"texture\": \"深格纹图案，金黄色烘烤表面，可见酥脆边缘\",\n        \"shape\": \"细长锥形筒，略微向彼此倾斜\"\n      },\n      \"filling\": {\n        \"type\": \"浓稠焦糖奶油\",\n        \"appearance\": \"光滑、有光泽、顶部呈螺旋状\",\n        \"color\": \"深焦糖棕色，带有反光高光\"\n      },\n      \"liquid_effects\": {\n        \"caramel_splash\": \"蛋筒后面和周围迸发出的动态焦糖飞溅\",\n        \"droplets\": \"大量悬浮的、大小不一的焦糖水滴\"\n      },\n      \"background\": {\n        \"color\": \"明亮发光的橙色\",\n        \"effects\": \"柔和的散景光圈，火花般的高光\"\n      },\n      \"mood\": \"充满活力、放纵、高端甜点广告\"\n    },\n    \"module_2_image_2_style\": {\n      \"subject\": \"巧克力涂层威化卷，内含榛子馅\",\n      \"composition\": \"多个威化卷在空中对角交叉漂浮\",\n      \"wafer_rolls\": {\n        \"outer_coating\": \"牛奶巧克力，带有酥脆的坚果镶嵌质地\",\n        \"surface_detail\": \"嵌入巧克力涂层中的不规则坚果簇\",\n        \"interior\": \"可见中空威化，内含奶油巧克力中心\"\n      },\n      \"additional_elements\": {\n        \"chocolate_blocks\": \"带有浮雕字母 'b' 的矩形巧克力块\",\n        \"nuts\": \"漂浮在周围的半个榛子和小坚果碎屑\",\n        \"chocolate_splash\": \"威化卷后面流动的巧克力飞溅\"\n      },\n      \"background\": {\n        \"color\": \"深暖棕色渐变\",\n        \"effects\": \"漂浮粒子，增强景深的模糊效果\"\n      },\n      \"lighting\": {\n        \"style\": \"暖色定向照明\",\n        \"highlights\": \"巧克力表面上的光泽反射\"\n      },\n      \"mood\": \"浓郁、大胆、放纵的巧克力主题商业美学\"\n    },\n    \"module_3_image_3_style\": {\n      \"subject\": \"饼干涂层冰淇淋甜点，顶部有巧克力杯\",\n      \"composition\": \"单个甜点对角倾斜，居中，周围有动态效果\",\n      \"dessert_body\": {\n        \"coating\": \"奶油白色冰\"\n      }\n    }\n  }\n}\n``` snow 10761",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10772,
+      "title": "微距肖像，有机忧郁美学 (JSON 格式)",
+      "description": "一个高度详细的 JSON 提示，用于生成一张具有“有机忧郁”氛围的超现实微距肖像，特点是半透明的黄色花瓣贴在拍摄对象的脸上，戏剧性的“硬光”明暗对比照明，以及模拟胶片美学。",
+      "sourceLink": "https://x.com/timedoctor_nft/status/2026251267555590540",
+      "sourcePublishedAt": "2026-02-24T11:02:02.000Z",
+      "author": {
+        "name": "timedoctor.eth",
+        "link": "https://x.com/timedoctor_nft"
+      },
+      "content": "{\n  \"vibe_title_en\": \"Organic Melancholy\",\n  \"master_prompt\": \"A hyper-realistic, macro portrait of The Protagonist situated in a sun-drenched, humid botanical preservation lab. The subject's face is artistically adhered with translucent, vibrant yellow flower petals placed beneath the eyes to mimic organic, flowing tears. The skin texture is emphasized with a wet, glossy sheen, highlighting individual pores, vellus hairs, and the physical thickness of the petals. Lighting is a dramatic, high-contrast 'hard sun' look, where a single shaft of light strikes the eyes and petals, casting the rest of the face into deep, soft shadow (chiaroscuro). Shot on a Hasselblad H6D-100c with a 120mm Macro lens at f/2.8 to create an extremely shallow depth of field that blurs the background into abstract grey-green tones. The aesthetic is strictly analog, simulating Kodak Portra 160 film with fine grain, warm skin tones, and zero digital plasticity. No neon.\",\n  \"meta\": {\n    \"intent\": \"Editorial Art Photography\",\n    \"priorities\": \"Tactile Texture, Emotional Surrealism, Lighting Contrast\",\n    \"device_profile\": \"Hasselblad H6D-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"Extreme Close-up (Macro)\",\n    \"layout\": \"Center-weighted with negative space in shadows\",\n    \"camera_angle\": \"Eye-level, intimate proximity\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"Female\",\n    \"identity\": \"The Protagonist\",\n    \"demographics\": \"Universal/Ageless\",\n    \"face\": \"Hyper-detailed skin texture, wet/glossy finish, neutral but intense gaze\",\n    \"hair\": \"Slicked back or out of frame, focusing entirely on the face\",\n    \"body\": \"Shoulders only, obscured by shadow\",\n    \"expression\": \"Stoic melancholia, eyes piercing through the light\",\n    \"pose\": \"Static, confronting the lens directly, head slightly turned to catch the light strip\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"Shadowed Collar\",\n        \"material\": \"Wool or Felt\",\n        \"color\": \"Deep Charcoal\",\n        \"fit\": \"Structured but out of focus\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"Petal Prosthetics\",\n        \"color\": \"Vibrant Canary Yellow\",\n        \"material\": \"Organic Plant Matter\",\n        \"brand_style\": \"Nature-Made\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"Botanical Preservation Lab\",\n    \"surfaces\": \"Atmospheric dust motes, blurred grey backdrop\",\n    \"depth\": \"Extremely Shallow (Bokeh)\",\n    \"atmosphere\": \"Humid, silent, sun-warmed air\",\n    \"lens_interaction\": \"Slight halation around the bright yellow petals\"\n  },\n  \"lighting\": {\n    \"key\": \"Hard direct sunlight strip (Gobolight effect)\",\n    \"fill\": \"Negative fill (intentionally dark shadows)\",\n    \"rim\": \"None\",\n    \"shadows\": \"Deep, high-contrast blacks\",\n    \"color_temperature\": \"5600K (Daylight) mixed with warm skin bounce\",\n    \"sensor_flare\": \"Minimal, controlled bloom on highlights\"\n  },\n  \"camera\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001524314_h83e6o_HB6wygzXkAAvCDI.jpg",
+        "https://cms-assets.youmind.com/media/1772001524959_66ig40_HB6wyakXMAAKKOl.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001524314_h83e6o_HB6wygzXkAAvCDI-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001524959_66ig40_HB6wyakXMAAKKOl-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"vibe_title_en\": \"有机忧郁\",\n  \"master_prompt\": \"一张超现实的微距肖像，主角置身于阳光普照、潮湿的植物保藏实验室中。主角的脸部艺术性地贴附着半透明、鲜黄色的花瓣，花瓣置于眼下，模仿有机流淌的泪水。皮肤纹理通过湿润、光泽的表面得到强调，突出了单个毛孔、毳毛以及花瓣的物理厚度。光线采用戏剧性的高对比度“硬光”效果，一道光束照射在眼睛和花瓣上，使脸部其余部分陷入深邃柔和的阴影中（明暗对比法）。使用 Hasselblad H6D-100c 相机，搭配 120mm 微距镜头，光圈 f/2.8 拍摄，营造出极浅的景深，将背景模糊成抽象的灰绿色调。美学风格严格遵循模拟胶片效果，模拟 Kodak Portra 160 胶片，具有细腻的颗粒感、温暖的肤色，且无任何数字塑性感。无霓虹灯。\",\n  \"meta\": {\n    \"intent\": \"编辑艺术摄影\",\n    \"priorities\": \"触感纹理、情感超现实主义、光影对比\",\n    \"device_profile\": \"Hasselblad H6D-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"特写（微距）\",\n    \"layout\": \"以中心为重点，阴影处留有负空间\",\n    \"camera_angle\": \"视线水平，亲密距离\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"主角\",\n    \"demographics\": \"普遍/无年龄限制\",\n    \"face\": \"超细节皮肤纹理，湿润/光泽表面，中性但强烈的凝视\",\n    \"hair\": \"向后梳理或在画面外，完全聚焦于脸部\",\n    \"body\": \"仅肩膀，被阴影遮蔽\",\n    \"expression\": \"坚忍的忧郁，目光穿透光线\",\n    \"pose\": \"静态，直接面对镜头，头部略微转动以捕捉光带\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"阴影衣领\",\n        \"material\": \"羊毛或毛毡\",\n        \"color\": \"深炭灰色\",\n        \"fit\": \"结构化但失焦\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"花瓣义肢\",\n        \"color\": \"鲜艳的金丝雀黄\",\n        \"material\": \"有机植物材料\",\n        \"brand_style\": \"自然制造\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"植物保藏实验室\",\n    \"surfaces\": \"大气尘埃颗粒，模糊的灰色背景\",\n    \"depth\": \"极浅（散景）\",\n    \"atmosphere\": \"潮湿、寂静、阳光温暖的空气\",\n    \"lens_interaction\": \"亮黄色花瓣周围有轻微的光晕\"\n  },\n  \"lighting\": {\n    \"key\": \"硬直射阳光带（Gobolight 效果）\",\n    \"fill\": \"负补光（刻意营造的深阴影）\",\n    \"rim\": \"无\",\n    \"shadows\": \"深邃、高对比度的黑色\",\n    \"color_temperature\": \"5600K（日光）与温暖肤色反弹混合\",\n    \"sensor_flare\": \"高光处有最小、受控的光斑\"\n  },\n  \"camera\": {}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "微距肖像，有机忧郁美学 (json 格式) 一个高度详细的 json 提示，用于生成一张具有“有机忧郁”氛围的超现实微距肖像，特点是半透明的黄色花瓣贴在拍摄对象的脸上，戏剧性的“硬光”明暗对比照明，以及模拟胶片美学。 {\n  \"vibe_title_en\": \"organic melancholy\",\n  \"master_prompt\": \"a hyper-realistic, macro portrait of the protagonist situated in a sun-drenched, humid botanical preservation lab. the subject's face is artistically adhered with translucent, vibrant yellow flower petals placed beneath the eyes to mimic organic, flowing tears. the skin texture is emphasized with a wet, glossy sheen, highlighting individual pores, vellus hairs, and the physical thickness of the petals. lighting is a dramatic, high-contrast 'hard sun' look, where a single shaft of light strikes the eyes and petals, casting the rest of the face into deep, soft shadow (chiaroscuro). shot on a hasselblad h6d-100c with a 120mm macro lens at f/2.8 to create an extremely shallow depth of field that blurs the background into abstract grey-green tones. the aesthetic is strictly analog, simulating kodak portra 160 film with fine grain, warm skin tones, and zero digital plasticity. no neon.\",\n  \"meta\": {\n    \"intent\": \"editorial art photography\",\n    \"priorities\": \"tactile texture, emotional surrealism, lighting contrast\",\n    \"device_profile\": \"hasselblad h6d-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"extreme close-up (macro)\",\n    \"layout\": \"center-weighted with negative space in shadows\",\n    \"camera_angle\": \"eye-level, intimate proximity\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"identity\": \"the protagonist\",\n    \"demographics\": \"universal/ageless\",\n    \"face\": \"hyper-detailed skin texture, wet/glossy finish, neutral but intense gaze\",\n    \"hair\": \"slicked back or out of frame, focusing entirely on the face\",\n    \"body\": \"shoulders only, obscured by shadow\",\n    \"expression\": \"stoic melancholia, eyes piercing through the light\",\n    \"pose\": \"static, confronting the lens directly, head slightly turned to catch the light strip\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"shadowed collar\",\n        \"material\": \"wool or felt\",\n        \"color\": \"deep charcoal\",\n        \"fit\": \"structured but out of focus\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"petal prosthetics\",\n        \"color\": \"vibrant canary yellow\",\n        \"material\": \"organic plant matter\",\n        \"brand_style\": \"nature-made\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"botanical preservation lab\",\n    \"surfaces\": \"atmospheric dust motes, blurred grey backdrop\",\n    \"depth\": \"extremely shallow (bokeh)\",\n    \"atmosphere\": \"humid, silent, sun-warmed air\",\n    \"lens_interaction\": \"slight halation around the bright yellow petals\"\n  },\n  \"lighting\": {\n    \"key\": \"hard direct sunlight strip (gobolight effect)\",\n    \"fill\": \"negative fill (intentionally dark shadows)\",\n    \"rim\": \"none\",\n    \"shadows\": \"deep, high-contrast blacks\",\n    \"color_temperature\": \"5600k (daylight) mixed with warm skin bounce\",\n    \"sensor_flare\": \"minimal, controlled bloom on highlights\"\n  },\n  \"camera\" ```json\n{\n  \"vibe_title_en\": \"有机忧郁\",\n  \"master_prompt\": \"一张超现实的微距肖像，主角置身于阳光普照、潮湿的植物保藏实验室中。主角的脸部艺术性地贴附着半透明、鲜黄色的花瓣，花瓣置于眼下，模仿有机流淌的泪水。皮肤纹理通过湿润、光泽的表面得到强调，突出了单个毛孔、毳毛以及花瓣的物理厚度。光线采用戏剧性的高对比度“硬光”效果，一道光束照射在眼睛和花瓣上，使脸部其余部分陷入深邃柔和的阴影中（明暗对比法）。使用 hasselblad h6d-100c 相机，搭配 120mm 微距镜头，光圈 f/2.8 拍摄，营造出极浅的景深，将背景模糊成抽象的灰绿色调。美学风格严格遵循模拟胶片效果，模拟 kodak portra 160 胶片，具有细腻的颗粒感、温暖的肤色，且无任何数字塑性感。无霓虹灯。\",\n  \"meta\": {\n    \"intent\": \"编辑艺术摄影\",\n    \"priorities\": \"触感纹理、情感超现实主义、光影对比\",\n    \"device_profile\": \"hasselblad h6d-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"特写（微距）\",\n    \"layout\": \"以中心为重点，阴影处留有负空间\",\n    \"camera_angle\": \"视线水平，亲密距离\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"主角\",\n    \"demographics\": \"普遍/无年龄限制\",\n    \"face\": \"超细节皮肤纹理，湿润/光泽表面，中性但强烈的凝视\",\n    \"hair\": \"向后梳理或在画面外，完全聚焦于脸部\",\n    \"body\": \"仅肩膀，被阴影遮蔽\",\n    \"expression\": \"坚忍的忧郁，目光穿透光线\",\n    \"pose\": \"静态，直接面对镜头，头部略微转动以捕捉光带\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"阴影衣领\",\n        \"material\": \"羊毛或毛毡\",\n        \"color\": \"深炭灰色\",\n        \"fit\": \"结构化但失焦\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"花瓣义肢\",\n        \"color\": \"鲜艳的金丝雀黄\",\n        \"material\": \"有机植物材料\",\n        \"brand_style\": \"自然制造\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"植物保藏实验室\",\n    \"surfaces\": \"大气尘埃颗粒，模糊的灰色背景\",\n    \"depth\": \"极浅（散景）\",\n    \"atmosphere\": \"潮湿、寂静、阳光温暖的空气\",\n    \"lens_interaction\": \"亮黄色花瓣周围有轻微的光晕\"\n  },\n  \"lighting\": {\n    \"key\": \"硬直射阳光带（gobolight 效果）\",\n    \"fill\": \"负补光（刻意营造的深阴影）\",\n    \"rim\": \"无\",\n    \"shadows\": \"深邃、高对比度的黑色\",\n    \"color_temperature\": \"5600k（日光）与温暖肤色反弹混合\",\n    \"sensor_flare\": \"高光处有最小、受控的光斑\"\n  },\n  \"camera\": {}\n}\n``` timedoctor.eth 10772",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10806,
+      "title": "电影序列提示词：晨光中打扫卫生的人",
+      "description": "一个由 GPT-5 生成的电影级提示，用于图像生成（Nano Banana Pro）和随后的视频生成（Kling 3.0 Omni）。该序列聚焦于一个人愉快地清洁的场景，强调柔和的晨光、电影般的质感和高调美学。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2026250767712051249",
+      "sourcePublishedAt": "2026-02-24T11:00:03.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "朝の柔らかな光に包まれ、楽しげに掃除をする人物のシネマティックなシーケンス。手元のクローズアップから始まり、舞い上がる埃や光の粒が映画的な質感を演出する中、リズミカルな動作とふとした瞬間の可愛らしい表情を捉える。スローモーションや浅い被写界深度を交えつつ、最後は達成感に満ちた温かい笑顔と静けさを映し出すワイドショットで締めくくられる、ハイキーでフィルムライクな映像美。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001542057_hp6h44_HB4tSLubgAANDH6.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001542057_hp6h44_HB4tSLubgAANDH6-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一个电影般的场景，一个人在柔和的晨光中愉快地打扫。镜头从他们手部的特写开始，捕捉有节奏的动作和一闪而过的可爱表情，同时灰尘和光线颗粒营造出电影般的质感。通过慢动作和浅景深，这个场景以高调、电影般的视觉美感结束，一个广角镜头捕捉到他们完成任务后的温暖笑容和宁静。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影序列提示词：晨光中打扫卫生的人 一个由 gpt-5 生成的电影级提示，用于图像生成（nano banana pro）和随后的视频生成（kling 3.0 omni）。该序列聚焦于一个人愉快地清洁的场景，强调柔和的晨光、电影般的质感和高调美学。 朝の柔らかな光に包まれ、楽しげに掃除をする人物のシネマティックなシーケンス。手元のクローズアップから始まり、舞い上がる埃や光の粒が映画的な質感を演出する中、リズミカルな動作とふとした瞬間の可愛らしい表情を捉える。スローモーションや浅い被写界深度を交えつつ、最後は達成感に満ちた温かい笑顔と静けさを映し出すワイドショットで締めくくられる、ハイキーでフィルムライクな映像美。 一个电影般的场景，一个人在柔和的晨光中愉快地打扫。镜头从他们手部的特写开始，捕捉有节奏的动作和一闪而过的可爱表情，同时灰尘和光线颗粒营造出电影般的质感。通过慢动作和浅景深，这个场景以高调、电影般的视觉美感结束，一个广角镜头捕捉到他们完成任务后的温暖笑容和宁静。 空想写真家 10806",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10785,
+      "title": "高强度锻炼后意志坚定的女性",
+      "description": "一个结构化的提示，用于生成一张逼真的图片：一位专注且体格健美的年轻女性，在一次高强度训练后身处现代健身房中。提示详细描述了她的衣着（黑色运动内衣，蓝色运动裤）、身体状况（汗流浃背，正在喘息）、动作（触摸镜子）以及环境（温暖明亮的室内灯光，健身器材）。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2026246061782966346",
+      "sourcePublishedAt": "2026-02-24T10:41:21.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Determined Woman After Intense Workout\",\n  \"summary\": \"A focused and athletic young woman standing inside a modern gym after completing an intense workout session.\",\n  \"detailed_description\": \"The image shows a young athletic woman standing near a large mirror in a well-equipped gym. She is wearing a black sports bra and blue workout pants with white side stripes. Her hair is tied back in a ponytail, and her skin appears sweaty, indicating she has been exercising intensely. She is lightly touching the mirror with one hand while catching her breath, reflecting a moment of rest and self-reflection. Various gym machines and equipment can be seen in the background, along with other people working out. The lighting is warm and bright, creating a realistic fitness environment.\",\n  \"environment\": {\n    \"location\": \"Indoor gym\",\n    \"background_elements\": \"Weight machines, workout equipment, mirrors, and other gym members\",\n    \"lighting\": \"Bright indoor lighting\"\n  },\n  \"appearance\": {\n    \"clothing\": \"Black sports bra and blue workout pants\",\n    \"hairstyle\": \"Ponytail\",\n    \"physical_condition\": \"Sweaty and slightly tired after exercise\"\n  },\n  \"mood\": \"Focused, determined, and slightly exhausted\",\n  \"activity\": \"Taking a short break during or after a workout session\",\n  \"theme\": \"Fitness, health, strength, and self-discipline\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001532617_gi34wy_HB6sC8-bYAARcBd.jpg",
+        "https://cms-assets.youmind.com/media/1772001532535_056udr_HB6sC-QbAAAxuLy.jpg",
+        "https://cms-assets.youmind.com/media/1772001532531_bjl11v_HB6sDBrawAAdKkq.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001532617_gi34wy_HB6sC8-bYAARcBd-300x525.jpg",
+        "https://cms-assets.youmind.com/media/1772001532535_056udr_HB6sC-QbAAAxuLy-300x525.jpg",
+        "https://cms-assets.youmind.com/media/1772001532531_bjl11v_HB6sDBrawAAdKkq-300x525.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"高强度训练后坚毅的女性\",\n  \"summary\": \"一位专注且充满活力的年轻女性，在完成高强度训练后，正站在现代健身房内。\",\n  \"detailed_description\": \"画面中，一位年轻的运动型女性正站在设备齐全的健身房里，靠近一面大镜子。她身穿黑色运动内衣和蓝色运动裤，裤子两侧有白色条纹。她的头发扎成马尾辫，皮肤上布满汗珠，表明她刚刚进行了一场高强度的锻炼。她一只手轻轻触碰镜子，同时调整呼吸，这反映出她正在短暂休息和自我反思。背景中可以看到各种健身器械和设备，以及其他正在锻炼的人。灯光明亮而温暖，营造出逼真的健身环境。\",\n  \"environment\": {\n    \"location\": \"室内健身房\",\n    \"background_elements\": \"举重器械、健身设备、镜子和其他健身房会员\",\n    \"lighting\": \"明亮的室内照明\"\n  },\n  \"appearance\": {\n    \"clothing\": \"黑色运动内衣和蓝色运动裤\",\n    \"hairstyle\": \"马尾辫\",\n    \"physical_condition\": \"运动后出汗，略显疲惫\"\n  },\n  \"mood\": \"专注、坚毅，略带疲惫\",\n  \"activity\": \"在训练期间或训练后短暂休息\",\n  \"theme\": \"健身、健康、力量和自律\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高强度锻炼后意志坚定的女性 一个结构化的提示，用于生成一张逼真的图片：一位专注且体格健美的年轻女性，在一次高强度训练后身处现代健身房中。提示详细描述了她的衣着（黑色运动内衣，蓝色运动裤）、身体状况（汗流浃背，正在喘息）、动作（触摸镜子）以及环境（温暖明亮的室内灯光，健身器材）。 {\n  \"title\": \"determined woman after intense workout\",\n  \"summary\": \"a focused and athletic young woman standing inside a modern gym after completing an intense workout session.\",\n  \"detailed_description\": \"the image shows a young athletic woman standing near a large mirror in a well-equipped gym. she is wearing a black sports bra and blue workout pants with white side stripes. her hair is tied back in a ponytail, and her skin appears sweaty, indicating she has been exercising intensely. she is lightly touching the mirror with one hand while catching her breath, reflecting a moment of rest and self-reflection. various gym machines and equipment can be seen in the background, along with other people working out. the lighting is warm and bright, creating a realistic fitness environment.\",\n  \"environment\": {\n    \"location\": \"indoor gym\",\n    \"background_elements\": \"weight machines, workout equipment, mirrors, and other gym members\",\n    \"lighting\": \"bright indoor lighting\"\n  },\n  \"appearance\": {\n    \"clothing\": \"black sports bra and blue workout pants\",\n    \"hairstyle\": \"ponytail\",\n    \"physical_condition\": \"sweaty and slightly tired after exercise\"\n  },\n  \"mood\": \"focused, determined, and slightly exhausted\",\n  \"activity\": \"taking a short break during or after a workout session\",\n  \"theme\": \"fitness, health, strength, and self-discipline\"\n} ```json\n{\n  \"title\": \"高强度训练后坚毅的女性\",\n  \"summary\": \"一位专注且充满活力的年轻女性，在完成高强度训练后，正站在现代健身房内。\",\n  \"detailed_description\": \"画面中，一位年轻的运动型女性正站在设备齐全的健身房里，靠近一面大镜子。她身穿黑色运动内衣和蓝色运动裤，裤子两侧有白色条纹。她的头发扎成马尾辫，皮肤上布满汗珠，表明她刚刚进行了一场高强度的锻炼。她一只手轻轻触碰镜子，同时调整呼吸，这反映出她正在短暂休息和自我反思。背景中可以看到各种健身器械和设备，以及其他正在锻炼的人。灯光明亮而温暖，营造出逼真的健身环境。\",\n  \"environment\": {\n    \"location\": \"室内健身房\",\n    \"background_elements\": \"举重器械、健身设备、镜子和其他健身房会员\",\n    \"lighting\": \"明亮的室内照明\"\n  },\n  \"appearance\": {\n    \"clothing\": \"黑色运动内衣和蓝色运动裤\",\n    \"hairstyle\": \"马尾辫\",\n    \"physical_condition\": \"运动后出汗，略显疲惫\"\n  },\n  \"mood\": \"专注、坚毅，略带疲惫\",\n  \"activity\": \"在训练期间或训练后短暂休息\",\n  \"theme\": \"健身、健康、力量和自律\"\n}\n``` zainab fatima 10785",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10780,
+      "title": "夏日氛围感泳装双人肖像",
+      "description": "一个高度详细、结构化的 JSON 提示，用于生成一张超逼真的图像：两名年轻女性（一名金发女郎穿着香蕉印花比基尼，一名深色头发女郎穿着草莓印花泳衣）斜倚在户外沙发上。该提示详细说明了相机设置、光线（柔和漫射的阳光）、姿势、服装细节，并着重于逼真的纹理和细微的瑕疵，以营造出一种随性自然的夏日氛围。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2026241721588203522",
+      "sourcePublishedAt": "2026-02-24T10:24:06.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"meta\": {\n    \"aspect_ratio\": \"3:4\",\n    \"quality\": \"ultra_photorealistic, raw, unedited photograph\",\n    \"resolution\": \"8k\",\n    \"camera\": \"Mirrorless camera (e.g., Canon EOS R5)\",\n    \"lens\": \"50mm f/1.2 portrait lens\",\n    \"style\": \"Soft natural light portrait, vibrant colors, relaxed atmosphere\",\n    \"composition\": \"Medium shot of two beautiful young women reclining on an outdoor wooden sofa, looking directly at the camera with warm smiles.\"\n  },\n  \"scene\": {\n    \"location\": \"Outdoor garden patio or lounge area\",\n    \"environment\": [\n      \"Wooden/rattan outdoor sofa with textured yellow cushions\",\n      \"Lush green foliage and trees in the background\",\n      \"Softly blurred garden setting\"\n    ],\n    \"time\": \"Daytime, soft diffused sunlight\",\n    \"atmosphere\": \"Relaxed, tropical, cheerful, cozy\"\n  },\n  \"lighting\": {\n    \"type\": \"Soft, diffused natural daylight\",\n    \"source\": \"Natural light (possibly shaded)\",\n    \"effect\": \"Even lighting on both faces and bodies, soft shadows, warm tones emphasizing the skin and colorful swimwear.\"\n  },\n  \"subject\": {\n    \"identity\": \"Two beautiful young women: the main subject with long platinum blonde hair wearing a white strapless banana-print bikini, and a second beautiful brunette woman wearing a vibrant red strawberry-print swimsuit, both smiling warmly at the camera.\",\n    \"body\": {\n      \"pose\": \"Both reclining back against yellow cushions on the outdoor wooden sofa. The platinum blonde woman (left) has her right hand rest on thigh, her left hand resting on sofa. The blonde woman in red (right) is leaning slightly toward her companion, legs elegantly crossed, one hand resting on the sofa cushion and the other relaxed on her leg.\",\n      \"physique\": \"Fit, curvy builds with fair to lightly tanned skin for both women.\"\n    },\n    \"outfit\": {\n      \"clothing\": \"Main woman: orange strapless (bandeau) bikini with a pattern of yellow bananas and high-cut string bikini bottom. Second woman: Vibrant turquoise two-piece swimsuit with flattering triangle top and high-cut bottoms with a pattern of red strawberry accentuating her curves.\",\n      \"accessories\": \"Main woman: A yellow and yellow Plumeria flower tucked behind her right ear and a thin gold bracelet, fishnet. Second woman: Minimal gold jewelry and a little butterfly tattoo.\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"Fabric texture of both swimsuits, texture of the yellow sofa cushions, realistic skin texture, details of the flower petals, strands of blonde hair for both women.\",\n    \"imperfections\": \"Fair skinned tone folds from the reclining pose, realistic lighting reflections in eyes, natural smile lines.\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001529530_6d4mas_HB6oGEaXkAAd5ok.jpg",
+        "https://cms-assets.youmind.com/media/1772001529521_6p1eiw_HB6oGK-WEAAE9DA.jpg",
+        "https://cms-assets.youmind.com/media/1772001529718_9npy4b_HB6oGAyWIAAaqZE.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001529530_6d4mas_HB6oGEaXkAAd5ok-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001529521_6p1eiw_HB6oGK-WEAAE9DA-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772001529718_9npy4b_HB6oGAyWIAAaqZE-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"aspect_ratio\": \"3:4\",\n    \"quality\": \"超逼真、原始、未经编辑的照片\",\n    \"resolution\": \"8k\",\n    \"camera\": \"无反光镜相机（例如：佳能 EOS R5）\",\n    \"lens\": \"50mm f/1.2 人像镜头\",\n    \"style\": \"柔和自然光人像、鲜艳色彩、轻松氛围\",\n    \"composition\": \"两位美丽的年轻女性斜倚在户外木制沙发上，面带温暖的微笑直视镜头，中景拍摄。\"\n  },\n  \"scene\": {\n    \"location\": \"户外花园露台或休闲区\",\n    \"environment\": [\n      \"带黄色纹理坐垫的木制/藤制户外沙发\",\n      \"背景是郁郁葱葱的绿色植物和树木\",\n      \"柔和模糊的花园背景\"\n    ],\n    \"time\": \"白天，柔和的散射阳光\",\n    \"atmosphere\": \"放松、热带、愉悦、舒适\"\n  },\n  \"lighting\": {\n    \"type\": \"柔和、散射的自然日光\",\n    \"source\": \"自然光（可能在阴影下）\",\n    \"effect\": \"面部和身体光线均匀，阴影柔和，暖色调突出皮肤和彩色泳装。\"\n  },\n  \"subject\": {\n    \"identity\": \"两位美丽的年轻女性：主人物留着铂金色长发，穿着白色无肩带香蕉图案比基尼；另一位美丽的棕发女性穿着鲜艳的红色草莓图案泳衣，两人都面带温暖的微笑直视镜头。\",\n    \"body\": {\n      \"pose\": \"两人都斜倚在户外木制沙发上的黄色坐垫上。铂金色头发的女性（左）右手放在大腿上，左手放在沙发上。穿红色泳衣的女性（右）略微倾向同伴，双腿优雅地交叉，一只手放在沙发坐垫上，另一只手自然地放在腿上。\",\n      \"physique\": \"两位女性身材健美、曲线优美，肤色从白皙到浅棕褐色不等。\"\n    },\n    \"outfit\": {\n      \"clothing\": \"主人物：橙色无肩带（抹胸式）比基尼，带有黄色香蕉图案和高开叉系带比基尼下装。第二位女性：鲜艳的青绿色两件式泳衣，带有修身的三角上衣和高开叉下装，带有红色草莓图案，凸显其曲线。\",\n      \"accessories\": \"主人物：右耳后别着一朵黄色和黄色鸡蛋花，戴着一条细金手链，渔网袜。第二位女性：少量金色首饰和一个小蝴蝶纹身。\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"两件泳衣的面料纹理，黄色沙发坐垫的纹理，逼真的皮肤纹理，花瓣的细节，两位女性的金色发丝。\",\n    \"imperfections\": \"斜倚姿势造成的白皙肤色褶皱，眼睛中逼真的光线反射，自然的笑纹。\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "夏日氛围感泳装双人肖像 一个高度详细、结构化的 json 提示，用于生成一张超逼真的图像：两名年轻女性（一名金发女郎穿着香蕉印花比基尼，一名深色头发女郎穿着草莓印花泳衣）斜倚在户外沙发上。该提示详细说明了相机设置、光线（柔和漫射的阳光）、姿势、服装细节，并着重于逼真的纹理和细微的瑕疵，以营造出一种随性自然的夏日氛围。 {\n  \"meta\": {\n    \"aspect_ratio\": \"3:4\",\n    \"quality\": \"ultra_photorealistic, raw, unedited photograph\",\n    \"resolution\": \"8k\",\n    \"camera\": \"mirrorless camera (e.g., canon eos r5)\",\n    \"lens\": \"50mm f/1.2 portrait lens\",\n    \"style\": \"soft natural light portrait, vibrant colors, relaxed atmosphere\",\n    \"composition\": \"medium shot of two beautiful young women reclining on an outdoor wooden sofa, looking directly at the camera with warm smiles.\"\n  },\n  \"scene\": {\n    \"location\": \"outdoor garden patio or lounge area\",\n    \"environment\": [\n      \"wooden/rattan outdoor sofa with textured yellow cushions\",\n      \"lush green foliage and trees in the background\",\n      \"softly blurred garden setting\"\n    ],\n    \"time\": \"daytime, soft diffused sunlight\",\n    \"atmosphere\": \"relaxed, tropical, cheerful, cozy\"\n  },\n  \"lighting\": {\n    \"type\": \"soft, diffused natural daylight\",\n    \"source\": \"natural light (possibly shaded)\",\n    \"effect\": \"even lighting on both faces and bodies, soft shadows, warm tones emphasizing the skin and colorful swimwear.\"\n  },\n  \"subject\": {\n    \"identity\": \"two beautiful young women: the main subject with long platinum blonde hair wearing a white strapless banana-print bikini, and a second beautiful brunette woman wearing a vibrant red strawberry-print swimsuit, both smiling warmly at the camera.\",\n    \"body\": {\n      \"pose\": \"both reclining back against yellow cushions on the outdoor wooden sofa. the platinum blonde woman (left) has her right hand rest on thigh, her left hand resting on sofa. the blonde woman in red (right) is leaning slightly toward her companion, legs elegantly crossed, one hand resting on the sofa cushion and the other relaxed on her leg.\",\n      \"physique\": \"fit, curvy builds with fair to lightly tanned skin for both women.\"\n    },\n    \"outfit\": {\n      \"clothing\": \"main woman: orange strapless (bandeau) bikini with a pattern of yellow bananas and high-cut string bikini bottom. second woman: vibrant turquoise two-piece swimsuit with flattering triangle top and high-cut bottoms with a pattern of red strawberry accentuating her curves.\",\n      \"accessories\": \"main woman: a yellow and yellow plumeria flower tucked behind her right ear and a thin gold bracelet, fishnet. second woman: minimal gold jewelry and a little butterfly tattoo.\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"fabric texture of both swimsuits, texture of the yellow sofa cushions, realistic skin texture, details of the flower petals, strands of blonde hair for both women.\",\n    \"imperfections\": \"fair skinned tone folds from the reclining pose, realistic lighting reflections in eyes, natural smile lines.\"\n  }\n} ```json\n{\n  \"meta\": {\n    \"aspect_ratio\": \"3:4\",\n    \"quality\": \"超逼真、原始、未经编辑的照片\",\n    \"resolution\": \"8k\",\n    \"camera\": \"无反光镜相机（例如：佳能 eos r5）\",\n    \"lens\": \"50mm f/1.2 人像镜头\",\n    \"style\": \"柔和自然光人像、鲜艳色彩、轻松氛围\",\n    \"composition\": \"两位美丽的年轻女性斜倚在户外木制沙发上，面带温暖的微笑直视镜头，中景拍摄。\"\n  },\n  \"scene\": {\n    \"location\": \"户外花园露台或休闲区\",\n    \"environment\": [\n      \"带黄色纹理坐垫的木制/藤制户外沙发\",\n      \"背景是郁郁葱葱的绿色植物和树木\",\n      \"柔和模糊的花园背景\"\n    ],\n    \"time\": \"白天，柔和的散射阳光\",\n    \"atmosphere\": \"放松、热带、愉悦、舒适\"\n  },\n  \"lighting\": {\n    \"type\": \"柔和、散射的自然日光\",\n    \"source\": \"自然光（可能在阴影下）\",\n    \"effect\": \"面部和身体光线均匀，阴影柔和，暖色调突出皮肤和彩色泳装。\"\n  },\n  \"subject\": {\n    \"identity\": \"两位美丽的年轻女性：主人物留着铂金色长发，穿着白色无肩带香蕉图案比基尼；另一位美丽的棕发女性穿着鲜艳的红色草莓图案泳衣，两人都面带温暖的微笑直视镜头。\",\n    \"body\": {\n      \"pose\": \"两人都斜倚在户外木制沙发上的黄色坐垫上。铂金色头发的女性（左）右手放在大腿上，左手放在沙发上。穿红色泳衣的女性（右）略微倾向同伴，双腿优雅地交叉，一只手放在沙发坐垫上，另一只手自然地放在腿上。\",\n      \"physique\": \"两位女性身材健美、曲线优美，肤色从白皙到浅棕褐色不等。\"\n    },\n    \"outfit\": {\n      \"clothing\": \"主人物：橙色无肩带（抹胸式）比基尼，带有黄色香蕉图案和高开叉系带比基尼下装。第二位女性：鲜艳的青绿色两件式泳衣，带有修身的三角上衣和高开叉下装，带有红色草莓图案，凸显其曲线。\",\n      \"accessories\": \"主人物：右耳后别着一朵黄色和黄色鸡蛋花，戴着一条细金手链，渔网袜。第二位女性：少量金色首饰和一个小蝴蝶纹身。\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"两件泳衣的面料纹理，黄色沙发坐垫的纹理，逼真的皮肤纹理，花瓣的细节，两位女性的金色发丝。\",\n    \"imperfections\": \"斜倚姿势造成的白皙肤色褶皱，眼睛中逼真的光线反射，自然的笑纹。\"\n  }\n}\n``` keorunreal 10780",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10796,
+      "title": "赛博朋克凡尔赛宫生成",
+      "description": "一个创意提示，将赛博朋克美学与凡尔赛宫玛丽·安托瓦内特卧室的历史背景相结合。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026240179795800510",
+      "sourcePublishedAt": "2026-02-24T10:17:59.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "サイバーパンク\nベルサイユ宮殿\n{argument name=\"部屋\" default=\"アントワネットの寝室\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001538427_aqnne8_HB6ms2zaMAAoVKN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001538427_aqnne8_HB6ms2zaMAAoVKN-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "赛博朋克\n凡尔赛宫\n{argument name=\"room\" default=\"玛丽·安托瓦内特 的卧室\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克凡尔赛宫生成 一个创意提示，将赛博朋克美学与凡尔赛宫玛丽·安托瓦内特卧室的历史背景相结合。 サイバーパンク\nベルサイユ宮殿\n{argument name=\"部屋\" default=\"アントワネットの寝室\"} 赛博朋克\n凡尔赛宫\n{argument name=\"room\" default=\"玛丽·安托瓦内特 的卧室\"} クラリネットクラリオンnobu 10796",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10798,
+      "title": "赛博朋克阿波罗喷泉生成",
+      "description": "一个将赛博朋克美学与凡尔赛宫阿波罗喷泉的历史地点相结合的提示，旨在进行未来主义的预测。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2026239117311508840",
+      "sourcePublishedAt": "2026-02-24T10:13:45.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "サイバーパンク\nベルサイユ宮殿\n{argument name=\"場所\" default=\"アポロンの泉\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001539123_mcx2du_HB6lu9GbEAAU-PW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001539123_mcx2du_HB6lu9GbEAAU-PW-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "赛博朋克\n凡尔赛宫\n{argument name=\"location\" default=\"阿波罗喷泉\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克阿波罗喷泉生成 一个将赛博朋克美学与凡尔赛宫阿波罗喷泉的历史地点相结合的提示，旨在进行未来主义的预测。 サイバーパンク\nベルサイユ宮殿\n{argument name=\"場所\" default=\"アポロンの泉\"} 赛博朋克\n凡尔赛宫\n{argument name=\"location\" default=\"阿波罗喷泉\"} クラリネットクラリオンnobu 10798",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10742,
+      "title": "青色和橙色霓虹都市人像",
+      "description": "生成一张超现实电影风格的时尚肖像的提示词，描绘一位年轻男士身处城市隧道中，强调低视角、超大号羽绒服、强烈的青色和橙色调色、霓虹灯带来的戏剧性光线，以及浅景深。",
+      "sourceLink": "https://x.com/rovvmut_/status/2026237161058808281",
+      "sourcePublishedAt": "2026-02-24T10:05:59.000Z",
+      "author": {
+        "name": "Heisenberg",
+        "link": "https://x.com/rovvmut_"
+      },
+      "content": "Ultra realistic cinematic fashion portrait of a young man round glasses, looking down at the camera, low angle shot, wearing oversized light puffer jacket and warm orange sweater, standing under bright orange and yellow neon lights in an urban tunnel, strong teal and orange color grading, intense contrast, vibrant glowing background, dramatic lighting on face and jacket, shallow depth of field, soft bokeh, 35mm lens, night city atmosphere.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001506436_hsqfcb_HB6j9URagAA8i6Q.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001506436_hsqfcb_HB6j9URagAA8i6Q-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感时尚肖像，一名戴圆框眼镜的年轻男子，低头看向镜头，低角度拍摄，身穿宽松的浅色羽绒夹克和暖橙色毛衣，站在城市隧道中明亮的橙色和黄色霓虹灯下，强烈的青色和橙色调色，强烈对比，充满活力的发光背景，面部和夹克上有戏剧性的光线，浅景深，柔和的散景，35mm 镜头，夜都市氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "青色和橙色霓虹都市人像 生成一张超现实电影风格的时尚肖像的提示词，描绘一位年轻男士身处城市隧道中，强调低视角、超大号羽绒服、强烈的青色和橙色调色、霓虹灯带来的戏剧性光线，以及浅景深。 ultra realistic cinematic fashion portrait of a young man round glasses, looking down at the camera, low angle shot, wearing oversized light puffer jacket and warm orange sweater, standing under bright orange and yellow neon lights in an urban tunnel, strong teal and orange color grading, intense contrast, vibrant glowing background, dramatic lighting on face and jacket, shallow depth of field, soft bokeh, 35mm lens, night city atmosphere. 超写实电影感时尚肖像，一名戴圆框眼镜的年轻男子，低头看向镜头，低角度拍摄，身穿宽松的浅色羽绒夹克和暖橙色毛衣，站在城市隧道中明亮的橙色和黄色霓虹灯下，强烈的青色和橙色调色，强烈对比，充满活力的发光背景，面部和夹克上有戏剧性的光线，浅景深，柔和的散景，35mm 镜头，夜都市氛围。 heisenberg 10742",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10805,
+      "title": "Grok 视频提示：高速滑板飞跃汽车",
+      "description": "用户使用 Nano Banana Pro 生成了一张静态图像，然后使用 Grok 生成了一段视频。以下是 Grok 视频生成所使用的提示词，重点是高速滑板，包括跳过行驶中的汽车。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2026219888776520148",
+      "sourcePublishedAt": "2026-02-24T08:57:21.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nSkateboarding through the city at super-super-super speeds.\n\nScene 2:\nSkateboarding past moving cars at super-super-super speeds and jumping over them.\n\nScene 3:\nSkateboarding tricks are performed one after another at super-super-super speeds.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人动作，高速剪辑，多帧画面，24fps，照片级真实感，高质量真人动作。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：EDM\n场景 1：\n以超超超高速滑板穿越城市。\n\n场景 2：\n以超超超高速滑板滑过行驶中的汽车并跳过它们。\n\n场景 3：\n以超超超高速一个接一个地表演滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "grok 视频提示：高速滑板飞跃汽车 用户使用 nano banana pro 生成了一张静态图像，然后使用 grok 生成了一段视频。以下是 grok 视频生成所使用的提示词，重点是高速滑板，包括跳过行驶中的汽车。 quality: live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nskateboarding through the city at super-super-super speeds.\n\nscene 2:\nskateboarding past moving cars at super-super-super speeds and jumping over them.\n\nscene 3:\nskateboarding tricks are performed one after another at super-super-super speeds. 质量：真人动作，高速剪辑，多帧画面，24fps，照片级真实感，高质量真人动作。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：edm\n场景 1：\n以超超超高速滑板穿越城市。\n\n场景 2：\n以超超超高速滑板滑过行驶中的汽车并跳过它们。\n\n场景 3：\n以超超超高速一个接一个地表演滑板特技。 とすくん 10805",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10803,
+      "title": "Grok 视频提示：高速城市滑板",
+      "description": "用户使用 Nano Banana Pro 生成了一张静态图像，然后使用 Grok 生成了一段视频。以下是 Grok 视频生成所使用的提示，重点是高速滑板穿越城市。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2026219885068767598",
+      "sourcePublishedAt": "2026-02-24T08:57:20.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nSkateboarding through the city at super-super-super speeds.\n\nScene 3:\nSkateboarding tricks are performed one after another at super-super-super speeds in the city.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人实景，高速剪辑，大量镜头，24fps，照片级写实，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：EDM\n场景 1：\n以超超超快的速度在城市中滑板。\n\n场景 3：\n在城市中以超超超快的速度连续表演滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "grok 视频提示：高速城市滑板 用户使用 nano banana pro 生成了一张静态图像，然后使用 grok 生成了一段视频。以下是 grok 视频生成所使用的提示，重点是高速滑板穿越城市。 quality: live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nskateboarding through the city at super-super-super speeds.\n\nscene 3:\nskateboarding tricks are performed one after another at super-super-super speeds in the city. 质量：真人实景，高速剪辑，大量镜头，24fps，照片级写实，高质量真人实景。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：edm\n场景 1：\n以超超超快的速度在城市中滑板。\n\n场景 3：\n在城市中以超超超快的速度连续表演滑板特技。 とすくん 10803",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10749,
+      "title": "单色肖像，局部彩色点缀",
+      "description": "一个用于生成超现实、单色黑白男士工作室肖像的提示，强调锐利的面部细节、电影般的阴影，以及一个单色点缀：半透明琥珀色/橙色眼镜框。",
+      "sourceLink": "https://x.com/Sheldon056/status/2026214554083242053",
+      "sourcePublishedAt": "2026-02-24T08:36:09.000Z",
+      "author": {
+        "name": "Duet | AI",
+        "link": "https://x.com/Sheldon056"
+      },
+      "content": "Ultra-realistic studio portrait of a man, close-up headshot, centered composition, neutral expression, sharp facial details, textured skin, clean grooming, wearing a black turtleneck and dark tailored coat, modern minimalist fashion, monochrome black and white photography style, only the glasses in color (translucent amber/orange frame), high contrast lighting, soft studio light, cinematic shadows, editorial fashion photography, plain light background, 85mm lens, shallow depth of field, ultra detailed, photorealistic, magazine quality, 8K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001509837_wtdti7_HB6PZHka8AAyFpm.jpg",
+        "https://cms-assets.youmind.com/media/1772001509899_k5bb2u_HB6PZHjaUAApmHE.jpg",
+        "https://cms-assets.youmind.com/media/1772001509841_4sjjwn_HB6PZHjbcAAGgdX.jpg",
+        "https://cms-assets.youmind.com/media/1772001510775_7769ij_HB6PZHiaMAEnqeC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001509837_wtdti7_HB6PZHka8AAyFpm-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001509899_k5bb2u_HB6PZHjaUAApmHE-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001509841_4sjjwn_HB6PZHjbcAAGgdX-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772001510775_7769ij_HB6PZHiaMAEnqeC-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实男性工作室肖像，特写半身照，居中构图，中性表情，面部细节锐利，皮肤有质感，整洁的仪容，身穿黑色高领毛衣和深色定制大衣，现代简约时尚，黑白摄影风格，仅眼镜有颜色（半透明琥珀色/橙色镜框），高对比度照明，柔和的工作室灯光，电影感阴影，时尚编辑摄影，纯色浅色背景，85mm 镜头，浅景深，超细节，逼真，杂志品质，8K。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "单色肖像，局部彩色点缀 一个用于生成超现实、单色黑白男士工作室肖像的提示，强调锐利的面部细节、电影般的阴影，以及一个单色点缀：半透明琥珀色/橙色眼镜框。 ultra-realistic studio portrait of a man, close-up headshot, centered composition, neutral expression, sharp facial details, textured skin, clean grooming, wearing a black turtleneck and dark tailored coat, modern minimalist fashion, monochrome black and white photography style, only the glasses in color (translucent amber/orange frame), high contrast lighting, soft studio light, cinematic shadows, editorial fashion photography, plain light background, 85mm lens, shallow depth of field, ultra detailed, photorealistic, magazine quality, 8k. 超写实男性工作室肖像，特写半身照，居中构图，中性表情，面部细节锐利，皮肤有质感，整洁的仪容，身穿黑色高领毛衣和深色定制大衣，现代简约时尚，黑白摄影风格，仅眼镜有颜色（半透明琥珀色/橙色镜框），高对比度照明，柔和的工作室灯光，电影感阴影，时尚编辑摄影，纯色浅色背景，85mm 镜头，浅景深，超细节，逼真，杂志品质，8k。 duet | ai 10749",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10777,
+      "title": "电影人像模式，搭配戏剧性光条",
+      "description": "以下是两个相关的提示，用于生成电影风格、高对比度的年轻女性肖像。两者都侧重于戏剧性的灯光效果，特别是横向的暖光条纹穿过眼睛，与深色阴影和青色/橙色调色形成对比，强调锐利的面部细节和忧郁的氛围。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2026212158548369776",
+      "sourcePublishedAt": "2026-02-24T08:26:38.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Prompt 1:\nUltra-realistic cinematic portrait of a young woman with soft brown hair, centered composition, dark moody background, dramatic horizontal strip of warm golden sunlight cutting across her eyes, teal and orange color grading, half of the face in deep shadow, intense eye contact, sharp facial details, soft skin texture, high contrast lighting, volumetric light beam effect, shallow depth of field, 85mm lens, f/1.8, studio quality, symmetrical framing, mysterious atmosphere, 4K, hyper-detailed.\n\nPrompt 2:\nCinematic close-up portrait of a young woman with natural makeup, warm sunset light band illuminating only her eyes, lower half of face in cool teal shadow, dark minimal background, moody low-key lighting, strong contrast, dramatic light and shadow play, soft glow on skin, realistic skin texture, centered framing, emotional and contemplative expression, 85mm portrait lens, shallow depth of field, teal and orange cinematic grading, ultra-realistic, high resolution, artistic photography.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001527756_gm62ka_HB6NNkzasAA4zew.jpg",
+        "https://cms-assets.youmind.com/media/1772001527750_8pmvab_HB6NNkAaIAAeVC7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001527756_gm62ka_HB6NNkzasAA4zew-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001527750_8pmvab_HB6NNkAaIAAeVC7-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "提示词 1:\n一位年轻女性的超逼真电影肖像，柔和的棕色头发，居中构图，深色忧郁背景，一道戏剧性的水平暖金色阳光横穿她的眼睛，青色和橙色调色，一半脸部处于深影中，强烈的眼神交流，锐利的面部细节，柔和的皮肤纹理，高对比度照明，体积光束效果，浅景深，85mm 镜头，f/1.8，工作室品质，对称构图，神秘氛围，4K，超细节。\n\n提示词 2:\n一位年轻女性的电影特写肖像，自然妆容，温暖的日落光带只照亮她的眼睛，脸部下半部分处于凉爽的青色阴影中，深色极简背景，忧郁的低调照明，强烈对比，戏剧性的光影效果，皮肤上的柔和光泽，逼真的皮肤纹理，居中构图，情感而沉思的表情，85mm 人像镜头，浅景深，青色和橙色电影调色，超逼真，高分辨率，艺术摄影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影人像模式，搭配戏剧性光条 以下是两个相关的提示，用于生成电影风格、高对比度的年轻女性肖像。两者都侧重于戏剧性的灯光效果，特别是横向的暖光条纹穿过眼睛，与深色阴影和青色/橙色调色形成对比，强调锐利的面部细节和忧郁的氛围。 prompt 1:\nultra-realistic cinematic portrait of a young woman with soft brown hair, centered composition, dark moody background, dramatic horizontal strip of warm golden sunlight cutting across her eyes, teal and orange color grading, half of the face in deep shadow, intense eye contact, sharp facial details, soft skin texture, high contrast lighting, volumetric light beam effect, shallow depth of field, 85mm lens, f/1.8, studio quality, symmetrical framing, mysterious atmosphere, 4k, hyper-detailed.\n\nprompt 2:\ncinematic close-up portrait of a young woman with natural makeup, warm sunset light band illuminating only her eyes, lower half of face in cool teal shadow, dark minimal background, moody low-key lighting, strong contrast, dramatic light and shadow play, soft glow on skin, realistic skin texture, centered framing, emotional and contemplative expression, 85mm portrait lens, shallow depth of field, teal and orange cinematic grading, ultra-realistic, high resolution, artistic photography. 提示词 1:\n一位年轻女性的超逼真电影肖像，柔和的棕色头发，居中构图，深色忧郁背景，一道戏剧性的水平暖金色阳光横穿她的眼睛，青色和橙色调色，一半脸部处于深影中，强烈的眼神交流，锐利的面部细节，柔和的皮肤纹理，高对比度照明，体积光束效果，浅景深，85mm 镜头，f/1.8，工作室品质，对称构图，神秘氛围，4k，超细节。\n\n提示词 2:\n一位年轻女性的电影特写肖像，自然妆容，温暖的日落光带只照亮她的眼睛，脸部下半部分处于凉爽的青色阴影中，深色极简背景，忧郁的低调照明，强烈对比，戏剧性的光影效果，皮肤上的柔和光泽，逼真的皮肤纹理，居中构图，情感而沉思的表情，85mm 人像镜头，浅景深，青色和橙色电影调色，超逼真，高分辨率，艺术摄影。 kashberg 10777",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 139,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

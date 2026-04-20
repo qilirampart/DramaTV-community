@@ -1,0 +1,484 @@
+{
+  "prompts": [
+    {
+      "id": 13082,
+      "title": "女性家务场景的电影感提示词",
+      "description": "该提示词用于在 Nano Banana Pro 中生成四张图像，随后使用 Kling 3.0 Omni 将其序列化为视频。提示词描述了女性做家务的四个电影感场景。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2038843734381453704",
+      "sourcePublishedAt": "2026-03-31T05:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "柔らかな自然光の中で洗濯物を畳み、ふと顔を上げて優しく微笑む女性。キッチンで野菜をリズミカルに刻み、カメラに気づいて照れ笑いするシネマティックな横顔。アイロンのスチーム越しに見える、シワを伸ばす真剣で可愛らしい表情のクローズアップ。すべての家事を終え、温かい飲み物を入れたマグカップを手に、ホッと一息ついて無防備に背伸びをするリラックスした姿。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026361564_217kpl_HEs7TwSakAArudR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026361564_217kpl_HEs7TwSakAArudR-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一位女性在柔和的自然光下折叠衣物，突然抬头温柔地微笑。一个电影感的侧面镜头，展示她在厨房里有节奏地切菜，注意到镜头时害羞地脸红了。一个特写镜头，展示她熨烫衣物时，透过蒸汽看到的认真而可爱的表情。她完成所有家务后，拿着温暖的马克杯，放松地深呼吸并伸展身体的姿态。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "女性家务场景的电影感提示词 该提示词用于在 nano banana pro 中生成四张图像，随后使用 kling 3.0 omni 将其序列化为视频。提示词描述了女性做家务的四个电影感场景。 柔らかな自然光の中で洗濯物を畳み、ふと顔を上げて優しく微笑む女性。キッチンで野菜をリズミカルに刻み、カメラに気づいて照れ笑いするシネマティックな横顔。アイロンのスチーム越しに見える、シワを伸ばす真剣で可愛らしい表情のクローズアップ。すべての家事を終え、温かい飲み物を入れたマグカップを手に、ホッと一息ついて無防備に背伸びをするリラックスした姿。 一位女性在柔和的自然光下折叠衣物，突然抬头温柔地微笑。一个电影感的侧面镜头，展示她在厨房里有节奏地切菜，注意到镜头时害羞地脸红了。一个特写镜头，展示她熨烫衣物时，透过蒸汽看到的认真而可爱的表情。她完成所有家务后，拿着温暖的马克杯，放松地深呼吸并伸展身体的姿态。 空想写真家 13082",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13049,
+      "title": "身着定制西装男士的电影感肖像",
+      "description": "这是为 Nano Banana 2 编写的详细提示词，旨在生成一张身着米色定制西装的帅气年轻男士的电影感超写实肖像，强调高级时尚杂志风格、戏剧性对比以及特定的相机设置。",
+      "sourceLink": "https://x.com/iamsofiaijaz/status/2038838879852376336",
+      "sourcePublishedAt": "2026-03-31T04:40:43.000Z",
+      "author": {
+        "name": "Aijaz",
+        "link": "https://x.com/iamsofiaijaz"
+      },
+      "content": "A cinematic portrait of a handsome young man with neatly styled brown hair and light stubble, wearing a cream-colored tailored suit with subtle gold trim details, paired with a black dress shirt and black tie. He is adjusting his jacket with one hand, wearing a luxury wristwatch. The background is dark and minimal, creating a dramatic contrast. Soft studio lighting highlights his face and the texture of the suit, with a moody, elegant, high-fashion editorial style. Ultra-realistic, sharp focus, shallow depth of field, 85mm lens, professional photography, luxury aesthetic, high contrast, warm tones.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026345734_sooqyv_HEtpJ97bIAAFeYL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026345734_sooqyv_HEtpJ97bIAAFeYL-300x401.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张电影感肖像，主角是一位留着利落棕色短发、带有轻微胡茬的帅气年轻男士。他身着一件带有精致金色镶边细节的米色定制西装，内搭黑色正装衬衫并系着黑色领带。他单手整理着西装外套，手腕上佩戴着奢华腕表。背景深邃简约，营造出强烈的戏剧性对比。柔和的摄影棚灯光突显了他的面部轮廓和西装质感，呈现出一种忧郁、优雅的高级时尚杂志风格。超写实，焦点清晰，浅景深，85mm 镜头，专业摄影，奢华美学，高对比度，暖色调。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身着定制西装男士的电影感肖像 这是为 nano banana 2 编写的详细提示词，旨在生成一张身着米色定制西装的帅气年轻男士的电影感超写实肖像，强调高级时尚杂志风格、戏剧性对比以及特定的相机设置。 a cinematic portrait of a handsome young man with neatly styled brown hair and light stubble, wearing a cream-colored tailored suit with subtle gold trim details, paired with a black dress shirt and black tie. he is adjusting his jacket with one hand, wearing a luxury wristwatch. the background is dark and minimal, creating a dramatic contrast. soft studio lighting highlights his face and the texture of the suit, with a moody, elegant, high-fashion editorial style. ultra-realistic, sharp focus, shallow depth of field, 85mm lens, professional photography, luxury aesthetic, high contrast, warm tones. 一张电影感肖像，主角是一位留着利落棕色短发、带有轻微胡茬的帅气年轻男士。他身着一件带有精致金色镶边细节的米色定制西装，内搭黑色正装衬衫并系着黑色领带。他单手整理着西装外套，手腕上佩戴着奢华腕表。背景深邃简约，营造出强烈的戏剧性对比。柔和的摄影棚灯光突显了他的面部轮廓和西装质感，呈现出一种忧郁、优雅的高级时尚杂志风格。超写实，焦点清晰，浅景深，85mm 镜头，专业摄影，奢华美学，高对比度，暖色调。 aijaz 13049",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13047,
+      "title": "图像重绘与风格迁移提示词",
+      "description": "专为 Nano Banana 设计的提示词，用于分析两张图（图 1 为风格参考，图 2 为内容参考），并将图 2 以图 1 的风格进行重绘。要求将原始图 2 与重绘版本并排置于白色背景上，且不显示 Logo。",
+      "sourceLink": "https://x.com/underwoodxie96/status/2038830571972174105",
+      "sourcePublishedAt": "2026-03-31T04:07:42.000Z",
+      "author": {
+        "name": "underwood",
+        "link": "https://x.com/underwoodxie96"
+      },
+      "content": "Carefully study Figure 1, and redraw Figure 2 according to its requirements. Place Figure 2 and the redrawn version on the left and right sides of the same white background image, ensuring the logo is not visible.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026344158_mh1ljp_HEthF1BaYAAkRb-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026344158_mh1ljp_HEthF1BaYAAkRb--300x201.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请仔细研究图 1，并根据其要求重绘图 2。将图 2 和重绘版本并排置于同一白色背景图像的左右两侧，并确保不显示 Logo。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图像重绘与风格迁移提示词 专为 nano banana 设计的提示词，用于分析两张图（图 1 为风格参考，图 2 为内容参考），并将图 2 以图 1 的风格进行重绘。要求将原始图 2 与重绘版本并排置于白色背景上，且不显示 logo。 carefully study figure 1, and redraw figure 2 according to its requirements. place figure 2 and the redrawn version on the left and right sides of the same white background image, ensuring the logo is not visible. 请仔细研究图 1，并根据其要求重绘图 2。将图 2 和重绘版本并排置于同一白色背景图像的左右两侧，并确保不显示 logo。 underwood 13047",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13055,
+      "title": "Artemis II 任务日志立体模型",
+      "description": "这是一个为 Nano Banana 设计的复杂结构化提示词，采用类 Python 的类定义，旨在生成 Artemis II 任务中宇航员任务规划日志的超精细立体模型可视化效果，重点展示从 2D 草图到物理 3D 微缩模型的演变过程。",
+      "sourceLink": "https://x.com/Gdgtify/status/2038814288752660691",
+      "sourcePublishedAt": "2026-03-31T03:03:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "do this for Artemis II mission: class Artemis_Journal_Diorama:\n    def __init__(self, subject=\"Artemis II Mission\"):\n        # AI infers the correct materials, textures, and desk environment\n        self.stage = \"AI‑inferred astronaut’s mission‑planning journal lying open on an AI‑inferred technical workstation.\"\n        self. lighting = \"AI‑inferred mixed illumination: task‑lamp warmth + cool instrument‑panel spill.\"\n\n    def semantic_2D_to_3D_growth(self):\n        # AI infers what '2D mission sketches' look like for this subject\n        page_texture = (\n            f\"AI‑inferred handwritten notes, trajectory arcs, module schematics, \"\n            f\"and mission annotations related to {self.subject}, rendered as precise 2D graphite diagrams.\"\n        )\n\n        # AI infers what physical 3D elements should emerge from those sketches\n        diorama_pop = (\n            f\"2D mission diagrams transition into physical 3D miniatures: \"\n            f\"AI‑inferred spacecraft components, crew figures, lunar geometry, \"\n            f\"and mission‑specific hardware rising seamlessly from the paper.\"\n        )\n\n        return [page_texture, diorama_pop]\n\n    def scatter_ephemera(self):\n        # AI infers mission‑relevant desk objects without hard‑coding categories\n        return infer_aerospace_ephemera(self.subject)\n        # Examples (AI‑inferred, not fixed): mission patches, navigation tools,\n        # micro‑scale lunar models, printed telemetry, procedural checklists,\n        # archival headlines, engineering pencils, etc.\n\nrender(Artemis_Journal_Diorama())",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026348576_nceyfl_HEso4rBacAA3ZI3.jpg",
+        "https://cms-assets.youmind.com/media/1775026348582_fruhxc_HEso3CkagAAKgQD.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026348576_nceyfl_HEso4rBacAA3ZI3-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1775026348582_fruhxc_HEso3CkagAAKgQD-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "do this for Artemis II mission: class Artemis_Journal_Diorama:\n    def __init__(self, subject=\"Artemis II Mission\"):\n        # AI 推断出合适的材质、纹理和桌面环境\n        self.stage = \"AI 推断的宇航员任务规划日志，摊开在 AI 推断的技术工作台上。\"\n        self. lighting = \"AI 推断的混合照明：台灯的暖光 + 仪表盘的冷光溢出。\"\n\n    def semantic_2D_to_3D_growth(self):\n        # AI 推断该主题的“2D 任务草图”外观\n        page_texture = (\n            f\"AI 推断的手写笔记、轨道弧线、模块示意图，\" \n            f\"以及与 {self.subject} 相关的任务注释，渲染为精确的 2D 石墨图表。\"\n        )\n\n        # AI 推断应从草图中浮现出的物理 3D 元素\n        diorama_pop = (\n            f\"2D 任务图表转换为物理 3D 微缩模型：\" \n            f\"AI 推断的航天器组件、乘员人偶、月球几何结构，\" \n            f\"以及从纸面上无缝升起的任务特定硬件。\"\n        )\n\n        return [page_texture, diorama_pop]\n\n    def scatter_ephemera(self):\n        # AI 在不硬编码类别的情况下推断与任务相关的桌面物品\n        return infer_aerospace_ephemera(self.subject)\n        # 示例（AI 推断，非固定）：任务徽章、导航工具、\n        # 微型月球模型、打印的遥测数据、程序检查清单、\n        # 档案头条、工程铅笔等。\n\nrender(Artemis_Journal_Diorama())",
+      "sourcePlatform": "twitter",
+      "searchIndex": "artemis ii 任务日志立体模型 这是一个为 nano banana 设计的复杂结构化提示词，采用类 python 的类定义，旨在生成 artemis ii 任务中宇航员任务规划日志的超精细立体模型可视化效果，重点展示从 2d 草图到物理 3d 微缩模型的演变过程。 do this for artemis ii mission: class artemis_journal_diorama:\n    def __init__(self, subject=\"artemis ii mission\"):\n        # ai infers the correct materials, textures, and desk environment\n        self.stage = \"ai‑inferred astronaut’s mission‑planning journal lying open on an ai‑inferred technical workstation.\"\n        self. lighting = \"ai‑inferred mixed illumination: task‑lamp warmth + cool instrument‑panel spill.\"\n\n    def semantic_2d_to_3d_growth(self):\n        # ai infers what '2d mission sketches' look like for this subject\n        page_texture = (\n            f\"ai‑inferred handwritten notes, trajectory arcs, module schematics, \"\n            f\"and mission annotations related to {self.subject}, rendered as precise 2d graphite diagrams.\"\n        )\n\n        # ai infers what physical 3d elements should emerge from those sketches\n        diorama_pop = (\n            f\"2d mission diagrams transition into physical 3d miniatures: \"\n            f\"ai‑inferred spacecraft components, crew figures, lunar geometry, \"\n            f\"and mission‑specific hardware rising seamlessly from the paper.\"\n        )\n\n        return [page_texture, diorama_pop]\n\n    def scatter_ephemera(self):\n        # ai infers mission‑relevant desk objects without hard‑coding categories\n        return infer_aerospace_ephemera(self.subject)\n        # examples (ai‑inferred, not fixed): mission patches, navigation tools,\n        # micro‑scale lunar models, printed telemetry, procedural checklists,\n        # archival headlines, engineering pencils, etc.\n\nrender(artemis_journal_diorama()) do this for artemis ii mission: class artemis_journal_diorama:\n    def __init__(self, subject=\"artemis ii mission\"):\n        # ai 推断出合适的材质、纹理和桌面环境\n        self.stage = \"ai 推断的宇航员任务规划日志，摊开在 ai 推断的技术工作台上。\"\n        self. lighting = \"ai 推断的混合照明：台灯的暖光 + 仪表盘的冷光溢出。\"\n\n    def semantic_2d_to_3d_growth(self):\n        # ai 推断该主题的“2d 任务草图”外观\n        page_texture = (\n            f\"ai 推断的手写笔记、轨道弧线、模块示意图，\" \n            f\"以及与 {self.subject} 相关的任务注释，渲染为精确的 2d 石墨图表。\"\n        )\n\n        # ai 推断应从草图中浮现出的物理 3d 元素\n        diorama_pop = (\n            f\"2d 任务图表转换为物理 3d 微缩模型：\" \n            f\"ai 推断的航天器组件、乘员人偶、月球几何结构，\" \n            f\"以及从纸面上无缝升起的任务特定硬件。\"\n        )\n\n        return [page_texture, diorama_pop]\n\n    def scatter_ephemera(self):\n        # ai 在不硬编码类别的情况下推断与任务相关的桌面物品\n        return infer_aerospace_ephemera(self.subject)\n        # 示例（ai 推断，非固定）：任务徽章、导航工具、\n        # 微型月球模型、打印的遥测数据、程序检查清单、\n        # 档案头条、工程铅笔等。\n\nrender(artemis_journal_diorama()) gadgetify 13055",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13050,
+      "title": "基于参考图生成的 4K 超写实 Instagram 人像",
+      "description": "一份为 Nano Banana 2 编写的详细提示词，要求生成一张年轻男性的 4K 超写实 Instagram 人像。画面需严格匹配参考图的面部特征与比例，背景设定在雾气缭绕的草坡上，采用柔和的阴天光照。",
+      "sourceLink": "https://x.com/harboriis/status/2038808247042474155",
+      "sourcePublishedAt": "2026-03-31T02:38:59.000Z",
+      "author": {
+        "name": "Harboris",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "4K ultra-realistic Instagram portrait of a young man sitting casually on a grassy hillside. Face, skin tone, hair, and proportions must match the reference exactly reference image. He has wavy black hair, warm medium-tan skin, and a relaxed expression looking left. Outfit: light grey knitted sweatshirt, loose brown trousers, slightly worn light sneakers, and a silver rectangular digital watch. He sits with one knee raised, leaning back naturally. Background: misty green hills, scattered trees, soft overcast light, shallow depth of field with cinematic colors, natural textures, soft shadows, and HDR realism.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026347003_hptu9t_HEtNSzObwAAaqSg.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026347003_hptu9t_HEtNSzObwAAaqSg-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张年轻男性的 4K 超写实 Instagram 人像，他正随意地坐在草坡上。面部、肤色、发型和比例必须与参考图完全一致。他留着黑色卷发，拥有温暖的中等棕褐色皮肤，神情放松，看向左侧。着装：浅灰色针织卫衣、宽松棕色长裤、略显磨损的浅色运动鞋以及一块银色长方形电子表。他单膝支起，自然地向后倚靠。背景：雾气笼罩的绿色山丘、零星的树木，柔和的阴天光照，具有电影感的色彩和浅景深效果，呈现自然的纹理、柔和的阴影以及 HDR 级别的真实感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "基于参考图生成的 4k 超写实 instagram 人像 一份为 nano banana 2 编写的详细提示词，要求生成一张年轻男性的 4k 超写实 instagram 人像。画面需严格匹配参考图的面部特征与比例，背景设定在雾气缭绕的草坡上，采用柔和的阴天光照。 4k ultra-realistic instagram portrait of a young man sitting casually on a grassy hillside. face, skin tone, hair, and proportions must match the reference exactly reference image. he has wavy black hair, warm medium-tan skin, and a relaxed expression looking left. outfit: light grey knitted sweatshirt, loose brown trousers, slightly worn light sneakers, and a silver rectangular digital watch. he sits with one knee raised, leaning back naturally. background: misty green hills, scattered trees, soft overcast light, shallow depth of field with cinematic colors, natural textures, soft shadows, and hdr realism. 一张年轻男性的 4k 超写实 instagram 人像，他正随意地坐在草坡上。面部、肤色、发型和比例必须与参考图完全一致。他留着黑色卷发，拥有温暖的中等棕褐色皮肤，神情放松，看向左侧。着装：浅灰色针织卫衣、宽松棕色长裤、略显磨损的浅色运动鞋以及一块银色长方形电子表。他单膝支起，自然地向后倚靠。背景：雾气笼罩的绿色山丘、零星的树木，柔和的阴天光照，具有电影感的色彩和浅景深效果，呈现自然的纹理、柔和的阴影以及 hdr 级别的真实感。 harboris 13050",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13067,
+      "title": "春日樱花人像复刻提示词",
+      "description": "一个 Nano Banana 摄影提示词，用于在公园樱花背景下复刻一张年轻女性的春日人像。要求 100% 精确保留参考图的面部特征，并使用柔和的自然光、浅景深以及暖色调处理。",
+      "sourceLink": "https://x.com/KPuneet20/status/2038801417612448088",
+      "sourcePublishedAt": "2026-03-31T02:11:51.000Z",
+      "author": {
+        "name": "Puneet Kharbanda",
+        "link": "https://x.com/KPuneet20"
+      },
+      "content": "Recreate a springtime portrait similar to the reference image. A young woman stands in a park surrounded by blooming cherry blossom trees, holding a branch of pink flowers. Ensure the facial features of the young woman are 100% exact to the reference image; do not alter the face. Use soft, diffused natural light, as if taken on an overcast day or during golden hour. Employ a medium telephoto lens (50-85mm) with an aperture around f/2.8 to f/4 to achieve a shallow depth of field. The subject should be in the lower center of the frame, with the blossoms framing the top and sides. Capture a calm, serene, and fresh atmosphere, emphasizing the beauty of spring. Apply subtle post-processing to enhance brightness, contrast, and color saturation, with a warm color grading and slightly desaturated tones. The final image should be high-quality and authentic, avoiding overly stylized effects.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026353963_0big21_HEtHAecWAAABd1V.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026353963_0big21_HEtHAecWAAABd1V-300x525.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "复刻一张与参考图相似的春日人像。一位年轻女性站在公园里，四周环绕着盛开的樱花树，手中拿着一枝粉色的花朵。请确保年轻女性的面部特征与参考图 100% 一致；不得更改面部。使用柔和、漫射的自然光，营造出阴天或黄金时刻的拍摄效果。使用中焦镜头（50-85mm），光圈设置在 f/2.8 到 f/4 之间，以实现浅景深效果。主体应位于画面下方中心，樱花从顶部和两侧进行构图。捕捉宁静、祥和且清新的氛围，展现春天的美感。进行细微的后期处理以增强亮度、对比度和色彩饱和度，并采用暖色调和轻微的低饱和度处理。最终图像应具备高质量和真实感，避免过度风格化的效果。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "春日樱花人像复刻提示词 一个 nano banana 摄影提示词，用于在公园樱花背景下复刻一张年轻女性的春日人像。要求 100% 精确保留参考图的面部特征，并使用柔和的自然光、浅景深以及暖色调处理。 recreate a springtime portrait similar to the reference image. a young woman stands in a park surrounded by blooming cherry blossom trees, holding a branch of pink flowers. ensure the facial features of the young woman are 100% exact to the reference image; do not alter the face. use soft, diffused natural light, as if taken on an overcast day or during golden hour. employ a medium telephoto lens (50-85mm) with an aperture around f/2.8 to f/4 to achieve a shallow depth of field. the subject should be in the lower center of the frame, with the blossoms framing the top and sides. capture a calm, serene, and fresh atmosphere, emphasizing the beauty of spring. apply subtle post-processing to enhance brightness, contrast, and color saturation, with a warm color grading and slightly desaturated tones. the final image should be high-quality and authentic, avoiding overly stylized effects. 复刻一张与参考图相似的春日人像。一位年轻女性站在公园里，四周环绕着盛开的樱花树，手中拿着一枝粉色的花朵。请确保年轻女性的面部特征与参考图 100% 一致；不得更改面部。使用柔和、漫射的自然光，营造出阴天或黄金时刻的拍摄效果。使用中焦镜头（50-85mm），光圈设置在 f/2.8 到 f/4 之间，以实现浅景深效果。主体应位于画面下方中心，樱花从顶部和两侧进行构图。捕捉宁静、祥和且清新的氛围，展现春天的美感。进行细微的后期处理以增强亮度、对比度和色彩饱和度，并采用暖色调和轻微的低饱和度处理。最终图像应具备高质量和真实感，避免过度风格化的效果。 puneet kharbanda 13067",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13058,
+      "title": "公园里与腊肠犬在一起的 Sadie Sink 相似者",
+      "description": "这是一个用于 Google Nano Banana 2 的 JSON 提示词，旨在生成一张照片级逼真的图像：一位长相酷似 Sadie Sink 的女性坐在阳光明媚的公园里，怀抱一只小腊肠犬，重点展现鲜艳的服装、自然日光和电影级光效。",
+      "sourceLink": "https://x.com/NameIsSudee/status/2038798936933318856",
+      "sourcePublishedAt": "2026-03-31T02:02:00.000Z",
+      "author": {
+        "name": "Sadie 🥀",
+        "link": "https://x.com/NameIsSudee"
+      },
+      "content": "{\n  \"prompt\": \"A beautiful young woman who strongly resembles Sadie Sink, with long straight auburn-brown hair, fair skin, and striking facial features, sitting on a white quilted picnic blanket in a sunny green park on a bright clear day. She is wearing a vibrant green pleated plunging halter top with white lace trim and a deep neckline, paired with light blue denim jeans. She has one hand raised to her forehead shielding her eyes from the sun, looking at the camera with a soft smile. A small brown dachshund wearing a green and white floral bandana is sitting on the blanket in front of her, and she is gently holding the dog with her other hand. A straw hat with a green ribbon and a silver laptop are also on the blanket. Bright blue sky, lush green grass, distant trees and soccer goals in the background, natural sunlight, highly detailed, photorealistic, cinematic lighting, 8k quality.\",\n  \"negative_prompt\": \"blurry, low quality, deformed, extra limbs, bad anatomy, watermark, text, logo, overexposed, underexposed, cartoon, painting, illustration\",\n  \"reference_image_id\": \"AD4Mj\",\n  \"style\": \"photorealistic\",\n  \"subject_reference\": \"Sadie Sink\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026349806_o3ypir_HEtE0eWbgAAVMDw.jpg",
+        "https://cms-assets.youmind.com/media/1775026349821_pxkqhf_HEtE0fiakAAukB1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026349806_o3ypir_HEtE0eWbgAAVMDw-300x361.jpg",
+        "https://cms-assets.youmind.com/media/1775026349821_pxkqhf_HEtE0fiakAAukB1-300x361.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"prompt\": \"一位长相酷似 {argument name=\"subject name\" default=\"Sadie Sink\"} 的美丽年轻女性，留着长长的直发，发色为赤褐色，皮肤白皙，五官精致。她坐在阳光明媚的绿色公园里，铺着白色绗缝野餐垫，天气晴朗明亮。她身穿一件鲜艳的 {argument name=\"top color\" default=\"green\"} 色百褶挂脖吊带上衣，带有白色蕾丝饰边和深领口设计，搭配浅蓝色牛仔裤。她的一只手抬起遮在额头前挡住阳光，微笑着看向镜头。一只戴着绿白碎花方巾的小棕色腊肠犬坐在她面前的毯子上，她用另一只手轻轻抱着这只狗。毯子上还放着一顶系着绿色丝带的草帽和一台银色笔记本电脑。背景是湛蓝的天空、郁郁葱葱的草地、远处的树木和足球门，自然日光，细节丰富，照片级逼真，电影级光效，8k 画质。\",\n  \"negative_prompt\": \"模糊，低质量，畸形，多余的肢体，解剖结构错误，水印，文字，Logo，曝光过度，曝光不足，卡通，绘画，插图\",\n  \"reference_image_id\": \"AD4Mj\",\n  \"style\": \"photorealistic\",\n  \"subject_reference\": \"Sadie Sink\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "公园里与腊肠犬在一起的 sadie sink 相似者 这是一个用于 google nano banana 2 的 json 提示词，旨在生成一张照片级逼真的图像：一位长相酷似 sadie sink 的女性坐在阳光明媚的公园里，怀抱一只小腊肠犬，重点展现鲜艳的服装、自然日光和电影级光效。 {\n  \"prompt\": \"a beautiful young woman who strongly resembles sadie sink, with long straight auburn-brown hair, fair skin, and striking facial features, sitting on a white quilted picnic blanket in a sunny green park on a bright clear day. she is wearing a vibrant green pleated plunging halter top with white lace trim and a deep neckline, paired with light blue denim jeans. she has one hand raised to her forehead shielding her eyes from the sun, looking at the camera with a soft smile. a small brown dachshund wearing a green and white floral bandana is sitting on the blanket in front of her, and she is gently holding the dog with her other hand. a straw hat with a green ribbon and a silver laptop are also on the blanket. bright blue sky, lush green grass, distant trees and soccer goals in the background, natural sunlight, highly detailed, photorealistic, cinematic lighting, 8k quality.\",\n  \"negative_prompt\": \"blurry, low quality, deformed, extra limbs, bad anatomy, watermark, text, logo, overexposed, underexposed, cartoon, painting, illustration\",\n  \"reference_image_id\": \"ad4mj\",\n  \"style\": \"photorealistic\",\n  \"subject_reference\": \"sadie sink\"\n} {\n  \"prompt\": \"一位长相酷似 {argument name=\"subject name\" default=\"sadie sink\"} 的美丽年轻女性，留着长长的直发，发色为赤褐色，皮肤白皙，五官精致。她坐在阳光明媚的绿色公园里，铺着白色绗缝野餐垫，天气晴朗明亮。她身穿一件鲜艳的 {argument name=\"top color\" default=\"green\"} 色百褶挂脖吊带上衣，带有白色蕾丝饰边和深领口设计，搭配浅蓝色牛仔裤。她的一只手抬起遮在额头前挡住阳光，微笑着看向镜头。一只戴着绿白碎花方巾的小棕色腊肠犬坐在她面前的毯子上，她用另一只手轻轻抱着这只狗。毯子上还放着一顶系着绿色丝带的草帽和一台银色笔记本电脑。背景是湛蓝的天空、郁郁葱葱的草地、远处的树木和足球门，自然日光，细节丰富，照片级逼真，电影级光效，8k 画质。\",\n  \"negative_prompt\": \"模糊，低质量，畸形，多余的肢体，解剖结构错误，水印，文字，logo，曝光过度，曝光不足，卡通，绘画，插图\",\n  \"reference_image_id\": \"ad4mj\",\n  \"style\": \"photorealistic\",\n  \"subject_reference\": \"sadie sink\"\n} sadie 🥀 13058",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13068,
+      "title": "杂志排版设计概念提示词",
+      "description": "一个针对 Nano Banana Pro 的杂志排版设计提示词，旨在通过柔和的大地色调、原始亚麻质感、大号衬线标题、陶土色几何线条以及电影感侧光，打造高端印刷品视觉效果。",
+      "sourceLink": "https://x.com/SRKDAN/status/2038798472237797837",
+      "sourcePublishedAt": "2026-03-31T02:00:09.000Z",
+      "author": {
+        "name": "SRKDAN",
+        "link": "https://x.com/SRKDAN"
+      },
+      "content": "editorial magazine spread concept, muted earth tones with raw linen texture, large-scale serif headline at 200pt in deep charcoal, off-white margins with subtle grain overlay, geometric rule lines in terracotta, cinematic side lighting casting long shadows across the layout, high-end editorial print finish",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026354421_z0tyoq_HEtEaA3WQAAO6i-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026354421_z0tyoq_HEtEaA3WQAAO6i--300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "杂志排版设计概念，柔和的大地色调搭配原始亚麻质感，深炭灰色 200pt 大号衬线标题，带有细微颗粒感的米白色页边距，陶土色几何线条，电影感侧光在排版上投射出长长的阴影，高端杂志印刷质感",
+      "sourcePlatform": "twitter",
+      "searchIndex": "杂志排版设计概念提示词 一个针对 nano banana pro 的杂志排版设计提示词，旨在通过柔和的大地色调、原始亚麻质感、大号衬线标题、陶土色几何线条以及电影感侧光，打造高端印刷品视觉效果。 editorial magazine spread concept, muted earth tones with raw linen texture, large-scale serif headline at 200pt in deep charcoal, off-white margins with subtle grain overlay, geometric rule lines in terracotta, cinematic side lighting casting long shadows across the layout, high-end editorial print finish 杂志排版设计概念，柔和的大地色调搭配原始亚麻质感，深炭灰色 200pt 大号衬线标题，带有细微颗粒感的米白色页边距，陶土色几何线条，电影感侧光在排版上投射出长长的阴影，高端杂志印刷质感 srkdan 13068",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13086,
+      "title": "Nano Banana Pro 四格漫画提示词：终极抉择",
+      "description": "用于生成题为《终极抉择（宗教视角）》四格漫画的提示词，重点探讨获得“全部财富”而非其物质价值所带来的精神代价（业力）。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038789460603888096",
+      "sourcePublishedAt": "2026-03-31T01:24:20.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "AI画像生成　4コマ漫画\n\nタイトル\n究極の選択　宗教的に\n\n「全財産」という物理的な価値よりも、それを受け取ることの\n「精神的コスト（業）」を突きつける",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026363419_impnno_HEs8NGmacAAllEB.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026363419_impnno_HEs8NGmacAAllEB-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "AI 图像生成四格漫画\n\n标题\n终极抉择（宗教视角）\n\n呈现获得“全部财富”而非其物质价值所带来的“精神代价（业力）”。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 四格漫画提示词：终极抉择 用于生成题为《终极抉择（宗教视角）》四格漫画的提示词，重点探讨获得“全部财富”而非其物质价值所带来的精神代价（业力）。 ai画像生成　4コマ漫画\n\nタイトル\n究極の選択　宗教的に\n\n「全財産」という物理的な価値よりも、それを受け取ることの\n「精神的コスト（業）」を突きつける ai 图像生成四格漫画\n\n标题\n终极抉择（宗教视角）\n\n呈现获得“全部财富”而非其物质价值所带来的“精神代价（业力）”。 クラリネットクラリオンnobu 13086",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13083,
+      "title": "家庭早餐 ASMR 电影感场景提示词",
+      "description": "该提示词用于在 Nano Banana Pro 中生成四张图像，随后使用 Kling 3.0 Omni 将其串联成视频。提示词描述了家庭享用愉悦早餐的四个电影感场景，并强调了 ASMR 音效。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2038787562459050127",
+      "sourcePublishedAt": "2026-03-31T01:16:48.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "朝の食卓で両親と楽しく朝食をとるシネマティックなシーン。サクッとトーストを割り、美味しそうに頬張って微笑む可愛らしい表情や、マグカップを合わせて乾杯する心温まる様子。椅子の音や咀嚼音、カップが鳴る心地よいASMRサウンドが響く。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一个电影感的场景：父母在清晨的餐桌前享用愉快的早餐。画面捕捉了脆爽地掰开吐司、美味品尝并露出微笑的可爱表情，或是举杯碰撞的温馨瞬间。椅子摩擦声、咀嚼声和杯子碰撞声等舒适的 ASMR 音效在空气中回荡。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "家庭早餐 asmr 电影感场景提示词 该提示词用于在 nano banana pro 中生成四张图像，随后使用 kling 3.0 omni 将其串联成视频。提示词描述了家庭享用愉悦早餐的四个电影感场景，并强调了 asmr 音效。 朝の食卓で両親と楽しく朝食をとるシネマティックなシーン。サクッとトーストを割り、美味しそうに頬張って微笑む可愛らしい表情や、マグカップを合わせて乾杯する心温まる様子。椅子の音や咀嚼音、カップが鳴る心地よいasmrサウンドが響く。 一个电影感的场景：父母在清晨的餐桌前享用愉快的早餐。画面捕捉了脆爽地掰开吐司、美味品尝并露出微笑的可爱表情，或是举杯碰撞的温馨瞬间。椅子摩擦声、咀嚼声和杯子碰撞声等舒适的 asmr 音效在空气中回荡。 空想写真家 13083",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13076,
+      "title": "四格漫画：圣域的真相",
+      "description": "这是一个使用 Nano Banana Pro 生成名为“圣域的真相”四格漫画的提示词，探讨了剥削主题以及天堂与地狱的本质。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038787462714233155",
+      "sourcePublishedAt": "2026-03-31T01:16:24.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "4コマ漫画\n\nタイトル\n聖域の真実\n\nガイア＝害悪＝ボッタクリ\n\n楽園＝ボッタクリ\n\n天国と地獄は\nガイアでも楽園でも変わらない\n\n不思議だね！世の中は…",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026358811_i7hpz6_HEs6YvdbUAAEMFa.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026358811_i7hpz6_HEs6YvdbUAAEMFa-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "四格漫画\n\n标题\n圣域的真相\n\n盖亚 = 伤害 = 剥削\n\n天堂 = 剥削\n\n天堂与地狱\n无论是盖亚还是天堂，本质都一样\n\n这不是很奇怪吗！这个世界……",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画：圣域的真相 这是一个使用 nano banana pro 生成名为“圣域的真相”四格漫画的提示词，探讨了剥削主题以及天堂与地狱的本质。 4コマ漫画\n\nタイトル\n聖域の真実\n\nガイア＝害悪＝ボッタクリ\n\n楽園＝ボッタクリ\n\n天国と地獄は\nガイアでも楽園でも変わらない\n\n不思議だね！世の中は… 四格漫画\n\n标题\n圣域的真相\n\n盖亚 = 伤害 = 剥削\n\n天堂 = 剥削\n\n天堂与地狱\n无论是盖亚还是天堂，本质都一样\n\n这不是很奇怪吗！这个世界…… クラリネットクラリオンnobu 13076",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13078,
+      "title": "四格漫画：世界是 Setting L",
+      "description": "一个使用 Nano Banana Pro 生成名为“The World is Setting L”四格漫画的提示词，参考了喜剧组合 Reiwa Roman 以及“Setting L”（博彩中的作弊设定）的概念。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038776801762353349",
+      "sourcePublishedAt": "2026-03-31T00:34:02.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "4コマ漫画\n\nタイトル\n世の中は設定L（エル）\n\n令和ロマン風\n\n設定L\n\n実験用に用意された\nボッタクリ設定じゃないか\n\n下パネルが消灯？\n\n打ってはいけません　絶対に！",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026359520_mo7lgi_HEswsZUb0AAKc0F.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026359520_mo7lgi_HEswsZUb0AAKc0F-300x158.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "四格漫画\n\n标题\nThe World is Setting L\n\nReiwa Roman 风格\n\nSetting L\n\n这难道不是为了实验而准备的坑人设定吗？\n\n下方的面板是不是坏了？\n\n绝对不能玩！千万别玩！",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画：世界是 setting l 一个使用 nano banana pro 生成名为“the world is setting l”四格漫画的提示词，参考了喜剧组合 reiwa roman 以及“setting l”（博彩中的作弊设定）的概念。 4コマ漫画\n\nタイトル\n世の中は設定l（エル）\n\n令和ロマン風\n\n設定l\n\n実験用に用意された\nボッタクリ設定じゃないか\n\n下パネルが消灯？\n\n打ってはいけません　絶対に！ 四格漫画\n\n标题\nthe world is setting l\n\nreiwa roman 风格\n\nsetting l\n\n这难道不是为了实验而准备的坑人设定吗？\n\n下方的面板是不是坏了？\n\n绝对不能玩！千万别玩！ クラリネットクラリオンnobu 13078",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13079,
+      "title": "四格漫画：Viking Thunder V 世纪末版本",
+      "description": "一个使用 Nano Banana Pro 生成四格漫画的提示词，标题为“Viking Thunder V 世纪末版本”，参考了喜剧组合 Viking 和老虎机 Thunder V。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038774125565714434",
+      "sourcePublishedAt": "2026-03-31T00:23:24.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "4コマ漫画\n\nタイトル\nバイきんぐ　\nサンダーV世紀末バージョン\n\nサンダー\n3だ〜\n3時の緑（12色相環）だ〜\n\n虹色\n\n吸い込み天上に達したのか…",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026360088_62fcgn_HEsuQeaawAAnGf8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026360088_62fcgn_HEsuQeaawAAnGf8-300x171.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "四格漫画\n\n标题\nViking Thunder V 世纪末版本\n\n雷电 (Thunder)\n是 3 呀~\n是 3 点钟方向的绿色（12 色色轮）~\n\n彩虹色\n\n吸力达到天花板了吗……",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画：viking thunder v 世纪末版本 一个使用 nano banana pro 生成四格漫画的提示词，标题为“viking thunder v 世纪末版本”，参考了喜剧组合 viking 和老虎机 thunder v。 4コマ漫画\n\nタイトル\nバイきんぐ　\nサンダーv世紀末バージョン\n\nサンダー\n3だ〜\n3時の緑（12色相環）だ〜\n\n虹色\n\n吸い込み天上に達したのか… 四格漫画\n\n标题\nviking thunder v 世纪末版本\n\n雷电 (thunder)\n是 3 呀~\n是 3 点钟方向的绿色（12 色色轮）~\n\n彩虹色\n\n吸力达到天花板了吗…… クラリネットクラリオンnobu 13079",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13031,
+      "title": "城市作为动态雕塑网格",
+      "description": "一个用于生成 2x2 网格的提示词，将四座不同的著名城市转化为独特的循环动态雕塑。它指定了材质（黄铜、玻璃、抛光木材）、每种城市类型的机制（垂直天际线、光影网格、翻滚波浪、旋转塔楼）以及博物馆画廊的场景和灯光。",
+      "sourceLink": "https://x.com/Gdgtify/status/2038757413793550658",
+      "sourcePublishedAt": "2026-03-30T23:17:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "A 2x2 grid of 4 random famous cities turned into looping kinetic sculptures on museum plinths\n[Top Left: random real European city as a vertical kinetic skyline with moving trams and tiny lights]\n[Top Right: random real Asian megacity as a multi-layered kinetic light grid with sliding blocks]\n[Bottom Left: random real coastal city with rolling wave mechanisms and rotating landmarks]\n[Bottom Right: random real desert or inland city with lifting arms and spinning towers]\nPhotoreal miniature kinetic sculptures made of brass, glass, and polished wood, subtle motion implied by blurred rods and tracks, illuminated display plinths in a gallery setting, soft museum lighting, gentle reflections on the floor, 60mm perspective for elegant compression, shallow depth of field isolating each sculpture, warm white seamless backdrop, crisp focus on intricate mechanics.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774939640406_b4ds87_HEdzuqEacAAnZX-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774939640406_b4ds87_HEdzuqEacAAnZX--300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个 2x2 的网格，展示了 4 座随机的著名城市，它们被转化为博物馆底座上的循环动态雕塑\n[左上：随机的真实欧洲城市，呈现为带有移动电车和微小灯光的垂直动态天际线]\n[右上：随机的真实亚洲大都市，呈现为带有滑动块的多层动态光影网格]\n[左下：随机的真实沿海城市，带有翻滚的波浪机制和旋转的地标]\n[右下：随机的真实沙漠或内陆城市，带有升降臂和旋转塔楼]\n由黄铜、玻璃和抛光木材制成的写实微型动态雕塑，通过模糊的连杆和轨道暗示细微的运动，画廊场景中带有照明的展示底座，柔和的博物馆灯光，地板上的轻微倒影，60mm 焦距带来的优雅压缩感，浅景深以突出每个雕塑，暖白色无缝背景，对复杂的机械结构进行清晰对焦。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "城市作为动态雕塑网格 一个用于生成 2x2 网格的提示词，将四座不同的著名城市转化为独特的循环动态雕塑。它指定了材质（黄铜、玻璃、抛光木材）、每种城市类型的机制（垂直天际线、光影网格、翻滚波浪、旋转塔楼）以及博物馆画廊的场景和灯光。 a 2x2 grid of 4 random famous cities turned into looping kinetic sculptures on museum plinths\n[top left: random real european city as a vertical kinetic skyline with moving trams and tiny lights]\n[top right: random real asian megacity as a multi-layered kinetic light grid with sliding blocks]\n[bottom left: random real coastal city with rolling wave mechanisms and rotating landmarks]\n[bottom right: random real desert or inland city with lifting arms and spinning towers]\nphotoreal miniature kinetic sculptures made of brass, glass, and polished wood, subtle motion implied by blurred rods and tracks, illuminated display plinths in a gallery setting, soft museum lighting, gentle reflections on the floor, 60mm perspective for elegant compression, shallow depth of field isolating each sculpture, warm white seamless backdrop, crisp focus on intricate mechanics. 一个 2x2 的网格，展示了 4 座随机的著名城市，它们被转化为博物馆底座上的循环动态雕塑\n[左上：随机的真实欧洲城市，呈现为带有移动电车和微小灯光的垂直动态天际线]\n[右上：随机的真实亚洲大都市，呈现为带有滑动块的多层动态光影网格]\n[左下：随机的真实沿海城市，带有翻滚的波浪机制和旋转的地标]\n[右下：随机的真实沙漠或内陆城市，带有升降臂和旋转塔楼]\n由黄铜、玻璃和抛光木材制成的写实微型动态雕塑，通过模糊的连杆和轨道暗示细微的运动，画廊场景中带有照明的展示底座，柔和的博物馆灯光，地板上的轻微倒影，60mm 焦距带来的优雅压缩感，浅景深以突出每个雕塑，暖白色无缝背景，对复杂的机械结构进行清晰对焦。 gadgetify 13031",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13013,
+      "title": "现代生活方式镜面自拍",
+      "description": "为 Nano Banana Pro 提供的详细提示词，旨在生成一张超写实、具有时尚摄影美感的镜面自拍。主体（严格保留参考图中的身份）随意地坐在高层公寓的抛光混凝土地面上，身穿亮面黑色抹胸和牛仔裤。",
+      "sourceLink": "https://x.com/sumiturkude007/status/2038738791129587761",
+      "sourcePublishedAt": "2026-03-30T22:03:00.000Z",
+      "author": {
+        "name": "sammy",
+        "link": "https://x.com/sumiturkude007"
+      },
+      "content": "Ultra-realistic 4:5 modern lifestyle mirror selfie with a fashion photography aesthetic. Use the reference image for the subject’s identity, face, and hair — preserve exact facial features, proportions, and likeness.\n\nThe subject is sitting casually on the floor, taking a mirror selfie. Her right arm is extended behind her with her palm flat on the floor for support, while her left hand holds a smartphone near her face. Her right leg is bent inward on the floor, and her left leg is raised with the foot flat on the ground.\n\nShe is wearing a glossy black strapless tube top made of a reflective material (latex or faux leather), paired with medium-wash blue denim jeans in a relaxed fit. She also wears black pointed-toe stiletto ankle boots.\n\nThe setting is an empty modern high-rise apartment or office space. The floor is smooth, light grey polished concrete with subtle reflections, and the walls are plain white. A large floor mirror is visible along the right edge of the frame.\n\nIn the background, three tall rectangular windows with metallic frames reveal a bright daytime cityscape with glass skyscrapers and a clear blue sky.\n\nLighting is bright natural daylight streaming in from the windows, creating soft backlighting, gentle shadows on the floor, and even illumination on the subject.\n\nHigh detail, sharp focus, realistic textures, clean modern aesthetic, shallow depth of field.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774939631241_44o9xw_HErKMWCb0AEHH47.jpg",
+        "https://cms-assets.youmind.com/media/1774939631180_qqhkid_HErKLMmbUAAyGkW.jpg",
+        "https://cms-assets.youmind.com/media/1774939631218_o6s0fp_HErKMW6bcAA9jL5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774939631241_44o9xw_HErKMWCb0AEHH47-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774939631180_qqhkid_HErKLMmbUAAyGkW-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1774939631218_o6s0fp_HErKMW6bcAA9jL5-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实 4:5 现代生活方式镜面自拍，具有时尚摄影美感。请使用参考图像作为主体的身份、面部和发型依据——需精确保留面部特征、比例和相似度。\n\n主体正随意地坐在地板上拍摄镜面自拍。她的右臂向后伸展，手掌平放在地板上作为支撑，左手拿着智能手机靠近脸部。她的右腿向内弯曲放在地板上，左腿抬起，脚掌平放于地面。\n\n她身穿一件由反光材质（乳胶或人造皮革）制成的亮面黑色抹胸，搭配宽松版型的中度水洗蓝色牛仔裤。她还穿着黑色尖头细高跟踝靴。\n\n场景设定为空旷的现代高层公寓或办公空间。地板为光滑的浅灰色抛光混凝土，带有微妙的反射，墙壁为纯白色。画面右侧边缘可见一面大型落地镜。\n\n背景中，三扇带有金属边框的高大长方形窗户展示了明亮的日间城市景观，可以看到玻璃摩天大楼和湛蓝的天空。\n\n光线为从窗户射入的明亮自然日光，营造出柔和的逆光、地板上的轻柔阴影以及主体上均匀的照明。\n\n高细节、清晰对焦、写实纹理、简洁现代美学、浅景深。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "现代生活方式镜面自拍 为 nano banana pro 提供的详细提示词，旨在生成一张超写实、具有时尚摄影美感的镜面自拍。主体（严格保留参考图中的身份）随意地坐在高层公寓的抛光混凝土地面上，身穿亮面黑色抹胸和牛仔裤。 ultra-realistic 4:5 modern lifestyle mirror selfie with a fashion photography aesthetic. use the reference image for the subject’s identity, face, and hair — preserve exact facial features, proportions, and likeness.\n\nthe subject is sitting casually on the floor, taking a mirror selfie. her right arm is extended behind her with her palm flat on the floor for support, while her left hand holds a smartphone near her face. her right leg is bent inward on the floor, and her left leg is raised with the foot flat on the ground.\n\nshe is wearing a glossy black strapless tube top made of a reflective material (latex or faux leather), paired with medium-wash blue denim jeans in a relaxed fit. she also wears black pointed-toe stiletto ankle boots.\n\nthe setting is an empty modern high-rise apartment or office space. the floor is smooth, light grey polished concrete with subtle reflections, and the walls are plain white. a large floor mirror is visible along the right edge of the frame.\n\nin the background, three tall rectangular windows with metallic frames reveal a bright daytime cityscape with glass skyscrapers and a clear blue sky.\n\nlighting is bright natural daylight streaming in from the windows, creating soft backlighting, gentle shadows on the floor, and even illumination on the subject.\n\nhigh detail, sharp focus, realistic textures, clean modern aesthetic, shallow depth of field. 超写实 4:5 现代生活方式镜面自拍，具有时尚摄影美感。请使用参考图像作为主体的身份、面部和发型依据——需精确保留面部特征、比例和相似度。\n\n主体正随意地坐在地板上拍摄镜面自拍。她的右臂向后伸展，手掌平放在地板上作为支撑，左手拿着智能手机靠近脸部。她的右腿向内弯曲放在地板上，左腿抬起，脚掌平放于地面。\n\n她身穿一件由反光材质（乳胶或人造皮革）制成的亮面黑色抹胸，搭配宽松版型的中度水洗蓝色牛仔裤。她还穿着黑色尖头细高跟踝靴。\n\n场景设定为空旷的现代高层公寓或办公空间。地板为光滑的浅灰色抛光混凝土，带有微妙的反射，墙壁为纯白色。画面右侧边缘可见一面大型落地镜。\n\n背景中，三扇带有金属边框的高大长方形窗户展示了明亮的日间城市景观，可以看到玻璃摩天大楼和湛蓝的天空。\n\n光线为从窗户射入的明亮自然日光，营造出柔和的逆光、地板上的轻柔阴影以及主体上均匀的照明。\n\n高细节、清晰对焦、写实纹理、简洁现代美学、浅景深。 sammy 13013",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13018,
+      "title": "Y2K 风格 Britney Spears 仿妆造型，身着全息紧身胸衣",
+      "description": "一份用于 Nano Banana Pro 的详细 JSON 提示词，旨在生成一张超写实图像：一位外貌酷似 Britney Spears 的年轻女性，身着 Y2K 风格的全息紧身胸衣和牛仔短裙，在充满活力的霓虹灯卧室背景中摆拍。",
+      "sourceLink": "https://x.com/Artist04048661/status/2038727448796463481",
+      "sourcePublishedAt": "2026-03-30T21:17:56.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{ \"image_generation_prompt\": { \"subject\": { \"description\": \"Young woman with a strong resemblance to {argument name=\"celebrity lookalike\" default=\"Britney Spears\"}.\", \"hair\": \"Two high space buns, loose face-framing bangs, decorated with colorful clips.\", \"face\": \"Bright smile, direct gaze, dewy makeup, smooth skin.\", \"body\": \"Slender physique, smooth tanned skin.\" }, \"attire\": { \"clothing\": \"{argument name=\"clothing description\" default=\"Holographic white corset, denim mini skirt, glitter thigh-high socks, chunky platform sneakers.\"}\", \"style\": \"Y2K nostalgic pop aesthetic.\" }, \"styling_and_accessories\": { \"jewelry\": [ \"Pearl choker\", \"Pearl stud earrings\", \"Butterfly hair clips\", \"Silver cell phone\", \"Holographic purse\" ] }, \"environment\": { \"setting\": \"Bedroom setting on blue satin sheets.\", \"background\": \"Wall posters, scattered CDs, pink neon light tube.\", \"water\": \"None\" }, \"pose\": { \"posture\": \"Sitting cross-legged, leaning back.\", \"arms\": \"One arm supporting weight, other hand holding phone to ear.\", \"angle\": \"High-angle shot.\" }, \"lighting_and_mood\": { \"lighting\": \"Bright flash-style studio lighting, neon accents.\", \"mood\": \"Vibrant, nostalgic, energetic.\", \"colors\": \"Cyan, neon pink, holographic white.\" }, \"camera_and_technical\": { \"style\": \"Ultra Photorealistic, RAW photo.\", \"lens\": \"35mm\", \"aperture\": \"f/5.6\", \"quality_tags\": [ \"8k resolution\", \"highly detailed\", \"volumetric lighting\", \"ray tracing reflections\", \"hyper-realistic texture\", \"Hasselblad photography\" ] } } }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774939634710_22qt3u_HEsDpahbUAAeGc8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774939634710_22qt3u_HEsDpahbUAAeGc8-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{ \"image_generation_prompt\": { \"subject\": { \"description\": \"一位外貌酷似 {argument name=\"celebrity lookalike\" default=\"Britney Spears\"} 的年轻女性。\", \"hair\": \"两个高耸的哪吒头，脸颊两侧留有碎发，装饰着彩色发夹。\", \"face\": \"灿烂的笑容，直视镜头，水光感妆容，皮肤细腻。\", \"body\": \"苗条的身材，光滑的古铜色肌肤。\" }, \"attire\": { \"clothing\": \"{argument name=\"clothing description\" default=\"全息白色紧身胸衣，牛仔短裙，亮片过膝袜，厚底运动鞋。\"}\", \"style\": \"Y2K 复古流行美学。\" }, \"styling_and_accessories\": { \"jewelry\": [ \"珍珠颈圈\", \"珍珠耳钉\", \"蝴蝶发夹\", \"银色手机\", \"全息手提包\" ] }, \"environment\": { \"setting\": \"蓝色缎面床单上的卧室场景。\", \"background\": \"墙上海报，散落的 CD，粉色霓虹灯管。\", \"water\": \"无\" }, \"pose\": { \"posture\": \"盘腿坐姿，向后倚靠。\", \"arms\": \"一只手臂支撑身体，另一只手拿着手机贴在耳边。\", \"angle\": \"高角度拍摄。\" }, \"lighting_and_mood\": { \"lighting\": \"明亮的闪光灯风格摄影棚布光，霓虹灯点缀。\", \"mood\": \"充满活力，怀旧，动感。\", \"colors\": \"青色，霓虹粉，全息白。\" }, \"camera_and_technical\": { \"style\": \"超写实，RAW 原片。\", \"lens\": \"35mm\", \"aperture\": \"f/5.6\", \"quality_tags\": [ \"8k 分辨率\", \"高度细节\", \"体积光\", \"光线追踪反射\", \"超逼真质感\", \"哈苏摄影\" ] } } }",
+      "sourcePlatform": "twitter",
+      "searchIndex": "y2k 风格 britney spears 仿妆造型，身着全息紧身胸衣 一份用于 nano banana pro 的详细 json 提示词，旨在生成一张超写实图像：一位外貌酷似 britney spears 的年轻女性，身着 y2k 风格的全息紧身胸衣和牛仔短裙，在充满活力的霓虹灯卧室背景中摆拍。 { \"image_generation_prompt\": { \"subject\": { \"description\": \"young woman with a strong resemblance to {argument name=\"celebrity lookalike\" default=\"britney spears\"}.\", \"hair\": \"two high space buns, loose face-framing bangs, decorated with colorful clips.\", \"face\": \"bright smile, direct gaze, dewy makeup, smooth skin.\", \"body\": \"slender physique, smooth tanned skin.\" }, \"attire\": { \"clothing\": \"{argument name=\"clothing description\" default=\"holographic white corset, denim mini skirt, glitter thigh-high socks, chunky platform sneakers.\"}\", \"style\": \"y2k nostalgic pop aesthetic.\" }, \"styling_and_accessories\": { \"jewelry\": [ \"pearl choker\", \"pearl stud earrings\", \"butterfly hair clips\", \"silver cell phone\", \"holographic purse\" ] }, \"environment\": { \"setting\": \"bedroom setting on blue satin sheets.\", \"background\": \"wall posters, scattered cds, pink neon light tube.\", \"water\": \"none\" }, \"pose\": { \"posture\": \"sitting cross-legged, leaning back.\", \"arms\": \"one arm supporting weight, other hand holding phone to ear.\", \"angle\": \"high-angle shot.\" }, \"lighting_and_mood\": { \"lighting\": \"bright flash-style studio lighting, neon accents.\", \"mood\": \"vibrant, nostalgic, energetic.\", \"colors\": \"cyan, neon pink, holographic white.\" }, \"camera_and_technical\": { \"style\": \"ultra photorealistic, raw photo.\", \"lens\": \"35mm\", \"aperture\": \"f/5.6\", \"quality_tags\": [ \"8k resolution\", \"highly detailed\", \"volumetric lighting\", \"ray tracing reflections\", \"hyper-realistic texture\", \"hasselblad photography\" ] } } } { \"image_generation_prompt\": { \"subject\": { \"description\": \"一位外貌酷似 {argument name=\"celebrity lookalike\" default=\"britney spears\"} 的年轻女性。\", \"hair\": \"两个高耸的哪吒头，脸颊两侧留有碎发，装饰着彩色发夹。\", \"face\": \"灿烂的笑容，直视镜头，水光感妆容，皮肤细腻。\", \"body\": \"苗条的身材，光滑的古铜色肌肤。\" }, \"attire\": { \"clothing\": \"{argument name=\"clothing description\" default=\"全息白色紧身胸衣，牛仔短裙，亮片过膝袜，厚底运动鞋。\"}\", \"style\": \"y2k 复古流行美学。\" }, \"styling_and_accessories\": { \"jewelry\": [ \"珍珠颈圈\", \"珍珠耳钉\", \"蝴蝶发夹\", \"银色手机\", \"全息手提包\" ] }, \"environment\": { \"setting\": \"蓝色缎面床单上的卧室场景。\", \"background\": \"墙上海报，散落的 cd，粉色霓虹灯管。\", \"water\": \"无\" }, \"pose\": { \"posture\": \"盘腿坐姿，向后倚靠。\", \"arms\": \"一只手臂支撑身体，另一只手拿着手机贴在耳边。\", \"angle\": \"高角度拍摄。\" }, \"lighting_and_mood\": { \"lighting\": \"明亮的闪光灯风格摄影棚布光，霓虹灯点缀。\", \"mood\": \"充满活力，怀旧，动感。\", \"colors\": \"青色，霓虹粉，全息白。\" }, \"camera_and_technical\": { \"style\": \"超写实，raw 原片。\", \"lens\": \"35mm\", \"aperture\": \"f/5.6\", \"quality_tags\": [ \"8k 分辨率\", \"高度细节\", \"体积光\", \"光线追踪反射\", \"超逼真质感\", \"哈苏摄影\" ] } } } lexiprompt 13018",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13023,
+      "title": "停在车内的自然阳光自拍",
+      "description": "这是一个为 Nano Banana Pro 设计的 JSON 提示词，旨在生成具有“iPhone 17 Pro 前置摄像头”美感的写实自拍。画面主体为一名身穿紧身酒红色背心的金发女性，坐在停放车辆的驾驶座上，背景为午后阳光。",
+      "sourceLink": "https://x.com/bananababydoll/status/2038707837132792271",
+      "sourcePublishedAt": "2026-03-30T20:00:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro front camera\",\n    \"lens\": \"35mm selfie crop\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"natural sunlight selfie, slight overexposure, real skin\"\n  },\n  \"scene\": {\n    \"location\": \"driver seat parked car\",\n    \"time\": \"late afternoon\",\n    \"atmosphere\": \"sunlight hitting through windshield\"\n  },\n  \"lighting\": {\n    \"primary\": \"direct sunlight\",\n    \"effect\": \"strong highlights on chest and cheekbones, natural shadows\"\n  },\n  \"subject\": {\n    \"appearance\": \"tall blonde, hourglass body, full chest, tight waist\",\n    \"pose\": {\n      \"position\": \"leaning slightly toward camera\",\n      \"body\": \"seatbelt slightly pressing into outfit\",\n      \"head\": \"tilted\"\n    },\n    \"expression\": {\n      \"eyes\": \"half squint from sun\",\n      \"mouth\": \"soft relaxed\",\n      \"energy\": \"unplanned but confident\"\n    },\n    \"hair\": {\n      \"style\": \"sunlit blonde, slightly messy strands\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"tight burgundy tank\",\n        \"fit\": \"stretchy, contouring naturally\"\n      },\n      \"bottom\": {\n        \"type\": \"shorts (barely visible)\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"handheld selfie slight tilt\",\n    \"distance\": \"very close\",\n    \"imperfection\": \"sun flare + exposure blowout\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774939636495_x519nw_HDnVTahbEAQAhtr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774939636495_x519nw_HDnVTahbEAQAhtr-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{ \"meta\": { \"camera\": \"iPhone 17 Pro 前置摄像头\", \"lens\": \"35mm 自拍裁切\", \"aspect_ratio\": \"4:5\", \"style\": \"自然阳光自拍，轻微过曝，真实皮肤质感\" }, \"scene\": { \"location\": \"停放车辆的驾驶座\", \"time\": \"午后\", \"atmosphere\": \"阳光透过挡风玻璃照射进来\" }, \"lighting\": { \"primary\": \"直射阳光\", \"effect\": \"胸部和颧骨处有强高光，自然阴影\" }, \"subject\": { \"appearance\": \"高挑金发，沙漏型身材，丰满胸部，紧致腰部\", \"pose\": { \"position\": \"身体微微前倾靠近镜头\", \"body\": \"安全带轻微勒出衣服轮廓\", \"head\": \"头部微倾\" }, \"expression\": { \"eyes\": \"因阳光照射微微眯眼\", \"mouth\": \"柔和放松\", \"energy\": \"随性而自信\" }, \"hair\": { \"style\": \"阳光下的金发，发丝略显凌乱\" }, \"outfit\": { \"top\": { \"type\": \"紧身酒红色背心\", \"fit\": \"弹力贴身，自然勾勒曲线\" }, \"bottom\": { \"type\": \"短裤（几乎不可见）\" } } }, \"camera\": { \"angle\": \"手持自拍，轻微倾斜\", \"distance\": \"极近距离\", \"imperfection\": \"镜头光晕 + 曝光过亮\" } }",
+      "sourcePlatform": "twitter",
+      "searchIndex": "停在车内的自然阳光自拍 这是一个为 nano banana pro 设计的 json 提示词，旨在生成具有“iphone 17 pro 前置摄像头”美感的写实自拍。画面主体为一名身穿紧身酒红色背心的金发女性，坐在停放车辆的驾驶座上，背景为午后阳光。 {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro front camera\",\n    \"lens\": \"35mm selfie crop\",\n    \"aspect_ratio\": \"4:5\",\n    \"style\": \"natural sunlight selfie, slight overexposure, real skin\"\n  },\n  \"scene\": {\n    \"location\": \"driver seat parked car\",\n    \"time\": \"late afternoon\",\n    \"atmosphere\": \"sunlight hitting through windshield\"\n  },\n  \"lighting\": {\n    \"primary\": \"direct sunlight\",\n    \"effect\": \"strong highlights on chest and cheekbones, natural shadows\"\n  },\n  \"subject\": {\n    \"appearance\": \"tall blonde, hourglass body, full chest, tight waist\",\n    \"pose\": {\n      \"position\": \"leaning slightly toward camera\",\n      \"body\": \"seatbelt slightly pressing into outfit\",\n      \"head\": \"tilted\"\n    },\n    \"expression\": {\n      \"eyes\": \"half squint from sun\",\n      \"mouth\": \"soft relaxed\",\n      \"energy\": \"unplanned but confident\"\n    },\n    \"hair\": {\n      \"style\": \"sunlit blonde, slightly messy strands\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"tight burgundy tank\",\n        \"fit\": \"stretchy, contouring naturally\"\n      },\n      \"bottom\": {\n        \"type\": \"shorts (barely visible)\"\n      }\n    }\n  },\n  \"camera\": {\n    \"angle\": \"handheld selfie slight tilt\",\n    \"distance\": \"very close\",\n    \"imperfection\": \"sun flare + exposure blowout\"\n  }\n} { \"meta\": { \"camera\": \"iphone 17 pro 前置摄像头\", \"lens\": \"35mm 自拍裁切\", \"aspect_ratio\": \"4:5\", \"style\": \"自然阳光自拍，轻微过曝，真实皮肤质感\" }, \"scene\": { \"location\": \"停放车辆的驾驶座\", \"time\": \"午后\", \"atmosphere\": \"阳光透过挡风玻璃照射进来\" }, \"lighting\": { \"primary\": \"直射阳光\", \"effect\": \"胸部和颧骨处有强高光，自然阴影\" }, \"subject\": { \"appearance\": \"高挑金发，沙漏型身材，丰满胸部，紧致腰部\", \"pose\": { \"position\": \"身体微微前倾靠近镜头\", \"body\": \"安全带轻微勒出衣服轮廓\", \"head\": \"头部微倾\" }, \"expression\": { \"eyes\": \"因阳光照射微微眯眼\", \"mouth\": \"柔和放松\", \"energy\": \"随性而自信\" }, \"hair\": { \"style\": \"阳光下的金发，发丝略显凌乱\" }, \"outfit\": { \"top\": { \"type\": \"紧身酒红色背心\", \"fit\": \"弹力贴身，自然勾勒曲线\" }, \"bottom\": { \"type\": \"短裤（几乎不可见）\" } } }, \"camera\": { \"angle\": \"手持自拍，轻微倾斜\", \"distance\": \"极近距离\", \"imperfection\": \"镜头光晕 + 曝光过亮\" } } babydoll 13023",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13006,
+      "title": "桥上时尚生活方式美学照片",
+      "description": "为 Nano Banana 2 提供的详细提示词，旨在创作一张超写实、具有 Instagram 美学风格的生活方式照片：一位年轻女性（严格保留参考图像中的身份）站在现代白色桥梁上，正值黄金时刻，身穿柔软的粉色缎面连衣裙和宽松的白色衬衫。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2038704361577316659",
+      "sourcePublishedAt": "2026-03-30T19:46:11.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "A trendy aesthetic lifestyle photo of a young woman standing outdoors on a modern white bridge with elegant architectural details, use reference image face and preserve identity strictly, do not change facial features, proportions, skin tone, or expression, maintain exact likeness.\nOutfit: soft satin pink dress with a silky texture, slightly reflective fabric, elegant and fitted style, paired with a loose white shirt falling off the shoulders.\nPose: relaxed and confident pose, leaning slightly against the railing, natural body posture, soft expression.\nEnvironment: clean white bridge with decorative railings, soft evening sky, warm ambient lighting, subtle city buildings and greenery in the background, string lights above creating a cozy aesthetic vibe.\nLighting: soft golden hour lighting mixed with cool evening tones, smooth skin highlights, natural shadows, cinematic color grading.\nCamera: slightly angled eye-level shot, 50mm lens, shallow depth of field, sharp focus on subject, background softly blurred (bokeh).\nStyle: ultra realistic, Instagram aesthetic, soft luxury vibe, clean composition, high-end lifestyle photography.\nQuality: 8k, HDR, photorealistic, high detail, natural skin texture, sharp focus.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774939628075_p53zar_HEruzZUaYAAgnDm.jpg",
+        "https://cms-assets.youmind.com/media/1774939628061_x3x7ut_HErux2pbgAAUIM4.jpg",
+        "https://cms-assets.youmind.com/media/1774939628064_gj6co8_HEruxFdbEAAMrcK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774939628075_p53zar_HEruzZUaYAAgnDm-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774939628061_x3x7ut_HErux2pbgAAUIM4-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774939628064_gj6co8_HEruxFdbEAAMrcK-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张时尚的生活方式美学照片，一位年轻女性站在户外现代白色桥梁上，背景具有优雅的建筑细节。请使用参考图像的面部并严格保留身份，不得更改面部特征、比例、肤色或表情，保持完全一致。\n服装：柔软的粉色缎面连衣裙，具有丝滑质感和轻微的反光面料，风格优雅合身，搭配一件从肩部滑落的宽松白色衬衫。\n姿势：放松且自信的姿势，身体微微靠在栏杆上，姿态自然，表情柔和。\n环境：干净的白色桥梁，带有装饰性栏杆，柔和的傍晚天空，温暖的环境光，背景中有隐约的城市建筑和绿植，上方悬挂的串灯营造出舒适的美学氛围。\n光影：柔和的黄金时刻光线与清冷的傍晚色调交织，平滑的皮肤高光，自然的阴影，电影级调色。\n相机：略带角度的平视镜头，50mm 镜头，浅景深，焦点清晰对准主体，背景柔和虚化（焦外成像）。\n风格：超写实，Instagram 美学，柔和奢华感，构图简洁，高端生活方式摄影。\n质量：8k，HDR，照片级真实感，高细节，自然的皮肤纹理，焦点清晰。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "桥上时尚生活方式美学照片 为 nano banana 2 提供的详细提示词，旨在创作一张超写实、具有 instagram 美学风格的生活方式照片：一位年轻女性（严格保留参考图像中的身份）站在现代白色桥梁上，正值黄金时刻，身穿柔软的粉色缎面连衣裙和宽松的白色衬衫。 a trendy aesthetic lifestyle photo of a young woman standing outdoors on a modern white bridge with elegant architectural details, use reference image face and preserve identity strictly, do not change facial features, proportions, skin tone, or expression, maintain exact likeness.\noutfit: soft satin pink dress with a silky texture, slightly reflective fabric, elegant and fitted style, paired with a loose white shirt falling off the shoulders.\npose: relaxed and confident pose, leaning slightly against the railing, natural body posture, soft expression.\nenvironment: clean white bridge with decorative railings, soft evening sky, warm ambient lighting, subtle city buildings and greenery in the background, string lights above creating a cozy aesthetic vibe.\nlighting: soft golden hour lighting mixed with cool evening tones, smooth skin highlights, natural shadows, cinematic color grading.\ncamera: slightly angled eye-level shot, 50mm lens, shallow depth of field, sharp focus on subject, background softly blurred (bokeh).\nstyle: ultra realistic, instagram aesthetic, soft luxury vibe, clean composition, high-end lifestyle photography.\nquality: 8k, hdr, photorealistic, high detail, natural skin texture, sharp focus. 一张时尚的生活方式美学照片，一位年轻女性站在户外现代白色桥梁上，背景具有优雅的建筑细节。请使用参考图像的面部并严格保留身份，不得更改面部特征、比例、肤色或表情，保持完全一致。\n服装：柔软的粉色缎面连衣裙，具有丝滑质感和轻微的反光面料，风格优雅合身，搭配一件从肩部滑落的宽松白色衬衫。\n姿势：放松且自信的姿势，身体微微靠在栏杆上，姿态自然，表情柔和。\n环境：干净的白色桥梁，带有装饰性栏杆，柔和的傍晚天空，温暖的环境光，背景中有隐约的城市建筑和绿植，上方悬挂的串灯营造出舒适的美学氛围。\n光影：柔和的黄金时刻光线与清冷的傍晚色调交织，平滑的皮肤高光，自然的阴影，电影级调色。\n相机：略带角度的平视镜头，50mm 镜头，浅景深，焦点清晰对准主体，背景柔和虚化（焦外成像）。\n风格：超写实，instagram 美学，柔和奢华感，构图简洁，高端生活方式摄影。\n质量：8k，hdr，照片级真实感，高细节，自然的皮肤纹理，焦点清晰。 glena jenner 13006",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 17,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

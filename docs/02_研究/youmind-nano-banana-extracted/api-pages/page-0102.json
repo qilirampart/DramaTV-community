@@ -1,0 +1,497 @@
+{
+  "prompts": [
+    {
+      "id": 11408,
+      "title": "高速电影级奢华冷饮摄影提示（可乐飞溅）",
+      "description": "一个详细的 JSON 提示，用于生成一张超逼真的、高速电影级的豪华闪亮可乐饮料照片，重点突出可乐飞溅、悬浮气泡和冰块等动态动作，使用 Nano Banana Pro。",
+      "sourceLink": "https://x.com/j_smeaton99/status/2029215032043815290",
+      "sourcePublishedAt": "2026-03-04T15:18:59.000Z",
+      "author": {
+        "name": "Jack",
+        "link": "https://x.com/j_smeaton99"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"scene_type\": \"high-speed cinematic luxury cold drink photography\",\n\n    \"product\": {\n      \"type\": \"ultra-premium sparkling cola cold drink\",\n      \"brand_name\": \"no visible branding\",\n      \"container\": \"crystal-clear glass filled with deep caramel-colored cola\",\n      \"ice\": \"large transparent ice cubes with realistic frost and condensation\",\n      \"garnish\": [\n        \"fresh lime slice on rim\",\n        \"tiny mint sprig for freshness\"\n      ]\n    },\n\n    \"composition\": {\n      \"action\": \"dramatic splash of cola pouring into the glass captured mid-air\",\n      \"surrounding_elements\": [\n        \"sparkling carbonation bubbles suspended in motion\",\n        \"ice cubes colliding dynamically with liquid\",\n        \"tiny droplets exploding outward\",\n        \"lime juice mist particles frozen mid-air\"\n      ],\n      \"placement\": \"hero glass centered on glossy black marble surface with subtle reflection\"\n    },\n\n    \"lighting\": {\n      \"style\": \"luxury beverage studio lighting\",\n      \"effects\": [\n        \"bright rim lighting outlining the glass silhouette\",\n        \"warm backlight illuminating cola transparency\",\n        \"side lighting enhancing ice cube texture\",\n        \"soft highlights on condensation droplets\"\n      ]\n    },\n\n    \"color_palette\": {\n      \"background\": \"deep charcoal fading into warm amber bokeh\",\n      \"accents\": \"rich cola brown, crystal ice white, vibrant lime green, glossy black reflections\"\n    },\n\n    \"technical_specs\": {\n      \"camera\": \"macro lens with slight low angle for premium dominance\",\n      \"shutter\": \"ultra-fast freeze-motion capture\",\n      \"depth_of_field\": \"shallow focus on splash and glass rim\",\n      \"quality\": \"8K resolution, ultra-photorealistic beverage detailing\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692196581_e82zk4_HCk4T1DbUAA5_-g.jpg",
+        "https://cms-assets.youmind.com/media/1772692197198_34s8bl_HCk4T1FawAMzKSR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692196581_e82zk4_HCk4T1DbUAA5_-g-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772692197198_34s8bl_HCk4T1FawAMzKSR-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"高速电影级奢华冷饮摄影\",\n\n    \"product\": {\n      \"type\": \"超高端气泡可乐冷饮\",\n      \"brand_name\": \"无可见品牌标识\",\n      \"container\": \"装满深焦糖色可乐的晶莹剔透玻璃杯\",\n      \"ice\": \"带有逼真霜冻和冷凝水的大块透明冰块\",\n      \"garnish\": [\n        \"杯沿上的新鲜青柠片\",\n        \"用于增添清新感的迷你薄荷枝\"\n      ]\n    },\n\n    \"composition\": {\n      \"action\": \"可乐倾倒入杯中，在半空中被捕捉到的戏剧性飞溅\",\n      \"surrounding_elements\": [\n        \"悬浮在运动中的闪亮碳酸气泡\",\n        \"冰块与液体动态碰撞\",\n        \"向外爆裂的微小水滴\",\n        \"凝固在半空中的青柠汁雾状颗粒\"\n      ],\n      \"placement\": \"主角玻璃杯置于光泽黑色大理石表面中央，带有微妙的反射\"\n    },\n\n    \"lighting\": {\n      \"style\": \"奢华饮品摄影棚灯光\",\n      \"effects\": [\n        \"勾勒玻璃杯轮廓的明亮边缘光\",\n        \"照亮可乐透明度的暖色背光\",\n        \"增强冰块纹理的侧光\",\n        \"冷凝水滴上的柔和高光\"\n      ]\n    },\n\n    \"color_palette\": {\n      \"background\": \"深木炭色渐变为暖琥珀色散景\",\n      \"accents\": \"浓郁可乐棕、水晶冰白、鲜艳青柠绿、光泽黑色反射\"\n    },\n\n    \"technical_specs\": {\n      \"camera\": \"微距镜头，略微低角度以突显高端感\",\n      \"shutter\": \"超高速凝固运动捕捉\",\n      \"depth_of_field\": \"对飞溅和杯沿进行浅景深对焦\",\n      \"quality\": \"8K 分辨率，超逼真的饮品细节\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高速电影级奢华冷饮摄影提示（可乐飞溅） 一个详细的 json 提示，用于生成一张超逼真的、高速电影级的豪华闪亮可乐饮料照片，重点突出可乐飞溅、悬浮气泡和冰块等动态动作，使用 nano banana pro。 {\n  \"master_prompt\": {\n    \"scene_type\": \"high-speed cinematic luxury cold drink photography\",\n\n    \"product\": {\n      \"type\": \"ultra-premium sparkling cola cold drink\",\n      \"brand_name\": \"no visible branding\",\n      \"container\": \"crystal-clear glass filled with deep caramel-colored cola\",\n      \"ice\": \"large transparent ice cubes with realistic frost and condensation\",\n      \"garnish\": [\n        \"fresh lime slice on rim\",\n        \"tiny mint sprig for freshness\"\n      ]\n    },\n\n    \"composition\": {\n      \"action\": \"dramatic splash of cola pouring into the glass captured mid-air\",\n      \"surrounding_elements\": [\n        \"sparkling carbonation bubbles suspended in motion\",\n        \"ice cubes colliding dynamically with liquid\",\n        \"tiny droplets exploding outward\",\n        \"lime juice mist particles frozen mid-air\"\n      ],\n      \"placement\": \"hero glass centered on glossy black marble surface with subtle reflection\"\n    },\n\n    \"lighting\": {\n      \"style\": \"luxury beverage studio lighting\",\n      \"effects\": [\n        \"bright rim lighting outlining the glass silhouette\",\n        \"warm backlight illuminating cola transparency\",\n        \"side lighting enhancing ice cube texture\",\n        \"soft highlights on condensation droplets\"\n      ]\n    },\n\n    \"color_palette\": {\n      \"background\": \"deep charcoal fading into warm amber bokeh\",\n      \"accents\": \"rich cola brown, crystal ice white, vibrant lime green, glossy black reflections\"\n    },\n\n    \"technical_specs\": {\n      \"camera\": \"macro lens with slight low angle for premium dominance\",\n      \"shutter\": \"ultra-fast freeze-motion capture\",\n      \"depth_of_field\": \"shallow focus on splash and glass rim\",\n      \"quality\": \"8k resolution, ultra-photorealistic beverage detailing\"\n    }\n  }\n} ```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"高速电影级奢华冷饮摄影\",\n\n    \"product\": {\n      \"type\": \"超高端气泡可乐冷饮\",\n      \"brand_name\": \"无可见品牌标识\",\n      \"container\": \"装满深焦糖色可乐的晶莹剔透玻璃杯\",\n      \"ice\": \"带有逼真霜冻和冷凝水的大块透明冰块\",\n      \"garnish\": [\n        \"杯沿上的新鲜青柠片\",\n        \"用于增添清新感的迷你薄荷枝\"\n      ]\n    },\n\n    \"composition\": {\n      \"action\": \"可乐倾倒入杯中，在半空中被捕捉到的戏剧性飞溅\",\n      \"surrounding_elements\": [\n        \"悬浮在运动中的闪亮碳酸气泡\",\n        \"冰块与液体动态碰撞\",\n        \"向外爆裂的微小水滴\",\n        \"凝固在半空中的青柠汁雾状颗粒\"\n      ],\n      \"placement\": \"主角玻璃杯置于光泽黑色大理石表面中央，带有微妙的反射\"\n    },\n\n    \"lighting\": {\n      \"style\": \"奢华饮品摄影棚灯光\",\n      \"effects\": [\n        \"勾勒玻璃杯轮廓的明亮边缘光\",\n        \"照亮可乐透明度的暖色背光\",\n        \"增强冰块纹理的侧光\",\n        \"冷凝水滴上的柔和高光\"\n      ]\n    },\n\n    \"color_palette\": {\n      \"background\": \"深木炭色渐变为暖琥珀色散景\",\n      \"accents\": \"浓郁可乐棕、水晶冰白、鲜艳青柠绿、光泽黑色反射\"\n    },\n\n    \"technical_specs\": {\n      \"camera\": \"微距镜头，略微低角度以突显高端感\",\n      \"shutter\": \"超高速凝固运动捕捉\",\n      \"depth_of_field\": \"对飞溅和杯沿进行浅景深对焦\",\n      \"quality\": \"8k 分辨率，超逼真的饮品细节\"\n    }\n  }\n}\n``` jack 11408",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11424,
+      "title": "护照照片生成器提示词 (JSON)",
+      "description": "一个结构化的 JSON 提示，旨在根据上传的图像生成六张相同、超逼真的护照尺寸照片网格，确保严格遵守表情、光线、背景和构图的官方标准。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2029208701010313618",
+      "sourcePublishedAt": "2026-03-04T14:53:49.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "{\n \"description\": \"Ultra-realistic passport-size photo of me (exact face likeness, 99% match, no facial changes).\",\n \"style\": \"Professional studio portrait suitable for official ID or passport use.\",\n \"outfit\": \"as per uploaded pic\",\n \"expression\": \"Neutral closed-lip smile, straight look, both ears visible, shoulders included.\",\n \"lighting\": \"Even balanced front lighting, no harsh shadows, soft studio tone.\",\n \"background\": \"Plain light cream or light blue background, clean anduniform.\",\n \"composition\": \"Centered head and shoulder framing with natural proportions as per passport standards.\",\n \"output\": \"Generate 6 identical passp ort/ticket-size photos (3x2 grid layout vertical) on one sheet, evenly spaced, print-ready, high-resolution studio quality.\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692205674_gdvagt_HCkyjyhaYAEMMkp.jpg",
+        "https://cms-assets.youmind.com/media/1772692205547_gds5f0_HCkyjzrawAErNz7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692205674_gdvagt_HCkyjyhaYAEMMkp-300x201.jpg",
+        "https://cms-assets.youmind.com/media/1772692205547_gds5f0_HCkyjzrawAErNz7-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n \"description\": \"我的超逼真护照尺寸照片（面部相似度 99%，无面部改动）。\",\n \"style\": \"适合官方身份证件或护照使用的专业影棚肖像。\",\n \"outfit\": \"与上传图片一致\",\n \"expression\": \"中性闭唇微笑，直视前方，双耳可见，包含肩膀。\",\n \"lighting\": \"均匀平衡的前置照明，无强烈阴影，柔和影棚色调。\",\n \"background\": \"纯色浅米色或浅蓝色背景，干净统一。\",\n \"composition\": \"居中头部和肩膀构图，符合护照标准的自然比例。\",\n \"output\": \"生成 6 张相同的护照/证件尺寸照片（3x2 网格垂直布局），位于一张纸上，均匀间隔，可打印，高分辨率影棚质量。\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "护照照片生成器提示词 (json) 一个结构化的 json 提示，旨在根据上传的图像生成六张相同、超逼真的护照尺寸照片网格，确保严格遵守表情、光线、背景和构图的官方标准。 {\n \"description\": \"ultra-realistic passport-size photo of me (exact face likeness, 99% match, no facial changes).\",\n \"style\": \"professional studio portrait suitable for official id or passport use.\",\n \"outfit\": \"as per uploaded pic\",\n \"expression\": \"neutral closed-lip smile, straight look, both ears visible, shoulders included.\",\n \"lighting\": \"even balanced front lighting, no harsh shadows, soft studio tone.\",\n \"background\": \"plain light cream or light blue background, clean anduniform.\",\n \"composition\": \"centered head and shoulder framing with natural proportions as per passport standards.\",\n \"output\": \"generate 6 identical passp ort/ticket-size photos (3x2 grid layout vertical) on one sheet, evenly spaced, print-ready, high-resolution studio quality.\"\n} ```json\n{\n \"description\": \"我的超逼真护照尺寸照片（面部相似度 99%，无面部改动）。\",\n \"style\": \"适合官方身份证件或护照使用的专业影棚肖像。\",\n \"outfit\": \"与上传图片一致\",\n \"expression\": \"中性闭唇微笑，直视前方，双耳可见，包含肩膀。\",\n \"lighting\": \"均匀平衡的前置照明，无强烈阴影，柔和影棚色调。\",\n \"background\": \"纯色浅米色或浅蓝色背景，干净统一。\",\n \"composition\": \"居中头部和肩膀构图，符合护照标准的自然比例。\",\n \"output\": \"生成 6 张相同的护照/证件尺寸照片（3x2 网格垂直布局），位于一张纸上，均匀间隔，可打印，高分辨率影棚质量。\"\n}\n``` shreya♡ 11424",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11402,
+      "title": "3D 卡通头像角色网格提示词（皮克斯风格）",
+      "description": "生成一个 3x3 网格的提示，其中包含同一个男性 3D 卡通头像角色，以皮克斯风格渲染，展示九种不同的情绪和表情，并配有彩色渐变背景。",
+      "sourceLink": "https://x.com/Taaruk_/status/2029204838945570982",
+      "sourcePublishedAt": "2026-03-04T14:38:29.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "3D cartoon avatar character showing different emotions arranged in a 3x3 grid, same male character with brown hair, Pixar-style animation, each square showing a different expression (happy, shocked, angry, caring with a puppy, confident, thumbs up, sad, thinking, professional), colorful gradient backgrounds for each panel, soft studio lighting, smooth 3D rendering, expressive eyes and facial expressions, modern emoji-style character design, clean composition, ultra-detailed, vibrant colors, 8K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692194935_7d0yjl_HCkvAMGbwAEsZOR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692194935_7d0yjl_HCkvAMGbwAEsZOR-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个 3x3 网格排列的 3D 卡通头像角色，展示不同情绪，同一个棕色头发的男性角色，皮克斯风格动画，每个方格展示一种不同的表情（开心、震惊、生气、抱着小狗的关爱、自信、竖起大拇指、悲伤、思考、专业），每个面板都有彩色渐变背景，柔和的摄影棚灯光，流畅的 3D 渲染，富有表现力的眼睛和面部表情，现代表情符号风格的角色设计，简洁的构图，超细节，鲜艳的色彩，8K。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 卡通头像角色网格提示词（皮克斯风格） 生成一个 3x3 网格的提示，其中包含同一个男性 3d 卡通头像角色，以皮克斯风格渲染，展示九种不同的情绪和表情，并配有彩色渐变背景。 3d cartoon avatar character showing different emotions arranged in a 3x3 grid, same male character with brown hair, pixar-style animation, each square showing a different expression (happy, shocked, angry, caring with a puppy, confident, thumbs up, sad, thinking, professional), colorful gradient backgrounds for each panel, soft studio lighting, smooth 3d rendering, expressive eyes and facial expressions, modern emoji-style character design, clean composition, ultra-detailed, vibrant colors, 8k. 一个 3x3 网格排列的 3d 卡通头像角色，展示不同情绪，同一个棕色头发的男性角色，皮克斯风格动画，每个方格展示一种不同的表情（开心、震惊、生气、抱着小狗的关爱、自信、竖起大拇指、悲伤、思考、专业），每个面板都有彩色渐变背景，柔和的摄影棚灯光，流畅的 3d 渲染，富有表现力的眼睛和面部表情，现代表情符号风格的角色设计，简洁的构图，超细节，鲜艳的色彩，8k。 taaruk 11402",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11435,
+      "title": "手持全息无人机提示的男子",
+      "description": "生成一张未来感十足的写实图像，描绘一位身穿技术实验服的欧洲男士，手持一个悬浮在半空中的精细无人机透明全息图，强调高对比度照明和 8k 分辨率。",
+      "sourceLink": "https://x.com/auqibhabib/status/2029204400259121512",
+      "sourcePublishedAt": "2026-03-04T14:36:44.000Z",
+      "author": {
+        "name": "auqib",
+        "link": "https://x.com/auqibhabib"
+      },
+      "content": "european man in his mid 20s, wearing a loose fitting white technical protective lab coat made of smooth light fabric, holding a transparent hologram of a drone rendered with sharp lines and detailed mechanical parts hovering in mid air, with focus on his hands and arms and the hovering drone in the middle ground, set against a soft gray neutral background with subtle cool lighting, high contrast illumination emphasizing the subject and the drone, shot with a Canon EOS R5, 85mm f/1.2 lens, futuristic realistic aesthetic with high detail and crisp tones in 8k",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692211359_7r18kb_HCkul7yawAQuNqD.jpg",
+        "https://cms-assets.youmind.com/media/1772692211363_c7szrz_HCkul7AbMAAMxcg.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692211359_7r18kb_HCkul7yawAQuNqD-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772692211363_c7szrz_HCkul7AbMAAMxcg-300x349.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一名 20 多岁的欧洲男子，身穿一件宽松的白色科技防护实验服，材质为光滑的轻质面料，他手中托着一个透明的全息无人机，无人机线条锐利，机械部件细节丰富，悬浮在半空中。画面聚焦在他的手和手臂以及中景悬浮的无人机上，背景是柔和的灰色中性背景，带有微妙的冷色调灯光，高对比度照明突出了主体和无人机。使用 Canon EOS R5 相机和 85mm f/1.2 镜头拍摄，呈现出未来主义的写实美学，细节丰富，色调清晰，8k 画质。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "手持全息无人机提示的男子 生成一张未来感十足的写实图像，描绘一位身穿技术实验服的欧洲男士，手持一个悬浮在半空中的精细无人机透明全息图，强调高对比度照明和 8k 分辨率。 european man in his mid 20s, wearing a loose fitting white technical protective lab coat made of smooth light fabric, holding a transparent hologram of a drone rendered with sharp lines and detailed mechanical parts hovering in mid air, with focus on his hands and arms and the hovering drone in the middle ground, set against a soft gray neutral background with subtle cool lighting, high contrast illumination emphasizing the subject and the drone, shot with a canon eos r5, 85mm f/1.2 lens, futuristic realistic aesthetic with high detail and crisp tones in 8k 一名 20 多岁的欧洲男子，身穿一件宽松的白色科技防护实验服，材质为光滑的轻质面料，他手中托着一个透明的全息无人机，无人机线条锐利，机械部件细节丰富，悬浮在半空中。画面聚焦在他的手和手臂以及中景悬浮的无人机上，背景是柔和的灰色中性背景，带有微妙的冷色调灯光，高对比度照明突出了主体和无人机。使用 canon eos r5 相机和 85mm f/1.2 镜头拍摄，呈现出未来主义的写实美学，细节丰富，色调清晰，8k 画质。 auqib 11435",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11438,
+      "title": "浮空牛排和虾的电影感美食摄影提示",
+      "description": "以下是两个为电影级美食摄影设计的详细、超现实提示，使用 Gemini Nano Banana Pro 模型。第一个提示聚焦于一块漂浮的五分熟牛排，盐晶爆裂；第二个提示聚焦于悬浮在半空中的金黄色烤虾，带有动态飞溅效果。两者都强调高速、微距细节和情绪化照明。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2029202852309287188",
+      "sourcePublishedAt": "2026-03-04T14:30:35.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Ultra-realistic high-speed food photography of medium-rare steak slices suspended mid-air, dramatic black background, juicy pink center with crispy seared crust, coarse sea salt crystals exploding around, roasted baby potatoes floating, garlic cloves and fresh rosemary sprigs in motion, visible steam and seasoning particles, dynamic splash effect, studio strobe lighting, sharp focus, macro lens, extreme detail, glossy texture, dark moody atmosphere, professional commercial food photography, 8K resolution, freeze motion, hyper-detailed, shallow depth of field.\n\n⸻\n\nHigh-speed macro photography of golden grilled shrimp suspended in mid-air, water droplets and seasoning particles frozen in motion, fresh parsley leaves and lemon zest flying around, dramatic dark blue gradient background, glossy surface reflection below, vibrant warm tones, crispy edges with juicy texture, studio flash lighting, ultra-detailed, cinematic food styling, commercial seafood advertisement style, shallow depth of field, 8K ultra-realistic, dynamic splash composition, hyper-sharp focus, gourmet presentation.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692212694_g88zwx_HCktOUkawAgWcHm.jpg",
+        "https://cms-assets.youmind.com/media/1772692212815_09rkkd_HCktOUlboAEfyxp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692212694_g88zwx_HCktOUkawAgWcHm-300x535.jpg",
+        "https://cms-assets.youmind.com/media/1772692212815_09rkkd_HCktOUlboAEfyxp-300x535.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超现实主义高速美食摄影：半熟牛排切片悬浮在空中，戏剧性的黑色背景，多汁的粉红色中心，酥脆的焦黄外皮，粗海盐晶体在周围爆裂，烤小土豆漂浮，蒜瓣和新鲜迷迭香枝条在运动中，可见蒸汽和调味料颗粒，动态飞溅效果，影棚频闪照明，锐利对焦，微距镜头，极致细节，光泽质感，黑暗忧郁氛围，专业商业美食摄影，8K 分辨率，凝固运动，超细节，浅景深。\n\n⸻\n\n高速微距摄影：金黄色烤虾悬浮在空中，水滴和调味料颗粒凝固在运动中，新鲜欧芹叶和柠檬皮屑飞舞，戏剧性的深蓝色渐变背景，下方有光泽的表面反射，鲜艳的暖色调，酥脆的边缘和多汁的质感，影棚闪光灯照明，超细节，电影级美食造型，商业海鲜广告风格，浅景深，8K 超现实主义，动态飞溅构图，超锐利对焦，美食摆盘。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "浮空牛排和虾的电影感美食摄影提示 以下是两个为电影级美食摄影设计的详细、超现实提示，使用 gemini nano banana pro 模型。第一个提示聚焦于一块漂浮的五分熟牛排，盐晶爆裂；第二个提示聚焦于悬浮在半空中的金黄色烤虾，带有动态飞溅效果。两者都强调高速、微距细节和情绪化照明。 ultra-realistic high-speed food photography of medium-rare steak slices suspended mid-air, dramatic black background, juicy pink center with crispy seared crust, coarse sea salt crystals exploding around, roasted baby potatoes floating, garlic cloves and fresh rosemary sprigs in motion, visible steam and seasoning particles, dynamic splash effect, studio strobe lighting, sharp focus, macro lens, extreme detail, glossy texture, dark moody atmosphere, professional commercial food photography, 8k resolution, freeze motion, hyper-detailed, shallow depth of field.\n\n⸻\n\nhigh-speed macro photography of golden grilled shrimp suspended in mid-air, water droplets and seasoning particles frozen in motion, fresh parsley leaves and lemon zest flying around, dramatic dark blue gradient background, glossy surface reflection below, vibrant warm tones, crispy edges with juicy texture, studio flash lighting, ultra-detailed, cinematic food styling, commercial seafood advertisement style, shallow depth of field, 8k ultra-realistic, dynamic splash composition, hyper-sharp focus, gourmet presentation. 超现实主义高速美食摄影：半熟牛排切片悬浮在空中，戏剧性的黑色背景，多汁的粉红色中心，酥脆的焦黄外皮，粗海盐晶体在周围爆裂，烤小土豆漂浮，蒜瓣和新鲜迷迭香枝条在运动中，可见蒸汽和调味料颗粒，动态飞溅效果，影棚频闪照明，锐利对焦，微距镜头，极致细节，光泽质感，黑暗忧郁氛围，专业商业美食摄影，8k 分辨率，凝固运动，超细节，浅景深。\n\n⸻\n\n高速微距摄影：金黄色烤虾悬浮在空中，水滴和调味料颗粒凝固在运动中，新鲜欧芹叶和柠檬皮屑飞舞，戏剧性的深蓝色渐变背景，下方有光泽的表面反射，鲜艳的暖色调，酥脆的边缘和多汁的质感，影棚闪光灯照明，超细节，电影级美食造型，商业海鲜广告风格，浅景深，8k 超现实主义，动态飞溅构图，超锐利对焦，美食摆盘。 kashberg 11438",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11429,
+      "title": "Sadie Sink 马卡龙色卧室镜子自拍提示词 (JSON)",
+      "description": "一个结构化的 JSON 提示词，用于生成一张年轻女性的镜面自拍，该女性与 Sadie Sink 相似，跪在铺有地毯的柔和光线下的粉彩卧室里，穿着特定的格子紧身胸衣上衣和格子短裙套装，强调舒适的审美。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2029202099205226857",
+      "sourcePublishedAt": "2026-03-04T14:27:35.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"name\": \"Pastel Bedroom Mirror Selfie\",\n  \"description\": \"A young woman with long wavy red hair taking a mirror selfie in a softly lit pastel bedroom. She is kneeling on a beige carpet and holding a smartphone while smiling slightly. She is wearing a green and yellow checkered corset-style top, a yellow plaid skirt, white grid-pattern tights, yellow socks, and green platform shoes. The room features a wooden bed with pink bedding, a wooden nightstand, sheer curtains, and soft natural daylight coming through a window, creating a warm and cozy aesthetic.\",\n  \"scene\": {\n    \"location\": \"bedroom\",\n    \"lighting\": \"soft natural daylight\",\n    \"floor\": \"beige carpet\",\n    \"background\": [\n      \"wooden bed frame\",\n      \"pink bedding\",\n      \"wooden nightstand\",\n      \"mirror\",\n      \"sheer curtains\",\n      \"window with daylight\"\n    ]\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"hair_color\": \"red\",\n    \"hair_style\": \"long wavy\",\n    \"pose\": \"kneeling on the carpet while taking a mirror selfie\",\n    \"expression\": \"soft smile\"\n  },\n  \"outfit\": {\n    \"top\": \"green and yellow checkered corset top\",\n    \"skirt\": \"yellow plaid skirt\",\n    \"tights\": \"white grid pattern tights\",\n    \"socks\": \"yellow socks\",\n    \"shoes\": \"green platform Mary Jane shoes\"\n  },\n  \"style\": [\n    \"soft aesthetic\",\n    \"pastel room\",\n    \"cozy bedroom vibe\",\n    \"mirror selfie\",\n    \"fashion outfit\"\n  ]\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692208536_nlhpxl_HCkshxhawAMsKGW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692208536_nlhpxl_HCkshxhawAMsKGW-300x375.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"name\": \"柔和色调卧室镜面自拍\",\n  \"description\": \"一位留着波浪状红色长发的年轻女子，在光线柔和的柔和色调卧室里对着镜子自拍。她跪在米色地毯上，手持智能手机，面带微笑。她身穿一件绿黄格子束身衣式上衣、一条黄色格子短裙、白色网格图案连裤袜、黄色袜子和绿色厚底鞋。房间里有一张带粉色床上用品的木床、一个木制床头柜、薄纱窗帘，以及透过窗户射入的柔和自然日光，营造出温暖舒适的美感。\",\n  \"scene\": {\n    \"location\": \"卧室\",\n    \"lighting\": \"柔和自然日光\",\n    \"floor\": \"米色地毯\",\n    \"background\": [\n      \"木制床架\",\n      \"粉色床上用品\",\n      \"木制床头柜\",\n      \"镜子\",\n      \"薄纱窗帘\",\n      \"有日光透入的窗户\"\n    ]\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"红色\",\n    \"hair_style\": \"波浪状长发\",\n    \"pose\": \"跪在地毯上对着镜子自拍\",\n    \"expression\": \"浅笑\"\n  },\n  \"outfit\": {\n    \"top\": \"绿黄格子束身衣式上衣\",\n    \"skirt\": \"黄色格子短裙\",\n    \"tights\": \"白色网格图案连裤袜\",\n    \"socks\": \"黄色袜子\",\n    \"shoes\": \"绿色厚底玛丽珍鞋\"\n  },\n  \"style\": [\n    \"柔和美学\",\n    \"柔和色调房间\",\n    \"舒适卧室氛围\",\n    \"镜面自拍\",\n    \"时尚穿搭\"\n  ]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sadie sink 马卡龙色卧室镜子自拍提示词 (json) 一个结构化的 json 提示词，用于生成一张年轻女性的镜面自拍，该女性与 sadie sink 相似，跪在铺有地毯的柔和光线下的粉彩卧室里，穿着特定的格子紧身胸衣上衣和格子短裙套装，强调舒适的审美。 {\n  \"name\": \"pastel bedroom mirror selfie\",\n  \"description\": \"a young woman with long wavy red hair taking a mirror selfie in a softly lit pastel bedroom. she is kneeling on a beige carpet and holding a smartphone while smiling slightly. she is wearing a green and yellow checkered corset-style top, a yellow plaid skirt, white grid-pattern tights, yellow socks, and green platform shoes. the room features a wooden bed with pink bedding, a wooden nightstand, sheer curtains, and soft natural daylight coming through a window, creating a warm and cozy aesthetic.\",\n  \"scene\": {\n    \"location\": \"bedroom\",\n    \"lighting\": \"soft natural daylight\",\n    \"floor\": \"beige carpet\",\n    \"background\": [\n      \"wooden bed frame\",\n      \"pink bedding\",\n      \"wooden nightstand\",\n      \"mirror\",\n      \"sheer curtains\",\n      \"window with daylight\"\n    ]\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"hair_color\": \"red\",\n    \"hair_style\": \"long wavy\",\n    \"pose\": \"kneeling on the carpet while taking a mirror selfie\",\n    \"expression\": \"soft smile\"\n  },\n  \"outfit\": {\n    \"top\": \"green and yellow checkered corset top\",\n    \"skirt\": \"yellow plaid skirt\",\n    \"tights\": \"white grid pattern tights\",\n    \"socks\": \"yellow socks\",\n    \"shoes\": \"green platform mary jane shoes\"\n  },\n  \"style\": [\n    \"soft aesthetic\",\n    \"pastel room\",\n    \"cozy bedroom vibe\",\n    \"mirror selfie\",\n    \"fashion outfit\"\n  ]\n} ```json\n{\n  \"name\": \"柔和色调卧室镜面自拍\",\n  \"description\": \"一位留着波浪状红色长发的年轻女子，在光线柔和的柔和色调卧室里对着镜子自拍。她跪在米色地毯上，手持智能手机，面带微笑。她身穿一件绿黄格子束身衣式上衣、一条黄色格子短裙、白色网格图案连裤袜、黄色袜子和绿色厚底鞋。房间里有一张带粉色床上用品的木床、一个木制床头柜、薄纱窗帘，以及透过窗户射入的柔和自然日光，营造出温暖舒适的美感。\",\n  \"scene\": {\n    \"location\": \"卧室\",\n    \"lighting\": \"柔和自然日光\",\n    \"floor\": \"米色地毯\",\n    \"background\": [\n      \"木制床架\",\n      \"粉色床上用品\",\n      \"木制床头柜\",\n      \"镜子\",\n      \"薄纱窗帘\",\n      \"有日光透入的窗户\"\n    ]\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"红色\",\n    \"hair_style\": \"波浪状长发\",\n    \"pose\": \"跪在地毯上对着镜子自拍\",\n    \"expression\": \"浅笑\"\n  },\n  \"outfit\": {\n    \"top\": \"绿黄格子束身衣式上衣\",\n    \"skirt\": \"黄色格子短裙\",\n    \"tights\": \"白色网格图案连裤袜\",\n    \"socks\": \"黄色袜子\",\n    \"shoes\": \"绿色厚底玛丽珍鞋\"\n  },\n  \"style\": [\n    \"柔和美学\",\n    \"柔和色调房间\",\n    \"舒适卧室氛围\",\n    \"镜面自拍\",\n    \"时尚穿搭\"\n  ]\n}\n``` zainab fatima 11429",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11436,
+      "title": "Nutella 迷你冬季世界视频提示 (JSON)",
+      "description": "一个结构化的 JSON 提示，用于生成一个围绕巨型 Nutella 榛子酱瓶构建的微缩冬季世界的超现实电影视频，其中巧克力酱形成滑雪坡，强调微距移轴摄影和商业食品广告风格。",
+      "sourceLink": "https://x.com/Strength04_X/status/2029194313784016901",
+      "sourcePublishedAt": "2026-03-04T13:56:39.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "{\n  \"cinematic miniature winter world built around a giant Nutella jar, thick chocolate hazelnut spread flowing out forming a glossy mountain ski slope, tiny skiers skiing down the chocolate hill covered with light snow powder, miniature alpine village with wooden cabins and pine trees, ski lift with small gondolas carrying people, snowy forest background and distant mountains, soft winter lighting, ultra realistic textures of melting chocolate and snow, macro tilt shift photography, fantasy food landscape, commercial food advertising style, highly detailed, 8k\",\n  \"negative_prompt\": \"blurry, low resolution, distorted jar, incorrect logo, messy composition, unrealistic proportions, extra limbs, duplicate people\",\n  \"aspect_ratio\": \"4:5\",\n  \"style\": \"ultra realistic macro photography\",\n  \"lighting\": \"soft cinematic winter daylight\",\n  \"camera\": \"macro lens, tilt shift effect\",\n  \"quality\": \"high detail, 8k\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692211826_1y4ve1_HCklcw_agAEEDgS.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692211826_1y4ve1_HCklcw_agAEEDgS-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"cinematic miniature winter world built around a giant Nutella jar, thick chocolate hazelnut spread flowing out forming a glossy mountain ski slope, tiny skiers skiing down the chocolate hill covered with light snow powder, miniature alpine village with wooden cabins and pine trees, ski lift with small gondolas carrying people, snowy forest background and distant mountains, soft winter lighting, ultra realistic textures of melting chocolate and snow, macro tilt shift photography, fantasy food landscape, commercial food advertising style, highly detailed, 8k\": \"围绕着一个巨大的 Nutella 罐子建造的电影般微缩冬季世界，浓稠的巧克力榛子酱流淌而出，形成一个光泽的山地滑雪坡，小小的滑雪者们在覆盖着薄薄雪粉的巧克力山上滑下，微缩的高山村庄有木屋和松树，缆车上载着小缆车厢里的人们，白雪皑皑的森林背景和远山，柔和的冬季光线，融化的巧克力和雪的超现实纹理，微距移轴摄影，奇幻美食景观，商业食品广告风格，高度细致，8k\",\n  \"negative_prompt\": \"模糊，低分辨率，扭曲的罐子，错误的标志，杂乱的构图，不真实的比例，多余的肢体，重复的人物\",\n  \"aspect_ratio\": \"4:5\",\n  \"style\": \"超现实微距摄影\",\n  \"lighting\": \"柔和的电影般冬季日光\",\n  \"camera\": \"微距镜头，移轴效果\",\n  \"quality\": \"高细节，8k\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nutella 迷你冬季世界视频提示 (json) 一个结构化的 json 提示，用于生成一个围绕巨型 nutella 榛子酱瓶构建的微缩冬季世界的超现实电影视频，其中巧克力酱形成滑雪坡，强调微距移轴摄影和商业食品广告风格。 {\n  \"cinematic miniature winter world built around a giant nutella jar, thick chocolate hazelnut spread flowing out forming a glossy mountain ski slope, tiny skiers skiing down the chocolate hill covered with light snow powder, miniature alpine village with wooden cabins and pine trees, ski lift with small gondolas carrying people, snowy forest background and distant mountains, soft winter lighting, ultra realistic textures of melting chocolate and snow, macro tilt shift photography, fantasy food landscape, commercial food advertising style, highly detailed, 8k\",\n  \"negative_prompt\": \"blurry, low resolution, distorted jar, incorrect logo, messy composition, unrealistic proportions, extra limbs, duplicate people\",\n  \"aspect_ratio\": \"4:5\",\n  \"style\": \"ultra realistic macro photography\",\n  \"lighting\": \"soft cinematic winter daylight\",\n  \"camera\": \"macro lens, tilt shift effect\",\n  \"quality\": \"high detail, 8k\"\n} ```json\n{\n  \"cinematic miniature winter world built around a giant nutella jar, thick chocolate hazelnut spread flowing out forming a glossy mountain ski slope, tiny skiers skiing down the chocolate hill covered with light snow powder, miniature alpine village with wooden cabins and pine trees, ski lift with small gondolas carrying people, snowy forest background and distant mountains, soft winter lighting, ultra realistic textures of melting chocolate and snow, macro tilt shift photography, fantasy food landscape, commercial food advertising style, highly detailed, 8k\": \"围绕着一个巨大的 nutella 罐子建造的电影般微缩冬季世界，浓稠的巧克力榛子酱流淌而出，形成一个光泽的山地滑雪坡，小小的滑雪者们在覆盖着薄薄雪粉的巧克力山上滑下，微缩的高山村庄有木屋和松树，缆车上载着小缆车厢里的人们，白雪皑皑的森林背景和远山，柔和的冬季光线，融化的巧克力和雪的超现实纹理，微距移轴摄影，奇幻美食景观，商业食品广告风格，高度细致，8k\",\n  \"negative_prompt\": \"模糊，低分辨率，扭曲的罐子，错误的标志，杂乱的构图，不真实的比例，多余的肢体，重复的人物\",\n  \"aspect_ratio\": \"4:5\",\n  \"style\": \"超现实微距摄影\",\n  \"lighting\": \"柔和的电影般冬季日光\",\n  \"camera\": \"微距镜头，移轴效果\",\n  \"quality\": \"高细节，8k\"\n}\n``` 𝐌 11436",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11405,
+      "title": "旧照片修复和上色提示",
+      "description": "一个针对 Nano Banana 2 的高度具体提示，指示它将上传的旧照片修复并上色，使其成为一张晶莹剔透、照片级真实、细节丰富的高清图像，同时严格保留 100% 的原始构图、姿势、身份和细节，仅去除与年代相关的损坏。",
+      "sourceLink": "https://x.com/nouryyildiz/status/2029180756451348619",
+      "sourcePublishedAt": "2026-03-04T13:02:47.000Z",
+      "author": {
+        "name": "Nuri Yıldız",
+        "link": "https://x.com/nouryyildiz"
+      },
+      "content": "Restore and colorize the uploaded old photograph into a crystal-clear, photorealistic, high-detail image while preserving 100% of the original composition. Keep the exact same pose, expression, facial structure, proportions, framing, clothing, hairstyle, background, objects, and all details unchanged. Do not add, remove, move, or restyle anything. Remove blur, noise, scratches, fading, stains, and age-related damage. Recover natural sharpness, fine skin texture, realistic textures, true-to-life colors, and lifelike skin tones. No identity change, no stylization, no cartoon or CGI look, no plastic skin.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692195856_7a1mbe_HCkY_embUAAqIVE.jpg",
+        "https://cms-assets.youmind.com/media/1772692196010_hvboln_HCkY-OiawAU7D04.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692195856_7a1mbe_HCkY_embUAAqIVE-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772692196010_hvboln_HCkY-OiawAU7D04-300x197.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "将上传的旧照片恢复并上色，使其成为晶莹剔透、照片般真实、细节丰富的高清图像，同时 100% 保留原始构图。保持完全相同的姿势、表情、面部结构、比例、构图、服装、发型、背景、物体和所有细节不变。不要添加、删除、移动或重新设计任何内容。去除模糊、噪点、划痕、褪色、污渍和与年代相关的损坏。恢复自然的锐度、细腻的皮肤纹理、真实的纹理、逼真的色彩和栩栩如生的肤色。不改变身份，不进行风格化，不呈现卡通或 CGI 外观，不出现塑料感皮肤。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "旧照片修复和上色提示 一个针对 nano banana 2 的高度具体提示，指示它将上传的旧照片修复并上色，使其成为一张晶莹剔透、照片级真实、细节丰富的高清图像，同时严格保留 100% 的原始构图、姿势、身份和细节，仅去除与年代相关的损坏。 restore and colorize the uploaded old photograph into a crystal-clear, photorealistic, high-detail image while preserving 100% of the original composition. keep the exact same pose, expression, facial structure, proportions, framing, clothing, hairstyle, background, objects, and all details unchanged. do not add, remove, move, or restyle anything. remove blur, noise, scratches, fading, stains, and age-related damage. recover natural sharpness, fine skin texture, realistic textures, true-to-life colors, and lifelike skin tones. no identity change, no stylization, no cartoon or cgi look, no plastic skin. 将上传的旧照片恢复并上色，使其成为晶莹剔透、照片般真实、细节丰富的高清图像，同时 100% 保留原始构图。保持完全相同的姿势、表情、面部结构、比例、构图、服装、发型、背景、物体和所有细节不变。不要添加、删除、移动或重新设计任何内容。去除模糊、噪点、划痕、褪色、污渍和与年代相关的损坏。恢复自然的锐度、细腻的皮肤纹理、真实的纹理、逼真的色彩和栩栩如生的肤色。不改变身份，不进行风格化，不呈现卡通或 cgi 外观，不出现塑料感皮肤。 nuri yıldız 11405",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11458,
+      "title": "Nano Banana 2 的解剖校正提示",
+      "description": "一个简单的负面提示，旨在稳定 Nano Banana 2 中人体解剖结构的生成，尤其是在处理复杂姿势时，例如倾斜、与栏杆互动以及全身镜头。",
+      "sourceLink": "https://x.com/nenechan_nftart/status/2029180023337529349",
+      "sourcePublishedAt": "2026-03-04T12:59:52.000Z",
+      "author": {
+        "name": "Nene@NFT&AIクリエイター",
+        "link": "https://x.com/nenechan_nftart"
+      },
+      "content": "single person, correct anatomy, two legs, two arms",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692218494_h654yc_HCkYeUfbUAA0yaA.jpg",
+        "https://cms-assets.youmind.com/media/1772692218600_vxwiev_HCkYeUnacAAOVK9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692218494_h654yc_HCkYeUfbUAA0yaA-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772692218600_vxwiev_HCkYeUnacAAOVK9-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个人，解剖结构正确，两条腿，两条手臂",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的解剖校正提示 一个简单的负面提示，旨在稳定 nano banana 2 中人体解剖结构的生成，尤其是在处理复杂姿势时，例如倾斜、与栏杆互动以及全身镜头。 single person, correct anatomy, two legs, two arms 一个人，解剖结构正确，两条腿，两条手臂 nene@nft&aiクリエイター 11458",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11459,
+      "title": "具有身份保留功能的逼真生活方式/编辑照片拍摄提示",
+      "description": "一个高度具体、照片级的法语图像生成提示，指示 AI 使用提供的参考照片，在街头咖啡馆场景中创建生活方式/编辑类照片拍摄场景。该提示严格要求 100% 保留拍摄对象的身份（面部、比例、特征、年龄、发型），并指定了装饰、构图（垂直全身照）、光线（强烈直射闪光灯/垃圾邮件风格）、服装（超大白色 T 恤、黑色裤子）和姿势（站立、手触头发、模特姿态）的固定参数。",
+      "sourceLink": "https://x.com/novah_ia/status/2029173975738101904",
+      "sourcePublishedAt": "2026-03-04T12:35:50.000Z",
+      "author": {
+        "name": "novah",
+        "link": "https://x.com/novah_ia"
+      },
+      "content": "Créez une séance photo lifestyle/éditoriale photoréaliste de type « flash décontracté dans un café de rue », en utilisant la photo d'une personne fournie comme référence. L'apparence de la personne doit être strictement identique à celle du modèle : visage parfaitement reconnaissable (100 %), mêmes proportions et géométrie du visage, même forme des yeux, du nez et des lèvres, même teint, même âge, même coiffure et même implantation des cheveux. Ne modifiez pas le visage, ne l'« améliorez » pas et ne changez pas le genre. Le décor est fixe : un café/espace lounge en soirée (intérieur), murs beiges, grande fenêtre donnant sur la nuit noire, comptoir de bar en bois le long de la fenêtre, mobilier simple : chaises en métal noir, tables en bois. À gauche, une grande fleur d'intérieur en pot. Aucun panneau, logo ou texte lisible sur les murs ou les fenêtres. La composition est fixe : un plan vertical en pied, la caméra à hauteur de poitrine, la personne se tenant légèrement à droite du centre. Au premier plan, à gauche, une chaise en métal noir est posée sur un sac à dos blanc orné d'un imprimé graphique noir (sans texte lisible). L'arrière-plan est légèrement flou, mettant ainsi l'accent sur le personnage. L'éclairage est fixe : un flash puissant (flash direct de l'appareil photo), des ombres marquées sur le mur et le sol, un style photo « spam », comme celui d'un appareil photo compact ou d'un iPhone. La tenue vestimentaire est également fixe : un t-shirt blanc oversize sans logo ni inscription, un pantalon noir large, des baskets blanches à rayures noires (style rétro), une ceinture, une chaîne ou des clés à la taille (sans marque) sont acceptables. La pose est fixe : la personne se tient debout, détendue, à côté de la chaise, le corps légèrement tourné de trois quarts ; la main droite est levée et touche la tête/les cheveux (paume sur la nuque), la main gauche est baissée près de la hanche. Les jambes : une jambe est tendue, l'autre légèrement fléchie, le talon levé, créant une posture de mannequin. La tête est tournée sur le côté (à gauche), le regard n'est pas fixé sur l'objectif, l'expression est calme et assurée, sans sourire. Qualité/Style : ultra-réaliste, netteté du visage, légère profondeur de champ, teint naturel, grain léger, aucune retouche, aspect brillant. Important : anatomie rigoureusement correcte : deux bras, deux jambes, cinq doigts, aucune difformité ni membre surnuméraire.p",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692219882_aqwf0s_HCkS-XAXoAE-Yv7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692219882_aqwf0s_HCkS-XAXoAE-Yv7-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张写实的生活方式/编辑类照片，风格为“街边咖啡馆的随意闪光灯拍摄”，并使用一张人物照片作为参考。人物的外观必须与模特严格一致：面部完美可辨（100%），面部比例和几何形状相同，眼睛、鼻子和嘴唇的形状相同，肤色相同，年龄相同，发型相同，发际线相同。请勿修改面部，请勿“美化”面部，请勿改变性别。场景固定：傍晚的咖啡馆/休息区（室内），米色墙壁，一扇俯瞰漆黑夜晚的大窗户，窗边有一个木制吧台，家具简洁：黑色金属椅子，木制桌子。左侧有一盆大型室内盆栽。墙壁或窗户上没有可读的标志、徽标或文字。构图固定：垂直全身照，相机位于胸部高度，人物略微偏向画面中心右侧站立。前景左侧，一把黑色金属椅子放在一个白色背包上，背包上饰有黑色图案（无可读文字）。背景略微模糊，以突出人物。灯光固定：强力闪光灯（直射相机闪光灯），墙壁和地板上有明显的阴影，呈现“垃圾邮件”照片风格，类似于傻瓜相机或 iPhone 拍摄的效果。服装也固定：一件没有徽标或文字的宽松白色 T 恤，黑色阔腿裤，带有黑色条纹的白色运动鞋（复古风格），腰间可佩戴皮带、链条或钥匙（无品牌）。姿势固定：人物站立，放松，靠近椅子，身体略微呈四分之三侧身；右手抬起触摸头部/头发（手掌放在颈后），左手垂在臀部附近。腿部：一条腿伸直，另一条腿略微弯曲，脚跟抬起，形成模特姿态。头部转向一侧（左侧），目光不聚焦于镜头，表情平静自信，没有笑容。质量/风格：超写实，面部对焦锐利，景深略浅，肤色自然，轻微颗粒感，无修饰，光泽感。重要提示：严格正确的解剖结构：两只手臂，两条腿，五根手指，没有畸形或多余的肢体。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "具有身份保留功能的逼真生活方式/编辑照片拍摄提示 一个高度具体、照片级的法语图像生成提示，指示 ai 使用提供的参考照片，在街头咖啡馆场景中创建生活方式/编辑类照片拍摄场景。该提示严格要求 100% 保留拍摄对象的身份（面部、比例、特征、年龄、发型），并指定了装饰、构图（垂直全身照）、光线（强烈直射闪光灯/垃圾邮件风格）、服装（超大白色 t 恤、黑色裤子）和姿势（站立、手触头发、模特姿态）的固定参数。 créez une séance photo lifestyle/éditoriale photoréaliste de type « flash décontracté dans un café de rue », en utilisant la photo d'une personne fournie comme référence. l'apparence de la personne doit être strictement identique à celle du modèle : visage parfaitement reconnaissable (100 %), mêmes proportions et géométrie du visage, même forme des yeux, du nez et des lèvres, même teint, même âge, même coiffure et même implantation des cheveux. ne modifiez pas le visage, ne l'« améliorez » pas et ne changez pas le genre. le décor est fixe : un café/espace lounge en soirée (intérieur), murs beiges, grande fenêtre donnant sur la nuit noire, comptoir de bar en bois le long de la fenêtre, mobilier simple : chaises en métal noir, tables en bois. à gauche, une grande fleur d'intérieur en pot. aucun panneau, logo ou texte lisible sur les murs ou les fenêtres. la composition est fixe : un plan vertical en pied, la caméra à hauteur de poitrine, la personne se tenant légèrement à droite du centre. au premier plan, à gauche, une chaise en métal noir est posée sur un sac à dos blanc orné d'un imprimé graphique noir (sans texte lisible). l'arrière-plan est légèrement flou, mettant ainsi l'accent sur le personnage. l'éclairage est fixe : un flash puissant (flash direct de l'appareil photo), des ombres marquées sur le mur et le sol, un style photo « spam », comme celui d'un appareil photo compact ou d'un iphone. la tenue vestimentaire est également fixe : un t-shirt blanc oversize sans logo ni inscription, un pantalon noir large, des baskets blanches à rayures noires (style rétro), une ceinture, une chaîne ou des clés à la taille (sans marque) sont acceptables. la pose est fixe : la personne se tient debout, détendue, à côté de la chaise, le corps légèrement tourné de trois quarts ; la main droite est levée et touche la tête/les cheveux (paume sur la nuque), la main gauche est baissée près de la hanche. les jambes : une jambe est tendue, l'autre légèrement fléchie, le talon levé, créant une posture de mannequin. la tête est tournée sur le côté (à gauche), le regard n'est pas fixé sur l'objectif, l'expression est calme et assurée, sans sourire. qualité/style : ultra-réaliste, netteté du visage, légère profondeur de champ, teint naturel, grain léger, aucune retouche, aspect brillant. important : anatomie rigoureusement correcte : deux bras, deux jambes, cinq doigts, aucune difformité ni membre surnuméraire.p 创作一张写实的生活方式/编辑类照片，风格为“街边咖啡馆的随意闪光灯拍摄”，并使用一张人物照片作为参考。人物的外观必须与模特严格一致：面部完美可辨（100%），面部比例和几何形状相同，眼睛、鼻子和嘴唇的形状相同，肤色相同，年龄相同，发型相同，发际线相同。请勿修改面部，请勿“美化”面部，请勿改变性别。场景固定：傍晚的咖啡馆/休息区（室内），米色墙壁，一扇俯瞰漆黑夜晚的大窗户，窗边有一个木制吧台，家具简洁：黑色金属椅子，木制桌子。左侧有一盆大型室内盆栽。墙壁或窗户上没有可读的标志、徽标或文字。构图固定：垂直全身照，相机位于胸部高度，人物略微偏向画面中心右侧站立。前景左侧，一把黑色金属椅子放在一个白色背包上，背包上饰有黑色图案（无可读文字）。背景略微模糊，以突出人物。灯光固定：强力闪光灯（直射相机闪光灯），墙壁和地板上有明显的阴影，呈现“垃圾邮件”照片风格，类似于傻瓜相机或 iphone 拍摄的效果。服装也固定：一件没有徽标或文字的宽松白色 t 恤，黑色阔腿裤，带有黑色条纹的白色运动鞋（复古风格），腰间可佩戴皮带、链条或钥匙（无品牌）。姿势固定：人物站立，放松，靠近椅子，身体略微呈四分之三侧身；右手抬起触摸头部/头发（手掌放在颈后），左手垂在臀部附近。腿部：一条腿伸直，另一条腿略微弯曲，脚跟抬起，形成模特姿态。头部转向一侧（左侧），目光不聚焦于镜头，表情平静自信，没有笑容。质量/风格：超写实，面部对焦锐利，景深略浅，肤色自然，轻微颗粒感，无修饰，光泽感。重要提示：严格正确的解剖结构：两只手臂，两条腿，五根手指，没有畸形或多余的肢体。 novah 11459",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11413,
+      "title": "艺术电影级黑白影棚肖像提示（参考匹配）",
+      "description": "一个高度详细的 JSON 提示，用于生成一张成熟自信男士的艺术电影级单色工作室肖像，严格要求精确匹配上传参考图像的身份、面部结构、胡须和发型，重点在于低调布光和高对比度色调控制。",
+      "sourceLink": "https://x.com/john_my07/status/2029172156064776213",
+      "sourcePublishedAt": "2026-03-04T12:28:36.000Z",
+      "author": {
+        "name": "Johnn",
+        "link": "https://x.com/john_my07"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"scene_type\": \"fine-art cinematic monochrome studio portrait\",\n\n    \"reference_requirement\": {\n      \"identity_match\": \"precisely match the uploaded reference image\",\n      \"facial_structure_accuracy\": [\n        \"bone structure\",\n        \"eye shape\",\n        \"nose proportions\",\n        \"jawline definition\",\n        \"facial symmetry\",\n        \"hairline\",\n        \"beard density if present\"\n      ],\n      \"skin_texture\": \"authentic natural skin texture with visible pores and fine lines\",\n      \"no_artificial_smoothing\": true\n    },\n\n    \"subject\": {\n      \"type\": \"mature confident man\",\n      \"expression\": {\n        \"mood\": \"serious, contemplative, quietly authoritative\",\n        \"gaze\": \"deep-set eyes looking directly into the camera\",\n        \"emotion\": \"focused and introspective, not aggressive\"\n      }\n    },\n\n    \"facial_hair\": {\n      \"adaptive\": true,\n      \"rules\": [\n        \"replicate beard exactly if present\",\n        \"match density, length, shape, and edges\",\n        \"preserve natural tonal variation including salt-and-pepper if visible\",\n        \"beard lines clean and structured\"\n      ],\n      \"clean_shaven_rule\": \"if clean-shaven, emphasize natural jawline definition and skin texture\"\n    },\n\n    \"hairstyle\": {\n      \"adaptive\": true,\n      \"requirement\": \"match hairstyle from reference image exactly\",\n      \"details\": [\n        \"same volume\",\n        \"same direction\",\n        \"same hairline\",\n        \"natural strand texture\",\n        \"subtle specular highlights from overhead lighting\"\n      ]\n    },\n\n    \"pose\": {\n      \"style\": \"classic thinker pose\",\n      \"description\": [\n        \"one hand raised to chin\",\n        \"thumb along the jawline\",\n        \"index finger slightly curled\",\n        \"knuckles and tendons subtly defined\",\n        \"hand in sharp focus with natural skin texture\"\n      ]\n    },\n\n    \"lighting\": {\n      \"style\": \"low-key fine-art studio lighting\",\n      \"contrast\": \"high contrast but refined tonal control\",\n\n      \"key_light\": {\n        \"position\": \"slightly above eye level\",\n        \"direction\": \"toward viewer's left angled downward\",\n        \"type\": \"large softbox or diffused beauty dish\",\n        \"effect\": \"strong top-plane highlights with crisp edge definition\"\n      },\n\n      \"highlight_focus\": [\n        \"forehead center\",\n        \"nose bridge\",\n        \"upper cheekbones\",\n        \"beard texture\",\n        \"top planes of the hand\"\n      ],\n\n      \"shadow_control\": [\n        \"subtle shadow shaping under brow ridge\",\n        \"defined cheekbone shadow\",\n        \"deep but detailed shadow side\",\n        \"midtone detail preserved\"\n      ],\n\n      \"fill_light\": {\n        \"position\": \"minimal fill from front-center\",\n        \"purpose\": \"maintain facial symmetry while preserving depth\"\n      },\n\n      \"rim_light\": {\n        \"intensity\": \"very subtle\",\n        \"location\": \"hair edges and outer shoulder\",\n        \"purpose\": \"separate subject from black\"\n      }\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692199520_kv6bmn_HCkRUi4acAAR8xy.jpg",
+        "https://cms-assets.youmind.com/media/1772692199476_fz5wsg_HCkRUhcagAEInOw.jpg",
+        "https://cms-assets.youmind.com/media/1772692199539_bawwsy_HCkRUjdawAY6OUC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692199520_kv6bmn_HCkRUi4acAAR8xy-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772692199476_fz5wsg_HCkRUhcagAEInOw-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772692199539_bawwsy_HCkRUjdawAY6OUC-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"艺术电影风格黑白影棚肖像\",\n    \"reference_requirement\": {\n      \"identity_match\": \"精确匹配上传的参考图像\",\n      \"facial_structure_accuracy\": [\n        \"骨骼结构\",\n        \"眼睛形状\",\n        \"鼻子比例\",\n        \"下颌线清晰度\",\n        \"面部对称性\",\n        \"发际线\",\n        \"胡须密度（如果存在）\"\n      ],\n      \"skin_texture\": \"真实的自然皮肤纹理，可见毛孔和细纹\",\n      \"no_artificial_smoothing\": true\n    },\n    \"subject\": {\n      \"type\": \"成熟自信的男性\",\n      \"expression\": {\n        \"mood\": \"严肃、沉思、沉静而权威\",\n        \"gaze\": \"深邃的眼睛直视镜头\",\n        \"emotion\": \"专注而内省，不具侵略性\"\n      }\n    },\n    \"facial_hair\": {\n      \"adaptive\": true,\n      \"rules\": [\n        \"如果存在胡须，精确复制\",\n        \"匹配密度、长度、形状和边缘\",\n        \"保留自然的色调变化，包括可见的灰白胡须\",\n        \"胡须线条干净且结构清晰\"\n      ],\n      \"clean_shaven_rule\": \"如果干净剃须，强调自然的下颌线清晰度和皮肤纹理\"\n    },\n    \"hairstyle\": {\n      \"adaptive\": true,\n      \"requirement\": \"精确匹配参考图像中的发型\",\n      \"details\": [\n        \"相同的发量\",\n        \"相同的方向\",\n        \"相同的发际线\",\n        \"自然的头发纹理\",\n        \"头顶光线产生的微妙镜面高光\"\n      ]\n    },\n    \"pose\": {\n      \"style\": \"经典思考者姿势\",\n      \"description\": [\n        \"一只手抬至下巴\",\n        \"拇指沿下颌线\",\n        \"食指略微弯曲\",\n        \"指关节和肌腱微妙地显现\",\n        \"手部清晰对焦，具有自然皮肤纹理\"\n      ]\n    },\n    \"lighting\": {\n      \"style\": \"低调艺术影棚布光\",\n      \"contrast\": \"高对比度但精致的色调控制\",\n      \"key_light\": {\n        \"position\": \"略高于视线水平\",\n        \"direction\": \"朝向观看者左侧向下倾斜\",\n        \"type\": \"大型柔光箱或柔光美颜碟\",\n        \"effect\": \"强烈的顶部平面高光，边缘清晰锐利\"\n      },\n      \"highlight_focus\": [\n        \"前额中心\",\n        \"鼻梁\",\n        \"上颧骨\",\n        \"胡须纹理\",\n        \"手部顶部平面\"\n      ],\n      \"shadow_control\": [\n        \"眉骨下方微妙的阴影塑造\",\n        \"清晰的颧骨阴影\",\n        \"深邃但细节丰富的阴影侧\",\n        \"保留中间调细节\"\n      ],\n      \"fill_light\": {\n        \"position\": \"前中心极少量补光\",\n        \"purpose\": \"保持面部对称性同时保留深度\"\n      },\n      \"rim_light\": {\n        \"intensity\": \"非常微妙\",\n        \"location\": \"发丝边缘和外侧肩膀\",\n        \"purpose\": \"将主体与黑色背景分离\"\n      }\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "艺术电影级黑白影棚肖像提示（参考匹配） 一个高度详细的 json 提示，用于生成一张成熟自信男士的艺术电影级单色工作室肖像，严格要求精确匹配上传参考图像的身份、面部结构、胡须和发型，重点在于低调布光和高对比度色调控制。 {\n  \"master_prompt\": {\n    \"scene_type\": \"fine-art cinematic monochrome studio portrait\",\n\n    \"reference_requirement\": {\n      \"identity_match\": \"precisely match the uploaded reference image\",\n      \"facial_structure_accuracy\": [\n        \"bone structure\",\n        \"eye shape\",\n        \"nose proportions\",\n        \"jawline definition\",\n        \"facial symmetry\",\n        \"hairline\",\n        \"beard density if present\"\n      ],\n      \"skin_texture\": \"authentic natural skin texture with visible pores and fine lines\",\n      \"no_artificial_smoothing\": true\n    },\n\n    \"subject\": {\n      \"type\": \"mature confident man\",\n      \"expression\": {\n        \"mood\": \"serious, contemplative, quietly authoritative\",\n        \"gaze\": \"deep-set eyes looking directly into the camera\",\n        \"emotion\": \"focused and introspective, not aggressive\"\n      }\n    },\n\n    \"facial_hair\": {\n      \"adaptive\": true,\n      \"rules\": [\n        \"replicate beard exactly if present\",\n        \"match density, length, shape, and edges\",\n        \"preserve natural tonal variation including salt-and-pepper if visible\",\n        \"beard lines clean and structured\"\n      ],\n      \"clean_shaven_rule\": \"if clean-shaven, emphasize natural jawline definition and skin texture\"\n    },\n\n    \"hairstyle\": {\n      \"adaptive\": true,\n      \"requirement\": \"match hairstyle from reference image exactly\",\n      \"details\": [\n        \"same volume\",\n        \"same direction\",\n        \"same hairline\",\n        \"natural strand texture\",\n        \"subtle specular highlights from overhead lighting\"\n      ]\n    },\n\n    \"pose\": {\n      \"style\": \"classic thinker pose\",\n      \"description\": [\n        \"one hand raised to chin\",\n        \"thumb along the jawline\",\n        \"index finger slightly curled\",\n        \"knuckles and tendons subtly defined\",\n        \"hand in sharp focus with natural skin texture\"\n      ]\n    },\n\n    \"lighting\": {\n      \"style\": \"low-key fine-art studio lighting\",\n      \"contrast\": \"high contrast but refined tonal control\",\n\n      \"key_light\": {\n        \"position\": \"slightly above eye level\",\n        \"direction\": \"toward viewer's left angled downward\",\n        \"type\": \"large softbox or diffused beauty dish\",\n        \"effect\": \"strong top-plane highlights with crisp edge definition\"\n      },\n\n      \"highlight_focus\": [\n        \"forehead center\",\n        \"nose bridge\",\n        \"upper cheekbones\",\n        \"beard texture\",\n        \"top planes of the hand\"\n      ],\n\n      \"shadow_control\": [\n        \"subtle shadow shaping under brow ridge\",\n        \"defined cheekbone shadow\",\n        \"deep but detailed shadow side\",\n        \"midtone detail preserved\"\n      ],\n\n      \"fill_light\": {\n        \"position\": \"minimal fill from front-center\",\n        \"purpose\": \"maintain facial symmetry while preserving depth\"\n      },\n\n      \"rim_light\": {\n        \"intensity\": \"very subtle\",\n        \"location\": \"hair edges and outer shoulder\",\n        \"purpose\": \"separate subject from black\"\n      }\n    }\n  }\n} ```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"艺术电影风格黑白影棚肖像\",\n    \"reference_requirement\": {\n      \"identity_match\": \"精确匹配上传的参考图像\",\n      \"facial_structure_accuracy\": [\n        \"骨骼结构\",\n        \"眼睛形状\",\n        \"鼻子比例\",\n        \"下颌线清晰度\",\n        \"面部对称性\",\n        \"发际线\",\n        \"胡须密度（如果存在）\"\n      ],\n      \"skin_texture\": \"真实的自然皮肤纹理，可见毛孔和细纹\",\n      \"no_artificial_smoothing\": true\n    },\n    \"subject\": {\n      \"type\": \"成熟自信的男性\",\n      \"expression\": {\n        \"mood\": \"严肃、沉思、沉静而权威\",\n        \"gaze\": \"深邃的眼睛直视镜头\",\n        \"emotion\": \"专注而内省，不具侵略性\"\n      }\n    },\n    \"facial_hair\": {\n      \"adaptive\": true,\n      \"rules\": [\n        \"如果存在胡须，精确复制\",\n        \"匹配密度、长度、形状和边缘\",\n        \"保留自然的色调变化，包括可见的灰白胡须\",\n        \"胡须线条干净且结构清晰\"\n      ],\n      \"clean_shaven_rule\": \"如果干净剃须，强调自然的下颌线清晰度和皮肤纹理\"\n    },\n    \"hairstyle\": {\n      \"adaptive\": true,\n      \"requirement\": \"精确匹配参考图像中的发型\",\n      \"details\": [\n        \"相同的发量\",\n        \"相同的方向\",\n        \"相同的发际线\",\n        \"自然的头发纹理\",\n        \"头顶光线产生的微妙镜面高光\"\n      ]\n    },\n    \"pose\": {\n      \"style\": \"经典思考者姿势\",\n      \"description\": [\n        \"一只手抬至下巴\",\n        \"拇指沿下颌线\",\n        \"食指略微弯曲\",\n        \"指关节和肌腱微妙地显现\",\n        \"手部清晰对焦，具有自然皮肤纹理\"\n      ]\n    },\n    \"lighting\": {\n      \"style\": \"低调艺术影棚布光\",\n      \"contrast\": \"高对比度但精致的色调控制\",\n      \"key_light\": {\n        \"position\": \"略高于视线水平\",\n        \"direction\": \"朝向观看者左侧向下倾斜\",\n        \"type\": \"大型柔光箱或柔光美颜碟\",\n        \"effect\": \"强烈的顶部平面高光，边缘清晰锐利\"\n      },\n      \"highlight_focus\": [\n        \"前额中心\",\n        \"鼻梁\",\n        \"上颧骨\",\n        \"胡须纹理\",\n        \"手部顶部平面\"\n      ],\n      \"shadow_control\": [\n        \"眉骨下方微妙的阴影塑造\",\n        \"清晰的颧骨阴影\",\n        \"深邃但细节丰富的阴影侧\",\n        \"保留中间调细节\"\n      ],\n      \"fill_light\": {\n        \"position\": \"前中心极少量补光\",\n        \"purpose\": \"保持面部对称性同时保留深度\"\n      },\n      \"rim_light\": {\n        \"intensity\": \"非常微妙\",\n        \"location\": \"发丝边缘和外侧肩膀\",\n        \"purpose\": \"将主体与黑色背景分离\"\n      }\n    }\n  }\n}\n``` johnn 11413",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11460,
+      "title": "超逼真图像提示：身穿复古粉色泳衣的安雅·泰勒-乔伊（Anya Taylor-Joy）相似者，坐在一辆老爷车上",
+      "description": "一个详细的图像生成提示，旨在创建一张超逼真的电影级 RAW 照片，主角是一位酷似安雅·泰勒-乔伊 (Anya Taylor-Joy) 的年轻女性。场景设定在海滩上，停放着一辆复古粉色敞篷车，强调复古高级时装美学、特定的光线和优雅的斜倚姿势。",
+      "sourceLink": "https://x.com/Artist04048661/status/2029167737776349366",
+      "sourcePublishedAt": "2026-03-04T12:11:03.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman with a strong resemblance to {argument name=\"subject name\" default=\"Anya Taylor-Joy\"}.\",\n      \"hair\": \"Wind-swept and free-flowing with a natural, airy texture; the strands are caught in a light breeze, spreading across her shoulder and the car's surface.\",\n      \"face\": \"Stunning high-fashion expression with sharp features, defined cheekbones, and soft matte skin texture; subtle coral-toned lip color and focused gaze.\",\n      \"body\": \"Slender and graceful physique with smooth, even skin tone and natural highlights from the sun.\"\n    },\n    \"attire\": {\n      \"clothing\": \"A vintage-inspired {argument name=\"swimsuit color\" default=\"bubblegum pink\"} one-piece swimsuit featuring a ruched bodice and a matching fabric belt with a circular buckle cinched at the waist.\",\n      \"style\": \"Retro Americana / 1950s High Fashion.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": []\n    },\n    \"environment\": {\n      \"setting\": \"An outdoor beach-side location featuring a classic vintage pink convertible car parked on white sand.\",\n      \"background\": \"A clear, expansive turquoise sky filled with soft, wispy white clouds; a hint of green tropical foliage is visible in the far distance.\",\n      \"water\": \"None\"\n    },\n    \"pose\": {\n      \"posture\": \"Lying horizontally across the flat trunk and side panel of a vintage car, reclining elegantly.\",\n      \"arms\": \"One arm is bent at the elbow with the head resting lightly on the forearm; the other arm is draped gracefully over the hip, hand resting on the upper thigh.\",\n      \"angle\": \"Low-angle shot, looking up to emphasize the subject against the sky.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Bright, even natural daylight with a soft film-like quality; gentle shadows that define the contours of the body and car.\",\n      \"mood\": \"Cinematic, nostalgic, and sophisticated; evokes a luxury summer travel aesthetic.\",\n      \"colors\": \"A vibrant palette dominated by pastel pink and deep turquoise blue.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW photo.\",\n      \"lens\": \"35mm wide-angle lens to capture both subject and environment.\",\n      \"aperture\": \"f/5.6 for deep focus and crisp details across the entire frame.\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"Hasselblad photography\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692219870_8w98v3_HCkNHK0aIAAHfAh.jpg",
+        "https://cms-assets.youmind.com/media/1772692219873_cxtzme_HCkNHKOWMAAgbgG.jpg",
+        "https://cms-assets.youmind.com/media/1772692219871_iyjlx4_HCkNHK1awAEoSiN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692219870_8w98v3_HCkNHK0aIAAHfAh-300x400.jpg",
+        "https://cms-assets.youmind.com/media/1772692219873_cxtzme_HCkNHKOWMAAgbgG-300x400.jpg",
+        "https://cms-assets.youmind.com/media/1772692219871_iyjlx4_HCkNHK1awAEoSiN-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位与 {argument name=\\\"subject name\\\" default=\\\"安雅·泰勒-乔伊\\\"} 极其相似的年轻女性。\",\n      \"hair\": \"随风飘扬、自由散落，具有自然的空气感；发丝被微风吹拂，散落在她的肩部和车身表面。\",\n      \"face\": \"惊艳的高级时装表情，五官鲜明，颧骨突出，皮肤质感柔和哑光；唇色为微妙的珊瑚色调，眼神专注。\",\n      \"body\": \"身材苗条优雅，肤色光滑均匀，阳光下泛着自然的高光。\"\n    },\n    \"attire\": {\n      \"clothing\": \"一件复古风格的 {argument name=\\\"swimsuit color\\\" default=\\\"泡泡糖粉色\\\"} 连体泳衣，带有褶皱紧身胸衣和一条同色系织物腰带，腰部系有圆形搭扣。\",\n      \"style\": \"复古美式 / 20 世纪 50 年代高级时装。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": []\n    },\n    \"environment\": {\n      \"setting\": \"一个海滨户外场景，一辆经典的复古粉色敞篷车停在白色沙滩上。\",\n      \"background\": \"一片清澈广阔的碧绿色天空，点缀着柔软、纤薄的白色云朵；远方隐约可见一丝绿色热带植物。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"优雅地斜躺在一辆老爷车的平坦后备箱和侧板上，呈水平姿势。\",\n      \"arms\": \"一只手臂肘部弯曲，头部轻轻靠在前臂上；另一只手臂优雅地搭在臀部，手放在大腿上部。\",\n      \"angle\": \"低角度拍摄，仰视以突出天空下的主体。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"明亮、均匀的自然日光，带有柔和的电影感；柔和的阴影勾勒出身体和汽车的轮廓。\",\n      \"mood\": \"电影感、怀旧、精致；唤起奢华的夏日旅行美学。\",\n      \"colors\": \"以柔和的粉色和深碧蓝色为主的鲜艳调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实主义，RAW 照片。\",\n      \"lens\": \"35mm 广角镜头，捕捉主体和环境。\",\n      \"aperture\": \"f/5.6，实现深景深和整个画面清晰的细节。\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度详细\",\n        \"体积光照\",\n        \"光线追踪反射\",\n        \"超现实纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真图像提示：身穿复古粉色泳衣的安雅·泰勒-乔伊（anya taylor-joy）相似者，坐在一辆老爷车上 一个详细的图像生成提示，旨在创建一张超逼真的电影级 raw 照片，主角是一位酷似安雅·泰勒-乔伊 (anya taylor-joy) 的年轻女性。场景设定在海滩上，停放着一辆复古粉色敞篷车，强调复古高级时装美学、特定的光线和优雅的斜倚姿势。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman with a strong resemblance to {argument name=\"subject name\" default=\"anya taylor-joy\"}.\",\n      \"hair\": \"wind-swept and free-flowing with a natural, airy texture; the strands are caught in a light breeze, spreading across her shoulder and the car's surface.\",\n      \"face\": \"stunning high-fashion expression with sharp features, defined cheekbones, and soft matte skin texture; subtle coral-toned lip color and focused gaze.\",\n      \"body\": \"slender and graceful physique with smooth, even skin tone and natural highlights from the sun.\"\n    },\n    \"attire\": {\n      \"clothing\": \"a vintage-inspired {argument name=\"swimsuit color\" default=\"bubblegum pink\"} one-piece swimsuit featuring a ruched bodice and a matching fabric belt with a circular buckle cinched at the waist.\",\n      \"style\": \"retro americana / 1950s high fashion.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": []\n    },\n    \"environment\": {\n      \"setting\": \"an outdoor beach-side location featuring a classic vintage pink convertible car parked on white sand.\",\n      \"background\": \"a clear, expansive turquoise sky filled with soft, wispy white clouds; a hint of green tropical foliage is visible in the far distance.\",\n      \"water\": \"none\"\n    },\n    \"pose\": {\n      \"posture\": \"lying horizontally across the flat trunk and side panel of a vintage car, reclining elegantly.\",\n      \"arms\": \"one arm is bent at the elbow with the head resting lightly on the forearm; the other arm is draped gracefully over the hip, hand resting on the upper thigh.\",\n      \"angle\": \"low-angle shot, looking up to emphasize the subject against the sky.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"bright, even natural daylight with a soft film-like quality; gentle shadows that define the contours of the body and car.\",\n      \"mood\": \"cinematic, nostalgic, and sophisticated; evokes a luxury summer travel aesthetic.\",\n      \"colors\": \"a vibrant palette dominated by pastel pink and deep turquoise blue.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw photo.\",\n      \"lens\": \"35mm wide-angle lens to capture both subject and environment.\",\n      \"aperture\": \"f/5.6 for deep focus and crisp details across the entire frame.\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"hasselblad photography\"\n      ]\n    }\n  }\n} ```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位与 {argument name=\\\"subject name\\\" default=\\\"安雅·泰勒-乔伊\\\"} 极其相似的年轻女性。\",\n      \"hair\": \"随风飘扬、自由散落，具有自然的空气感；发丝被微风吹拂，散落在她的肩部和车身表面。\",\n      \"face\": \"惊艳的高级时装表情，五官鲜明，颧骨突出，皮肤质感柔和哑光；唇色为微妙的珊瑚色调，眼神专注。\",\n      \"body\": \"身材苗条优雅，肤色光滑均匀，阳光下泛着自然的高光。\"\n    },\n    \"attire\": {\n      \"clothing\": \"一件复古风格的 {argument name=\\\"swimsuit color\\\" default=\\\"泡泡糖粉色\\\"} 连体泳衣，带有褶皱紧身胸衣和一条同色系织物腰带，腰部系有圆形搭扣。\",\n      \"style\": \"复古美式 / 20 世纪 50 年代高级时装。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": []\n    },\n    \"environment\": {\n      \"setting\": \"一个海滨户外场景，一辆经典的复古粉色敞篷车停在白色沙滩上。\",\n      \"background\": \"一片清澈广阔的碧绿色天空，点缀着柔软、纤薄的白色云朵；远方隐约可见一丝绿色热带植物。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"优雅地斜躺在一辆老爷车的平坦后备箱和侧板上，呈水平姿势。\",\n      \"arms\": \"一只手臂肘部弯曲，头部轻轻靠在前臂上；另一只手臂优雅地搭在臀部，手放在大腿上部。\",\n      \"angle\": \"低角度拍摄，仰视以突出天空下的主体。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"明亮、均匀的自然日光，带有柔和的电影感；柔和的阴影勾勒出身体和汽车的轮廓。\",\n      \"mood\": \"电影感、怀旧、精致；唤起奢华的夏日旅行美学。\",\n      \"colors\": \"以柔和的粉色和深碧蓝色为主的鲜艳调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实主义，raw 照片。\",\n      \"lens\": \"35mm 广角镜头，捕捉主体和环境。\",\n      \"aperture\": \"f/5.6，实现深景深和整个画面清晰的细节。\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度详细\",\n        \"体积光照\",\n        \"光线追踪反射\",\n        \"超现实纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n``` lexiprompt 11460",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11399,
+      "title": "柔和复古咖啡馆人像提示词（萨迪·辛克）",
+      "description": "一个 JSON 提示，用于生成一张年轻女性（Sadie Sink 相似）在复古咖啡馆背景下的柔和美学肖像，重点是自然光、温暖的氛围以及头发和服饰等具体细节。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2029165450991681793",
+      "sourcePublishedAt": "2026-03-04T12:01:58.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"name\": \"Soft Vintage Cafe Smile\",\n  \"description\": \"A young woman with long brown hair sitting on a wooden chair in a cozy vintage-style cafe. She is smiling brightly while lifting her hair with both hands. She wears a light floral dress and a small necklace. The room has green tiled walls, wooden furniture, and soft natural light coming through a window, creating a warm and aesthetic atmosphere.\",\n  \"style\": \"soft aesthetic, vintage cafe, natural light\",\n  \"mood\": \"happy, warm, relaxed\",\n  \"colors\": [\"green\", \"beige\", \"brown\", \"soft pink\"],\n  \"setting\": \"vintage cafe interior with wooden table and green tiled wall\",\n  \"lighting\": \"soft natural window light\",\n  \"pose\": \"sitting on a chair with hands lifting hair\",\n  \"details\": [\"long brown hair\", \"floral dress\", \"bracelet\", \"necklace\", \"braces smile\"]\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692193737_domz4a_HCkLN5PawAM59B3.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692193737_domz4a_HCkLN5PawAM59B3-300x538.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"name\": \"柔和复古咖啡馆微笑\",\n  \"description\": \"一位年轻女子，留着长长的棕色头发，坐在一间舒适的复古风格咖啡馆的木椅上。她双手撩起头发，笑容灿烂。她穿着一件浅色碎花连衣裙，戴着一条小项链。房间里有绿色瓷砖墙、木制家具，窗户透进柔和的自然光，营造出温暖而富有美感的氛围。\",\n  \"style\": \"柔和美学，复古咖啡馆，自然光\",\n  \"mood\": \"快乐，温暖，放松\",\n  \"colors\": [\"绿色\", \"米色\", \"棕色\", \"柔和粉色\"],\n  \"setting\": \"复古咖啡馆内部，有木桌和绿色瓷砖墙\",\n  \"lighting\": \"柔和的自然窗光\",\n  \"pose\": \"坐在椅子上，双手撩起头发\",\n  \"details\": [\"长棕色头发\", \"碎花连衣裙\", \"手链\", \"项链\", \"戴牙套的笑容\"]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "柔和复古咖啡馆人像提示词（萨迪·辛克） 一个 json 提示，用于生成一张年轻女性（sadie sink 相似）在复古咖啡馆背景下的柔和美学肖像，重点是自然光、温暖的氛围以及头发和服饰等具体细节。 {\n  \"name\": \"soft vintage cafe smile\",\n  \"description\": \"a young woman with long brown hair sitting on a wooden chair in a cozy vintage-style cafe. she is smiling brightly while lifting her hair with both hands. she wears a light floral dress and a small necklace. the room has green tiled walls, wooden furniture, and soft natural light coming through a window, creating a warm and aesthetic atmosphere.\",\n  \"style\": \"soft aesthetic, vintage cafe, natural light\",\n  \"mood\": \"happy, warm, relaxed\",\n  \"colors\": [\"green\", \"beige\", \"brown\", \"soft pink\"],\n  \"setting\": \"vintage cafe interior with wooden table and green tiled wall\",\n  \"lighting\": \"soft natural window light\",\n  \"pose\": \"sitting on a chair with hands lifting hair\",\n  \"details\": [\"long brown hair\", \"floral dress\", \"bracelet\", \"necklace\", \"braces smile\"]\n} ```json\n{\n  \"name\": \"柔和复古咖啡馆微笑\",\n  \"description\": \"一位年轻女子，留着长长的棕色头发，坐在一间舒适的复古风格咖啡馆的木椅上。她双手撩起头发，笑容灿烂。她穿着一件浅色碎花连衣裙，戴着一条小项链。房间里有绿色瓷砖墙、木制家具，窗户透进柔和的自然光，营造出温暖而富有美感的氛围。\",\n  \"style\": \"柔和美学，复古咖啡馆，自然光\",\n  \"mood\": \"快乐，温暖，放松\",\n  \"colors\": [\"绿色\", \"米色\", \"棕色\", \"柔和粉色\"],\n  \"setting\": \"复古咖啡馆内部，有木桌和绿色瓷砖墙\",\n  \"lighting\": \"柔和的自然窗光\",\n  \"pose\": \"坐在椅子上，双手撩起头发\",\n  \"details\": [\"长棕色头发\", \"碎花连衣裙\", \"手链\", \"项链\", \"戴牙套的笑容\"]\n}\n``` zainab fatima 11399",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11418,
+      "title": "图像到图像风格迁移提示",
+      "description": "请用户上传照片，然后使用 Gemini Nano Banana 复制照片中的造型，并应用特定风格（黑色蕾丝袖 + 野性咬舌）。",
+      "sourceLink": "https://x.com/TheAiVisionary/status/2029162469755916507",
+      "sourcePublishedAt": "2026-03-04T11:50:07.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/TheAiVisionary"
+      },
+      "content": "black lace sleeve + feral tongue bite (iPhone close-up hunger).",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692202875_8ftoms_HCkITfda8AEQIw5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692202875_8ftoms_HCkITfda8AEQIw5-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "黑色蕾丝袖 + 野性舌尖轻咬（iPhone 特写下的渴望）。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图像到图像风格迁移提示 请用户上传照片，然后使用 gemini nano banana 复制照片中的造型，并应用特定风格（黑色蕾丝袖 + 野性咬舌）。 black lace sleeve + feral tongue bite (iphone close-up hunger). 黑色蕾丝袖 + 野性舌尖轻咬（iphone 特写下的渴望）。 layla 🌙 11418",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11452,
+      "title": "烘焙场景的电影短视频提示",
+      "description": "一个用于图像和视频生成（Kling 3.0 Omni）的摘要提示，旨在创作一部关于一位烘焙女性的电影短片。它强调电影般的色彩基调、浅景深、ASMR 般的音效细节以及流畅的运镜。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2029149861694583069",
+      "sourcePublishedAt": "2026-03-04T11:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "お菓子作りをする女性のシネマティックな短編映像。フィルムライクな色調、柔らかなハイライト、暖かいシャドウ、浅い被写界深度で統一し、女性の可愛らしさは仕草や微表情、音への反応のみで表現する。手元のクローズアップから始まり、材料を混ぜる、注ぐ、オーブンで焼く、最後に一口食べるという一連の動作を、ASMR的な臨場感ある音（器具の接触音、焼ける音、吐息）と共に描く。滑らかなジンバルワークとフォーカス送りを用い、動きや音のピークに合わせた自然なトランジションで構成された、温かみのある映像。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692218084_f33mq4_HCiHBl1awAA5lA-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692218084_f33mq4_HCiHBl1awAA5lA--300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一段关于一位女性烘焙甜点的电影短片。影片色彩统一，具有电影般的色调、柔和的高光、温暖的阴影和浅景深，女性的可爱之处仅通过手势、细微的表情和对声音的反应来表达。影片以她手部的特写镜头开始，展现了一系列动作——混合食材、倾倒、放入烤箱烘焙，最后品尝一口——并伴随着 ASMR 般的沉浸式声音（器皿接触声、烘焙声、呼吸声）。这是一段由流畅的云台运镜和焦点切换构成的温馨视频，自然转场与动作和声音的高潮同步。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "烘焙场景的电影短视频提示 一个用于图像和视频生成（kling 3.0 omni）的摘要提示，旨在创作一部关于一位烘焙女性的电影短片。它强调电影般的色彩基调、浅景深、asmr 般的音效细节以及流畅的运镜。 お菓子作りをする女性のシネマティックな短編映像。フィルムライクな色調、柔らかなハイライト、暖かいシャドウ、浅い被写界深度で統一し、女性の可愛らしさは仕草や微表情、音への反応のみで表現する。手元のクローズアップから始まり、材料を混ぜる、注ぐ、オーブンで焼く、最後に一口食べるという一連の動作を、asmr的な臨場感ある音（器具の接触音、焼ける音、吐息）と共に描く。滑らかなジンバルワークとフォーカス送りを用い、動きや音のピークに合わせた自然なトランジションで構成された、温かみのある映像。 一段关于一位女性烘焙甜点的电影短片。影片色彩统一，具有电影般的色调、柔和的高光、温暖的阴影和浅景深，女性的可爱之处仅通过手势、细微的表情和对声音的反应来表达。影片以她手部的特写镜头开始，展现了一系列动作——混合食材、倾倒、放入烤箱烘焙，最后品尝一口——并伴随着 asmr 般的沉浸式声音（器皿接触声、烘焙声、呼吸声）。这是一段由流畅的云台运镜和焦点切换构成的温馨视频，自然转场与动作和声音的高潮同步。 空想写真家 11452",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11450,
+      "title": "四格漫画提示：一日三餐",
+      "description": "一个详细的提示，用于生成一个四格漫画，描绘用户一天的餐食，包括早餐的金枪鱼罐头、午餐的巨无霸套餐、下午茶的饺子以及晚餐的咖喱。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2029147286660632912",
+      "sourcePublishedAt": "2026-03-04T10:49:47.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "今日の出来事\n朝\nツナ缶\n\n昼\nマックでビッグマックセット\nポテトとチョコレートシェイク\n\n午後\n餃子の王将　焼き餃子2人前持ち帰り\n\n夜\nカレー\n\n4コマ漫画",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692217028_9f7lxf_HCj6sk2awAE0SIw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692217028_9f7lxf_HCj6sk2awAE0SIw-300x269.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "今日事件\n上午\n金枪鱼罐头\n\n中午\n麦当劳巨无霸套餐\n薯条和巧克力奶昔\n\n下午\n大阪王将，两份烤饺子外带\n\n晚上\n咖喱\n\n四格漫画",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画提示：一日三餐 一个详细的提示，用于生成一个四格漫画，描绘用户一天的餐食，包括早餐的金枪鱼罐头、午餐的巨无霸套餐、下午茶的饺子以及晚餐的咖喱。 今日の出来事\n朝\nツナ缶\n\n昼\nマックでビッグマックセット\nポテトとチョコレートシェイク\n\n午後\n餃子の王将　焼き餃子2人前持ち帰り\n\n夜\nカレー\n\n4コマ漫画 今日事件\n上午\n金枪鱼罐头\n\n中午\n麦当劳巨无霸套餐\n薯条和巧克力奶昔\n\n下午\n大阪王将，两份烤饺子外带\n\n晚上\n咖喱\n\n四格漫画 クラリネットクラリオンnobu 11450",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11448,
+      "title": "图片生成提示词：德彪西《佩利亚斯与梅丽桑德》",
+      "description": "一个用于生成基于德彪西歌剧《佩利亚斯与梅丽桑德》的奇幻图像的提示，侧重于歌剧的主题和“二重身”的概念。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2029144288228196816",
+      "sourcePublishedAt": "2026-03-04T10:37:52.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ドビュッシー\n歌劇「ペレアスとメリザンド」を\n幻想的に\n\nペレアスとメリザンド\n\n色々な御方が曲を付けていますが\nドビュッシー\n\nドッペルゲンガー\nもう一人の自分とは…だけど…",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692216998_sh5iw7_HCj3-F3b0AAviHN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692216998_sh5iw7_HCj3-F3b0AAviHN-300x164.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "德彪西\n歌剧《佩利亚斯与梅丽桑德》\n奇幻地\n\n佩利亚斯与梅丽桑德\n\n许多人都曾为其谱曲，但德彪西\n\n二重身\n另一个自己是什么……",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图片生成提示词：德彪西《佩利亚斯与梅丽桑德》 一个用于生成基于德彪西歌剧《佩利亚斯与梅丽桑德》的奇幻图像的提示，侧重于歌剧的主题和“二重身”的概念。 ドビュッシー\n歌劇「ペレアスとメリザンド」を\n幻想的に\n\nペレアスとメリザンド\n\n色々な御方が曲を付けていますが\nドビュッシー\n\nドッペルゲンガー\nもう一人の自分とは…だけど… 德彪西\n歌剧《佩利亚斯与梅丽桑德》\n奇幻地\n\n佩利亚斯与梅丽桑德\n\n许多人都曾为其谱曲，但德彪西\n\n二重身\n另一个自己是什么…… クラリネットクラリオンnobu 11448",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11427,
+      "title": "人类与皮克斯角色复制提示",
+      "description": "一个用于生成超高质量照片的提示，照片中包含一个真人版和同一个人的巨大 3D 皮克斯风格版本，两者都严格基于上传的参考图像，确保特征、服装和特定姿势（手搭在肩膀上）完全一致。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2029142137015812314",
+      "sourcePublishedAt": "2026-03-04T10:29:19.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Ultra-high-quality hyper-realistic photo featuring a real human and a giant 3D Pixar-style version of THE SAME person — both strictly based on the uploaded reference image. The real person and the Pixar character must have identical facial structure, hairstyle, facial expression, body proportions, height, and clothing.\nBoth are wearing a knitted sweater with a gradient from light yellow to pink, high-waisted blue jeans, and white high-top sneakers.\nThe pose must exactly match the reference: the real person stands relaxed with a friendly smile, with their hand naturally resting on the shoulder of the Pixar character. The Pixar version stands slightly wider, arms confidently positioned near the pockets, with a playful sly smirk, one raised eyebrow, and expressive Pixar-style eyes.\nThe Pixar character should be proportionally larger, but anatomically identical to the real person. The facial expression, head tilt, posture, and body language must precisely replicate the reference image.\nClean gray-blue studio background, soft even studio lighting, realistic shadows, crisp fabric texture, smooth Pixar-style skin shading, cinematic sharpness.\nDO NOT change the pose, reaction, clothing, or proportions. Strict adherence to the reference.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772692206977_uffu8i_HCj2ArxbQAAw5Xo.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772692206977_uffu8i_HCj2ArxbQAAw5Xo-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超高质量的超写实照片，其中包含一个真人以及一个巨大的、3D 皮克斯风格的同一个人版本——两者都严格基于上传的参考图像。真人与皮克斯角色必须具有相同的面部结构、发型、面部表情、身体比例、身高和服装。\n两者都穿着一件从浅黄色渐变到粉色的针织毛衣、高腰蓝色牛仔裤和白色高帮运动鞋。\n姿势必须与参考图像完全匹配：真人放松地站立，面带友善的微笑，手自然地搭在皮克斯角色的肩膀上。皮克斯版本站姿略宽，双臂自信地放在口袋附近，带着顽皮狡黠的笑容，一只眉毛上扬，以及富有表现力的皮克斯风格眼睛。\n皮克斯角色应按比例更大，但解剖结构与真人相同。面部表情、头部倾斜、姿势和肢体语言必须精确复制参考图像。\n干净的灰蓝色影棚背景，柔和均匀的影棚灯光，逼真的阴影，清晰的织物纹理，光滑的皮克斯风格皮肤着色，电影般的锐度。\n请勿改变姿势、反应、服装或比例。严格遵守参考图像。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "人类与皮克斯角色复制提示 一个用于生成超高质量照片的提示，照片中包含一个真人版和同一个人的巨大 3d 皮克斯风格版本，两者都严格基于上传的参考图像，确保特征、服装和特定姿势（手搭在肩膀上）完全一致。 ultra-high-quality hyper-realistic photo featuring a real human and a giant 3d pixar-style version of the same person — both strictly based on the uploaded reference image. the real person and the pixar character must have identical facial structure, hairstyle, facial expression, body proportions, height, and clothing.\nboth are wearing a knitted sweater with a gradient from light yellow to pink, high-waisted blue jeans, and white high-top sneakers.\nthe pose must exactly match the reference: the real person stands relaxed with a friendly smile, with their hand naturally resting on the shoulder of the pixar character. the pixar version stands slightly wider, arms confidently positioned near the pockets, with a playful sly smirk, one raised eyebrow, and expressive pixar-style eyes.\nthe pixar character should be proportionally larger, but anatomically identical to the real person. the facial expression, head tilt, posture, and body language must precisely replicate the reference image.\nclean gray-blue studio background, soft even studio lighting, realistic shadows, crisp fabric texture, smooth pixar-style skin shading, cinematic sharpness.\ndo not change the pose, reaction, clothing, or proportions. strict adherence to the reference. 超高质量的超写实照片，其中包含一个真人以及一个巨大的、3d 皮克斯风格的同一个人版本——两者都严格基于上传的参考图像。真人与皮克斯角色必须具有相同的面部结构、发型、面部表情、身体比例、身高和服装。\n两者都穿着一件从浅黄色渐变到粉色的针织毛衣、高腰蓝色牛仔裤和白色高帮运动鞋。\n姿势必须与参考图像完全匹配：真人放松地站立，面带友善的微笑，手自然地搭在皮克斯角色的肩膀上。皮克斯版本站姿略宽，双臂自信地放在口袋附近，带着顽皮狡黠的笑容，一只眉毛上扬，以及富有表现力的皮克斯风格眼睛。\n皮克斯角色应按比例更大，但解剖结构与真人相同。面部表情、头部倾斜、姿势和肢体语言必须精确复制参考图像。\n干净的灰蓝色影棚背景，柔和均匀的影棚灯光，逼真的阴影，清晰的织物纹理，光滑的皮克斯风格皮肤着色，电影般的锐度。\n请勿改变姿势、反应、服装或比例。严格遵守参考图像。 kashberg 11427",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 102,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

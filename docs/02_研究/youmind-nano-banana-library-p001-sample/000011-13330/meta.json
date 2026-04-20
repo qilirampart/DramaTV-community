@@ -1,0 +1,31 @@
+{
+  "rank": 11,
+  "id": 13330,
+  "title": "深色单色插画风格提示词（含参考图）",
+  "description": "一份为 Gemini Nano Banana Pro 2.0 设计的详细提示词，旨在将上传的照片转换为采用复古蚀刻和排线技术的深色单色插画，强调复杂的线条艺术、高对比度以及哥特式/中世纪雕版画美学。",
+  "language": "en",
+  "authorName": "Ai Prompts Lab",
+  "authorLink": "https://x.com/Aipromptslap",
+  "featured": false,
+  "sourceLink": "https://x.com/Aipromptslap/status/2041979550935216368",
+  "sourcePublishedAt": "2026-04-08T20:40:37.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 0,
+  "needReferenceImages": true,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg",
+      "02.jpg",
+      "03.jpg"
+    ],
+    "thumbs": []
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "prompts": [
+    {
+      "id": 12489,
+      "title": "Jolivet 的双钢琴《弹珠机》",
+      "description": "一个用于 Nano Banana Pro (Gemini 3 Pro Image) 的图像生成提示，旨在创作一张与作曲家 Jolivet 及其作品《为两架钢琴而作的弹珠机》相关的赛博朋克风格图像，画面中 Jolivet 和他的分身作为钢琴家出现。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2034241618707206161",
+      "sourcePublishedAt": "2026-03-18T12:12:50.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "ジョリヴェ　Jolivet（作曲家）\n2台のピアノのためのパチンコ\nピアノ奏者は\nジョリヴェとジョリヴェの\nドッペルゲンガー\nサイバーパンク",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902685451_fm8j76_HDsT94YboAADMll.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902685451_fm8j76_HDsT94YboAADMll-300x164.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "{argument name=\"composer\" default=\"Jolivet\"}（作曲家）\n{argument name=\"piece\" default=\"Pachinko for Two Pianos\"}\n钢琴演奏者是\nJolivet 和 Jolivet 的\n分身\n{argument name=\"style\" default=\"Cyberpunk\"}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "jolivet 的双钢琴《弹珠机》 一个用于 nano banana pro (gemini 3 pro image) 的图像生成提示，旨在创作一张与作曲家 jolivet 及其作品《为两架钢琴而作的弹珠机》相关的赛博朋克风格图像，画面中 jolivet 和他的分身作为钢琴家出现。 ジョリヴェ　jolivet（作曲家）\n2台のピアノのためのパチンコ\nピアノ奏者は\nジョリヴェとジョリヴェの\nドッペルゲンガー\nサイバーパンク {argument name=\"composer\" default=\"jolivet\"}（作曲家）\n{argument name=\"piece\" default=\"pachinko for two pianos\"}\n钢琴演奏者是\njolivet 和 jolivet 的\n分身\n{argument name=\"style\" default=\"cyberpunk\"} クラリネットクラリオンnobu 12489",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12485,
+      "title": "四格漫画：重复记账",
+      "description": "一个用于 Nano Banana Pro (Gemini 3 Pro Image) 的图像生成提示，用于创作一部名为《双重记账》的四格漫画，漫画角色为 Koto-ge Moto 和 Katsura。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2034238750252056603",
+      "sourcePublishedAt": "2026-03-18T12:01:27.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "4コマ漫画\nタイトル\n{argument name=\"title\" default=\"二重計上\"}\n\nコトゲモート\nかつら　凄いな…\n\n別の人みたい　笑",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902683546_d5n4am_HDsRW3CakAAR-_v.jpg",
+        "https://cms-assets.youmind.com/media/1773902683691_4zdf8k_HDsRW2TbwAA9pSh.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902683546_d5n4am_HDsRW3CakAAR-_v-300x163.jpg",
+        "https://cms-assets.youmind.com/media/1773902683691_4zdf8k_HDsRW2TbwAA9pSh-300x163.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "四格漫画\n标题\n{argument name=\"title_en\" default=\"双重核算\"}\n\n小峠 英将\n假发真厉害……\n\n简直像变了个人一样 哈哈",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格漫画：重复记账 一个用于 nano banana pro (gemini 3 pro image) 的图像生成提示，用于创作一部名为《双重记账》的四格漫画，漫画角色为 koto-ge moto 和 katsura。 4コマ漫画\nタイトル\n{argument name=\"title\" default=\"二重計上\"}\n\nコトゲモート\nかつら　凄いな…\n\n別の人みたい　笑 四格漫画\n标题\n{argument name=\"title_en\" default=\"双重核算\"}\n\n小峠 英将\n假发真厉害……\n\n简直像变了个人一样 哈哈 クラリネットクラリオンnobu 12485",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12448,
+      "title": "爆炸的品客薯片罐广告提示",
+      "description": "一个用于 Nano Banana Pro（通过 Gemini 应用）的提示，用于生成一张超逼真的电影广告摄影作品：一个倾斜的“Pringler – Fire Chili Flow”薯片罐，展示辛辣薯片向上爆裂的动态瞬间，伴随着飞散的辣椒粉和烟雾。",
+      "sourceLink": "https://x.com/Taaruk_/status/2034232370535239991",
+      "sourcePublishedAt": "2026-03-18T11:36:06.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic cinematic snack advertising photography of a tilted “Pringler – Fire Chili Flow” potato chips can bursting with spicy chips. The cylindrical can is angled diagonally in mid-air above a dark surface while fiery red-orange chips explode upward from the opening in dynamic motion. Fine chili powder and seasoning particles scatter through the air, creating a dramatic spice explosion. Wisps of hot smoky vapor rise around the chips to emphasize the intense chili flavor.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902661011_3w8t5g_HDsLjYubkAAEf8e.jpg",
+        "https://cms-assets.youmind.com/media/1773902660935_2h40w9_HDsLjTnagAAZKZw.jpg",
+        "https://cms-assets.youmind.com/media/1773902660993_dhil37_HDsLjUyb0AAq1IB.jpg",
+        "https://cms-assets.youmind.com/media/1773902661943_7ym8gv_HDsLjgWb0AAh-0_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902661011_3w8t5g_HDsLjYubkAAEf8e-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773902660935_2h40w9_HDsLjTnagAAZKZw-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773902660993_dhil37_HDsLjUyb0AAq1IB-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773902661943_7ym8gv_HDsLjgWb0AAh-0_-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的电影级零食广告摄影，画面中一罐倾斜的“Pringler – Fire Chili Flow”薯片爆裂开来，辛辣的薯片四散飞溅。圆柱形的薯片罐在深色背景上方呈对角线悬浮在半空中，火红色的薯片从开口处向上爆裂，动感十足。细小的辣椒粉和调味料颗粒在空气中飞舞，营造出戏剧性的香料爆炸效果。热腾腾的烟雾缭绕在薯片周围，以强调浓郁的辣椒风味。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "爆炸的品客薯片罐广告提示 一个用于 nano banana pro（通过 gemini 应用）的提示，用于生成一张超逼真的电影广告摄影作品：一个倾斜的“pringler – fire chili flow”薯片罐，展示辛辣薯片向上爆裂的动态瞬间，伴随着飞散的辣椒粉和烟雾。 ultra-realistic cinematic snack advertising photography of a tilted “pringler – fire chili flow” potato chips can bursting with spicy chips. the cylindrical can is angled diagonally in mid-air above a dark surface while fiery red-orange chips explode upward from the opening in dynamic motion. fine chili powder and seasoning particles scatter through the air, creating a dramatic spice explosion. wisps of hot smoky vapor rise around the chips to emphasize the intense chili flavor. 超逼真的电影级零食广告摄影，画面中一罐倾斜的“pringler – fire chili flow”薯片爆裂开来，辛辣的薯片四散飞溅。圆柱形的薯片罐在深色背景上方呈对角线悬浮在半空中，火红色的薯片从开口处向上爆裂，动感十足。细小的辣椒粉和调味料颗粒在空气中飞舞，营造出戏剧性的香料爆炸效果。热腾腾的烟雾缭绕在薯片周围，以强调浓郁的辣椒风味。 taaruk 12448",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12461,
+      "title": "Sadie Sink 的逼真健身提示",
+      "description": "为 Gemini Nano Banana Pro 准备的两个独立且高度详细的提示，用于生成 Sadie Sink 身着运动服的超逼真图像，重点突出自然、真实、未经编辑的生活美学，并包含特定的光线和服装细节。",
+      "sourceLink": "https://x.com/Jodie_Noraa/status/2034226654961434793",
+      "sourcePublishedAt": "2026-03-18T11:13:23.000Z",
+      "author": {
+        "name": "J⭕DIE",
+        "link": "https://x.com/Jodie_Noraa"
+      },
+      "content": "Image 1 Prompt:\nA high-resolution, candid medium shot of a young woman with wavy, auburn hair and light freckles, captured in a warm-toned indoor setting. She is looking downward with a focused expression while adjusting the waistband of her light khaki cargo pants. She wears a grey heathered athletic top featuring black trim and \"NYATHLETICS\" text on the band. The lighting is soft and cinematic, highlighting natural skin textures and a realistic, soft midsection. The background is slightly blurred, showing a modern interior with muted cream walls and a glimpse of an air conditioning unit, creating an authentic, unedited lifestyle aesthetic.\n\nImage 2 Prompt: \nA realistic, eye-level portrait of a young woman with vibrant reddish-brown wavy hair, posing confidently in a fitness studio. She has one arm raised, revealing a natural, in-service physiques soft skin texture. She is dressed in a charcoal grey sports bra with mesh detailing and the \"NYATHLETICS\" logo, paired with beige drawstring utility trousers. Her expression is calm and neutral, looking directly at the camera. The scene is illuminated by warm, ambient overhead lights that reflect off her skin, with a shallow depth of field that softly blurs the mirrors and studio equipment in the background.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902669399_zpxl3s_HDsGW6daoAA08Qf.jpg",
+        "https://cms-assets.youmind.com/media/1773902669466_ab133m_HDsGWn3asAAi4fM.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902669399_zpxl3s_HDsGW6daoAA08Qf-300x399.jpg",
+        "https://cms-assets.youmind.com/media/1773902669466_ab133m_HDsGWn3asAAi4fM-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "图片 1 提示：\n一张高分辨率的抓拍中景照片，一位年轻女士，波浪状赤褐色头发，脸上略带雀斑，置身于暖色调的室内环境中。她低头，神情专注，正在调整浅卡其色工装裤的腰带。她身穿灰色混色运动上衣，带有黑色饰边和印有“NYATHLETICS”字样的下摆。灯光柔和且富有电影感，突显了自然的皮肤纹理和真实柔和的腹部。背景略微模糊，展示了一个现代室内空间，米色墙壁柔和，隐约可见一个空调设备，营造出一种真实、未经修饰的生活美学。\n\n图片 2 提示：\n一张逼真的平视肖像，一位年轻女士，拥有充满活力的红棕色波浪发，自信地在健身房中摆姿势。她抬起一只手臂，展现出自然、健美的柔软皮肤纹理。她身穿炭灰色运动文胸，带有网眼细节和“NYATHLETICS”标志，搭配米色抽绳工装裤。她表情平静而中性，直视镜头。场景由温暖的、环境化的顶灯照亮，光线反射在她的皮肤上，景深较浅，柔和地模糊了背景中的镜子和健身器材。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sadie sink 的逼真健身提示 为 gemini nano banana pro 准备的两个独立且高度详细的提示，用于生成 sadie sink 身着运动服的超逼真图像，重点突出自然、真实、未经编辑的生活美学，并包含特定的光线和服装细节。 image 1 prompt:\na high-resolution, candid medium shot of a young woman with wavy, auburn hair and light freckles, captured in a warm-toned indoor setting. she is looking downward with a focused expression while adjusting the waistband of her light khaki cargo pants. she wears a grey heathered athletic top featuring black trim and \"nyathletics\" text on the band. the lighting is soft and cinematic, highlighting natural skin textures and a realistic, soft midsection. the background is slightly blurred, showing a modern interior with muted cream walls and a glimpse of an air conditioning unit, creating an authentic, unedited lifestyle aesthetic.\n\nimage 2 prompt: \na realistic, eye-level portrait of a young woman with vibrant reddish-brown wavy hair, posing confidently in a fitness studio. she has one arm raised, revealing a natural, in-service physiques soft skin texture. she is dressed in a charcoal grey sports bra with mesh detailing and the \"nyathletics\" logo, paired with beige drawstring utility trousers. her expression is calm and neutral, looking directly at the camera. the scene is illuminated by warm, ambient overhead lights that reflect off her skin, with a shallow depth of field that softly blurs the mirrors and studio equipment in the background. 图片 1 提示：\n一张高分辨率的抓拍中景照片，一位年轻女士，波浪状赤褐色头发，脸上略带雀斑，置身于暖色调的室内环境中。她低头，神情专注，正在调整浅卡其色工装裤的腰带。她身穿灰色混色运动上衣，带有黑色饰边和印有“nyathletics”字样的下摆。灯光柔和且富有电影感，突显了自然的皮肤纹理和真实柔和的腹部。背景略微模糊，展示了一个现代室内空间，米色墙壁柔和，隐约可见一个空调设备，营造出一种真实、未经修饰的生活美学。\n\n图片 2 提示：\n一张逼真的平视肖像，一位年轻女士，拥有充满活力的红棕色波浪发，自信地在健身房中摆姿势。她抬起一只手臂，展现出自然、健美的柔软皮肤纹理。她身穿炭灰色运动文胸，带有网眼细节和“nyathletics”标志，搭配米色抽绳工装裤。她表情平静而中性，直视镜头。场景由温暖的、环境化的顶灯照亮，光线反射在她的皮肤上，景深较浅，柔和地模糊了背景中的镜子和健身器材。 j⭕die 12461",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12479,
+      "title": "樱花太空殖民地插画提示",
+      "description": "一个详细的提示，用于生成一个樱花盛开的太空殖民地内部插图，经确认可与 Nano Banana 2、Imagen 4 和 Grok 配合使用。",
+      "sourceLink": "https://x.com/satos73/status/2034221116013862943",
+      "sourcePublishedAt": "2026-03-18T10:51:22.000Z",
+      "author": {
+        "name": "さとー",
+        "link": "https://x.com/satos73"
+      },
+      "content": "High-definition, high-resolution 2.5D rendered illustration. A massive, horizontally tilted cylindrical space with a diameter of 6400 meters. The inner wall alternates between sections of green space and urban areas, and sections of glass and frames. The cherry blossoms are in full bloom in the green space, and their petals are falling. Beyond the glass, outer space is visible. White clouds drift along the inner surface of the cylinder. The innermost part of the cylinder is blocked off by a huge metal bulkhead, which is obscured by air. The distant areas appear blue and hazy due to atmospheric perspective. The image is taken from a camera angle slightly looking down toward the end of the cylinder from near its central axis.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902679589_mp5qhw_HDsAWU9bwAAokgf.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902679589_mp5qhw_HDsAWU9bwAAokgf-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "高清、高分辨率的 2.5D 渲染插画。一个巨大的、水平倾斜的圆柱形空间，直径 6400 米。内壁交替呈现绿地和城市区域，以及玻璃和框架区域。绿地中樱花盛开，花瓣飘落。透过玻璃，可以看到外太空。白云沿着圆柱体的内表面漂浮。圆柱体最内部被一个巨大的金属舱壁挡住，舱壁被空气遮蔽。由于大气透视，远处的区域呈现蓝色和朦胧。图像是从靠近圆柱体中心轴的位置，稍微向下看向圆柱体末端的摄像机角度拍摄的。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "樱花太空殖民地插画提示 一个详细的提示，用于生成一个樱花盛开的太空殖民地内部插图，经确认可与 nano banana 2、imagen 4 和 grok 配合使用。 high-definition, high-resolution 2.5d rendered illustration. a massive, horizontally tilted cylindrical space with a diameter of 6400 meters. the inner wall alternates between sections of green space and urban areas, and sections of glass and frames. the cherry blossoms are in full bloom in the green space, and their petals are falling. beyond the glass, outer space is visible. white clouds drift along the inner surface of the cylinder. the innermost part of the cylinder is blocked off by a huge metal bulkhead, which is obscured by air. the distant areas appear blue and hazy due to atmospheric perspective. the image is taken from a camera angle slightly looking down toward the end of the cylinder from near its central axis. 高清、高分辨率的 2.5d 渲染插画。一个巨大的、水平倾斜的圆柱形空间，直径 6400 米。内壁交替呈现绿地和城市区域，以及玻璃和框架区域。绿地中樱花盛开，花瓣飘落。透过玻璃，可以看到外太空。白云沿着圆柱体的内表面漂浮。圆柱体最内部被一个巨大的金属舱壁挡住，舱壁被空气遮蔽。由于大气透视，远处的区域呈现蓝色和朦胧。图像是从靠近圆柱体中心轴的位置，稍微向下看向圆柱体末端的摄像机角度拍摄的。 さとー 12479",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12462,
+      "title": "超逼真影棚美妆肖像提示词",
+      "description": "一个高度结构化的 JSON 风格提示，用于 Nano Banana Pro 生成一张超逼真的影棚美妆肖像，其中详细说明了灯光、相机细节和拍摄对象的外观（包括服装和妆容），以打造高对比度的魅力造型。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2034207321191289061",
+      "sourcePublishedAt": "2026-03-18T09:56:33.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "{   \"style\": \"ultra photorealistic studio beauty portrait\",   \"aspect_ratio\": \"9:16\",   \"resolution\": \"8k RAW\",    \"reference_rules\": {     \"use_reference_face\": true,     \"preserve_face_exactly\": true,     \"keep_hair_color_same\": true,     \"do_not_change_eye_color\": true,     \"no_text_elements\": true   },    \"composition\": {     \"camera_position\": \"eye-level close-up\",     \"framing\": \"tight chest-up portrait\",     \"orientation\": \"vertical centered framing\",     \"background\": \"clean light neutral studio backdrop\"   },    \"subject\": {     \"pose\": {       \"position\": \"standing upright\",       \"torso\": \"slightly angled\",       \"shoulders\": \"relaxed but forward\",       \"head\": \"slightly tilted\",       \"gaze\": \"slightly off-camera\"     },      \"expression\": {       \"type\": \"glam neutral expression\",       \"lips\": \"slightly parted with gloss shine\",       \"eyes\": \"sharp confident gaze\"     },      \"appearance\": {       \"skin\": {         \"texture\": \"high-detail skin with natural pores\",         \"finish\": \"glossy highlight on cheekbones and nose\",         \"effect\": \"studio glow with controlled shine\"       },        \"hair\": {         \"style\": \"long voluminous waves\",         \"placement\": [           \"falling evenly over both shoulders\",           \"slight movement in ends\"         ],         \"finish\": \"smooth high-shine texture\",         \"color\": \"same as reference image\"       },        \"eyes\": {         \"color\": \"same as reference image\",         \"details\": \"sharp iris detail with strong catchlight\"       },        \"makeup\": {         \"style\": \"full glam\",         \"details\": [           \"defined brows\",           \"winged eyeliner\",           \"long lashes\",           \"contoured cheeks\",           \"glossy lips\"         ]       }     },      \"clothing\": {       \"top\": {         \"type\": \"black satin corset-style top\",         \"details\": [           \"structured fit\",           \"lace trim\",           \"deep neckline\"         ],         \"fabric\": \"smooth satin with reflective highlights\"       },        \"accessories\": [         {           \"type\": \"black choker necklace\",           \"detail\": \"center jewel with bright reflective sparkle\"         }       ]     }   },    \"lighting\": {     \"type\": \"direct studio flash\",      \"setup\": {       \"primary\": \"front-facing flash slightly above lens\",       \"fill\": \"minimal fill to keep contrast\"     },      \"quality\": {       \"shadows\": \"sharp but controlled under chin and hair\",       \"highlights\": \"strong specular highlights on skin and lips\",       \"contrast\": \"high contrast glam look\"     },      \"effects\": [       \"flash reflection sparkle on jewelry\",       \"strong catchlight in eyes\",       \"clean separation from background\",       \"crisp texture definition\"     ],      \"color_temperature\": \"neutral flash (5500K)\"   },    \"camera\": {     \"device\": \"professional DSLR\",     \"lens\": \"85mm\",     \"aperture\": \"f/2.0\",",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902669825_topynp_HDr0hRTb0AAZiPe.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902669825_topynp_HDr0hRTb0AAZiPe-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n   \"style\": \"超逼真的影棚美妆肖像\",\n   \"aspect_ratio\": \"9:16\",\n   \"resolution\": \"8k RAW\",\n   \"reference_rules\": {\n     \"use_reference_face\": true,\n     \"preserve_face_exactly\": true,\n     \"keep_hair_color_same\": true,\n     \"do_not_change_eye_color\": true,\n     \"no_text_elements\": true\n   },\n   \"composition\": {\n     \"camera_position\": \"齐眼特写\",\n     \"framing\": \"胸部以上紧凑肖像\",\n     \"orientation\": \"垂直居中构图\",\n     \"background\": \"干净明亮的浅色中性影棚背景\"\n   },\n   \"subject\": {\n     \"pose\": {\n       \"position\": \"直立站姿\",\n       \"torso\": \"身体略微倾斜\",\n       \"shoulders\": \"放松但略微前倾\",\n       \"head\": \"头部略微倾斜\",\n       \"gaze\": \"视线略微偏离镜头\"\n     },\n     \"expression\": {\n       \"type\": \"迷人中性表情\",\n       \"lips\": \"双唇微启，带有光泽\",\n       \"eyes\": \"锐利自信的眼神\"\n     },\n     \"appearance\": {\n       \"skin\": {\n         \"texture\": \"高细节皮肤，带有自然毛孔\",\n         \"finish\": \"颧骨和鼻梁有光泽高光\",\n         \"effect\": \"影棚光泽，光线受控\"\n       },\n       \"hair\": {\n         \"style\": \"长而蓬松的波浪卷发\",\n         \"placement\": [\n           \"均匀地垂落在双肩\",\n           \"发梢略微摆动\"\n         ],\n         \"finish\": \"光滑高光泽质感\",\n         \"color\": \"与参考图像相同\"\n       },\n       \"eyes\": {\n         \"color\": \"与参考图像相同\",\n         \"details\": \"虹膜细节锐利，有强烈眼神光\"\n       },\n       \"makeup\": {\n         \"style\": \"全套华丽妆容\",\n         \"details\": [\n           \"精致眉毛\",\n           \"飞扬眼线\",\n           \"浓密睫毛\",\n           \"修容腮红\",\n           \"光泽唇妆\"\n         ]\n       }\n     },\n     \"clothing\": {\n       \"top\": {\n         \"type\": \"黑色缎面束身衣式上衣\",\n         \"details\": [\n           \"结构化剪裁\",\n           \"蕾丝边饰\",\n           \"深 V 领\"\n         ],\n         \"fabric\": \"光滑缎面，带有反光高光\"\n       },\n       \"accessories\": [\n         {\n           \"type\": \"黑色颈链\",\n           \"detail\": \"中央宝石带有明亮反光闪光\"\n         }\n       ]\n     }\n   },\n   \"lighting\": {\n     \"type\": \"直射影棚闪光灯\",\n     \"setup\": {\n       \"primary\": \"正向闪光灯，略高于镜头\",\n       \"fill\": \"少量补光以保持对比度\"\n     },\n     \"quality\": {\n       \"shadows\": \"下巴和头发下方阴影锐利但受控\",\n       \"highlights\": \"皮肤和嘴唇上有强烈镜面高光\",\n       \"contrast\": \"高对比度华丽造型\"\n     },\n     \"effects\": [\n       \"珠宝上的闪光反射光斑\",\n       \"眼睛中有强烈眼神光\",\n       \"与背景清晰分离\",\n       \"清晰的纹理定义\"\n     ],\n     \"color_temperature\": \"中性闪光灯 (5500K)\"\n   },\n   \"camera\": {\n     \"device\": \"专业单反相机\",\n     \"lens\": \"85mm\",\n     \"aperture\": \"f/2.0\"\n   }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真影棚美妆肖像提示词 一个高度结构化的 json 风格提示，用于 nano banana pro 生成一张超逼真的影棚美妆肖像，其中详细说明了灯光、相机细节和拍摄对象的外观（包括服装和妆容），以打造高对比度的魅力造型。 {   \"style\": \"ultra photorealistic studio beauty portrait\",   \"aspect_ratio\": \"9:16\",   \"resolution\": \"8k raw\",    \"reference_rules\": {     \"use_reference_face\": true,     \"preserve_face_exactly\": true,     \"keep_hair_color_same\": true,     \"do_not_change_eye_color\": true,     \"no_text_elements\": true   },    \"composition\": {     \"camera_position\": \"eye-level close-up\",     \"framing\": \"tight chest-up portrait\",     \"orientation\": \"vertical centered framing\",     \"background\": \"clean light neutral studio backdrop\"   },    \"subject\": {     \"pose\": {       \"position\": \"standing upright\",       \"torso\": \"slightly angled\",       \"shoulders\": \"relaxed but forward\",       \"head\": \"slightly tilted\",       \"gaze\": \"slightly off-camera\"     },      \"expression\": {       \"type\": \"glam neutral expression\",       \"lips\": \"slightly parted with gloss shine\",       \"eyes\": \"sharp confident gaze\"     },      \"appearance\": {       \"skin\": {         \"texture\": \"high-detail skin with natural pores\",         \"finish\": \"glossy highlight on cheekbones and nose\",         \"effect\": \"studio glow with controlled shine\"       },        \"hair\": {         \"style\": \"long voluminous waves\",         \"placement\": [           \"falling evenly over both shoulders\",           \"slight movement in ends\"         ],         \"finish\": \"smooth high-shine texture\",         \"color\": \"same as reference image\"       },        \"eyes\": {         \"color\": \"same as reference image\",         \"details\": \"sharp iris detail with strong catchlight\"       },        \"makeup\": {         \"style\": \"full glam\",         \"details\": [           \"defined brows\",           \"winged eyeliner\",           \"long lashes\",           \"contoured cheeks\",           \"glossy lips\"         ]       }     },      \"clothing\": {       \"top\": {         \"type\": \"black satin corset-style top\",         \"details\": [           \"structured fit\",           \"lace trim\",           \"deep neckline\"         ],         \"fabric\": \"smooth satin with reflective highlights\"       },        \"accessories\": [         {           \"type\": \"black choker necklace\",           \"detail\": \"center jewel with bright reflective sparkle\"         }       ]     }   },    \"lighting\": {     \"type\": \"direct studio flash\",      \"setup\": {       \"primary\": \"front-facing flash slightly above lens\",       \"fill\": \"minimal fill to keep contrast\"     },      \"quality\": {       \"shadows\": \"sharp but controlled under chin and hair\",       \"highlights\": \"strong specular highlights on skin and lips\",       \"contrast\": \"high contrast glam look\"     },      \"effects\": [       \"flash reflection sparkle on jewelry\",       \"strong catchlight in eyes\",       \"clean separation from background\",       \"crisp texture definition\"     ],      \"color_temperature\": \"neutral flash (5500k)\"   },    \"camera\": {     \"device\": \"professional dslr\",     \"lens\": \"85mm\",     \"aperture\": \"f/2.0\", ```json\n{\n   \"style\": \"超逼真的影棚美妆肖像\",\n   \"aspect_ratio\": \"9:16\",\n   \"resolution\": \"8k raw\",\n   \"reference_rules\": {\n     \"use_reference_face\": true,\n     \"preserve_face_exactly\": true,\n     \"keep_hair_color_same\": true,\n     \"do_not_change_eye_color\": true,\n     \"no_text_elements\": true\n   },\n   \"composition\": {\n     \"camera_position\": \"齐眼特写\",\n     \"framing\": \"胸部以上紧凑肖像\",\n     \"orientation\": \"垂直居中构图\",\n     \"background\": \"干净明亮的浅色中性影棚背景\"\n   },\n   \"subject\": {\n     \"pose\": {\n       \"position\": \"直立站姿\",\n       \"torso\": \"身体略微倾斜\",\n       \"shoulders\": \"放松但略微前倾\",\n       \"head\": \"头部略微倾斜\",\n       \"gaze\": \"视线略微偏离镜头\"\n     },\n     \"expression\": {\n       \"type\": \"迷人中性表情\",\n       \"lips\": \"双唇微启，带有光泽\",\n       \"eyes\": \"锐利自信的眼神\"\n     },\n     \"appearance\": {\n       \"skin\": {\n         \"texture\": \"高细节皮肤，带有自然毛孔\",\n         \"finish\": \"颧骨和鼻梁有光泽高光\",\n         \"effect\": \"影棚光泽，光线受控\"\n       },\n       \"hair\": {\n         \"style\": \"长而蓬松的波浪卷发\",\n         \"placement\": [\n           \"均匀地垂落在双肩\",\n           \"发梢略微摆动\"\n         ],\n         \"finish\": \"光滑高光泽质感\",\n         \"color\": \"与参考图像相同\"\n       },\n       \"eyes\": {\n         \"color\": \"与参考图像相同\",\n         \"details\": \"虹膜细节锐利，有强烈眼神光\"\n       },\n       \"makeup\": {\n         \"style\": \"全套华丽妆容\",\n         \"details\": [\n           \"精致眉毛\",\n           \"飞扬眼线\",\n           \"浓密睫毛\",\n           \"修容腮红\",\n           \"光泽唇妆\"\n         ]\n       }\n     },\n     \"clothing\": {\n       \"top\": {\n         \"type\": \"黑色缎面束身衣式上衣\",\n         \"details\": [\n           \"结构化剪裁\",\n           \"蕾丝边饰\",\n           \"深 v 领\"\n         ],\n         \"fabric\": \"光滑缎面，带有反光高光\"\n       },\n       \"accessories\": [\n         {\n           \"type\": \"黑色颈链\",\n           \"detail\": \"中央宝石带有明亮反光闪光\"\n         }\n       ]\n     }\n   },\n   \"lighting\": {\n     \"type\": \"直射影棚闪光灯\",\n     \"setup\": {\n       \"primary\": \"正向闪光灯，略高于镜头\",\n       \"fill\": \"少量补光以保持对比度\"\n     },\n     \"quality\": {\n       \"shadows\": \"下巴和头发下方阴影锐利但受控\",\n       \"highlights\": \"皮肤和嘴唇上有强烈镜面高光\",\n       \"contrast\": \"高对比度华丽造型\"\n     },\n     \"effects\": [\n       \"珠宝上的闪光反射光斑\",\n       \"眼睛中有强烈眼神光\",\n       \"与背景清晰分离\",\n       \"清晰的纹理定义\"\n     ],\n     \"color_temperature\": \"中性闪光灯 (5500k)\"\n   },\n   \"camera\": {\n     \"device\": \"专业单反相机\",\n     \"lens\": \"85mm\",\n     \"aperture\": \"f/2.0\"\n   }\n}\n``` glena jenner 12462",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12467,
+      "title": "空灵电影感时尚肖像提示",
+      "description": "为 Gemini Nano Banana Pro 提供的详细提示，用于生成一张电影级的竖版时尚编辑肖像（9:16），描绘一位长发飘逸的黑发女性，身着飘渺的高级定制礼服。图像中有一个透明的水晶球，内含一个微型发光宇宙，背景是柔和的宇宙渐变色，光线超现实且梦幻。",
+      "sourceLink": "https://x.com/Ciri_ai/status/2034206741295141186",
+      "sourcePublishedAt": "2026-03-18T09:54:15.000Z",
+      "author": {
+        "name": "Ciri",
+        "link": "https://x.com/Ciri_ai"
+      },
+      "content": "A cinematic vertical fashion editorial portrait (9:16) of a beautiful woman with long, airy black hair, softly wavy and floating weightlessly as if suspended in a gentle breeze.\nShe wears an ethereal haute couture gown in soft ivory, pale champagne, and luminous pearl tones. The fabric is light and translucent layered chiffon, silk, and organza that float and diffuse light beautifully. \n\nHer face is softly lit in full clarity — glowing skin, delicate features, serene expression, soft radiant makeup with a dewy finish.\nShe gently holds a transparent crystal sphere near her heart.\nInside the sphere: a luminous miniature universe — pastel nebula clouds, glowing stardust, soft galaxies, dreamy gradients, and faint distant lights. The internal world is soft and magical with gentle refraction.\n\n A subtle inverted silhouette of her appears within, blending harmoniously with the glowing cosmos.\nBackground: soft cosmic gradient in pale blues, lavender, and silver tones, filled with diffused glowing stars and dreamy haze.\nLighting: soft diffused lighting, glowing highlights, gentle bloom effect, subtle backlight creating a halo-like aura.\nUltra-realistic, soft contrast, dreamy cinematic depth, 8k resolution.\nMood: ethereal, soft, celestial, poetic, dreamlike elegance.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902672127_9id1dm_HDr0Ox6a0AA0tqY.jpg",
+        "https://cms-assets.youmind.com/media/1773902672362_ipoa2x_HDr0Ox7bYAAygyp.jpg",
+        "https://cms-assets.youmind.com/media/1773902672414_unblky_HDr0Ox6bwAA7S2D.jpg",
+        "https://cms-assets.youmind.com/media/1773902673090_3ysdi4_HDr0Ox-aAAAuK-K.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902672127_9id1dm_HDr0Ox6a0AA0tqY-300x533.jpg",
+        "https://cms-assets.youmind.com/media/1773902672362_ipoa2x_HDr0Ox7bYAAygyp-300x533.jpg",
+        "https://cms-assets.youmind.com/media/1773902672414_unblky_HDr0Ox6bwAA7S2D-300x533.jpg",
+        "https://cms-assets.youmind.com/media/1773902673090_3ysdi4_HDr0Ox-aAAAuK-K-300x533.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一幅电影般的竖版时尚肖像 (9:16)，描绘了一位美丽的女性，她拥有一头飘逸的黑色长发，发丝柔软卷曲，轻盈地漂浮着，仿佛悬浮在微风中。\n她身着一袭空灵的高级定制礼服，颜色是柔和的象牙色、淡香槟色和璀璨的珍珠色。面料轻盈半透明，由多层雪纺、丝绸和欧根纱构成，随风飘动，完美地散射着光线。\n\n她的脸庞被柔和的光线完全照亮——肌肤焕发光泽，五官精致，神情宁静，妆容柔和而富有光泽，呈现出水润的质感。\n她将一个透明的水晶球轻轻地捧在心口。\n水晶球内部：一个发光的微缩宇宙——柔和的星云、闪烁的星尘、朦胧的星系、梦幻般的渐变色彩和微弱的远方光芒。这个内在世界柔和而充满魔幻色彩，伴随着轻柔的折射效果。\n\n她的一个微妙的倒影出现在水晶球内，与发光的宇宙和谐地融为一体。\n背景：柔和的宇宙渐变色调，以淡蓝色、薰衣草色和银色为主，充满弥漫的闪烁星光和梦幻般的薄雾。\n光线：柔和的漫射光，发光的高光，轻柔的泛光效果，微妙的背光营造出光环般的氛围。\n超现实主义，柔和对比，梦幻般的电影景深，8k 分辨率。\n氛围：空灵、柔和、天体、诗意、梦幻般的优雅。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "空灵电影感时尚肖像提示 为 gemini nano banana pro 提供的详细提示，用于生成一张电影级的竖版时尚编辑肖像（9:16），描绘一位长发飘逸的黑发女性，身着飘渺的高级定制礼服。图像中有一个透明的水晶球，内含一个微型发光宇宙，背景是柔和的宇宙渐变色，光线超现实且梦幻。 a cinematic vertical fashion editorial portrait (9:16) of a beautiful woman with long, airy black hair, softly wavy and floating weightlessly as if suspended in a gentle breeze.\nshe wears an ethereal haute couture gown in soft ivory, pale champagne, and luminous pearl tones. the fabric is light and translucent layered chiffon, silk, and organza that float and diffuse light beautifully. \n\nher face is softly lit in full clarity — glowing skin, delicate features, serene expression, soft radiant makeup with a dewy finish.\nshe gently holds a transparent crystal sphere near her heart.\ninside the sphere: a luminous miniature universe — pastel nebula clouds, glowing stardust, soft galaxies, dreamy gradients, and faint distant lights. the internal world is soft and magical with gentle refraction.\n\n a subtle inverted silhouette of her appears within, blending harmoniously with the glowing cosmos.\nbackground: soft cosmic gradient in pale blues, lavender, and silver tones, filled with diffused glowing stars and dreamy haze.\nlighting: soft diffused lighting, glowing highlights, gentle bloom effect, subtle backlight creating a halo-like aura.\nultra-realistic, soft contrast, dreamy cinematic depth, 8k resolution.\nmood: ethereal, soft, celestial, poetic, dreamlike elegance. 一幅电影般的竖版时尚肖像 (9:16)，描绘了一位美丽的女性，她拥有一头飘逸的黑色长发，发丝柔软卷曲，轻盈地漂浮着，仿佛悬浮在微风中。\n她身着一袭空灵的高级定制礼服，颜色是柔和的象牙色、淡香槟色和璀璨的珍珠色。面料轻盈半透明，由多层雪纺、丝绸和欧根纱构成，随风飘动，完美地散射着光线。\n\n她的脸庞被柔和的光线完全照亮——肌肤焕发光泽，五官精致，神情宁静，妆容柔和而富有光泽，呈现出水润的质感。\n她将一个透明的水晶球轻轻地捧在心口。\n水晶球内部：一个发光的微缩宇宙——柔和的星云、闪烁的星尘、朦胧的星系、梦幻般的渐变色彩和微弱的远方光芒。这个内在世界柔和而充满魔幻色彩，伴随着轻柔的折射效果。\n\n她的一个微妙的倒影出现在水晶球内，与发光的宇宙和谐地融为一体。\n背景：柔和的宇宙渐变色调，以淡蓝色、薰衣草色和银色为主，充满弥漫的闪烁星光和梦幻般的薄雾。\n光线：柔和的漫射光，发光的高光，轻柔的泛光效果，微妙的背光营造出光环般的氛围。\n超现实主义，柔和对比，梦幻般的电影景深，8k 分辨率。\n氛围：空灵、柔和、天体、诗意、梦幻般的优雅。 ciri 12467",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12441,
+      "title": "都市时尚车库镜面自拍",
+      "description": "一个结构化的提示，用于生成一张超详细、逼真的都市时尚镜面自拍，场景设定在车库中，画面中有一位女性，具有特定的造型细节（白色长发、黑色迷你连衣裙、鼻中隔穿孔），并带有强烈的霓虹灯光效果，使用 Nano Banana 2 模型。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2034205557410668918",
+      "sourcePublishedAt": "2026-03-18T09:49:33.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"aspect_ratio\": \"3:4\",\n  \"style\": \"photorealistic urban fashion garage mirror selfie with neon accent\",\n  \"quality\": \"ultra detailed, 8k, razor sharp, high dynamic range, cinematic\",\n  \"lighting\": \"cool blue-white fluorescent garage overheads + strong warm red neon spill from 'KeorUnreal Garage' sign, rim lighting on hair and body, specular highlights on dress fabric, stockings, Porsche paint, and neon\",\n  \"camera_angle\": \"three-quarter rear-to-side mirror selfie view, eye-level angle, medium shot capturing full body, phone (implied), red Ferrari Purosangue, and neon sign on wall\",\n  \"mood\": \"confident, bold, modern urban fashion\",\n  \"details\": \"long straight white hair with bangs, fitted black long-sleeve mini dress with lace overlay and open-back crisscross detail, black thigh-high stockings, silver septum piercing, red neon 'KeorUnreal Garage' sign with flicker and halo, sleek red Ferrari Purosangue parked behind, concrete garage walls and pillars\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902656409_f9m8it_HDrzKaVXYAAvM_F.jpg",
+        "https://cms-assets.youmind.com/media/1773902656485_f71epq_HDrzKjRXEAAGmtE.jpg",
+        "https://cms-assets.youmind.com/media/1773902656727_gevf50_HDrzKa_X0AADTFj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902656409_f9m8it_HDrzKaVXYAAvM_F-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773902656485_f71epq_HDrzKjRXEAAGmtE-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773902656727_gevf50_HDrzKa_X0AADTFj-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"aspect_ratio\": \"3:4\",\n  \"style\": \"超现实都市时尚车库镜面自拍，带霓虹灯点缀\",\n  \"quality\": \"超精细、8k、锐利、高动态范围、电影感\",\n  \"lighting\": \"车库顶部冷蓝色荧光灯 + 来自“KeorUnreal Garage”招牌的强烈暖红色霓虹溢光，头发和身体的轮廓光，连衣裙面料、丝袜、保时捷车漆和霓虹灯上的高光\",\n  \"camera_angle\": \"四分之三后侧镜面自拍视角，视线水平角度，中景拍摄，捕捉全身、手机（暗示）、红色法拉利 Purosangue 和墙上的霓虹灯招牌\",\n  \"mood\": \"自信、大胆、现代都市时尚\",\n  \"details\": \"齐刘海的白色长直发，紧身黑色长袖迷你连衣裙，带蕾丝覆盖和露背交叉细节，黑色过膝袜，银色鼻中隔穿孔，红色霓虹灯“KeorUnreal Garage”招牌，带闪烁和光晕，停在后面的流线型红色法拉利 Purosangue，混凝土车库墙壁和柱子\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "都市时尚车库镜面自拍 一个结构化的提示，用于生成一张超详细、逼真的都市时尚镜面自拍，场景设定在车库中，画面中有一位女性，具有特定的造型细节（白色长发、黑色迷你连衣裙、鼻中隔穿孔），并带有强烈的霓虹灯光效果，使用 nano banana 2 模型。 {\n  \"aspect_ratio\": \"3:4\",\n  \"style\": \"photorealistic urban fashion garage mirror selfie with neon accent\",\n  \"quality\": \"ultra detailed, 8k, razor sharp, high dynamic range, cinematic\",\n  \"lighting\": \"cool blue-white fluorescent garage overheads + strong warm red neon spill from 'keorunreal garage' sign, rim lighting on hair and body, specular highlights on dress fabric, stockings, porsche paint, and neon\",\n  \"camera_angle\": \"three-quarter rear-to-side mirror selfie view, eye-level angle, medium shot capturing full body, phone (implied), red ferrari purosangue, and neon sign on wall\",\n  \"mood\": \"confident, bold, modern urban fashion\",\n  \"details\": \"long straight white hair with bangs, fitted black long-sleeve mini dress with lace overlay and open-back crisscross detail, black thigh-high stockings, silver septum piercing, red neon 'keorunreal garage' sign with flicker and halo, sleek red ferrari purosangue parked behind, concrete garage walls and pillars\"\n} ```json\n{\n  \"aspect_ratio\": \"3:4\",\n  \"style\": \"超现实都市时尚车库镜面自拍，带霓虹灯点缀\",\n  \"quality\": \"超精细、8k、锐利、高动态范围、电影感\",\n  \"lighting\": \"车库顶部冷蓝色荧光灯 + 来自“keorunreal garage”招牌的强烈暖红色霓虹溢光，头发和身体的轮廓光，连衣裙面料、丝袜、保时捷车漆和霓虹灯上的高光\",\n  \"camera_angle\": \"四分之三后侧镜面自拍视角，视线水平角度，中景拍摄，捕捉全身、手机（暗示）、红色法拉利 purosangue 和墙上的霓虹灯招牌\",\n  \"mood\": \"自信、大胆、现代都市时尚\",\n  \"details\": \"齐刘海的白色长直发，紧身黑色长袖迷你连衣裙，带蕾丝覆盖和露背交叉细节，黑色过膝袜，银色鼻中隔穿孔，红色霓虹灯“keorunreal garage”招牌，带闪烁和光晕，停在后面的流线型红色法拉利 purosangue，混凝土车库墙壁和柱子\"\n}\n``` keorunreal 12441",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12442,
+      "title": "极简奢华产品摄影提示",
+      "description": "以下是两个详细的提示，用于生成胶原蛋白补充剂罐的高端、极简主义奢华产品摄影照片，强调特定的背景、光线（温暖的阳光/影棚）和周围元素（菠萝、葡萄、金色液体），使用 Nano Banana Pro。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2034201918571188405",
+      "sourcePublishedAt": "2026-03-18T09:35:05.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Prompt 1:\n\nMinimalist luxury product photography of a collagen supplement jar placed on a soft pastel peach background, cylindrical pedestal base, surrounded by fresh pineapple and sliced grapefruit, a small glass cup with golden liquid in front, warm sunlight casting soft palm leaf shadows, clean aesthetic, high-end skincare branding, soft diffused lighting, realistic textures, subtle reflections, shallow depth of field, editorial style, 4k, ultra-detailed.\n\nPrompt 2:\nPremium skincare product shot of a white collagen cream jar with metallic lid on a round pedestal, tropical fruits (pineapple and grapefruit slices) arranged around, a glass cup filled with amber liquid, peach monochrome background with palm shadow overlay, soft warm lighting, minimal composition, luxury beauty advertisement style, smooth gradients, high realism, sharp focus, studio lighting, 4k resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902657481_as7uto_HDrv268a4AASFat.jpg",
+        "https://cms-assets.youmind.com/media/1773902657412_2oeack_HDrv27Fa8AArXh_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902657481_as7uto_HDrv268a4AASFat-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773902657412_2oeack_HDrv27Fa8AArXh_-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "提示 1：\n\n极简奢华产品摄影：一个胶原蛋白补充剂罐子，置于柔和的淡桃色背景上，圆柱形基座，周围环绕着新鲜菠萝和切片葡萄柚，前方有一个盛有金色液体的玻璃小杯，温暖的阳光投下柔和的棕榈叶阴影，干净美观，高端护肤品牌风格，柔和漫射光，逼真纹理，微妙反射，浅景深，编辑风格，4K，超精细。\n\n提示 2：\n高端护肤品产品拍摄：一个白色胶原蛋白霜罐子，配金属盖，置于圆形基座上，周围摆放着热带水果（菠萝和葡萄柚切片），一个盛有琥珀色液体的玻璃杯，桃色单色背景，叠加棕榈叶阴影，柔和温暖的灯光，极简构图，奢华美妆广告风格，平滑渐变，高度真实感，锐利对焦，影棚灯光，4K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "极简奢华产品摄影提示 以下是两个详细的提示，用于生成胶原蛋白补充剂罐的高端、极简主义奢华产品摄影照片，强调特定的背景、光线（温暖的阳光/影棚）和周围元素（菠萝、葡萄、金色液体），使用 nano banana pro。 prompt 1:\n\nminimalist luxury product photography of a collagen supplement jar placed on a soft pastel peach background, cylindrical pedestal base, surrounded by fresh pineapple and sliced grapefruit, a small glass cup with golden liquid in front, warm sunlight casting soft palm leaf shadows, clean aesthetic, high-end skincare branding, soft diffused lighting, realistic textures, subtle reflections, shallow depth of field, editorial style, 4k, ultra-detailed.\n\nprompt 2:\npremium skincare product shot of a white collagen cream jar with metallic lid on a round pedestal, tropical fruits (pineapple and grapefruit slices) arranged around, a glass cup filled with amber liquid, peach monochrome background with palm shadow overlay, soft warm lighting, minimal composition, luxury beauty advertisement style, smooth gradients, high realism, sharp focus, studio lighting, 4k resolution. 提示 1：\n\n极简奢华产品摄影：一个胶原蛋白补充剂罐子，置于柔和的淡桃色背景上，圆柱形基座，周围环绕着新鲜菠萝和切片葡萄柚，前方有一个盛有金色液体的玻璃小杯，温暖的阳光投下柔和的棕榈叶阴影，干净美观，高端护肤品牌风格，柔和漫射光，逼真纹理，微妙反射，浅景深，编辑风格，4k，超精细。\n\n提示 2：\n高端护肤品产品拍摄：一个白色胶原蛋白霜罐子，配金属盖，置于圆形基座上，周围摆放着热带水果（菠萝和葡萄柚切片），一个盛有琥珀色液体的玻璃杯，桃色单色背景，叠加棕榈叶阴影，柔和温暖的灯光，极简构图，奢华美妆广告风格，平滑渐变，高度真实感，锐利对焦，影棚灯光，4k 分辨率。 kashberg 12442",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12451,
+      "title": "超现实自动机肖像提示词 (Gemini Nano Banana Pro)",
+      "description": "一个高度详细、概念前卫的编辑提示，用于 Gemini Nano Banana Pro，生成一张超现实、中画幅的女性肖像（“工匠”），她的头发由光纤线和浮木构成，充满超现实的先锋感，置身于一个杂乱的古董自动机工坊中，强调电影般的灯光和胶片质感。",
+      "sourceLink": "https://x.com/timedoctor_nft/status/2034200695981633581",
+      "sourcePublishedAt": "2026-03-18T09:30:14.000Z",
+      "author": {
+        "name": "timedoctor.eth",
+        "link": "https://x.com/timedoctor_nft"
+      },
+      "content": "{\n  \"vibe_title_en\": \"The Automaton's Reverie\",\n  \"master_prompt\": \"A hyper-realistic, medium-format portrait of The Protagonist captured in a moment of deep, trance-like introspection. The subject features a surreal, avant-garde hairstyle constructed from tangled white fiber-optic wires and bleached driftwood roots that defy gravity, swirling around the head like a chaotic halo. The subject wears a second-skin garment featuring intricate, topographic patterns in teal, oxidized copper, and rust-orange, resembling a map of a forgotten world. The setting is a dense, chaotic Antique Automaton Workshop; the background is overflowing with clutter—shelves stacked with porcelain doll faces, brass gears, hanging mechanical limbs, dusty velvet drapes, and scattered blueprints. The lighting is dramatic and cinematic: a soft, cool key light focuses on the subject's face, revealing hyper-realistic skin pores and moisture on the lips, while warm, dusty shafts of light illuminate the floating dust motes and background debris. Shot on a Hasselblad H6D-100c with an 80mm f/1.9 lens to create a creamy bokeh that blurs the intense clutter while keeping the surreal subject in razor-sharp focus. The image has the texture of Kodak Portra 400 film, emphasizing tactile realism over digital perfection.\",\n  \"meta\": {\n    \"intent\": \"High-Concept Editorial\",\n    \"priorities\": \"Texture, Lighting, Surreal Realism\",\n    \"device_profile\": \"Hasselblad H6D-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"Central Portrait with layered depth\",\n    \"layout\": \"Subject centered, foreground and background filled with narrative clutter\",\n    \"camera_angle\": \"Eye-level\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"Female\",\n    \"identity\": \"The Artificer\",\n    \"demographics\": \"Ageless, ethereal\",\n    \"face\": \"Neutral, trance-like expression, eyes closed or heavy-lidded\",\n    \"hair\": \"Sculptural white wire/root tangle, voluminous and anti-gravity\",\n    \"body\": \"Slender, clad in a patterned second-skin suit\",\n    \"expression\": \"Serene, deep concentration\",\n    \"pose\": \"Hands raised behind head or resting on neck, elbows out, resembling the reference pose\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"Bodysuit\",\n        \"material\": \"Latex/Silk blend with topographic print\",\n        \"color\": \"Teal, Rust, Orange, Deep Blue\",\n        \"fit\": \"Second-skin, tight\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"Headpiece\",\n        \"color\": \"Bone White\",\n        \"material\": \"Fiber optics and bleached wood\",\n        \"brand_style\": \"Avant-Garde Couture\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"Antique Automaton Workshop\",\n    \"surfaces\": \"Aged wood, brass, porcelain, velvet\",\n    \"depth\": \"High clutter density, shallow depth of field\",\n    \"atmosphere\": \"Dusty, mysterious, creative chaos\",\n    \"lens_interaction\": \"Bokeh on background gears, sharp focus on eyes/skin\"\n  },",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902663535_64n2ni_HDruvqlWkAAvkpv.jpg",
+        "https://cms-assets.youmind.com/media/1773902663584_xos97n_HDruwKzXgAArO0q.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902663535_64n2ni_HDruvqlWkAAvkpv-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1773902663584_xos97n_HDruwKzXgAArO0q-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"vibe_title_en\": \"The Automaton's Reverie\",\n  \"master_prompt\": \"一幅超现实、中画幅的《主人公》肖像，捕捉了其沉思冥想、如入迷境的瞬间。主体人物的发型超现实且前卫，由缠结的白色光纤线和漂白的浮木根构成，它们反重力地盘旋在头部周围，如同一个混乱的光环。主体人物身着一件如第二层皮肤般的服装，上面有精致的、地形般的图案，颜色为青色、氧化铜色和锈橙色，仿佛一张被遗忘世界的地图。场景设定在一个密集、混乱的古董自动机械工坊；背景中堆满了杂物——架子上摆满了瓷娃娃的脸、黄铜齿轮、悬挂的机械肢体、布满灰尘的天鹅绒窗帘和散落的蓝图。灯光富有戏剧性和电影感：柔和、冷调的主光聚焦在主体人物的脸上，展现出超逼真的皮肤毛孔和嘴唇上的湿润感，而温暖、布满灰尘的光束则照亮了漂浮的尘埃和背景杂物。使用哈苏 H6D-100c 相机和 80mm f/1.9 镜头拍摄，营造出奶油般的焦外虚化效果，模糊了杂乱的背景，同时使超现实的主体人物保持锐利清晰的焦点。图像具有柯达 Portra 400 胶片的质感，强调触感真实感而非数字完美。\",\n  \"meta\": {\n    \"intent\": \"高概念编辑\",\n    \"priorities\": \"纹理、光线、超现实主义\",\n    \"device_profile\": \"Hasselblad H6D-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"中央肖像与分层景深\",\n    \"layout\": \"主体居中，前景和背景充满叙事性杂物\",\n    \"camera_angle\": \"视平线\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"机械师\",\n    \"demographics\": \"无年龄感，空灵\",\n    \"face\": \"中性，入迷般的表情，眼睛闭合或半闭\",\n    \"hair\": \"雕塑般的白色线/根缠结，蓬松且反重力\",\n    \"body\": \"纤细，身着图案化的第二层皮肤套装\",\n    \"expression\": \"宁静，深度专注\",\n    \"pose\": \"双手举过头顶或放在颈后，手肘向外，类似于参考姿势\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"紧身衣\",\n        \"material\": \"乳胶/丝绸混纺，带地形印花\",\n        \"color\": \"青色、锈色、橙色、深蓝色\",\n        \"fit\": \"第二层皮肤般，紧身\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"头饰\",\n        \"color\": \"骨白色\",\n        \"material\": \"光纤和漂白木材\",\n        \"brand_style\": \"前卫高级定制\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"古董自动机械工坊\",\n    \"surfaces\": \"老旧木材、黄铜、瓷器、天鹅绒\",\n    \"depth\": \"高杂物密度，浅景深\",\n    \"atmosphere\": \"尘土飞扬，神秘，创造性的混乱\",\n    \"lens_interaction\": \"背景齿轮虚化，眼睛/皮肤锐利聚焦\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实自动机肖像提示词 (gemini nano banana pro) 一个高度详细、概念前卫的编辑提示，用于 gemini nano banana pro，生成一张超现实、中画幅的女性肖像（“工匠”），她的头发由光纤线和浮木构成，充满超现实的先锋感，置身于一个杂乱的古董自动机工坊中，强调电影般的灯光和胶片质感。 {\n  \"vibe_title_en\": \"the automaton's reverie\",\n  \"master_prompt\": \"a hyper-realistic, medium-format portrait of the protagonist captured in a moment of deep, trance-like introspection. the subject features a surreal, avant-garde hairstyle constructed from tangled white fiber-optic wires and bleached driftwood roots that defy gravity, swirling around the head like a chaotic halo. the subject wears a second-skin garment featuring intricate, topographic patterns in teal, oxidized copper, and rust-orange, resembling a map of a forgotten world. the setting is a dense, chaotic antique automaton workshop; the background is overflowing with clutter—shelves stacked with porcelain doll faces, brass gears, hanging mechanical limbs, dusty velvet drapes, and scattered blueprints. the lighting is dramatic and cinematic: a soft, cool key light focuses on the subject's face, revealing hyper-realistic skin pores and moisture on the lips, while warm, dusty shafts of light illuminate the floating dust motes and background debris. shot on a hasselblad h6d-100c with an 80mm f/1.9 lens to create a creamy bokeh that blurs the intense clutter while keeping the surreal subject in razor-sharp focus. the image has the texture of kodak portra 400 film, emphasizing tactile realism over digital perfection.\",\n  \"meta\": {\n    \"intent\": \"high-concept editorial\",\n    \"priorities\": \"texture, lighting, surreal realism\",\n    \"device_profile\": \"hasselblad h6d-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"central portrait with layered depth\",\n    \"layout\": \"subject centered, foreground and background filled with narrative clutter\",\n    \"camera_angle\": \"eye-level\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"identity\": \"the artificer\",\n    \"demographics\": \"ageless, ethereal\",\n    \"face\": \"neutral, trance-like expression, eyes closed or heavy-lidded\",\n    \"hair\": \"sculptural white wire/root tangle, voluminous and anti-gravity\",\n    \"body\": \"slender, clad in a patterned second-skin suit\",\n    \"expression\": \"serene, deep concentration\",\n    \"pose\": \"hands raised behind head or resting on neck, elbows out, resembling the reference pose\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"bodysuit\",\n        \"material\": \"latex/silk blend with topographic print\",\n        \"color\": \"teal, rust, orange, deep blue\",\n        \"fit\": \"second-skin, tight\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"headpiece\",\n        \"color\": \"bone white\",\n        \"material\": \"fiber optics and bleached wood\",\n        \"brand_style\": \"avant-garde couture\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"antique automaton workshop\",\n    \"surfaces\": \"aged wood, brass, porcelain, velvet\",\n    \"depth\": \"high clutter density, shallow depth of field\",\n    \"atmosphere\": \"dusty, mysterious, creative chaos\",\n    \"lens_interaction\": \"bokeh on background gears, sharp focus on eyes/skin\"\n  }, {\n  \"vibe_title_en\": \"the automaton's reverie\",\n  \"master_prompt\": \"一幅超现实、中画幅的《主人公》肖像，捕捉了其沉思冥想、如入迷境的瞬间。主体人物的发型超现实且前卫，由缠结的白色光纤线和漂白的浮木根构成，它们反重力地盘旋在头部周围，如同一个混乱的光环。主体人物身着一件如第二层皮肤般的服装，上面有精致的、地形般的图案，颜色为青色、氧化铜色和锈橙色，仿佛一张被遗忘世界的地图。场景设定在一个密集、混乱的古董自动机械工坊；背景中堆满了杂物——架子上摆满了瓷娃娃的脸、黄铜齿轮、悬挂的机械肢体、布满灰尘的天鹅绒窗帘和散落的蓝图。灯光富有戏剧性和电影感：柔和、冷调的主光聚焦在主体人物的脸上，展现出超逼真的皮肤毛孔和嘴唇上的湿润感，而温暖、布满灰尘的光束则照亮了漂浮的尘埃和背景杂物。使用哈苏 h6d-100c 相机和 80mm f/1.9 镜头拍摄，营造出奶油般的焦外虚化效果，模糊了杂乱的背景，同时使超现实的主体人物保持锐利清晰的焦点。图像具有柯达 portra 400 胶片的质感，强调触感真实感而非数字完美。\",\n  \"meta\": {\n    \"intent\": \"高概念编辑\",\n    \"priorities\": \"纹理、光线、超现实主义\",\n    \"device_profile\": \"hasselblad h6d-100c\"\n  },\n  \"frame\": {\n    \"aspect\": \"4:5\",\n    \"composition\": \"中央肖像与分层景深\",\n    \"layout\": \"主体居中，前景和背景充满叙事性杂物\",\n    \"camera_angle\": \"视平线\",\n    \"tilt_roll_degrees\": \"0\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"identity\": \"机械师\",\n    \"demographics\": \"无年龄感，空灵\",\n    \"face\": \"中性，入迷般的表情，眼睛闭合或半闭\",\n    \"hair\": \"雕塑般的白色线/根缠结，蓬松且反重力\",\n    \"body\": \"纤细，身着图案化的第二层皮肤套装\",\n    \"expression\": \"宁静，深度专注\",\n    \"pose\": \"双手举过头顶或放在颈后，手肘向外，类似于参考姿势\"\n  },\n  \"wardrobe_accessories\": {\n    \"garments\": [\n      {\n        \"item\": \"紧身衣\",\n        \"material\": \"乳胶/丝绸混纺，带地形印花\",\n        \"color\": \"青色、锈色、橙色、深蓝色\",\n        \"fit\": \"第二层皮肤般，紧身\"\n      }\n    ],\n    \"accessories\": [\n      {\n        \"item\": \"头饰\",\n        \"color\": \"骨白色\",\n        \"material\": \"光纤和漂白木材\",\n        \"brand_style\": \"前卫高级定制\"\n      }\n    ]\n  },\n  \"environment\": {\n    \"setting\": \"古董自动机械工坊\",\n    \"surfaces\": \"老旧木材、黄铜、瓷器、天鹅绒\",\n    \"depth\": \"高杂物密度，浅景深\",\n    \"atmosphere\": \"尘土飞扬，神秘，创造性的混乱\",\n    \"lens_interaction\": \"背景齿轮虚化，眼睛/皮肤锐利聚焦\"\n  }\n} timedoctor.eth 12451",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12458,
+      "title": "比较使用“宇宙女性”提示的图像模型",
+      "description": "一个在 Midjourney V8、Seedream 5.0 和 Nano Banana 2 Lite 中使用的提示词，用于生成一张神秘女子的图像，她的斗篷中包含着整个星系，重点在于超现实的摄影写实主义和电影般的灯光效果。",
+      "sourceLink": "https://x.com/lukmanfebrianto/status/2034175169422627239",
+      "sourcePublishedAt": "2026-03-18T07:48:48.000Z",
+      "author": {
+        "name": "Lukman Febrianto",
+        "link": "https://x.com/lukmanfebrianto"
+      },
+      "content": "A mysterious woman standing in complete darkness, wearing a deep hooded cloak that contains an entire galaxy—stars, nebulae, and drifting cosmic dust visible within the fabric, her face barely visible with soft starlight illuminating her lips and eyes, particles floating around her like constellations forming, surreal yet photorealistic rendering, extreme detail, cinematic lighting, deep shadows, 8K, studio-quality realism",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902667273_gclkhi_HDrXXmsbEAI2Y_Z.jpg",
+        "https://cms-assets.youmind.com/media/1773902667340_4wt4fi_HDrXWyDbEAI9_yo.jpg",
+        "https://cms-assets.youmind.com/media/1773902667405_m0xztr_HDrXYV7aIAAiumU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902667273_gclkhi_HDrXXmsbEAI2Y_Z-300x533.jpg",
+        "https://cms-assets.youmind.com/media/1773902667340_4wt4fi_HDrXWyDbEAI9_yo-300x536.jpg",
+        "https://cms-assets.youmind.com/media/1773902667405_m0xztr_HDrXYV7aIAAiumU-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个神秘的女人站在完全的黑暗中，身穿一件深色连帽斗篷，斗篷内包含着一整个星系——星星、星云和漂浮的宇宙尘埃在布料中清晰可见，她的脸几乎不可见，柔和的星光照亮了她的嘴唇和眼睛，粒子像星座一样在她周围漂浮形成，超现实但又照片般逼真的渲染，极致细节，电影级灯光，深邃的阴影，8K，工作室品质的真实感",
+      "sourcePlatform": "twitter",
+      "searchIndex": "比较使用“宇宙女性”提示的图像模型 一个在 midjourney v8、seedream 5.0 和 nano banana 2 lite 中使用的提示词，用于生成一张神秘女子的图像，她的斗篷中包含着整个星系，重点在于超现实的摄影写实主义和电影般的灯光效果。 a mysterious woman standing in complete darkness, wearing a deep hooded cloak that contains an entire galaxy—stars, nebulae, and drifting cosmic dust visible within the fabric, her face barely visible with soft starlight illuminating her lips and eyes, particles floating around her like constellations forming, surreal yet photorealistic rendering, extreme detail, cinematic lighting, deep shadows, 8k, studio-quality realism 一个神秘的女人站在完全的黑暗中，身穿一件深色连帽斗篷，斗篷内包含着一整个星系——星星、星云和漂浮的宇宙尘埃在布料中清晰可见，她的脸几乎不可见，柔和的星光照亮了她的嘴唇和眼睛，粒子像星座一样在她周围漂浮形成，超现实但又照片般逼真的渲染，极致细节，电影级灯光，深邃的阴影，8k，工作室品质的真实感 lukman febrianto 12458",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12459,
+      "title": "悉尼·斯威尼 (Sydney Sweeney) 的超逼真自拍提示词",
+      "description": "一个高度详细、结构化的 JSON 风格提示词，专为 Nano Banana Pro 设计，旨在生成一张超逼真、梦幻般的西德尼·斯威尼 (Sydney Sweeney) 特写自拍照，其中详细说明了相机设置、光线、表情和外观细节。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2034169613089673392",
+      "sourcePublishedAt": "2026-03-18T07:26:43.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "{\n  \"prompt_metadata\": {\n    \"version\": \"4.0\",\n    \"style\": \"ultra photorealistic dreamy close-up selfie\",\n    \"aspect_ratio\": \"9:16\",\n    \"resolution\": \"8k RAW\"\n  },\n\n  \"reference_rules\": {\n    \"face_source\": \"use uploaded reference image as exact identity\",\n    \"face_integrity\": \"no changes to facial structure, eyes, lips, proportions\",\n    \"hair_color_rule\": \"hair color must match reference exactly\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"type\": \"extreme close-up selfie\",\n      \"orientation\": \"camera rotated slightly clockwise\",\n      \"head_position\": \"tilted sideways, resting on right hand\",\n      \"face_angle\": \"3/4 angle, slightly downward toward camera\",\n      \"distance\": \"very close to lens, filling most of frame\"\n    },\n\n    \"expression\": {\n      \"type\": \"soft closed-lip pout\",\n      \"eyes\": \"relaxed, slightly heavy eyelids\",\n      \"emotion\": \"calm, intimate, dreamy\"\n    },\n\n    \"appearance\": {\n      \"skin\": {\n        \"texture\": \"natural pores but softened by light diffusion\",\n        \"tone\": \"warm flushed cheeks and nose\",\n        \"finish\": \"glowy with slight highlight bloom\"\n      },\n\n      \"hair\": {\n        \"style\": \"loose, slightly messy\",\n        \"placement\": \"falling across forehead, partially covering one eye\",\n        \"strands\": \"fine strands visible across face\",\n        \"color\": \"same as reference\"\n      }\n    },\n\n    \"hand_pose\": {\n      \"position\": \"right hand supporting chin\",\n      \"fingers\": \"loosely curled, soft natural positioning\",\n      \"contact\": \"cheek gently pressed into palm\"\n    }\n  },\n\n  \"environment\": {\n    \"setting\": \"indoor bedroom\",\n\n    \"background\": {\n      \"bed_frame\": \"light warm wood headboard behind subject\",\n      \"wall\": \"cream or beige wall\",\n      \"decor\": \"small framed artwork slightly visible above\"\n    }\n  },\n\n  \"lighting\": {\n    \"primary_source\": {\n      \"type\": \"warm indoor ambient light\",\n      \"position\": \"above and slightly behind camera\",\n      \"color_temperature\": \"3200K warm yellow\",\n      \"intensity\": \"medium soft\"\n    },\n\n    \"secondary_effect\": {\n      \"type\": \"diffusion bloom\",\n      \"effect\": \"light wraps around face, softens edges\",\n      \"highlight_behavior\": \"slight overexposure on forehead, cheeks, nose\"\n    },\n\n    \"shadow_behavior\": {\n      \"style\": \"very soft, almost no harsh shadows\",\n      \"contrast\": \"low contrast, hazy look\"\n    }\n  },\n\n  \"camera\": {\n    \"device\": \"smartphone front camera\",\n    \"lens\": \"26mm equivalent\",\n    \"aperture_simulation\": \"f/2.0\",\n    \"focus\": \"sharp on eyes, soft falloff on edges\",\n    \"angle\": \"handheld, slightly tilted frame\",\n    \"distance\": \"arm-length but zoomed/cropped for tight face framing\"\n  },\n\n  \"color_grading\": {\n    \"tone\": \"warm golden\",\n    \"contrast\": \"low\",\n    \"saturation\": \"slightly muted skin tones\",\n    \"effect\": \"dreamy haze, slight glow filter\"\n  },\n\n  \"render_constraints\": {\n    \"must_have\": [\n      \"soft glow effect\",\n      \"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902667439_94rj9c_HDrSLk5bEAER47T.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902667439_94rj9c_HDrSLk5bEAER47T-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_metadata\": {\n    \"version\": \"4.0\",\n    \"style\": \"超逼真梦幻特写自拍\",\n    \"aspect_ratio\": \"9:16\",\n    \"resolution\": \"8k RAW\"\n  },\n\n  \"reference_rules\": {\n    \"face_source\": \"使用上传的参考图像作为精确身份\",\n    \"face_integrity\": \"面部结构、眼睛、嘴唇、比例无任何改变\",\n    \"hair_color_rule\": \"发色必须与参考图像完全匹配\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"type\": \"极致特写自拍\",\n      \"orientation\": \"相机略微顺时针旋转\",\n      \"head_position\": \"头部侧倾，右手托腮\",\n      \"face_angle\": \"3/4 角度，略微向下朝向相机\",\n      \"distance\": \"非常靠近镜头，占据大部分画面\"\n    },\n\n    \"expression\": {\n      \"type\": \"柔和的闭唇嘟嘴\",\n      \"eyes\": \"放松，眼睑略微低垂\",\n      \"emotion\": \"平静、亲密、梦幻\"\n    },\n\n    \"appearance\": {\n      \"skin\": {\n        \"texture\": \"自然毛孔，但被光线漫射柔化\",\n        \"tone\": \"温暖的红润脸颊和鼻子\",\n        \"finish\": \"光泽感，带有轻微高光泛光\"\n      },\n\n      \"hair\": {\n        \"style\": \"蓬松，略显凌乱\",\n        \"placement\": \"垂落在额头，部分遮住一只眼睛\",\n        \"strands\": \"面部可见细发丝\",\n        \"color\": \"与参考图像相同\"\n      }\n    },\n\n    \"hand_pose\": {\n      \"position\": \"右手托住下巴\",\n      \"fingers\": \"松散卷曲，自然柔和的姿势\",\n      \"contact\": \"脸颊轻轻按压在手掌上\"\n    }\n  },\n\n  \"environment\": {\n    \"setting\": \"室内卧室\",\n\n    \"background\": {\n      \"bed_frame\": \"主体后方是浅色暖木床头板\",\n      \"wall\": \"米色或米黄色墙壁\",\n      \"decor\": \"上方略微可见小型裱框艺术品\"\n    }\n  },\n\n  \"lighting\": {\n    \"primary_source\": {\n      \"type\": \"暖色室内环境光\",\n      \"position\": \"相机上方略靠后\",\n      \"color_temperature\": \"3200K 暖黄色\",\n      \"intensity\": \"中等柔和\"\n    },\n\n    \"secondary_effect\": {\n      \"type\": \"漫射泛光\",\n      \"effect\": \"光线环绕面部，柔化边缘\",\n      \"highlight_behavior\": \"额头、脸颊、鼻子略微过曝\"\n    },\n\n    \"shadow_behavior\": {\n      \"style\": \"非常柔和，几乎没有生硬阴影\",\n      \"contrast\": \"低对比度，朦胧感\"\n    }\n  },\n\n  \"camera\": {\n    \"device\": \"智能手机前置摄像头\",\n    \"lens\": \"26mm 等效焦距\",\n    \"aperture_simulation\": \"f/2.0\",\n    \"focus\": \"眼睛清晰，边缘柔和虚化\",\n    \"angle\": \"手持，画面略微倾斜\",\n    \"distance\": \"手臂长度，但经过缩放/裁剪以实现紧密的面部构图\"\n  },\n\n  \"color_grading\": {\n    \"tone\": \"暖金色\",\n    \"contrast\": \"低\",\n    \"saturation\": \"肤色略微柔和\",\n    \"effect\": \"梦幻朦胧，轻微发光滤镜\"\n  },\n\n  \"render_constraints\": {\n    \"must_have\": [\n      \"柔和发光效果\",\n      \"\"\n    ]\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "悉尼·斯威尼 (sydney sweeney) 的超逼真自拍提示词 一个高度详细、结构化的 json 风格提示词，专为 nano banana pro 设计，旨在生成一张超逼真、梦幻般的西德尼·斯威尼 (sydney sweeney) 特写自拍照，其中详细说明了相机设置、光线、表情和外观细节。 {\n  \"prompt_metadata\": {\n    \"version\": \"4.0\",\n    \"style\": \"ultra photorealistic dreamy close-up selfie\",\n    \"aspect_ratio\": \"9:16\",\n    \"resolution\": \"8k raw\"\n  },\n\n  \"reference_rules\": {\n    \"face_source\": \"use uploaded reference image as exact identity\",\n    \"face_integrity\": \"no changes to facial structure, eyes, lips, proportions\",\n    \"hair_color_rule\": \"hair color must match reference exactly\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"type\": \"extreme close-up selfie\",\n      \"orientation\": \"camera rotated slightly clockwise\",\n      \"head_position\": \"tilted sideways, resting on right hand\",\n      \"face_angle\": \"3/4 angle, slightly downward toward camera\",\n      \"distance\": \"very close to lens, filling most of frame\"\n    },\n\n    \"expression\": {\n      \"type\": \"soft closed-lip pout\",\n      \"eyes\": \"relaxed, slightly heavy eyelids\",\n      \"emotion\": \"calm, intimate, dreamy\"\n    },\n\n    \"appearance\": {\n      \"skin\": {\n        \"texture\": \"natural pores but softened by light diffusion\",\n        \"tone\": \"warm flushed cheeks and nose\",\n        \"finish\": \"glowy with slight highlight bloom\"\n      },\n\n      \"hair\": {\n        \"style\": \"loose, slightly messy\",\n        \"placement\": \"falling across forehead, partially covering one eye\",\n        \"strands\": \"fine strands visible across face\",\n        \"color\": \"same as reference\"\n      }\n    },\n\n    \"hand_pose\": {\n      \"position\": \"right hand supporting chin\",\n      \"fingers\": \"loosely curled, soft natural positioning\",\n      \"contact\": \"cheek gently pressed into palm\"\n    }\n  },\n\n  \"environment\": {\n    \"setting\": \"indoor bedroom\",\n\n    \"background\": {\n      \"bed_frame\": \"light warm wood headboard behind subject\",\n      \"wall\": \"cream or beige wall\",\n      \"decor\": \"small framed artwork slightly visible above\"\n    }\n  },\n\n  \"lighting\": {\n    \"primary_source\": {\n      \"type\": \"warm indoor ambient light\",\n      \"position\": \"above and slightly behind camera\",\n      \"color_temperature\": \"3200k warm yellow\",\n      \"intensity\": \"medium soft\"\n    },\n\n    \"secondary_effect\": {\n      \"type\": \"diffusion bloom\",\n      \"effect\": \"light wraps around face, softens edges\",\n      \"highlight_behavior\": \"slight overexposure on forehead, cheeks, nose\"\n    },\n\n    \"shadow_behavior\": {\n      \"style\": \"very soft, almost no harsh shadows\",\n      \"contrast\": \"low contrast, hazy look\"\n    }\n  },\n\n  \"camera\": {\n    \"device\": \"smartphone front camera\",\n    \"lens\": \"26mm equivalent\",\n    \"aperture_simulation\": \"f/2.0\",\n    \"focus\": \"sharp on eyes, soft falloff on edges\",\n    \"angle\": \"handheld, slightly tilted frame\",\n    \"distance\": \"arm-length but zoomed/cropped for tight face framing\"\n  },\n\n  \"color_grading\": {\n    \"tone\": \"warm golden\",\n    \"contrast\": \"low\",\n    \"saturation\": \"slightly muted skin tones\",\n    \"effect\": \"dreamy haze, slight glow filter\"\n  },\n\n  \"render_constraints\": {\n    \"must_have\": [\n      \"soft glow effect\",\n      \" ```json\n{\n  \"prompt_metadata\": {\n    \"version\": \"4.0\",\n    \"style\": \"超逼真梦幻特写自拍\",\n    \"aspect_ratio\": \"9:16\",\n    \"resolution\": \"8k raw\"\n  },\n\n  \"reference_rules\": {\n    \"face_source\": \"使用上传的参考图像作为精确身份\",\n    \"face_integrity\": \"面部结构、眼睛、嘴唇、比例无任何改变\",\n    \"hair_color_rule\": \"发色必须与参考图像完全匹配\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"type\": \"极致特写自拍\",\n      \"orientation\": \"相机略微顺时针旋转\",\n      \"head_position\": \"头部侧倾，右手托腮\",\n      \"face_angle\": \"3/4 角度，略微向下朝向相机\",\n      \"distance\": \"非常靠近镜头，占据大部分画面\"\n    },\n\n    \"expression\": {\n      \"type\": \"柔和的闭唇嘟嘴\",\n      \"eyes\": \"放松，眼睑略微低垂\",\n      \"emotion\": \"平静、亲密、梦幻\"\n    },\n\n    \"appearance\": {\n      \"skin\": {\n        \"texture\": \"自然毛孔，但被光线漫射柔化\",\n        \"tone\": \"温暖的红润脸颊和鼻子\",\n        \"finish\": \"光泽感，带有轻微高光泛光\"\n      },\n\n      \"hair\": {\n        \"style\": \"蓬松，略显凌乱\",\n        \"placement\": \"垂落在额头，部分遮住一只眼睛\",\n        \"strands\": \"面部可见细发丝\",\n        \"color\": \"与参考图像相同\"\n      }\n    },\n\n    \"hand_pose\": {\n      \"position\": \"右手托住下巴\",\n      \"fingers\": \"松散卷曲，自然柔和的姿势\",\n      \"contact\": \"脸颊轻轻按压在手掌上\"\n    }\n  },\n\n  \"environment\": {\n    \"setting\": \"室内卧室\",\n\n    \"background\": {\n      \"bed_frame\": \"主体后方是浅色暖木床头板\",\n      \"wall\": \"米色或米黄色墙壁\",\n      \"decor\": \"上方略微可见小型裱框艺术品\"\n    }\n  },\n\n  \"lighting\": {\n    \"primary_source\": {\n      \"type\": \"暖色室内环境光\",\n      \"position\": \"相机上方略靠后\",\n      \"color_temperature\": \"3200k 暖黄色\",\n      \"intensity\": \"中等柔和\"\n    },\n\n    \"secondary_effect\": {\n      \"type\": \"漫射泛光\",\n      \"effect\": \"光线环绕面部，柔化边缘\",\n      \"highlight_behavior\": \"额头、脸颊、鼻子略微过曝\"\n    },\n\n    \"shadow_behavior\": {\n      \"style\": \"非常柔和，几乎没有生硬阴影\",\n      \"contrast\": \"低对比度，朦胧感\"\n    }\n  },\n\n  \"camera\": {\n    \"device\": \"智能手机前置摄像头\",\n    \"lens\": \"26mm 等效焦距\",\n    \"aperture_simulation\": \"f/2.0\",\n    \"focus\": \"眼睛清晰，边缘柔和虚化\",\n    \"angle\": \"手持，画面略微倾斜\",\n    \"distance\": \"手臂长度，但经过缩放/裁剪以实现紧密的面部构图\"\n  },\n\n  \"color_grading\": {\n    \"tone\": \"暖金色\",\n    \"contrast\": \"低\",\n    \"saturation\": \"肤色略微柔和\",\n    \"effect\": \"梦幻朦胧，轻微发光滤镜\"\n  },\n\n  \"render_constraints\": {\n    \"must_have\": [\n      \"柔和发光效果\",\n      \"\"\n    ]\n  }\n}\n``` glena jenner 12459",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12445,
+      "title": "韩流偶像车库写真拍摄提示",
+      "description": "一个结构化的提示，用于生成一张 K-pop 偶像宫胁咲良坐在车库红色跑车门槛上的写实、抓拍图像，详细说明构图、光线、服装（黑色乳胶紧身衣）和真实感细节，使用 Nano Banana Pro 通过 Gemini App 生成。",
+      "sourceLink": "https://x.com/youngcatwoman/status/2034168425866514592",
+      "sourcePublishedAt": "2026-03-18T07:22:00.000Z",
+      "author": {
+        "name": "Alice",
+        "link": "https://x.com/youngcatwoman"
+      },
+      "content": "{\n  \"meta\": {\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"photorealistic\",\n    \"resolution\": \"4k\",\n    \"camera\": \"Smartphone camera\",\n    \"lens\": \"Standard lens\",\n    \"style\": \"Candid garage photography, natural light mixed with overhead fluorescent\",\n    \"composition\": \"Full-body shot of Sakura Miyawaki sitting on the door sill of a red sports car in a garage, looking back at the camera.\"\n  },\n  \"scene\": {\n    \"location\": \"Car garage/workshop interior\",\n    \"environment\": [\"Interior and open door of a red Ferrari\", \"Concrete floor\", \"Metal garage door and dark walls\", \"Workshop equipment and shelving in the background\"],\n    \"time\": \"Daytime (indoors)\",\n    \"atmosphere\": \"Casual, industrial, candid\"\n  },\n  \"lighting\": {\n    \"type\": \"Mixed artificial and ambient daylight\",\n    \"source\": \"Overhead fluorescent shop lights and light from an open garage door\",\n    \"effect\": \"Functional, even lighting with some shadows and highlights on the car and subject.\"\n  },\n  \"subject\": {\n    \"identity\": \"Sakura Miyawaki, the Japanese K-pop idol with her signature large, deep-set double eyelid eyes, a high straight nasal bridge, and a delicate pointed chin. Her hair is long, wavy dark brown, almost black, styled with soft curtain bangs.\",\n    \"body\": {\n      \"pose\": \"Sitting on the red door sill of the car, body turned towards the interior.\",\n      \"physique\": \"Slender, athletic hourglass figure with elegant proportions\"\n    },\n    \"outfit\": {\n      \"clothing\": \"Glossy black latex bodysuit, black stiletto pumps.\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"Wavy hair strands, glossy black latex of bodysuit, leather car interior, metal door sill, rubber tires, concrete floor\",\n    \"imperfections\": \"Natural creases in clothing, realistic reflections on car paint and interior\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902658822_3gjujv_HC1oEzdacAAlqa9.jpg",
+        "https://cms-assets.youmind.com/media/1773902658869_7ins6r_HC1oIUvbAAAXR09.jpg",
+        "https://cms-assets.youmind.com/media/1773902658915_ipk1jy_HC1oFZPbEAAUsIp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902658822_3gjujv_HC1oEzdacAAlqa9-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773902658869_7ins6r_HC1oIUvbAAAXR09-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773902658915_ipk1jy_HC1oFZPbEAAUsIp-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"写实\",\n    \"resolution\": \"4k\",\n    \"camera\": \"智能手机摄像头\",\n    \"lens\": \"标准镜头\",\n    \"style\": \"随性的车库摄影，自然光与头顶荧光灯混合\",\n    \"composition\": \"宫胁咲良坐在红色跑车的门槛上，在车库里，全身照，回头看向镜头。\"\n  },\n  \"scene\": {\n    \"location\": \"汽车车库/工作室内部\",\n    \"environment\": [\"红色法拉利内部及开着的车门\", \"混凝土地面\", \"金属车库门和深色墙壁\", \"背景中的工作室设备和置物架\"],\n    \"time\": \"白天（室内）\",\n    \"atmosphere\": \"休闲、工业、随性\"\n  },\n  \"lighting\": {\n    \"type\": \"混合人造光和环境日光\",\n    \"source\": \"头顶荧光灯和开着的车库门透进的光线\",\n    \"effect\": \"功能性、均匀的照明，汽车和主体上有一些阴影和高光。\"\n  },\n  \"subject\": {\n    \"identity\": \"宫胁咲良，日本 K-pop 偶像，她标志性的大而深邃的双眼皮，高挺的鼻梁，以及精致的尖下巴。她的头发是长而波浪状的深棕色，几乎是黑色，造型为柔和的法式刘海。\",\n    \"body\": {\n      \"pose\": \"坐在汽车的红色门槛上，身体转向车内。\",\n      \"physique\": \"苗条、运动型沙漏身材，比例优雅\"\n    },\n    \"outfit\": {\n      \"clothing\": \"亮黑色乳胶紧身衣，黑色细高跟鞋。\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"波浪状发丝，紧身衣的亮黑色乳胶，皮革汽车内饰，金属门槛，橡胶轮胎，混凝土地面\",\n    \"imperfections\": \"衣服上的自然褶皱，汽车漆面和内饰上逼真的反光\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "韩流偶像车库写真拍摄提示 一个结构化的提示，用于生成一张 k-pop 偶像宫胁咲良坐在车库红色跑车门槛上的写实、抓拍图像，详细说明构图、光线、服装（黑色乳胶紧身衣）和真实感细节，使用 nano banana pro 通过 gemini app 生成。 {\n  \"meta\": {\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"photorealistic\",\n    \"resolution\": \"4k\",\n    \"camera\": \"smartphone camera\",\n    \"lens\": \"standard lens\",\n    \"style\": \"candid garage photography, natural light mixed with overhead fluorescent\",\n    \"composition\": \"full-body shot of sakura miyawaki sitting on the door sill of a red sports car in a garage, looking back at the camera.\"\n  },\n  \"scene\": {\n    \"location\": \"car garage/workshop interior\",\n    \"environment\": [\"interior and open door of a red ferrari\", \"concrete floor\", \"metal garage door and dark walls\", \"workshop equipment and shelving in the background\"],\n    \"time\": \"daytime (indoors)\",\n    \"atmosphere\": \"casual, industrial, candid\"\n  },\n  \"lighting\": {\n    \"type\": \"mixed artificial and ambient daylight\",\n    \"source\": \"overhead fluorescent shop lights and light from an open garage door\",\n    \"effect\": \"functional, even lighting with some shadows and highlights on the car and subject.\"\n  },\n  \"subject\": {\n    \"identity\": \"sakura miyawaki, the japanese k-pop idol with her signature large, deep-set double eyelid eyes, a high straight nasal bridge, and a delicate pointed chin. her hair is long, wavy dark brown, almost black, styled with soft curtain bangs.\",\n    \"body\": {\n      \"pose\": \"sitting on the red door sill of the car, body turned towards the interior.\",\n      \"physique\": \"slender, athletic hourglass figure with elegant proportions\"\n    },\n    \"outfit\": {\n      \"clothing\": \"glossy black latex bodysuit, black stiletto pumps.\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"wavy hair strands, glossy black latex of bodysuit, leather car interior, metal door sill, rubber tires, concrete floor\",\n    \"imperfections\": \"natural creases in clothing, realistic reflections on car paint and interior\"\n  }\n} ```json\n{\n  \"meta\": {\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"写实\",\n    \"resolution\": \"4k\",\n    \"camera\": \"智能手机摄像头\",\n    \"lens\": \"标准镜头\",\n    \"style\": \"随性的车库摄影，自然光与头顶荧光灯混合\",\n    \"composition\": \"宫胁咲良坐在红色跑车的门槛上，在车库里，全身照，回头看向镜头。\"\n  },\n  \"scene\": {\n    \"location\": \"汽车车库/工作室内部\",\n    \"environment\": [\"红色法拉利内部及开着的车门\", \"混凝土地面\", \"金属车库门和深色墙壁\", \"背景中的工作室设备和置物架\"],\n    \"time\": \"白天（室内）\",\n    \"atmosphere\": \"休闲、工业、随性\"\n  },\n  \"lighting\": {\n    \"type\": \"混合人造光和环境日光\",\n    \"source\": \"头顶荧光灯和开着的车库门透进的光线\",\n    \"effect\": \"功能性、均匀的照明，汽车和主体上有一些阴影和高光。\"\n  },\n  \"subject\": {\n    \"identity\": \"宫胁咲良，日本 k-pop 偶像，她标志性的大而深邃的双眼皮，高挺的鼻梁，以及精致的尖下巴。她的头发是长而波浪状的深棕色，几乎是黑色，造型为柔和的法式刘海。\",\n    \"body\": {\n      \"pose\": \"坐在汽车的红色门槛上，身体转向车内。\",\n      \"physique\": \"苗条、运动型沙漏身材，比例优雅\"\n    },\n    \"outfit\": {\n      \"clothing\": \"亮黑色乳胶紧身衣，黑色细高跟鞋。\"\n    }\n  },\n  \"realism_focus\": {\n    \"textures\": \"波浪状发丝，紧身衣的亮黑色乳胶，皮革汽车内饰，金属门槛，橡胶轮胎，混凝土地面\",\n    \"imperfections\": \"衣服上的自然褶皱，汽车漆面和内饰上逼真的反光\"\n  }\n}\n``` alice 12445",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12452,
+      "title": "Nano Banana Pro 的 90 年代复古美学肖像提示",
+      "description": "一个为 Gemini Nano Banana Pro 准备的详细提示，用于生成一张年轻女性的图像，她具有特定的面部特征，身穿 90 年代休闲复古服装（白色露脐上衣、牛仔迷你裙），坐在一间怀旧的卧室里。技术规格要求采用一次性相机美学，带有直接机载闪光灯、35 毫米镜头和复古胶片风格。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2034160637635604814",
+      "sourcePublishedAt": "2026-03-18T06:51:03.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "A young woman with the same facial features, structure, and hair color as the reference image. She has mid-length, soft wavy hair with a natural middle part, smooth skin, and subtle glossy lips. Her expression is relaxed and neutral.\n\nShe is wearing a white tight crop top and a frayed denim mini skirt, styled in a 90s casual retro aesthetic.\n\nShe is sitting on a carpeted bedroom floor with her legs bent to the side, leaning back on her left arm while her right hand rests casually.\n\nThe environment is a nostalgic bedroom with wall posters, a vintage CRT television, and an unmade bed in the background.\n\nLighting is direct on-camera flash, creating a slightly harsh but aesthetic disposable camera effect with soft shadows.\n\nMood is nostalgic, casual, and vintage 90s.\n\nShot as an eye-level medium shot, 35mm lens, f/5.6.\n\nStyle: vintage film photography, slight grain, disposable camera aesthetic, warm amber tones, faded denim colors, highly detailed, realistic textures.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902663436_lazy31_HDrJ_T-bAAAncZU.jpg",
+        "https://cms-assets.youmind.com/media/1773902663632_c4zx7i_HDrJ_UzbEAAXJbd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902663436_lazy31_HDrJ_T-bAAAncZU-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773902663632_c4zx7i_HDrJ_UzbEAAXJbd-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻女性，面部特征、骨骼结构和发色与参考图片一致。她留着中长、柔顺的波浪发，自然中分，皮肤光滑，嘴唇微带光泽。她的表情放松而中性。\n\n她身穿白色紧身露脐上衣和磨边牛仔迷你裙，风格为 90 年代休闲复古美学。\n\n她坐在铺有地毯的卧室地板上，双腿弯向一侧，左臂向后支撑，右手随意搭着。\n\n环境是一个充满怀旧气息的卧室，背景有墙上海报、一台老式 CRT 电视和一张凌乱的床。\n\n灯光为直射机内闪光灯，营造出略显生硬但具有美感的即弃相机效果，并带有柔和的阴影。\n\n氛围怀旧、休闲，充满 90 年代复古感。\n\n拍摄为平视中景，35mm 镜头，f/5.6 光圈。\n\n风格：复古胶片摄影、轻微颗粒感、即弃相机美学、暖琥珀色调、褪色牛仔布色彩、高度细节化、逼真的纹理。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 的 90 年代复古美学肖像提示 一个为 gemini nano banana pro 准备的详细提示，用于生成一张年轻女性的图像，她具有特定的面部特征，身穿 90 年代休闲复古服装（白色露脐上衣、牛仔迷你裙），坐在一间怀旧的卧室里。技术规格要求采用一次性相机美学，带有直接机载闪光灯、35 毫米镜头和复古胶片风格。 a young woman with the same facial features, structure, and hair color as the reference image. she has mid-length, soft wavy hair with a natural middle part, smooth skin, and subtle glossy lips. her expression is relaxed and neutral.\n\nshe is wearing a white tight crop top and a frayed denim mini skirt, styled in a 90s casual retro aesthetic.\n\nshe is sitting on a carpeted bedroom floor with her legs bent to the side, leaning back on her left arm while her right hand rests casually.\n\nthe environment is a nostalgic bedroom with wall posters, a vintage crt television, and an unmade bed in the background.\n\nlighting is direct on-camera flash, creating a slightly harsh but aesthetic disposable camera effect with soft shadows.\n\nmood is nostalgic, casual, and vintage 90s.\n\nshot as an eye-level medium shot, 35mm lens, f/5.6.\n\nstyle: vintage film photography, slight grain, disposable camera aesthetic, warm amber tones, faded denim colors, highly detailed, realistic textures. 一位年轻女性，面部特征、骨骼结构和发色与参考图片一致。她留着中长、柔顺的波浪发，自然中分，皮肤光滑，嘴唇微带光泽。她的表情放松而中性。\n\n她身穿白色紧身露脐上衣和磨边牛仔迷你裙，风格为 90 年代休闲复古美学。\n\n她坐在铺有地毯的卧室地板上，双腿弯向一侧，左臂向后支撑，右手随意搭着。\n\n环境是一个充满怀旧气息的卧室，背景有墙上海报、一台老式 crt 电视和一张凌乱的床。\n\n灯光为直射机内闪光灯，营造出略显生硬但具有美感的即弃相机效果，并带有柔和的阴影。\n\n氛围怀旧、休闲，充满 90 年代复古感。\n\n拍摄为平视中景，35mm 镜头，f/5.6 光圈。\n\n风格：复古胶片摄影、轻微颗粒感、即弃相机美学、暖琥珀色调、褪色牛仔布色彩、高度细节化、逼真的纹理。 glena jenner 12452",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12473,
+      "title": "超逼真肖像提示词，带面部一致性",
+      "description": "一个用于 Gemini Nano Banana Pro 的提示，以生成一张超写实的 16k 图像肖像。该提示要求保持与附带照片中完全一致的面部和身份，描绘主体带着白日梦般的表情，头发被风吹拂，穿着色彩鲜艳的春丽服，营造出浪漫而飘逸的感觉。",
+      "sourceLink": "https://x.com/SyntheSarah/status/2034156445697249338",
+      "sourcePublishedAt": "2026-03-18T06:34:24.000Z",
+      "author": {
+        "name": "Sarah",
+        "link": "https://x.com/SyntheSarah"
+      },
+      "content": "Maintain the same face and person (use attached photo for accurate face Hyper-realistic 16k Image Portrait Use facial feature of attached photo.Using the female face in the image from this uploaded photo,with a open hairstyle,a thin,thin,and slightly messy haircut to frame the face,and sunglasses (100% similar),creates the following image:a daydreaming expression.Her hair swayed in the wind,moving freely,colorful chunri.creating a romantic and airy feel.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902676446_7f4oy8_HDrGgBkbEAQXww3.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902676446_7f4oy8_HDrGgBkbEAQXww3-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "保持相同的面部和人物（使用随附照片以获得准确的面部超逼真 16k 图像肖像。使用此上传照片中图像的女性面部特征，采用开放式发型，纤细、稀疏、略显凌乱的剪裁来修饰脸部，并戴上太阳镜（100% 相似），创建以下图像：一个白日梦般的表情。她的头发随风飘动，自由舞动，色彩斑斓的春日，营造出浪漫而飘逸的感觉。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真肖像提示词，带面部一致性 一个用于 gemini nano banana pro 的提示，以生成一张超写实的 16k 图像肖像。该提示要求保持与附带照片中完全一致的面部和身份，描绘主体带着白日梦般的表情，头发被风吹拂，穿着色彩鲜艳的春丽服，营造出浪漫而飘逸的感觉。 maintain the same face and person (use attached photo for accurate face hyper-realistic 16k image portrait use facial feature of attached photo.using the female face in the image from this uploaded photo,with a open hairstyle,a thin,thin,and slightly messy haircut to frame the face,and sunglasses (100% similar),creates the following image:a daydreaming expression.her hair swayed in the wind,moving freely,colorful chunri.creating a romantic and airy feel. 保持相同的面部和人物（使用随附照片以获得准确的面部超逼真 16k 图像肖像。使用此上传照片中图像的女性面部特征，采用开放式发型，纤细、稀疏、略显凌乱的剪裁来修饰脸部，并戴上太阳镜（100% 相似），创建以下图像：一个白日梦般的表情。她的头发随风飘动，自由舞动，色彩斑斓的春日，营造出浪漫而飘逸的感觉。 sarah 12473",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12483,
+      "title": "武士机甲女孩手办",
+      "description": "给 Nano Banana Pro 的一个提示，用于生成一张武士机甲少女 1/7 比例 PVC 手办的超逼真图像。",
+      "sourceLink": "https://x.com/munou_ac/status/2034148292586836254",
+      "sourcePublishedAt": "2026-03-18T06:02:00.000Z",
+      "author": {
+        "name": "てんねん",
+        "link": "https://x.com/munou_ac"
+      },
+      "content": "Samurai Mecha Girl\n⠀\n1/7スケールフィギュア\n⠀\n刀が刃方向から描写されたのは初めて。\nちょっと分厚いけどPVCフィギュア\nとしてはリアルかも。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902681190_ziidpc_HDqjW6HbkAAfZPN.jpg",
+        "https://cms-assets.youmind.com/media/1773902681175_9j933j_HDqjXbya4AAVhuJ.jpg",
+        "https://cms-assets.youmind.com/media/1773902681417_4llqq3_HDqjYLObUAAYus7.jpg",
+        "https://cms-assets.youmind.com/media/1773902681969_acbgkj_HDqjY1pbYAAEMTL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902681190_ziidpc_HDqjW6HbkAAfZPN-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773902681175_9j933j_HDqjXbya4AAVhuJ-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773902681417_4llqq3_HDqjYLObUAAYus7-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773902681969_acbgkj_HDqjY1pbYAAEMTL-300x398.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "武士机甲少女\n⠀\n1/7 比例手办\n⠀\n这是首次从刀刃方向描绘这把剑。\n它有点厚，但作为 PVC 手办可能很逼真。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "武士机甲女孩手办 给 nano banana pro 的一个提示，用于生成一张武士机甲少女 1/7 比例 pvc 手办的超逼真图像。 samurai mecha girl\n⠀\n1/7スケールフィギュア\n⠀\n刀が刃方向から描写されたのは初めて。\nちょっと分厚いけどpvcフィギュア\nとしてはリアルかも。 武士机甲少女\n⠀\n1/7 比例手办\n⠀\n这是首次从刀刃方向描绘这把剑。\n它有点厚，但作为 pvc 手办可能很逼真。 てんねん 12483",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12480,
+      "title": "沙丘海报：莫比乌斯风格（多模型测试）",
+      "description": "一个用于生成《沙丘 2》电影海报的提示，海报中包含所有主要角色，以沙漠为背景，并以莫比乌斯（Moebius）独特的风格呈现。此提示已在包括 Nano Banana 2 在内的多个 AI 模型上进行了测试。",
+      "sourceLink": "https://x.com/Meow_Meow_Worm/status/2034146236224442482",
+      "sourcePublishedAt": "2026-03-18T05:53:49.000Z",
+      "author": {
+        "name": "🐱🐱🐛",
+        "link": "https://x.com/Meow_Meow_Worm"
+      },
+      "content": "沙丘的海报，主体为所有主角（没有提及详细人员），背景是沙漠，然后风格是摩比斯（Mobis Style）",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902679276_dk1aob_HDq6BaVbEAMBfaJ.jpg",
+        "https://cms-assets.youmind.com/media/1773902679669_twn1ei_HDq7kaHbIAEZEJF.jpg",
+        "https://cms-assets.youmind.com/media/1773902679549_wp06pt_HDq6DGJaEAAjouo.jpg",
+        "https://cms-assets.youmind.com/media/1773902680144_5ynin4_HDq8NBNbUAAOws4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902679276_dk1aob_HDq6BaVbEAMBfaJ-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773902679669_twn1ei_HDq7kaHbIAEZEJF-300x400.jpg",
+        "https://cms-assets.youmind.com/media/1773902679549_wp06pt_HDq6DGJaEAAjouo-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1773902680144_5ynin4_HDq8NBNbUAAOws4-300x450.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "一张《沙丘》海报，主要内容是所有主角（不提及具体人物），背景是沙漠，风格是莫比乌斯（Mobis Style）。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "沙丘海报：莫比乌斯风格（多模型测试） 一个用于生成《沙丘 2》电影海报的提示，海报中包含所有主要角色，以沙漠为背景，并以莫比乌斯（moebius）独特的风格呈现。此提示已在包括 nano banana 2 在内的多个 ai 模型上进行了测试。 沙丘的海报，主体为所有主角（没有提及详细人员），背景是沙漠，然后风格是摩比斯（mobis style） 一张《沙丘》海报，主要内容是所有主角（不提及具体人物），背景是沙漠，风格是莫比乌斯（mobis style）。 🐱🐱🐛 12480",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12456,
+      "title": "Gemini 上 Nano Banana Pro 的产品广告提示",
+      "description": "以下是 Nano Banana Pro 的三个独立提示，旨在为不同饮料（香蕉/杏仁蛋白奶昔、葡萄汽水和石榴能量饮料）生成超逼真的商业产品广告。每个提示都指定了成分、液体飞溅动态、冷凝效果、光照和 8K 分辨率，以呈现商业食品摄影风格。",
+      "sourceLink": "https://x.com/Taaruk_/status/2034139605696712863",
+      "sourcePublishedAt": "2026-03-18T05:27:29.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Protein Shake (Banana + Almond)\nPrompt:\nHyper-realistic product advertisement of a protein shake can with yellow and cream design, surrounded by floating banana slices, almonds, and peanuts, dynamic milk splash bursting around the can, glossy condensation droplets on surface, vibrant warm yellow background, high-speed splash photography, ultra-detailed textures, commercial food photography style, dramatic lighting, 8K.\n\n Grape Soda (Purple Splash)\nPrompt:\nPremium soda can in deep black and purple theme, surrounded by fresh grapes, mint leaves, and citrus slice, explosive purple liquid splash frozen mid-air, glossy reflections and water droplets on can, dark moody background with neon highlights, cinematic lighting, ultra-realistic product photography, high contrast, 8K.\n\nEnergy Drink (Pomegranate Splash)\nPrompt:\nVibrant red energy drink can bursting open with juicy pomegranate seeds and slices flying outward, dynamic red liquid splash, fresh green leaves adding contrast, glossy wet surface with condensation, bold red gradient background, high-speed action capture, commercial beverage ad style, ultra-detailed, 8K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773902665512_friijp_HDq3LuhbEAAvJ2m.jpg",
+        "https://cms-assets.youmind.com/media/1773902665495_9nbf3k_HDq3LuvbAAAAyDB.jpg",
+        "https://cms-assets.youmind.com/media/1773902665618_q8v5nw_HDq3LukbAAAvpTm.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773902665512_friijp_HDq3LuhbEAAvJ2m-300x295.jpg",
+        "https://cms-assets.youmind.com/media/1773902665495_9nbf3k_HDq3LuvbAAAAyDB-300x299.jpg",
+        "https://cms-assets.youmind.com/media/1773902665618_q8v5nw_HDq3LukbAAAvpTm-300x303.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "香蕉杏仁蛋白奶昔\n提示词：\n超逼真的蛋白奶昔产品广告，罐身采用黄色和奶油色设计，周围漂浮着香蕉片、杏仁和花生，牛奶飞溅的动态效果在罐身周围爆发，表面有光泽的冷凝水滴，充满活力的暖黄色背景，高速飞溅摄影，超细节纹理，商业食品摄影风格，戏剧性光照，8K。\n\n葡萄汽水（紫色飞溅）\n提示词：\n高级汽水罐，深黑色和紫色主题，周围环绕着新鲜葡萄、薄荷叶和柑橘片，爆炸性的紫色液体飞溅在半空中凝固，罐身有光泽的反射和水滴，深沉的背景带有霓虹灯高光，电影级光照，超现实产品摄影，高对比度，8K。\n\n能量饮料（石榴飞溅）\n提示词：\n充满活力的红色能量饮料罐爆裂开来，多汁的石榴籽和果肉向外飞溅，动态的红色液体飞溅，新鲜的绿叶增加对比度，光泽湿润的表面带有冷凝水，大胆的红色渐变背景，高速动作捕捉，商业饮料广告风格，超细节，8K。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "gemini 上 nano banana pro 的产品广告提示 以下是 nano banana pro 的三个独立提示，旨在为不同饮料（香蕉/杏仁蛋白奶昔、葡萄汽水和石榴能量饮料）生成超逼真的商业产品广告。每个提示都指定了成分、液体飞溅动态、冷凝效果、光照和 8k 分辨率，以呈现商业食品摄影风格。 protein shake (banana + almond)\nprompt:\nhyper-realistic product advertisement of a protein shake can with yellow and cream design, surrounded by floating banana slices, almonds, and peanuts, dynamic milk splash bursting around the can, glossy condensation droplets on surface, vibrant warm yellow background, high-speed splash photography, ultra-detailed textures, commercial food photography style, dramatic lighting, 8k.\n\n grape soda (purple splash)\nprompt:\npremium soda can in deep black and purple theme, surrounded by fresh grapes, mint leaves, and citrus slice, explosive purple liquid splash frozen mid-air, glossy reflections and water droplets on can, dark moody background with neon highlights, cinematic lighting, ultra-realistic product photography, high contrast, 8k.\n\nenergy drink (pomegranate splash)\nprompt:\nvibrant red energy drink can bursting open with juicy pomegranate seeds and slices flying outward, dynamic red liquid splash, fresh green leaves adding contrast, glossy wet surface with condensation, bold red gradient background, high-speed action capture, commercial beverage ad style, ultra-detailed, 8k. 香蕉杏仁蛋白奶昔\n提示词：\n超逼真的蛋白奶昔产品广告，罐身采用黄色和奶油色设计，周围漂浮着香蕉片、杏仁和花生，牛奶飞溅的动态效果在罐身周围爆发，表面有光泽的冷凝水滴，充满活力的暖黄色背景，高速飞溅摄影，超细节纹理，商业食品摄影风格，戏剧性光照，8k。\n\n葡萄汽水（紫色飞溅）\n提示词：\n高级汽水罐，深黑色和紫色主题，周围环绕着新鲜葡萄、薄荷叶和柑橘片，爆炸性的紫色液体飞溅在半空中凝固，罐身有光泽的反射和水滴，深沉的背景带有霓虹灯高光，电影级光照，超现实产品摄影，高对比度，8k。\n\n能量饮料（石榴飞溅）\n提示词：\n充满活力的红色能量饮料罐爆裂开来，多汁的石榴籽和果肉向外飞溅，动态的红色液体飞溅，新鲜的绿叶增加对比度，光泽湿润的表面带有冷凝水，大胆的红色渐变背景，高速动作捕捉，商业饮料广告风格，超细节，8k。 taaruk 12456",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 50,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

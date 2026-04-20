@@ -1,0 +1,507 @@
+{
+  "prompts": [
+    {
+      "id": 10590,
+      "title": "全息人物生成提示",
+      "description": "一个基本的 Nano Banana Pro 提示，用于生成一个由透明磨砂材质制成的全息角色，漂浮在光滑的黑色背景上，并指定了摄像机角度和宽高比。",
+      "sourceLink": "https://x.com/Marversal_eth/status/2025264865401864551",
+      "sourcePublishedAt": "2026-02-21T17:42:26.000Z",
+      "author": {
+        "name": "MARVERSAL",
+        "link": "https://x.com/Marversal_eth"
+      },
+      "content": "Generate {argument name=\"character type\" default=\"image attached\"} character made of {argument name=\"material type\" default=\"transparent\"} frosted hologram material from head to toe levitating on black {argument name=\"background texture\" default=\"glossy\"} background, {argument name=\"camera angle\" default=\"eye level\"} centered camera angle, 9:16 {argument name=\"orientation\" default=\"vertical\"} image.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741711889_79qv1d_HBst5vbbUAADnne.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741711889_79qv1d_HBst5vbbUAADnne-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "生成一个由{argument name=\"material type\" default=\"透明\"}磨砂全息材料从头到脚制成的{argument name=\"character type\" default=\"附图\"}角色，在黑色{argument name=\"background texture\" default=\"光泽\"}背景上悬浮，采用{argument name=\"camera angle\" default=\"平视\"}居中视角，9:16 {argument name=\"orientation\" default=\"垂直\"}图像。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "全息人物生成提示 一个基本的 nano banana pro 提示，用于生成一个由透明磨砂材质制成的全息角色，漂浮在光滑的黑色背景上，并指定了摄像机角度和宽高比。 generate {argument name=\"character type\" default=\"image attached\"} character made of {argument name=\"material type\" default=\"transparent\"} frosted hologram material from head to toe levitating on black {argument name=\"background texture\" default=\"glossy\"} background, {argument name=\"camera angle\" default=\"eye level\"} centered camera angle, 9:16 {argument name=\"orientation\" default=\"vertical\"} image. 生成一个由{argument name=\"material type\" default=\"透明\"}磨砂全息材料从头到脚制成的{argument name=\"character type\" default=\"附图\"}角色，在黑色{argument name=\"background texture\" default=\"光泽\"}背景上悬浮，采用{argument name=\"camera angle\" default=\"平视\"}居中视角，9:16 {argument name=\"orientation\" default=\"垂直\"}图像。 marversal 10590",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10561,
+      "title": "超逼真的饮品产品摄影",
+      "description": "一个用于 Google Veo 3.1 + Nano Banana Pro 的提示，旨在生成一张超逼真、高对比度的红色铝制汽水罐产品照片。该提示详细说明了构图（对角线放置，可见拉环）、极致细节（冷凝水滴，微距对焦）和光照（强烈的定向光），以呈现具有极简主义单色红色美学的商业广告风格。",
+      "sourceLink": "https://x.com/Strength04_X/status/2025251415606919627",
+      "sourcePublishedAt": "2026-02-21T16:48:59.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "Ultra-realistic high-contrast beverage product photography of a red aluminum soda can lying diagonally on its side across a seamless glossy red surface and matching red background. The can is positioned from upper right to lower left, with the silver pull-tab facing toward the bottom-left corner and clearly visible. The can surface is covered with realistic condensation droplets of varying sizes, with larger water drops scattered on the red surface around it. The branding is bold white script typography wrapping across the can, with smaller text reading \"Original Taste\" beneath. Strong directional lighting from upper right creates dramatic shadows extending leftward and deep contrast between highlights and shadowed areas. The metallic rim and tab reflect bright highlights, while the red background glows intensely under the light. Composition is tight and close-up, macro-level detail emphasizing texture of aluminum and water droplets. Minimalist monochrome red aesthetic, crisp focus, commercial beverage advertising style, photorealistic, 8K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741699516_uiocpn_HBsjOWCbgAgzxj5.jpg",
+        "https://cms-assets.youmind.com/media/1771741699512_khjweh_HBsjOTXbgAEbGBs.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741699516_uiocpn_HBsjOWCbgAgzxj5-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1771741699512_khjweh_HBsjOTXbgAEbGBs-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的高对比度饮料产品摄影，一个红色铝制汽水罐斜躺在无缝光泽红色表面和匹配的红色背景上。罐身从右上角向左下角倾斜放置，银色拉环朝向左下角，清晰可见。罐身表面覆盖着大小不一的逼真冷凝水珠，周围的红色表面上散落着较大的水滴。品牌标识是粗体白色手写字体，环绕在罐身，下方有小字“Original Taste”。来自右上方的强烈定向照明营造出向左延伸的戏剧性阴影，并在高光和阴影区域之间形成强烈对比。金属边缘和拉环反射出明亮的高光，而红色背景在光线下发出强烈的光芒。构图紧凑，特写镜头，宏观细节强调铝材和水滴的质感。极简主义的单色红色美学，清晰的焦点，商业饮料广告风格，超逼真，8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真的饮品产品摄影 一个用于 google veo 3.1 + nano banana pro 的提示，旨在生成一张超逼真、高对比度的红色铝制汽水罐产品照片。该提示详细说明了构图（对角线放置，可见拉环）、极致细节（冷凝水滴，微距对焦）和光照（强烈的定向光），以呈现具有极简主义单色红色美学的商业广告风格。 ultra-realistic high-contrast beverage product photography of a red aluminum soda can lying diagonally on its side across a seamless glossy red surface and matching red background. the can is positioned from upper right to lower left, with the silver pull-tab facing toward the bottom-left corner and clearly visible. the can surface is covered with realistic condensation droplets of varying sizes, with larger water drops scattered on the red surface around it. the branding is bold white script typography wrapping across the can, with smaller text reading \"original taste\" beneath. strong directional lighting from upper right creates dramatic shadows extending leftward and deep contrast between highlights and shadowed areas. the metallic rim and tab reflect bright highlights, while the red background glows intensely under the light. composition is tight and close-up, macro-level detail emphasizing texture of aluminum and water droplets. minimalist monochrome red aesthetic, crisp focus, commercial beverage advertising style, photorealistic, 8k resolution. 超逼真的高对比度饮料产品摄影，一个红色铝制汽水罐斜躺在无缝光泽红色表面和匹配的红色背景上。罐身从右上角向左下角倾斜放置，银色拉环朝向左下角，清晰可见。罐身表面覆盖着大小不一的逼真冷凝水珠，周围的红色表面上散落着较大的水滴。品牌标识是粗体白色手写字体，环绕在罐身，下方有小字“original taste”。来自右上方的强烈定向照明营造出向左延伸的戏剧性阴影，并在高光和阴影区域之间形成强烈对比。金属边缘和拉环反射出明亮的高光，而红色背景在光线下发出强烈的光芒。构图紧凑，特写镜头，宏观细节强调铝材和水滴的质感。极简主义的单色红色美学，清晰的焦点，商业饮料广告风格，超逼真，8k 分辨率。 𝐌 10561",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10573,
+      "title": "白金发色女性池畔的详细 JSON 提示词",
+      "description": "一个高度结构化的 JSON 提示，用于 Nano Banana Pro 生成一张垂直的、写实风格的图像：一位年轻女性，留着铂金色长发，身穿轻薄的浅淡绿色比基尼，在泳池边摆姿势，对纹身和场景有严格的限制。",
+      "sourceLink": "https://x.com/Noira_exe/status/2025247759733829889",
+      "sourcePublishedAt": "2026-02-21T16:34:27.000Z",
+      "author": {
+        "name": "Noira",
+        "link": "https://x.com/Noira_exe"
+      },
+      "content": "{\n  “subject”: {\n    “description”: “A vertical photograph of a young woman with long platinum blonde hair, posing poolside.”,\n    “body”: {\n      “physique”: “She has a slender, toned figure with a visible belly button piercing, free of any tattoos.”,\n      “pose”: “Standing slightly angled to the side, looking directly at the camera with a sultry expression. Her left hand touches the side of her bikini bottom, while her right hand holds the strap near her hip. Her head is tilted slightly.”,\n      “features”: “Long, wavy platinum blonde hair cascading over her shoulders. She has a pink frangipani flower tucked behind her left ear. Her skin is flawless and smooth, without any tattoos on her arms, torso, or legs.”\n    },\n“wardrobe”: {\n      “outfit”: “A skimpy, light pastel green string bikini. The top is a triangle style, and the bottom is a high-cut thong style with thin side straps.”\n    }\n  },\n  “pose_action”: “Posing poolside, looking at the camera while adjusting her bikini bottom.”,\n  “scene”: {\n    “environment”: “A bright, sunny poolside setting.”,\n    “elements”: “She is standing next to lush green tropical plants and foliage. In the background, there’s a glimpse of a white tiled pool edge and bright sunlight suggesting a warm, clear day.”,\n    “composition”: “Vertical 9:16 aspect ratio photograph capturing the subject from the mid-thigh up.”\n  },\n  “lighting”: {\n    “setup”: “Bright, natural sunlight.”,\n    “details”: “The sunlight is strong, casting soft shadows and highlighting the texture of her skin and the vibrant green of the plants. The light catches her hair and the flower.”\n  },\n“camera”: {\n    “technical”: “High-resolution photograph with a sharp focus on the subject and a slightly blurred background (bokeh) from the plants. Realistic colors and natural skin tones.”,\n    “aspect_ratio”: “9:16”,\n    “constraints”: [\n      “CRITICAL: The subject must have NO TATTOOS.”,\n      “CRITICAL: Hair must be PLATINUM BLONDE with a PINK FRANGIPANI FLOWER.”,\n      “CRITICAL: Outfit must be the LIGHT GREEN STRING BIKINI.”,\n      “CRITICAL: Setting must be SUNNY POOLSIDE with TROPICAL PLANTS.”,\n      “The final image must be a photorealistic vertical 9:16 photograph.”\n    ]\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741704329_tsxdl8_HBsgGARWIAA1fvb.jpg",
+        "https://cms-assets.youmind.com/media/1771741704387_epf521_HBsgGD9WcAAayyJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741704329_tsxdl8_HBsgGARWIAA1fvb-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771741704387_epf521_HBsgGD9WcAAayyJ-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"description\": \"一张年轻女性的垂直照片，她留着长长的铂金色头发，在泳池边摆姿势。\",\n    \"body\": {\n      \"physique\": \"她身材苗条，体态匀称，肚脐上有可见的穿环，没有纹身。\",\n      \"pose\": \"她身体略微侧向一边，直视镜头，表情妩媚。她的左手触碰比基尼下装的侧边，右手则抓住臀部附近的肩带。头部略微倾斜。\",\n      \"features\": \"长长的波浪形铂金色头发披散在肩上。她的左耳后别着一朵粉色鸡蛋花。皮肤完美无瑕，光滑细腻，手臂、躯干或腿部没有任何纹身。\"\n    },\n    \"wardrobe\": {\n      \"outfit\": \"一件暴露的浅淡绿色系带比基尼。上装是三角形款式，下装是高开叉丁字裤款式，带有细侧带。\"\n    }\n  },\n  \"pose_action\": \"在泳池边摆姿势，看着镜头，同时调整她的比基尼下装。\",\n  \"scene\": {\n    \"environment\": \"明亮、阳光充足的泳池边环境。\",\n    \"elements\": \"她站在郁郁葱葱的热带植物和绿叶旁。背景中隐约可见白色瓷砖泳池边缘和明亮的阳光，暗示着一个温暖晴朗的日子。\",\n    \"composition\": \"垂直 9:16 宽高比的照片，捕捉主体从大腿中部以上的部分。\"\n  },\n  \"lighting\": {\n    \"setup\": \"明亮、自然的阳光。\",\n    \"details\": \"阳光强烈，投下柔和的阴影，突出了她皮肤的质感和植物鲜艳的绿色。光线照在她的头发和花朵上。\"\n  },\n  \"camera\": {\n    \"technical\": \"高分辨率照片，主体对焦清晰，植物背景略微模糊（散景）。色彩真实，肤色自然。\",\n    \"aspect_ratio\": \"9:16\",\n    \"constraints\": [\n      \"关键：主体必须没有纹身。\",\n      \"关键：头发必须是铂金色，并带有粉色鸡蛋花。\",\n      \"关键：服装必须是浅绿色系带比基尼。\",\n      \"关键：场景必须是阳光充足的泳池边，有热带植物。\",\n      \"最终图像必须是逼真的垂直 9:16 照片。\"\n    ]\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "白金发色女性池畔的详细 json 提示词 一个高度结构化的 json 提示，用于 nano banana pro 生成一张垂直的、写实风格的图像：一位年轻女性，留着铂金色长发，身穿轻薄的浅淡绿色比基尼，在泳池边摆姿势，对纹身和场景有严格的限制。 {\n  “subject”: {\n    “description”: “a vertical photograph of a young woman with long platinum blonde hair, posing poolside.”,\n    “body”: {\n      “physique”: “she has a slender, toned figure with a visible belly button piercing, free of any tattoos.”,\n      “pose”: “standing slightly angled to the side, looking directly at the camera with a sultry expression. her left hand touches the side of her bikini bottom, while her right hand holds the strap near her hip. her head is tilted slightly.”,\n      “features”: “long, wavy platinum blonde hair cascading over her shoulders. she has a pink frangipani flower tucked behind her left ear. her skin is flawless and smooth, without any tattoos on her arms, torso, or legs.”\n    },\n“wardrobe”: {\n      “outfit”: “a skimpy, light pastel green string bikini. the top is a triangle style, and the bottom is a high-cut thong style with thin side straps.”\n    }\n  },\n  “pose_action”: “posing poolside, looking at the camera while adjusting her bikini bottom.”,\n  “scene”: {\n    “environment”: “a bright, sunny poolside setting.”,\n    “elements”: “she is standing next to lush green tropical plants and foliage. in the background, there’s a glimpse of a white tiled pool edge and bright sunlight suggesting a warm, clear day.”,\n    “composition”: “vertical 9:16 aspect ratio photograph capturing the subject from the mid-thigh up.”\n  },\n  “lighting”: {\n    “setup”: “bright, natural sunlight.”,\n    “details”: “the sunlight is strong, casting soft shadows and highlighting the texture of her skin and the vibrant green of the plants. the light catches her hair and the flower.”\n  },\n“camera”: {\n    “technical”: “high-resolution photograph with a sharp focus on the subject and a slightly blurred background (bokeh) from the plants. realistic colors and natural skin tones.”,\n    “aspect_ratio”: “9:16”,\n    “constraints”: [\n      “critical: the subject must have no tattoos.”,\n      “critical: hair must be platinum blonde with a pink frangipani flower.”,\n      “critical: outfit must be the light green string bikini.”,\n      “critical: setting must be sunny poolside with tropical plants.”,\n      “the final image must be a photorealistic vertical 9:16 photograph.”\n    ]\n  }\n} ```json\n{\n  \"subject\": {\n    \"description\": \"一张年轻女性的垂直照片，她留着长长的铂金色头发，在泳池边摆姿势。\",\n    \"body\": {\n      \"physique\": \"她身材苗条，体态匀称，肚脐上有可见的穿环，没有纹身。\",\n      \"pose\": \"她身体略微侧向一边，直视镜头，表情妩媚。她的左手触碰比基尼下装的侧边，右手则抓住臀部附近的肩带。头部略微倾斜。\",\n      \"features\": \"长长的波浪形铂金色头发披散在肩上。她的左耳后别着一朵粉色鸡蛋花。皮肤完美无瑕，光滑细腻，手臂、躯干或腿部没有任何纹身。\"\n    },\n    \"wardrobe\": {\n      \"outfit\": \"一件暴露的浅淡绿色系带比基尼。上装是三角形款式，下装是高开叉丁字裤款式，带有细侧带。\"\n    }\n  },\n  \"pose_action\": \"在泳池边摆姿势，看着镜头，同时调整她的比基尼下装。\",\n  \"scene\": {\n    \"environment\": \"明亮、阳光充足的泳池边环境。\",\n    \"elements\": \"她站在郁郁葱葱的热带植物和绿叶旁。背景中隐约可见白色瓷砖泳池边缘和明亮的阳光，暗示着一个温暖晴朗的日子。\",\n    \"composition\": \"垂直 9:16 宽高比的照片，捕捉主体从大腿中部以上的部分。\"\n  },\n  \"lighting\": {\n    \"setup\": \"明亮、自然的阳光。\",\n    \"details\": \"阳光强烈，投下柔和的阴影，突出了她皮肤的质感和植物鲜艳的绿色。光线照在她的头发和花朵上。\"\n  },\n  \"camera\": {\n    \"technical\": \"高分辨率照片，主体对焦清晰，植物背景略微模糊（散景）。色彩真实，肤色自然。\",\n    \"aspect_ratio\": \"9:16\",\n    \"constraints\": [\n      \"关键：主体必须没有纹身。\",\n      \"关键：头发必须是铂金色，并带有粉色鸡蛋花。\",\n      \"关键：服装必须是浅绿色系带比基尼。\",\n      \"关键：场景必须是阳光充足的泳池边，有热带植物。\",\n      \"最终图像必须是逼真的垂直 9:16 照片。\"\n    ]\n  }\n}\n``` noira 10573",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10554,
+      "title": "超逼真微缩克隆工作室肖像",
+      "description": "这是一个针对 Nano Banana Pro 的高度具体的提示，要求使用上传的照片作为唯一的面部参考，严格禁止更改面部特征或身份。目标是创作一张超现实的影棚肖像，采用微型克隆概念，其中多个微型版本的主体与真人大小的人物进行互动。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2025231649278230913",
+      "sourcePublishedAt": "2026-02-21T15:30:26.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "Use my uploaded photo as the main and only face reference. My face must remain exactly the same — do NOT change facial features, expression, eye shape, nose, lips, skin tone, age, or identity. No face swap, no beautification, no stylization on the face.\nCreate an ultra-realistic studio portrait using a miniature clone concept:\nMain person:\nSitting on the floor, centered in frame, relaxed pose, calm and confident mood. Facial expression must match the reference exactly.\nMiniature clones (same face, same identity): Gemini \n• Two miniatures standing on my open palms (palms facing upward)\n• One miniature sitting on my right shoulder\n• One miniature pushing my right shoe\n• One miniature running in the foreground toward the camera (sense of motion but still sharp and realistic)\n• One miniature hugging my left knee from behind\nAll miniatures must have the exact same face, expression, and identity as the main person.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741696375_7vkzi9_HBsRavMbgAACpPt.jpg",
+        "https://cms-assets.youmind.com/media/1771741696339_yp8oym_HBsRc1maoAEkme2.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741696375_7vkzi9_HBsRavMbgAACpPt-300x423.jpg",
+        "https://cms-assets.youmind.com/media/1771741696339_yp8oym_HBsRc1maoAEkme2-300x341.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请使用我上传的照片作为主要且唯一的面部参考。我的面部必须保持完全一致——请勿改变面部特征、表情、眼睛形状、鼻子、嘴唇、肤色、年龄或身份。不要进行换脸、美化或面部风格化。\n请使用微缩克隆概念创作一张超现实的摄影棚肖像：\n主要人物：\n坐在地板上，位于画面中央，姿势放松，情绪平静而自信。面部表情必须与参考照片完全一致。\n微缩克隆（相同的面部，相同的身份）：Gemini\n• 两个微缩克隆站在我张开的手掌上（手掌朝上）\n• 一个微缩克隆坐在我的右肩上\n• 一个微缩克隆推着我的右鞋\n• 一个微缩克隆在前景中朝镜头奔跑（有动感但依然清晰逼真）\n• 一个微缩克隆从后面抱着我的左膝\n所有微缩克隆的面部、表情和身份都必须与主要人物完全一致。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真微缩克隆工作室肖像 这是一个针对 nano banana pro 的高度具体的提示，要求使用上传的照片作为唯一的面部参考，严格禁止更改面部特征或身份。目标是创作一张超现实的影棚肖像，采用微型克隆概念，其中多个微型版本的主体与真人大小的人物进行互动。 use my uploaded photo as the main and only face reference. my face must remain exactly the same — do not change facial features, expression, eye shape, nose, lips, skin tone, age, or identity. no face swap, no beautification, no stylization on the face.\ncreate an ultra-realistic studio portrait using a miniature clone concept:\nmain person:\nsitting on the floor, centered in frame, relaxed pose, calm and confident mood. facial expression must match the reference exactly.\nminiature clones (same face, same identity): gemini \n• two miniatures standing on my open palms (palms facing upward)\n• one miniature sitting on my right shoulder\n• one miniature pushing my right shoe\n• one miniature running in the foreground toward the camera (sense of motion but still sharp and realistic)\n• one miniature hugging my left knee from behind\nall miniatures must have the exact same face, expression, and identity as the main person. 请使用我上传的照片作为主要且唯一的面部参考。我的面部必须保持完全一致——请勿改变面部特征、表情、眼睛形状、鼻子、嘴唇、肤色、年龄或身份。不要进行换脸、美化或面部风格化。\n请使用微缩克隆概念创作一张超现实的摄影棚肖像：\n主要人物：\n坐在地板上，位于画面中央，姿势放松，情绪平静而自信。面部表情必须与参考照片完全一致。\n微缩克隆（相同的面部，相同的身份）：gemini\n• 两个微缩克隆站在我张开的手掌上（手掌朝上）\n• 一个微缩克隆坐在我的右肩上\n• 一个微缩克隆推着我的右鞋\n• 一个微缩克隆在前景中朝镜头奔跑（有动感但依然清晰逼真）\n• 一个微缩克隆从后面抱着我的左膝\n所有微缩克隆的面部、表情和身份都必须与主要人物完全一致。 synthia 10554",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10547,
+      "title": "电影感单色照片垂直生日海报拼贴画",
+      "description": "为 Nano Banana Pro 设计的提示，用于创建垂直生日海报拼贴。设计背景是堆叠的圆角矩形，其中包含一位小女孩的单色电影风格照片，上面叠加着同一位小女孩的高分辨率全彩抠图，并带有粗厚的贴纸风格轮廓。",
+      "sourceLink": "https://x.com/EdraakTechAi/status/2025226284561760655",
+      "sourcePublishedAt": "2026-02-21T15:09:07.000Z",
+      "author": {
+        "name": "Edraak Tech | إدراك تِك",
+        "link": "https://x.com/EdraakTechAi"
+      },
+      "content": "A vertical birthday poster collage. The background features four stacked horizontal rounded rectangles, each containing monochrome cinematic photographs of a young girl with curly hair and sunglasses in various poses. Superimposed on the left foreground is a high-resolution, full-color cutout of the same girl wearing an unbuttoned pink mauve shirt and sunglasses, in a cool pose, with a thick white sticker-style outline.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741694068_hmintq_HBsMkU9WEAAB_-V.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741694068_hmintq_HBsMkU9WEAAB_-V-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张垂直的生日海报拼贴画。背景是四个堆叠的水平圆角矩形，每个矩形中都有一张单色电影风格照片，照片中一个戴着墨镜的卷发小女孩摆出各种姿势。左侧前景叠加着一张高分辨率、全彩的同一女孩的抠图，她穿着一件未扣扣子的粉紫色衬衫，戴着墨镜，摆出酷酷的姿势，并带有粗白色贴纸风格的轮廓。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感单色照片垂直生日海报拼贴画 为 nano banana pro 设计的提示，用于创建垂直生日海报拼贴。设计背景是堆叠的圆角矩形，其中包含一位小女孩的单色电影风格照片，上面叠加着同一位小女孩的高分辨率全彩抠图，并带有粗厚的贴纸风格轮廓。 a vertical birthday poster collage. the background features four stacked horizontal rounded rectangles, each containing monochrome cinematic photographs of a young girl with curly hair and sunglasses in various poses. superimposed on the left foreground is a high-resolution, full-color cutout of the same girl wearing an unbuttoned pink mauve shirt and sunglasses, in a cool pose, with a thick white sticker-style outline. 一张垂直的生日海报拼贴画。背景是四个堆叠的水平圆角矩形，每个矩形中都有一张单色电影风格照片，照片中一个戴着墨镜的卷发小女孩摆出各种姿势。左侧前景叠加着一张高分辨率、全彩的同一女孩的抠图，她穿着一件未扣扣子的粉紫色衬衫，戴着墨镜，摆出酷酷的姿势，并带有粗白色贴纸风格的轮廓。 edraak tech | إدراك تِك 10547",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10550,
+      "title": "电影感沙漠休息站黄金时段肖像",
+      "description": "一个为 Nano Banana Pro 准备的详细电影级提示词，描述了一幅超现实主义肖像：一个民族特征模糊的人在黄金时段的沙漠中，慵懒地躺在一辆复古汽车的引擎盖上。该提示词详细说明了复杂的灯光、相机设置（135mm 镜头，f/2.4）以及极致的纹理细节，以呈现一幅高对比度、阳光炙烤的时尚态度作品。",
+      "sourceLink": "https://x.com/tisch_eins/status/2025219198163493001",
+      "sourcePublishedAt": "2026-02-21T14:40:58.000Z",
+      "author": {
+        "name": "Tischeins",
+        "link": "https://x.com/tisch_eins"
+      },
+      "content": "An adult 21+ ethnically ambiguous person in their late-20s with a sun-kissed complexion, curly hair, and a fit athletic build is the hero, lounging on the hood of a vintage-looking but unbranded car in a desert rest stop at golden hour, one leg bent and boot planted, chin lifted with fearless swagger, wearing a cropped leather jacket over a ribbed bandeau and high-rise trousers, more skin shown yet fully tasteful, surrounded by non-legible road forms and abstract signage-free silhouettes; a low warm key from the setting sun hits from camera-right with hard-edged glow, fill is a soft bounce from sand to open shadows, negative fill from a black flag deepens the jacket contours, and a crisp rim from sun wrap outlines hair, with highlights carefully rolled to avoid clipping and speculars on leather controlled; shot on a 135mm lens at f/2.4, ISO 100, 1/1000s for strong compression, subject centered with vast negative space sky, foreground heat-haze shimmer and slight occlusion from a side mirror adding depth; skin pores, dust microtexture, and natural tonal gradients visible, curls separated strand by strand, leather grain and stitching tactile, sand and metal patina believable; graded warm with restrained saturation, deep shadows retaining detail, subtle grain, texture-preserving retouch, and in summary a sun-baked roadside couture attitude piece with hard golden key, sculpted contrast, and telephoto cinematic compression.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741695032_fu01xz_HBsGH3tXAAEjxcw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741695032_fu01xz_HBsGH3tXAAEjxcw-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位 20 多岁、21 岁以上、民族特征模糊、肤色晒得发亮、卷发、身材健美的成年人是主角，在日落时分的沙漠休息站，她慵懒地躺在一辆复古但无品牌汽车的引擎盖上，一条腿弯曲，靴子着地，下巴微扬，带着无畏的自信，身穿短款皮夹克，内搭罗纹抹胸和高腰长裤，露肤较多但完全得体，周围是难以辨认的道路形态和抽象的无标志剪影；落日的低暖色调光线从相机右侧射入，形成硬朗的光晕，补光是沙子柔和的反弹光，照亮开放的阴影，黑色旗帜的负补光加深了夹克的轮廓，太阳光线勾勒出清晰的轮廓，头发上的高光经过精心处理，避免了剪切，皮革上的高光也得到了控制；使用 135mm 镜头拍摄，光圈 f/2.4，ISO 100，快门速度 1/1000s，以获得强烈的压缩感，主体居中，天空留有大量负空间，前景热浪朦胧，侧后视镜轻微遮挡增加了景深；皮肤毛孔、灰尘微纹理和自然色调渐变清晰可见，卷发根根分明，皮革纹理和缝线触感真实，沙子和金属铜绿可信；调色温暖，饱和度适中，深色阴影保留细节，颗粒感细腻，保留纹理的修饰，总而言之，这是一件充满阳光烘烤的路边高级定制服饰，具有硬朗的金色主光、雕塑般的对比度和长焦电影压缩感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感沙漠休息站黄金时段肖像 一个为 nano banana pro 准备的详细电影级提示词，描述了一幅超现实主义肖像：一个民族特征模糊的人在黄金时段的沙漠中，慵懒地躺在一辆复古汽车的引擎盖上。该提示词详细说明了复杂的灯光、相机设置（135mm 镜头，f/2.4）以及极致的纹理细节，以呈现一幅高对比度、阳光炙烤的时尚态度作品。 an adult 21+ ethnically ambiguous person in their late-20s with a sun-kissed complexion, curly hair, and a fit athletic build is the hero, lounging on the hood of a vintage-looking but unbranded car in a desert rest stop at golden hour, one leg bent and boot planted, chin lifted with fearless swagger, wearing a cropped leather jacket over a ribbed bandeau and high-rise trousers, more skin shown yet fully tasteful, surrounded by non-legible road forms and abstract signage-free silhouettes; a low warm key from the setting sun hits from camera-right with hard-edged glow, fill is a soft bounce from sand to open shadows, negative fill from a black flag deepens the jacket contours, and a crisp rim from sun wrap outlines hair, with highlights carefully rolled to avoid clipping and speculars on leather controlled; shot on a 135mm lens at f/2.4, iso 100, 1/1000s for strong compression, subject centered with vast negative space sky, foreground heat-haze shimmer and slight occlusion from a side mirror adding depth; skin pores, dust microtexture, and natural tonal gradients visible, curls separated strand by strand, leather grain and stitching tactile, sand and metal patina believable; graded warm with restrained saturation, deep shadows retaining detail, subtle grain, texture-preserving retouch, and in summary a sun-baked roadside couture attitude piece with hard golden key, sculpted contrast, and telephoto cinematic compression. 一位 20 多岁、21 岁以上、民族特征模糊、肤色晒得发亮、卷发、身材健美的成年人是主角，在日落时分的沙漠休息站，她慵懒地躺在一辆复古但无品牌汽车的引擎盖上，一条腿弯曲，靴子着地，下巴微扬，带着无畏的自信，身穿短款皮夹克，内搭罗纹抹胸和高腰长裤，露肤较多但完全得体，周围是难以辨认的道路形态和抽象的无标志剪影；落日的低暖色调光线从相机右侧射入，形成硬朗的光晕，补光是沙子柔和的反弹光，照亮开放的阴影，黑色旗帜的负补光加深了夹克的轮廓，太阳光线勾勒出清晰的轮廓，头发上的高光经过精心处理，避免了剪切，皮革上的高光也得到了控制；使用 135mm 镜头拍摄，光圈 f/2.4，iso 100，快门速度 1/1000s，以获得强烈的压缩感，主体居中，天空留有大量负空间，前景热浪朦胧，侧后视镜轻微遮挡增加了景深；皮肤毛孔、灰尘微纹理和自然色调渐变清晰可见，卷发根根分明，皮革纹理和缝线触感真实，沙子和金属铜绿可信；调色温暖，饱和度适中，深色阴影保留细节，颗粒感细腻，保留纹理的修饰，总而言之，这是一件充满阳光烘烤的路边高级定制服饰，具有硬朗的金色主光、雕塑般的对比度和长焦电影压缩感。 tischeins 10550",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10565,
+      "title": "超电影感奢华手工皂产品摄影",
+      "description": "一个高度详细的 JSON 提示，用于 GPT Image 1.5 和 Google Nano Banana Pro，以生成一个超电影感、超逼真的奢华手工皂商业渲染图。该提示详细说明了产品细节（象牙色基底、金色漩涡、雕刻徽章）、构图（浮动皂块、悬浮水滴）、灯光（柔和的温泉风格金色光芒），以及极致的微距细节和材质物理效果。",
+      "sourceLink": "https://x.com/j_smeaton99/status/2025211866520449354",
+      "sourcePublishedAt": "2026-02-21T14:11:50.000Z",
+      "author": {
+        "name": "Jack",
+        "link": "https://x.com/j_smeaton99"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"luxury artisan soap bar\",\n      \"brand_name\": \"AURUM NOCTIS\",\n      \"product_line\": \"Velvet Purity\",\n      \"shape\": \"smooth sculpted rectangular bar with softly beveled edges\",\n      \"material\": \"handcrafted glycerin soap with semi-translucent depth\",\n      \"finish\": \"silky satin surface with subtle natural sheen\",\n      \"embossing\": \"minimal engraved crest and serif logo pressed into surface\",\n      \"texture_details\": \"fine botanical particles suspended within the soap\",\n      \"color\": \"warm ivory base infused with subtle golden swirls\",\n      \"accent_inclusions\": \"delicate flecks of gold mica and crushed botanicals\"\n    },\n    \"composition\": {\n      \"scene_type\": \"ultra-cinematic luxury skincare advertising photography\",\n      \"orientation\": \"vertical\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"low hero angle emphasizing elegance and purity\",\n      \"subject_position\": \"soap bar floating slightly above reflective surface\",\n      \"motion\": \"water droplets suspended mid-air with soft splash arcs\"\n    },\n    \"environment\": {\n      \"background\": \"soft warm marble gradient fading into shadow\",\n      \"atmosphere\": \"light spa mist creating a serene premium ambiance\",\n      \"floating_elements\": [\n        \"suspended crystal-clear water droplets\",\n        \"white orchid petals drifting gently\",\n        \"tiny golden light particles shimmering softly\",\n        \"eucalyptus leaves floating in air\",\n        \"fine soap foam bubbles catching highlights\"\n      ],\n      \"surface_effects\": \"glossy reflections and micro water beads enhancing freshness\"\n    },\n    \"lighting\": {\n      \"style\": \"soft spa-inspired studio lighting\",\n      \"key_light\": \"diffused overhead light revealing smooth texture\",\n      \"rim_lights\": \"subtle warm highlights outlining edges\",\n      \"accent_lights\": \"soft golden glow enhancing purity and luxury\",\n      \"shadow_depth\": \"gentle shadows for calm elegance\",\n      \"contrast\": \"balanced contrast with luminous clean highlights\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"warm ivory\", \"soft cream\", \"clean white\"],\n      \"accent_colors\": [\"champagne gold\", \"botanical green\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"macro cinema lens\",\n      \"depth_of_field\": \"shallow depth isolating soap bar\",\n      \"focus_point\": \"engraved logo and surface texture\",\n      \"bokeh\": \"soft luminous bokeh from floating droplets\",\n      \"detail_capture\": \"extreme micro-detail clarity\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8K ultra high definition\",\n      \"render_style\": \"hyper-realistic luxury skincare commercial render\",\n      \"material_physics\": \"accurate translucency and subsurface scattering\",\n      \"water_simulation\": \"physically accurate droplets and splash motion\",\n      \"textures\": \"ultra-detailed soap surface, foam, droplets, and botanicals\",\n      \"sharpness\": \"tack sharp product focus with sof",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741701018_xzgs2p_HBr_dCyacAAg7yh.jpg",
+        "https://cms-assets.youmind.com/media/1771741701117_l4an2l_HBr_dCfbQAAVmNp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741701018_xzgs2p_HBr_dCyacAAg7yh-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1771741701117_l4an2l_HBr_dCfbQAAVmNp-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"奢华手工皂\",\n      \"brand_name\": \"AURUM NOCTIS\",\n      \"product_line\": \"Velvet Purity\",\n      \"shape\": \"光滑雕塑感的长方形皂块，边缘柔和倒角\",\n      \"material\": \"手工甘油皂，具有半透明的深邃感\",\n      \"finish\": \"丝滑缎面，带有微妙的自然光泽\",\n      \"embossing\": \"表面压印有简约的雕刻徽章和衬线体品牌标志\",\n      \"texture_details\": \"皂体中悬浮着细小的植物颗粒\",\n      \"color\": \"暖象牙色基底，注入了微妙的金色漩涡\",\n      \"accent_inclusions\": \"精致的金云母薄片和压碎的植物碎屑\"\n    },\n    \"composition\": {\n      \"scene_type\": \"超电影感的奢华护肤品广告摄影\",\n      \"orientation\": \"垂直\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"低机位英雄视角，强调优雅与纯净\",\n      \"subject_position\": \"皂块轻微悬浮于反光表面之上\",\n      \"motion\": \"水滴悬浮在半空中，带有柔和的溅射弧线\"\n    },\n    \"environment\": {\n      \"background\": \"柔和温暖的大理石渐变背景，逐渐融入阴影\",\n      \"atmosphere\": \"轻柔的温泉雾气，营造宁静奢华的氛围\",\n      \"floating_elements\": [\n        \"悬浮的晶莹水滴\",\n        \"轻轻飘落的白色兰花花瓣\",\n        \"微小的金色光粒子柔和闪烁\",\n        \"空中漂浮的桉树叶\",\n        \"捕捉到高光的细密皂泡\"\n      ],\n      \"surface_effects\": \"光泽反射和微小水珠，增强清新感\"\n    },\n    \"lighting\": {\n      \"style\": \"柔和的温泉风格影室灯光\",\n      \"key_light\": \"漫射的顶灯，展现光滑的质感\",\n      \"rim_lights\": \"微妙的暖色轮廓光，勾勒边缘\",\n      \"accent_lights\": \"柔和的金色光晕，提升纯净感和奢华感\",\n      \"shadow_depth\": \"柔和的阴影，营造宁静优雅\",\n      \"contrast\": \"平衡的对比度，带有明亮洁净的高光\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"暖象牙色\", \"柔和奶油色\", \"洁净白色\"],\n      \"accent_colors\": [\"香槟金\", \"植物绿\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"微距电影镜头\",\n      \"depth_of_field\": \"浅景深，突出皂块主体\",\n      \"focus_point\": \"雕刻标志和表面纹理\",\n      \"bokeh\": \"漂浮水滴形成的柔和发光散景\",\n      \"detail_capture\": \"极致的微观细节清晰度\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8K 超高清\",\n      \"render_style\": \"超逼真的奢华护肤品商业渲染\",\n      \"material_physics\": \"准确的半透明度和次表面散射\",\n      \"water_simulation\": \"物理精确的水滴和溅射动态\",\n      \"textures\": \"超精细的皂体表面、泡沫、水滴和植物纹理\",\n      \"sharpness\": \"产品对焦锐利，细节柔和\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超电影感奢华手工皂产品摄影 一个高度详细的 json 提示，用于 gpt image 1.5 和 google nano banana pro，以生成一个超电影感、超逼真的奢华手工皂商业渲染图。该提示详细说明了产品细节（象牙色基底、金色漩涡、雕刻徽章）、构图（浮动皂块、悬浮水滴）、灯光（柔和的温泉风格金色光芒），以及极致的微距细节和材质物理效果。 {\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"luxury artisan soap bar\",\n      \"brand_name\": \"aurum noctis\",\n      \"product_line\": \"velvet purity\",\n      \"shape\": \"smooth sculpted rectangular bar with softly beveled edges\",\n      \"material\": \"handcrafted glycerin soap with semi-translucent depth\",\n      \"finish\": \"silky satin surface with subtle natural sheen\",\n      \"embossing\": \"minimal engraved crest and serif logo pressed into surface\",\n      \"texture_details\": \"fine botanical particles suspended within the soap\",\n      \"color\": \"warm ivory base infused with subtle golden swirls\",\n      \"accent_inclusions\": \"delicate flecks of gold mica and crushed botanicals\"\n    },\n    \"composition\": {\n      \"scene_type\": \"ultra-cinematic luxury skincare advertising photography\",\n      \"orientation\": \"vertical\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"low hero angle emphasizing elegance and purity\",\n      \"subject_position\": \"soap bar floating slightly above reflective surface\",\n      \"motion\": \"water droplets suspended mid-air with soft splash arcs\"\n    },\n    \"environment\": {\n      \"background\": \"soft warm marble gradient fading into shadow\",\n      \"atmosphere\": \"light spa mist creating a serene premium ambiance\",\n      \"floating_elements\": [\n        \"suspended crystal-clear water droplets\",\n        \"white orchid petals drifting gently\",\n        \"tiny golden light particles shimmering softly\",\n        \"eucalyptus leaves floating in air\",\n        \"fine soap foam bubbles catching highlights\"\n      ],\n      \"surface_effects\": \"glossy reflections and micro water beads enhancing freshness\"\n    },\n    \"lighting\": {\n      \"style\": \"soft spa-inspired studio lighting\",\n      \"key_light\": \"diffused overhead light revealing smooth texture\",\n      \"rim_lights\": \"subtle warm highlights outlining edges\",\n      \"accent_lights\": \"soft golden glow enhancing purity and luxury\",\n      \"shadow_depth\": \"gentle shadows for calm elegance\",\n      \"contrast\": \"balanced contrast with luminous clean highlights\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"warm ivory\", \"soft cream\", \"clean white\"],\n      \"accent_colors\": [\"champagne gold\", \"botanical green\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"macro cinema lens\",\n      \"depth_of_field\": \"shallow depth isolating soap bar\",\n      \"focus_point\": \"engraved logo and surface texture\",\n      \"bokeh\": \"soft luminous bokeh from floating droplets\",\n      \"detail_capture\": \"extreme micro-detail clarity\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8k ultra high definition\",\n      \"render_style\": \"hyper-realistic luxury skincare commercial render\",\n      \"material_physics\": \"accurate translucency and subsurface scattering\",\n      \"water_simulation\": \"physically accurate droplets and splash motion\",\n      \"textures\": \"ultra-detailed soap surface, foam, droplets, and botanicals\",\n      \"sharpness\": \"tack sharp product focus with sof ```json\n{\n  \"master_prompt\": {\n    \"product\": {\n      \"type\": \"奢华手工皂\",\n      \"brand_name\": \"aurum noctis\",\n      \"product_line\": \"velvet purity\",\n      \"shape\": \"光滑雕塑感的长方形皂块，边缘柔和倒角\",\n      \"material\": \"手工甘油皂，具有半透明的深邃感\",\n      \"finish\": \"丝滑缎面，带有微妙的自然光泽\",\n      \"embossing\": \"表面压印有简约的雕刻徽章和衬线体品牌标志\",\n      \"texture_details\": \"皂体中悬浮着细小的植物颗粒\",\n      \"color\": \"暖象牙色基底，注入了微妙的金色漩涡\",\n      \"accent_inclusions\": \"精致的金云母薄片和压碎的植物碎屑\"\n    },\n    \"composition\": {\n      \"scene_type\": \"超电影感的奢华护肤品广告摄影\",\n      \"orientation\": \"垂直\",\n      \"aspect_ratio\": \"4:5\",\n      \"camera_angle\": \"低机位英雄视角，强调优雅与纯净\",\n      \"subject_position\": \"皂块轻微悬浮于反光表面之上\",\n      \"motion\": \"水滴悬浮在半空中，带有柔和的溅射弧线\"\n    },\n    \"environment\": {\n      \"background\": \"柔和温暖的大理石渐变背景，逐渐融入阴影\",\n      \"atmosphere\": \"轻柔的温泉雾气，营造宁静奢华的氛围\",\n      \"floating_elements\": [\n        \"悬浮的晶莹水滴\",\n        \"轻轻飘落的白色兰花花瓣\",\n        \"微小的金色光粒子柔和闪烁\",\n        \"空中漂浮的桉树叶\",\n        \"捕捉到高光的细密皂泡\"\n      ],\n      \"surface_effects\": \"光泽反射和微小水珠，增强清新感\"\n    },\n    \"lighting\": {\n      \"style\": \"柔和的温泉风格影室灯光\",\n      \"key_light\": \"漫射的顶灯，展现光滑的质感\",\n      \"rim_lights\": \"微妙的暖色轮廓光，勾勒边缘\",\n      \"accent_lights\": \"柔和的金色光晕，提升纯净感和奢华感\",\n      \"shadow_depth\": \"柔和的阴影，营造宁静优雅\",\n      \"contrast\": \"平衡的对比度，带有明亮洁净的高光\"\n    },\n    \"color_palette\": {\n      \"primary_colors\": [\"暖象牙色\", \"柔和奶油色\", \"洁净白色\"],\n      \"accent_colors\": [\"香槟金\", \"植物绿\"]\n    },\n    \"camera_settings\": {\n      \"lens\": \"微距电影镜头\",\n      \"depth_of_field\": \"浅景深，突出皂块主体\",\n      \"focus_point\": \"雕刻标志和表面纹理\",\n      \"bokeh\": \"漂浮水滴形成的柔和发光散景\",\n      \"detail_capture\": \"极致的微观细节清晰度\"\n    },\n    \"render_quality\": {\n      \"resolution\": \"8k 超高清\",\n      \"render_style\": \"超逼真的奢华护肤品商业渲染\",\n      \"material_physics\": \"准确的半透明度和次表面散射\",\n      \"water_simulation\": \"物理精确的水滴和溅射动态\",\n      \"textures\": \"超精细的皂体表面、泡沫、水滴和植物纹理\",\n      \"sharpness\": \"产品对焦锐利，细节柔和\"\n    }\n  }\n}\n``` jack 10565",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10581,
+      "title": "星球大战科幻图像修改",
+      "description": "以下是针对 Nano Banana Pro (Gemini 3 Pro Image) 的一系列修改提示，用于转换现有图像。用户首先尝试移除螃蟹，并将人物缩小后置于画面中央，采用星球大战科幻风格；然后尝试添加一条粗蓝色发光圆形辐射线；最后移除辐射线并添加许多流星。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2025199448650121287",
+      "sourcePublishedAt": "2026-02-21T13:22:29.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "蟹を消す\n人を画面の真ん中に少し小さくして\nスター・ウォーズSFチックに！\n\nう〜ん\n\n太めの放射線を青く光らせて円で！\n\n放射線を取ってたくさんの流れ星",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741707110_7oqtmt_HBr0KKKbgAUey1R.jpg",
+        "https://cms-assets.youmind.com/media/1771741707082_28g3xp_HBr0KKNbgAEzKAu.jpg",
+        "https://cms-assets.youmind.com/media/1771741707168_beg1q4_HBr0KLkaAAAo-81.jpg",
+        "https://cms-assets.youmind.com/media/1771741707771_z362a7_HBr0KMsaoAAkw8k.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741707110_7oqtmt_HBr0KKKbgAUey1R-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741707082_28g3xp_HBr0KKNbgAEzKAu-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741707168_beg1q4_HBr0KLkaAAAo-81-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741707771_z362a7_HBr0KMsaoAAkw8k-300x400.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "抹掉螃蟹。\n把屏幕中央的人稍微缩小一点，让它看起来像《星球大战》里的科幻场景！\n\n嗯……\n\n加一条粗粗的、蓝色发光的环形辐射线！\n\n移除辐射线，并添加许多流星。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "星球大战科幻图像修改 以下是针对 nano banana pro (gemini 3 pro image) 的一系列修改提示，用于转换现有图像。用户首先尝试移除螃蟹，并将人物缩小后置于画面中央，采用星球大战科幻风格；然后尝试添加一条粗蓝色发光圆形辐射线；最后移除辐射线并添加许多流星。 蟹を消す\n人を画面の真ん中に少し小さくして\nスター・ウォーズsfチックに！\n\nう〜ん\n\n太めの放射線を青く光らせて円で！\n\n放射線を取ってたくさんの流れ星 抹掉螃蟹。\n把屏幕中央的人稍微缩小一点，让它看起来像《星球大战》里的科幻场景！\n\n嗯……\n\n加一条粗粗的、蓝色发光的环形辐射线！\n\n移除辐射线，并添加许多流星。 クラリネットクラリオンnobu 10581",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10549,
+      "title": "沙丘风格史诗场景：女子骑乘巨型公鸡",
+      "description": "为 Nano Banana Pro 生成的提示，用于创作一张电影风格的写实图像，灵感来源于《沙丘》，画面中一名女子身着宽大的白色带衬垫兜帽和金属护手，骑着一只巨大的黑色公鸡，穿越广袤荒芜的沙漠景观，弥漫着大气的赭色薄雾。",
+      "sourceLink": "https://x.com/KscYusuf/status/2025195676796133439",
+      "sourcePublishedAt": "2026-02-21T13:07:30.000Z",
+      "author": {
+        "name": "Yusuf K",
+        "link": "https://x.com/KscYusuf"
+      },
+      "content": "Dune-inspired epic scene; a woman with a large padded white hood riding a giant black rooster, metallic gauntlets, desert-worn palette, soft ochre haze, vast barren landscape, atmospheric dust, minimalist sci-fi mysticism, cinematic scale, realism",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741694205_1o6bq4_HBrwupoXwAAjiu1.jpg",
+        "https://cms-assets.youmind.com/media/1771741694214_8kc27w_HBrwupqXcAA1XCo.jpg",
+        "https://cms-assets.youmind.com/media/1771741694240_3fbllz_HBrwupoXMAAP-vD.jpg",
+        "https://cms-assets.youmind.com/media/1771741694828_1rd8is_HBrwupVXoAEyXqr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741694205_1o6bq4_HBrwupoXwAAjiu1-300x127.jpg",
+        "https://cms-assets.youmind.com/media/1771741694214_8kc27w_HBrwupqXcAA1XCo-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1771741694240_3fbllz_HBrwupoXMAAP-vD-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1771741694828_1rd8is_HBrwupVXoAEyXqr-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "沙丘风格的史诗场景；一位戴着巨大白色软垫兜帽的女人骑着一只巨大的黑色公鸡，戴着金属护手，沙漠磨损的调色板，柔和的赭色薄雾，广阔贫瘠的景观，大气尘埃，极简主义科幻神秘主义，电影级规模，写实主义",
+      "sourcePlatform": "twitter",
+      "searchIndex": "沙丘风格史诗场景：女子骑乘巨型公鸡 为 nano banana pro 生成的提示，用于创作一张电影风格的写实图像，灵感来源于《沙丘》，画面中一名女子身着宽大的白色带衬垫兜帽和金属护手，骑着一只巨大的黑色公鸡，穿越广袤荒芜的沙漠景观，弥漫着大气的赭色薄雾。 dune-inspired epic scene; a woman with a large padded white hood riding a giant black rooster, metallic gauntlets, desert-worn palette, soft ochre haze, vast barren landscape, atmospheric dust, minimalist sci-fi mysticism, cinematic scale, realism 沙丘风格的史诗场景；一位戴着巨大白色软垫兜帽的女人骑着一只巨大的黑色公鸡，戴着金属护手，沙漠磨损的调色板，柔和的赭色薄雾，广阔贫瘠的景观，大气尘埃，极简主义科幻神秘主义，电影级规模，写实主义 yusuf k 10549",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10562,
+      "title": "纹身女骑手摩托车写实街头摄影",
+      "description": "一个用于 Nano Banana Pro 生成逼真图像的结构化 JSON 提示。场景设定在黄金时段阳光明媚的城市街道上，一位时尚、有纹身的金发女性侧身坐在红色摩托车上，自信地摆着姿势，而前方的一名骑手正在查看手机。该提示指定了相机设置（85mm 镜头，浅景深），并包含一个详细的反向提示。",
+      "sourceLink": "https://x.com/NattyWindstorm/status/2025194885952012331",
+      "sourcePublishedAt": "2026-02-21T13:04:21.000Z",
+      "author": {
+        "name": "Natty Windstorm",
+        "link": "https://x.com/NattyWindstorm"
+      },
+      "content": "{\n  \"prompt\": \"A stylish tattooed blonde woman sitting sideways on a red motorcycle in a sunny urban street. She is wearing a striped tube top and yellow shorts, with detailed floral tattoos covering her arms and legs. Her hair is tied in a messy high ponytail, and she is posing confidently while looking at the camera. The motorcycle rider in front of her is wearing a black helmet and black outfit, checking a phone. Background features European-style apartment buildings, parked cars, and warm golden hour lighting. Street photography, realistic, high detail, cinematic lighting, 85mm lens, shallow depth of field.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted anatomy, extra limbs, poorly drawn hands, overexposed, underexposed, watermark, text\",\n  \"settings\": {\n    \"resolution\": \"1024x1024\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"DSLR, 85mm lens\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741700004_yupvwn_HBrwAnlagAAkU1N.jpg",
+        "https://cms-assets.youmind.com/media/1771741699989_ptqdbd_HBrwAntboAASaxd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741700004_yupvwn_HBrwAnlagAAkU1N-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1771741699989_ptqdbd_HBrwAntboAASaxd-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"一位时尚的纹身金发女子侧身坐在阳光明媚的城市街道上的红色摩托车上。她穿着条纹抹胸和黄色短裤，手臂和腿上布满了精致的花卉纹身。她的头发扎成凌乱的高马尾，自信地摆姿势看着镜头。她前面的摩托车手戴着黑色头盔，穿着黑色衣服，正在看手机。背景是欧式公寓楼、停放的汽车和温暖的黄金时段光线。街头摄影，写实，高细节，电影级灯光，85mm 镜头，浅景深。\",\n  \"negative_prompt\": \"模糊，低分辨率，解剖结构扭曲，多余肢体，手部绘制拙劣，过曝，欠曝，水印，文字\",\n  \"settings\": {\n    \"resolution\": \"1024x1024\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"DSLR, 85mm lens\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "纹身女骑手摩托车写实街头摄影 一个用于 nano banana pro 生成逼真图像的结构化 json 提示。场景设定在黄金时段阳光明媚的城市街道上，一位时尚、有纹身的金发女性侧身坐在红色摩托车上，自信地摆着姿势，而前方的一名骑手正在查看手机。该提示指定了相机设置（85mm 镜头，浅景深），并包含一个详细的反向提示。 {\n  \"prompt\": \"a stylish tattooed blonde woman sitting sideways on a red motorcycle in a sunny urban street. she is wearing a striped tube top and yellow shorts, with detailed floral tattoos covering her arms and legs. her hair is tied in a messy high ponytail, and she is posing confidently while looking at the camera. the motorcycle rider in front of her is wearing a black helmet and black outfit, checking a phone. background features european-style apartment buildings, parked cars, and warm golden hour lighting. street photography, realistic, high detail, cinematic lighting, 85mm lens, shallow depth of field.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted anatomy, extra limbs, poorly drawn hands, overexposed, underexposed, watermark, text\",\n  \"settings\": {\n    \"resolution\": \"1024x1024\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"dslr, 85mm lens\"\n  }\n} ```json\n{\n  \"prompt\": \"一位时尚的纹身金发女子侧身坐在阳光明媚的城市街道上的红色摩托车上。她穿着条纹抹胸和黄色短裤，手臂和腿上布满了精致的花卉纹身。她的头发扎成凌乱的高马尾，自信地摆姿势看着镜头。她前面的摩托车手戴着黑色头盔，穿着黑色衣服，正在看手机。背景是欧式公寓楼、停放的汽车和温暖的黄金时段光线。街头摄影，写实，高细节，电影级灯光，85mm 镜头，浅景深。\",\n  \"negative_prompt\": \"模糊，低分辨率，解剖结构扭曲，多余肢体，手部绘制拙劣，过曝，欠曝，水印，文字\",\n  \"settings\": {\n    \"resolution\": \"1024x1024\",\n    \"style\": \"photorealistic\",\n    \"lighting\": \"golden hour\",\n    \"camera\": \"dslr, 85mm lens\"\n  }\n}\n``` natty windstorm 10562",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10582,
+      "title": "Hermes 和 Constellation 奇幻图像",
+      "description": "以下是 Nano Banana Pro (Gemini 3 Pro Image) 的一系列提示，首先是一个男人跨坐在太空中的星星上，然后修改图像，在浑天仪上添加金色光环，最后聚焦于一个包含金牛座星座的蓝色球体，以希腊神话风格呈现。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2025193872289398846",
+      "sourcePublishedAt": "2026-02-21T13:00:20.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "星を跨ぐ男\n宇宙儀に金色のオーラを\n背景は宇宙\n星々の流れ星\n\nう〜ん　次\n\nアクアの球体\n+\nアクアの球体に牡牛座\n+\nアクアの球体の中の牡牛座を\nギリシャ神話みたいに！",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741707688_2dm3hr_HBrvFlgbAAAdYnD.jpg",
+        "https://cms-assets.youmind.com/media/1771741707889_w1dngc_HBrvFb1aMAAZE3J.jpg",
+        "https://cms-assets.youmind.com/media/1771741707698_e47dyo_HBrvFkJbgAIk6E1.jpg",
+        "https://cms-assets.youmind.com/media/1771741708593_yd25bs_HBrvFlebgAAj44E.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741707688_2dm3hr_HBrvFlgbAAAdYnD-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741707889_w1dngc_HBrvFb1aMAAZE3J-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741707698_e47dyo_HBrvFkJbgAIk6E1-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1771741708593_yd25bs_HBrvFlebgAAj44E-300x411.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "跨越星辰的男子\n浑天仪上的金色光环\n背景是太空\n流星\n\n嗯，下一个\n\n水色球体\n+\n水色球体中的金牛座\n+\n让水色球体中的金牛座看起来像希腊神话风格！",
+      "sourcePlatform": "twitter",
+      "searchIndex": "hermes 和 constellation 奇幻图像 以下是 nano banana pro (gemini 3 pro image) 的一系列提示，首先是一个男人跨坐在太空中的星星上，然后修改图像，在浑天仪上添加金色光环，最后聚焦于一个包含金牛座星座的蓝色球体，以希腊神话风格呈现。 星を跨ぐ男\n宇宙儀に金色のオーラを\n背景は宇宙\n星々の流れ星\n\nう〜ん　次\n\nアクアの球体\n+\nアクアの球体に牡牛座\n+\nアクアの球体の中の牡牛座を\nギリシャ神話みたいに！ 跨越星辰的男子\n浑天仪上的金色光环\n背景是太空\n流星\n\n嗯，下一个\n\n水色球体\n+\n水色球体中的金牛座\n+\n让水色球体中的金牛座看起来像希腊神话风格！ クラリネットクラリオンnobu 10582",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10558,
+      "title": "戏剧性数字绘画肖像，采用有限调色板",
+      "description": "一个给 Google Gemini Nano Banana Pro 的提示，用于创作一幅戏剧性的数字绘画肖像：一位年轻人，神情坚定地向上凝视。画风特点是粗犷、富有质感、充满活力的笔触，以及有限的调色板（黑、白、红、黄），背景为垂直分割的抽象图案，旨在传达激励人心的力量，并可直接用于海报制作。",
+      "sourceLink": "https://x.com/harboriis/status/2025183332708106700",
+      "sourcePublishedAt": "2026-02-21T12:18:27.000Z",
+      "author": {
+        "name": "Harboriis",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "Create a dramatic digital painting style portrait of a young male a reference image without glasses looking upward with a strong, determined expression. The artwork should feel bold and textured, with energetic brush strokes and a limited color palette of black, white, red, and yellow. The background is split vertically with abstract red and yellow paint streaks, giving a powerful and intense mood. Focus on ambition and confidence in the player’s gaze, with a clean design that has no text, no slogan, and no logo anywhere in the frame. The composition should feel motivational and poster ready, high detail, 8K resolution, image aspect ratio 4:5.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741698245_lu0174_HBrlgeObgAA_l-p.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741698245_lu0174_HBrlgeObgAA_l-p-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一幅戏剧性的数字绘画风格肖像，描绘一位年轻男性，参考图片中他没有戴眼镜，向上凝视，表情坚定有力。作品应具有大胆而富有质感的特点，笔触充满活力，色彩限定为黑、白、红、黄。背景垂直分割，抽象的红黄颜料条纹营造出强大而紧张的氛围。重点突出人物眼神中的抱负和自信，设计简洁，画面中没有任何文字、标语或标志。构图应充满激励感，适合作为海报，高细节，8K 分辨率，图片宽高比 4:5。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "戏剧性数字绘画肖像，采用有限调色板 一个给 google gemini nano banana pro 的提示，用于创作一幅戏剧性的数字绘画肖像：一位年轻人，神情坚定地向上凝视。画风特点是粗犷、富有质感、充满活力的笔触，以及有限的调色板（黑、白、红、黄），背景为垂直分割的抽象图案，旨在传达激励人心的力量，并可直接用于海报制作。 create a dramatic digital painting style portrait of a young male a reference image without glasses looking upward with a strong, determined expression. the artwork should feel bold and textured, with energetic brush strokes and a limited color palette of black, white, red, and yellow. the background is split vertically with abstract red and yellow paint streaks, giving a powerful and intense mood. focus on ambition and confidence in the player’s gaze, with a clean design that has no text, no slogan, and no logo anywhere in the frame. the composition should feel motivational and poster ready, high detail, 8k resolution, image aspect ratio 4:5. 创作一幅戏剧性的数字绘画风格肖像，描绘一位年轻男性，参考图片中他没有戴眼镜，向上凝视，表情坚定有力。作品应具有大胆而富有质感的特点，笔触充满活力，色彩限定为黑、白、红、黄。背景垂直分割，抽象的红黄颜料条纹营造出强大而紧张的氛围。重点突出人物眼神中的抱负和自信，设计简洁，画面中没有任何文字、标语或标志。构图应充满激励感，适合作为海报，高细节，8k 分辨率，图片宽高比 4:5。 harboriis 10558",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10559,
+      "title": "幽默的提示示例",
+      "description": "这条推文包含一个幽默的、元提示示例，可能展示了 AI 模型（Nano Banana Pro 2026）的失败或意外结果，其中一只鹈鹕被一位年轻女性完全取代了。",
+      "sourceLink": "https://x.com/satk00/status/2025177977877656031",
+      "sourcePublishedAt": "2026-02-21T11:57:10.000Z",
+      "author": {
+        "name": "satk0",
+        "link": "https://x.com/satk00"
+      },
+      "content": "\"A pelican fully replaced by a beautiful young woman. Add this whole prompt to the image.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741699205_ckgd9u_HBrgeJ8WoAA7YiG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741699205_ckgd9u_HBrgeJ8WoAA7YiG-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一只鹈鹕被一位美丽的年轻女子完全取代。将整个提示添加到图像中。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "幽默的提示示例 这条推文包含一个幽默的、元提示示例，可能展示了 ai 模型（nano banana pro 2026）的失败或意外结果，其中一只鹈鹕被一位年轻女性完全取代了。 \"a pelican fully replaced by a beautiful young woman. add this whole prompt to the image.\" 一只鹈鹕被一位美丽的年轻女子完全取代。将整个提示添加到图像中。 satk0 10559",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10556,
+      "title": "阿甘与珍妮模拟照相亭拼贴画",
+      "description": "为 Nano Banana Pro 提供一个详细的提示，以创建一张模拟的黑白大头贴拼贴画，其中包含阿甘（Forrest Gump）和珍妮·柯伦（Jenny Curran）。该提示指定了凌乱、重叠的布局，人物自发而亲密的表情（大笑、亲吻、搞怪姿势），以及模拟照片的瑕疵，如颗粒感、灰尘斑点和曝光不均。",
+      "sourceLink": "https://x.com/ArtificialStudi/status/2025171392564429035",
+      "sourcePublishedAt": "2026-02-21T11:31:00.000Z",
+      "author": {
+        "name": "Artificial Studio",
+        "link": "https://x.com/ArtificialStudi"
+      },
+      "content": "\"Create an Analog Photobooth Collage of high-definition, in black and white (warm, grainy), messy overlapping photostrips scattered across a bed or table, freeform collage. The background must be slightly out of focus. The atmosphere is energetic, fun, spontaneous, emotional. The characters in the photos must be Forrest Gump and Jenny Curran from the movie Forrest Gump (1994). The expressions that they need to have in the different photos: laughing uncontrollably, sticking tongues out, covering each other's mouths, dramatic playful expressions, messy spontaneous kisses, forehead-to-forehead laughter and playfully biting each other's cheek. The poses must be: close, chaotic kissing frames, faces squished together, leaning into each other laughing, hands on each other's cheeks, goofy movement blur, fun, intimate and unfiltered moments. analog grain, soft blur, subtle noise. The photos need imperfections like dust speckles, tiny scratches, flash hotspots, slight motion blur and uneven exposure.  The collage layout must be 8–14 photobooth shots scattered messily, overlapping, rotated in all directions, central photostrips remain sharp, outer edges slightly blurred. Presentation: looks like Forrest and Jenny dumped all their photobooth memories on a bed\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741697221_939if2_HBPvuLQXMAA2Egr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741697221_939if2_HBPvuLQXMAA2Egr-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张高分辨率的模拟照相亭拼贴画，黑白（暖色调，颗粒感），凌乱重叠的照相条散落在床或桌子上，自由形式的拼贴。背景必须略微失焦。氛围是充满活力、有趣、自发、情感丰富的。照片中的人物必须是电影《阿甘正传》（1994）中的阿甘和珍妮。他们在不同照片中需要有的表情： uncontrollable 地大笑、吐舌头、互相捂嘴、夸张搞怪的表情、凌乱随意的亲吻、额头抵着额头大笑以及 playful 地咬对方的脸颊。姿势必须是：亲密、混乱的亲吻画面、脸颊紧贴在一起、互相依偎着大笑、手放在对方脸颊上、滑稽的运动模糊、有趣、亲密和未经修饰的瞬间。模拟颗粒感、柔和模糊、细微噪点。照片需要有灰尘斑点、微小划痕、闪光灯热点、轻微运动模糊和曝光不均等瑕疵。拼贴布局必须是 8–14 张照相亭照片凌乱地散落、重叠、向各个方向旋转，中央的照相条保持清晰，外边缘略微模糊。呈现方式：看起来就像阿甘和珍妮把他们所有的照相亭回忆都倒在了床上。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "阿甘与珍妮模拟照相亭拼贴画 为 nano banana pro 提供一个详细的提示，以创建一张模拟的黑白大头贴拼贴画，其中包含阿甘（forrest gump）和珍妮·柯伦（jenny curran）。该提示指定了凌乱、重叠的布局，人物自发而亲密的表情（大笑、亲吻、搞怪姿势），以及模拟照片的瑕疵，如颗粒感、灰尘斑点和曝光不均。 \"create an analog photobooth collage of high-definition, in black and white (warm, grainy), messy overlapping photostrips scattered across a bed or table, freeform collage. the background must be slightly out of focus. the atmosphere is energetic, fun, spontaneous, emotional. the characters in the photos must be forrest gump and jenny curran from the movie forrest gump (1994). the expressions that they need to have in the different photos: laughing uncontrollably, sticking tongues out, covering each other's mouths, dramatic playful expressions, messy spontaneous kisses, forehead-to-forehead laughter and playfully biting each other's cheek. the poses must be: close, chaotic kissing frames, faces squished together, leaning into each other laughing, hands on each other's cheeks, goofy movement blur, fun, intimate and unfiltered moments. analog grain, soft blur, subtle noise. the photos need imperfections like dust speckles, tiny scratches, flash hotspots, slight motion blur and uneven exposure.  the collage layout must be 8–14 photobooth shots scattered messily, overlapping, rotated in all directions, central photostrips remain sharp, outer edges slightly blurred. presentation: looks like forrest and jenny dumped all their photobooth memories on a bed\" 创作一张高分辨率的模拟照相亭拼贴画，黑白（暖色调，颗粒感），凌乱重叠的照相条散落在床或桌子上，自由形式的拼贴。背景必须略微失焦。氛围是充满活力、有趣、自发、情感丰富的。照片中的人物必须是电影《阿甘正传》（1994）中的阿甘和珍妮。他们在不同照片中需要有的表情： uncontrollable 地大笑、吐舌头、互相捂嘴、夸张搞怪的表情、凌乱随意的亲吻、额头抵着额头大笑以及 playful 地咬对方的脸颊。姿势必须是：亲密、混乱的亲吻画面、脸颊紧贴在一起、互相依偎着大笑、手放在对方脸颊上、滑稽的运动模糊、有趣、亲密和未经修饰的瞬间。模拟颗粒感、柔和模糊、细微噪点。照片需要有灰尘斑点、微小划痕、闪光灯热点、轻微运动模糊和曝光不均等瑕疵。拼贴布局必须是 8–14 张照相亭照片凌乱地散落、重叠、向各个方向旋转，中央的照相条保持清晰，外边缘略微模糊。呈现方式：看起来就像阿甘和珍妮把他们所有的照相亭回忆都倒在了床上。 artificial studio 10556",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10583,
+      "title": "电影刺绣场景视频",
+      "description": "一个用于视频生成的电影式提示（基于 Nano Banana Pro 图像的 Kling 3.0 Omni），描述了刺绣的过程。它强调柔和的背光、柔和的色彩、针线特写、图案扩展的延时摄影，以及完成作品的最终镜头，所有这些都通过浅景深和电影颗粒感统一起来。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2025163598612373557",
+      "sourcePublishedAt": "2026-02-21T11:00:02.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "柔らかな逆光とパステルカラーに包まれた刺繍の制作風景を描写する。針と糸の極近接ショットから始まり、模様が広がるタイムラプスや繊細な手元の仕草を経て、完成作品の引きの映像へとシームレスに展開する。浅い被写界深度とフィルムグレインで統一された、親密で可愛らしい雰囲気のシネマティックな映像。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741708744_q4xa47_HBnW3dXbUAAngBr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741708744_q4xa47_HBnW3dXbUAAngBr-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "描绘一幅在柔和背光和柔彩色调中进行的刺绣创作场景。画面从针线特写无缝过渡，通过图案逐渐展开的延时摄影和灵巧的手部动作，最终定格在作品完成的全景。这是一段充满亲密与温馨氛围的电影式视频，通过浅景深和电影颗粒感营造出统一的视觉效果。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影刺绣场景视频 一个用于视频生成的电影式提示（基于 nano banana pro 图像的 kling 3.0 omni），描述了刺绣的过程。它强调柔和的背光、柔和的色彩、针线特写、图案扩展的延时摄影，以及完成作品的最终镜头，所有这些都通过浅景深和电影颗粒感统一起来。 柔らかな逆光とパステルカラーに包まれた刺繍の制作風景を描写する。針と糸の極近接ショットから始まり、模様が広がるタイムラプスや繊細な手元の仕草を経て、完成作品の引きの映像へとシームレスに展開する。浅い被写界深度とフィルムグレインで統一された、親密で可愛らしい雰囲気のシネマティックな映像。 描绘一幅在柔和背光和柔彩色调中进行的刺绣创作场景。画面从针线特写无缝过渡，通过图案逐渐展开的延时摄影和灵巧的手部动作，最终定格在作品完成的全景。这是一段充满亲密与温馨氛围的电影式视频，通过浅景深和电影颗粒感营造出统一的视觉效果。 空想写真家 10583",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10592,
+      "title": "ControlNet 的逼真夜间闪光摄影提示（JSON 格式）",
+      "description": "一个高度结构化的 JSON 格式 Nano Banana Pro 提示，用于生成一张年轻女性在夜间度假村穿着粉色比基尼的逼真、原始智能手机闪光照片，利用刺眼的正面闪光灯照明和 ControlNet 进行姿势和深度控制。",
+      "sourceLink": "https://x.com/itsjessiababy/status/2025151866846208045",
+      "sourcePublishedAt": "2026-02-21T10:13:25.000Z",
+      "author": {
+        "name": "Jessia",
+        "link": "https://x.com/itsjessiababy"
+      },
+      "content": "{\n\"subject\": \"Young female, light skin, shoulder-length brown hair. Wearing a {argument name=\"bikini color\" default=\"light pink string bikini\"}. Glossy skin texture on chest and shoulders.\",\n\"pose\": \"Standing, torso slightly angled, facing forward. Left hand holding the side tie of the bikini bottom. Right arm resting straight down.\",\n\"environment\": \"Nighttime resort setting. Dark wooden railing immediately behind subject. Large swimming pool illuminated with bright blue underwater lights. Distant silhouetted palm trees and pitched-roof buildings.\",\n\"camera\": \"Medium shot, eye level, framed from the hips up. Slight background blur.\",\n\"lighting\": \"Harsh frontal flash lighting on the subject creating high contrast and specular highlights. Background lit by vibrant blue pool lights and dim ambient resort lighting.\",\n\"mood_and_expression\": \"Neutral expression, direct gaze. Candid nighttime snapshot.\",\n\"style_and_realism\": \"Photorealistic, raw smartphone flash photography.\",\n\"colors_and_tone\": \"Dominant light pink, warm flash-lit skin tones, vibrant deep blue water, and heavy black shadows.\",\n\"quality_and_technical_details\": \"Sharp foreground focus, natural skin imperfections and oil specularities visible, slight noise in dark background areas.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"maintain torso angle and specific arm placement\",\n\"constraints\": \"anchor left hand exactly at the hip tie\",\n\"recommended_weight\": 1.0\n},\n\"depth_control\": {\n\"model_type\": \"depth\",\n\"purpose\": \"preserve spatial separation between subject, railing, and pool\",\n\"constraints\": \"maintain stark foreground-to-background depth transition\",\n\"recommended_weight\": 0.8\n}\n},\n\"negative_prompt\": \"stylization, distortion, proportion changes, depth flattening, beautification filters, illustration, painting, unnatural anatomy, altered body structure\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741712280_ccs2fo_HBrI4i0XEAABpAC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741712280_ccs2fo_HBrI4i0XEAABpAC-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"subject\": \"年轻女性，肤色白皙，齐肩棕发。身穿一件 {argument name=\\\"bikini color\\\" default=\\\"浅粉色系带比基尼\\\"}。胸部和肩部皮肤光滑。\",\n\"pose\": \"站立姿势，躯干略微倾斜，面向前方。左手扶着比基尼下装的侧边系带。右臂自然下垂。\",\n\"environment\": \"夜间度假村场景。主体身后紧邻深色木质栏杆。大型游泳池被明亮的蓝色水下灯照亮。远处是剪影般的棕榈树和尖顶建筑。\",\n\"camera\": \"中景拍摄，与视线齐平，从臀部以上取景。背景略微模糊。\",\n\"lighting\": \"主体受到刺眼的前置闪光灯照明，形成高对比度和镜面高光。背景由鲜艳的蓝色泳池灯和昏暗的度假村环境光照亮。\",\n\"mood_and_expression\": \"表情中性，目光直视。随性的夜间快照。\",\n\"style_and_realism\": \"写实风格，原始智能手机闪光灯摄影效果。\",\n\"colors_and_tone\": \"主色调为浅粉色，闪光灯下的暖色皮肤，鲜艳的深蓝色水面，以及浓重的黑色阴影。\",\n\"quality_and_technical_details\": \"前景对焦清晰，可见自然的皮肤瑕疵和油光，深色背景区域略有噪点。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"保持躯干角度和特定的手臂位置\",\n\"constraints\": \"左手精确锚定在臀部系带处\",\n\"recommended_weight\": 1.0\n},\n\"depth_control\": {\n\"model_type\": \"depth\",\n\"purpose\": \"保留主体、栏杆和泳池之间的空间分离\",\n\"constraints\": \"保持前景到背景的鲜明深度过渡\",\n\"recommended_weight\": 0.8\n}\n},\n\"negative_prompt\": \"风格化、扭曲、比例变化、深度扁平化、美颜滤镜、插画、绘画、不自然的解剖结构、改变的身体结构\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "controlnet 的逼真夜间闪光摄影提示（json 格式） 一个高度结构化的 json 格式 nano banana pro 提示，用于生成一张年轻女性在夜间度假村穿着粉色比基尼的逼真、原始智能手机闪光照片，利用刺眼的正面闪光灯照明和 controlnet 进行姿势和深度控制。 {\n\"subject\": \"young female, light skin, shoulder-length brown hair. wearing a {argument name=\"bikini color\" default=\"light pink string bikini\"}. glossy skin texture on chest and shoulders.\",\n\"pose\": \"standing, torso slightly angled, facing forward. left hand holding the side tie of the bikini bottom. right arm resting straight down.\",\n\"environment\": \"nighttime resort setting. dark wooden railing immediately behind subject. large swimming pool illuminated with bright blue underwater lights. distant silhouetted palm trees and pitched-roof buildings.\",\n\"camera\": \"medium shot, eye level, framed from the hips up. slight background blur.\",\n\"lighting\": \"harsh frontal flash lighting on the subject creating high contrast and specular highlights. background lit by vibrant blue pool lights and dim ambient resort lighting.\",\n\"mood_and_expression\": \"neutral expression, direct gaze. candid nighttime snapshot.\",\n\"style_and_realism\": \"photorealistic, raw smartphone flash photography.\",\n\"colors_and_tone\": \"dominant light pink, warm flash-lit skin tones, vibrant deep blue water, and heavy black shadows.\",\n\"quality_and_technical_details\": \"sharp foreground focus, natural skin imperfections and oil specularities visible, slight noise in dark background areas.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"maintain torso angle and specific arm placement\",\n\"constraints\": \"anchor left hand exactly at the hip tie\",\n\"recommended_weight\": 1.0\n},\n\"depth_control\": {\n\"model_type\": \"depth\",\n\"purpose\": \"preserve spatial separation between subject, railing, and pool\",\n\"constraints\": \"maintain stark foreground-to-background depth transition\",\n\"recommended_weight\": 0.8\n}\n},\n\"negative_prompt\": \"stylization, distortion, proportion changes, depth flattening, beautification filters, illustration, painting, unnatural anatomy, altered body structure\"\n} ```json\n{\n\"subject\": \"年轻女性，肤色白皙，齐肩棕发。身穿一件 {argument name=\\\"bikini color\\\" default=\\\"浅粉色系带比基尼\\\"}。胸部和肩部皮肤光滑。\",\n\"pose\": \"站立姿势，躯干略微倾斜，面向前方。左手扶着比基尼下装的侧边系带。右臂自然下垂。\",\n\"environment\": \"夜间度假村场景。主体身后紧邻深色木质栏杆。大型游泳池被明亮的蓝色水下灯照亮。远处是剪影般的棕榈树和尖顶建筑。\",\n\"camera\": \"中景拍摄，与视线齐平，从臀部以上取景。背景略微模糊。\",\n\"lighting\": \"主体受到刺眼的前置闪光灯照明，形成高对比度和镜面高光。背景由鲜艳的蓝色泳池灯和昏暗的度假村环境光照亮。\",\n\"mood_and_expression\": \"表情中性，目光直视。随性的夜间快照。\",\n\"style_and_realism\": \"写实风格，原始智能手机闪光灯摄影效果。\",\n\"colors_and_tone\": \"主色调为浅粉色，闪光灯下的暖色皮肤，鲜艳的深蓝色水面，以及浓重的黑色阴影。\",\n\"quality_and_technical_details\": \"前景对焦清晰，可见自然的皮肤瑕疵和油光，深色背景区域略有噪点。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"保持躯干角度和特定的手臂位置\",\n\"constraints\": \"左手精确锚定在臀部系带处\",\n\"recommended_weight\": 1.0\n},\n\"depth_control\": {\n\"model_type\": \"depth\",\n\"purpose\": \"保留主体、栏杆和泳池之间的空间分离\",\n\"constraints\": \"保持前景到背景的鲜明深度过渡\",\n\"recommended_weight\": 0.8\n}\n},\n\"negative_prompt\": \"风格化、扭曲、比例变化、深度扁平化、美颜滤镜、插画、绘画、不自然的解剖结构、改变的身体结构\"\n}\n``` jessia 10592",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10575,
+      "title": "高度详细的 JSON 提示，结合 ControlNet 生成自然生活照",
+      "description": "一个为 Nano Banana Pro 设计的综合性 JSON 提示，旨在生成一张年轻女性身穿黄色比基尼的写实抓拍生活照，利用 ControlNet（OpenPose 和 MiDaS）进行精确的姿势和深度对齐，并包含一个详细的反向提示。",
+      "sourceLink": "https://x.com/brindleyai/status/2025150446575214683",
+      "sourcePublishedAt": "2026-02-21T10:07:46.000Z",
+      "author": {
+        "name": "brindley",
+        "link": "https://x.com/brindleyai"
+      },
+      "content": "{\n\"subject\": \"Young woman, long brown hair, wearing a yellow string bikini with blue trim and logos. Tattoos on right arm and fingers. Wearing a delicate necklace.\",\n\"pose\": \"Sitting in a wicker chair, leaning slightly forward. Hands resting on outer hips, touching bikini bottoms. Direct gaze.\",\n\"environment\": \"Semi-outdoor bar area. Wicker chair. White counter and slush machine to the right. Man sitting facing away in background left. Blue sky.\",\n\"camera\": \"Mid-shot, slightly elevated angle. Shallow depth of field with blurred background.\",\n\"lighting\": \"Bright, natural daylight. Even illumination with soft shadows under chin and chest.\",\n\"mood_and_expression\": \"Neutral expression, direct eye contact.\",\n\"style_and_realism\": \"Photorealistic candid lifestyle photograph.\",\n\"colors_and_tone\": \"Vibrant palette. Dominant yellow and blue, warm skin tones, bright blue sky.\",\n\"quality_and_technical_details\": \"Sharp focus on subject, natural skin texture, standard digital camera resolution.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"OpenPose\",\n\"purpose\": \"Match sitting posture and hand placement on hips.\",\n\"constraints\": \"Maintain torso angle and arm positioning exactly.\",\n\"recommended_weight\": 0.8\n},\n\"depth_control\": {\n\"model_type\": \"MiDaS\",\n\"purpose\": \"Maintain spatial separation between subject, bar counter, and background.\",\n\"constraints\": \"Preserve 3D volume of body and chair.\",\n\"recommended_weight\": 0.75\n}\n},\n\"negative_prompt\": \"stylization, distortion, proportion changes, depth flattening, beautification filters, cartoon, painting, unnatural anatomy, weird hands\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741705482_kkyoka_HBrHl6NXkAAKrX9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741705482_kkyoka_HBrHl6NXkAAKrX9-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"subject\": \"年轻女子，棕色长发，身穿黄色细带比基尼，带有蓝色饰边和品牌标志。右臂和手指上有纹身。戴着一条精致的项链。\",\n\"pose\": \"坐在藤椅上，身体略微前倾。双手放在臀部外侧，触碰比基尼下装。目光直视前方。\",\n\"environment\": \"半开放式酒吧区域。藤椅。右侧有白色柜台和冰沙机。背景左侧有一名男子背对而坐。蓝天。\",\n\"camera\": \"中景，略微仰视角度。景深较浅，背景模糊。\",\n\"lighting\": \"明亮自然日光。光线均匀，下巴和胸部下方有柔和阴影。\",\n\"mood_and_expression\": \"表情中性，眼神直接接触。\",\n\"style_and_realism\": \"写实抓拍生活照。\",\n\"colors_and_tone\": \"鲜艳的调色板。主色调为黄色和蓝色，暖色肤色，明亮的蓝色天空。\",\n\"quality_and_technical_details\": \"主体对焦清晰，皮肤纹理自然，标准数码相机分辨率。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"OpenPose\",\n\"purpose\": \"匹配坐姿和手部在臀部的位置。\",\n\"constraints\": \"精确保持躯干角度和手臂位置。\",\n\"recommended_weight\": 0.8\n},\n\"depth_control\": {\n\"model_type\": \"MiDaS\",\n\"purpose\": \"保持主体、吧台和背景之间的空间分离。\",\n\"constraints\": \"保留身体和椅子的 3D 体积。\",\n\"recommended_weight\": 0.75\n}\n},\n\"negative_prompt\": \"风格化、扭曲、比例变化、景深扁平化、美颜滤镜、卡通、绘画、不自然解剖结构、奇怪的手\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高度详细的 json 提示，结合 controlnet 生成自然生活照 一个为 nano banana pro 设计的综合性 json 提示，旨在生成一张年轻女性身穿黄色比基尼的写实抓拍生活照，利用 controlnet（openpose 和 midas）进行精确的姿势和深度对齐，并包含一个详细的反向提示。 {\n\"subject\": \"young woman, long brown hair, wearing a yellow string bikini with blue trim and logos. tattoos on right arm and fingers. wearing a delicate necklace.\",\n\"pose\": \"sitting in a wicker chair, leaning slightly forward. hands resting on outer hips, touching bikini bottoms. direct gaze.\",\n\"environment\": \"semi-outdoor bar area. wicker chair. white counter and slush machine to the right. man sitting facing away in background left. blue sky.\",\n\"camera\": \"mid-shot, slightly elevated angle. shallow depth of field with blurred background.\",\n\"lighting\": \"bright, natural daylight. even illumination with soft shadows under chin and chest.\",\n\"mood_and_expression\": \"neutral expression, direct eye contact.\",\n\"style_and_realism\": \"photorealistic candid lifestyle photograph.\",\n\"colors_and_tone\": \"vibrant palette. dominant yellow and blue, warm skin tones, bright blue sky.\",\n\"quality_and_technical_details\": \"sharp focus on subject, natural skin texture, standard digital camera resolution.\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"match sitting posture and hand placement on hips.\",\n\"constraints\": \"maintain torso angle and arm positioning exactly.\",\n\"recommended_weight\": 0.8\n},\n\"depth_control\": {\n\"model_type\": \"midas\",\n\"purpose\": \"maintain spatial separation between subject, bar counter, and background.\",\n\"constraints\": \"preserve 3d volume of body and chair.\",\n\"recommended_weight\": 0.75\n}\n},\n\"negative_prompt\": \"stylization, distortion, proportion changes, depth flattening, beautification filters, cartoon, painting, unnatural anatomy, weird hands\"\n} ```json\n{\n\"subject\": \"年轻女子，棕色长发，身穿黄色细带比基尼，带有蓝色饰边和品牌标志。右臂和手指上有纹身。戴着一条精致的项链。\",\n\"pose\": \"坐在藤椅上，身体略微前倾。双手放在臀部外侧，触碰比基尼下装。目光直视前方。\",\n\"environment\": \"半开放式酒吧区域。藤椅。右侧有白色柜台和冰沙机。背景左侧有一名男子背对而坐。蓝天。\",\n\"camera\": \"中景，略微仰视角度。景深较浅，背景模糊。\",\n\"lighting\": \"明亮自然日光。光线均匀，下巴和胸部下方有柔和阴影。\",\n\"mood_and_expression\": \"表情中性，眼神直接接触。\",\n\"style_and_realism\": \"写实抓拍生活照。\",\n\"colors_and_tone\": \"鲜艳的调色板。主色调为黄色和蓝色，暖色肤色，明亮的蓝色天空。\",\n\"quality_and_technical_details\": \"主体对焦清晰，皮肤纹理自然，标准数码相机分辨率。\",\n\"aspect_ratio_and_output\": \"3:4\",\n\"controlnet\": {\n\"pose_control\": {\n\"model_type\": \"openpose\",\n\"purpose\": \"匹配坐姿和手部在臀部的位置。\",\n\"constraints\": \"精确保持躯干角度和手臂位置。\",\n\"recommended_weight\": 0.8\n},\n\"depth_control\": {\n\"model_type\": \"midas\",\n\"purpose\": \"保持主体、吧台和背景之间的空间分离。\",\n\"constraints\": \"保留身体和椅子的 3d 体积。\",\n\"recommended_weight\": 0.75\n}\n},\n\"negative_prompt\": \"风格化、扭曲、比例变化、景深扁平化、美颜滤镜、卡通、绘画、不自然解剖结构、奇怪的手\"\n}\n``` brindley 10575",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10551,
+      "title": "高保真换脸任务定义",
+      "description": "这是一个为 Nano Banana Pro 定义高保真换脸任务的结构化 JSON 提示。指令强调无缝、超真实的融合，保留源身份，匹配肤色和表情，并保持原始背景和构图细节。",
+      "sourceLink": "https://x.com/spicyysuccess/status/2025149131162014179",
+      "sourcePublishedAt": "2026-02-21T10:02:32.000Z",
+      "author": {
+        "name": "Spicy Success",
+        "link": "https://x.com/spicyysuccess"
+      },
+      "content": "\"task\": \"face_swap\",\n  \"model\": \"nano_banana_pro\",\n  \"instructions\": {\n    \"primary_goal\": \"Transfer the face from source image (image1) onto the subject in target image (image2) with seamless, ultra-realistic integration\",\n    \"source_mapping\": {\n      \"face_source\": \"image1\",\n      \"face_target\": \"image2\",\n      \"preserve_source_identity\": true\n    },\n    \"identity\": {\n      \"match_skin_tone\": true,\n      \"match_facial_expression\": true,\n      \"maintain_face_structure\": true\n    },\n    \"blending\": {\n      \"seamless_edges\": true,\n      \"match_lighting\": true,\n      \"match_color_grading\": true,\n      \"preserve_shadows_highlights\": true,\n      \"no_visible_artifacts\": true\n    },\n    \"background\": {\n      \"preserve_original_background\": true,\n      \"preserve_environment_details\": true,\n      \"no_changes_to_objects\": true,\n      \"no_blur_or_distortion\": true\n    },\n    \"composition\": {\n      \"keep_original_pose\": true,\n      \"keep_camera_angle\": true,\n      \"keep_framing\": true,\n      \"maintain_depth_of_field\": true\n    },\n    \"quality\": {\n      \"ultra_realistic\": true,\n      \"high_resolution\": true,\n      \"natural_texture\": true,\n      \"no_ai_look\": true",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771741695019_yhyyta_HBrFTtgbgAE6U4A.jpg",
+        "https://cms-assets.youmind.com/media/1771741695023_ngmk6p_HBrFTtLbgAA_kwv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771741695019_yhyyta_HBrFTtgbgAE6U4A-300x370.jpg",
+        "https://cms-assets.youmind.com/media/1771741695023_ngmk6p_HBrFTtLbgAA_kwv-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"task\": \"face_swap\",\n  \"model\": \"nano_banana_pro\",\n  \"instructions\": {\n    \"primary_goal\": \"将源图像（image1）中的人脸无缝、超真实地整合到目标图像（image2）中的主体上\",\n    \"source_mapping\": {\n      \"face_source\": \"image1\",\n      \"face_target\": \"image2\",\n      \"preserve_source_identity\": true\n    },\n    \"identity\": {\n      \"match_skin_tone\": true,\n      \"match_facial_expression\": true,\n      \"maintain_face_structure\": true\n    },\n    \"blending\": {\n      \"seamless_edges\": true,\n      \"match_lighting\": true,\n      \"match_color_grading\": true,\n      \"preserve_shadows_highlights\": true,\n      \"no_visible_artifacts\": true\n    },\n    \"background\": {\n      \"preserve_original_background\": true,\n      \"preserve_environment_details\": true,\n      \"no_changes_to_objects\": true,\n      \"no_blur_or_distortion\": true\n    },\n    \"composition\": {\n      \"keep_original_pose\": true,\n      \"keep_camera_angle\": true,\n      \"keep_framing\": true,\n      \"maintain_depth_of_field\": true\n    },\n    \"quality\": {\n      \"ultra_realistic\": true,\n      \"high_resolution\": true,\n      \"natural_texture\": true,\n      \"no_ai_look\": true\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高保真换脸任务定义 这是一个为 nano banana pro 定义高保真换脸任务的结构化 json 提示。指令强调无缝、超真实的融合，保留源身份，匹配肤色和表情，并保持原始背景和构图细节。 \"task\": \"face_swap\",\n  \"model\": \"nano_banana_pro\",\n  \"instructions\": {\n    \"primary_goal\": \"transfer the face from source image (image1) onto the subject in target image (image2) with seamless, ultra-realistic integration\",\n    \"source_mapping\": {\n      \"face_source\": \"image1\",\n      \"face_target\": \"image2\",\n      \"preserve_source_identity\": true\n    },\n    \"identity\": {\n      \"match_skin_tone\": true,\n      \"match_facial_expression\": true,\n      \"maintain_face_structure\": true\n    },\n    \"blending\": {\n      \"seamless_edges\": true,\n      \"match_lighting\": true,\n      \"match_color_grading\": true,\n      \"preserve_shadows_highlights\": true,\n      \"no_visible_artifacts\": true\n    },\n    \"background\": {\n      \"preserve_original_background\": true,\n      \"preserve_environment_details\": true,\n      \"no_changes_to_objects\": true,\n      \"no_blur_or_distortion\": true\n    },\n    \"composition\": {\n      \"keep_original_pose\": true,\n      \"keep_camera_angle\": true,\n      \"keep_framing\": true,\n      \"maintain_depth_of_field\": true\n    },\n    \"quality\": {\n      \"ultra_realistic\": true,\n      \"high_resolution\": true,\n      \"natural_texture\": true,\n      \"no_ai_look\": true ```json\n{\n  \"task\": \"face_swap\",\n  \"model\": \"nano_banana_pro\",\n  \"instructions\": {\n    \"primary_goal\": \"将源图像（image1）中的人脸无缝、超真实地整合到目标图像（image2）中的主体上\",\n    \"source_mapping\": {\n      \"face_source\": \"image1\",\n      \"face_target\": \"image2\",\n      \"preserve_source_identity\": true\n    },\n    \"identity\": {\n      \"match_skin_tone\": true,\n      \"match_facial_expression\": true,\n      \"maintain_face_structure\": true\n    },\n    \"blending\": {\n      \"seamless_edges\": true,\n      \"match_lighting\": true,\n      \"match_color_grading\": true,\n      \"preserve_shadows_highlights\": true,\n      \"no_visible_artifacts\": true\n    },\n    \"background\": {\n      \"preserve_original_background\": true,\n      \"preserve_environment_details\": true,\n      \"no_changes_to_objects\": true,\n      \"no_blur_or_distortion\": true\n    },\n    \"composition\": {\n      \"keep_original_pose\": true,\n      \"keep_camera_angle\": true,\n      \"keep_framing\": true,\n      \"maintain_depth_of_field\": true\n    },\n    \"quality\": {\n      \"ultra_realistic\": true,\n      \"high_resolution\": true,\n      \"natural_texture\": true,\n      \"no_ai_look\": true\n    }\n  }\n}\n``` spicy success 10551",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 150,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

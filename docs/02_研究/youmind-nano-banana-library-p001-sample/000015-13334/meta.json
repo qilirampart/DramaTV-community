@@ -1,0 +1,29 @@
+{
+  "rank": 15,
+  "id": 13334,
+  "title": "电影感城市街景：四轮摩托车与老年夫妇",
+  "description": "这是一个为 Nano Banana 设计的电影感提示词，旨在生成一个城市街景：一辆黄色 Yamaha 四轮摩托车在湿润的路面上表演垂直翘头。画面中包含一名 60 岁的亚洲男性驾驶着四轮摩托车，一名 60 岁的亚洲女性悬挂在下方，两人均身着时尚街头服饰，强调低角度视角、动态畸变和超写实纹理。",
+  "language": "en",
+  "authorName": "Filschics",
+  "authorLink": "https://x.com/MathisYanis",
+  "featured": false,
+  "sourceLink": "https://x.com/MathisYanis/status/2041845437909381276",
+  "sourcePublishedAt": "2026-04-08T11:47:42.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 0,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ],
+    "thumbs": []
+  }
+}

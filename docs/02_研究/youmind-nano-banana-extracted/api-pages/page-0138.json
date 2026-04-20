@@ -1,0 +1,507 @@
+{
+  "prompts": [
+    {
+      "id": 10765,
+      "title": "间谍惊悚喜剧故事板提示",
+      "description": "一个叙事提示，旨在为一部喜剧间谍惊悚片场景生成多格分镜脚本，内容涉及战术特工监视一位只想在冰箱里找牛奶的郊区父亲。",
+      "sourceLink": "https://x.com/MosheLevis/status/2026372093319983615",
+      "sourcePublishedAt": "2026-02-24T19:02:09.000Z",
+      "author": {
+        "name": "Moshe Levis",
+        "link": "https://x.com/MosheLevis"
+      },
+      "content": "Early morning. Total silence.\n\nA hyper-serious spy thriller vibe.\n\nA sleek black SUV idles outside a quiet suburban house. Two “tactical” men in earpieces whisper intensely.\n\n“Target is inside.”\n“Movement in the kitchen.”\n“Stand by.”\nInside the house—\nA dad in sweatpants stands in front of the fridge, staring into it like it contains classified secrets.\n\nCut back outside.\n\n“Subject has opened the cold storage unit.”\n“Thermal spike detected.”\n\nInside, he pulls out milk. Shakes it. Sniffs it. Makes a face.\n\nOutside, one agent squints at a tablet.\n“He’s analyzing chemical integrity.”\nThe front door creaks open.\n\nThe dad steps onto the porch in mismatched slippers to grab the newspaper.\n\nBoth agents snap alert.\n“Target exiting the compound.”\n“Visual confirmed. He looks… unstable.”\nThe dad waves awkwardly at them.\n\nThey freeze.\n\nHe squints. “You guys DoorDash?”\n\nBeat.\nThey look at each other.\nInside the SUV, a third “commander” barks through the radio:\n“Abort. Wrong house. Again.”\n\nThe agents slowly lower their sunglasses.\n\nThe dad shrugs, walks back inside.\n\nCut to kitchen.\n\nHe sits at the table with his cereal. Turns on the TV.\n\nBREAKING NEWS: “International spy ring apprehended after staking out random suburban dad for third straight day.”\n\nHe crunches loudly.\nMilk drips down his chin.\n\nHe sighs.\n\n“Finally.”",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001520819_fggtes_HB8eHTyaMAM4lNj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001520819_fggtes_HB8eHTyaMAM4lNj-300x219.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "清晨。万籁俱寂。\n\n弥漫着一股极度严肃的谍战片氛围。\n\n一辆锃亮的黑色 SUV 停在一栋安静的郊区房屋外，引擎怠速运转。两名戴着耳机的“特工”正低声紧张地交谈着。\n\n“目标在里面。”\n“厨房有动静。”\n“待命。”\n屋内——\n一位穿着运动裤的父亲站在冰箱前，凝视着冰箱内部，仿佛里面藏着绝密情报。\n\n镜头切回屋外。\n\n“目标已打开冷藏装置。”\n“检测到热量峰值。”\n\n屋内，他拿出牛奶。摇了摇。闻了闻。做了一个鬼脸。\n\n屋外，一名特工眯着眼睛盯着平板电脑。\n“他正在分析化学完整性。”\n前门吱呀一声打开了。\n\n这位父亲穿着不配套的拖鞋走到门廊上，去拿报纸。\n\n两名特工立刻警觉起来。\n“目标正在离开住所。”\n“目视确认。他看起来……不太稳定。”\n这位父亲笨拙地冲他们挥了挥手。\n\n他们僵住了。\n\n他眯着眼睛。“你们是 DoorDash 的吗？”\n\n（沉默）\n他们面面相觑。\nSUV 里，第三位“指挥官”通过无线电吼道：\n“撤退。又搞错房子了。”\n\n特工们缓缓摘下墨镜。\n\n这位父亲耸了耸肩，走回屋内。\n\n镜头切到厨房。\n\n他坐在餐桌旁吃着麦片。打开电视。\n\n突发新闻：“国际间谍组织在连续三天监视一名随机郊区父亲后被捕。”\n\n他大声嚼着麦片。\n牛奶顺着下巴滴落。\n\n他叹了口气。\n\n“终于。”",
+      "sourcePlatform": "twitter",
+      "searchIndex": "间谍惊悚喜剧故事板提示 一个叙事提示，旨在为一部喜剧间谍惊悚片场景生成多格分镜脚本，内容涉及战术特工监视一位只想在冰箱里找牛奶的郊区父亲。 early morning. total silence.\n\na hyper-serious spy thriller vibe.\n\na sleek black suv idles outside a quiet suburban house. two “tactical” men in earpieces whisper intensely.\n\n“target is inside.”\n“movement in the kitchen.”\n“stand by.”\ninside the house—\na dad in sweatpants stands in front of the fridge, staring into it like it contains classified secrets.\n\ncut back outside.\n\n“subject has opened the cold storage unit.”\n“thermal spike detected.”\n\ninside, he pulls out milk. shakes it. sniffs it. makes a face.\n\noutside, one agent squints at a tablet.\n“he’s analyzing chemical integrity.”\nthe front door creaks open.\n\nthe dad steps onto the porch in mismatched slippers to grab the newspaper.\n\nboth agents snap alert.\n“target exiting the compound.”\n“visual confirmed. he looks… unstable.”\nthe dad waves awkwardly at them.\n\nthey freeze.\n\nhe squints. “you guys doordash?”\n\nbeat.\nthey look at each other.\ninside the suv, a third “commander” barks through the radio:\n“abort. wrong house. again.”\n\nthe agents slowly lower their sunglasses.\n\nthe dad shrugs, walks back inside.\n\ncut to kitchen.\n\nhe sits at the table with his cereal. turns on the tv.\n\nbreaking news: “international spy ring apprehended after staking out random suburban dad for third straight day.”\n\nhe crunches loudly.\nmilk drips down his chin.\n\nhe sighs.\n\n“finally.” 清晨。万籁俱寂。\n\n弥漫着一股极度严肃的谍战片氛围。\n\n一辆锃亮的黑色 suv 停在一栋安静的郊区房屋外，引擎怠速运转。两名戴着耳机的“特工”正低声紧张地交谈着。\n\n“目标在里面。”\n“厨房有动静。”\n“待命。”\n屋内——\n一位穿着运动裤的父亲站在冰箱前，凝视着冰箱内部，仿佛里面藏着绝密情报。\n\n镜头切回屋外。\n\n“目标已打开冷藏装置。”\n“检测到热量峰值。”\n\n屋内，他拿出牛奶。摇了摇。闻了闻。做了一个鬼脸。\n\n屋外，一名特工眯着眼睛盯着平板电脑。\n“他正在分析化学完整性。”\n前门吱呀一声打开了。\n\n这位父亲穿着不配套的拖鞋走到门廊上，去拿报纸。\n\n两名特工立刻警觉起来。\n“目标正在离开住所。”\n“目视确认。他看起来……不太稳定。”\n这位父亲笨拙地冲他们挥了挥手。\n\n他们僵住了。\n\n他眯着眼睛。“你们是 doordash 的吗？”\n\n（沉默）\n他们面面相觑。\nsuv 里，第三位“指挥官”通过无线电吼道：\n“撤退。又搞错房子了。”\n\n特工们缓缓摘下墨镜。\n\n这位父亲耸了耸肩，走回屋内。\n\n镜头切到厨房。\n\n他坐在餐桌旁吃着麦片。打开电视。\n\n突发新闻：“国际间谍组织在连续三天监视一名随机郊区父亲后被捕。”\n\n他大声嚼着麦片。\n牛奶顺着下巴滴落。\n\n他叹了口气。\n\n“终于。” moshe levis 10765",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10753,
+      "title": "电影感街头人像：身穿羽绒服的女性（3 款）",
+      "description": "三个详细的提示，用于生成身穿蓝色羽绒服的年轻女性的超现实电影感街头肖像，重点关注运动模糊、景深和戏剧性的都市氛围。",
+      "sourceLink": "https://x.com/Cryptoprofeta1/status/2026370928981029032",
+      "sourcePublishedAt": "2026-02-24T18:57:32.000Z",
+      "author": {
+        "name": "Profeta🇩🇴",
+        "link": "https://x.com/Cryptoprofeta1"
+      },
+      "content": "Prompt 1:\nUltra-realistic cinematic street portrait of a young woman in a bright blue puffer jacket standing still in the middle of a busy city crowd, intense eye contact with camera, shallow depth of field, motion-blurred pedestrians rushing around her, urban background with traffic lights and tall buildings, cool color grading, natural skin tones, soft overcast lighting, 85mm lens, f/1.8, high detail, sharp focus on subject, dynamic motion blur, editorial photography, 8k.\n\n——\n\nPrompt 2:\nTop-down cinematic shot of a young woman in a blue puffer jacket standing still at a crowded city crosswalk, people moving rapidly around her creating circular motion blur effect, dramatic urban atmosphere, strong subject isolation, sharp focus on face, soft diffused daylight, cool tones, street photography style, dynamic composition, high detail, 35mm lens, long exposure effect, realistic skin texture, 8k.\n\n——\n\nPrompt 3:\nAesthetic urban portrait of a young woman wearing a cobalt blue puffer jacket standing alone in a fast-moving crowd, long exposure motion blur surrounding her, zebra crossing visible beneath, melancholic expression, wind slightly moving hair, cinematic color grading, cool blue tones, high contrast, sharp focus on subject, background streaks of motion, 50mm lens, f/2.0, professional editorial photography, ultra-realistic, 8k resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001512745_bs555o_HB8djU9WwAAXYDL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001512745_bs555o_HB8djU9WwAAXYDL-300x167.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "Prompt 1:\n一位年轻女性身穿亮蓝色羽绒服，静静地站在熙熙攘攘的城市人群中央，眼神与镜头强烈对视，景深较浅，周围行人模糊不清，城市背景中有交通灯和高楼大厦，冷色调，自然肤色，柔和的阴天光线，85mm 镜头，f/1.8，高细节，主体对焦锐利，动态运动模糊，编辑摄影，8k。\n\n——\n\nPrompt 2:\n俯视电影镜头，一位年轻女性身穿蓝色羽绒服，静静地站在拥挤的城市人行横道上，周围人群快速移动，形成圆形运动模糊效果，戏剧性的都市氛围，主体强烈突出，面部对焦锐利，柔和漫射的日光，冷色调，街头摄影风格，动态构图，高细节，35mm 镜头，长曝光效果，逼真皮肤纹理，8k。\n\n——\n\nPrompt 3:\n一位年轻女性身穿钴蓝色羽绒服，独自站在快速移动的人群中，周围是长曝光的运动模糊，下方可见斑马线，忧郁的表情，微风轻拂发丝，电影级色彩分级，冷蓝色调，高对比度，主体对焦锐利，背景有运动条纹，50mm 镜头，f/2.0，专业编辑摄影，超现实，8k 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感街头人像：身穿羽绒服的女性（3 款） 三个详细的提示，用于生成身穿蓝色羽绒服的年轻女性的超现实电影感街头肖像，重点关注运动模糊、景深和戏剧性的都市氛围。 prompt 1:\nultra-realistic cinematic street portrait of a young woman in a bright blue puffer jacket standing still in the middle of a busy city crowd, intense eye contact with camera, shallow depth of field, motion-blurred pedestrians rushing around her, urban background with traffic lights and tall buildings, cool color grading, natural skin tones, soft overcast lighting, 85mm lens, f/1.8, high detail, sharp focus on subject, dynamic motion blur, editorial photography, 8k.\n\n——\n\nprompt 2:\ntop-down cinematic shot of a young woman in a blue puffer jacket standing still at a crowded city crosswalk, people moving rapidly around her creating circular motion blur effect, dramatic urban atmosphere, strong subject isolation, sharp focus on face, soft diffused daylight, cool tones, street photography style, dynamic composition, high detail, 35mm lens, long exposure effect, realistic skin texture, 8k.\n\n——\n\nprompt 3:\naesthetic urban portrait of a young woman wearing a cobalt blue puffer jacket standing alone in a fast-moving crowd, long exposure motion blur surrounding her, zebra crossing visible beneath, melancholic expression, wind slightly moving hair, cinematic color grading, cool blue tones, high contrast, sharp focus on subject, background streaks of motion, 50mm lens, f/2.0, professional editorial photography, ultra-realistic, 8k resolution. prompt 1:\n一位年轻女性身穿亮蓝色羽绒服，静静地站在熙熙攘攘的城市人群中央，眼神与镜头强烈对视，景深较浅，周围行人模糊不清，城市背景中有交通灯和高楼大厦，冷色调，自然肤色，柔和的阴天光线，85mm 镜头，f/1.8，高细节，主体对焦锐利，动态运动模糊，编辑摄影，8k。\n\n——\n\nprompt 2:\n俯视电影镜头，一位年轻女性身穿蓝色羽绒服，静静地站在拥挤的城市人行横道上，周围人群快速移动，形成圆形运动模糊效果，戏剧性的都市氛围，主体强烈突出，面部对焦锐利，柔和漫射的日光，冷色调，街头摄影风格，动态构图，高细节，35mm 镜头，长曝光效果，逼真皮肤纹理，8k。\n\n——\n\nprompt 3:\n一位年轻女性身穿钴蓝色羽绒服，独自站在快速移动的人群中，周围是长曝光的运动模糊，下方可见斑马线，忧郁的表情，微风轻拂发丝，电影级色彩分级，冷蓝色调，高对比度，主体对焦锐利，背景有运动条纹，50mm 镜头，f/2.0，专业编辑摄影，超现实，8k 分辨率。 profeta🇩🇴 10753",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10728,
+      "title": "动感美学比基尼姿势",
+      "description": "一个结构化的 JSON 提示词，用于生成一张高对比度、奢华的夏季动作图像：一名金发女性身穿黑色比基尼，佩戴战术手枪枪套，在船甲板上摆姿势。",
+      "sourceLink": "https://x.com/miraframes/status/2026367594891030968",
+      "sourcePublishedAt": "2026-02-24T18:44:17.000Z",
+      "author": {
+        "name": "MiraFrames",
+        "link": "https://x.com/miraframes"
+      },
+      "content": "{\n  \"image_description\": \"A blonde, tanned woman posing on a boat deck in the middle of the ocean. She is wearing a black string bikini and has a tactical holster with a handgun strapped to her thigh.\",\n  \"subject\": {\n    \"gender\": \"Female\",\n    \"hair_color\": \"Blonde\",\n    \"clothing\": {\n      \"top\": \"Black string bikini top\",\n      \"bottom\": \"Black string bikini bottom\"\n    },\n    \"accessories\": [\n      \"Gold bracelet\",\n      \"Thigh holster with a handgun\"\n    ],\n    \"pose\": \"Side profile, looking down, adjusting bikini strings\"\n  },\n  \"setting\": {\n    \"location\": \"Boat/Yacht deck\",\n    \"background\": \"Deep blue ocean, clear blue sky with white clouds\",\n    \"lighting\": \"Bright, direct sunlight\"\n  },\n  \"objects\": [\n    \"White outboard boat engine\",\n    \"Teak wood decking\",\n    \"Handgun\"\n  ],\n  \"aesthetic\": {\n    \"color_palette\": [\"Deep Blue\", \"Bronze\", \"Black\", \"White\"],\n    \"style\": \"High-contrast, luxury, summer action aesthetic\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001498156_nzsen4_HB8alflX0AA0crp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001498156_nzsen4_HB8alflX0AA0crp-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_description\": \"一名金发、皮肤黝黑的女性，在海中央的船甲板上摆姿势。她穿着黑色细绳比基尼，大腿上绑着一个带手枪的战术枪套。\",\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"金色\",\n    \"clothing\": {\n      \"top\": \"黑色细绳比基尼上衣\",\n      \"bottom\": \"黑色细绳比基尼下装\"\n    },\n    \"accessories\": [\n      \"金色手链\",\n      \"带手枪的大腿枪套\"\n    ],\n    \"pose\": \"侧身，向下看，调整比基尼细绳\"\n  },\n  \"setting\": {\n    \"location\": \"船/游艇甲板\",\n    \"background\": \"深蓝色海洋，晴朗的蓝天与白云\",\n    \"lighting\": \"明亮，直射阳光\"\n  },\n  \"objects\": [\n    \"白色舷外船用发动机\",\n    \"柚木甲板\",\n    \"手枪\"\n  ],\n  \"aesthetic\": {\n    \"color_palette\": [\"深蓝色\", \"青铜色\", \"黑色\", \"白色\"],\n    \"style\": \"高对比度，奢华，夏季动作美学\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "动感美学比基尼姿势 一个结构化的 json 提示词，用于生成一张高对比度、奢华的夏季动作图像：一名金发女性身穿黑色比基尼，佩戴战术手枪枪套，在船甲板上摆姿势。 {\n  \"image_description\": \"a blonde, tanned woman posing on a boat deck in the middle of the ocean. she is wearing a black string bikini and has a tactical holster with a handgun strapped to her thigh.\",\n  \"subject\": {\n    \"gender\": \"female\",\n    \"hair_color\": \"blonde\",\n    \"clothing\": {\n      \"top\": \"black string bikini top\",\n      \"bottom\": \"black string bikini bottom\"\n    },\n    \"accessories\": [\n      \"gold bracelet\",\n      \"thigh holster with a handgun\"\n    ],\n    \"pose\": \"side profile, looking down, adjusting bikini strings\"\n  },\n  \"setting\": {\n    \"location\": \"boat/yacht deck\",\n    \"background\": \"deep blue ocean, clear blue sky with white clouds\",\n    \"lighting\": \"bright, direct sunlight\"\n  },\n  \"objects\": [\n    \"white outboard boat engine\",\n    \"teak wood decking\",\n    \"handgun\"\n  ],\n  \"aesthetic\": {\n    \"color_palette\": [\"deep blue\", \"bronze\", \"black\", \"white\"],\n    \"style\": \"high-contrast, luxury, summer action aesthetic\"\n  }\n} ```json\n{\n  \"image_description\": \"一名金发、皮肤黝黑的女性，在海中央的船甲板上摆姿势。她穿着黑色细绳比基尼，大腿上绑着一个带手枪的战术枪套。\",\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"金色\",\n    \"clothing\": {\n      \"top\": \"黑色细绳比基尼上衣\",\n      \"bottom\": \"黑色细绳比基尼下装\"\n    },\n    \"accessories\": [\n      \"金色手链\",\n      \"带手枪的大腿枪套\"\n    ],\n    \"pose\": \"侧身，向下看，调整比基尼细绳\"\n  },\n  \"setting\": {\n    \"location\": \"船/游艇甲板\",\n    \"background\": \"深蓝色海洋，晴朗的蓝天与白云\",\n    \"lighting\": \"明亮，直射阳光\"\n  },\n  \"objects\": [\n    \"白色舷外船用发动机\",\n    \"柚木甲板\",\n    \"手枪\"\n  ],\n  \"aesthetic\": {\n    \"color_palette\": [\"深蓝色\", \"青铜色\", \"黑色\", \"白色\"],\n    \"style\": \"高对比度，奢华，夏季动作美学\"\n  }\n}\n``` miraframes 10728",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10731,
+      "title": "超现实零重力爆炸肖像",
+      "description": "一个高度技术性的提示，用于生成一张超现实主义摄影作品：主体（伊丽莎白·奥尔森）站在一个复古泳池小屋内，周围是数百件夏季物品在失重状态下爆炸形成的混乱场景。提示中详细说明了相机设备、胶片类型、灯光和构图（眩晕式倾斜角度）。",
+      "sourceLink": "https://x.com/timedoctor_nft/status/2026363253392060434",
+      "sourcePublishedAt": "2026-02-24T18:27:02.000Z",
+      "author": {
+        "name": "timedoctor.eth",
+        "link": "https://x.com/timedoctor_nft"
+      },
+      "content": "A photographic surrealist shot of The Protagonist, appearing as a detached observer, standing amidst a chaotic zero-gravity explosion inside a cluttered vintage poolside cabana. The subject wears a high-fashion, textured swimwear piece. The environment is densely packed with hundreds of summer artifacts frozen in mid-air: melting ice cream cones, retro sunglasses, striped towels, splashes of chlorinated water, and inflatable beach balls, all suspended as if time has stopped. The lighting is a mix of harsh, directional sunlight casting sharp, long shadows across the floating debris, combined with a cool-toned, ghostly fill light. The composition utilizes a severe Vertigo Dutch Angle (25-degree tilt) to induce disorientation. Shot on a Hasselblad H6D-100c with a wide 35mm lens, high aperture (f/11) to keep the dense clutter in focus, processed with the grain and color shift of Kodak Ektachrome E100 film. Hyper-realistic textures, practical effect aesthetic, no CGI feel.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001499646_ld4cz1_HB8Wo7rWEAEJyUV.jpg",
+        "https://cms-assets.youmind.com/media/1772001499731_ne8obk_HB8Wo7SXYAA4_sV.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001499646_ld4cz1_HB8Wo7rWEAEJyUV-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001499731_ne8obk_HB8Wo7SXYAA4_sV-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张超现实主义摄影作品，主角仿佛一个超然的观察者，置身于一个杂乱的复古泳池小屋内，周围是失重状态下的混乱爆炸。主体身着一件高级定制的纹理泳装。环境中密密麻麻地悬浮着数百件凝固在半空中的夏日物品：融化的冰淇淋筒、复古太阳镜、条纹毛巾、飞溅的氯化水花和充气沙滩球，仿佛时间静止了一般。光线是刺眼的直射阳光，在漂浮的碎片上投射出锐利而狭长的阴影，并辅以冷色调、幽灵般的补光。构图采用极端的眩晕式倾斜角度（25 度倾斜），以制造迷失方向感。使用哈苏 H6D-100c 相机，搭配广角 35mm 镜头拍摄，高光圈（f/11）以确保密集杂物清晰对焦，并经过柯达 Ektachrome E100 胶片的颗粒感和色彩偏移处理。呈现超现实的纹理，具有实用效果美学，无 CGI 感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实零重力爆炸肖像 一个高度技术性的提示，用于生成一张超现实主义摄影作品：主体（伊丽莎白·奥尔森）站在一个复古泳池小屋内，周围是数百件夏季物品在失重状态下爆炸形成的混乱场景。提示中详细说明了相机设备、胶片类型、灯光和构图（眩晕式倾斜角度）。 a photographic surrealist shot of the protagonist, appearing as a detached observer, standing amidst a chaotic zero-gravity explosion inside a cluttered vintage poolside cabana. the subject wears a high-fashion, textured swimwear piece. the environment is densely packed with hundreds of summer artifacts frozen in mid-air: melting ice cream cones, retro sunglasses, striped towels, splashes of chlorinated water, and inflatable beach balls, all suspended as if time has stopped. the lighting is a mix of harsh, directional sunlight casting sharp, long shadows across the floating debris, combined with a cool-toned, ghostly fill light. the composition utilizes a severe vertigo dutch angle (25-degree tilt) to induce disorientation. shot on a hasselblad h6d-100c with a wide 35mm lens, high aperture (f/11) to keep the dense clutter in focus, processed with the grain and color shift of kodak ektachrome e100 film. hyper-realistic textures, practical effect aesthetic, no cgi feel. 一张超现实主义摄影作品，主角仿佛一个超然的观察者，置身于一个杂乱的复古泳池小屋内，周围是失重状态下的混乱爆炸。主体身着一件高级定制的纹理泳装。环境中密密麻麻地悬浮着数百件凝固在半空中的夏日物品：融化的冰淇淋筒、复古太阳镜、条纹毛巾、飞溅的氯化水花和充气沙滩球，仿佛时间静止了一般。光线是刺眼的直射阳光，在漂浮的碎片上投射出锐利而狭长的阴影，并辅以冷色调、幽灵般的补光。构图采用极端的眩晕式倾斜角度（25 度倾斜），以制造迷失方向感。使用哈苏 h6d-100c 相机，搭配广角 35mm 镜头拍摄，高光圈（f/11）以确保密集杂物清晰对焦，并经过柯达 ektachrome e100 胶片的颗粒感和色彩偏移处理。呈现超现实的纹理，具有实用效果美学，无 cgi 感。 timedoctor.eth 10731",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10784,
+      "title": "坦率的万圣节服装派对照片",
+      "description": "一个高度详细、结构化的提示，用于生成一张抓拍式的、社论风格的万圣节派对照片。主体是一位身穿金属红色恶魔服装的年轻女性，详细描述了她的白金色头发、妆容、俏皮的姿势以及室内派对环境（质朴的砖墙、温暖的钨丝灯照明、柔和的焦外虚化背景）。",
+      "sourceLink": "https://x.com/gaucheai/status/2026359200419557852",
+      "sourcePublishedAt": "2026-02-24T18:10:55.000Z",
+      "author": {
+        "name": "gauche",
+        "link": "https://x.com/gaucheai"
+      },
+      "content": "{\n  \"prompt\": \"Candid Halloween costume party photograph, festive event editorial style, playful devil costume theme. Young woman early-20s with platinum blonde icy white hair, shoulder-length with soft tousled waves, middle parted, natural texture with slight volume. Fair porcelain pale skin with pink undertones, natural dewy glowing makeup with highlighted cheekbones catching light, subtle pink blush, defined natural brows, bright blue-green eyes looking directly at camera, nude-pink glossy lips parted in big genuine excited smile showing teeth, joyful animated expression. Standing with playful confident pose, body facing camera with slight three-quarter angle, left arm raised up with elbow bent and left hand positioned near head touching devil horn, right arm bent at elbow with right hand raised near collarbone area with fingers relaxed, long white almond-shaped acrylic nails on both hands, shoulders back with open body language, weight shifted creating subtle S-curve in posture. Wearing Halloween devil costume: shiny metallic red devil horns headband with curved pointed horns approximately 5-6 inches tall attached to red satin-covered headband worn on top of head, deep red matte satin structured corset bodysuit with sweetheart neckline, vertical boning seams creating hourglass silhouette, metallic shiny red snakeskin reptile-textured ruffle trim along neckline straps and bottom leg hem creating decorative frill border, matching long opera-length fingerless gloves in metallic red snakeskin texture extending past elbows, blue fabric event wristband on right wrist. Indoor party venue setting, exposed rustic red-brown brick wall column on left side of frame, warm mustard yellow painted walls in background, wooden beam ceiling detail visible at top right, hardwood flooring, blurred party guests in background including man in black t-shirt and black cap, another blonde woman partially visible on right edge, warm ambient indoor party lighting. Warm golden-yellow ambient tungsten interior lighting, soft even illumination on subject face, natural skin tones with warm cast, slight highlight glow on cheekbones and nose tip, shallow depth of field with background guests and venue blurred into soft bokeh, candid snapshot photography style. Shot from approximately chest level slightly below eye line looking slightly up at subject, medium close-up framing from hips to above head, subject fills center of frame, vertical portrait smartphone photography composition, authentic party moment captured naturally\",\n  \"negativePrompt\": \"cartoon, illustration, anime, 3d render, CGI, artificial, plastic skin, oversaturated, harsh flash, overexposed, underexposed, blurry face, distorted proportions, extra limbs, deformed hands, bad anatomy, missing fingers, extra fingers, text, watermark, logo, studio lighting, professional backdrop, posed stiff expression\",\n  \"aspectRatio\": \"3:4\",\n  \"style\": \"candid party photog\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001531950_xnzh0g_HB8Se9tW8AA2eDv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001531950_xnzh0g_HB8Se9tW8AA2eDv-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"prompt\": \"万圣节化装舞会抓拍照片，节日活动编辑风格，俏皮魔鬼服装主题。年轻女子，二十出头，铂金色冰白色头发，齐肩，柔软蓬松波浪，中分，自然发质略带蓬松感。白皙瓷器般苍白皮肤，带粉色底调，自然水润发光妆容，高光颧骨捕捉光线，微妙粉色腮红，清晰自然的眉毛，明亮的蓝绿色眼睛直视镜头，裸粉色光泽唇，嘴唇微张，露出牙齿，露出真诚兴奋的大笑容，愉悦生动的表情。摆出俏皮自信的姿势，身体面向镜头，略呈四分之三角度，左臂抬起，手肘弯曲，左手靠近头部触碰魔鬼角，右臂手肘弯曲，右手抬起靠近锁骨区域，手指放松，双手均戴白色杏仁形长款美甲，双肩向后，肢体语言开放，重心转移，姿势形成微妙的 S 形曲线。身穿万圣节魔鬼服装：闪亮金属红色魔鬼角头带，弯曲尖角约 5-6 英寸高，固定在红色缎面头带上，戴在头顶，深红色哑光缎面结构紧身胸衣连体衣，心形领口，垂直鱼骨缝线打造沙漏形轮廓，领口肩带和腿部下摆处有金属闪亮红色蛇皮纹理荷叶边饰边，形成装饰性褶边，配套的金属红色蛇皮纹理长款歌剧式无指手套，延伸至手肘以上，右手腕戴蓝色活动腕带。室内派对场地设置，画面左侧有裸露的乡村红棕色砖墙柱子，背景是暖芥末黄色油漆墙壁，右上角可见木梁天花板细节，硬木地板，背景中模糊的派对宾客，包括一名穿黑色 T 恤和黑色帽子的男子，右边缘部分可见另一名金发女子，温暖的室内派对环境照明。暖金色调钨丝灯室内环境照明，主体面部柔和均匀的照明，自然肤色带暖色调，颧骨和鼻尖略带高光，景深较浅，背景宾客和场地模糊成柔和的散景，抓拍式摄影风格。拍摄角度大约在胸部水平线略低于视线，稍微向上看主体，中景特写构图，从臀部到头部上方，主体占据画面中心，垂直肖像智能手机摄影构图，自然捕捉真实的派对瞬间。\",\n  \"negativePrompt\": \"卡通、插画、动漫、3D 渲染、CGI、人造、塑料皮肤、过饱和、刺眼闪光、过曝、欠曝、模糊的脸、比例失真、多余的肢体、变形的手、糟糕的解剖结构、缺指、多指、文字、水印、标志、影棚灯光、专业背景、僵硬的摆拍表情\",\n  \"aspectRatio\": \"3:4\",\n  \"style\": \"candid party photog\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "坦率的万圣节服装派对照片 一个高度详细、结构化的提示，用于生成一张抓拍式的、社论风格的万圣节派对照片。主体是一位身穿金属红色恶魔服装的年轻女性，详细描述了她的白金色头发、妆容、俏皮的姿势以及室内派对环境（质朴的砖墙、温暖的钨丝灯照明、柔和的焦外虚化背景）。 {\n  \"prompt\": \"candid halloween costume party photograph, festive event editorial style, playful devil costume theme. young woman early-20s with platinum blonde icy white hair, shoulder-length with soft tousled waves, middle parted, natural texture with slight volume. fair porcelain pale skin with pink undertones, natural dewy glowing makeup with highlighted cheekbones catching light, subtle pink blush, defined natural brows, bright blue-green eyes looking directly at camera, nude-pink glossy lips parted in big genuine excited smile showing teeth, joyful animated expression. standing with playful confident pose, body facing camera with slight three-quarter angle, left arm raised up with elbow bent and left hand positioned near head touching devil horn, right arm bent at elbow with right hand raised near collarbone area with fingers relaxed, long white almond-shaped acrylic nails on both hands, shoulders back with open body language, weight shifted creating subtle s-curve in posture. wearing halloween devil costume: shiny metallic red devil horns headband with curved pointed horns approximately 5-6 inches tall attached to red satin-covered headband worn on top of head, deep red matte satin structured corset bodysuit with sweetheart neckline, vertical boning seams creating hourglass silhouette, metallic shiny red snakeskin reptile-textured ruffle trim along neckline straps and bottom leg hem creating decorative frill border, matching long opera-length fingerless gloves in metallic red snakeskin texture extending past elbows, blue fabric event wristband on right wrist. indoor party venue setting, exposed rustic red-brown brick wall column on left side of frame, warm mustard yellow painted walls in background, wooden beam ceiling detail visible at top right, hardwood flooring, blurred party guests in background including man in black t-shirt and black cap, another blonde woman partially visible on right edge, warm ambient indoor party lighting. warm golden-yellow ambient tungsten interior lighting, soft even illumination on subject face, natural skin tones with warm cast, slight highlight glow on cheekbones and nose tip, shallow depth of field with background guests and venue blurred into soft bokeh, candid snapshot photography style. shot from approximately chest level slightly below eye line looking slightly up at subject, medium close-up framing from hips to above head, subject fills center of frame, vertical portrait smartphone photography composition, authentic party moment captured naturally\",\n  \"negativeprompt\": \"cartoon, illustration, anime, 3d render, cgi, artificial, plastic skin, oversaturated, harsh flash, overexposed, underexposed, blurry face, distorted proportions, extra limbs, deformed hands, bad anatomy, missing fingers, extra fingers, text, watermark, logo, studio lighting, professional backdrop, posed stiff expression\",\n  \"aspectratio\": \"3:4\",\n  \"style\": \"candid party photog\"\n} {\n  \"prompt\": \"万圣节化装舞会抓拍照片，节日活动编辑风格，俏皮魔鬼服装主题。年轻女子，二十出头，铂金色冰白色头发，齐肩，柔软蓬松波浪，中分，自然发质略带蓬松感。白皙瓷器般苍白皮肤，带粉色底调，自然水润发光妆容，高光颧骨捕捉光线，微妙粉色腮红，清晰自然的眉毛，明亮的蓝绿色眼睛直视镜头，裸粉色光泽唇，嘴唇微张，露出牙齿，露出真诚兴奋的大笑容，愉悦生动的表情。摆出俏皮自信的姿势，身体面向镜头，略呈四分之三角度，左臂抬起，手肘弯曲，左手靠近头部触碰魔鬼角，右臂手肘弯曲，右手抬起靠近锁骨区域，手指放松，双手均戴白色杏仁形长款美甲，双肩向后，肢体语言开放，重心转移，姿势形成微妙的 s 形曲线。身穿万圣节魔鬼服装：闪亮金属红色魔鬼角头带，弯曲尖角约 5-6 英寸高，固定在红色缎面头带上，戴在头顶，深红色哑光缎面结构紧身胸衣连体衣，心形领口，垂直鱼骨缝线打造沙漏形轮廓，领口肩带和腿部下摆处有金属闪亮红色蛇皮纹理荷叶边饰边，形成装饰性褶边，配套的金属红色蛇皮纹理长款歌剧式无指手套，延伸至手肘以上，右手腕戴蓝色活动腕带。室内派对场地设置，画面左侧有裸露的乡村红棕色砖墙柱子，背景是暖芥末黄色油漆墙壁，右上角可见木梁天花板细节，硬木地板，背景中模糊的派对宾客，包括一名穿黑色 t 恤和黑色帽子的男子，右边缘部分可见另一名金发女子，温暖的室内派对环境照明。暖金色调钨丝灯室内环境照明，主体面部柔和均匀的照明，自然肤色带暖色调，颧骨和鼻尖略带高光，景深较浅，背景宾客和场地模糊成柔和的散景，抓拍式摄影风格。拍摄角度大约在胸部水平线略低于视线，稍微向上看主体，中景特写构图，从臀部到头部上方，主体占据画面中心，垂直肖像智能手机摄影构图，自然捕捉真实的派对瞬间。\",\n  \"negativeprompt\": \"卡通、插画、动漫、3d 渲染、cgi、人造、塑料皮肤、过饱和、刺眼闪光、过曝、欠曝、模糊的脸、比例失真、多余的肢体、变形的手、糟糕的解剖结构、缺指、多指、文字、水印、标志、影棚灯光、专业背景、僵硬的摆拍表情\",\n  \"aspectratio\": \"3:4\",\n  \"style\": \"candid party photog\"\n} gauche 10784",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10774,
+      "title": "城市忧郁肖像的结构化提示",
+      "description": "一个高度结构化的 JSON 提示，旨在生成一张超广角、忧郁的都市肖像，描绘一位 21 岁的“酷女孩”在凌晨 2 点坐在空旷的屋顶停车场，重点突出青色和橙色的灯光对比以及 Z 世代智能手机美学。",
+      "sourceLink": "https://x.com/HumanAIGallery/status/2026355566151352419",
+      "sourcePublishedAt": "2026-02-24T17:56:29.000Z",
+      "author": {
+        "name": "Human AI Gallery | Prompt Architect",
+        "link": "https://x.com/HumanAIGallery"
+      },
+      "content": "{\n  \"image_prompt\": {\n    \"meta\": {\n      \"aspect_ratio\": \"9:16\",\n      \"style\": \"0.5x ultra-wide urban melancholia\"\n    },\n    \"subject\": {\n      \"description\": \"21-year-old girl with an effortless 'cool-girl' aura\",\n      \"face\": \"Looking down into the lens with a bored, magnetic gaze, wind-swept hair covering half of her face, dark glossy lips\",\n      \"skin\": \"Bathed in the cool blue twilight, sharp highlights on the nose and collarbones from a distant street lamp\",\n      \"hair\": \"Messy, wind-blown, catching the ambient blue light\",\n      \"pose\": \"Sitting on the cold concrete floor of an empty rooftop parking lot, legs extended towards the camera (distorted perspective), leaning back on one hand\",\n      \"outfit\": \"Oversized vintage leather jacket, micro-mini skirt, sheer black tights, chunky silver rings\"\n    },\n    \"environment\": {\n      \"location\": \"Top floor of an empty concrete parking garage at 2 AM\",\n      \"background_elements\": [\n        \"A sprawling, out-of-focus city skyline with yellow and white bokeh lights\",\n        \"Industrial concrete pillars and yellow parking lines\",\n        \"A hazy, deep blue night sky\"\n      ]\n    },\n    \"lighting\": {\n      \"type\": \"Ambient Blue Hour Light + Distant Warm Sodium Lamp\",\n      \"characteristics\": [\n        \"Teal and orange color contrast\",\n        \"Deep, velvety shadows\",\n        \"Soft rim lighting on the silhouette\"\n      ]\n    },\n    \"photography_style\": {\n      \"style\": \"Modern Gen-Z 'it-girl' photo dump\",\n      \"camera_look\": \"Smartphone 0.5x lens, slight barrel distortion, high ISO grain\",\n      \"imperfections\": \"Digital noise in the blacks, motion blur on the blowing hair, raw and unpolished digital texture\",\n      \"mood\": \"Lonely, powerful, aesthetic, nocturnal\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001526117_a7bhxv_HB8Pob9XwAEwvhx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001526117_a7bhxv_HB8Pob9XwAEwvhx-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_prompt\": {\n    \"meta\": {\n      \"aspect_ratio\": \"9:16\",\n      \"style\": \"0.5x 超广角都市忧郁\"\n    },\n    \"subject\": {\n      \"description\": \"21 岁女孩，散发着不费力的“酷女孩”气质\",\n      \"face\": \"向下凝视镜头，眼神慵懒而富有魅力，被风吹乱的头发遮住了半边脸，深色亮泽的嘴唇\",\n      \"skin\": \"沐浴在凉爽的蓝色暮光中，远处路灯在鼻梁和锁骨处投下清晰的高光\",\n      \"hair\": \"凌乱，被风吹拂，捕捉着周围的蓝色光线\",\n      \"pose\": \"坐在空旷的屋顶停车场冰冷的水泥地上，双腿伸向镜头（透视变形），单手撑地向后靠\",\n      \"outfit\": \"超大号复古皮夹克，超短迷你裙，透明黑色丝袜，粗犷的银色戒指\"\n    },\n    \"environment\": {\n      \"location\": \"凌晨 2 点，空旷的混凝土停车场顶层\",\n      \"background_elements\": [\n        \"广阔、虚焦的城市天际线，点缀着黄色和白色的散景灯光\",\n        \"工业混凝土柱和黄色停车线\",\n        \"朦胧、深蓝色的夜空\"\n      ]\n    },\n    \"lighting\": {\n      \"type\": \"环境蓝光时刻 + 远处温暖的钠灯\",\n      \"characteristics\": [\n        \"青色和橙色的色彩对比\",\n        \"深邃、天鹅绒般的阴影\",\n        \"轮廓上的柔和边缘光\"\n      ]\n    },\n    \"photography_style\": {\n      \"style\": \"现代 Z 世代“it-girl”照片集\",\n      \"camera_look\": \"智能手机 0.5 倍镜头，轻微桶形畸变，高 ISO 颗粒感\",\n      \"imperfections\": \"黑色区域的数字噪点，飘动头发上的运动模糊，原始且未经修饰的数字纹理\",\n      \"mood\": \"孤独、强大、美学、夜间\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "城市忧郁肖像的结构化提示 一个高度结构化的 json 提示，旨在生成一张超广角、忧郁的都市肖像，描绘一位 21 岁的“酷女孩”在凌晨 2 点坐在空旷的屋顶停车场，重点突出青色和橙色的灯光对比以及 z 世代智能手机美学。 {\n  \"image_prompt\": {\n    \"meta\": {\n      \"aspect_ratio\": \"9:16\",\n      \"style\": \"0.5x ultra-wide urban melancholia\"\n    },\n    \"subject\": {\n      \"description\": \"21-year-old girl with an effortless 'cool-girl' aura\",\n      \"face\": \"looking down into the lens with a bored, magnetic gaze, wind-swept hair covering half of her face, dark glossy lips\",\n      \"skin\": \"bathed in the cool blue twilight, sharp highlights on the nose and collarbones from a distant street lamp\",\n      \"hair\": \"messy, wind-blown, catching the ambient blue light\",\n      \"pose\": \"sitting on the cold concrete floor of an empty rooftop parking lot, legs extended towards the camera (distorted perspective), leaning back on one hand\",\n      \"outfit\": \"oversized vintage leather jacket, micro-mini skirt, sheer black tights, chunky silver rings\"\n    },\n    \"environment\": {\n      \"location\": \"top floor of an empty concrete parking garage at 2 am\",\n      \"background_elements\": [\n        \"a sprawling, out-of-focus city skyline with yellow and white bokeh lights\",\n        \"industrial concrete pillars and yellow parking lines\",\n        \"a hazy, deep blue night sky\"\n      ]\n    },\n    \"lighting\": {\n      \"type\": \"ambient blue hour light + distant warm sodium lamp\",\n      \"characteristics\": [\n        \"teal and orange color contrast\",\n        \"deep, velvety shadows\",\n        \"soft rim lighting on the silhouette\"\n      ]\n    },\n    \"photography_style\": {\n      \"style\": \"modern gen-z 'it-girl' photo dump\",\n      \"camera_look\": \"smartphone 0.5x lens, slight barrel distortion, high iso grain\",\n      \"imperfections\": \"digital noise in the blacks, motion blur on the blowing hair, raw and unpolished digital texture\",\n      \"mood\": \"lonely, powerful, aesthetic, nocturnal\"\n    }\n  }\n} ```json\n{\n  \"image_prompt\": {\n    \"meta\": {\n      \"aspect_ratio\": \"9:16\",\n      \"style\": \"0.5x 超广角都市忧郁\"\n    },\n    \"subject\": {\n      \"description\": \"21 岁女孩，散发着不费力的“酷女孩”气质\",\n      \"face\": \"向下凝视镜头，眼神慵懒而富有魅力，被风吹乱的头发遮住了半边脸，深色亮泽的嘴唇\",\n      \"skin\": \"沐浴在凉爽的蓝色暮光中，远处路灯在鼻梁和锁骨处投下清晰的高光\",\n      \"hair\": \"凌乱，被风吹拂，捕捉着周围的蓝色光线\",\n      \"pose\": \"坐在空旷的屋顶停车场冰冷的水泥地上，双腿伸向镜头（透视变形），单手撑地向后靠\",\n      \"outfit\": \"超大号复古皮夹克，超短迷你裙，透明黑色丝袜，粗犷的银色戒指\"\n    },\n    \"environment\": {\n      \"location\": \"凌晨 2 点，空旷的混凝土停车场顶层\",\n      \"background_elements\": [\n        \"广阔、虚焦的城市天际线，点缀着黄色和白色的散景灯光\",\n        \"工业混凝土柱和黄色停车线\",\n        \"朦胧、深蓝色的夜空\"\n      ]\n    },\n    \"lighting\": {\n      \"type\": \"环境蓝光时刻 + 远处温暖的钠灯\",\n      \"characteristics\": [\n        \"青色和橙色的色彩对比\",\n        \"深邃、天鹅绒般的阴影\",\n        \"轮廓上的柔和边缘光\"\n      ]\n    },\n    \"photography_style\": {\n      \"style\": \"现代 z 世代“it-girl”照片集\",\n      \"camera_look\": \"智能手机 0.5 倍镜头，轻微桶形畸变，高 iso 颗粒感\",\n      \"imperfections\": \"黑色区域的数字噪点，飘动头发上的运动模糊，原始且未经修饰的数字纹理\",\n      \"mood\": \"孤独、强大、美学、夜间\"\n    }\n  }\n}\n``` human ai gallery | prompt architect 10774",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10727,
+      "title": "霓虹夜市美食摄影",
+      "description": "一个详细的、超现实的提示，用于生成具有霓虹夜市美学的电影级美食摄影，灵感来自《银翼杀手 2049》和东京街头小吃。它侧重于动态散落的食材、戏剧性的灯光和高分辨率的细节。",
+      "sourceLink": "https://x.com/AllaAisling/status/2026349553813696683",
+      "sourcePublishedAt": "2026-02-24T17:32:36.000Z",
+      "author": {
+        "name": "Alexandra Aisling",
+        "link": "https://x.com/AllaAisling"
+      },
+      "content": "Prompt Studio: Neon Night Market, Food, with Nano Banana Pro, in Firefly  \n\nHyperreal {argument name=\"dish\" default=\"[DISH]\"} floating against a pitch black background, dramatically lit by neon {argument name=\"color\" default=\"[COLOR]\"} underlighting and rim lighting. Ingredients separated and suspended in mid-air in a loose diagonal cascade,  not perfectly stacked, but dynamically scattered as if caught mid-explosion. Steam and sauce splatter glow in the neon light. Sauce drips catch the light like liquid glass. Each floating ingredient has a glowing neon label tag, like a price tag on a wire, in uppercase bold font, backlit. Dish name \"{argument name=\"dish name\" default=\"[DISH NAME]\"}\" in large neon sign typography at top, flickering glow effect. Subtitle: \"[TAGLINE]\". Mood: 3am street food energy, cinematic, electric, craveable. Style ref: Blade Runner 2049 meets Tokyo night market meets hyperreal CGI food ad. 4K, ultra sharp, chromatic aberration on edges.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001495648_2893fy_HB8JgLHWkAALQhx.jpg",
+        "https://cms-assets.youmind.com/media/1772001495767_gkcd68_HB8JyjzXUAAg2Pv.jpg",
+        "https://cms-assets.youmind.com/media/1772001495707_v6nt8z_HB8JQPqXMAA6fyQ.jpg",
+        "https://cms-assets.youmind.com/media/1772001497720_rqbhv4_HB8KCa4WEAAo2Qk.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001495648_2893fy_HB8JgLHWkAALQhx-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772001495767_gkcd68_HB8JyjzXUAAg2Pv-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772001495707_v6nt8z_HB8JQPqXMAA6fyQ-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772001497720_rqbhv4_HB8KCa4WEAAo2Qk-300x172.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "提示词工作室：霓虹夜市，美食，搭配 Nano Banana Pro，在 Firefly 中呈现\n\n超逼真的 {argument name=\"dish\" default=\"[DISH]\"} 漂浮在漆黑的背景中，霓虹 {argument name=\"color\" default=\"[COLOR]\"} 底光和轮廓光戏剧性地照亮。食材分离并悬浮在半空中，呈松散的对角线瀑布状，并非完美堆叠，而是动态地散布开来，仿佛在爆炸中被捕捉。蒸汽和酱汁飞溅在霓虹灯下发光。酱汁滴落像液态玻璃一样捕捉光线。每个漂浮的食材都带有一个发光的霓虹标签，就像挂在电线上的价格标签，采用大写粗体字体，带背光。菜品名称 \"{argument name=\"dish name\" default=\"[DISH NAME]\"}\" 以大型霓虹灯招牌字体显示在顶部，带有闪烁的发光效果。副标题：\"[TAGLINE]\"。氛围：凌晨 3 点的街头美食活力，电影感，电光火石，令人垂涎。风格参考：《银翼杀手 2049》遇见东京夜市遇见超现实 CGI 美食广告。4K，超锐利，边缘有色差。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "霓虹夜市美食摄影 一个详细的、超现实的提示，用于生成具有霓虹夜市美学的电影级美食摄影，灵感来自《银翼杀手 2049》和东京街头小吃。它侧重于动态散落的食材、戏剧性的灯光和高分辨率的细节。 prompt studio: neon night market, food, with nano banana pro, in firefly  \n\nhyperreal {argument name=\"dish\" default=\"[dish]\"} floating against a pitch black background, dramatically lit by neon {argument name=\"color\" default=\"[color]\"} underlighting and rim lighting. ingredients separated and suspended in mid-air in a loose diagonal cascade,  not perfectly stacked, but dynamically scattered as if caught mid-explosion. steam and sauce splatter glow in the neon light. sauce drips catch the light like liquid glass. each floating ingredient has a glowing neon label tag, like a price tag on a wire, in uppercase bold font, backlit. dish name \"{argument name=\"dish name\" default=\"[dish name]\"}\" in large neon sign typography at top, flickering glow effect. subtitle: \"[tagline]\". mood: 3am street food energy, cinematic, electric, craveable. style ref: blade runner 2049 meets tokyo night market meets hyperreal cgi food ad. 4k, ultra sharp, chromatic aberration on edges. 提示词工作室：霓虹夜市，美食，搭配 nano banana pro，在 firefly 中呈现\n\n超逼真的 {argument name=\"dish\" default=\"[dish]\"} 漂浮在漆黑的背景中，霓虹 {argument name=\"color\" default=\"[color]\"} 底光和轮廓光戏剧性地照亮。食材分离并悬浮在半空中，呈松散的对角线瀑布状，并非完美堆叠，而是动态地散布开来，仿佛在爆炸中被捕捉。蒸汽和酱汁飞溅在霓虹灯下发光。酱汁滴落像液态玻璃一样捕捉光线。每个漂浮的食材都带有一个发光的霓虹标签，就像挂在电线上的价格标签，采用大写粗体字体，带背光。菜品名称 \"{argument name=\"dish name\" default=\"[dish name]\"}\" 以大型霓虹灯招牌字体显示在顶部，带有闪烁的发光效果。副标题：\"[tagline]\"。氛围：凌晨 3 点的街头美食活力，电影感，电光火石，令人垂涎。风格参考：《银翼杀手 2049》遇见东京夜市遇见超现实 cgi 美食广告。4k，超锐利，边缘有色差。 alexandra aisling 10727",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10781,
+      "title": "黑白数字插画肖像",
+      "description": "一个用于创建高度精细的黑白数字插画的提示，风格为漫画书/矢量艺术。它要求使用上传的照片来描绘人物的肖像，人物身穿正装衬衫和皮夹克，重点突出高对比度阴影、交叉影线纹理和黑色电影图画小说美学。",
+      "sourceLink": "https://x.com/EdraakTechAi/status/2026346358274212348",
+      "sourcePublishedAt": "2026-02-24T17:19:54.000Z",
+      "author": {
+        "name": "Edraak Tech | إدراك تِك",
+        "link": "https://x.com/EdraakTechAi"
+      },
+      "content": "A portrait size image of highly detailed black and white digital illustration in a comic book or vector art style, depicting a person ({argument name=\"person\" default=\"uploaded photo\"}) she has a calm expression. Her eyes are gazing upwards and slightly to the side. She is dressed in a formal collared shirt underneath a zipped-up leather or bomber-style jacket with a high collar, rendered with clean lines, high contrast shading, and cross-hatching for texture. The background is plain white, focusing entirely on the bust portrait from the chest up, angled slightly from below to emphasize her upward gaze. Style reminiscent of noir graphic novels or modern pop art portraits, monochromatic with gradients from pure black to white.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001529716_lgy4jo_HB8HPf_XQAA51BJ.jpg",
+        "https://cms-assets.youmind.com/media/1772001530398_535sda_HB8HPgXWAAAyO6F.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001529716_lgy4jo_HB8HPf_XQAA51BJ-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772001530398_535sda_HB8HPgXWAAAyO6F-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张肖像尺寸的黑白数码插画，细节丰富，风格为漫画书或矢量艺术，描绘了一个人（{argument name=\"person\" default=\"uploaded photo\"}），她神情平静。她的眼睛向上并略微看向一侧。她穿着一件正式的翻领衬衫，外面是一件拉链式皮革或飞行员夹克，领子很高，线条干净利落，高对比度阴影和交叉影线勾勒出质感。背景是纯白色，完全聚焦于从胸部以上的人物半身像，角度略微从下方拍摄，以强调她向上凝视的目光。风格让人联想到黑色电影图画小说或现代波普艺术肖像，单色调，从纯黑到纯白渐变。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黑白数字插画肖像 一个用于创建高度精细的黑白数字插画的提示，风格为漫画书/矢量艺术。它要求使用上传的照片来描绘人物的肖像，人物身穿正装衬衫和皮夹克，重点突出高对比度阴影、交叉影线纹理和黑色电影图画小说美学。 a portrait size image of highly detailed black and white digital illustration in a comic book or vector art style, depicting a person ({argument name=\"person\" default=\"uploaded photo\"}) she has a calm expression. her eyes are gazing upwards and slightly to the side. she is dressed in a formal collared shirt underneath a zipped-up leather or bomber-style jacket with a high collar, rendered with clean lines, high contrast shading, and cross-hatching for texture. the background is plain white, focusing entirely on the bust portrait from the chest up, angled slightly from below to emphasize her upward gaze. style reminiscent of noir graphic novels or modern pop art portraits, monochromatic with gradients from pure black to white. 一张肖像尺寸的黑白数码插画，细节丰富，风格为漫画书或矢量艺术，描绘了一个人（{argument name=\"person\" default=\"uploaded photo\"}），她神情平静。她的眼睛向上并略微看向一侧。她穿着一件正式的翻领衬衫，外面是一件拉链式皮革或飞行员夹克，领子很高，线条干净利落，高对比度阴影和交叉影线勾勒出质感。背景是纯白色，完全聚焦于从胸部以上的人物半身像，角度略微从下方拍摄，以强调她向上凝视的目光。风格让人联想到黑色电影图画小说或现代波普艺术肖像，单色调，从纯黑到纯白渐变。 edraak tech | إدراك تِك 10781",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10757,
+      "title": "柔和电影感人像，带运动模糊",
+      "description": "生成一张年轻女性电影感肖像的提示词，她金色秀发飘逸，画面柔和梦幻，强调温暖的米金色和棕褐色调，浅景深，以及美术复古风格。",
+      "sourceLink": "https://x.com/Strength04_X/status/2026335944002179376",
+      "sourcePublishedAt": "2026-02-24T16:38:31.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "Soft cinematic portrait of a young woman with light golden hair in motion. Slight blur and ghost effect, hair flowing, dreamy look. Calm expression, soft eyes, parted lips. Warm golden beige and sepia tones, nostalgic mood. Natural window light, soft glow on skin. Shot on Canon EOS R5, 85mm lens, f/1.2, ISO 320, slow shutter for motion blur. Soft focus, shallow depth, creamy background. Cinematic color grade, warm tones, low clarity. Emotional, hazy, poetic, fine art vintage style, 4K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001515765_s7vx3k_HB79viAaoAEQYV_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001515765_s7vx3k_HB79viAaoAEQYV_-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻女性的柔和电影感肖像，金色秀发随风舞动。略带模糊和重影效果，发丝飘逸，眼神梦幻。表情平静，双眸温柔，朱唇微启。暖金色米色和深褐色调，营造怀旧氛围。自然窗光，肌肤泛着柔和光泽。使用 Canon EOS R5 相机，85mm 镜头，f/1.2 光圈，ISO 320 感光度，慢速快门捕捉动态模糊。柔焦，浅景深，奶油般虚化背景。电影级调色，暖色调，低清晰度。情感丰富，朦胧，富有诗意，艺术复古风格，4K 画质。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "柔和电影感人像，带运动模糊 生成一张年轻女性电影感肖像的提示词，她金色秀发飘逸，画面柔和梦幻，强调温暖的米金色和棕褐色调，浅景深，以及美术复古风格。 soft cinematic portrait of a young woman with light golden hair in motion. slight blur and ghost effect, hair flowing, dreamy look. calm expression, soft eyes, parted lips. warm golden beige and sepia tones, nostalgic mood. natural window light, soft glow on skin. shot on canon eos r5, 85mm lens, f/1.2, iso 320, slow shutter for motion blur. soft focus, shallow depth, creamy background. cinematic color grade, warm tones, low clarity. emotional, hazy, poetic, fine art vintage style, 4k. 一位年轻女性的柔和电影感肖像，金色秀发随风舞动。略带模糊和重影效果，发丝飘逸，眼神梦幻。表情平静，双眸温柔，朱唇微启。暖金色米色和深褐色调，营造怀旧氛围。自然窗光，肌肤泛着柔和光泽。使用 canon eos r5 相机，85mm 镜头，f/1.2 光圈，iso 320 感光度，慢速快门捕捉动态模糊。柔焦，浅景深，奶油般虚化背景。电影级调色，暖色调，低清晰度。情感丰富，朦胧，富有诗意，艺术复古风格，4k 画质。 𝐌 10757",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10733,
+      "title": "简单的火柴人涂色书剪贴画",
+      "description": "一个用于生成高分辨率黑白线条艺术的提示，适合涂色书，其中包含多样化人物、动物（狗、马、牛、猫）和日常物品的简单火柴人剪贴画，强调清晰的轮廓和大的开放区域，便于涂色。",
+      "sourceLink": "https://x.com/heathergreen/status/2026334053004370292",
+      "sourcePublishedAt": "2026-02-24T16:31:00.000Z",
+      "author": {
+        "name": "Heather Green",
+        "link": "https://x.com/heathergreen"
+      },
+      "content": "high-resolution black and white coloring book style line art set of simple stick figure clipart on a clean white background, featuring a diverse group of people in various poses and activities, along with a playful dog, a standing horse, a grazing cow, a sitting cat, and other familiar everyday subjects such as trees, houses, cars, flowers, and basic objects, all drawn with smooth, consistent outlines, no shading, large open areas for coloring, and clear separation between each element for easy cutting and arrangement.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001502085_cwy9tu_HB7ul-SXoAAjoBU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001502085_cwy9tu_HB7ul-SXoAAjoBU-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一套高分辨率黑白填色书风格的线条艺术，由简单的火柴人剪贴画组成，置于干净的白色背景上，描绘了各种姿势和活动中的不同人群，还有一只顽皮的狗、一匹站立的马、一头吃草的牛、一只坐着的猫，以及其他熟悉的日常事物，如树木、房屋、汽车、花朵和基本物品。所有图像均采用平滑、一致的轮廓绘制，无阴影，留有大面积开放区域供填色，并且每个元素之间都有清晰的分隔，便于剪裁和排列。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "简单的火柴人涂色书剪贴画 一个用于生成高分辨率黑白线条艺术的提示，适合涂色书，其中包含多样化人物、动物（狗、马、牛、猫）和日常物品的简单火柴人剪贴画，强调清晰的轮廓和大的开放区域，便于涂色。 high-resolution black and white coloring book style line art set of simple stick figure clipart on a clean white background, featuring a diverse group of people in various poses and activities, along with a playful dog, a standing horse, a grazing cow, a sitting cat, and other familiar everyday subjects such as trees, houses, cars, flowers, and basic objects, all drawn with smooth, consistent outlines, no shading, large open areas for coloring, and clear separation between each element for easy cutting and arrangement. 一套高分辨率黑白填色书风格的线条艺术，由简单的火柴人剪贴画组成，置于干净的白色背景上，描绘了各种姿势和活动中的不同人群，还有一只顽皮的狗、一匹站立的马、一头吃草的牛、一只坐着的猫，以及其他熟悉的日常事物，如树木、房屋、汽车、花朵和基本物品。所有图像均采用平滑、一致的轮廓绘制，无阴影，留有大面积开放区域供填色，并且每个元素之间都有清晰的分隔，便于剪裁和排列。 heather green 10733",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10776,
+      "title": "复古相机与鲜花下的超写实肖像",
+      "description": "一个详细的提示，用于生成一张超逼真、富有思想的年轻女性肖像，使用上传的照片以确保面部特征完全一致。场景为低角度中景特写，人物穿着特定服装（红色宽松 T 恤，方形黑框眼镜），手持一台复古胶片相机，背景是柔焦的白色攀援花卉。",
+      "sourceLink": "https://x.com/ChillaiKalan__/status/2026323883243225102",
+      "sourcePublishedAt": "2026-02-24T15:50:35.000Z",
+      "author": {
+        "name": "K",
+        "link": "https://x.com/ChillaiKalan__"
+      },
+      "content": "Ultra-realistic portrait of a young woman (use uploaded photo for exact face likeness 100% match, no facial alterations). A medium close-up, low-angle shot; stylish square black glasses; dressed in a red oversized collared t-shirt. A brown leather camera strap crosses her chest as she holds a vintage film camera in her hands. She looks upward thoughtfully, surrounded by lush white climbing flowers in soft focus.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001527436_008uyt_HB7y0gVbYAEBoM3.jpg",
+        "https://cms-assets.youmind.com/media/1772001527384_xxt2vv_HB7y0b_aEAAgTQw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001527436_008uyt_HB7y0gVbYAEBoM3-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001527384_xxt2vv_HB7y0b_aEAAgTQw-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻女性的超逼真肖像（使用上传照片以 100% 精确匹配面部，无面部改动）。中景特写，低角度拍摄；戴着时尚的方形黑框眼镜；身穿红色超大翻领 T 恤。棕色皮革相机背带斜挎在胸前，手中拿着一台复古胶片相机。她若有所思地向上看，周围是柔焦的茂盛白色攀援花卉。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "复古相机与鲜花下的超写实肖像 一个详细的提示，用于生成一张超逼真、富有思想的年轻女性肖像，使用上传的照片以确保面部特征完全一致。场景为低角度中景特写，人物穿着特定服装（红色宽松 t 恤，方形黑框眼镜），手持一台复古胶片相机，背景是柔焦的白色攀援花卉。 ultra-realistic portrait of a young woman (use uploaded photo for exact face likeness 100% match, no facial alterations). a medium close-up, low-angle shot; stylish square black glasses; dressed in a red oversized collared t-shirt. a brown leather camera strap crosses her chest as she holds a vintage film camera in her hands. she looks upward thoughtfully, surrounded by lush white climbing flowers in soft focus. 一位年轻女性的超逼真肖像（使用上传照片以 100% 精确匹配面部，无面部改动）。中景特写，低角度拍摄；戴着时尚的方形黑框眼镜；身穿红色超大翻领 t 恤。棕色皮革相机背带斜挎在胸前，手中拿着一台复古胶片相机。她若有所思地向上看，周围是柔焦的茂盛白色攀援花卉。 k 10776",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10734,
+      "title": "香蕉牛奶商业广告",
+      "description": "生成一张超逼真商业食品广告图片的提示词：一款优质香蕉牛奶饮品瓶，具有动态液体流动、旋转的牛奶飞溅和漂浮的水果，背景为亮黄色。",
+      "sourceLink": "https://x.com/Taaruk_/status/2026317928321413505",
+      "sourcePublishedAt": "2026-02-24T15:26:55.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Premium banana milk drink bottle surrounded by swirling milk splash, floating bananas and berries, dynamic liquid motion, creamy textures, bright yellow background, high-speed splash photography, glossy product lighting, ultra-realistic, commercial food ad style, sharp focus, 8K.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001500416_xd6nlg_HB7taOHbMAAA2Nw.jpg",
+        "https://cms-assets.youmind.com/media/1772001500336_tncljx_HB7taAjbUAAmmV4.jpg",
+        "https://cms-assets.youmind.com/media/1772001500383_hwzwf4_HB7tZ_aagAAi33q.jpg",
+        "https://cms-assets.youmind.com/media/1772001501464_8wg46t_HB7taO7aoAAFXxG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001500416_xd6nlg_HB7taOHbMAAA2Nw-300x398.jpg",
+        "https://cms-assets.youmind.com/media/1772001500336_tncljx_HB7taAjbUAAmmV4-300x398.jpg",
+        "https://cms-assets.youmind.com/media/1772001500383_hwzwf4_HB7tZ_aagAAi33q-300x398.jpg",
+        "https://cms-assets.youmind.com/media/1772001501464_8wg46t_HB7taO7aoAAFXxG-300x398.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "高级香蕉牛奶饮料瓶，周围环绕着旋转的牛奶飞溅、漂浮的香蕉和浆果，动态液体流动，奶油质感，亮黄色背景，高速飞溅摄影，光泽产品照明，超现实，商业食品广告风格，锐利聚焦，8K。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "香蕉牛奶商业广告 生成一张超逼真商业食品广告图片的提示词：一款优质香蕉牛奶饮品瓶，具有动态液体流动、旋转的牛奶飞溅和漂浮的水果，背景为亮黄色。 premium banana milk drink bottle surrounded by swirling milk splash, floating bananas and berries, dynamic liquid motion, creamy textures, bright yellow background, high-speed splash photography, glossy product lighting, ultra-realistic, commercial food ad style, sharp focus, 8k. 高级香蕉牛奶饮料瓶，周围环绕着旋转的牛奶飞溅、漂浮的香蕉和浆果，动态液体流动，奶油质感，亮黄色背景，高速飞溅摄影，光泽产品照明，超现实，商业食品广告风格，锐利聚焦，8k。 taaruk 10734",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10745,
+      "title": "卧室镜子自拍",
+      "description": "一个 JSON 提示，用于生成一张女性的真实镜面自拍（基于参考图像），她坐在一张白色床上，旁边有一只毛茸茸的猫，详细描述了她的休闲装束、脚上可见的深色指甲油，以及柔和温暖的室内灯光。",
+      "sourceLink": "https://x.com/katmanai/status/2026314950772220033",
+      "sourcePublishedAt": "2026-02-24T15:15:06.000Z",
+      "author": {
+        "name": "Stark",
+        "link": "https://x.com/katmanai"
+      },
+      "content": "{\n  \"prompt\": \"A candid mirror selfie of a woman with long dark hair, whose face is based on a provided reference image, sitting on a white bed next to a fluffy, light-colored cat. She is wearing a dark tank top and light grey wide-leg sweatpants, holding a smartphone up to take the photo. Her bare feet with dark nail polish are visible at the bottom of the frame. The background includes blue floor-to-ceiling curtains and a wooden wardrobe door. The lighting is soft and warm indoors.\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772087655942_vdyp6u_HB7qs51XIAAcZ-B.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772087655942_vdyp6u_HB7qs51XIAAcZ-B-300x227.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"prompt\": \"一位长着深色长发的女士，脸部基于提供的参考图片，坐在白色床上，旁边有一只毛茸茸的浅色猫咪。她穿着深色背心和浅灰色阔腿运动裤，举着智能手机自拍。画面底部可见她涂着深色指甲油的赤脚。背景包括蓝色落地窗帘和一个木制衣柜门。室内光线柔和温暖。\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "卧室镜子自拍 一个 json 提示，用于生成一张女性的真实镜面自拍（基于参考图像），她坐在一张白色床上，旁边有一只毛茸茸的猫，详细描述了她的休闲装束、脚上可见的深色指甲油，以及柔和温暖的室内灯光。 {\n  \"prompt\": \"a candid mirror selfie of a woman with long dark hair, whose face is based on a provided reference image, sitting on a white bed next to a fluffy, light-colored cat. she is wearing a dark tank top and light grey wide-leg sweatpants, holding a smartphone up to take the photo. her bare feet with dark nail polish are visible at the bottom of the frame. the background includes blue floor-to-ceiling curtains and a wooden wardrobe door. the lighting is soft and warm indoors.\"\n} {\n  \"prompt\": \"一位长着深色长发的女士，脸部基于提供的参考图片，坐在白色床上，旁边有一只毛茸茸的浅色猫咪。她穿着深色背心和浅灰色阔腿运动裤，举着智能手机自拍。画面底部可见她涂着深色指甲油的赤脚。背景包括蓝色落地窗帘和一个木制衣柜门。室内光线柔和温暖。\"\n} stark 10745",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10760,
+      "title": "奢华家居香氛商业摄影 (JSON 格式)",
+      "description": "一个高度详细的 JSON 提示，用于生成奢华室内清新喷雾的超逼真商业摄影，重点关注构图、高端照明和精致的室内生活方式美学。",
+      "sourceLink": "https://x.com/j_smeaton99/status/2026309423094972858",
+      "sourcePublishedAt": "2026-02-24T14:53:08.000Z",
+      "author": {
+        "name": "Jack",
+        "link": "https://x.com/j_smeaton99"
+      },
+      "content": "{\n  \"master_prompt\": {\n    \"scene_type\": \"ultra-realistic luxury home fragrance commercial photography\",\n\n    \"product\": {\n      \"type\": \"luxury room freshener spray\",\n      \"brand_name\": \"VÉRÉLLE\",\n      \"product_name\": \"Lumière Atmosphère, Signature Room Essence\",\n      \"container_shape\": \"slender architectural glass atomizer with elongated silhouette\",\n      \"material\": \"crystal-clear faceted glass\",\n      \"finish\": \"prismatic transparency with refined light refraction\",\n      \"cap_design\": \"brushed champagne-gold magnetic cap with sculpted top\",\n\n      \"label_design\": {\n        \"style\": \"Parisian luxury serif typography\",\n        \"primary_text\": \"Lumière Atmosphère\",\n        \"secondary_text\": \"Signature Room Essence\",\n        \"finish\": \"champagne foil emboss with micro-engraved detailing\"\n      },\n\n      \"liquid_color\": \"soft golden champagne tone with luminous clarity\"\n    },\n\n    \"composition\": {\n      \"placement\": \"center hero placement\",\n      \"pedestal\": \"ivory marble pedestal with subtle gold veining\",\n      \"base_surface\": \"polished stone reflective surface\",\n\n      \"surrounding_elements\": [\n        \"white orchid blossoms\",\n        \"linen fabric folds\",\n        \"glass dew droplets\",\n        \"soft eucalyptus sprigs\"\n      ],\n\n      \"atmospheric_effect\": \"delicate fragrance mist diffusing elegantly around the bottle\"\n    },\n\n    \"lighting\": {\n      \"style\": \"high-end interior luxury lighting\",\n      \"key_light\": \"soft diffused glow for glass clarity\",\n      \"rim_light\": \"warm highlights defining bottle edges\",\n      \"fill_light\": \"gentle ambient fill for soft shadows\",\n      \"reflections\": \"controlled specular highlights for premium finish\"\n    },\n\n    \"background\": {\n      \"color\": \"warm ivory to champagne gradient\",\n      \"style\": \"luxury interior editorial backdrop\",\n      \"depth\": \"cinematic shallow depth with soft falloff\"\n    },\n\n    \"camera\": {\n      \"angle\": \"slightly low hero angle\",\n      \"focus\": \"typography and crystal texture\",\n      \"depth_of_field\": \"cinematic shallow depth\",\n      \"resolution\": \"8K ultra-detailed clarity\"\n    },\n\n    \"mood_keywords\": [\n      \"refined living\",\n      \"luxury home ambiance\",\n      \"clean elegance\",\n      \"premium interior lifestyle\",\n      \"serene atmosphere\",\n      \"timeless sophistication\"\n    ]\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001517507_b32xyt_HB7lrHqacAESO0y.jpg",
+        "https://cms-assets.youmind.com/media/1772001517494_08zuoy_HB7lrINagAAErnO.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001517507_b32xyt_HB7lrHqacAESO0y-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772001517494_08zuoy_HB7lrINagAAErnO-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"超现实奢华家居香氛商业摄影\",\n    \"product\": {\n      \"type\": \"奢华室内清新喷雾\",\n      \"brand_name\": \"VÉRÉLLE\",\n      \"product_name\": \"Lumière Atmosphère, Signature Room Essence\",\n      \"container_shape\": \"细长建筑感玻璃喷雾瓶，轮廓修长\",\n      \"material\": \"晶莹剔透的多面玻璃\",\n      \"finish\": \"棱镜般透明，光线折射精致\",\n      \"cap_design\": \"拉丝香槟金色磁性瓶盖，顶部雕刻\"\n    },\n    \"label_design\": {\n      \"style\": \"巴黎奢华衬线字体\",\n      \"primary_text\": \"Lumière Atmosphère\",\n      \"secondary_text\": \"Signature Room Essence\",\n      \"finish\": \"香槟色烫金浮雕，带有微雕细节\"\n    },\n    \"liquid_color\": \"柔和金香槟色调，晶莹剔透\"\n  },\n  \"composition\": {\n    \"placement\": \"居中突出放置\",\n    \"pedestal\": \"象牙色大理石底座，带有微妙金色纹理\",\n    \"base_surface\": \"抛光石材反光表面\",\n    \"surrounding_elements\": [\n      \"白色兰花\",\n      \"亚麻布褶皱\",\n      \"玻璃露珠\",\n      \"柔软的桉树枝\"\n    ],\n    \"atmospheric_effect\": \"精致的香氛薄雾优雅地弥漫在瓶身周围\"\n  },\n  \"lighting\": {\n    \"style\": \"高端室内奢华照明\",\n    \"key_light\": \"柔和漫射光，凸显玻璃的清澈度\",\n    \"rim_light\": \"暖色边缘光，勾勒瓶身轮廓\",\n    \"fill_light\": \"柔和环境补光，营造柔和阴影\",\n    \"reflections\": \"受控镜面高光，呈现高级质感\"\n  },\n  \"background\": {\n    \"color\": \"暖象牙色至香槟色渐变\",\n    \"style\": \"奢华室内杂志背景\",\n    \"depth\": \"电影级浅景深，柔和虚化\"\n  },\n  \"camera\": {\n    \"angle\": \"略低角度特写\",\n    \"focus\": \"字体和水晶纹理\",\n    \"depth_of_field\": \"电影级浅景深\",\n    \"resolution\": \"8K 超高清细节\"\n  },\n  \"mood_keywords\": [\n    \"精致生活\",\n    \"奢华家居氛围\",\n    \"纯净优雅\",\n    \"高端室内生活方式\",\n    \"宁静氛围\",\n    \"永恒的精致\"\n  ]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华家居香氛商业摄影 (json 格式) 一个高度详细的 json 提示，用于生成奢华室内清新喷雾的超逼真商业摄影，重点关注构图、高端照明和精致的室内生活方式美学。 {\n  \"master_prompt\": {\n    \"scene_type\": \"ultra-realistic luxury home fragrance commercial photography\",\n\n    \"product\": {\n      \"type\": \"luxury room freshener spray\",\n      \"brand_name\": \"vérélle\",\n      \"product_name\": \"lumière atmosphère, signature room essence\",\n      \"container_shape\": \"slender architectural glass atomizer with elongated silhouette\",\n      \"material\": \"crystal-clear faceted glass\",\n      \"finish\": \"prismatic transparency with refined light refraction\",\n      \"cap_design\": \"brushed champagne-gold magnetic cap with sculpted top\",\n\n      \"label_design\": {\n        \"style\": \"parisian luxury serif typography\",\n        \"primary_text\": \"lumière atmosphère\",\n        \"secondary_text\": \"signature room essence\",\n        \"finish\": \"champagne foil emboss with micro-engraved detailing\"\n      },\n\n      \"liquid_color\": \"soft golden champagne tone with luminous clarity\"\n    },\n\n    \"composition\": {\n      \"placement\": \"center hero placement\",\n      \"pedestal\": \"ivory marble pedestal with subtle gold veining\",\n      \"base_surface\": \"polished stone reflective surface\",\n\n      \"surrounding_elements\": [\n        \"white orchid blossoms\",\n        \"linen fabric folds\",\n        \"glass dew droplets\",\n        \"soft eucalyptus sprigs\"\n      ],\n\n      \"atmospheric_effect\": \"delicate fragrance mist diffusing elegantly around the bottle\"\n    },\n\n    \"lighting\": {\n      \"style\": \"high-end interior luxury lighting\",\n      \"key_light\": \"soft diffused glow for glass clarity\",\n      \"rim_light\": \"warm highlights defining bottle edges\",\n      \"fill_light\": \"gentle ambient fill for soft shadows\",\n      \"reflections\": \"controlled specular highlights for premium finish\"\n    },\n\n    \"background\": {\n      \"color\": \"warm ivory to champagne gradient\",\n      \"style\": \"luxury interior editorial backdrop\",\n      \"depth\": \"cinematic shallow depth with soft falloff\"\n    },\n\n    \"camera\": {\n      \"angle\": \"slightly low hero angle\",\n      \"focus\": \"typography and crystal texture\",\n      \"depth_of_field\": \"cinematic shallow depth\",\n      \"resolution\": \"8k ultra-detailed clarity\"\n    },\n\n    \"mood_keywords\": [\n      \"refined living\",\n      \"luxury home ambiance\",\n      \"clean elegance\",\n      \"premium interior lifestyle\",\n      \"serene atmosphere\",\n      \"timeless sophistication\"\n    ]\n  }\n} ```json\n{\n  \"master_prompt\": {\n    \"scene_type\": \"超现实奢华家居香氛商业摄影\",\n    \"product\": {\n      \"type\": \"奢华室内清新喷雾\",\n      \"brand_name\": \"vérélle\",\n      \"product_name\": \"lumière atmosphère, signature room essence\",\n      \"container_shape\": \"细长建筑感玻璃喷雾瓶，轮廓修长\",\n      \"material\": \"晶莹剔透的多面玻璃\",\n      \"finish\": \"棱镜般透明，光线折射精致\",\n      \"cap_design\": \"拉丝香槟金色磁性瓶盖，顶部雕刻\"\n    },\n    \"label_design\": {\n      \"style\": \"巴黎奢华衬线字体\",\n      \"primary_text\": \"lumière atmosphère\",\n      \"secondary_text\": \"signature room essence\",\n      \"finish\": \"香槟色烫金浮雕，带有微雕细节\"\n    },\n    \"liquid_color\": \"柔和金香槟色调，晶莹剔透\"\n  },\n  \"composition\": {\n    \"placement\": \"居中突出放置\",\n    \"pedestal\": \"象牙色大理石底座，带有微妙金色纹理\",\n    \"base_surface\": \"抛光石材反光表面\",\n    \"surrounding_elements\": [\n      \"白色兰花\",\n      \"亚麻布褶皱\",\n      \"玻璃露珠\",\n      \"柔软的桉树枝\"\n    ],\n    \"atmospheric_effect\": \"精致的香氛薄雾优雅地弥漫在瓶身周围\"\n  },\n  \"lighting\": {\n    \"style\": \"高端室内奢华照明\",\n    \"key_light\": \"柔和漫射光，凸显玻璃的清澈度\",\n    \"rim_light\": \"暖色边缘光，勾勒瓶身轮廓\",\n    \"fill_light\": \"柔和环境补光，营造柔和阴影\",\n    \"reflections\": \"受控镜面高光，呈现高级质感\"\n  },\n  \"background\": {\n    \"color\": \"暖象牙色至香槟色渐变\",\n    \"style\": \"奢华室内杂志背景\",\n    \"depth\": \"电影级浅景深，柔和虚化\"\n  },\n  \"camera\": {\n    \"angle\": \"略低角度特写\",\n    \"focus\": \"字体和水晶纹理\",\n    \"depth_of_field\": \"电影级浅景深\",\n    \"resolution\": \"8k 超高清细节\"\n  },\n  \"mood_keywords\": [\n    \"精致生活\",\n    \"奢华家居氛围\",\n    \"纯净优雅\",\n    \"高端室内生活方式\",\n    \"宁静氛围\",\n    \"永恒的精致\"\n  ]\n}\n``` jack 10760",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10787,
+      "title": "黄金时段的俯视户外人像摄影",
+      "description": "一个详细的提示，用于生成一张照片级的俯视照片，内容是一名红发年轻女子在黄金时段坐在石板路上。提示详细说明了她的姿势（抬头，手触脸颊）、衣着（灰色连帽衫，黑色过膝袜）以及技术细节（电影级灯光，浅景深，85mm 镜头），以获得超精细的效果。",
+      "sourceLink": "https://x.com/mizq06/status/2026309021700174110",
+      "sourcePublishedAt": "2026-02-24T14:51:32.000Z",
+      "author": {
+        "name": "Miz",
+        "link": "https://x.com/mizq06"
+      },
+      "content": "{\n  \"prompt\": \"A realistic top-down perspective photo of a young woman with wavy red hair sitting on a stone pavement outdoors during golden hour. She is looking up at the camera with soft green eyes and a neutral, slightly vulnerable expression. A hand gently touches her cheek. She is wearing a gray zip-up hoodie slightly off her shoulders, a dark tank top, sheer black thigh-high stockings, and a delicate choker necklace. A small black handbag rests beside her. Warm sunlight casts long shadows across the textured pavement. Cinematic lighting, shallow depth of field, ultra-detailed skin texture, natural tones, high-resolution, 85mm lens, photorealistic.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted hands, extra fingers, bad anatomy, overexposed, underexposed, harsh shadows, cartoon, anime, oversaturated\",\n  \"steps\": 30,\n  \"cfg_scale\": 7,\n  \"sampler\": \"DPM++ 2M Karras\",\n  \"size\": \"768x1024\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001533425_s67n7z_HB7lT4JbYAAaOgv.jpg",
+        "https://cms-assets.youmind.com/media/1772001533486_o6o463_HB7lT4YbwAATQ56.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001533425_s67n7z_HB7lT4JbYAAaOgv-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772001533486_o6o463_HB7lT4YbwAATQ56-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"一张逼真的俯视视角照片，一位年轻女子，波浪状红发，在黄金时段坐在室外石板路上。她抬眼看向镜头，绿色的眼睛柔和，表情中性，略带脆弱。一只手轻抚她的脸颊。她穿着一件灰色拉链连帽衫，微露香肩，内搭深色背心，黑色透明过膝袜，戴着一条精致的项圈。一个小黑色手提包放在她身边。温暖的阳光在纹理丰富的石板路上投下长长的阴影。电影级光线，浅景深，超精细皮肤纹理，自然色调，高分辨率，85mm 镜头，超写实。\",\n  \"negative_prompt\": \"模糊，低分辨率，手部扭曲，多余手指，解剖结构错误，过曝，欠曝，刺眼阴影，卡通，动漫，过饱和\",\n  \"steps\": 30,\n  \"cfg_scale\": 7,\n  \"sampler\": \"DPM++ 2M Karras\",\n  \"size\": \"768x1024\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黄金时段的俯视户外人像摄影 一个详细的提示，用于生成一张照片级的俯视照片，内容是一名红发年轻女子在黄金时段坐在石板路上。提示详细说明了她的姿势（抬头，手触脸颊）、衣着（灰色连帽衫，黑色过膝袜）以及技术细节（电影级灯光，浅景深，85mm 镜头），以获得超精细的效果。 {\n  \"prompt\": \"a realistic top-down perspective photo of a young woman with wavy red hair sitting on a stone pavement outdoors during golden hour. she is looking up at the camera with soft green eyes and a neutral, slightly vulnerable expression. a hand gently touches her cheek. she is wearing a gray zip-up hoodie slightly off her shoulders, a dark tank top, sheer black thigh-high stockings, and a delicate choker necklace. a small black handbag rests beside her. warm sunlight casts long shadows across the textured pavement. cinematic lighting, shallow depth of field, ultra-detailed skin texture, natural tones, high-resolution, 85mm lens, photorealistic.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted hands, extra fingers, bad anatomy, overexposed, underexposed, harsh shadows, cartoon, anime, oversaturated\",\n  \"steps\": 30,\n  \"cfg_scale\": 7,\n  \"sampler\": \"dpm++ 2m karras\",\n  \"size\": \"768x1024\"\n} ```json\n{\n  \"prompt\": \"一张逼真的俯视视角照片，一位年轻女子，波浪状红发，在黄金时段坐在室外石板路上。她抬眼看向镜头，绿色的眼睛柔和，表情中性，略带脆弱。一只手轻抚她的脸颊。她穿着一件灰色拉链连帽衫，微露香肩，内搭深色背心，黑色透明过膝袜，戴着一条精致的项圈。一个小黑色手提包放在她身边。温暖的阳光在纹理丰富的石板路上投下长长的阴影。电影级光线，浅景深，超精细皮肤纹理，自然色调，高分辨率，85mm 镜头，超写实。\",\n  \"negative_prompt\": \"模糊，低分辨率，手部扭曲，多余手指，解剖结构错误，过曝，欠曝，刺眼阴影，卡通，动漫，过饱和\",\n  \"steps\": 30,\n  \"cfg_scale\": 7,\n  \"sampler\": \"dpm++ 2m karras\",\n  \"size\": \"768x1024\"\n}\n``` miz 10787",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10769,
+      "title": "电影感生日肖像模板",
+      "description": "一个用于创建电影级、时尚生日肖像的模板提示，描绘一位女性，画面中有一个带蜡烛的蛋糕和戏剧性的聚光灯阴影，其中年龄是一个可自定义的参数。",
+      "sourceLink": "https://x.com/EdraakTechAi/status/2026308540952957329",
+      "sourcePublishedAt": "2026-02-24T14:49:37.000Z",
+      "author": {
+        "name": "Edraak Tech | إدراك تِك",
+        "link": "https://x.com/EdraakTechAi"
+      },
+      "content": "A cinematic, high-fashion birthday portrait featuring a woman (uploaded photo) in a a silky cream dress, her hair in soft waves. She holds a white, layered cake adorned with colorful lilies and \"{argument name=\"age\" default=\"26\"}\" candles, leaning forward to blow them out. Spotlights create a dramatic \"26\" shadow on the wall behind her, capturing a playful yet chic expression for a sophisticated anniversary campaign.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001522169_4zdwaw_HB7k3xsXEAEhHHt.jpg",
+        "https://cms-assets.youmind.com/media/1772001522815_ybo6dq_HB7k3xsX0AIX-Cj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001522169_4zdwaw_HB7k3xsXEAEhHHt-300x480.jpg",
+        "https://cms-assets.youmind.com/media/1772001522815_ybo6dq_HB7k3xsX0AIX-Cj-300x411.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一幅电影风格的时尚生日肖像，画面中一位身穿丝滑米色连衣裙的女士（上传照片），头发呈柔和的波浪状。她手捧一个装饰着彩色百合花和“{argument name=\"age\" default=\"26\"}”蜡烛的白色分层蛋糕，身体前倾准备吹灭蜡烛。聚光灯在她身后的墙壁上投射出戏剧性的“26”字样阴影，捕捉到她俏皮而别致的表情，适合用于一场精致的周年庆活动。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感生日肖像模板 一个用于创建电影级、时尚生日肖像的模板提示，描绘一位女性，画面中有一个带蜡烛的蛋糕和戏剧性的聚光灯阴影，其中年龄是一个可自定义的参数。 a cinematic, high-fashion birthday portrait featuring a woman (uploaded photo) in a a silky cream dress, her hair in soft waves. she holds a white, layered cake adorned with colorful lilies and \"{argument name=\"age\" default=\"26\"}\" candles, leaning forward to blow them out. spotlights create a dramatic \"26\" shadow on the wall behind her, capturing a playful yet chic expression for a sophisticated anniversary campaign. 一幅电影风格的时尚生日肖像，画面中一位身穿丝滑米色连衣裙的女士（上传照片），头发呈柔和的波浪状。她手捧一个装饰着彩色百合花和“{argument name=\"age\" default=\"26\"}”蜡烛的白色分层蛋糕，身体前倾准备吹灭蜡烛。聚光灯在她身后的墙壁上投射出戏剧性的“26”字样阴影，捕捉到她俏皮而别致的表情，适合用于一场精致的周年庆活动。 edraak tech | إدراك تِك 10769",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10732,
+      "title": "电影级办公室肖像",
+      "description": "一个详细的提示，用于生成一张垂直、电影感、超写实的女性肖像，背景设定在一个狭窄的办公室复印室里。提示中详细说明了她的服装（纽扣衬衫、迷你裙、透明连裤袜）、姿势、环境，以及带有冷绿色调阴影的忧郁复古胶片调色。",
+      "sourceLink": "https://x.com/Rowancn/status/2026305797341553002",
+      "sourcePublishedAt": "2026-02-24T14:38:43.000Z",
+      "author": {
+        "name": "ℝ𝕠𝕨𝕒𝕟",
+        "link": "https://x.com/Rowancn"
+      },
+      "content": "Create a vertical cinematic photorealistic portrait with subtle retro film grading and a moody, voyeuristic office atmosphere.\n\nA young adult woman stands in a narrow office copy room, leaning back against a large multifunction photocopier positioned slightly to the right. She crosses her legs at the ankles and folds her arms across her chest, looking directly at the camera with a calm, slightly distant expression. She has straight, shoulder-length black hair with full bangs. She wears a fitted white button-up blouse, a striped ribbon bow tie, a high-waisted dark mini skirt, and sheer black pantyhose. Fabrics appear realistic: matte cotton blouse, structured skirt, translucent nylon stockings.\n\nThe environment includes light-colored walls, a wall poster with Japanese text, and partially visible shelving. The copier shows realistic plastic and metal textures. The space feels tight and enclosed.\n\nFrame the shot at eye level in a medium full-body composition. Shoot through a narrow foreground gap, with dark blurred vertical shapes on both sides forming a natural vignette. Keep the subject sharply focused, especially her face and upper torso, with shallow depth of field and softly blurred background.\n\nUse soft diffused indoor overhead lighting with slight frontal illumination, moderate contrast, and gentle shadows. Apply cool greenish-teal shadows with warm skin tones, slightly desaturated colors (muted teal, beige, off-white, charcoal, deep black). Add subtle fine film grain and balanced dynamic range to maintain an intimate, slightly nostalgic cinematic realism.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001501301_m49y2k_HB7iYKtbwAADFfu.jpg",
+        "https://cms-assets.youmind.com/media/1772001501293_ajnciu_HB7iYKtbkAApBuQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001501301_m49y2k_HB7iYKtbwAADFfu-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772001501293_ajnciu_HB7iYKtbkAApBuQ-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张垂直的电影级写实肖像，带有一丝复古胶片颗粒感和一种忧郁、窥视感的办公室氛围。\n\n一名年轻女子站在狭窄的办公室复印室里，背靠着一台大型多功能复印机，复印机略微偏右。她双腿交叉，双手抱胸，平静而略带疏离地直视镜头。她留着齐肩的黑色直发，有齐刘海。她穿着一件修身的白色纽扣衬衫、一条条纹领结、一条高腰深色迷你裙和透明的黑色连裤袜。面料质感逼真：哑光棉衬衫、有型的裙子、半透明尼龙丝袜。\n\n环境包括浅色墙壁、一张带有日文文字的墙上海报和部分可见的置物架。复印机呈现出逼真的塑料和金属质感。空间感觉狭窄而封闭。\n\n镜头构图为中等全身像，与视线齐平。透过狭窄的前景间隙拍摄，两侧有深色模糊的垂直形状，形成自然的渐晕效果。主体保持清晰对焦，尤其是她的脸部和上半身，景深较浅，背景柔和模糊。\n\n使用柔和漫射的室内顶灯，略带正面照明，中等对比度，柔和阴影。应用冷绿色调的阴影和暖色调的肤色，色彩略微去饱和（柔和的青色、米色、米白色、炭灰色、深黑色）。添加细微的胶片颗粒感和平衡的动态范围，以保持一种亲密、略带怀旧的电影写实感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级办公室肖像 一个详细的提示，用于生成一张垂直、电影感、超写实的女性肖像，背景设定在一个狭窄的办公室复印室里。提示中详细说明了她的服装（纽扣衬衫、迷你裙、透明连裤袜）、姿势、环境，以及带有冷绿色调阴影的忧郁复古胶片调色。 create a vertical cinematic photorealistic portrait with subtle retro film grading and a moody, voyeuristic office atmosphere.\n\na young adult woman stands in a narrow office copy room, leaning back against a large multifunction photocopier positioned slightly to the right. she crosses her legs at the ankles and folds her arms across her chest, looking directly at the camera with a calm, slightly distant expression. she has straight, shoulder-length black hair with full bangs. she wears a fitted white button-up blouse, a striped ribbon bow tie, a high-waisted dark mini skirt, and sheer black pantyhose. fabrics appear realistic: matte cotton blouse, structured skirt, translucent nylon stockings.\n\nthe environment includes light-colored walls, a wall poster with japanese text, and partially visible shelving. the copier shows realistic plastic and metal textures. the space feels tight and enclosed.\n\nframe the shot at eye level in a medium full-body composition. shoot through a narrow foreground gap, with dark blurred vertical shapes on both sides forming a natural vignette. keep the subject sharply focused, especially her face and upper torso, with shallow depth of field and softly blurred background.\n\nuse soft diffused indoor overhead lighting with slight frontal illumination, moderate contrast, and gentle shadows. apply cool greenish-teal shadows with warm skin tones, slightly desaturated colors (muted teal, beige, off-white, charcoal, deep black). add subtle fine film grain and balanced dynamic range to maintain an intimate, slightly nostalgic cinematic realism. 创作一张垂直的电影级写实肖像，带有一丝复古胶片颗粒感和一种忧郁、窥视感的办公室氛围。\n\n一名年轻女子站在狭窄的办公室复印室里，背靠着一台大型多功能复印机，复印机略微偏右。她双腿交叉，双手抱胸，平静而略带疏离地直视镜头。她留着齐肩的黑色直发，有齐刘海。她穿着一件修身的白色纽扣衬衫、一条条纹领结、一条高腰深色迷你裙和透明的黑色连裤袜。面料质感逼真：哑光棉衬衫、有型的裙子、半透明尼龙丝袜。\n\n环境包括浅色墙壁、一张带有日文文字的墙上海报和部分可见的置物架。复印机呈现出逼真的塑料和金属质感。空间感觉狭窄而封闭。\n\n镜头构图为中等全身像，与视线齐平。透过狭窄的前景间隙拍摄，两侧有深色模糊的垂直形状，形成自然的渐晕效果。主体保持清晰对焦，尤其是她的脸部和上半身，景深较浅，背景柔和模糊。\n\n使用柔和漫射的室内顶灯，略带正面照明，中等对比度，柔和阴影。应用冷绿色调的阴影和暖色调的肤色，色彩略微去饱和（柔和的青色、米色、米白色、炭灰色、深黑色）。添加细微的胶片颗粒感和平衡的动态范围，以保持一种亲密、略带怀旧的电影写实感。 ℝ𝕠𝕨𝕒𝕟 10732",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10740,
+      "title": "空灵田园时尚大片",
+      "description": "一个高度详细的 JSON 提示，用于生成一张超逼真的时尚编辑图片，图片中人物酷似 Sabrina Carpenter，置身于薄雾弥漫的魔法森林花园中，身穿浅蓝色格子风衣长袍、蕾丝文胸，并有一只野生小鹿相伴，强调空灵的光线和高级定制的田园时尚风格。",
+      "sourceLink": "https://x.com/Artist04048661/status/2026298420835627074",
+      "sourcePublishedAt": "2026-02-24T14:09:24.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Woman with a strong resemblance to Sabrina Carpenter.\",\n      \"hair\": \"Luxurious, voluminous blonde waves with a 1970s-style blowout; high-shine texture and airy physics as if caught in a light breeze.\",\n      \"face\": \"Sultry and sophisticated expression, defined jawline, realistic skin texture with visible pores and a subtle dewy glow.\",\n      \"body\": \"Fit and toned feminine physique, detailed midriff, high-fashion editorial proportions.\"\n    },\n    \"attire\": {\n      \"clothing\": \"Floor-length duster robe in a light blue and white gingham pattern, sheer billowing sleeves with ruffled cuffs, open front revealing a delicate white lace bralette and matching high-cut bottoms.\",\n      \"style\": \"High-Fashion Ethereal, Couture Cottagecore.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"A wild fawn standing in the foreground, creating a high-concept fashion photography narrative.\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"An overgrown, misty enchanted forest garden.\",\n      \"background\": \"Dense layering of ferns, wild pink peonies, and soft-focus greenery creating deep atmospheric perspective.\",\n      \"water\": \"None\"\n    },\n    \"pose\": {\n      \"posture\": \"Confident and tall stance, one leg slightly forward to showcase the silhouette through the sheer fabric.\",\n      \"arms\": \"Gracefully positioned, one hand lightly resting on a thin tree branch.\",\n      \"angle\": \"Eye-level cinematic medium-full shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Soft volumetric lighting filtering through the trees, hazy sun-drenched atmosphere with golden hour highlights.\",\n      \"mood\": \"Cinematic, ethereal, and sophisticated.\",\n      \"colors\": \"A palette of pastel cerulean, soft cream, and vibrant botanical greens.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW photo.\",\n      \"lens\": \"35mm prime lens, high optical clarity.\",\n      \"aperture\": \"f/2.0 for soft, creamy bokeh and professional depth of field.\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed skin texture\",\n        \"volumetric fog\",\n        \"ray tracing\",\n        \"Vogue editorial style\",\n        \"Hasselblad H6D\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772001504791_h2r9db_HB7blwHXQAAnuUk.jpg",
+        "https://cms-assets.youmind.com/media/1772001504781_391vvu_HB7blwnXUAA18_7.jpg",
+        "https://cms-assets.youmind.com/media/1772001504927_d6kqux_HB7blwOXIAApjIJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772001504791_h2r9db_HB7blwHXQAAnuUk-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1772001504781_391vvu_HB7blwnXUAA18_7-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772001504927_d6kqux_HB7blwOXIAApjIJ-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"与 Sabrina Carpenter 极其相似的女性。\",\n      \"hair\": \"奢华、蓬松的金色波浪，采用 20 世纪 70 年代风格的吹风造型；高光泽质感和轻盈的物理效果，仿佛被微风吹拂。\",\n      \"face\": \"性感而精致的表情，轮廓分明的下颌线，逼真的皮肤纹理，可见毛孔和微妙的露水般光泽。\",\n      \"body\": \"健美而匀称的女性体格，细节丰富的腰部，高级时装编辑般的比例。\"\n    },\n    \"attire\": {\n      \"clothing\": \"及地防尘长袍，浅蓝色和白色方格图案，飘逸的透明袖子，荷叶边袖口，前开襟，露出精致的白色蕾丝文胸和配套的高腰内裤。\",\n      \"style\": \"高级时装空灵风，高级定制田园风。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"前景中站立着一只小鹿，营造出高概念时尚摄影的叙事感。\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"一个杂草丛生、薄雾弥漫的魔法森林花园。\",\n      \"background\": \"茂密的蕨类植物、野生粉色牡丹和柔焦的绿色植物层层叠叠，营造出深邃的氛围感。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"自信挺拔的姿态，一条腿略微向前，通过透明面料展现轮廓。\",\n      \"arms\": \"姿态优雅，一只手轻轻搭在细树枝上。\",\n      \"angle\": \"与视线齐平的电影中景全身镜头。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"柔和的体积光穿过树林，朦胧的阳光普照氛围，带有黄金时段的亮点。\",\n      \"mood\": \"电影感、空灵、精致。\",\n      \"colors\": \"柔和的天蓝色、柔和的奶油色和充满活力的植物绿色调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真、RAW 照片。\",\n      \"lens\": \"35mm 定焦镜头，高光学清晰度。\",\n      \"aperture\": \"f/2.0，实现柔和、奶油般的散景和专业的景深。\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度详细的皮肤纹理\",\n        \"体积雾\",\n        \"光线追踪\",\n        \"Vogue 编辑风格\",\n        \"Hasselblad H6D\"\n      ]\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "空灵田园时尚大片 一个高度详细的 json 提示，用于生成一张超逼真的时尚编辑图片，图片中人物酷似 sabrina carpenter，置身于薄雾弥漫的魔法森林花园中，身穿浅蓝色格子风衣长袍、蕾丝文胸，并有一只野生小鹿相伴，强调空灵的光线和高级定制的田园时尚风格。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"woman with a strong resemblance to sabrina carpenter.\",\n      \"hair\": \"luxurious, voluminous blonde waves with a 1970s-style blowout; high-shine texture and airy physics as if caught in a light breeze.\",\n      \"face\": \"sultry and sophisticated expression, defined jawline, realistic skin texture with visible pores and a subtle dewy glow.\",\n      \"body\": \"fit and toned feminine physique, detailed midriff, high-fashion editorial proportions.\"\n    },\n    \"attire\": {\n      \"clothing\": \"floor-length duster robe in a light blue and white gingham pattern, sheer billowing sleeves with ruffled cuffs, open front revealing a delicate white lace bralette and matching high-cut bottoms.\",\n      \"style\": \"high-fashion ethereal, couture cottagecore.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"a wild fawn standing in the foreground, creating a high-concept fashion photography narrative.\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"an overgrown, misty enchanted forest garden.\",\n      \"background\": \"dense layering of ferns, wild pink peonies, and soft-focus greenery creating deep atmospheric perspective.\",\n      \"water\": \"none\"\n    },\n    \"pose\": {\n      \"posture\": \"confident and tall stance, one leg slightly forward to showcase the silhouette through the sheer fabric.\",\n      \"arms\": \"gracefully positioned, one hand lightly resting on a thin tree branch.\",\n      \"angle\": \"eye-level cinematic medium-full shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"soft volumetric lighting filtering through the trees, hazy sun-drenched atmosphere with golden hour highlights.\",\n      \"mood\": \"cinematic, ethereal, and sophisticated.\",\n      \"colors\": \"a palette of pastel cerulean, soft cream, and vibrant botanical greens.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw photo.\",\n      \"lens\": \"35mm prime lens, high optical clarity.\",\n      \"aperture\": \"f/2.0 for soft, creamy bokeh and professional depth of field.\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed skin texture\",\n        \"volumetric fog\",\n        \"ray tracing\",\n        \"vogue editorial style\",\n        \"hasselblad h6d\"\n      ]\n    }\n  }\n} ```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"与 sabrina carpenter 极其相似的女性。\",\n      \"hair\": \"奢华、蓬松的金色波浪，采用 20 世纪 70 年代风格的吹风造型；高光泽质感和轻盈的物理效果，仿佛被微风吹拂。\",\n      \"face\": \"性感而精致的表情，轮廓分明的下颌线，逼真的皮肤纹理，可见毛孔和微妙的露水般光泽。\",\n      \"body\": \"健美而匀称的女性体格，细节丰富的腰部，高级时装编辑般的比例。\"\n    },\n    \"attire\": {\n      \"clothing\": \"及地防尘长袍，浅蓝色和白色方格图案，飘逸的透明袖子，荷叶边袖口，前开襟，露出精致的白色蕾丝文胸和配套的高腰内裤。\",\n      \"style\": \"高级时装空灵风，高级定制田园风。\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"前景中站立着一只小鹿，营造出高概念时尚摄影的叙事感。\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"一个杂草丛生、薄雾弥漫的魔法森林花园。\",\n      \"background\": \"茂密的蕨类植物、野生粉色牡丹和柔焦的绿色植物层层叠叠，营造出深邃的氛围感。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"自信挺拔的姿态，一条腿略微向前，通过透明面料展现轮廓。\",\n      \"arms\": \"姿态优雅，一只手轻轻搭在细树枝上。\",\n      \"angle\": \"与视线齐平的电影中景全身镜头。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"柔和的体积光穿过树林，朦胧的阳光普照氛围，带有黄金时段的亮点。\",\n      \"mood\": \"电影感、空灵、精致。\",\n      \"colors\": \"柔和的天蓝色、柔和的奶油色和充满活力的植物绿色调色板。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真、raw 照片。\",\n      \"lens\": \"35mm 定焦镜头，高光学清晰度。\",\n      \"aperture\": \"f/2.0，实现柔和、奶油般的散景和专业的景深。\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度详细的皮肤纹理\",\n        \"体积雾\",\n        \"光线追踪\",\n        \"vogue 编辑风格\",\n        \"hasselblad h6d\"\n      ]\n    }\n  }\n}\n``` lexiprompt 10740",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 138,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

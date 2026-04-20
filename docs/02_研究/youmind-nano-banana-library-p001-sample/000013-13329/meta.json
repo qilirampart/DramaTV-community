@@ -1,0 +1,32 @@
+{
+  "rank": 13,
+  "id": 13329,
+  "title": "带有机械龙元素的粉笔画风格奇幻 Logo",
+  "description": "这是为 Nano Banana Pro 设计的提示词，旨在深色纹理项目上生成粉笔画风格的奇幻 Logo，特色在于将粗体风格化文字与机械龙图案及发光电路装饰相结合，适用于 VTuber 或品牌推广。",
+  "language": "en",
+  "authorName": "Shah",
+  "authorLink": "https://x.com/ai_with_shah",
+  "featured": false,
+  "sourceLink": "https://x.com/ai_with_shah/status/2041909254257340819",
+  "sourcePublishedAt": "2026-04-08T16:01:17.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 0,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg",
+      "02.jpg",
+      "03.jpg",
+      "04.jpg"
+    ],
+    "thumbs": []
+  }
+}

@@ -1,0 +1,501 @@
+{
+  "prompts": [
+    {
+      "id": 11243,
+      "title": "电影感短视频女性肖像提示词",
+      "description": "一个由 GPT-5 生成的详细电影化提示，用于创作一段 30-45 秒的短视频，突出女性的精致可爱，强调柔和的自然光、浅景深以及特定的摄像机运动和声音设计。此提示已用于图像生成（Nano Banana Pro）和视频生成（Kling 3.0 Omni）。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2028062701239587039",
+      "sourcePublishedAt": "2026-03-01T11:00:02.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "温かく柔らかな自然光と浅い被写界深度を用いたシネマティックなスタイルで、女性の繊細な可愛らしさを描く30〜45秒の短編映像。構成は、ふとした瞬間のひらめき、物を移動させる滑らかなトラッキングショット、布や小物の質感を捉えたASMR的なクローズアップ、そして作業を終えた満足げな微笑みへと続く4つのシームレスなカットで展開する。音響はダイジェティックな環境音と息遣いを重視し、視覚と聴覚の両面から臨場感を演出する。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433523792_8dctfg_HCSyAIlbgAAWK-Q.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433523792_8dctfg_HCSyAIlbgAAWK-Q-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一段 30-45 秒的短片，以电影风格展现女性的精致可爱，运用温暖柔和的自然光和浅景深。影片通过四个无缝剪辑展开：一个突如其来的灵感瞬间，一个平稳的推拉镜头移动物体，ASMR 般的特写镜头捕捉织物和小物件的质感，最后是完成任务后满足的微笑。声音设计强调叙事性的环境音和呼吸声，通过视觉和听觉元素营造出身临其境的感觉。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感短视频女性肖像提示词 一个由 gpt-5 生成的详细电影化提示，用于创作一段 30-45 秒的短视频，突出女性的精致可爱，强调柔和的自然光、浅景深以及特定的摄像机运动和声音设计。此提示已用于图像生成（nano banana pro）和视频生成（kling 3.0 omni）。 温かく柔らかな自然光と浅い被写界深度を用いたシネマティックなスタイルで、女性の繊細な可愛らしさを描く30〜45秒の短編映像。構成は、ふとした瞬間のひらめき、物を移動させる滑らかなトラッキングショット、布や小物の質感を捉えたasmr的なクローズアップ、そして作業を終えた満足げな微笑みへと続く4つのシームレスなカットで展開する。音響はダイジェティックな環境音と息遣いを重視し、視覚と聴覚の両面から臨場感を演出する。 一段 30-45 秒的短片，以电影风格展现女性的精致可爱，运用温暖柔和的自然光和浅景深。影片通过四个无缝剪辑展开：一个突如其来的灵感瞬间，一个平稳的推拉镜头移动物体，asmr 般的特写镜头捕捉织物和小物件的质感，最后是完成任务后满足的微笑。声音设计强调叙事性的环境音和呼吸声，通过视觉和听觉元素营造出身临其境的感觉。 空想写真家 11243",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11248,
+      "title": "视频游戏维基风格的柱塞",
+      "description": "通过 Nano Banana Pro 为 Google Gemini 3.1 生成图像的提示，指示 AI 创建一个以视频游戏维基网站页面风格呈现的马桶搋子图像。",
+      "sourceLink": "https://x.com/PSN62595111/status/2028056149803864269",
+      "sourcePublishedAt": "2026-03-01T10:34:00.000Z",
+      "author": {
+        "name": "PSN用アカウント",
+        "link": "https://x.com/PSN62595111"
+      },
+      "content": "a plunger in the style of a video game wiki website's page",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433524665_r15wio_HCEJKavaMAE1o8j.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433524665_r15wio_HCEJKavaMAE1o8j-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个视频游戏维基网站风格的马桶搋子页面",
+      "sourcePlatform": "twitter",
+      "searchIndex": "视频游戏维基风格的柱塞 通过 nano banana pro 为 google gemini 3.1 生成图像的提示，指示 ai 创建一个以视频游戏维基网站页面风格呈现的马桶搋子图像。 a plunger in the style of a video game wiki website's page 一个视频游戏维基网站风格的马桶搋子页面 psn用アカウント 11248",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11216,
+      "title": "强迫透视街头时尚摄影提示",
+      "description": "一个详细的提示，用于生成一张创意十足的强迫透视街头时尚照片。场景中，一位娇小的时尚年轻女子坐在一只巨大的、光泽的黑色高跟穆勒鞋里，这只鞋被两根手指夹着，强调超现实的细节、高端杂志美学和电影级的色彩分级。",
+      "sourceLink": "https://x.com/AIwithkhan/status/2028055918324383964",
+      "sourcePublishedAt": "2026-03-01T10:33:05.000Z",
+      "author": {
+        "name": "Smiling Khan",
+        "link": "https://x.com/AIwithkhan"
+      },
+      "content": "A creative forced-perspective street fashion photo of a tiny stylish young woman sitting inside a giant glossy black high-heel mule shoe, which is being held between two fingers in the foreground. The background is a textured gray stone wall, natural daylight, shallow depth of field, ultra-realistic details.\nShe is wearing a chic white oversized blazer, fitted black mini skirt, sheer black tights, and knee-high leather boots. She carries a small black designer handbag resting on her lap. Her loose wavy hair flows naturally under a beige beret, soft glam makeup, confident editorial expression, slightly looking to the side.\nThe oversized shoe is shiny patent black with metallic heel detail, dramatic fashion photography, playful scale illusion, high-end magazine aesthetic, sharp focus, 4K realism, cinematic color grading.*",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433514067_4xsmjm_HCUaGwoakAEpn3o.jpg",
+        "https://cms-assets.youmind.com/media/1772433514209_4e7m3m_HCUaG5NbAAMlsOW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433514067_4xsmjm_HCUaGwoakAEpn3o-300x327.jpg",
+        "https://cms-assets.youmind.com/media/1772433514209_4e7m3m_HCUaG5NbAAMlsOW-300x323.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张创意十足的强迫透视街头时尚照片，一位娇小的时尚年轻女子坐在一只巨大的、有光泽的黑色高跟穆勒鞋里，这只鞋在前景中被两根手指夹住。背景是纹理化的灰色石墙，自然日光，浅景深，超现实细节。\n她身穿别致的白色超大款西装外套、修身黑色迷你裙、透明黑色连裤袜和及膝皮靴。她腿上放着一个黑色小款设计师手袋。她蓬松的波浪发自然地垂在米色贝雷帽下，化着柔和的魅力妆容，表情自信，略微侧视。\n这只超大款鞋子是闪亮的漆皮黑色，带有金属鞋跟细节，戏剧性的时尚摄影，玩味十足的比例错觉，高端杂志美学，锐利焦点，4K 真实感，电影级色彩分级。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "强迫透视街头时尚摄影提示 一个详细的提示，用于生成一张创意十足的强迫透视街头时尚照片。场景中，一位娇小的时尚年轻女子坐在一只巨大的、光泽的黑色高跟穆勒鞋里，这只鞋被两根手指夹着，强调超现实的细节、高端杂志美学和电影级的色彩分级。 a creative forced-perspective street fashion photo of a tiny stylish young woman sitting inside a giant glossy black high-heel mule shoe, which is being held between two fingers in the foreground. the background is a textured gray stone wall, natural daylight, shallow depth of field, ultra-realistic details.\nshe is wearing a chic white oversized blazer, fitted black mini skirt, sheer black tights, and knee-high leather boots. she carries a small black designer handbag resting on her lap. her loose wavy hair flows naturally under a beige beret, soft glam makeup, confident editorial expression, slightly looking to the side.\nthe oversized shoe is shiny patent black with metallic heel detail, dramatic fashion photography, playful scale illusion, high-end magazine aesthetic, sharp focus, 4k realism, cinematic color grading.* 一张创意十足的强迫透视街头时尚照片，一位娇小的时尚年轻女子坐在一只巨大的、有光泽的黑色高跟穆勒鞋里，这只鞋在前景中被两根手指夹住。背景是纹理化的灰色石墙，自然日光，浅景深，超现实细节。\n她身穿别致的白色超大款西装外套、修身黑色迷你裙、透明黑色连裤袜和及膝皮靴。她腿上放着一个黑色小款设计师手袋。她蓬松的波浪发自然地垂在米色贝雷帽下，化着柔和的魅力妆容，表情自信，略微侧视。\n这只超大款鞋子是闪亮的漆皮黑色，带有金属鞋跟细节，戏剧性的时尚摄影，玩味十足的比例错觉，高端杂志美学，锐利焦点，4k 真实感，电影级色彩分级。 smiling khan 11216",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11186,
+      "title": "亲密写实派对自拍提示",
+      "description": "一个高度结构化的、基于 JSON 的提示，专为 Nano Banana 2 设计，旨在生成一张亲密、超真实的特写自拍，描绘两名女性在一家高档、光线昏暗的派对上亲吻脸颊的场景。该提示详细说明了两位主角、她们的服装、妆容、环境、灯光和相机光学器件的特征，以实现电影般的高制作美学效果。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2028052994986492240",
+      "sourcePublishedAt": "2026-03-01T10:21:28.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"image_type\": \"photorealistic intimate party selfie close-up, 8K ultra-detailed, sharp focus, masterpiece\",\n  \"subjects\": [\n    {\n      \"role\": \"blonde woman receiving kiss\",\n      \"gender\": \"female\",\n      \"age\": \"22-25\",\n      \"hair\": \"shoulder-length blonde with soft waves and highlights\",\n      \"makeup\": \"dramatic evening makeup (sharp black winged eyeliner, long false lashes, filled brows, glossy nude-pink lips)\",\n      \"expression\": \"playful pouty lips slightly pursed, eyes looking upward/sideways at camera, subtle teasing smile\",\n      \"clothing\": \"silver satin slip dress with thin straps, deep plunging neckline, silver sequin/crystal embellishment around bust\",\n      \"accessories\": \"thin diamond tennis necklace, small stud earrings\",\n      \"skin\": \"tanned/bronze with glossy/oiled highlight sheen on cheekbones, collarbones and décolletage\"\n    },\n    {\n      \"role\": \"platinum blonde woman giving kiss\",\n      \"gender\": \"female\",\n      \"age\": \"22-25\",\n      \"hair\": \"long straight platinum blonde\",\n      \"makeup\": \"soft natural makeup (subtle eyeliner, natural lashes, glossy pink lips)\",\n      \"expression\": \"eyes gently closed, lips pressed to other woman's cheek in affectionate kiss\",\n      \"clothing\": \"off-white/cream textured halter-neck dress with deep V-neckline, ruched/crinkled fabric\",\n      \"accessories\": \"oversized gold flower statement earrings (petal-like design)\",\n      \"skin\": \"very fair/pale with dewy glow\"\n    }\n  ],\n  \"interaction\": \"intimate cheek kiss moment, faces very close together, flirtatious and affectionate energy, left woman tilting head toward kiss, right woman leaning in\",\n  \"environment\": {\n    \"location\": \"dimly lit upscale indoor party / VIP lounge\",\n    \"backdrop\": \"dark textured stone or brick wall, subtle warm overhead spot lighting or candle glow, blurred bokeh lights in background corners\",\n    \"lighting\": \"low-key warm ambient + focused highlights on faces, glossy skin and jewelry, strong rim lighting on hair and shoulders, cinematic moody contrast\"\n  },\n  \"camera\": {\n    \"angle\": \"close-up selfie perspective (slightly low angle from phone held at chest height)\",\n    \"lens\": \"wide-angle phone lens with natural slight edge distortion, very shallow depth of field, razor-sharp focus on faces, lips, eyes and jewelry\",\n    \"composition\": \"tight frame from upper chest to top of heads, both faces filling most of the image, cheek-to-cheek contact centered, dark background creating intimate isolation\"\n  },\n  \"style\": \"hyper-realistic luxury party mirror/selfie photography, ultra-detailed textures (satin sheen, sequin/crystal sparkle, skin pores/oil glow, hair strands, lipstick gloss), cinematic warm-cool color grading with strong contrast, seductive and affectionate mood, high-production influencer aesthetic\",\n  \"technical\": \"8K resolutio\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433501682_3ps2su_HCUXb6JW4AERPVx.jpg",
+        "https://cms-assets.youmind.com/media/1772433501775_2ssx2a_HCUXcCIaQAAP_kz.jpg",
+        "https://cms-assets.youmind.com/media/1772433501783_46jtet_HCUXb99WgAE-G5H.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433501682_3ps2su_HCUXb6JW4AERPVx-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772433501775_2ssx2a_HCUXcCIaQAAP_kz-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1772433501783_46jtet_HCUXb99WgAE-G5H-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_type\": \"超写实亲密派对自拍特写，8K 超细节，锐利对焦，杰作\",\n  \"subjects\": [\n    {\n      \"role\": \"金发女子接受亲吻\",\n      \"gender\": \"女性\",\n      \"age\": \"22-25\",\n      \"hair\": \"齐肩金发，柔和波浪，带挑染\",\n      \"makeup\": \"浓艳晚妆（锐利黑色飞翼眼线，长款假睫毛，填充眉毛，光泽裸粉色唇妆）\",\n      \"expression\": \"俏皮嘟嘴，微噘，眼睛向上/侧向看向镜头，带着一丝调皮的微笑\",\n      \"clothing\": \"银色缎面吊带裙，细肩带，深 V 领口，胸部周围有银色亮片/水晶点缀\",\n      \"accessories\": \"细款钻石网球项链，小耳钉\",\n      \"skin\": \"晒黑/古铜色，颧骨、锁骨和肩颈部有光泽/油亮的高光\"\n    },\n    {\n      \"role\": \"铂金金发女子亲吻\",\n      \"gender\": \"女性\",\n      \"age\": \"22-25\",\n      \"hair\": \"长直铂金金发\",\n      \"makeup\": \"柔和自然妆容（淡雅眼线，自然睫毛，光泽粉色唇妆）\",\n      \"expression\": \"双眼轻闭，嘴唇轻触另一位女子脸颊，亲昵地亲吻\",\n      \"clothing\": \"米白/奶油色纹理露背挂脖连衣裙，深 V 领口，褶皱/起皱面料\",\n      \"accessories\": \"超大金色花朵造型耳环（花瓣状设计）\",\n      \"skin\": \"非常白皙/苍白，带有水润光泽\"\n    }\n  ],\n  \"interaction\": \"亲密的脸颊亲吻瞬间，脸部非常靠近，充满调情和亲昵的氛围，左侧女子头部倾向亲吻，右侧女子身体前倾\",\n  \"environment\": {\n    \"location\": \"昏暗的奢华室内派对 / VIP 酒廊\",\n    \"backdrop\": \"深色纹理石墙或砖墙，柔和温暖的顶部聚光灯或烛光，背景角落有模糊的散景灯光\",\n    \"lighting\": \"低调温暖的环境光 + 面部、光泽肌肤和珠宝上的聚焦高光，头发和肩膀上有强烈的轮廓光，电影般的忧郁对比度\"\n  },\n  \"camera\": {\n    \"angle\": \"特写自拍视角（手机在胸部高度，略微低角度）\",\n    \"lens\": \"广角手机镜头，带有自然的轻微边缘畸变，景深非常浅，面部、嘴唇、眼睛和珠宝对焦锐利\",\n    \"composition\": \"从胸部上方到头顶的紧凑构图，两张脸占据了图像的大部分，脸颊相触居中，深色背景营造出亲密的隔离感\"\n  },\n  \"style\": \"超现实奢华派对镜面/自拍摄影，超细节纹理（缎面光泽、亮片/水晶闪光、皮肤毛孔/油光、发丝、口红光泽），电影般的暖冷色调对比，强烈对比度，诱惑而亲昵的氛围，高水准网红美学\",\n  \"technical\": \"8K 分辨率\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "亲密写实派对自拍提示 一个高度结构化的、基于 json 的提示，专为 nano banana 2 设计，旨在生成一张亲密、超真实的特写自拍，描绘两名女性在一家高档、光线昏暗的派对上亲吻脸颊的场景。该提示详细说明了两位主角、她们的服装、妆容、环境、灯光和相机光学器件的特征，以实现电影般的高制作美学效果。 {\n  \"image_type\": \"photorealistic intimate party selfie close-up, 8k ultra-detailed, sharp focus, masterpiece\",\n  \"subjects\": [\n    {\n      \"role\": \"blonde woman receiving kiss\",\n      \"gender\": \"female\",\n      \"age\": \"22-25\",\n      \"hair\": \"shoulder-length blonde with soft waves and highlights\",\n      \"makeup\": \"dramatic evening makeup (sharp black winged eyeliner, long false lashes, filled brows, glossy nude-pink lips)\",\n      \"expression\": \"playful pouty lips slightly pursed, eyes looking upward/sideways at camera, subtle teasing smile\",\n      \"clothing\": \"silver satin slip dress with thin straps, deep plunging neckline, silver sequin/crystal embellishment around bust\",\n      \"accessories\": \"thin diamond tennis necklace, small stud earrings\",\n      \"skin\": \"tanned/bronze with glossy/oiled highlight sheen on cheekbones, collarbones and décolletage\"\n    },\n    {\n      \"role\": \"platinum blonde woman giving kiss\",\n      \"gender\": \"female\",\n      \"age\": \"22-25\",\n      \"hair\": \"long straight platinum blonde\",\n      \"makeup\": \"soft natural makeup (subtle eyeliner, natural lashes, glossy pink lips)\",\n      \"expression\": \"eyes gently closed, lips pressed to other woman's cheek in affectionate kiss\",\n      \"clothing\": \"off-white/cream textured halter-neck dress with deep v-neckline, ruched/crinkled fabric\",\n      \"accessories\": \"oversized gold flower statement earrings (petal-like design)\",\n      \"skin\": \"very fair/pale with dewy glow\"\n    }\n  ],\n  \"interaction\": \"intimate cheek kiss moment, faces very close together, flirtatious and affectionate energy, left woman tilting head toward kiss, right woman leaning in\",\n  \"environment\": {\n    \"location\": \"dimly lit upscale indoor party / vip lounge\",\n    \"backdrop\": \"dark textured stone or brick wall, subtle warm overhead spot lighting or candle glow, blurred bokeh lights in background corners\",\n    \"lighting\": \"low-key warm ambient + focused highlights on faces, glossy skin and jewelry, strong rim lighting on hair and shoulders, cinematic moody contrast\"\n  },\n  \"camera\": {\n    \"angle\": \"close-up selfie perspective (slightly low angle from phone held at chest height)\",\n    \"lens\": \"wide-angle phone lens with natural slight edge distortion, very shallow depth of field, razor-sharp focus on faces, lips, eyes and jewelry\",\n    \"composition\": \"tight frame from upper chest to top of heads, both faces filling most of the image, cheek-to-cheek contact centered, dark background creating intimate isolation\"\n  },\n  \"style\": \"hyper-realistic luxury party mirror/selfie photography, ultra-detailed textures (satin sheen, sequin/crystal sparkle, skin pores/oil glow, hair strands, lipstick gloss), cinematic warm-cool color grading with strong contrast, seductive and affectionate mood, high-production influencer aesthetic\",\n  \"technical\": \"8k resolutio\" {\n  \"image_type\": \"超写实亲密派对自拍特写，8k 超细节，锐利对焦，杰作\",\n  \"subjects\": [\n    {\n      \"role\": \"金发女子接受亲吻\",\n      \"gender\": \"女性\",\n      \"age\": \"22-25\",\n      \"hair\": \"齐肩金发，柔和波浪，带挑染\",\n      \"makeup\": \"浓艳晚妆（锐利黑色飞翼眼线，长款假睫毛，填充眉毛，光泽裸粉色唇妆）\",\n      \"expression\": \"俏皮嘟嘴，微噘，眼睛向上/侧向看向镜头，带着一丝调皮的微笑\",\n      \"clothing\": \"银色缎面吊带裙，细肩带，深 v 领口，胸部周围有银色亮片/水晶点缀\",\n      \"accessories\": \"细款钻石网球项链，小耳钉\",\n      \"skin\": \"晒黑/古铜色，颧骨、锁骨和肩颈部有光泽/油亮的高光\"\n    },\n    {\n      \"role\": \"铂金金发女子亲吻\",\n      \"gender\": \"女性\",\n      \"age\": \"22-25\",\n      \"hair\": \"长直铂金金发\",\n      \"makeup\": \"柔和自然妆容（淡雅眼线，自然睫毛，光泽粉色唇妆）\",\n      \"expression\": \"双眼轻闭，嘴唇轻触另一位女子脸颊，亲昵地亲吻\",\n      \"clothing\": \"米白/奶油色纹理露背挂脖连衣裙，深 v 领口，褶皱/起皱面料\",\n      \"accessories\": \"超大金色花朵造型耳环（花瓣状设计）\",\n      \"skin\": \"非常白皙/苍白，带有水润光泽\"\n    }\n  ],\n  \"interaction\": \"亲密的脸颊亲吻瞬间，脸部非常靠近，充满调情和亲昵的氛围，左侧女子头部倾向亲吻，右侧女子身体前倾\",\n  \"environment\": {\n    \"location\": \"昏暗的奢华室内派对 / vip 酒廊\",\n    \"backdrop\": \"深色纹理石墙或砖墙，柔和温暖的顶部聚光灯或烛光，背景角落有模糊的散景灯光\",\n    \"lighting\": \"低调温暖的环境光 + 面部、光泽肌肤和珠宝上的聚焦高光，头发和肩膀上有强烈的轮廓光，电影般的忧郁对比度\"\n  },\n  \"camera\": {\n    \"angle\": \"特写自拍视角（手机在胸部高度，略微低角度）\",\n    \"lens\": \"广角手机镜头，带有自然的轻微边缘畸变，景深非常浅，面部、嘴唇、眼睛和珠宝对焦锐利\",\n    \"composition\": \"从胸部上方到头顶的紧凑构图，两张脸占据了图像的大部分，脸颊相触居中，深色背景营造出亲密的隔离感\"\n  },\n  \"style\": \"超现实奢华派对镜面/自拍摄影，超细节纹理（缎面光泽、亮片/水晶闪光、皮肤毛孔/油光、发丝、口红光泽），电影般的暖冷色调对比，强烈对比度，诱惑而亲昵的氛围，高水准网红美学\",\n  \"technical\": \"8k 分辨率\"\n} keorunreal 11186",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11227,
+      "title": "香水瓶产品图，带撕纸效果",
+      "description": "一张高度具体、逼真的商业产品照片提示，内容是迪奥（Dior）香水瓶。主要特点是背景纸上有一道连续的水平撕裂，这道撕裂在视觉上穿过玻璃瓶，在撕裂的通道内露出一层浓密、充满活力的柑橘皮。",
+      "sourceLink": "https://x.com/SeyeadAiDirX/status/2028052318349148317",
+      "sourcePublishedAt": "2026-03-01T10:18:46.000Z",
+      "author": {
+        "name": "Seyead S",
+        "link": "https://x.com/SeyeadAiDirX"
+      },
+      "content": "\"A photorealistic, highly detailed commercial product photograph of a heavy cylindrical midnight-blue glass Dior perfume bottle centered against a minimal, textured dusky twilight blue paper background, with subtle fibers visible. A single, continuous horizontal paper-tear strip runs across the entire width of the frame, seamless from the far-right edge to the far-left edge. The torn channel cuts through the thick glass body of the referance perfume bottle and continues across the background on both sides with a barely perceptible and minimal diagonal slope towards the upper-left. The tear channel is significantly broader, revealing a dense, glistening, and vibrant layer of citrus and bright bergamot zest tightly packed inside. Near the extreme far-left end of this tear, the paper is neatly rolled into a tight, realistic coil that occupies almost the entire left margin. The lighting is soft and cinematic, casting delicate drop shadows beneath the torn paper edges and the large left coil. 8k resolution, macro details on fibrous paper and glossy citrus texture.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433518726_0qhr9g_HCUPYa_bEAAfrEt.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433518726_0qhr9g_HCUPYa_bEAAfrEt-300x375.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张逼真的、高度精细的商业产品照片，展示了一个沉重的圆柱形午夜蓝色迪奥（Dior）香水瓶，居中放置在简约、有纹理的昏暗暮蓝色纸质背景上，纸张的细微纤维清晰可见。一条连续的水平纸张撕裂带贯穿整个画面宽度，从最右边缘无缝延伸至最左边缘。撕裂的通道穿过参考香水瓶的厚玻璃瓶身，并向左上方略微倾斜，几乎难以察觉地延伸至两侧的背景。撕裂的通道明显更宽，露出了内部紧密堆积的浓密、闪亮、充满活力的柑橘和明亮佛手柑皮层。在撕裂带的最左端附近，纸张被整齐地卷成一个紧实的、逼真的卷筒，几乎占据了整个左侧边缘。灯光柔和而富有电影感，在撕裂的纸张边缘和左侧大卷筒下方投射出精致的阴影。8K 分辨率，纤维纸张和光泽柑橘纹理的微距细节。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "香水瓶产品图，带撕纸效果 一张高度具体、逼真的商业产品照片提示，内容是迪奥（dior）香水瓶。主要特点是背景纸上有一道连续的水平撕裂，这道撕裂在视觉上穿过玻璃瓶，在撕裂的通道内露出一层浓密、充满活力的柑橘皮。 \"a photorealistic, highly detailed commercial product photograph of a heavy cylindrical midnight-blue glass dior perfume bottle centered against a minimal, textured dusky twilight blue paper background, with subtle fibers visible. a single, continuous horizontal paper-tear strip runs across the entire width of the frame, seamless from the far-right edge to the far-left edge. the torn channel cuts through the thick glass body of the referance perfume bottle and continues across the background on both sides with a barely perceptible and minimal diagonal slope towards the upper-left. the tear channel is significantly broader, revealing a dense, glistening, and vibrant layer of citrus and bright bergamot zest tightly packed inside. near the extreme far-left end of this tear, the paper is neatly rolled into a tight, realistic coil that occupies almost the entire left margin. the lighting is soft and cinematic, casting delicate drop shadows beneath the torn paper edges and the large left coil. 8k resolution, macro details on fibrous paper and glossy citrus texture.\" 一张逼真的、高度精细的商业产品照片，展示了一个沉重的圆柱形午夜蓝色迪奥（dior）香水瓶，居中放置在简约、有纹理的昏暗暮蓝色纸质背景上，纸张的细微纤维清晰可见。一条连续的水平纸张撕裂带贯穿整个画面宽度，从最右边缘无缝延伸至最左边缘。撕裂的通道穿过参考香水瓶的厚玻璃瓶身，并向左上方略微倾斜，几乎难以察觉地延伸至两侧的背景。撕裂的通道明显更宽，露出了内部紧密堆积的浓密、闪亮、充满活力的柑橘和明亮佛手柑皮层。在撕裂带的最左端附近，纸张被整齐地卷成一个紧实的、逼真的卷筒，几乎占据了整个左侧边缘。灯光柔和而富有电影感，在撕裂的纸张边缘和左侧大卷筒下方投射出精致的阴影。8k 分辨率，纤维纸张和光泽柑橘纹理的微距细节。 seyead s 11227",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11181,
+      "title": "超现实宏观时尚构图",
+      "description": "一个用于生成超现实、超现实时尚摄影作品的提示，该作品利用了极致的比例对比。它详细描述了一个人躯干和手的特写微距镜头，其指尖上坐着一个微型化的、穿着考究的时尚女性。该提示指定了奢华街头服饰美学、电影般的编辑照明，以及 85mm 微距镜头效果和 4K 分辨率等技术细节。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2028047331254571169",
+      "sourcePublishedAt": "2026-03-01T09:58:57.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "Ultra-realistic surreal fashion composition of a stylish young woman miniaturized and sitting on a fingertip, creating a dramatic scale contrast. Close-up macro shot of a woman’s torso wearing a deep burgundy textured jacket with silver zipper and metal studs, crisp white shirt, sleek black satin tie with ornate gold tie clip, and a decorative crest pin on the collar. Her hand is slightly raised, wearing bold silver statement rings and a thick metallic thumb ring.\nOn the tip of her index finger sits a tiny fashionable woman dressed in a cropped burgundy jacket, oversized black wide-leg trousers, black-and-white loafers with visible red socks, and a black baseball cap with white NY logo. The miniature woman lightly touches the brim of her cap, head tilted down in a confident pose.\nCinematic editorial lighting, hyper-detailed fabric textures, sharp macro focus, shallow depth of field, dramatic perspective, luxury streetwear aesthetic, surreal scale illusion, 85mm macro lens look, ultra HD 4K, Vogue-style fashion photography, rich color contrast, crisp realistic skin tones.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433499466_jrg364_HCUSTIKaIAEUN1b.jpg",
+        "https://cms-assets.youmind.com/media/1772433499460_u40jtb_HCUSTBJbAAApjbZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433499466_jrg364_HCUSTIKaIAEUN1b-300x323.jpg",
+        "https://cms-assets.youmind.com/media/1772433499460_u40jtb_HCUSTBJbAAApjbZ-300x321.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超现实主义时尚构图，一位时尚年轻女性被微缩，坐在一根指尖上，营造出强烈的比例对比。特写微距镜头展现了这位女性的上半身，她身穿一件深勃艮第色纹理夹克，配有银色拉链和金属铆钉，内搭一件挺括的白衬衫，系着一条光滑的黑色缎面领带，领带上别着一个华丽的金色领带夹，衣领上佩戴着一枚装饰性徽章。她的手微微抬起，戴着醒目的银色宣言戒指和一枚粗大的金属拇指戒指。\n在她食指的指尖上，坐着一位娇小的时尚女性，她身穿一件短款勃艮第色夹克、超大黑色阔腿裤、黑白乐福鞋（露出红色袜子），头戴一顶印有白色 NY 标志的黑色棒球帽。这位微缩女性轻轻触碰帽檐，头微微向下倾斜，姿态自信。\n电影般的编辑照明，超精细的织物纹理，锐利的微距对焦，浅景深，戏剧性的视角，奢华街头服饰美学，超现实的比例错觉，85mm 微距镜头效果，超高清 4K，Vogue 风格时尚摄影，丰富的色彩对比，清晰逼真的肤色。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实宏观时尚构图 一个用于生成超现实、超现实时尚摄影作品的提示，该作品利用了极致的比例对比。它详细描述了一个人躯干和手的特写微距镜头，其指尖上坐着一个微型化的、穿着考究的时尚女性。该提示指定了奢华街头服饰美学、电影般的编辑照明，以及 85mm 微距镜头效果和 4k 分辨率等技术细节。 ultra-realistic surreal fashion composition of a stylish young woman miniaturized and sitting on a fingertip, creating a dramatic scale contrast. close-up macro shot of a woman’s torso wearing a deep burgundy textured jacket with silver zipper and metal studs, crisp white shirt, sleek black satin tie with ornate gold tie clip, and a decorative crest pin on the collar. her hand is slightly raised, wearing bold silver statement rings and a thick metallic thumb ring.\non the tip of her index finger sits a tiny fashionable woman dressed in a cropped burgundy jacket, oversized black wide-leg trousers, black-and-white loafers with visible red socks, and a black baseball cap with white ny logo. the miniature woman lightly touches the brim of her cap, head tilted down in a confident pose.\ncinematic editorial lighting, hyper-detailed fabric textures, sharp macro focus, shallow depth of field, dramatic perspective, luxury streetwear aesthetic, surreal scale illusion, 85mm macro lens look, ultra hd 4k, vogue-style fashion photography, rich color contrast, crisp realistic skin tones. 超现实主义时尚构图，一位时尚年轻女性被微缩，坐在一根指尖上，营造出强烈的比例对比。特写微距镜头展现了这位女性的上半身，她身穿一件深勃艮第色纹理夹克，配有银色拉链和金属铆钉，内搭一件挺括的白衬衫，系着一条光滑的黑色缎面领带，领带上别着一个华丽的金色领带夹，衣领上佩戴着一枚装饰性徽章。她的手微微抬起，戴着醒目的银色宣言戒指和一枚粗大的金属拇指戒指。\n在她食指的指尖上，坐着一位娇小的时尚女性，她身穿一件短款勃艮第色夹克、超大黑色阔腿裤、黑白乐福鞋（露出红色袜子），头戴一顶印有白色 ny 标志的黑色棒球帽。这位微缩女性轻轻触碰帽檐，头微微向下倾斜，姿态自信。\n电影般的编辑照明，超精细的织物纹理，锐利的微距对焦，浅景深，戏剧性的视角，奢华街头服饰美学，超现实的比例错觉，85mm 微距镜头效果，超高清 4k，vogue 风格时尚摄影，丰富的色彩对比，清晰逼真的肤色。 synthia 11181",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11160,
+      "title": "移轴微缩模型城市提示词（上海）",
+      "description": "一个旨在生成城市（上海）移轴微缩模型透视画的提示，其中融入了浮动岩层、厚木底座、黄铜文字和蒸汽朋克齿轮等元素，强调高度精细的小型建筑可视化效果。",
+      "sourceLink": "https://x.com/Gdgtify/status/2028034507836690907",
+      "sourcePublishedAt": "2026-03-01T09:08:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "City_Name = {argument name=\"city name\" default=\"Shanghai\"} {+Macro +Tilt_Shift +Diorama +[CITY_NAME]_Architecture_Miniature +Floating_Rock_Strata +Subterranean_Tiny_Road +Thick_Wood_Plinth +3D_Brass_Text_\"{argument name=\"city name\" default=\"Shanghai\"}\" +Steampunk_Gear_Wheels_Base +Brass_Compass_Prop +Blurred_Study_Background -Real_Size -CGI -Flat -Human_Scale -Illustration }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433491341_u6dc1h_HB-bcoKXIAAG9Kk.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433491341_u6dc1h_HB-bcoKXIAAG9Kk-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "City_Name = {argument name=\"city name\" default=\"上海\"} {+Macro +Tilt_Shift +Diorama +[CITY_NAME]_Architecture_Miniature +Floating_Rock_Strata +Subterranean_Tiny_Road +Thick_Wood_Plinth +3D_Brass_Text_\"{argument name=\"city name\" default=\"上海\"}\" +Steampunk_Gear_Wheels_Base +Brass_Compass_Prop +Blurred_Study_Background -Real_Size -CGI -Flat -Human_Scale -Illustration }",
+      "sourcePlatform": "twitter",
+      "searchIndex": "移轴微缩模型城市提示词（上海） 一个旨在生成城市（上海）移轴微缩模型透视画的提示，其中融入了浮动岩层、厚木底座、黄铜文字和蒸汽朋克齿轮等元素，强调高度精细的小型建筑可视化效果。 city_name = {argument name=\"city name\" default=\"shanghai\"} {+macro +tilt_shift +diorama +[city_name]_architecture_miniature +floating_rock_strata +subterranean_tiny_road +thick_wood_plinth +3d_brass_text_\"{argument name=\"city name\" default=\"shanghai\"}\" +steampunk_gear_wheels_base +brass_compass_prop +blurred_study_background -real_size -cgi -flat -human_scale -illustration } city_name = {argument name=\"city name\" default=\"上海\"} {+macro +tilt_shift +diorama +[city_name]_architecture_miniature +floating_rock_strata +subterranean_tiny_road +thick_wood_plinth +3d_brass_text_\"{argument name=\"city name\" default=\"上海\"}\" +steampunk_gear_wheels_base +brass_compass_prop +blurred_study_background -real_size -cgi -flat -human_scale -illustration } gadgetify 11160",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11205,
+      "title": "历史时刻捕捉提示",
+      "description": "一个尝试通过指定确切地理坐标、日期和时间（公元前 30 年 8 月 12 日 16:00，北纬 31.2001°，东经 29.9187°，靠近埃及亚历山大港）来捕捉历史时刻的提示。",
+      "sourceLink": "https://x.com/AIGenCanvas/status/2028034263589748874",
+      "sourcePublishedAt": "2026-03-01T09:07:02.000Z",
+      "author": {
+        "name": "Rina",
+        "link": "https://x.com/AIGenCanvas"
+      },
+      "content": "take a photo at {argument name=\"latitude\" default=\"31.2001° N\"}, {argument name=\"longitude\" default=\"29.9187° E\"}, {argument name=\"date\" default=\"August 12, 30 BCE\"}, {argument name=\"time\" default=\"16:00 hours\"}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433507796_j5eoqw_HCUGaf5XYAAMJ39.jpg",
+        "https://cms-assets.youmind.com/media/1772433507798_6pb0dr_HCUGaheWkAE_Aa4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433507796_j5eoqw_HCUGaf5XYAAMJ39-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1772433507798_6pb0dr_HCUGaheWkAE_Aa4-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "在 {argument name=\"latitude\" default=\"北纬 31.2001°\"}、{argument name=\"longitude\" default=\"东经 29.9187°\"}，于 {argument name=\"date\" default=\"公元前 30 年 8 月 12 日\"} {argument name=\"time\" default=\"16:00\"} 拍照",
+      "sourcePlatform": "twitter",
+      "searchIndex": "历史时刻捕捉提示 一个尝试通过指定确切地理坐标、日期和时间（公元前 30 年 8 月 12 日 16:00，北纬 31.2001°，东经 29.9187°，靠近埃及亚历山大港）来捕捉历史时刻的提示。 take a photo at {argument name=\"latitude\" default=\"31.2001° n\"}, {argument name=\"longitude\" default=\"29.9187° e\"}, {argument name=\"date\" default=\"august 12, 30 bce\"}, {argument name=\"time\" default=\"16:00 hours\"} 在 {argument name=\"latitude\" default=\"北纬 31.2001°\"}、{argument name=\"longitude\" default=\"东经 29.9187°\"}，于 {argument name=\"date\" default=\"公元前 30 年 8 月 12 日\"} {argument name=\"time\" default=\"16:00\"} 拍照 rina 11205",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11250,
+      "title": "浮世绘与工业融合的写实肖像",
+      "description": "一个复杂的图像生成提示，用于 Nano Banana Pro、Nano Banana 2、GPT Image 1.5 和 Seedream 5，重点是一个融合了都市、工业和浮世绘（日本木版画）元素的超写实肖像，具有详细的纹理、几何形状以及在面部工作的微型浮世绘工匠。",
+      "sourceLink": "https://x.com/lovart_jp/status/2028032501021569200",
+      "sourcePublishedAt": "2026-03-01T09:00:01.000Z",
+      "author": {
+        "name": "Lovart 公式 (ラブアート)",
+        "link": "https://x.com/lovart_jp"
+      },
+      "content": "添付画像の女性をモデルとする。横顔のポートレート。左向きの横顔で、クールで知的な表情。バストアップ構図。\n\n女性の顔と肌は完全にフォトリアルな写真品質を維持する。これは最優先事項であり、イラスト調やアニメ調にならない。毛穴、産毛、まつ毛の一本一本、耳の軟骨の透け感まで見える超高精細な質感。\n\n背景と装飾要素はアーバンとインダストリアルと浮世絵の融合。画面全体にグリッド線と計測線が走っているが、そのグリッドの一部が葛飾北斎の波の曲線に変形している。直線的な設計図の線が、ある地点から急に波頭のうねりへと変貌する。数値やスケール表記が縦書きの和文と混在している。\n\n背景に配置された鋭い幾何学的な三角形やラインは藍色で、その藍は浮世絵の藍摺りと同じ深い青。三角形の内部には木版画の波模様や渦巻き文様が透けて見える。幾何学と浮世絵の文様が一つの画面で共存している。\n\nミニチュアサイズの人々が女性の顔や輪郭の上で作業している。江戸時代の木版画の彫師と摺師で、小さな彫刻刀で版木を彫り、バレンで和紙に摺っている。浮世絵の職人たちは藍色の着物を着ている。小さな足場と梯子が顔の輪郭に沿って架けられている。\n\n女性の横顔の輪郭線は、ある部分はシャープなデジタルのベクター線、別の部分は墨と筆による浮世絵の輪郭線になっている。二つの線描技法が一人の顔の上で交差している。\n\nインクのスプラッターと飛沫が画面全体に散っているが、黒いインクの飛沫に混じって藍色の墨の飛沫と朱色の飛沫が混在している。グランジテクスチャはコンクリートの壁の質感と和紙の繊維の質感が重なり合っている。\n\n画面内に文字、テキスト、タイポグラフィ、日本語の文字列、落款印、印鑑、ハンコ、署名は一切含まない。\n\n照明はコントラスト強めのドラマチックな陰影。画面左からの硬い光で横顔の輪郭がはっきりとした明暗で浮かび上がる。フィルムグレイン。超高解像度。シャープ。アートポスター風。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433524876_ifezi5_HCPtwZzbEAgbhPU.jpg",
+        "https://cms-assets.youmind.com/media/1772433524862_lclvve_HCPtv7PbEAYFXA0.jpg",
+        "https://cms-assets.youmind.com/media/1772433524874_kctj4r_HCPtv0QbEAEY63E.jpg",
+        "https://cms-assets.youmind.com/media/1772433525445_na6ocm_HCPtw5zbYAAMCF-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433524876_ifezi5_HCPtwZzbEAgbhPU-300x200.jpg",
+        "https://cms-assets.youmind.com/media/1772433524862_lclvve_HCPtv7PbEAYFXA0-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1772433524874_kctj4r_HCPtv0QbEAEY63E-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1772433525445_na6ocm_HCPtw5zbYAAMCF--300x200.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "以所附的女性图片为模型。一张侧面肖像。左侧面，表情冷静而睿智。半身构图。\n\n女性的面部和皮肤必须保持完全逼真的摄影质量。这是最高优先级，确保没有插画或动漫风格。超高清纹理，每个毛孔、细发、睫毛和耳软骨的半透明度都清晰可见。\n\n背景和装饰元素融合了都市、工业和浮世绘（日本木刻版画）风格。网格线和测量线贯穿整个画面，但部分网格线转化为葛饰北斋海浪的曲线。笔直的设计线条在某个点突然变成波峰的汹涌。数字和比例标记与垂直的日文文本混合在一起。\n\n背景中锐利的几何三角形和线条是靛蓝色，与浮世绘的“蓝摺”（靛蓝印刷）深蓝色相同。木刻波浪图案和漩涡图案透过三角形内部可见。几何图形和浮世绘图案在同一画面中并存。\n\n微型人物在女性的面部和轮廓上工作。他们是江户时代的浮世绘雕刻师和印刷师，用小凿子雕刻木板，并用马莲在和纸上印刷。这些浮世绘工匠穿着靛蓝色和服。小型的脚手架和梯子沿着面部轮廓搭建。\n\n女性侧面轮廓的线条，部分是锐利的数字矢量线，部分是墨水和画笔绘制的浮世绘轮廓。两种线条绘制技术在同一个人的脸上交织。\n\n墨滴和墨点散落在整个画面中，靛蓝色墨滴和朱红色墨滴与黑色墨滴混合在一起。粗糙的纹理是混凝土墙纹理和和纸纤维纹理的结合。\n\n图片中绝对不包含任何字符、文本、排版、日文字符串、印章、图章、判子或签名。\n\n灯光呈现出戏剧性的阴影，对比强烈。屏幕左侧的硬光使侧面轮廓清晰突出，光影分明。电影颗粒感。超高分辨率。锐利。艺术海报风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "浮世绘与工业融合的写实肖像 一个复杂的图像生成提示，用于 nano banana pro、nano banana 2、gpt image 1.5 和 seedream 5，重点是一个融合了都市、工业和浮世绘（日本木版画）元素的超写实肖像，具有详细的纹理、几何形状以及在面部工作的微型浮世绘工匠。 添付画像の女性をモデルとする。横顔のポートレート。左向きの横顔で、クールで知的な表情。バストアップ構図。\n\n女性の顔と肌は完全にフォトリアルな写真品質を維持する。これは最優先事項であり、イラスト調やアニメ調にならない。毛穴、産毛、まつ毛の一本一本、耳の軟骨の透け感まで見える超高精細な質感。\n\n背景と装飾要素はアーバンとインダストリアルと浮世絵の融合。画面全体にグリッド線と計測線が走っているが、そのグリッドの一部が葛飾北斎の波の曲線に変形している。直線的な設計図の線が、ある地点から急に波頭のうねりへと変貌する。数値やスケール表記が縦書きの和文と混在している。\n\n背景に配置された鋭い幾何学的な三角形やラインは藍色で、その藍は浮世絵の藍摺りと同じ深い青。三角形の内部には木版画の波模様や渦巻き文様が透けて見える。幾何学と浮世絵の文様が一つの画面で共存している。\n\nミニチュアサイズの人々が女性の顔や輪郭の上で作業している。江戸時代の木版画の彫師と摺師で、小さな彫刻刀で版木を彫り、バレンで和紙に摺っている。浮世絵の職人たちは藍色の着物を着ている。小さな足場と梯子が顔の輪郭に沿って架けられている。\n\n女性の横顔の輪郭線は、ある部分はシャープなデジタルのベクター線、別の部分は墨と筆による浮世絵の輪郭線になっている。二つの線描技法が一人の顔の上で交差している。\n\nインクのスプラッターと飛沫が画面全体に散っているが、黒いインクの飛沫に混じって藍色の墨の飛沫と朱色の飛沫が混在している。グランジテクスチャはコンクリートの壁の質感と和紙の繊維の質感が重なり合っている。\n\n画面内に文字、テキスト、タイポグラフィ、日本語の文字列、落款印、印鑑、ハンコ、署名は一切含まない。\n\n照明はコントラスト強めのドラマチックな陰影。画面左からの硬い光で横顔の輪郭がはっきりとした明暗で浮かび上がる。フィルムグレイン。超高解像度。シャープ。アートポスター風。 以所附的女性图片为模型。一张侧面肖像。左侧面，表情冷静而睿智。半身构图。\n\n女性的面部和皮肤必须保持完全逼真的摄影质量。这是最高优先级，确保没有插画或动漫风格。超高清纹理，每个毛孔、细发、睫毛和耳软骨的半透明度都清晰可见。\n\n背景和装饰元素融合了都市、工业和浮世绘（日本木刻版画）风格。网格线和测量线贯穿整个画面，但部分网格线转化为葛饰北斋海浪的曲线。笔直的设计线条在某个点突然变成波峰的汹涌。数字和比例标记与垂直的日文文本混合在一起。\n\n背景中锐利的几何三角形和线条是靛蓝色，与浮世绘的“蓝摺”（靛蓝印刷）深蓝色相同。木刻波浪图案和漩涡图案透过三角形内部可见。几何图形和浮世绘图案在同一画面中并存。\n\n微型人物在女性的面部和轮廓上工作。他们是江户时代的浮世绘雕刻师和印刷师，用小凿子雕刻木板，并用马莲在和纸上印刷。这些浮世绘工匠穿着靛蓝色和服。小型的脚手架和梯子沿着面部轮廓搭建。\n\n女性侧面轮廓的线条，部分是锐利的数字矢量线，部分是墨水和画笔绘制的浮世绘轮廓。两种线条绘制技术在同一个人的脸上交织。\n\n墨滴和墨点散落在整个画面中，靛蓝色墨滴和朱红色墨滴与黑色墨滴混合在一起。粗糙的纹理是混凝土墙纹理和和纸纤维纹理的结合。\n\n图片中绝对不包含任何字符、文本、排版、日文字符串、印章、图章、判子或签名。\n\n灯光呈现出戏剧性的阴影，对比强烈。屏幕左侧的硬光使侧面轮廓清晰突出，光影分明。电影颗粒感。超高分辨率。锐利。艺术海报风格。 lovart 公式 (ラブアート) 11250",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11212,
+      "title": "TikTok 创作者手持产品截图",
+      "description": "一个简单的提示，要求截取一张 TikTok 创作者在她厨房里手持特定产品的图片。",
+      "sourceLink": "https://x.com/uche_aniak81378/status/2028029035150733688",
+      "sourcePublishedAt": "2026-03-01T08:46:15.000Z",
+      "author": {
+        "name": "Genevieve",
+        "link": "https://x.com/uche_aniak81378"
+      },
+      "content": "Screengrab of a TikTok creator holding this product in her kitchen.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433511889_z5ir09_HCUBpzsWwAAc0yM.jpg",
+        "https://cms-assets.youmind.com/media/1772433511872_03zfan_HCUBpzsWUAAtZzL.jpg",
+        "https://cms-assets.youmind.com/media/1772433511797_319g70_HCUBpztWIAEs5gV.jpg",
+        "https://cms-assets.youmind.com/media/1772433512656_6e15co_HCUBpzvXMAApOP5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433511889_z5ir09_HCUBpzsWwAAc0yM-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772433511872_03zfan_HCUBpzsWUAAtZzL-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772433511797_319g70_HCUBpztWIAEs5gV-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772433512656_6e15co_HCUBpzvXMAApOP5-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位 TikTok 创作者在厨房里拿着这款产品的屏幕截图。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "tiktok 创作者手持产品截图 一个简单的提示，要求截取一张 tiktok 创作者在她厨房里手持特定产品的图片。 screengrab of a tiktok creator holding this product in her kitchen. 一位 tiktok 创作者在厨房里拿着这款产品的屏幕截图。 genevieve 11212",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11244,
+      "title": "高速滑板特技视频提示",
+      "description": "一个用于 Grok 的详细视频生成提示，内容是高速、杂技般的滑板特技，通过动态剪辑和摄像机角度捕捉，并配以 EDM 音乐。静态图像是使用 Nano Banana 2 生成的。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2028028312476365020",
+      "sourcePublishedAt": "2026-03-01T08:43:23.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nMoving at super, super speeds.\nSuper, super fast skateboarding techniques, super acrobatic skateboard tricks at super, super fast speeds.\n\nScene 2:\nSuper acrobatic skateboard tricks at super, super, super, super super speeds.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人实景，高速剪辑，多帧画面，24fps，超写实，高质量真人实景。2.5 倍速动作。\n剪辑：镜头由多个摄像机角度剪辑而成，包括航拍和无人机镜头。\n音乐：EDM\n场景 1：\n以超超快的速度移动。\n超超快的滑板技巧，以超超快的速度完成超高难度的滑板特技。\n\n场景 2：\n以超超超超超快的速度完成超高难度的滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高速滑板特技视频提示 一个用于 grok 的详细视频生成提示，内容是高速、杂技般的滑板特技，通过动态剪辑和摄像机角度捕捉，并配以 edm 音乐。静态图像是使用 nano banana 2 生成的。 quality: live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nmoving at super, super speeds.\nsuper, super fast skateboarding techniques, super acrobatic skateboard tricks at super, super fast speeds.\n\nscene 2:\nsuper acrobatic skateboard tricks at super, super, super, super super speeds. 质量：真人实景，高速剪辑，多帧画面，24fps，超写实，高质量真人实景。2.5 倍速动作。\n剪辑：镜头由多个摄像机角度剪辑而成，包括航拍和无人机镜头。\n音乐：edm\n场景 1：\n以超超快的速度移动。\n超超快的滑板技巧，以超超快的速度完成超高难度的滑板特技。\n\n场景 2：\n以超超超超超快的速度完成超高难度的滑板特技。 とすくん 11244",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11168,
+      "title": "豪华汽车编辑照片提示",
+      "description": "一个高度结构化的提示，用于生成一张在豪华 SUV 驾驶座上的年轻男子的精致编辑摄影作品。它通过三分法、详细的色彩配置文件、高对比度的自然窗户照明和技术规格，精心定义了构图，以实现传达财富和休闲的逼真、精致美学。",
+      "sourceLink": "https://x.com/pictsbyai/status/2028025827154121057",
+      "sourcePublishedAt": "2026-03-01T08:33:30.000Z",
+      "author": {
+        "name": "Picts by AI",
+        "link": "https://x.com/pictsbyai"
+      },
+      "content": "{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"layered\",\n\"focal_points\": [\n\"Subject's face illuminated by natural light\",\n\"Black gloved left hand resting on the steering wheel\"\n],\n\"visual_hierarchy\": \"Eye starts at the subject's brightly lit face, moves down to the black gloved left hand on the steering wheel, sweeps right across the center console to the relaxed right hand, and finally moves up to the exterior landscape visible through the windows.\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"Black\",\n\"hex\": \"#111111\",\n\"percentage\": \"50%\",\n\"role\": \"primary subject clothing, driving gloves, and vehicle interior\"\n},\n{\n\"color\": \"Pine Green\",\n\"hex\": \"#2D4C1E\",\n\"percentage\": \"15%\",\n\"role\": \"background landscape\"\n},\n{\n\"color\": \"Sky Blue\",\n\"hex\": \"#4A90E2\",\n\"percentage\": \"10%\",\n\"role\": \"background sky through sunroof\"\n},\n{\n\"color\": \"Warm Tan\",\n\"hex\": \"#C49A6C\",\n\"percentage\": \"10%\",\n\"role\": \"accent interior wood trim\"\n}\n],\n\"color_palette\": \"complementary\",\n\"temperature\": \"neutral\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural window\",\n\"source_count\": \"multiple sources\",\n\"direction\": \"front-top\",\n\"directionality\": \"highly directional\",\n\"quality\": \"soft light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"sophisticated\",\n\"shadows\": {\n\"type\": \"soft gradual edges\",\n\"density\": \"deep black\",\n\"placement\": \"under the jaw, across the right side of the face, deep in the lower footwell of the car\",\n\"length\": \"short\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on face, cheekbones, nose bridge, steering wheel chrome accents, and center console silver switches\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"medium\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial\",\n\"influences\": [\n\"Luxury automotive lifestyle photography\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"luxurious, calm, and highly polished aesthetic conveying wealth and leisure\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"Young male model sitting in driver's seat of luxury SUV wearing black coat and black leather gloves\",\n\"positioning\": \"left\",\n\"scale\": \"medium\",\n\"interaction\": \"interacting with environment\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"no smile\",\n\"eyes\": \"looking away upward\",\n\"eyebrows\": \"relaxed\",\n\"overall_emotion\": \"confident\",\n\"aut",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433494699_3xbk8w_HCT-tVabEAQ40y-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433494699_3xbk8w_HCT-tVabEAQ40y--300x314.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法构图\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"分层\",\n\"focal_points\": [\n\"主体面部被自然光照亮\",\n\"戴着黑色手套的左手搭在方向盘上\"\n],\n\"visual_hierarchy\": \"视线从主体明亮的脸部开始，向下移至方向盘上戴着黑色手套的左手，向右扫过中控台，到达放松的右手，最后向上移至透过车窗可见的外部景色。\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"黑色\",\n\"hex\": \"#111111\",\n\"percentage\": \"50%\",\n\"role\": \"主体服装、驾驶手套和车辆内饰\"\n},\n{\n\"color\": \"松绿色\",\n\"hex\": \"#2D4C1E\",\n\"percentage\": \"15%\",\n\"role\": \"背景景观\"\n},\n{\n\"color\": \"天蓝色\",\n\"hex\": \"#4A90E2\",\n\"percentage\": \"10%\",\n\"role\": \"透过天窗看到的背景天空\"\n},\n{\n\"color\": \"暖棕褐色\",\n\"hex\": \"#C49A6C\",\n\"percentage\": \"10%\",\n\"role\": \"点缀内饰木饰\"\n}\n],\n\"color_palette\": \"互补色\",\n\"temperature\": \"中性\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然窗光\",\n\"source_count\": \"多光源\",\n\"direction\": \"前上方\",\n\"directionality\": \"高度定向\",\n\"quality\": \"柔和光线\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"精致\",\n\"shadows\": {\n\"type\": \"柔和渐变边缘\",\n\"density\": \"深黑色\",\n\"placement\": \"下颌下方、脸部右侧、汽车脚部空间深处\",\n\"length\": \"短\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"脸部、颧骨、鼻梁、方向盘镀铬装饰和中控台银色开关\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极致锐利\",\n\"grain\": \"无\",\n\"depth_of_field\": \"中等\",\n\"perspective\": \"正面直视\"\n},\n\"artistic_elements\": {\n\"genre\": \"编辑类\",\n\"influences\": [\n\"豪华汽车生活方式摄影\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"奢华、平静、高度精致的美学，传达财富和休闲\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"一名年轻男模特坐在豪华 SUV 的驾驶座上，身穿黑色外套，戴着黑色皮手套\",\n\"positioning\": \"左侧\",\n\"scale\": \"中等\",\n\"interaction\": \"与环境互动\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"无笑容\",\n\"eyes\": \"向上看，视线移开\",\n\"eyebrows\": \"放松\",\n\"overall_emotion\": \"自信\"\n}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "豪华汽车编辑照片提示 一个高度结构化的提示，用于生成一张在豪华 suv 驾驶座上的年轻男子的精致编辑摄影作品。它通过三分法、详细的色彩配置文件、高对比度的自然窗户照明和技术规格，精心定义了构图，以实现传达财富和休闲的逼真、精致美学。 {\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"layered\",\n\"focal_points\": [\n\"subject's face illuminated by natural light\",\n\"black gloved left hand resting on the steering wheel\"\n],\n\"visual_hierarchy\": \"eye starts at the subject's brightly lit face, moves down to the black gloved left hand on the steering wheel, sweeps right across the center console to the relaxed right hand, and finally moves up to the exterior landscape visible through the windows.\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"black\",\n\"hex\": \"#111111\",\n\"percentage\": \"50%\",\n\"role\": \"primary subject clothing, driving gloves, and vehicle interior\"\n},\n{\n\"color\": \"pine green\",\n\"hex\": \"#2d4c1e\",\n\"percentage\": \"15%\",\n\"role\": \"background landscape\"\n},\n{\n\"color\": \"sky blue\",\n\"hex\": \"#4a90e2\",\n\"percentage\": \"10%\",\n\"role\": \"background sky through sunroof\"\n},\n{\n\"color\": \"warm tan\",\n\"hex\": \"#c49a6c\",\n\"percentage\": \"10%\",\n\"role\": \"accent interior wood trim\"\n}\n],\n\"color_palette\": \"complementary\",\n\"temperature\": \"neutral\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural window\",\n\"source_count\": \"multiple sources\",\n\"direction\": \"front-top\",\n\"directionality\": \"highly directional\",\n\"quality\": \"soft light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"sophisticated\",\n\"shadows\": {\n\"type\": \"soft gradual edges\",\n\"density\": \"deep black\",\n\"placement\": \"under the jaw, across the right side of the face, deep in the lower footwell of the car\",\n\"length\": \"short\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on face, cheekbones, nose bridge, steering wheel chrome accents, and center console silver switches\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"medium\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial\",\n\"influences\": [\n\"luxury automotive lifestyle photography\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"luxurious, calm, and highly polished aesthetic conveying wealth and leisure\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"young male model sitting in driver's seat of luxury suv wearing black coat and black leather gloves\",\n\"positioning\": \"left\",\n\"scale\": \"medium\",\n\"interaction\": \"interacting with environment\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"no smile\",\n\"eyes\": \"looking away upward\",\n\"eyebrows\": \"relaxed\",\n\"overall_emotion\": \"confident\",\n\"aut ```json\n{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法构图\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"分层\",\n\"focal_points\": [\n\"主体面部被自然光照亮\",\n\"戴着黑色手套的左手搭在方向盘上\"\n],\n\"visual_hierarchy\": \"视线从主体明亮的脸部开始，向下移至方向盘上戴着黑色手套的左手，向右扫过中控台，到达放松的右手，最后向上移至透过车窗可见的外部景色。\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"黑色\",\n\"hex\": \"#111111\",\n\"percentage\": \"50%\",\n\"role\": \"主体服装、驾驶手套和车辆内饰\"\n},\n{\n\"color\": \"松绿色\",\n\"hex\": \"#2d4c1e\",\n\"percentage\": \"15%\",\n\"role\": \"背景景观\"\n},\n{\n\"color\": \"天蓝色\",\n\"hex\": \"#4a90e2\",\n\"percentage\": \"10%\",\n\"role\": \"透过天窗看到的背景天空\"\n},\n{\n\"color\": \"暖棕褐色\",\n\"hex\": \"#c49a6c\",\n\"percentage\": \"10%\",\n\"role\": \"点缀内饰木饰\"\n}\n],\n\"color_palette\": \"互补色\",\n\"temperature\": \"中性\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然窗光\",\n\"source_count\": \"多光源\",\n\"direction\": \"前上方\",\n\"directionality\": \"高度定向\",\n\"quality\": \"柔和光线\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"精致\",\n\"shadows\": {\n\"type\": \"柔和渐变边缘\",\n\"density\": \"深黑色\",\n\"placement\": \"下颌下方、脸部右侧、汽车脚部空间深处\",\n\"length\": \"短\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"脸部、颧骨、鼻梁、方向盘镀铬装饰和中控台银色开关\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极致锐利\",\n\"grain\": \"无\",\n\"depth_of_field\": \"中等\",\n\"perspective\": \"正面直视\"\n},\n\"artistic_elements\": {\n\"genre\": \"编辑类\",\n\"influences\": [\n\"豪华汽车生活方式摄影\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"奢华、平静、高度精致的美学，传达财富和休闲\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"一名年轻男模特坐在豪华 suv 的驾驶座上，身穿黑色外套，戴着黑色皮手套\",\n\"positioning\": \"左侧\",\n\"scale\": \"中等\",\n\"interaction\": \"与环境互动\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"无笑容\",\n\"eyes\": \"向上看，视线移开\",\n\"eyebrows\": \"放松\",\n\"overall_emotion\": \"自信\"\n}\n}\n``` picts by ai 11168",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11246,
+      "title": "Vlog 风格时尚视频提示",
+      "description": "一个详细的提示，用于使用 Nano Banana Pro 生成一张静态图像，然后使用 Google Veo 3.1 将其转换为视频。该提示旨在创建一段逼真、亲密、高质量的视频，采用 Vlog 风格拍摄，内容是一位女性正在讨论她的时尚。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2028002301147828384",
+      "sourcePublishedAt": "2026-03-01T07:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "创建一个面向前方的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。拍摄对象的姿势和构图表明她正坐着。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。灯光真实，符合 [UGC 风格镜头] 的特点。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。她看起来像是即将开始对着镜头为 Vlog 讲话。图像质量反映了室内夜间拍摄的高质量视频，绝对没有应用任何滤镜、美颜效果或人工锐化。\n\n空间感觉像是一个私人环境。散景是由于摄像机的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象在 Vlog 中开始讲话前那一刻的真实感受。\n\n这位女士的台词是：“今天的时尚亮点是 [添加时尚特色]！” 她以温柔的语气说出这句话，同时触摸自己的衣服。最后她微笑着。\n\n背景音乐：轻柔地播放着适合 Vlog 风格时尚氛围的悦耳音乐。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "vlog 风格时尚视频提示 一个详细的提示，用于使用 nano banana pro 生成一张静态图像，然后使用 google veo 3.1 将其转换为视频。该提示旨在创建一段逼真、亲密、高质量的视频，采用 vlog 风格拍摄，内容是一位女性正在讨论她的时尚。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 创建一个面向前方的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。拍摄对象的姿势和构图表明她正坐着。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。灯光真实，符合 [ugc 风格镜头] 的特点。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。她看起来像是即将开始对着镜头为 vlog 讲话。图像质量反映了室内夜间拍摄的高质量视频，绝对没有应用任何滤镜、美颜效果或人工锐化。\n\n空间感觉像是一个私人环境。散景是由于摄像机的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象在 vlog 中开始讲话前那一刻的真实感受。\n\n这位女士的台词是：“今天的时尚亮点是 [添加时尚特色]！” 她以温柔的语气说出这句话，同时触摸自己的衣服。最后她微笑着。\n\n背景音乐：轻柔地播放着适合 vlog 风格时尚氛围的悦耳音乐。 空想写真家 11246",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11175,
+      "title": "黑色紧身裤侧身姿势镜面自拍",
+      "description": "一个结构化的提示，用于生成一张休闲、自信的镜面自拍，照片中人物穿着黑色紧身打底裤，裤腰处有白色细节。它指定了场景（木地板、镜子）、姿势（侧身、一条腿弯曲）和配饰（银色脚链），以营造一种室内、放松的氛围。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027997442780893504",
+      "sourcePublishedAt": "2026-03-01T06:40:43.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Black Leggings Side Pose\",\n  \"description\": \"A side-view mirror selfie featuring a person wearing fitted black leggings with a white waistband detail and a small white graphic near the ankle. The person is standing barefoot on a wooden floor with a silver anklet visible, creating a casual indoor vibe.\",\n  \"outfit\": {\n    \"bottom\": \"Black fitted leggings with white waistband text\",\n    \"accessories\": \"Silver anklet\"\n  },\n  \"pose\": \"Side pose with one leg slightly bent\",\n  \"setting\": \"Indoor room with wooden flooring and mirror\",\n  \"mood\": \"Casual and confident\",\n  \"colors\": [\"Black\", \"White\", \"Brown\"]\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433497337_fy0t4o_HCTk6N5aIAAld0Z.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433497337_fy0t4o_HCTk6N5aIAAld0Z-300x533.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"黑色紧身裤侧身姿势\",\n  \"description\": \"一张侧身镜面自拍，画面中人物穿着合身的黑色紧身裤，裤腰处有白色细节，脚踝附近有小块白色图案。人物赤脚站在木地板上，脚踝上戴着银色脚链，营造出随意的室内氛围。\",\n  \"outfit\": {\n    \"bottom\": \"黑色合身紧身裤，裤腰处有白色文字\",\n    \"accessories\": \"银色脚链\"\n  },\n  \"pose\": \"侧身姿势，一条腿略微弯曲\",\n  \"setting\": \"带木地板和镜子的室内房间\",\n  \"mood\": \"休闲自信\",\n  \"colors\": [\"黑色\", \"白色\", \"棕色\"]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黑色紧身裤侧身姿势镜面自拍 一个结构化的提示，用于生成一张休闲、自信的镜面自拍，照片中人物穿着黑色紧身打底裤，裤腰处有白色细节。它指定了场景（木地板、镜子）、姿势（侧身、一条腿弯曲）和配饰（银色脚链），以营造一种室内、放松的氛围。 {\n  \"title\": \"black leggings side pose\",\n  \"description\": \"a side-view mirror selfie featuring a person wearing fitted black leggings with a white waistband detail and a small white graphic near the ankle. the person is standing barefoot on a wooden floor with a silver anklet visible, creating a casual indoor vibe.\",\n  \"outfit\": {\n    \"bottom\": \"black fitted leggings with white waistband text\",\n    \"accessories\": \"silver anklet\"\n  },\n  \"pose\": \"side pose with one leg slightly bent\",\n  \"setting\": \"indoor room with wooden flooring and mirror\",\n  \"mood\": \"casual and confident\",\n  \"colors\": [\"black\", \"white\", \"brown\"]\n} ```json\n{\n  \"title\": \"黑色紧身裤侧身姿势\",\n  \"description\": \"一张侧身镜面自拍，画面中人物穿着合身的黑色紧身裤，裤腰处有白色细节，脚踝附近有小块白色图案。人物赤脚站在木地板上，脚踝上戴着银色脚链，营造出随意的室内氛围。\",\n  \"outfit\": {\n    \"bottom\": \"黑色合身紧身裤，裤腰处有白色文字\",\n    \"accessories\": \"银色脚链\"\n  },\n  \"pose\": \"侧身姿势，一条腿略微弯曲\",\n  \"setting\": \"带木地板和镜子的室内房间\",\n  \"mood\": \"休闲自信\",\n  \"colors\": [\"黑色\", \"白色\", \"棕色\"]\n}\n``` zainab fatima 11175",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11254,
+      "title": "Apreciasi Plot 的提示词构思",
+      "description": "一条推文，分享了专门用于生成“Apreciasi Plot”内容的资源或提示词合集，可能用于 LLM 或文本生成工具。",
+      "sourceLink": "https://x.com/promptideas/status/2027994261770346762",
+      "sourcePublishedAt": "2026-03-01T06:28:04.000Z",
+      "author": {
+        "name": "𝑃͟𝑅͟𝑂͟𝑀͟𝑃͟𝑇͟𝐼͟𝐷͟𝐸͟𝐴͟𝑆.",
+        "link": "https://x.com/promptideas"
+      },
+      "content": "𝗣𝗥𝗢𝗠𝗣𝗧𝗜𝗗𝗘𝗔𝗦\n𝐹͟𝑂͟𝑅͟ 𝐴͟𝑃͟𝑅͟𝐸͟𝑆͟𝐼͟𝐴͟𝑆͟𝐼͟ 𝑃͟𝐿͟𝑂͟𝑇.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433526678_t43zx9_HCTiBvDbEAM8N19.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433526678_t43zx9_HCTiBvDbEAM8N19-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "𝗣𝗥𝗢𝗠𝗣𝗧 灵感\n适用于 APRESIASI PLOT。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "apreciasi plot 的提示词构思 一条推文，分享了专门用于生成“apreciasi plot”内容的资源或提示词合集，可能用于 llm 或文本生成工具。 𝗣𝗥𝗢𝗠𝗣𝗧𝗜𝗗𝗘𝗔𝗦\n𝐹͟𝑂͟𝑅͟ 𝐴͟𝑃͟𝑅͟𝐸͟𝑆͟𝐼͟𝐴͟𝑆͟𝐼͟ 𝑃͟𝐿͟𝑂͟𝑇. 𝗣𝗥𝗢𝗠𝗣𝗧 灵感\n适用于 apresiasi plot。 𝑃͟𝑅͟𝑂͟𝑀͟𝑃͟𝑇͟𝐼͟𝐷͟𝐸͟𝐴͟𝑆. 11254",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11131,
+      "title": "电影之夜街头风情",
+      "description": "一个结构化的提示，用于生成一张电影风格的街头摄影作品，描绘一位时尚女性在傍晚行走。它着重于一件深绿色冬装外套、一头浅棕色长发，以及一个以温暖红色调和城市灯光柔和散景为背景的场景，营造出一种优雅、都市且略带神秘的氛围。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027990259959771252",
+      "sourcePublishedAt": "2026-03-01T06:12:10.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Cinematic Evening Street Elegance\",\n  \"category\": \"street photography\",\n  \"description\": \"A stylish young woman walking through a softly lit city street during the evening. She has long, smooth light brown hair flowing naturally over her shoulders and is dressed in a dark green winter coat. Her subtle expression carries calm confidence with a touch of mystery as she glances slightly toward the camera. The background is filled with warm red tones and blurred city lights, creating a dreamy cinematic atmosphere.\",\n  \"appearance\": {\n    \"hair_color\": \"light brown\",\n    \"hair_style\": \"long and naturally flowing\",\n    \"expression\": \"calm, confident, slightly mysterious\",\n    \"pose\": \"candid walking glance\"\n  },\n  \"outfit\": {\n    \"coat_color\": \"dark green\",\n    \"coat_style\": \"elegant winter coat\",\n    \"fashion_vibe\": \"minimal, classy, urban chic\"\n  },\n  \"environment\": {\n    \"location_type\": \"city street\",\n    \"time_of_day\": \"evening\",\n    \"lighting\": \"warm ambient lighting with soft bokeh effect\",\n    \"background_colors\": [\"red\", \"orange\", \"soft neutral tones\"]\n  },\n  \"photography_details\": {\n    \"style\": \"cinematic candid\",\n    \"focus\": \"sharp subject with blurred background\",\n    \"mood\": [\"elegant\", \"urban\", \"dreamy\", \"modern\"]\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433493124_0kulag_HCTeYGKaoAA-vjV.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433493124_0kulag_HCTeYGKaoAA-vjV-300x364.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"电影感夜间街头优雅\",\n  \"category\": \"街头摄影\",\n  \"description\": \"一位时尚的年轻女性在夜晚柔和灯光下的城市街道中漫步。她留着一头自然垂落在肩上的光滑浅棕色长发，身穿一件深绿色冬装外套。她微妙的表情流露出平静的自信和一丝神秘感，目光略微瞥向镜头。背景充满了温暖的红色调和模糊的城市灯光，营造出梦幻般的电影氛围。\",\n  \"appearance\": {\n    \"hair_color\": \"浅棕色\",\n    \"hair_style\": \"长发，自然垂落\",\n    \"expression\": \"平静、自信、略带神秘\",\n    \"pose\": \"抓拍的行走回眸\"\n  },\n  \"outfit\": {\n    \"coat_color\": \"深绿色\",\n    \"coat_style\": \"优雅冬装外套\",\n    \"fashion_vibe\": \"极简、经典、都市时尚\"\n  },\n  \"environment\": {\n    \"location_type\": \"城市街道\",\n    \"time_of_day\": \"夜晚\",\n    \"lighting\": \"温暖的环境光，带柔和的散景效果\",\n    \"background_colors\": [\"红色\", \"橙色\", \"柔和中性色调\"]\n  },\n  \"photography_details\": {\n    \"style\": \"电影感抓拍\",\n    \"focus\": \"主体清晰，背景模糊\",\n    \"mood\": [\"优雅\", \"都市\", \"梦幻\", \"现代\"]\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影之夜街头风情 一个结构化的提示，用于生成一张电影风格的街头摄影作品，描绘一位时尚女性在傍晚行走。它着重于一件深绿色冬装外套、一头浅棕色长发，以及一个以温暖红色调和城市灯光柔和散景为背景的场景，营造出一种优雅、都市且略带神秘的氛围。 {\n  \"title\": \"cinematic evening street elegance\",\n  \"category\": \"street photography\",\n  \"description\": \"a stylish young woman walking through a softly lit city street during the evening. she has long, smooth light brown hair flowing naturally over her shoulders and is dressed in a dark green winter coat. her subtle expression carries calm confidence with a touch of mystery as she glances slightly toward the camera. the background is filled with warm red tones and blurred city lights, creating a dreamy cinematic atmosphere.\",\n  \"appearance\": {\n    \"hair_color\": \"light brown\",\n    \"hair_style\": \"long and naturally flowing\",\n    \"expression\": \"calm, confident, slightly mysterious\",\n    \"pose\": \"candid walking glance\"\n  },\n  \"outfit\": {\n    \"coat_color\": \"dark green\",\n    \"coat_style\": \"elegant winter coat\",\n    \"fashion_vibe\": \"minimal, classy, urban chic\"\n  },\n  \"environment\": {\n    \"location_type\": \"city street\",\n    \"time_of_day\": \"evening\",\n    \"lighting\": \"warm ambient lighting with soft bokeh effect\",\n    \"background_colors\": [\"red\", \"orange\", \"soft neutral tones\"]\n  },\n  \"photography_details\": {\n    \"style\": \"cinematic candid\",\n    \"focus\": \"sharp subject with blurred background\",\n    \"mood\": [\"elegant\", \"urban\", \"dreamy\", \"modern\"]\n  }\n} ```json\n{\n  \"title\": \"电影感夜间街头优雅\",\n  \"category\": \"街头摄影\",\n  \"description\": \"一位时尚的年轻女性在夜晚柔和灯光下的城市街道中漫步。她留着一头自然垂落在肩上的光滑浅棕色长发，身穿一件深绿色冬装外套。她微妙的表情流露出平静的自信和一丝神秘感，目光略微瞥向镜头。背景充满了温暖的红色调和模糊的城市灯光，营造出梦幻般的电影氛围。\",\n  \"appearance\": {\n    \"hair_color\": \"浅棕色\",\n    \"hair_style\": \"长发，自然垂落\",\n    \"expression\": \"平静、自信、略带神秘\",\n    \"pose\": \"抓拍的行走回眸\"\n  },\n  \"outfit\": {\n    \"coat_color\": \"深绿色\",\n    \"coat_style\": \"优雅冬装外套\",\n    \"fashion_vibe\": \"极简、经典、都市时尚\"\n  },\n  \"environment\": {\n    \"location_type\": \"城市街道\",\n    \"time_of_day\": \"夜晚\",\n    \"lighting\": \"温暖的环境光，带柔和的散景效果\",\n    \"background_colors\": [\"红色\", \"橙色\", \"柔和中性色调\"]\n  },\n  \"photography_details\": {\n    \"style\": \"电影感抓拍\",\n    \"focus\": \"主体清晰，背景模糊\",\n    \"mood\": [\"优雅\", \"都市\", \"梦幻\", \"现代\"]\n  }\n}\n``` zainab fatima 11131",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11217,
+      "title": "蝙蝠侠喜剧电影截图提示",
+      "description": "一个有趣的概念性提示，用于生成一张著名喜剧电影的截图，但将主角替换为蝙蝠侠，蝙蝠侠的服装和造型与原主角相似，以便即时识别。",
+      "sourceLink": "https://x.com/guicastellanos1/status/2027990043936145794",
+      "sourcePublishedAt": "2026-03-01T06:11:19.000Z",
+      "author": {
+        "name": "Guillermo Castellanos",
+        "link": "https://x.com/guicastellanos1"
+      },
+      "content": "Screenshot from a well-known comedy movie, but it's Batman instead of the protagonist, made up to look like the main character and instantly recognizable.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433513938_u5nzq6_HCTd6cPWkAAI4u5.jpg",
+        "https://cms-assets.youmind.com/media/1772433513939_mcd2ry_HCTd6cMWoAAIHIc.jpg",
+        "https://cms-assets.youmind.com/media/1772433513931_rfuvh8_HCTd6cLW8AAwQmd.jpg",
+        "https://cms-assets.youmind.com/media/1772433514745_qltmy7_HCTd6cMWgAAHrLT.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433513938_u5nzq6_HCTd6cPWkAAI4u5-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772433513939_mcd2ry_HCTd6cMWoAAIHIc-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772433513931_rfuvh8_HCTd6cLW8AAwQmd-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1772433514745_qltmy7_HCTd6cMWgAAHrLT-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张来自著名喜剧电影的截图，但主角换成了蝙蝠侠，他被装扮成电影主角的样子，一眼就能认出来。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "蝙蝠侠喜剧电影截图提示 一个有趣的概念性提示，用于生成一张著名喜剧电影的截图，但将主角替换为蝙蝠侠，蝙蝠侠的服装和造型与原主角相似，以便即时识别。 screenshot from a well-known comedy movie, but it's batman instead of the protagonist, made up to look like the main character and instantly recognizable. 一张来自著名喜剧电影的截图，但主角换成了蝙蝠侠，他被装扮成电影主角的样子，一眼就能认出来。 guillermo castellanos 11217",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11165,
+      "title": "技术信息图解剖面图提示",
+      "description": "一个用于生成物体高分辨率、专业技术信息图的提示模板。它需要一个清晰、半写实的剖面图，展示内部组件，并自动标注技术术语，以及一个适合工程手册的平衡布局。",
+      "sourceLink": "https://x.com/weiinberg/status/2027986208408977548",
+      "sourcePublishedAt": "2026-03-01T05:56:04.000Z",
+      "author": {
+        "name": "Weinberg",
+        "link": "https://x.com/weiinberg"
+      },
+      "content": "Create a high-resolution professional infographic of [{argument name=\"object name\" default=\"OBJECT NAME\"}].\nDisplay the object in a clean, semi-realistic technical illustration style. Include both external structure and internal components using a cutaway view, cross-section, or exploded layout where appropriate.\nAutomatically detect and label all major structural, mechanical, electronic, or functional components using accurate technical terminology.\nUse thin leader lines connecting each label precisely to the correct part. Ensure labels are clear, readable, and professionally formatted.\nAdd a bold headline at the top:\n“OBJECT NAME – Complete Structural Breakdown”\nLayout should be balanced and organized like a modern engineering manual or product teardown poster.\nBackground: clean white or light neutral tone.\nLighting: neutral studio lighting with soft shadows for depth.\nMaterials and textures must look realistic and detailed.\nUse modern sans-serif typography with clear hierarchy (bold headings, smaller technical labels).\nUltra-detailed, sharp focus, 4K resolution, professional educational infographic style.\nNo artistic distortion, no clutter, no decorative elements unrelated to structure.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772433492844_q6zr64_HCTasgQaYAADK5w.jpg",
+        "https://cms-assets.youmind.com/media/1772433492828_rtz9na_HCTasgVacAEMa7s.jpg",
+        "https://cms-assets.youmind.com/media/1772433493530_9ulyhy_HCTasgRa4AAh2YG.jpg",
+        "https://cms-assets.youmind.com/media/1772433493769_1405cw_HCTasgQbEAEuwwx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772433492844_q6zr64_HCTasgQaYAADK5w-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1772433492828_rtz9na_HCTasgVacAEMa7s-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1772433493530_9ulyhy_HCTasgRa4AAh2YG-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1772433493769_1405cw_HCTasgQbEAEuwwx-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建一份关于 [{argument name=\"object name\" default=\"OBJECT NAME\"}] 的高分辨率专业信息图。\n以简洁、半写实的工程插画风格展示该物体。在适当的地方使用剖视图、横截面或爆炸图，展示其外部结构和内部组件。\n自动检测并使用准确的技术术语标注所有主要的结构、机械、电子或功能组件。\n使用细引导线将每个标签精确连接到正确的部件。确保标签清晰、易读且专业排版。\n在顶部添加一个粗体标题：\n“OBJECT NAME – 完整结构分解”\n布局应平衡且有条理，如同现代工程手册或产品拆解海报。\n背景：纯白色或浅中性色调。\n光照：中性工作室光照，带有柔和阴影以增加深度。\n材质和纹理必须看起来逼真且细节丰富。\n使用现代无衬线字体，具有清晰的层级结构（粗体标题，较小的技术标签）。\n超详细、锐利聚焦、4K 分辨率、专业教育信息图风格。\n无艺术扭曲、无杂乱、无与结构无关的装饰元素。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "技术信息图解剖面图提示 一个用于生成物体高分辨率、专业技术信息图的提示模板。它需要一个清晰、半写实的剖面图，展示内部组件，并自动标注技术术语，以及一个适合工程手册的平衡布局。 create a high-resolution professional infographic of [{argument name=\"object name\" default=\"object name\"}].\ndisplay the object in a clean, semi-realistic technical illustration style. include both external structure and internal components using a cutaway view, cross-section, or exploded layout where appropriate.\nautomatically detect and label all major structural, mechanical, electronic, or functional components using accurate technical terminology.\nuse thin leader lines connecting each label precisely to the correct part. ensure labels are clear, readable, and professionally formatted.\nadd a bold headline at the top:\n“object name – complete structural breakdown”\nlayout should be balanced and organized like a modern engineering manual or product teardown poster.\nbackground: clean white or light neutral tone.\nlighting: neutral studio lighting with soft shadows for depth.\nmaterials and textures must look realistic and detailed.\nuse modern sans-serif typography with clear hierarchy (bold headings, smaller technical labels).\nultra-detailed, sharp focus, 4k resolution, professional educational infographic style.\nno artistic distortion, no clutter, no decorative elements unrelated to structure. 创建一份关于 [{argument name=\"object name\" default=\"object name\"}] 的高分辨率专业信息图。\n以简洁、半写实的工程插画风格展示该物体。在适当的地方使用剖视图、横截面或爆炸图，展示其外部结构和内部组件。\n自动检测并使用准确的技术术语标注所有主要的结构、机械、电子或功能组件。\n使用细引导线将每个标签精确连接到正确的部件。确保标签清晰、易读且专业排版。\n在顶部添加一个粗体标题：\n“object name – 完整结构分解”\n布局应平衡且有条理，如同现代工程手册或产品拆解海报。\n背景：纯白色或浅中性色调。\n光照：中性工作室光照，带有柔和阴影以增加深度。\n材质和纹理必须看起来逼真且细节丰富。\n使用现代无衬线字体，具有清晰的层级结构（粗体标题，较小的技术标签）。\n超详细、锐利聚焦、4k 分辨率、专业教育信息图风格。\n无艺术扭曲、无杂乱、无与结构无关的装饰元素。 weinberg 11165",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 116,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

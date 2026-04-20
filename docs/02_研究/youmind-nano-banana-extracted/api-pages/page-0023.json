@@ -1,0 +1,492 @@
+{
+  "prompts": [
+    {
+      "id": 12946,
+      "title": "Emma Myers 高级时装编辑肖像",
+      "description": "这是一个为 Haulio AI 上的 Nano Banana 2 设计的详细 JSON 风格提示词，旨在生成一张 Emma Myers 的超写实高级时装编辑肖像，服装采用大胆的校园风设计，重点突出纹理细节和干净的粉色摄影棚背景。",
+      "sourceLink": "https://x.com/Strength04_X/status/2038134631590211974",
+      "sourcePublishedAt": "2026-03-29T06:02:17.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "“quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “bright, soft studio lighting, creating clean highlights on skin and sheer clothing texture”,\n    “style”: “high-fashion editorial, single-person focus”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “A professional photography studio with a clean, seamless soft matte pink cyclorama wall and floor.”,\n    “atmosphere”: “Chic, confident, and playful.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"Emma Myers\"}”,\n    “body”: {\n      “type”: “Realistic, naturally proportioned fit figure”\n    },\n“face”: {\n      “features”: “{argument name=\"face features\" default=\"Emma Myers’ distinct features, including her hair styled into curled high pigtails, her signature expressive eyes, and a bold look.\"}”,\n      “expression”: “Confident and slightly playful, with a direct and alluring gaze toward the camera.”\n    },\n    “outfit”: {\n      “description”: “White cropped short-sleeved collared shirt with a red and dark blue plaid tie. Extremely short pleated red and dark blue plaid ultra-mini skirt. Sheer white nylon or mesh knee-high socks, subtly showing skin texture. Red patent leather stiletto heels.”,\n      “fit”: “Tailored, modern, bold, schoolgirl-inspired.”,\n      “accessory”: “None.”\n    },\n    “pose”: “Standing with a wide, confident stance on the pink floor. Her right hand is thoughtfully resting under her chin. Her left hand is placed at her side. Her legs are positioned with one straight and one slightly turned out, showcasing the shoes and the sheer texture of the socks.”\n  },\n“composition”: “Medium full-body shot. Sharp focus on Emma Myers and the detailed textures of her clothing, especially the sheer socks and plaid pattern. The soft pink background is seamless and clean, emphasizing the vibrant red tones of the outfit.”\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853727207_54yx4j_HEjonvibQAA-PYv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853727207_54yx4j_HEjonvibQAA-PYv-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "“quality”: “超写实，原始风格，8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “明亮、柔和的摄影棚灯光，在皮肤和透视服装纹理上营造出干净的高光”,\n    “style”: “高级时装编辑，单人聚焦”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “专业的摄影棚，配有干净、无缝的柔和哑光粉色背景墙和地板。”,\n    “atmosphere”: “时髦、自信且俏皮。”\n  },\n  “subject”: {\n    “gender”: “女性”,\n    “name”: “{argument name=\"subject name\" default=\"Emma Myers\"}”,\n    “body”: {\n      “type”: “写实、比例自然且匀称的身材”\n    },\n“face”: {\n      “features”: “{argument name=\"face features\" default=\"Emma Myers 的独特面部特征，包括卷曲的高双马尾发型、标志性的灵动双眸以及大胆的妆容。\"}”,\n      “expression”: “自信且略带俏皮，直视镜头，眼神充满魅力。”\n    },\n    “outfit”: {\n      “description”: “白色短袖翻领短款衬衫，搭配红蓝格纹领带。极短的红蓝格纹百褶超短裙。白色透明尼龙或网眼过膝袜，隐约透出皮肤质感。红色漆皮细高跟鞋。”,\n      “fit”: “修身、现代、大胆，校园风设计。”,\n      “accessory”: “无。”\n    },\n    “pose”: “站在粉色地板上，姿态宽大而自信。右手托腮，若有所思。左手自然垂于身侧。双腿一前一后，略微外转，展示鞋子和长袜的透明质感。”\n  },\n“composition”: “中景全身照。焦点清晰地对准 Emma Myers 及其服装的精细纹理，特别是透明长袜和格纹图案。柔和的粉色背景干净无缝，突显了服装鲜艳的红色调。”\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "emma myers 高级时装编辑肖像 这是一个为 haulio ai 上的 nano banana 2 设计的详细 json 风格提示词，旨在生成一张 emma myers 的超写实高级时装编辑肖像，服装采用大胆的校园风设计，重点突出纹理细节和干净的粉色摄影棚背景。 “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “bright, soft studio lighting, creating clean highlights on skin and sheer clothing texture”,\n    “style”: “high-fashion editorial, single-person focus”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “a professional photography studio with a clean, seamless soft matte pink cyclorama wall and floor.”,\n    “atmosphere”: “chic, confident, and playful.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"emma myers\"}”,\n    “body”: {\n      “type”: “realistic, naturally proportioned fit figure”\n    },\n“face”: {\n      “features”: “{argument name=\"face features\" default=\"emma myers’ distinct features, including her hair styled into curled high pigtails, her signature expressive eyes, and a bold look.\"}”,\n      “expression”: “confident and slightly playful, with a direct and alluring gaze toward the camera.”\n    },\n    “outfit”: {\n      “description”: “white cropped short-sleeved collared shirt with a red and dark blue plaid tie. extremely short pleated red and dark blue plaid ultra-mini skirt. sheer white nylon or mesh knee-high socks, subtly showing skin texture. red patent leather stiletto heels.”,\n      “fit”: “tailored, modern, bold, schoolgirl-inspired.”,\n      “accessory”: “none.”\n    },\n    “pose”: “standing with a wide, confident stance on the pink floor. her right hand is thoughtfully resting under her chin. her left hand is placed at her side. her legs are positioned with one straight and one slightly turned out, showcasing the shoes and the sheer texture of the socks.”\n  },\n“composition”: “medium full-body shot. sharp focus on emma myers and the detailed textures of her clothing, especially the sheer socks and plaid pattern. the soft pink background is seamless and clean, emphasizing the vibrant red tones of the outfit.”\n} “quality”: “超写实，原始风格，8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “明亮、柔和的摄影棚灯光，在皮肤和透视服装纹理上营造出干净的高光”,\n    “style”: “高级时装编辑，单人聚焦”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “专业的摄影棚，配有干净、无缝的柔和哑光粉色背景墙和地板。”,\n    “atmosphere”: “时髦、自信且俏皮。”\n  },\n  “subject”: {\n    “gender”: “女性”,\n    “name”: “{argument name=\"subject name\" default=\"emma myers\"}”,\n    “body”: {\n      “type”: “写实、比例自然且匀称的身材”\n    },\n“face”: {\n      “features”: “{argument name=\"face features\" default=\"emma myers 的独特面部特征，包括卷曲的高双马尾发型、标志性的灵动双眸以及大胆的妆容。\"}”,\n      “expression”: “自信且略带俏皮，直视镜头，眼神充满魅力。”\n    },\n    “outfit”: {\n      “description”: “白色短袖翻领短款衬衫，搭配红蓝格纹领带。极短的红蓝格纹百褶超短裙。白色透明尼龙或网眼过膝袜，隐约透出皮肤质感。红色漆皮细高跟鞋。”,\n      “fit”: “修身、现代、大胆，校园风设计。”,\n      “accessory”: “无。”\n    },\n    “pose”: “站在粉色地板上，姿态宽大而自信。右手托腮，若有所思。左手自然垂于身侧。双腿一前一后，略微外转，展示鞋子和长袜的透明质感。”\n  },\n“composition”: “中景全身照。焦点清晰地对准 emma myers 及其服装的精细纹理，特别是透明长袜和格纹图案。柔和的粉色背景干净无缝，突显了服装鲜艳的红色调。”\n} 𝐌 12946",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12973,
+      "title": "身穿拼图毛衣的童趣角色 3D 渲染图",
+      "description": "这是一条专为 Google Nano Banana Pro 设计的详细提示词，旨在生成一张高细节、干净的 3D 渲染图。角色需具备柔和的童趣特征（无成人特征、无胡须、脸颊更饱满），身穿拼图图案毛衣，强调柔和的电影级光效以及丰富的蓝色渐变背景。",
+      "sourceLink": "https://x.com/ChillaiKalan__/status/2038114762945655072",
+      "sourcePublishedAt": "2026-03-29T04:43:20.000Z",
+      "author": {
+        "name": "K",
+        "link": "https://x.com/ChillaiKalan__"
+      },
+      "content": "soft, round face\nfuller cheeks\nsmall chin\nslightly larger, expressive eyes (but still identity-consistent)\nno beard, no sharp jawline, no adult features\nExpression should be innocent, warm, and slightly playful, with a gentle smile and direct eye contact.\nBody proportions should be cute and childlike (small, slightly chubby body, slightly larger head).\n\nPose: relaxed standing with hands behind the back, with a subtle natural tilt in head and shoulders to avoid stiffness.\nHair should match the reference but appear soft, slightly voluminous, and naturally styled, not overly sharp or artificial.\nSkin should be soft and stylized, with subtle subsurface scattering (SSS) for a warm glow, matte finish (no plastic shine), and gentle natural blush on cheeks.\nThe character wears a half sleeves cotton sweater with a puzzle pattern, where:\n\ncolors are soft but lively and slightly vibrant\nnot oversaturated and not washed out\nThe fabric shows a realistic knit texture and soft folds\nLighting should be soft and cinematic:\n\nkey light from upper-left\ngentle fill light\nsubtle rim light on hair\nBackground should be a rich blue gradient, brighter behind the subject and darker toward the edges, with smooth depth (not flat).\nOutput should be:\n\n1:1 aspect ratio\nmid-length framing (head to waist)\nhigh-detail, clean 3D render\nfilm-quality finish (not toy-like, not overly realistic)",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853742219_k8jl77_HEjWkEDbkAAZOXA.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853742219_k8jl77_HEjWkEDbkAAZOXA-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "柔和、圆润的脸庞\n更饱满的脸颊\n小巧的下巴\n略大且富有表现力的眼睛（但仍保持身份一致性）\n无胡须、无明显的下颌线、无任何成人特征\n表情应天真、温暖且略带俏皮，配以温柔的微笑并直视镜头。\n身体比例应可爱且具有童趣（小巧、略显圆润的身体，头部稍大）。\n\n姿势：放松站立，双手背在身后，头部和肩膀有自然的轻微倾斜，避免僵硬感。\n头发应与参考图一致，但看起来柔软、略显蓬松且自然，不要过于尖锐或人工化。\n皮肤应柔软且风格化，带有细微的次表面散射（SSS）以呈现温暖的光泽，哑光质感（无塑料感），脸颊带有自然的微红。\n角色身穿一件拼图图案的半袖棉质毛衣，要求：\n\n色彩柔和但生动，略带活力\n不过度饱和，也不显暗淡\n织物呈现出逼真的针织纹理和柔软的褶皱\n光效应柔和且具有电影感：\n\n左上方的主光\n柔和的补光\n头发边缘的细微轮廓光\n背景应为丰富的蓝色渐变，主体后方较亮，向边缘逐渐变暗，具有平滑的深度感（非扁平化）。\n输出要求：\n\n1:1 纵横比\n中景构图（头部至腰部）\n高细节、干净的 3D 渲染\n电影级质感（非玩具感，非过度写实）",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身穿拼图毛衣的童趣角色 3d 渲染图 这是一条专为 google nano banana pro 设计的详细提示词，旨在生成一张高细节、干净的 3d 渲染图。角色需具备柔和的童趣特征（无成人特征、无胡须、脸颊更饱满），身穿拼图图案毛衣，强调柔和的电影级光效以及丰富的蓝色渐变背景。 soft, round face\nfuller cheeks\nsmall chin\nslightly larger, expressive eyes (but still identity-consistent)\nno beard, no sharp jawline, no adult features\nexpression should be innocent, warm, and slightly playful, with a gentle smile and direct eye contact.\nbody proportions should be cute and childlike (small, slightly chubby body, slightly larger head).\n\npose: relaxed standing with hands behind the back, with a subtle natural tilt in head and shoulders to avoid stiffness.\nhair should match the reference but appear soft, slightly voluminous, and naturally styled, not overly sharp or artificial.\nskin should be soft and stylized, with subtle subsurface scattering (sss) for a warm glow, matte finish (no plastic shine), and gentle natural blush on cheeks.\nthe character wears a half sleeves cotton sweater with a puzzle pattern, where:\n\ncolors are soft but lively and slightly vibrant\nnot oversaturated and not washed out\nthe fabric shows a realistic knit texture and soft folds\nlighting should be soft and cinematic:\n\nkey light from upper-left\ngentle fill light\nsubtle rim light on hair\nbackground should be a rich blue gradient, brighter behind the subject and darker toward the edges, with smooth depth (not flat).\noutput should be:\n\n1:1 aspect ratio\nmid-length framing (head to waist)\nhigh-detail, clean 3d render\nfilm-quality finish (not toy-like, not overly realistic) 柔和、圆润的脸庞\n更饱满的脸颊\n小巧的下巴\n略大且富有表现力的眼睛（但仍保持身份一致性）\n无胡须、无明显的下颌线、无任何成人特征\n表情应天真、温暖且略带俏皮，配以温柔的微笑并直视镜头。\n身体比例应可爱且具有童趣（小巧、略显圆润的身体，头部稍大）。\n\n姿势：放松站立，双手背在身后，头部和肩膀有自然的轻微倾斜，避免僵硬感。\n头发应与参考图一致，但看起来柔软、略显蓬松且自然，不要过于尖锐或人工化。\n皮肤应柔软且风格化，带有细微的次表面散射（sss）以呈现温暖的光泽，哑光质感（无塑料感），脸颊带有自然的微红。\n角色身穿一件拼图图案的半袖棉质毛衣，要求：\n\n色彩柔和但生动，略带活力\n不过度饱和，也不显暗淡\n织物呈现出逼真的针织纹理和柔软的褶皱\n光效应柔和且具有电影感：\n\n左上方的主光\n柔和的补光\n头发边缘的细微轮廓光\n背景应为丰富的蓝色渐变，主体后方较亮，向边缘逐渐变暗，具有平滑的深度感（非扁平化）。\n输出要求：\n\n1:1 纵横比\n中景构图（头部至腰部）\n高细节、干净的 3d 渲染\n电影级质感（非玩具感，非过度写实） k 12973",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12932,
+      "title": "哭泣的爱人肖像（JSON 格式）",
+      "description": "这是一个为 Nano-banana PRO 设计的结构化 JSON 提示词，用于生成超写实、电影质感的哭泣女性肖像。该提示词要求提供参考图以确定面部特征，并指定了四分之三侧面角度、情绪化表情（泪水、红眼、抿嘴）、深色羽毛服饰、冷色调灯光、浅景深，以及长宽比和风格等具体技术参数。",
+      "sourceLink": "https://x.com/hxhxhx0916/status/2038104145052495885",
+      "sourcePublishedAt": "2026-03-29T04:01:08.000Z",
+      "author": {
+        "name": "hxhxhx0916",
+        "link": "https://x.com/hxhxhx0916"
+      },
+      "content": "{\n\n\"image_generation_prompt\": {\n\n\"subject\": {\n\n\"description\": \"根据参考图拍摄的四分之三侧面特写女孩肖像，面部特征与照片完全一致\",\n\n\"pose\": \"女孩侧身回眸，头部向左肩旋转约65°，下巴微微抬起，颈部略微伸展\",\n\n\"expression\": \"情绪激动地凝视着观众，双颊泪痕斑驳，双眼通红水汪汪，眼眶泛红，嘴唇微微抿起\",\n\n\"hair\": \"头发自然垂落在右脸颊，哑光质感\"\n\n},\n\n\"apparel\": {\n\n\"garment\": \"深色羽毛服饰\",\n\n\"material\": \"半光泽羽毛材质\"\n\n},\n\n\"technical_specs\": {\n\n\"camera\": \"85–135mm镜头\",\n\n\"aperute\": \"f/2.2\",\n\n\"focus\": \"浅景深，营造亲密感\"\n\n},\n\n\"lighting\": {\n\n\"setup\": \"冷色调中性光，柔光主光，来自右前方，角度 25°\",\n\n\"shadows\": \"微妙的阴影过渡，背景阴影中带有淡淡的紫蓝色调，以及冷调的紫色阴影点缀\"\n\n},\n\n\"textures_and_details\": {\n\n\"skin\": \"柔和的暖色调，自然的红眼，水润光泽的皮肤微纹理\",\n\n\"effects\": \"折射泪滴\",\n\n\"rendering\": \"超逼真，PBR材质，全局光照，电影级自然效果\"\n\n},\n\n\"environment\": \"极简的深色背景，类似摄影棚的氛围\"\n\n\"parameters\": \"--ar 4:5 --style raw --s 70 --chaos 0 --seed 7711 --no text, watermark, logo, border\"\n\n}\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853747538_d9wgds_HEjM2EgakAABb4W.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853747538_d9wgds_HEjM2EgakAABb4W-300x372.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "{\n\n\"image_generation_prompt\": {\n\n\"subject\": {\n\n\"description\": \"基于参考图的女孩四分之三侧面特写肖像，面部特征与照片完全一致\",\n\n\"pose\": \"女孩侧身回眸，头部向左肩旋转约 65°，下巴微抬，颈部略微伸展\",\n\n\"expression\": \"深情地凝视观众，双颊挂着泪痕，双眼红肿湿润，眼眶泛红，嘴唇微抿\",\n\n\"hair\": \"头发自然垂落在右脸颊，哑光质感\"\n\n},\n\n\"apparel\": {\n\n\"garment\": \"深色羽毛服饰\",\n\n\"material\": \"半光泽羽毛材质\"\n\n},\n\n\"technical_specs\": {\n\n\"camera\": \"85–135mm 镜头\",\n\n\"aperute\": \"f/2.2\",\n\n\"focus\": \"浅景深，营造亲密感\"\n\n},\n\n\"lighting\": {\n\n\"setup\": \"冷色调中性光，柔和主光，从右前方照射，角度 25°\",\n\n\"shadows\": \"微妙的阴影过渡，背景阴影带有淡淡的紫蓝色调，并有冷紫色阴影点缀\"\n\n},\n\n\"textures_and_details\": {\n\n\"skin\": \"柔和暖色调，自然的红眼，湿润且富有光泽的皮肤微纹理\",\n\n\"effects\": \"折射泪珠\",\n\n\"rendering\": \"超写实，PBR 材质，全局光照，电影级自然效果\"\n\n},\n\n\"environment\": \"极简深色背景，摄影棚氛围\"\n\n\"parameters\": \"--ar 4:5 --style raw --s 70 --chaos 0 --seed 7711 --no text, watermark, logo, border\"\n\n}\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "哭泣的爱人肖像（json 格式） 这是一个为 nano-banana pro 设计的结构化 json 提示词，用于生成超写实、电影质感的哭泣女性肖像。该提示词要求提供参考图以确定面部特征，并指定了四分之三侧面角度、情绪化表情（泪水、红眼、抿嘴）、深色羽毛服饰、冷色调灯光、浅景深，以及长宽比和风格等具体技术参数。 {\n\n\"image_generation_prompt\": {\n\n\"subject\": {\n\n\"description\": \"根据参考图拍摄的四分之三侧面特写女孩肖像，面部特征与照片完全一致\",\n\n\"pose\": \"女孩侧身回眸，头部向左肩旋转约65°，下巴微微抬起，颈部略微伸展\",\n\n\"expression\": \"情绪激动地凝视着观众，双颊泪痕斑驳，双眼通红水汪汪，眼眶泛红，嘴唇微微抿起\",\n\n\"hair\": \"头发自然垂落在右脸颊，哑光质感\"\n\n},\n\n\"apparel\": {\n\n\"garment\": \"深色羽毛服饰\",\n\n\"material\": \"半光泽羽毛材质\"\n\n},\n\n\"technical_specs\": {\n\n\"camera\": \"85–135mm镜头\",\n\n\"aperute\": \"f/2.2\",\n\n\"focus\": \"浅景深，营造亲密感\"\n\n},\n\n\"lighting\": {\n\n\"setup\": \"冷色调中性光，柔光主光，来自右前方，角度 25°\",\n\n\"shadows\": \"微妙的阴影过渡，背景阴影中带有淡淡的紫蓝色调，以及冷调的紫色阴影点缀\"\n\n},\n\n\"textures_and_details\": {\n\n\"skin\": \"柔和的暖色调，自然的红眼，水润光泽的皮肤微纹理\",\n\n\"effects\": \"折射泪滴\",\n\n\"rendering\": \"超逼真，pbr材质，全局光照，电影级自然效果\"\n\n},\n\n\"environment\": \"极简的深色背景，类似摄影棚的氛围\"\n\n\"parameters\": \"--ar 4:5 --style raw --s 70 --chaos 0 --seed 7711 --no text, watermark, logo, border\"\n\n}\n} {\n\n\"image_generation_prompt\": {\n\n\"subject\": {\n\n\"description\": \"基于参考图的女孩四分之三侧面特写肖像，面部特征与照片完全一致\",\n\n\"pose\": \"女孩侧身回眸，头部向左肩旋转约 65°，下巴微抬，颈部略微伸展\",\n\n\"expression\": \"深情地凝视观众，双颊挂着泪痕，双眼红肿湿润，眼眶泛红，嘴唇微抿\",\n\n\"hair\": \"头发自然垂落在右脸颊，哑光质感\"\n\n},\n\n\"apparel\": {\n\n\"garment\": \"深色羽毛服饰\",\n\n\"material\": \"半光泽羽毛材质\"\n\n},\n\n\"technical_specs\": {\n\n\"camera\": \"85–135mm 镜头\",\n\n\"aperute\": \"f/2.2\",\n\n\"focus\": \"浅景深，营造亲密感\"\n\n},\n\n\"lighting\": {\n\n\"setup\": \"冷色调中性光，柔和主光，从右前方照射，角度 25°\",\n\n\"shadows\": \"微妙的阴影过渡，背景阴影带有淡淡的紫蓝色调，并有冷紫色阴影点缀\"\n\n},\n\n\"textures_and_details\": {\n\n\"skin\": \"柔和暖色调，自然的红眼，湿润且富有光泽的皮肤微纹理\",\n\n\"effects\": \"折射泪珠\",\n\n\"rendering\": \"超写实，pbr 材质，全局光照，电影级自然效果\"\n\n},\n\n\"environment\": \"极简深色背景，摄影棚氛围\"\n\n\"parameters\": \"--ar 4:5 --style raw --s 70 --chaos 0 --seed 7711 --no text, watermark, logo, border\"\n\n}\n} hxhxhx0916 12932",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12971,
+      "title": "置身于 Angry Birds 世界的超写实男子",
+      "description": "这是一个为 Google Nano Banana 编写的提示词，旨在创作一张超写实的 Instagram 竖版图片。画面中，一名与参考图面部特征完全一致的男子正在 Angry Birds 世界中上演一场戏剧性的爆炸逃生，并详细描述了动作、环境和电影级光影。",
+      "sourceLink": "https://x.com/de_mon010/status/2038093061708996622",
+      "sourcePublishedAt": "2026-03-29T03:17:06.000Z",
+      "author": {
+        "name": "Karlos",
+        "link": "https://x.com/de_mon010"
+      },
+      "content": "Create a completely new ultra realistic Instagram vertical 4:5 image for Gemini 3 Pro Nano Banana of the same man with identical facial features inside the Angry Birds world during a dramatic escape moment. He jumps off a collapsing wooden platform as multiple TNT crates detonate behind him, red sparks and debris flying. Red is mid air flying beside him, Bomb is igniting, Chuck sprints ahead, Stella flutters above, and pigs are scattering everywhere in panic. Outfit: fitted white T-shirt, tactical brown cargo pants, and impact-ready white sneakers with red-yellow accents, all detailed and textured. Environment: broken glass, exploding stone blocks, rolling green hills blurred behind. Lighting: intense warm explosion glow from one side combined with cool sky light from the other, giving epic cinematic contrast. Feathers, dust, debris, and motion are ultra\n\ndetailed. Shot on a dynamic slightly low 28 mm lens for powerful action depth, with sharp focus on the man and Red.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853740918_35le08_HEjC1MyaMAAf-YD.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853740918_35le08_HEjC1MyaMAAf-YD-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "为 Gemini 3 Pro Nano Banana 创作一张全新的超写实 Instagram 竖版 4:5 图片，画面中的男子需与参考图面部特征完全一致，正处于 Angry Birds 世界中经历一场戏剧性的逃生时刻。他从坍塌的木质平台上跳下，身后多个 TNT 炸药箱同时引爆，红色火花与碎片四溅。Red 在他身旁飞跃，Bomb 正在引燃，Chuck 在前方冲刺，Stella 在上方盘旋，猪群则在惊慌中四散奔逃。服装：修身白色 T 恤、战术棕色工装裤以及带有红黄色点缀的防冲击白色运动鞋，所有细节与纹理清晰可见。环境：破碎的玻璃、爆炸的石块，背景是模糊的绿色连绵山丘。光影：一侧是强烈的爆炸暖光，另一侧是清冷的天光，营造出史诗般的电影级对比效果。羽毛、尘埃、碎片和动态效果均极其细腻。采用动态的 28 mm 广角镜头低角度拍摄，以增强动作的深度感，并聚焦于该男子与 Red。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "置身于 angry birds 世界的超写实男子 这是一个为 google nano banana 编写的提示词，旨在创作一张超写实的 instagram 竖版图片。画面中，一名与参考图面部特征完全一致的男子正在 angry birds 世界中上演一场戏剧性的爆炸逃生，并详细描述了动作、环境和电影级光影。 create a completely new ultra realistic instagram vertical 4:5 image for gemini 3 pro nano banana of the same man with identical facial features inside the angry birds world during a dramatic escape moment. he jumps off a collapsing wooden platform as multiple tnt crates detonate behind him, red sparks and debris flying. red is mid air flying beside him, bomb is igniting, chuck sprints ahead, stella flutters above, and pigs are scattering everywhere in panic. outfit: fitted white t-shirt, tactical brown cargo pants, and impact-ready white sneakers with red-yellow accents, all detailed and textured. environment: broken glass, exploding stone blocks, rolling green hills blurred behind. lighting: intense warm explosion glow from one side combined with cool sky light from the other, giving epic cinematic contrast. feathers, dust, debris, and motion are ultra\n\ndetailed. shot on a dynamic slightly low 28 mm lens for powerful action depth, with sharp focus on the man and red. 为 gemini 3 pro nano banana 创作一张全新的超写实 instagram 竖版 4:5 图片，画面中的男子需与参考图面部特征完全一致，正处于 angry birds 世界中经历一场戏剧性的逃生时刻。他从坍塌的木质平台上跳下，身后多个 tnt 炸药箱同时引爆，红色火花与碎片四溅。red 在他身旁飞跃，bomb 正在引燃，chuck 在前方冲刺，stella 在上方盘旋，猪群则在惊慌中四散奔逃。服装：修身白色 t 恤、战术棕色工装裤以及带有红黄色点缀的防冲击白色运动鞋，所有细节与纹理清晰可见。环境：破碎的玻璃、爆炸的石块，背景是模糊的绿色连绵山丘。光影：一侧是强烈的爆炸暖光，另一侧是清冷的天光，营造出史诗般的电影级对比效果。羽毛、尘埃、碎片和动态效果均极其细腻。采用动态的 28 mm 广角镜头低角度拍摄，以增强动作的深度感，并聚焦于该男子与 red。 karlos 12971",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12980,
+      "title": "电影感场景：女子铺床",
+      "description": "此提示词用于通过 Nano Banana Pro 生成图像，随后使用 Kling 3.0 Omni 进行动画处理。该提示词描述了一个电影感场景：一位女子开心地铺好新床单，并舒适地跃入床中。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2038081156894294023",
+      "sourcePublishedAt": "2026-03-29T02:29:48.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "シネマティックで温かみのある光の中、はにかむような可愛い笑顔の女性がパリッとした新しいシーツをふわりと広げてベッドを整え、ふかふかのシーツに心地よさそうにダイブする至福の瞬間。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "在温暖的电影感光线下，一个充满幸福感的瞬间：一位带着羞涩可爱笑容的女子铺开清爽的新床单，整理好床铺，随后舒适地跃入蓬松的被褥中。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感场景：女子铺床 此提示词用于通过 nano banana pro 生成图像，随后使用 kling 3.0 omni 进行动画处理。该提示词描述了一个电影感场景：一位女子开心地铺好新床单，并舒适地跃入床中。 シネマティックで温かみのある光の中、はにかむような可愛い笑顔の女性がパリッとした新しいシーツをふわりと広げてベッドを整え、ふかふかのシーツに心地よさそうにダイブする至福の瞬間。 在温暖的电影感光线下，一个充满幸福感的瞬间：一位带着羞涩可爱笑容的女子铺开清爽的新床单，整理好床铺，随后舒适地跃入蓬松的被褥中。 空想写真家 12980",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12957,
+      "title": "E-Girl 软朋克风游戏厅人像",
+      "description": "这是用于 Nano Banana 2 的提示词，旨在生成一张 Millie Bobby Brown 在霓虹闪烁的游戏厅中的写实风格现代生活照，展现 E-Girl/软朋克美学，并手持 Kuromi 毛绒玩具摆出俏皮姿势。",
+      "sourceLink": "https://x.com/Giulia_4i/status/2038074482133221743",
+      "sourcePublishedAt": "2026-03-29T02:03:16.000Z",
+      "author": {
+        "name": "Giulia",
+        "link": "https://x.com/Giulia_4i"
+      },
+      "content": "\"A fotorrealistic, modern lifestyle photo of {argument name=\"subject name\" default=\"Millie Bobby Brown\"}, smiling brightly and looking directly at the camera. She is crouching on a smooth concrete floor in a vibrant, neon-lit arcade, balancing on black chunky platform boots with straps and silver buckles. Her dark brown hair is styled in long pigtails with loose strands. She wears light makeup, a silver pendant necklace, a white bandeau top, a white mini-skirt with side slit and buckles, and spiked black leather wristbands. She holds a Kuromi plushie, featuring a black jester hat with a pink skull, in front of her chest. To her left is a large, brightly illuminated yellow claw machine filled with pastel plushies. The background features other colourful arcade games and glowing neon signs. The lighting is vibrant with strong yellow and magenta neon glow from the claw machine and diffuse ambient light. The scene has a playful, energetic, e-girl, soft punk vibe. Shot as an open mid-shot with a slight high-angle looking down, with sharp focus on {argument name=\"subject name\" default=\"Millie Bobby Brown\"} and the plushie, and a shallow depth of field blurring the background. Shot on a modern smartphone camera with vivid colors and 8k resolution. The aspect ratio is 9:16.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853732984_j3xoz1_HEix8H4aoAAaCAW.jpg",
+        "https://cms-assets.youmind.com/media/1774853732966_ga7egt_HEix8INXsAApyl3.jpg",
+        "https://cms-assets.youmind.com/media/1774853733076_l3b2ly_HEix8F6W0AAr-h_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853732984_j3xoz1_HEix8H4aoAAaCAW-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853732966_ga7egt_HEix8INXsAApyl3-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774853733076_l3b2ly_HEix8F6W0AAr-h_-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "\"一张写实风格的现代生活照，主角是 {argument name=\"subject name\" default=\"Millie Bobby Brown\"}，她正对着镜头灿烂微笑。她蹲在霓虹闪烁的游戏厅光滑水泥地面上，脚穿带有绑带和银色扣环的黑色厚底靴。深棕色长发扎成双马尾，留有几缕碎发。她化着淡妆，佩戴银色吊坠项链，身穿白色抹胸上衣、带有侧开叉和扣环的白色短裙，以及黑色铆钉皮质腕带。她怀里抱着一个 Kuromi 毛绒玩具，玩具戴着带有粉色骷髅图案的黑色小丑帽。她的左侧是一台巨大的、灯光璀璨的黄色抓娃娃机，里面装满了马卡龙色系的毛绒玩具。背景中还有其他色彩缤纷的街机游戏和发光的霓虹灯牌。灯光充满活力，抓娃娃机散发出强烈的黄色和洋红色霓虹光芒，并伴有柔和的环境光。整个画面呈现出俏皮、充满活力、E-Girl 和软朋克的氛围。采用中景拍摄，视角略微俯拍，焦点清晰地对准 {argument name=\"subject name\" default=\"Millie Bobby Brown\"} 和毛绒玩具，背景呈现浅景深虚化效果。使用现代智能手机拍摄，色彩鲜艳，分辨率为 8k。画面比例为 9:16。\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "e-girl 软朋克风游戏厅人像 这是用于 nano banana 2 的提示词，旨在生成一张 millie bobby brown 在霓虹闪烁的游戏厅中的写实风格现代生活照，展现 e-girl/软朋克美学，并手持 kuromi 毛绒玩具摆出俏皮姿势。 \"a fotorrealistic, modern lifestyle photo of {argument name=\"subject name\" default=\"millie bobby brown\"}, smiling brightly and looking directly at the camera. she is crouching on a smooth concrete floor in a vibrant, neon-lit arcade, balancing on black chunky platform boots with straps and silver buckles. her dark brown hair is styled in long pigtails with loose strands. she wears light makeup, a silver pendant necklace, a white bandeau top, a white mini-skirt with side slit and buckles, and spiked black leather wristbands. she holds a kuromi plushie, featuring a black jester hat with a pink skull, in front of her chest. to her left is a large, brightly illuminated yellow claw machine filled with pastel plushies. the background features other colourful arcade games and glowing neon signs. the lighting is vibrant with strong yellow and magenta neon glow from the claw machine and diffuse ambient light. the scene has a playful, energetic, e-girl, soft punk vibe. shot as an open mid-shot with a slight high-angle looking down, with sharp focus on {argument name=\"subject name\" default=\"millie bobby brown\"} and the plushie, and a shallow depth of field blurring the background. shot on a modern smartphone camera with vivid colors and 8k resolution. the aspect ratio is 9:16.\" \"一张写实风格的现代生活照，主角是 {argument name=\"subject name\" default=\"millie bobby brown\"}，她正对着镜头灿烂微笑。她蹲在霓虹闪烁的游戏厅光滑水泥地面上，脚穿带有绑带和银色扣环的黑色厚底靴。深棕色长发扎成双马尾，留有几缕碎发。她化着淡妆，佩戴银色吊坠项链，身穿白色抹胸上衣、带有侧开叉和扣环的白色短裙，以及黑色铆钉皮质腕带。她怀里抱着一个 kuromi 毛绒玩具，玩具戴着带有粉色骷髅图案的黑色小丑帽。她的左侧是一台巨大的、灯光璀璨的黄色抓娃娃机，里面装满了马卡龙色系的毛绒玩具。背景中还有其他色彩缤纷的街机游戏和发光的霓虹灯牌。灯光充满活力，抓娃娃机散发出强烈的黄色和洋红色霓虹光芒，并伴有柔和的环境光。整个画面呈现出俏皮、充满活力、e-girl 和软朋克的氛围。采用中景拍摄，视角略微俯拍，焦点清晰地对准 {argument name=\"subject name\" default=\"millie bobby brown\"} 和毛绒玩具，背景呈现浅景深虚化效果。使用现代智能手机拍摄，色彩鲜艳，分辨率为 8k。画面比例为 9:16。\" giulia 12957",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12955,
+      "title": "Coquette 风格柔和色调卧室人像",
+      "description": "一份为 Google Nano Banana 2 编写的详细提示词，旨在生成一张具有 Coquette/软妹风格的写实人像。画面中，一位年轻女性蹲在金色凳子上，置身于明亮的粉色卧室中，沐浴在自然阳光下。",
+      "sourceLink": "https://x.com/NameIsSudee/status/2038071023103557740",
+      "sourcePublishedAt": "2026-03-29T01:49:32.000Z",
+      "author": {
+        "name": "Sadie 🥀",
+        "link": "https://x.com/NameIsSudee"
+      },
+      "content": "{\n  \"image_prompt\": {\n    \"subject\": {\n      \"appearance\": \"Young woman with long wavy reddish-brown hair styled half-up, half-down with a silver star hair clip. She has light freckles, soft natural makeup, and is smiling warmly at the camera.\",\n      \"pose\": \"Squatting gracefully on a small, gold geometric wire stool. Her body is angled slightly to the side, but her face is turned towards the viewer.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"White satin corset-style camisole with thin straps and lace trim.\",\n      \"bottom\": \"Light grey pleated mini skirt with a thin pink stripe detail near the hem.\",\n      \"hosiery\": \"Sheer white thigh-high stockings with wide lace tops.\",\n      \"socks\": \"Thick, ribbed white slouch socks layered over the ankles.\",\n      \"shoes\": \"Chunky white platform sneakers.\",\n      \"accessories\": \"Pink strappy leg garter with small pearls and a gold bell worn on the right thigh.\"\n    },\n    \"environment\": {\n      \"setting\": \"A bright, cozy pastel pink bedroom.\",\n      \"decor\": \"Walls decorated with cute pastel posters including Hello Kitty. A wooden dresser in the background draped with warm white fairy lights. A fluffy white rug on the floor.\",\n      \"background_elements\": \"A white-framed floor mirror reflecting fairy lights, and a neatly arranged row of colorful high heels (pink, magenta, white) on the floor in the background.\"\n    },\n    \"lighting_and_style\": {\n      \"lighting\": \"Bright, natural daytime sunlight streaming into the room, creating a soft, airy atmosphere with gentle, luminous shadows.\",\n      \"aesthetic\": \"Photorealistic, coquette, soft girl aesthetic, highly detailed, vibrant pastel color palette.\"\n    },\n    \"full_composite_prompt\": \"A photorealistic portrait of a young woman with long wavy reddish-brown hair styled half-up with a star clip, smiling at the camera. She is squatting on a small gold geometric wire stool. She is wearing a white satin lace-trim corset top, a light grey pleated mini skirt with pink trim, a pink leg garter with pearls, sheer white lace-top thigh-high stockings, chunky white ribbed slouch socks, and thick white platform sneakers. The setting is a bright pastel pink bedroom decorated with Hello Kitty posters, a wooden dresser with fairy lights, a fluffy white floor rug, and a row of high heels on the floor. Bright natural sunlight, airy atmosphere, coquette aesthetic, 8k resolution, highly detailed.\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853731607_wfeqhn_HEiupSVagAANQuH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853731607_wfeqhn_HEiupSVagAANQuH-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_prompt\": {\n    \"subject\": {\n      \"appearance\": \"年轻女性，留着红棕色长波浪卷发，采用半扎发造型，别着银色星星发夹。她有淡淡的雀斑，妆容清新自然，正对着镜头温暖地微笑。\",\n      \"pose\": \"优雅地蹲在一张小型金色几何铁丝凳上。身体略微侧向一边，但脸部转向镜头方向。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"白色缎面紧身胸衣式吊带衫，配有细肩带和蕾丝饰边。\",\n      \"bottom\": \"浅灰色百褶迷你裙，下摆处有细粉色条纹细节。\",\n      \"hosiery\": \"透明白色大腿袜，袜口带有宽蕾丝边。\",\n      \"socks\": \"厚实的白色罗纹堆堆袜，叠穿在脚踝处。\",\n      \"shoes\": \"厚底白色运动鞋。\",\n      \"accessories\": \"右大腿上戴着粉色绑带腿环，装饰有小珍珠和金色小铃铛。\"\n    },\n    \"environment\": {\n      \"setting\": \"明亮、温馨的粉色卧室。\",\n      \"decor\": \"墙上装饰着可爱的粉色系海报，包括 Hello Kitty。背景中的木制梳妆台上挂着暖白色的仙女灯。地板上铺着毛茸茸的白色地毯。\",\n      \"background_elements\": \"一面白色边框的落地镜，反射着仙女灯的光芒；地板上整齐地排列着一排彩色高跟鞋（粉色、洋红色、白色）。\"\n    },\n    \"lighting_and_style\": {\n      \"lighting\": \"明亮的自然日光射入房间，营造出柔和、通透的氛围，并带有轻柔、明亮的光影。\",\n      \"aesthetic\": \"写实风格，Coquette 风格，软妹审美，高度细节化，充满活力的粉色调配色。\"\n    },\n    \"full_composite_prompt\": \"一张写实人像，画面中一位年轻女性留着红棕色长波浪卷发，半扎发并别着星星发夹，正对着镜头微笑。她蹲在一张小型金色几何铁丝凳上。她身穿白色缎面蕾丝饰边紧身胸衣，搭配浅灰色粉条纹百褶迷你裙、带有珍珠装饰的粉色腿环、透明白色蕾丝边大腿袜、厚实白色罗纹堆堆袜以及厚底白色运动鞋。场景设定在一个明亮的粉色卧室中，装饰有 Hello Kitty 海报、带有仙女灯的木制梳妆台、毛茸茸的白色地毯，地板上摆放着一排高跟鞋。明亮的自然阳光，通透的氛围，Coquette 风格，8k 分辨率，高度细节化。\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "coquette 风格柔和色调卧室人像 一份为 google nano banana 2 编写的详细提示词，旨在生成一张具有 coquette/软妹风格的写实人像。画面中，一位年轻女性蹲在金色凳子上，置身于明亮的粉色卧室中，沐浴在自然阳光下。 {\n  \"image_prompt\": {\n    \"subject\": {\n      \"appearance\": \"young woman with long wavy reddish-brown hair styled half-up, half-down with a silver star hair clip. she has light freckles, soft natural makeup, and is smiling warmly at the camera.\",\n      \"pose\": \"squatting gracefully on a small, gold geometric wire stool. her body is angled slightly to the side, but her face is turned towards the viewer.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"white satin corset-style camisole with thin straps and lace trim.\",\n      \"bottom\": \"light grey pleated mini skirt with a thin pink stripe detail near the hem.\",\n      \"hosiery\": \"sheer white thigh-high stockings with wide lace tops.\",\n      \"socks\": \"thick, ribbed white slouch socks layered over the ankles.\",\n      \"shoes\": \"chunky white platform sneakers.\",\n      \"accessories\": \"pink strappy leg garter with small pearls and a gold bell worn on the right thigh.\"\n    },\n    \"environment\": {\n      \"setting\": \"a bright, cozy pastel pink bedroom.\",\n      \"decor\": \"walls decorated with cute pastel posters including hello kitty. a wooden dresser in the background draped with warm white fairy lights. a fluffy white rug on the floor.\",\n      \"background_elements\": \"a white-framed floor mirror reflecting fairy lights, and a neatly arranged row of colorful high heels (pink, magenta, white) on the floor in the background.\"\n    },\n    \"lighting_and_style\": {\n      \"lighting\": \"bright, natural daytime sunlight streaming into the room, creating a soft, airy atmosphere with gentle, luminous shadows.\",\n      \"aesthetic\": \"photorealistic, coquette, soft girl aesthetic, highly detailed, vibrant pastel color palette.\"\n    },\n    \"full_composite_prompt\": \"a photorealistic portrait of a young woman with long wavy reddish-brown hair styled half-up with a star clip, smiling at the camera. she is squatting on a small gold geometric wire stool. she is wearing a white satin lace-trim corset top, a light grey pleated mini skirt with pink trim, a pink leg garter with pearls, sheer white lace-top thigh-high stockings, chunky white ribbed slouch socks, and thick white platform sneakers. the setting is a bright pastel pink bedroom decorated with hello kitty posters, a wooden dresser with fairy lights, a fluffy white floor rug, and a row of high heels on the floor. bright natural sunlight, airy atmosphere, coquette aesthetic, 8k resolution, highly detailed.\"\n  }\n} {\n  \"image_prompt\": {\n    \"subject\": {\n      \"appearance\": \"年轻女性，留着红棕色长波浪卷发，采用半扎发造型，别着银色星星发夹。她有淡淡的雀斑，妆容清新自然，正对着镜头温暖地微笑。\",\n      \"pose\": \"优雅地蹲在一张小型金色几何铁丝凳上。身体略微侧向一边，但脸部转向镜头方向。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"白色缎面紧身胸衣式吊带衫，配有细肩带和蕾丝饰边。\",\n      \"bottom\": \"浅灰色百褶迷你裙，下摆处有细粉色条纹细节。\",\n      \"hosiery\": \"透明白色大腿袜，袜口带有宽蕾丝边。\",\n      \"socks\": \"厚实的白色罗纹堆堆袜，叠穿在脚踝处。\",\n      \"shoes\": \"厚底白色运动鞋。\",\n      \"accessories\": \"右大腿上戴着粉色绑带腿环，装饰有小珍珠和金色小铃铛。\"\n    },\n    \"environment\": {\n      \"setting\": \"明亮、温馨的粉色卧室。\",\n      \"decor\": \"墙上装饰着可爱的粉色系海报，包括 hello kitty。背景中的木制梳妆台上挂着暖白色的仙女灯。地板上铺着毛茸茸的白色地毯。\",\n      \"background_elements\": \"一面白色边框的落地镜，反射着仙女灯的光芒；地板上整齐地排列着一排彩色高跟鞋（粉色、洋红色、白色）。\"\n    },\n    \"lighting_and_style\": {\n      \"lighting\": \"明亮的自然日光射入房间，营造出柔和、通透的氛围，并带有轻柔、明亮的光影。\",\n      \"aesthetic\": \"写实风格，coquette 风格，软妹审美，高度细节化，充满活力的粉色调配色。\"\n    },\n    \"full_composite_prompt\": \"一张写实人像，画面中一位年轻女性留着红棕色长波浪卷发，半扎发并别着星星发夹，正对着镜头微笑。她蹲在一张小型金色几何铁丝凳上。她身穿白色缎面蕾丝饰边紧身胸衣，搭配浅灰色粉条纹百褶迷你裙、带有珍珠装饰的粉色腿环、透明白色蕾丝边大腿袜、厚实白色罗纹堆堆袜以及厚底白色运动鞋。场景设定在一个明亮的粉色卧室中，装饰有 hello kitty 海报、带有仙女灯的木制梳妆台、毛茸茸的白色地毯，地板上摆放着一排高跟鞋。明亮的自然阳光，通透的氛围，coquette 风格，8k 分辨率，高度细节化。\"\n  }\n} sadie 🥀 12955",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12945,
+      "title": "超写实电影感街头人像",
+      "description": "这是一个为 Gemini Nano Banana Pro 设计的提示词，用于生成一张超写实电影感街头人像，主角是一位身穿黑色风衣的时尚年轻男子。图像采用单色背景，主体以彩色呈现，强调浅景深效果和杂志摄影风格。",
+      "sourceLink": "https://x.com/nawalsehar/status/2038059339546767685",
+      "sourcePublishedAt": "2026-03-29T01:03:06.000Z",
+      "author": {
+        "name": "Nawal",
+        "link": "https://x.com/nawalsehar"
+      },
+      "content": "Hyper-realistic cinematic street portrait of a stylish young man crossing a busy city street, wearing a black trench coat and dark outfit, confident serious expression, shallow depth of field, blurred pedestrians and traffic in background, monochrome black-and-white environment with subject in color, natural lighting, editorial photography, high detail, vertical 9:16.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853725468_tncut2_HEikKNoaQAAAQBo.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853725468_tncut2_HEikKNoaQAAAQBo-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感街头人像，一位身穿黑色风衣和深色服装的时尚年轻男子正穿过繁忙的城市街道，表情自信严肃，浅景深效果，背景是模糊的行人和车流，环境为黑白单色，主体为彩色，自然光，杂志摄影风格，高细节，垂直 9:16。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实电影感街头人像 这是一个为 gemini nano banana pro 设计的提示词，用于生成一张超写实电影感街头人像，主角是一位身穿黑色风衣的时尚年轻男子。图像采用单色背景，主体以彩色呈现，强调浅景深效果和杂志摄影风格。 hyper-realistic cinematic street portrait of a stylish young man crossing a busy city street, wearing a black trench coat and dark outfit, confident serious expression, shallow depth of field, blurred pedestrians and traffic in background, monochrome black-and-white environment with subject in color, natural lighting, editorial photography, high detail, vertical 9:16. 超写实电影感街头人像，一位身穿黑色风衣和深色服装的时尚年轻男子正穿过繁忙的城市街道，表情自信严肃，浅景深效果，背景是模糊的行人和车流，环境为黑白单色，主体为彩色，自然光，杂志摄影风格，高细节，垂直 9:16。 nawal 12945",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12985,
+      "title": "年轻日本女性特写",
+      "description": "这是 Nano Banana Pro 的提示词，用于描述一位可爱的 20 岁日本女性的面部特写，她留着黑色至深棕色的直长发和刘海，背景为白色。",
+      "sourceLink": "https://x.com/takashi6841/status/2038056817251799416",
+      "sourcePublishedAt": "2026-03-29T00:53:05.000Z",
+      "author": {
+        "name": "タカシeeee",
+        "link": "https://x.com/takashi6841"
+      },
+      "content": "20歳の日本人の若い女性、可愛い、顔のアップ、白背景、黒髪〜ダークブラウンのストレートロングヘア、前髪あり。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853750607_pazszx_HEih37BaMAEetrF.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853750607_pazszx_HEih37BaMAEetrF-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一位 20 岁的年轻日本女性，可爱，面部特写，白色背景，黑色至深棕色直长发，带有刘海。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "年轻日本女性特写 这是 nano banana pro 的提示词，用于描述一位可爱的 20 岁日本女性的面部特写，她留着黑色至深棕色的直长发和刘海，背景为白色。 20歳の日本人の若い女性、可愛い、顔のアップ、白背景、黒髪〜ダークブラウンのストレートロングヘア、前髪あり。 一位 20 岁的年轻日本女性，可爱，面部特写，白色背景，黑色至深棕色直长发，带有刘海。 タカシeeee 12985",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12931,
+      "title": "适用于 Nano Banana Pro 的日本女性肖像提示词",
+      "description": "专为 Nano Banana Pro 模型设计的提示词，用于生成一位 20 多岁、形象清爽的日本年轻女性面部特写肖像，留有黑色至深棕色的直长发及刘海，背景为白色。",
+      "sourceLink": "https://x.com/takashi6841/status/2038041877866488091",
+      "sourcePublishedAt": "2026-03-28T23:53:43.000Z",
+      "author": {
+        "name": "タカシeeee",
+        "link": "https://x.com/takashi6841"
+      },
+      "content": "20歳の日本人清楚系の若い女性、顔のアップ、白背景、黒髪〜ダークブラウンのストレートロングヘア、前髪あり。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766204741_tvxna1_HEiUSVnaUAAcy4z.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766204741_tvxna1_HEiUSVnaUAAcy4z-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一位 20 多岁、形象清爽的日本年轻女性，面部特写，白色背景，黑色至深棕色直长发，留有刘海。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "适用于 nano banana pro 的日本女性肖像提示词 专为 nano banana pro 模型设计的提示词，用于生成一位 20 多岁、形象清爽的日本年轻女性面部特写肖像，留有黑色至深棕色的直长发及刘海，背景为白色。 20歳の日本人清楚系の若い女性、顔のアップ、白背景、黒髪〜ダークブラウンのストレートロングヘア、前髪あり。 一位 20 多岁、形象清爽的日本年轻女性，面部特写，白色背景，黑色至深棕色直长发，留有刘海。 タカシeeee 12931",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12925,
+      "title": "单色雕版印刷肖像风格",
+      "description": "这是一条为 Gemini Nano Banana Pro 2.0 设计的详细提示词，旨在根据上传的参考照片生成复古雕版插画风格的肖像，强调黑色墨水线条、交叉排线以及古典版画美学。",
+      "sourceLink": "https://x.com/Aipromptslap/status/2038013012762829110",
+      "sourcePublishedAt": "2026-03-28T21:59:01.000Z",
+      "author": {
+        "name": "Ai Prompts Lab",
+        "link": "https://x.com/Aipromptslap"
+      },
+      "content": "Use the Uploaded photo as reference, Vintage engraving illustration style, highly detailed black ink linework, dense parallel hatching and cross-hatching, precise contour engraving lines, woodcut and etching influence, classical printmaking aesthetic, monochrome black and white palette, intricate line density variation to create depth and volume, curved line flow following form anatomy, stippling accents for soft shading, old master engraving technique, baroque illustration feel, antique scientific illustration style, ultra fine (line precision), high contrast with clean negative space, ornamental yet anatomical rendering, hand-engraved texture simulation, timeless classical art style, meticulous craftsmanship, no color, no gradients, purely line-based shading.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766201498_o4hur3_HEh58mObYAA2GPX.jpg",
+        "https://cms-assets.youmind.com/media/1774766201530_feqb35_HEh58mRaAAArGfU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766201498_o4hur3_HEh58mObYAA2GPX-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774766201530_feqb35_HEh58mRaAAArGfU-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "以上传的照片为参考，复古雕版插画风格，高度细腻的黑色墨水线条，密集的平行排线和交叉排线，精准的轮廓雕刻线条，受木刻和蚀刻版画影响，古典版画美学，单色黑白调色板，通过复杂的线条密度变化营造深度与体积感，线条走向贴合人体结构，使用点画法进行柔和阴影处理，大师级雕版技术，巴洛克插画质感，古董科学插画风格，超精细（线条精度），高对比度且留白干净，兼具装饰性与解剖学渲染，模拟手工雕刻纹理，永恒的古典艺术风格，精湛的工艺，无色彩，无渐变，纯线条阴影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "单色雕版印刷肖像风格 这是一条为 gemini nano banana pro 2.0 设计的详细提示词，旨在根据上传的参考照片生成复古雕版插画风格的肖像，强调黑色墨水线条、交叉排线以及古典版画美学。 use the uploaded photo as reference, vintage engraving illustration style, highly detailed black ink linework, dense parallel hatching and cross-hatching, precise contour engraving lines, woodcut and etching influence, classical printmaking aesthetic, monochrome black and white palette, intricate line density variation to create depth and volume, curved line flow following form anatomy, stippling accents for soft shading, old master engraving technique, baroque illustration feel, antique scientific illustration style, ultra fine (line precision), high contrast with clean negative space, ornamental yet anatomical rendering, hand-engraved texture simulation, timeless classical art style, meticulous craftsmanship, no color, no gradients, purely line-based shading. 以上传的照片为参考，复古雕版插画风格，高度细腻的黑色墨水线条，密集的平行排线和交叉排线，精准的轮廓雕刻线条，受木刻和蚀刻版画影响，古典版画美学，单色黑白调色板，通过复杂的线条密度变化营造深度与体积感，线条走向贴合人体结构，使用点画法进行柔和阴影处理，大师级雕版技术，巴洛克插画质感，古董科学插画风格，超精细（线条精度），高对比度且留白干净，兼具装饰性与解剖学渲染，模拟手工雕刻纹理，永恒的古典艺术风格，精湛的工艺，无色彩，无渐变，纯线条阴影。 ai prompts lab 12925",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12927,
+      "title": "粉色货运自行车上的高级时装街拍",
+      "description": "这是一条为 Nano Banana Pro 准备的详细提示词，旨在生成一张超写实的高级时装街拍照片。画面展示了两名时尚女性骑着一辆带有货运斗的淡粉色自行车穿梭于城市街头，侧重于柔和的奢华美学与协调的穿搭风格。",
+      "sourceLink": "https://x.com/GlenaJenne/status/2037980358923411718",
+      "sourcePublishedAt": "2026-03-28T19:49:16.000Z",
+      "author": {
+        "name": "glena Jenner",
+        "link": "https://x.com/GlenaJenne"
+      },
+      "content": "ultra realistic photo of two stylish women riding a pastel pink bicycle with a cargo cart in an urban street, daytime, soft natural lighting,\n\nscene: city intersection with road signs, crosswalk lines, slightly empty street, urban background with muted tones,\n\nmain subject: blonde woman riding the bike, wearing a soft pink fitted outfit (strapless top and leggings), elegant posture, long flowing hair, neutral expression,\n\nsecond subject: brunette woman sitting in the back cargo cart, wearing a brown strapless outfit, holding a designer handbag, relaxed pose, looking sideways,\n\nbike: aesthetic pastel pink bicycle with front basket and rear cargo cart, cute minimal details,\n\nstyling: soft luxury aesthetic, coordinated outfits, clean color palette ({argument name=\"color palette\" default=\"pink, brown, beige\"}),\n\nlighting: natural daylight, soft shadows, slightly diffused sunlight, realistic tones,\n\ncomposition: full body shot, slightly angled perspective, editorial framing, focus on both subjects,\n\nstyle: high fashion street photography, influencer aesthetic, candid but styled, ultra detailed, sharp focus, realistic skin texture, no watermark --ar 2:3 --style raw --v 7 --stylize 100",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766202395_5pg6fw_HEhcVKiaYAAO5HS.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766202395_5pg6fw_HEhcVKiaYAAO5HS-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "两名时尚女性骑着带有货运斗的淡粉色自行车在城市街道上的超写实照片，日间，柔和的自然光，\n\n场景：带有路标和人行横道的城市十字路口，街道略显空旷，城市背景色调柔和，\n\n主要人物：骑车的金发女性，身穿柔粉色修身套装（抹胸上衣和紧身裤），姿态优雅，长发飘逸，表情自然，\n\n次要人物：坐在后方货运斗里的深棕色头发女性，身穿棕色抹胸套装，手拿设计师手袋，姿态放松，侧身看向一旁，\n\n自行车：美学淡粉色自行车，配有前车篮和后置货运斗，细节简约可爱，\n\n造型：柔和奢华美学，协调的穿搭，干净的色调（{argument name=\"color palette\" default=\"粉色, 棕色, 米色\"}），\n\n光影：自然日光，柔和阴影，光线略微漫射，色调写实，\n\n构图：全身照，略带角度的视角，编辑风格取景，聚焦于两位主体，\n\n风格：高级时装街拍，网红美学，抓拍感但经过精心造型，超高细节，焦点清晰，真实的皮肤纹理，无水印 --ar 2:3 --style raw --v 7 --stylize 100",
+      "sourcePlatform": "twitter",
+      "searchIndex": "粉色货运自行车上的高级时装街拍 这是一条为 nano banana pro 准备的详细提示词，旨在生成一张超写实的高级时装街拍照片。画面展示了两名时尚女性骑着一辆带有货运斗的淡粉色自行车穿梭于城市街头，侧重于柔和的奢华美学与协调的穿搭风格。 ultra realistic photo of two stylish women riding a pastel pink bicycle with a cargo cart in an urban street, daytime, soft natural lighting,\n\nscene: city intersection with road signs, crosswalk lines, slightly empty street, urban background with muted tones,\n\nmain subject: blonde woman riding the bike, wearing a soft pink fitted outfit (strapless top and leggings), elegant posture, long flowing hair, neutral expression,\n\nsecond subject: brunette woman sitting in the back cargo cart, wearing a brown strapless outfit, holding a designer handbag, relaxed pose, looking sideways,\n\nbike: aesthetic pastel pink bicycle with front basket and rear cargo cart, cute minimal details,\n\nstyling: soft luxury aesthetic, coordinated outfits, clean color palette ({argument name=\"color palette\" default=\"pink, brown, beige\"}),\n\nlighting: natural daylight, soft shadows, slightly diffused sunlight, realistic tones,\n\ncomposition: full body shot, slightly angled perspective, editorial framing, focus on both subjects,\n\nstyle: high fashion street photography, influencer aesthetic, candid but styled, ultra detailed, sharp focus, realistic skin texture, no watermark --ar 2:3 --style raw --v 7 --stylize 100 两名时尚女性骑着带有货运斗的淡粉色自行车在城市街道上的超写实照片，日间，柔和的自然光，\n\n场景：带有路标和人行横道的城市十字路口，街道略显空旷，城市背景色调柔和，\n\n主要人物：骑车的金发女性，身穿柔粉色修身套装（抹胸上衣和紧身裤），姿态优雅，长发飘逸，表情自然，\n\n次要人物：坐在后方货运斗里的深棕色头发女性，身穿棕色抹胸套装，手拿设计师手袋，姿态放松，侧身看向一旁，\n\n自行车：美学淡粉色自行车，配有前车篮和后置货运斗，细节简约可爱，\n\n造型：柔和奢华美学，协调的穿搭，干净的色调（{argument name=\"color palette\" default=\"粉色, 棕色, 米色\"}），\n\n光影：自然日光，柔和阴影，光线略微漫射，色调写实，\n\n构图：全身照，略带角度的视角，编辑风格取景，聚焦于两位主体，\n\n风格：高级时装街拍，网红美学，抓拍感但经过精心造型，超高细节，焦点清晰，真实的皮肤纹理，无水印 --ar 2:3 --style raw --v 7 --stylize 100 glena jenner 12927",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12926,
+      "title": "Iggy Azalea 动漫卧室超写实肖像",
+      "description": "这是一个为 Nano Banana Pro 设计的高度详细、复杂且结构化的提示词，旨在生成一张 Iggy Azalea 坐在粉色霓虹灯动漫迷卧室中的超写实低角度肖像，强调前景细节（脚部）以及背景中特定的御宅族文化元素。",
+      "sourceLink": "https://x.com/Noira_exe/status/2037965540417785872",
+      "sourcePublishedAt": "2026-03-28T18:50:23.000Z",
+      "author": {
+        "name": "Noira",
+        "link": "https://x.com/Noira_exe"
+      },
+      "content": "{\n  “meta”: {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “intimate indoor setting, dominated by striking pink neon LED lights on the ceiling, with soft ambient fill”,\n    “style”: “cinematic low-angle portrait, detailed character study”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “An authentic anime fan’s bedroom with pink walls, filled with a dense, curated collection of otaku culture items. The ceiling features striking linear pink neon LED lights. The background includes all the specific posters from the room setup, notably a large, detailed ‘Elfen Lied’ split-mask poster on the left wall, a ‘Cowboy Bebop’ poster, a ‘Sailor Moon’ poster, and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls.\nWhite floating shelves are filled with diverse manga volumes and various collectible figurines. A string hangs from the ceiling fan with a small charm and plush. On the bed, there is a large, detailed Rem (Re:Zero) body pillow, a My Melody plush, and a Kuromi plush. The bed is covered in a black sheet and a pink blanket.”,\n    “atmosphere”: “Cozy, vibrant, immersed in otaku culture.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"Iggy Azalea\"}”,\n    “body”: {\n      “type”: “Realistic, naturally proportioned figure with clean skin, no tattoos on either arm.”,\n      “nails”: {\n        “description”: “All fingernails and toenails are meticulously painted with a glossy {argument name=\"nail color\" default=\"pink\"} nail polish.”\n      }\n    },\n    “face”: {\n      “features”: “Distinctive features, high-fashion makeup, wavy blonde hair, smiling warmly and directly at the camera.”,\n      “expression”: “Warm, poised, and confident.”\n    },\n“outfit”: {\n      “description”: “Matching white ribbed cotton athletic set (white sports bra and white high-waisted leggings).”,\n      “fit”: “Casually fitted, sporty modern.”\n    },\n    “accessories”: {\n      “details”: “A single silver bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain necklace are present.”\n    },\n    “pose”: “Seated cross-legged in the middle of the bed, viewed from a very low perspective. Her bare right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. Her left hand, with glossy pink fingernails, is casually running through her hair. Her right hand rests near her right knee. The anime plushies (My Melody, Kuromi) and body pillow are in place behind her.”\n  },\n“composition”: “Close-up, extreme low-angle shot. The frame is dominated by the large, detailed foreground feet (with pink toenails) and {argument name=\"subject name\" default=\"Iggy Azalea\"}’s face. Focus is sharp on both. The background (anime bedroom) is rendered with discernible details but softly blurred to emphasize the subject.”\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766200734_p1hzoh_HEhO25TXUAAPisv.jpg",
+        "https://cms-assets.youmind.com/media/1774766200802_5ccieh_HEhO26XaAAApIaP.jpg",
+        "https://cms-assets.youmind.com/media/1774766200818_s69cj8_HEhO21JXcAAf_cl.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766200734_p1hzoh_HEhO25TXUAAPisv-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774766200802_5ccieh_HEhO26XaAAApIaP-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1774766200818_s69cj8_HEhO21JXcAAf_cl-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"私密的室内环境，天花板上以醒目的粉色霓虹 LED 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影级低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间充满御宅族文化的正宗动漫迷卧室，墙壁为粉色，陈列着密集且精心挑选的收藏品。天花板上有醒目的线性粉色霓虹 LED 灯。背景包含了房间布置中的所有特定海报，特别是左侧墙上那张大型且细节丰富的《妖精的旋律》(Elfen Lied) 分裂面具海报、《星际牛仔》(Cowboy Bebop) 海报、《美少女战士》(Sailor Moon) 海报，以及覆盖两面可见墙壁的多个带框和不带框的动漫角色插画和墙面艺术品。\n白色浮动搁板上摆满了各种漫画书和各式收藏手办。天花板吊扇上垂下一根挂着小挂件和毛绒玩具的绳子。床上有一个大型且细节丰富的蕾姆 (Re:Zero) 等身抱枕、一个美乐蒂毛绒玩具和一个库洛米毛绒玩具。床上铺着黑色床单和粉色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅族文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"Iggy Azalea\\\"}\",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂均无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了光泽感的 {argument name=\\\"nail color\\\" default=\\\"粉色\\\"} 指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"特征鲜明，高定妆容，波浪形金发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的白色罗纹棉质运动套装（白色运动内衣和白色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一枚银色手链，左手食指戴着一枚银戒指，颈间戴着一条精致的金色项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，从极低的角度拍摄。她赤裸的右脚非常大，占据了近景前景，左脚位于其后方稍远处。她的左手涂着光泽感的粉色指甲油，正随意地拨弄着头发。右手放在右膝附近。动漫毛绒玩具（美乐蒂、库洛米）和等身抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由巨大的、细节丰富的前景脚部（涂有粉色脚趾甲油）和 {argument name=\\\"subject name\\\" default=\\\"Iggy Azalea\\\"} 的脸部主导。焦点清晰地对准两者。背景（动漫卧室）呈现出清晰的细节，但经过柔化处理以突出主体。\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "iggy azalea 动漫卧室超写实肖像 这是一个为 nano banana pro 设计的高度详细、复杂且结构化的提示词，旨在生成一张 iggy azalea 坐在粉色霓虹灯动漫迷卧室中的超写实低角度肖像，强调前景细节（脚部）以及背景中特定的御宅族文化元素。 {\n  “meta”: {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “intimate indoor setting, dominated by striking pink neon led lights on the ceiling, with soft ambient fill”,\n    “style”: “cinematic low-angle portrait, detailed character study”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “an authentic anime fan’s bedroom with pink walls, filled with a dense, curated collection of otaku culture items. the ceiling features striking linear pink neon led lights. the background includes all the specific posters from the room setup, notably a large, detailed ‘elfen lied’ split-mask poster on the left wall, a ‘cowboy bebop’ poster, a ‘sailor moon’ poster, and multiple other framed and unframed anime character illustrations and wall art pieces covering both visible walls.\nwhite floating shelves are filled with diverse manga volumes and various collectible figurines. a string hangs from the ceiling fan with a small charm and plush. on the bed, there is a large, detailed rem (re:zero) body pillow, a my melody plush, and a kuromi plush. the bed is covered in a black sheet and a pink blanket.”,\n    “atmosphere”: “cozy, vibrant, immersed in otaku culture.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"iggy azalea\"}”,\n    “body”: {\n      “type”: “realistic, naturally proportioned figure with clean skin, no tattoos on either arm.”,\n      “nails”: {\n        “description”: “all fingernails and toenails are meticulously painted with a glossy {argument name=\"nail color\" default=\"pink\"} nail polish.”\n      }\n    },\n    “face”: {\n      “features”: “distinctive features, high-fashion makeup, wavy blonde hair, smiling warmly and directly at the camera.”,\n      “expression”: “warm, poised, and confident.”\n    },\n“outfit”: {\n      “description”: “matching white ribbed cotton athletic set (white sports bra and white high-waisted leggings).”,\n      “fit”: “casually fitted, sporty modern.”\n    },\n    “accessories”: {\n      “details”: “a single silver bracelet on her left wrist, a silver ring on her left index finger, and a delicate gold chain necklace are present.”\n    },\n    “pose”: “seated cross-legged in the middle of the bed, viewed from a very low perspective. her bare right foot is very large and dominates the immediate foreground, followed by the left foot positioned slightly behind. her left hand, with glossy pink fingernails, is casually running through her hair. her right hand rests near her right knee. the anime plushies (my melody, kuromi) and body pillow are in place behind her.”\n  },\n“composition”: “close-up, extreme low-angle shot. the frame is dominated by the large, detailed foreground feet (with pink toenails) and {argument name=\"subject name\" default=\"iggy azalea\"}’s face. focus is sharp on both. the background (anime bedroom) is rendered with discernible details but softly blurred to emphasize the subject.”\n} {\n  \"meta\": {\n    \"quality\": \"超写实，原始风格，8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"私密的室内环境，天花板上以醒目的粉色霓虹 led 灯为主，辅以柔和的环境补光\",\n    \"style\": \"电影级低角度肖像，细腻的人物刻画\",\n    \"aspect_ratio\": \"9:16\"\n  },\n  \"scene\": {\n    \"location\": \"一间充满御宅族文化的正宗动漫迷卧室，墙壁为粉色，陈列着密集且精心挑选的收藏品。天花板上有醒目的线性粉色霓虹 led 灯。背景包含了房间布置中的所有特定海报，特别是左侧墙上那张大型且细节丰富的《妖精的旋律》(elfen lied) 分裂面具海报、《星际牛仔》(cowboy bebop) 海报、《美少女战士》(sailor moon) 海报，以及覆盖两面可见墙壁的多个带框和不带框的动漫角色插画和墙面艺术品。\n白色浮动搁板上摆满了各种漫画书和各式收藏手办。天花板吊扇上垂下一根挂着小挂件和毛绒玩具的绳子。床上有一个大型且细节丰富的蕾姆 (re:zero) 等身抱枕、一个美乐蒂毛绒玩具和一个库洛米毛绒玩具。床上铺着黑色床单和粉色毯子。\",\n    \"atmosphere\": \"温馨、充满活力，沉浸在御宅族文化中。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"iggy azalea\\\"}\",\n    \"body\": {\n      \"type\": \"写实、比例自然的身材，皮肤洁净，双臂均无纹身。\",\n      \"nails\": {\n        \"description\": \"所有手指甲和脚趾甲都精心涂抹了光泽感的 {argument name=\\\"nail color\\\" default=\\\"粉色\\\"} 指甲油。\"\n      }\n    },\n    \"face\": {\n      \"features\": \"特征鲜明，高定妆容，波浪形金发，正对着镜头温暖微笑。\",\n      \"expression\": \"温暖、从容且自信。\"\n    },\n    \"outfit\": {\n      \"description\": \"配套的白色罗纹棉质运动套装（白色运动内衣和白色高腰紧身裤）。\",\n      \"fit\": \"休闲合身，现代运动风。\"\n    },\n    \"accessories\": {\n      \"details\": \"左手腕戴着一枚银色手链，左手食指戴着一枚银戒指，颈间戴着一条精致的金色项链。\"\n    },\n    \"pose\": \"盘腿坐在床中央，从极低的角度拍摄。她赤裸的右脚非常大，占据了近景前景，左脚位于其后方稍远处。她的左手涂着光泽感的粉色指甲油，正随意地拨弄着头发。右手放在右膝附近。动漫毛绒玩具（美乐蒂、库洛米）和等身抱枕放置在她身后。\"\n  },\n  \"composition\": \"特写，极低角度拍摄。画面由巨大的、细节丰富的前景脚部（涂有粉色脚趾甲油）和 {argument name=\\\"subject name\\\" default=\\\"iggy azalea\\\"} 的脸部主导。焦点清晰地对准两者。背景（动漫卧室）呈现出清晰的细节，但经过柔化处理以突出主体。\"\n} noira 12926",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12941,
+      "title": "酷似 Megan Fox 的超写实高级时装肖像",
+      "description": "一份为 Nano Banana Pro 准备的详细 JSON 格式提示词，用于生成一张酷似 Megan Fox 的年轻女性超写实高级时装电影感照片，包含特定的服装、灯光和相机技术参数。",
+      "sourceLink": "https://x.com/Artist04048661/status/2037958395538420101",
+      "sourcePublishedAt": "2026-03-28T18:21:59.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman with a strong resemblance to {argument name=\"subject name\" default=\"Megan Fox\"}.\",\n      \"hair\": \"Detailed curly dark chestnut-brown updo with loose ringlets.\",\n      \"face\": \"Specific dewy skin texture with pore visibility, cheeky expression with hand near mouth, mauve-toned lipstick.\",\n      \"body\": \"Slender physique, specific rib cage and inner arm tattoos.\"\n    },\n    \"attire\": {\n      \"clothing\": \"{argument name=\"clothing item\" default=\"Beige faux-fur crop top and matching mini skirt\"}, white fingerless opera gloves.\",\n      \"style\": \"Hyper-realistic High-Fashion film photography.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"Large flat disc earrings.\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"Plain white wall with visible film grain.\",\n      \"background\": \"Minimalist white with directional shadow.\",\n      \"water\": \"None.\"\n    },\n    \"pose\": {\n      \"posture\": \"Asymmetrical, playful stance with hand near cheek.\",\n      \"arms\": \"One hand near mouth, other resting near hip.\",\n      \"angle\": \"Eye-level medium-full shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Directional hard studio lighting, high contrast, gritty film grain texture.\",\n      \"mood\": \"Cinematic, playful, hyper-real.\",\n      \"colors\": \"Neutral beige and white tones.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW film photo with visible grain.\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/5.6\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"high film grain\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"film photography aesthetic\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766210017_if84vn_HEhH8pzakAAA5ov.jpg",
+        "https://cms-assets.youmind.com/media/1774766209843_uqm0es_HEhH8o_WgAARGBA.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766210017_if84vn_HEhH8pzakAAA5ov-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1774766209843_uqm0es_HEhH8o_WgAARGBA-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"酷似 {argument name=\"subject name\" default=\"Megan Fox\"} 的年轻女性。\",\n      \"hair\": \"精致的深栗色卷发盘发，带有松散的螺旋发卷。\",\n      \"face\": \"清晰可见毛孔的露水感皮肤质感，手部靠近嘴边的俏皮表情，淡紫色调唇膏。\",\n      \"body\": \"苗条身材，肋骨处和内臂有特定的纹身。\",\n    },\n    \"attire\": {\n      \"clothing\": \"{argument name=\"clothing item\" default=\"米色人造皮草露脐上衣和配套迷你裙\"}，白色露指歌剧手套。\",\n      \"style\": \"超写实高级时装电影摄影。\",\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"大型扁平圆盘耳环。\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"带有可见胶片颗粒的纯白墙面。\",\n      \"background\": \"极简主义白色背景，带有定向阴影。\",\n      \"water\": \"无。\"\n    },\n    \"pose\": {\n      \"posture\": \"不对称的俏皮姿态，手部靠近脸颊。\",\n      \"arms\": \"一只手靠近嘴部，另一只手放在臀部附近。\",\n      \"angle\": \"平视中景全身照。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"定向硬质摄影棚灯光，高对比度，粗颗粒胶片质感。\",\n      \"mood\": \"电影感，俏皮，超写实。\",\n      \"colors\": \"中性米色和白色调。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实主义，带有可见颗粒的 RAW 格式胶片照片。\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/5.6\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高细节\",\n        \"高胶片颗粒\",\n        \"光线追踪反射\",\n        \"超写实纹理\",\n        \"胶片摄影美学\"\n      ]\n    }\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "酷似 megan fox 的超写实高级时装肖像 一份为 nano banana pro 准备的详细 json 格式提示词，用于生成一张酷似 megan fox 的年轻女性超写实高级时装电影感照片，包含特定的服装、灯光和相机技术参数。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman with a strong resemblance to {argument name=\"subject name\" default=\"megan fox\"}.\",\n      \"hair\": \"detailed curly dark chestnut-brown updo with loose ringlets.\",\n      \"face\": \"specific dewy skin texture with pore visibility, cheeky expression with hand near mouth, mauve-toned lipstick.\",\n      \"body\": \"slender physique, specific rib cage and inner arm tattoos.\"\n    },\n    \"attire\": {\n      \"clothing\": \"{argument name=\"clothing item\" default=\"beige faux-fur crop top and matching mini skirt\"}, white fingerless opera gloves.\",\n      \"style\": \"hyper-realistic high-fashion film photography.\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"large flat disc earrings.\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"plain white wall with visible film grain.\",\n      \"background\": \"minimalist white with directional shadow.\",\n      \"water\": \"none.\"\n    },\n    \"pose\": {\n      \"posture\": \"asymmetrical, playful stance with hand near cheek.\",\n      \"arms\": \"one hand near mouth, other resting near hip.\",\n      \"angle\": \"eye-level medium-full shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"directional hard studio lighting, high contrast, gritty film grain texture.\",\n      \"mood\": \"cinematic, playful, hyper-real.\",\n      \"colors\": \"neutral beige and white tones.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw film photo with visible grain.\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/5.6\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"high film grain\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"film photography aesthetic\"\n      ]\n    }\n  }\n} {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"酷似 {argument name=\"subject name\" default=\"megan fox\"} 的年轻女性。\",\n      \"hair\": \"精致的深栗色卷发盘发，带有松散的螺旋发卷。\",\n      \"face\": \"清晰可见毛孔的露水感皮肤质感，手部靠近嘴边的俏皮表情，淡紫色调唇膏。\",\n      \"body\": \"苗条身材，肋骨处和内臂有特定的纹身。\",\n    },\n    \"attire\": {\n      \"clothing\": \"{argument name=\"clothing item\" default=\"米色人造皮草露脐上衣和配套迷你裙\"}，白色露指歌剧手套。\",\n      \"style\": \"超写实高级时装电影摄影。\",\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"大型扁平圆盘耳环。\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"带有可见胶片颗粒的纯白墙面。\",\n      \"background\": \"极简主义白色背景，带有定向阴影。\",\n      \"water\": \"无。\"\n    },\n    \"pose\": {\n      \"posture\": \"不对称的俏皮姿态，手部靠近脸颊。\",\n      \"arms\": \"一只手靠近嘴部，另一只手放在臀部附近。\",\n      \"angle\": \"平视中景全身照。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"定向硬质摄影棚灯光，高对比度，粗颗粒胶片质感。\",\n      \"mood\": \"电影感，俏皮，超写实。\",\n      \"colors\": \"中性米色和白色调。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超写实主义，带有可见颗粒的 raw 格式胶片照片。\",\n      \"lens\": \"85mm\",\n      \"aperture\": \"f/5.6\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高细节\",\n        \"高胶片颗粒\",\n        \"光线追踪反射\",\n        \"超写实纹理\",\n        \"胶片摄影美学\"\n      ]\n    }\n  }\n} lexiprompt 12941",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12920,
+      "title": "食材解构可视化",
+      "description": "一个为 Nano Banana 设计的数学风格提示词，旨在可视化某道国际名菜的解构食材。画面结合了微型玩具厨师、悬浮 AR UI 面板以及呈现在石板项目上的雷达图等元素。",
+      "sourceLink": "https://x.com/Gdgtify/status/2037929206475116652",
+      "sourcePublishedAt": "2026-03-28T16:26:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "( Deconstructed_Ingredients_{argument name=\"dish name\" default=\"[DISH_NAME]\"} * 1.5 ) + \n( Miniature_Plastic_Toy_Chef * 1.2 ) + \n( Floating_Frosted_Glass_AR_UI_Panels * 1.5 ) + \n( Flavor_Profile_Radar_Charts * 1.0 ) + \n( Slate_Serving_Board * 1.0 ) +\n( Blurred_Cookbook_Background_{argument name=\"dish name 2\" default=\"[DISH_NAME]\"} * 0.8 ) +\n( Pure_White_Studio_Void * 1.0 ) - \n( Human_Sized_Chef / 2.0 ) - \n( Messy_Plating / 2.0 )",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766197462_4smifr_HEYWiLEbYAA3lky.jpg",
+        "https://cms-assets.youmind.com/media/1774766197515_q4iibh_HEYWiKjXgAA90yj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766197462_4smifr_HEYWiLEbYAA3lky-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1774766197515_q4iibh_HEYWiKjXgAA90yj-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "( Deconstructed_Ingredients_{argument name=\"dish name\" default=\"[DISH_NAME]\"} * 1.5 ) + \n( Miniature_Plastic_Toy_Chef * 1.2 ) + \n( Floating_Frosted_Glass_AR_UI_Panels * 1.5 ) + \n( Flavor_Profile_Radar_Charts * 1.0 ) + \n( Slate_Serving_Board * 1.0 ) +\n( Blurred_Cookbook_Background_{argument name=\"dish name 2\" default=\"[DISH_NAME]\"} * 0.8 ) +\n( Pure_White_Studio_Void * 1.0 ) - \n( Human_Sized_Chef / 2.0 ) - \n( Messy_Plating / 2.0 )",
+      "sourcePlatform": "twitter",
+      "searchIndex": "食材解构可视化 一个为 nano banana 设计的数学风格提示词，旨在可视化某道国际名菜的解构食材。画面结合了微型玩具厨师、悬浮 ar ui 面板以及呈现在石板项目上的雷达图等元素。 ( deconstructed_ingredients_{argument name=\"dish name\" default=\"[dish_name]\"} * 1.5 ) + \n( miniature_plastic_toy_chef * 1.2 ) + \n( floating_frosted_glass_ar_ui_panels * 1.5 ) + \n( flavor_profile_radar_charts * 1.0 ) + \n( slate_serving_board * 1.0 ) +\n( blurred_cookbook_background_{argument name=\"dish name 2\" default=\"[dish_name]\"} * 0.8 ) +\n( pure_white_studio_void * 1.0 ) - \n( human_sized_chef / 2.0 ) - \n( messy_plating / 2.0 ) ( deconstructed_ingredients_{argument name=\"dish name\" default=\"[dish_name]\"} * 1.5 ) + \n( miniature_plastic_toy_chef * 1.2 ) + \n( floating_frosted_glass_ar_ui_panels * 1.5 ) + \n( flavor_profile_radar_charts * 1.0 ) + \n( slate_serving_board * 1.0 ) +\n( blurred_cookbook_background_{argument name=\"dish name 2\" default=\"[dish_name]\"} * 0.8 ) +\n( pure_white_studio_void * 1.0 ) - \n( human_sized_chef / 2.0 ) - \n( messy_plating / 2.0 ) gadgetify 12920",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12919,
+      "title": "图书馆的精美剪纸剪影",
+      "description": "这是为 Nano Banana Pro 准备的一段详细提示词，描述了一个漂浮在风暴云层之上、摇摇欲坠的古代图书馆的精美多层剪纸剪影，重点突出了纹理、调色板和民间艺术风格。",
+      "sourceLink": "https://x.com/ai_with_shah/status/2037927585146106145",
+      "sourcePublishedAt": "2026-03-28T16:19:33.000Z",
+      "author": {
+        "name": "Shah",
+        "link": "https://x.com/ai_with_shah"
+      },
+      "content": "Intricate multi-layer paper cut silhouette of a crumbling ancient library floating above storm clouds, heavy handmade paper with visible fibers and rough cut edges casting subtle shadows between layers, muted indigo, sepia, and silver tones, soft backlighting creating depth, traditional folk art silhouette feel with surreal scale.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766195260_qrc65p_HEgsSXPbEAAZBag.jpg",
+        "https://cms-assets.youmind.com/media/1774766195382_nlg4lk_HEgsSXRa4AAO69c.jpg",
+        "https://cms-assets.youmind.com/media/1774766195415_qrbbc3_HEgsSXXaEAEx-f0.jpg",
+        "https://cms-assets.youmind.com/media/1774766196416_2wderv_HEgsSXVbwAAkjMs.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766195260_qrc65p_HEgsSXPbEAAZBag-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774766195382_nlg4lk_HEgsSXRa4AAO69c-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774766195415_qrbbc3_HEgsSXXaEAEx-f0-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1774766196416_2wderv_HEgsSXVbwAAkjMs-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "精美的多层剪纸剪影，描绘了一座漂浮在风暴云层之上的古老废墟图书馆，采用厚实的纯手工纸张，纸张纤维清晰可见，粗糙的边缘在层与层之间投下微妙的阴影，色调为柔和的靛蓝、深褐色和银色，柔和的背光营造出深度感，具有传统民间艺术剪影的质感与超现实的比例。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图书馆的精美剪纸剪影 这是为 nano banana pro 准备的一段详细提示词，描述了一个漂浮在风暴云层之上、摇摇欲坠的古代图书馆的精美多层剪纸剪影，重点突出了纹理、调色板和民间艺术风格。 intricate multi-layer paper cut silhouette of a crumbling ancient library floating above storm clouds, heavy handmade paper with visible fibers and rough cut edges casting subtle shadows between layers, muted indigo, sepia, and silver tones, soft backlighting creating depth, traditional folk art silhouette feel with surreal scale. 精美的多层剪纸剪影，描绘了一座漂浮在风暴云层之上的古老废墟图书馆，采用厚实的纯手工纸张，纸张纤维清晰可见，粗糙的边缘在层与层之间投下微妙的阴影，色调为柔和的靛蓝、深褐色和银色，柔和的背光营造出深度感，具有传统民间艺术剪影的质感与超现实的比例。 shah 12919",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12929,
+      "title": "2x2 网格可爱动物时尚大片提示词",
+      "description": "这是一个为 Nano Banana Pro 设计的高度结构化 JSON 提示词，专用于图生图任务。旨在生成一个 2x2 网格图像，展示同一位年轻女性与不同可爱动物（小鸡、兔子、鹦鹉、猫）的互动，采用柔和的春日时尚大片风格，重点强调身份锁定与柔和美学。",
+      "sourceLink": "https://x.com/astronomerozge1/status/2037922127391658076",
+      "sourcePublishedAt": "2026-03-28T15:57:52.000Z",
+      "author": {
+        "name": "Özge Döner",
+        "link": "https://x.com/astronomerozge1"
+      },
+      "content": "{\n \"generation_request\": {\n \"meta_data\": {\n \"tool\": \"NanoBanana Pro\",\n \"task_type\": \"cute_animal_fashion_editorial_2x2_grid\",\n \"language\": \"en\",\n \"priority\": \"highest\",\n \"version\": \"v1.0_PINK_YELLOW_HAPPY_ANIMAL_2X2\"\n },\n\n \"input\": {\n \"mode\": \"image_to_image\",\n \"multi_reference\": true,\n \"reference_image_usage\": \"very_high\",\n \"preserve_identity\": true,\n \"notes\": \"The young woman must appear in all four panels with highly consistent face, eyes, smile, and soft feminine features. Her face must be clearly visible in every panel, never hidden by animals, hair, or props. The overall mood should be joyful, sweet, cozy, playful, and visually charming. Style her in pink and yellow clothing or knitwear with a soft pastel aesthetic. Include cute animals naturally, but keep the woman as the main subject.\"\n },\n\n \"output_settings\": {\n \"aspect_ratio\": \"4:5\",\n \"orientation\": \"portrait\",\n \"resolution_target\": \"ultra_high_res\",\n \"num_images\": 1,\n \"layout\": {\n \"type\": \"grid\",\n \"rows\": 2,\n \"cols\": 2,\n \"gutter\": \"thin\",\n \"outer_border\": \"none\",\n \"panel_consistency\": \"maximum_identity_lock\"\n },\n \"render_style\": \"pastel_cute_fashion_editorial\",\n \"sharpness\": \"editorial_crisp\",\n \"grain\": \"soft_subtle_film\",\n \"dynamic_range\": \"bright_soft_natural\",\n \"color_grade\": \"pastel_pink_yellow_spring\"\n },\n\n \"subject\": {\n \"identity\": \"young woman in all four panels\",\n \"face\": \"soft feminine face, visible eyes, warm smile, joyful expression, natural beauty\",\n \"hair\": \"softly styled dark or brunette hair, neat and flattering, face kept open and visible\",\n \"makeup\": \"light fresh makeup, soft blush, healthy skin glow, natural pink lips\",\n \"outfit\": \"{argument name=\"outfit color\" default=\"pink and yellow\"} cozy knitwear or soft pastel fashion pieces, playful but stylish, warm and charming\",\n \"styling\": \"cute, cheerful, soft spring aesthetic, polished but natural\"\n },\n\n \"animal_direction\": {\n \"panel_1\": \"two fluffy baby chicks resting gently on her lap or sweater\",\n \"panel_2\": \"small soft bunnies held carefully in her arms\",\n \"panel_3\": \"bright colorful parrot near her shoulder or arms, positioned without covering her face\",\n \"panel_4\": \"fluffy white cat in cozy knitwear, resting in her lap or arms\"\n },\n\n \"scene\": {\n \"environment\": \"cozy garden, soft outdoor corner, or warm lifestyle setting with greenery and pastel accents\",\n \"mood\": \"happy, sweet, playful, cozy, affectionate, uplifting\",\n \"background\": \"clean, charming, softly detailed, no clutter\"\n },\n\n \"panel_direction\": {\n \"panel_1\": \"smiling softly while looking at the camera, baby chicks placed gently in front, face fully visible\",\n\n \"panel_2\": \"happy playful pose holding small bunnies, warm direct smile, bright friendly energy\",\n\n \"panel_3\": \"joyful close pose with colorful parrot, affectionate expression, face clear and unobstructed\",\n\n \"panel_4\": \"cozy seated pose with fluffy white cat in her arms, relaxed smile, dreamy cheerful mood\"\n },\n\n \"pose_language\": {\n \"movement\": \"gentle, natural, affectionate, playful\",\n \"expression\"[TRUNCATED]",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774853745716_z1499w_HEgnQOhWkAAeXrl.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774853745716_z1499w_HEgnQOhWkAAeXrl-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n \"generation_request\": {\n \"meta_data\": {\n \"tool\": \"NanoBanana Pro\",\n \"task_type\": \"cute_animal_fashion_editorial_2x2_grid\",\n \"language\": \"zh\",\n \"priority\": \"highest\",\n \"version\": \"v1.0_PINK_YELLOW_HAPPY_ANIMAL_2X2\"\n },\n\n \"input\": {\n \"mode\": \"image_to_image\",\n \"multi_reference\": true,\n \"reference_image_usage\": \"very_high\",\n \"preserve_identity\": true,\n \"notes\": \"这位年轻女性必须出现在所有四个分格中，且面部、眼睛、笑容和柔和的女性化特征需保持高度一致。她的脸在每个分格中都必须清晰可见，不得被动物、头发或道具遮挡。整体氛围应充满欢乐、甜美、舒适、俏皮且视觉上迷人。为她穿上粉色和黄色的服装或针织衫，营造柔和的马卡龙色系美学。自然地融入可爱动物，但保持女性为主要拍摄对象。\"\n },\n\n \"output_settings\": {\n \"aspect_ratio\": \"4:5\",\n \"orientation\": \"portrait\",\n \"resolution_target\": \"ultra_high_res\",\n \"num_images\": 1,\n \"layout\": {\n \"type\": \"grid\",\n \"rows\": 2,\n \"cols\": 2,\n \"gutter\": \"thin\",\n \"outer_border\": \"none\",\n \"panel_consistency\": \"maximum_identity_lock\"\n },\n \"render_style\": \"pastel_cute_fashion_editorial\",\n \"sharpness\": \"editorial_crisp\",\n \"grain\": \"soft_subtle_film\",\n \"dynamic_range\": \"bright_soft_natural\",\n \"color_grade\": \"pastel_pink_yellow_spring\"\n },\n\n \"subject\": {\n \"identity\": \"四个分格中均为同一位年轻女性\",\n \"face\": \"柔和的女性面孔，清晰可见的眼睛，温暖的笑容，愉悦的表情，自然美感\",\n \"hair\": \"柔顺的深色或棕色发型，整洁且修饰脸型，保持面部开阔可见\",\n \"makeup\": \"清透的妆容，柔和的腮红，健康的皮肤光泽，自然的粉色嘴唇\",\n \"outfit\": \"{argument name=\"outfit color\" default=\"粉色和黄色\"} 舒适的针织衫或柔和的马卡龙色系时尚单品，俏皮又不失时尚感，温暖迷人\",\n \"styling\": \"可爱、欢快、柔和的春日美学，精致且自然\"\n },\n\n \"animal_direction\": {\n \"panel_1\": \"两只毛茸茸的小鸡轻轻地停在她的膝盖或毛衣上\",\n \"panel_2\": \"抱在怀里的小巧柔软的兔子\",\n \"panel_3\": \"色彩鲜艳的鹦鹉停在她的肩膀或手臂附近，位置不遮挡面部\",\n \"panel_4\": \"怀抱中毛茸茸的白猫，穿着舒适的针织衫\"\n },\n\n \"scene\": {\n \"environment\": \"舒适的花园、柔和的户外角落，或带有绿植和马卡龙色调装饰的温馨生活场景\",\n \"mood\": \"快乐、甜美、俏皮、舒适、亲昵、治愈\",\n \"background\": \"干净、迷人、细节柔和，无杂乱感\"\n },\n\n \"panel_direction\": {\n \"panel_1\": \"温柔地微笑着看向镜头，小鸡轻轻放置在前方，面部完全可见\",\n\n \"panel_2\": \"抱着小兔子，姿态快乐俏皮，温暖的直视笑容，充满明亮友好的活力\",\n\n \"panel_3\": \"与色彩鲜艳的鹦鹉亲密互动，表情亲昵，面部清晰无遮挡\",\n\n \"panel_4\": \"怀抱毛茸茸白猫的舒适坐姿，放松的笑容，梦幻欢快的氛围\"\n },\n\n \"pose_language\": {\n \"movement\": \"轻柔、自然、亲昵、俏皮\",\n \"expression\": \"[已截断]\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "2x2 网格可爱动物时尚大片提示词 这是一个为 nano banana pro 设计的高度结构化 json 提示词，专用于图生图任务。旨在生成一个 2x2 网格图像，展示同一位年轻女性与不同可爱动物（小鸡、兔子、鹦鹉、猫）的互动，采用柔和的春日时尚大片风格，重点强调身份锁定与柔和美学。 {\n \"generation_request\": {\n \"meta_data\": {\n \"tool\": \"nanobanana pro\",\n \"task_type\": \"cute_animal_fashion_editorial_2x2_grid\",\n \"language\": \"en\",\n \"priority\": \"highest\",\n \"version\": \"v1.0_pink_yellow_happy_animal_2x2\"\n },\n\n \"input\": {\n \"mode\": \"image_to_image\",\n \"multi_reference\": true,\n \"reference_image_usage\": \"very_high\",\n \"preserve_identity\": true,\n \"notes\": \"the young woman must appear in all four panels with highly consistent face, eyes, smile, and soft feminine features. her face must be clearly visible in every panel, never hidden by animals, hair, or props. the overall mood should be joyful, sweet, cozy, playful, and visually charming. style her in pink and yellow clothing or knitwear with a soft pastel aesthetic. include cute animals naturally, but keep the woman as the main subject.\"\n },\n\n \"output_settings\": {\n \"aspect_ratio\": \"4:5\",\n \"orientation\": \"portrait\",\n \"resolution_target\": \"ultra_high_res\",\n \"num_images\": 1,\n \"layout\": {\n \"type\": \"grid\",\n \"rows\": 2,\n \"cols\": 2,\n \"gutter\": \"thin\",\n \"outer_border\": \"none\",\n \"panel_consistency\": \"maximum_identity_lock\"\n },\n \"render_style\": \"pastel_cute_fashion_editorial\",\n \"sharpness\": \"editorial_crisp\",\n \"grain\": \"soft_subtle_film\",\n \"dynamic_range\": \"bright_soft_natural\",\n \"color_grade\": \"pastel_pink_yellow_spring\"\n },\n\n \"subject\": {\n \"identity\": \"young woman in all four panels\",\n \"face\": \"soft feminine face, visible eyes, warm smile, joyful expression, natural beauty\",\n \"hair\": \"softly styled dark or brunette hair, neat and flattering, face kept open and visible\",\n \"makeup\": \"light fresh makeup, soft blush, healthy skin glow, natural pink lips\",\n \"outfit\": \"{argument name=\"outfit color\" default=\"pink and yellow\"} cozy knitwear or soft pastel fashion pieces, playful but stylish, warm and charming\",\n \"styling\": \"cute, cheerful, soft spring aesthetic, polished but natural\"\n },\n\n \"animal_direction\": {\n \"panel_1\": \"two fluffy baby chicks resting gently on her lap or sweater\",\n \"panel_2\": \"small soft bunnies held carefully in her arms\",\n \"panel_3\": \"bright colorful parrot near her shoulder or arms, positioned without covering her face\",\n \"panel_4\": \"fluffy white cat in cozy knitwear, resting in her lap or arms\"\n },\n\n \"scene\": {\n \"environment\": \"cozy garden, soft outdoor corner, or warm lifestyle setting with greenery and pastel accents\",\n \"mood\": \"happy, sweet, playful, cozy, affectionate, uplifting\",\n \"background\": \"clean, charming, softly detailed, no clutter\"\n },\n\n \"panel_direction\": {\n \"panel_1\": \"smiling softly while looking at the camera, baby chicks placed gently in front, face fully visible\",\n\n \"panel_2\": \"happy playful pose holding small bunnies, warm direct smile, bright friendly energy\",\n\n \"panel_3\": \"joyful close pose with colorful parrot, affectionate expression, face clear and unobstructed\",\n\n \"panel_4\": \"cozy seated pose with fluffy white cat in her arms, relaxed smile, dreamy cheerful mood\"\n },\n\n \"pose_language\": {\n \"movement\": \"gentle, natural, affectionate, playful\",\n \"expression\"[truncated] {\n \"generation_request\": {\n \"meta_data\": {\n \"tool\": \"nanobanana pro\",\n \"task_type\": \"cute_animal_fashion_editorial_2x2_grid\",\n \"language\": \"zh\",\n \"priority\": \"highest\",\n \"version\": \"v1.0_pink_yellow_happy_animal_2x2\"\n },\n\n \"input\": {\n \"mode\": \"image_to_image\",\n \"multi_reference\": true,\n \"reference_image_usage\": \"very_high\",\n \"preserve_identity\": true,\n \"notes\": \"这位年轻女性必须出现在所有四个分格中，且面部、眼睛、笑容和柔和的女性化特征需保持高度一致。她的脸在每个分格中都必须清晰可见，不得被动物、头发或道具遮挡。整体氛围应充满欢乐、甜美、舒适、俏皮且视觉上迷人。为她穿上粉色和黄色的服装或针织衫，营造柔和的马卡龙色系美学。自然地融入可爱动物，但保持女性为主要拍摄对象。\"\n },\n\n \"output_settings\": {\n \"aspect_ratio\": \"4:5\",\n \"orientation\": \"portrait\",\n \"resolution_target\": \"ultra_high_res\",\n \"num_images\": 1,\n \"layout\": {\n \"type\": \"grid\",\n \"rows\": 2,\n \"cols\": 2,\n \"gutter\": \"thin\",\n \"outer_border\": \"none\",\n \"panel_consistency\": \"maximum_identity_lock\"\n },\n \"render_style\": \"pastel_cute_fashion_editorial\",\n \"sharpness\": \"editorial_crisp\",\n \"grain\": \"soft_subtle_film\",\n \"dynamic_range\": \"bright_soft_natural\",\n \"color_grade\": \"pastel_pink_yellow_spring\"\n },\n\n \"subject\": {\n \"identity\": \"四个分格中均为同一位年轻女性\",\n \"face\": \"柔和的女性面孔，清晰可见的眼睛，温暖的笑容，愉悦的表情，自然美感\",\n \"hair\": \"柔顺的深色或棕色发型，整洁且修饰脸型，保持面部开阔可见\",\n \"makeup\": \"清透的妆容，柔和的腮红，健康的皮肤光泽，自然的粉色嘴唇\",\n \"outfit\": \"{argument name=\"outfit color\" default=\"粉色和黄色\"} 舒适的针织衫或柔和的马卡龙色系时尚单品，俏皮又不失时尚感，温暖迷人\",\n \"styling\": \"可爱、欢快、柔和的春日美学，精致且自然\"\n },\n\n \"animal_direction\": {\n \"panel_1\": \"两只毛茸茸的小鸡轻轻地停在她的膝盖或毛衣上\",\n \"panel_2\": \"抱在怀里的小巧柔软的兔子\",\n \"panel_3\": \"色彩鲜艳的鹦鹉停在她的肩膀或手臂附近，位置不遮挡面部\",\n \"panel_4\": \"怀抱中毛茸茸的白猫，穿着舒适的针织衫\"\n },\n\n \"scene\": {\n \"environment\": \"舒适的花园、柔和的户外角落，或带有绿植和马卡龙色调装饰的温馨生活场景\",\n \"mood\": \"快乐、甜美、俏皮、舒适、亲昵、治愈\",\n \"background\": \"干净、迷人、细节柔和，无杂乱感\"\n },\n\n \"panel_direction\": {\n \"panel_1\": \"温柔地微笑着看向镜头，小鸡轻轻放置在前方，面部完全可见\",\n\n \"panel_2\": \"抱着小兔子，姿态快乐俏皮，温暖的直视笑容，充满明亮友好的活力\",\n\n \"panel_3\": \"与色彩鲜艳的鹦鹉亲密互动，表情亲昵，面部清晰无遮挡\",\n\n \"panel_4\": \"怀抱毛茸茸白猫的舒适坐姿，放松的笑容，梦幻欢快的氛围\"\n },\n\n \"pose_language\": {\n \"movement\": \"轻柔、自然、亲昵、俏皮\",\n \"expression\": \"[已截断]\" özge döner 12929",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12940,
+      "title": "基于专家知识的尼安德特人图像生成",
+      "description": "关于如何利用 AI 生成具有历史准确性的尼安德特人图像的讨论，特别提到了在 Nano Banana 模型的提示词中加入“基于尼安德特人行为的专家知识”这一要求。",
+      "sourceLink": "https://x.com/Fabien_Mikol/status/2037917733984023003",
+      "sourcePublishedAt": "2026-03-28T15:40:25.000Z",
+      "author": {
+        "name": "Fabien",
+        "link": "https://x.com/Fabien_Mikol"
+      },
+      "content": "image de Néandertaliens “based on expert knowledge of Neanderthal behavior”",
+      "media": [
+        "https://cms-assets.youmind.com/media/1774766209776_vjsui4_HEgjH5DXUAARklN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1774766209776_vjsui4_HEgjH5DXUAARklN-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "“基于尼安德特人行为的专家知识”的尼安德特人图像",
+      "sourcePlatform": "twitter",
+      "searchIndex": "基于专家知识的尼安德特人图像生成 关于如何利用 ai 生成具有历史准确性的尼安德特人图像的讨论，特别提到了在 nano banana 模型的提示词中加入“基于尼安德特人行为的专家知识”这一要求。 image de néandertaliens “based on expert knowledge of neanderthal behavior” “基于尼安德特人行为的专家知识”的尼安德特人图像 fabien 12940",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 23,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

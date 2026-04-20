@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouMind | Nano Banana Pro 提示词</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <div class="page-header__main">
+          <div class="brand">YouMind</div>
+          <h1><span>Nano Banana Pro</span><span>提示词</span></h1>
+          <p>
+            收集 Nano Banana 相关优质案例、配图与提示词，页面结构按目标站点做轻量化复刻，只保留单张
+            Nano Banana 结果图。
+          </p>
+          <div class="header-actions">
+            <button class="header-action" type="button">每日更新</button>
+            <button class="header-action" type="button">自动</button>
+            <button class="header-action" type="button">随机</button>
+            <button class="header-action header-action--primary" type="button">生成</button>
+          </div>
+        </div>
+        <div class="page-header__stats">
+          <strong id="total-count">0</strong>
+          <span>提示词总数</span>
+        </div>
+      </header>
+
+      <section class="prompt-panel">
+        <div class="prompt-panel__head">
+          <span>提示词</span>
+          <span id="prompt-count">待填充</span>
+        </div>
+        <textarea
+          id="prompt-box"
+          placeholder="点击下方卡片中的“立刻尝试”即可把对应提示词带到这里。"
+        ></textarea>
+      </section>
+
+      <section class="toolbar">
+        <div class="toolbar__summary">
+          <span class="toolbar__summary-label">总计:</span>
+          <strong id="summary-total">0</strong>
+        </div>
+        <div class="toolbar__group" id="category-group"></div>
+        <div class="toolbar__row">
+          <label class="search">
+            <span>搜索</span>
+            <input id="search-input" type="search" placeholder="搜索标题、作者、摘要或提示词" />
+          </label>
+          <div class="toolbar__controls">
+            <div class="control-inline">
+              <span class="control-inline__label">排序</span>
+              <div class="toolbar__group" id="sort-group"></div>
+            </div>
+            <div class="control-inline">
+              <span class="control-inline__label">筛选</span>
+              <div class="toolbar__group" id="filter-group"></div>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar__meta">
+          <span id="results-count">0 条结果</span>
+          <span id="source-library"></span>
+        </div>
+      </section>
+
+      <main id="feed" class="feed"></main>
+    </div>
+
+    <dialog id="detail-dialog" class="detail-dialog">
+      <button id="close-dialog" class="detail-dialog__close" type="button" aria-label="关闭">
+        ×
+      </button>
+      <div id="detail-content"></div>
+    </dialog>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

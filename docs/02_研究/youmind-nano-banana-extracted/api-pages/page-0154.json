@@ -1,0 +1,494 @@
+{
+  "prompts": [
+    {
+      "id": 10542,
+      "title": "Dynasty Warriors: Kongming Musou Ranbu",
+      "description": "一个提示，尝试生成一张《真·三国无双》风格的图片，描绘了诸葛亮（孔明）在右下角手持一把彩虹发光的扇子，释放他的无双乱舞（终极攻击），尽可能多的杂兵角色被蓝色激光从右下角吹向左上角。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2024821696851759578",
+      "sourcePublishedAt": "2026-02-20T12:21:26.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "真三国無双\n孔明は画面の右下で虹色に光る扇を持ち真無双乱舞炸裂\n画面右下から左上にぶっ飛ぶザコキャラを可能な限り入れて\n無双乱舞　青いレーザーを放射線で！",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655086570_inmjfd_HBmcmRRaAAA7-f1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655086570_inmjfd_HBmcmRRaAAA7-f1-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "真・三国无双\n孔明手持一把彩虹光芒的扇子，在屏幕右下方释放他的真・无双乱舞（终极攻击）。\n尽可能多地加入小兵角色，他们正从屏幕右下方被吹向左上方。\n无双乱舞：蓝色激光射线向外散射！",
+      "sourcePlatform": "twitter",
+      "searchIndex": "dynasty warriors: kongming musou ranbu 一个提示，尝试生成一张《真·三国无双》风格的图片，描绘了诸葛亮（孔明）在右下角手持一把彩虹发光的扇子，释放他的无双乱舞（终极攻击），尽可能多的杂兵角色被蓝色激光从右下角吹向左上角。 真三国無双\n孔明は画面の右下で虹色に光る扇を持ち真無双乱舞炸裂\n画面右下から左上にぶっ飛ぶザコキャラを可能な限り入れて\n無双乱舞　青いレーザーを放射線で！ 真・三国无双\n孔明手持一把彩虹光芒的扇子，在屏幕右下方释放他的真・无双乱舞（终极攻击）。\n尽可能多地加入小兵角色，他们正从屏幕右下方被吹向左上方。\n无双乱舞：蓝色激光射线向外散射！ クラリネットクラリオンnobu 10542",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10476,
+      "title": "超长发型的高级时装牛仔拍摄",
+      "description": "一个详细的 JSON 提示，用于生成一张年轻女性身穿牛仔服装，坐在折叠椅上的高端时尚杂志图片。该提示详细说明了相机、姿势、妆容的极致细节，并要求超长金色头发及踝，覆盖其他构图规则。",
+      "sourceLink": "https://x.com/rowundd/status/2024818420512919646",
+      "sourcePublishedAt": "2026-02-20T12:08:25.000Z",
+      "author": {
+        "name": "Rowund",
+        "link": "https://x.com/rowundd"
+      },
+      "content": "{\n  \"prompt_type\": \"full image generation\",\n  \"output\": {\n    \"image_count\": 1,\n    \"variation\": \"none\",\n    \"seed_behavior\": \"single deterministic result\",\n    \"aspect_ratio\": \"2:3\",\n    \"orientation\": \"portrait\"\n  },\n  \"camera\": {\n    \"angle\": \"low-to-mid frontal angle, slightly below eye level\",\n    \"distance\": \"approximately 2 meters from the subject\",\n    \"lens\": \"fashion portrait lens, mild compression, no distortion\",\n    \"framing\": \"full body portrait from head to feet\",\n    \"crop_rule\": \"no cropping of head, hair, legs, ankles, or feet\"\n  },\n  \"subject\": {\n    \"description\": \"A young Woman with a confident, high-fashion editorial presence\",\n    \"pose\": {\n      \"body_position\": \"seated on a simple metal folding chair\",\n      \"torso\": \"leaning slightly forward from the hips\",\n      \"arms\": {\n        \"left_arm\": \"resting naturally on the left thigh\",\n        \"right_arm\": \"bent, hand relaxed near the knee\"\n      },\n      \"legs\": {\n        \"position\": \"open seated stance\",\n        \"orientation\": \"both legs angled forward toward the camera\",\n        \"visibility\": \"knees, calves, ankles, and feet fully visible\"\n      },\n      \"head\": {\n        \"position\": \"upright\",\n        \"gaze\": \"direct eye contact with the camera\"\n      }\n    }\n  },\n  \"face\": {\n    \"visibility\": \"fully visible\",\n    \"expression\": \"calm, confident, editorial intensity\",\n    \"makeup\": {\n      \"eyes\": \"defined eyeliner with soft smoky eyeshadow\",\n      \"lips\": \"muted rose lipstick\",\n      \"skin\": \"smooth, softly contoured, studio-perfect\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"blonde\",\n    \"length\": \"extreme ultra-long hair reaching the ankles\",\n    \"absolute_reference\": \"hair flows from the scalp, passes the waist, hips, thighs, knees, calves, and reaches ankle level\",\n    \"visibility_rule\": \"hair must be clearly visible draping over the thighs, crossing the knees, continuing past the calves, and ending at the ankles\",\n    \"extra_margin\": \"a small portion of hair may lightly touch the top of the feet to guarantee ankle-level length\",\n    \"style\": \"loose natural waves\",\n    \"top_style\": \"half-up top knot bun\",\n    \"density\": \"very high volume, thick strands\",\n    \"priority\": \"hair length accuracy is mandatory and overrides all styling or composition conflicts\"\n  },\n  \"outfit\": {\n    \"upper_garment\": {\n      \"type\": \"oversized denim shirt\",\n      \"color\": \"medium blue denim\",\n      \"fit\": \"loose and relaxed\"\n    },\n    \"hosiery\": {\n      \"type\": \"opaque tights\",\n      \"color\": \"red\",\n      \"opacity\": \"high\",\n      \"texture\": \"smooth matte finish\"\n    },\n    \"shoes\": {\n      \"type\": \"black high-heeled sandals\",\n      \"heel\": \"thin stiletto, approximately 10–11 cm\",\n      \"ankle_strap\": \"visible buckle\"\n    },\n    \"accessories\": {\n      \"neck\": \"layered gold necklaces\"\n    }\n  },\n  \"environment\": {\n    \"location\": \"minimalist photo studio\",\n    \"background\": \"clean white seamles",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655052660_iaofo4_HBmZmXmXsAAO57e.jpg",
+        "https://cms-assets.youmind.com/media/1771655052714_tvl77m_HBmZlh2WsAAitv7.jpg",
+        "https://cms-assets.youmind.com/media/1771655053802_lu1xf2_HBmZmwkXgAIveMC.jpg",
+        "https://cms-assets.youmind.com/media/1771655054254_x2773d_HBmZkdJXoAAAxkR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655052660_iaofo4_HBmZmXmXsAAO57e-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1771655052714_tvl77m_HBmZlh2WsAAitv7-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1771655053802_lu1xf2_HBmZmwkXgAIveMC-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1771655054254_x2773d_HBmZkdJXoAAAxkR-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_type\": \"full image generation\",\n  \"output\": {\n    \"image_count\": 1,\n    \"variation\": \"none\",\n    \"seed_behavior\": \"single deterministic result\",\n    \"aspect_ratio\": \"2:3\",\n    \"orientation\": \"portrait\"\n  },\n  \"camera\": {\n    \"angle\": \"中低机位正面角度，略低于视线水平\",\n    \"distance\": \"距离主体约 2 米\",\n    \"lens\": \"时尚人像镜头，轻微压缩，无畸变\",\n    \"framing\": \"从头到脚全身人像\",\n    \"crop_rule\": \"头部、头发、腿部、脚踝或脚部均不可裁剪\"\n  },\n  \"subject\": {\n    \"description\": \"一位年轻女性，自信，具有高级时尚杂志的风格\",\n    \"pose\": {\n      \"body_position\": \"坐在一张简单的金属折叠椅上\",\n      \"torso\": \"从臀部略微前倾\",\n      \"arms\": {\n        \"left_arm\": \"自然地放在左大腿上\",\n        \"right_arm\": \"弯曲，手放松地靠近膝盖\"\n      },\n      \"legs\": {\n        \"position\": \"开放式坐姿\",\n        \"orientation\": \"双腿均向前朝向镜头\",\n        \"visibility\": \"膝盖、小腿、脚踝和脚部完全可见\"\n      },\n      \"head\": {\n        \"position\": \"直立\",\n        \"gaze\": \"与镜头直接眼神接触\"\n      }\n    }\n  },\n  \"face\": {\n    \"visibility\": \"完全可见\",\n    \"expression\": \"平静、自信、具有杂志般的强烈表现力\",\n    \"makeup\": {\n      \"eyes\": \"精致的眼线，柔和的烟熏眼影\",\n      \"lips\": \"柔和的玫瑰色口红\",\n      \"skin\": \"光滑、柔和修容、工作室般的完美肤质\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"length\": \"极长的头发，长及脚踝\",\n    \"absolute_reference\": \"头发从头皮垂下，经过腰部、臀部、大腿、膝盖、小腿，直至脚踝处\",\n    \"visibility_rule\": \"头发必须清晰可见地垂在大腿上，越过膝盖，继续向下经过小腿，最终到达脚踝\",\n    \"extra_margin\": \"一小部分头发可以轻微触及脚面，以确保达到脚踝长度\",\n    \"style\": \"蓬松的自然波浪\",\n    \"top_style\": \"半扎丸子头\",\n    \"density\": \"发量非常多，发丝浓密\",\n    \"priority\": \"头发长度的准确性是强制性的，并优先于所有造型或构图冲突\"\n  },\n  \"outfit\": {\n    \"upper_garment\": {\n      \"type\": \"超大款牛仔衬衫\",\n      \"color\": \"中蓝色牛仔\",\n      \"fit\": \"宽松休闲\"\n    },\n    \"hosiery\": {\n      \"type\": \"不透明连裤袜\",\n      \"color\": \"红色\",\n      \"opacity\": \"高\",\n      \"texture\": \"光滑哑光质感\"\n    },\n    \"shoes\": {\n      \"type\": \"黑色高跟凉鞋\",\n      \"heel\": \"细高跟，约 10–11 厘米\",\n      \"ankle_strap\": \"可见的搭扣\"\n    },\n    \"accessories\": {\n      \"neck\": \"叠戴金色项链\"\n    }\n  },\n  \"environment\": {\n    \"location\": \"极简主义摄影棚\",\n    \"background\": \"干净的白色无缝背景\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超长发型的高级时装牛仔拍摄 一个详细的 json 提示，用于生成一张年轻女性身穿牛仔服装，坐在折叠椅上的高端时尚杂志图片。该提示详细说明了相机、姿势、妆容的极致细节，并要求超长金色头发及踝，覆盖其他构图规则。 {\n  \"prompt_type\": \"full image generation\",\n  \"output\": {\n    \"image_count\": 1,\n    \"variation\": \"none\",\n    \"seed_behavior\": \"single deterministic result\",\n    \"aspect_ratio\": \"2:3\",\n    \"orientation\": \"portrait\"\n  },\n  \"camera\": {\n    \"angle\": \"low-to-mid frontal angle, slightly below eye level\",\n    \"distance\": \"approximately 2 meters from the subject\",\n    \"lens\": \"fashion portrait lens, mild compression, no distortion\",\n    \"framing\": \"full body portrait from head to feet\",\n    \"crop_rule\": \"no cropping of head, hair, legs, ankles, or feet\"\n  },\n  \"subject\": {\n    \"description\": \"a young woman with a confident, high-fashion editorial presence\",\n    \"pose\": {\n      \"body_position\": \"seated on a simple metal folding chair\",\n      \"torso\": \"leaning slightly forward from the hips\",\n      \"arms\": {\n        \"left_arm\": \"resting naturally on the left thigh\",\n        \"right_arm\": \"bent, hand relaxed near the knee\"\n      },\n      \"legs\": {\n        \"position\": \"open seated stance\",\n        \"orientation\": \"both legs angled forward toward the camera\",\n        \"visibility\": \"knees, calves, ankles, and feet fully visible\"\n      },\n      \"head\": {\n        \"position\": \"upright\",\n        \"gaze\": \"direct eye contact with the camera\"\n      }\n    }\n  },\n  \"face\": {\n    \"visibility\": \"fully visible\",\n    \"expression\": \"calm, confident, editorial intensity\",\n    \"makeup\": {\n      \"eyes\": \"defined eyeliner with soft smoky eyeshadow\",\n      \"lips\": \"muted rose lipstick\",\n      \"skin\": \"smooth, softly contoured, studio-perfect\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"blonde\",\n    \"length\": \"extreme ultra-long hair reaching the ankles\",\n    \"absolute_reference\": \"hair flows from the scalp, passes the waist, hips, thighs, knees, calves, and reaches ankle level\",\n    \"visibility_rule\": \"hair must be clearly visible draping over the thighs, crossing the knees, continuing past the calves, and ending at the ankles\",\n    \"extra_margin\": \"a small portion of hair may lightly touch the top of the feet to guarantee ankle-level length\",\n    \"style\": \"loose natural waves\",\n    \"top_style\": \"half-up top knot bun\",\n    \"density\": \"very high volume, thick strands\",\n    \"priority\": \"hair length accuracy is mandatory and overrides all styling or composition conflicts\"\n  },\n  \"outfit\": {\n    \"upper_garment\": {\n      \"type\": \"oversized denim shirt\",\n      \"color\": \"medium blue denim\",\n      \"fit\": \"loose and relaxed\"\n    },\n    \"hosiery\": {\n      \"type\": \"opaque tights\",\n      \"color\": \"red\",\n      \"opacity\": \"high\",\n      \"texture\": \"smooth matte finish\"\n    },\n    \"shoes\": {\n      \"type\": \"black high-heeled sandals\",\n      \"heel\": \"thin stiletto, approximately 10–11 cm\",\n      \"ankle_strap\": \"visible buckle\"\n    },\n    \"accessories\": {\n      \"neck\": \"layered gold necklaces\"\n    }\n  },\n  \"environment\": {\n    \"location\": \"minimalist photo studio\",\n    \"background\": \"clean white seamles ```json\n{\n  \"prompt_type\": \"full image generation\",\n  \"output\": {\n    \"image_count\": 1,\n    \"variation\": \"none\",\n    \"seed_behavior\": \"single deterministic result\",\n    \"aspect_ratio\": \"2:3\",\n    \"orientation\": \"portrait\"\n  },\n  \"camera\": {\n    \"angle\": \"中低机位正面角度，略低于视线水平\",\n    \"distance\": \"距离主体约 2 米\",\n    \"lens\": \"时尚人像镜头，轻微压缩，无畸变\",\n    \"framing\": \"从头到脚全身人像\",\n    \"crop_rule\": \"头部、头发、腿部、脚踝或脚部均不可裁剪\"\n  },\n  \"subject\": {\n    \"description\": \"一位年轻女性，自信，具有高级时尚杂志的风格\",\n    \"pose\": {\n      \"body_position\": \"坐在一张简单的金属折叠椅上\",\n      \"torso\": \"从臀部略微前倾\",\n      \"arms\": {\n        \"left_arm\": \"自然地放在左大腿上\",\n        \"right_arm\": \"弯曲，手放松地靠近膝盖\"\n      },\n      \"legs\": {\n        \"position\": \"开放式坐姿\",\n        \"orientation\": \"双腿均向前朝向镜头\",\n        \"visibility\": \"膝盖、小腿、脚踝和脚部完全可见\"\n      },\n      \"head\": {\n        \"position\": \"直立\",\n        \"gaze\": \"与镜头直接眼神接触\"\n      }\n    }\n  },\n  \"face\": {\n    \"visibility\": \"完全可见\",\n    \"expression\": \"平静、自信、具有杂志般的强烈表现力\",\n    \"makeup\": {\n      \"eyes\": \"精致的眼线，柔和的烟熏眼影\",\n      \"lips\": \"柔和的玫瑰色口红\",\n      \"skin\": \"光滑、柔和修容、工作室般的完美肤质\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"length\": \"极长的头发，长及脚踝\",\n    \"absolute_reference\": \"头发从头皮垂下，经过腰部、臀部、大腿、膝盖、小腿，直至脚踝处\",\n    \"visibility_rule\": \"头发必须清晰可见地垂在大腿上，越过膝盖，继续向下经过小腿，最终到达脚踝\",\n    \"extra_margin\": \"一小部分头发可以轻微触及脚面，以确保达到脚踝长度\",\n    \"style\": \"蓬松的自然波浪\",\n    \"top_style\": \"半扎丸子头\",\n    \"density\": \"发量非常多，发丝浓密\",\n    \"priority\": \"头发长度的准确性是强制性的，并优先于所有造型或构图冲突\"\n  },\n  \"outfit\": {\n    \"upper_garment\": {\n      \"type\": \"超大款牛仔衬衫\",\n      \"color\": \"中蓝色牛仔\",\n      \"fit\": \"宽松休闲\"\n    },\n    \"hosiery\": {\n      \"type\": \"不透明连裤袜\",\n      \"color\": \"红色\",\n      \"opacity\": \"高\",\n      \"texture\": \"光滑哑光质感\"\n    },\n    \"shoes\": {\n      \"type\": \"黑色高跟凉鞋\",\n      \"heel\": \"细高跟，约 10–11 厘米\",\n      \"ankle_strap\": \"可见的搭扣\"\n    },\n    \"accessories\": {\n      \"neck\": \"叠戴金色项链\"\n    }\n  },\n  \"environment\": {\n    \"location\": \"极简主义摄影棚\",\n    \"background\": \"干净的白色无缝背景\"\n  }\n}\n``` rowund 10476",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10538,
+      "title": "生成视频连接的后旋转镜头",
+      "description": "一种克服 Midjourney 在摇摄/平移镜头方面弱点的方法是，通过使用 Nano Banana Pro 生成后续镜头，然后将它们连接起来，从而实现连续的摇摄效果。",
+      "sourceLink": "https://x.com/old_pgmrs_will/status/2024817704830709960",
+      "sourcePublishedAt": "2026-02-20T12:05:34.000Z",
+      "author": {
+        "name": "いにしえ@AI Creator｜Will Oldgram",
+        "link": "https://x.com/old_pgmrs_will"
+      },
+      "content": "旋回撮影系プロンプトが弱いので、Nano Banana Proで旋回後ショットを生成して繋げてやったらいい感じ",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "由于旋转/摇摄镜头提示效果不佳，我使用 Nano Banana Pro 生成了旋转后的镜头，并将它们连接起来，效果还不错。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "生成视频连接的后旋转镜头 一种克服 midjourney 在摇摄/平移镜头方面弱点的方法是，通过使用 nano banana pro 生成后续镜头，然后将它们连接起来，从而实现连续的摇摄效果。 旋回撮影系プロンプトが弱いので、nano banana proで旋回後ショットを生成して繋げてやったらいい感じ 由于旋转/摇摄镜头提示效果不佳，我使用 nano banana pro 生成了旋转后的镜头，并将它们连接起来，效果还不错。 いにしえ@ai creator｜will oldgram 10538",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10525,
+      "title": "Sadie Sink 高级时装肖像提示词",
+      "description": "这是一条为 Nano Banana Pro 设计的结构化提示，要求生成一张萨迪·辛克 (Sadie Sink) 佩戴亮面淡粉色橄榄球头盔的超写实、高级时尚肖像。提示强调湿润的后梳发型、带可见毛孔的晶莹发光肌肤，以及在奢华时尚摄影棚背景下的电影级美妆灯光效果。",
+      "sourceLink": "https://x.com/Ankit_patel211/status/2024811469888704983",
+      "sourcePublishedAt": "2026-02-20T11:40:48.000Z",
+      "author": {
+        "name": "ANKIT PATEL 🇮🇳 | AI",
+        "link": "https://x.com/Ankit_patel211"
+      },
+      "content": "\"Ultra-photorealistic high-fashion portrait of {argument name=\"subject\" default=\"Sadie Sink\"} wear a glossy pastel pink football helmet , wet slicked-back hair, dewy glowing skin with visible pores and water droplets, soft natural glam makeup, confident direct eye contact, off-shoulder pastel pink outfit, luxury editorial studio background, cinematic beauty lighting, extremely sharp focus\",\n\n  \"image_quality\": {\n    \"resolution\": \"8K ultra-detailed\",\n    \"focus\": \"ultra-sharp\",\n    \"depth_of_field\": \"shallow\",\n    \"texture_detail\": \"high, realistic skin, hair, fabric\"\n  },\n\n  \"lighting\": {\n    \"type\": \"soft studio lighting\",\n    \"shadows\": \"gentle, soft\",\n    \"contrast\": \"cinematic\"\n  },\n\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"steps\": 50,\n    \"cfg_scale\": 9.5,\n    \"style\": \"Photorealistic\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655080108_bklf16_HBmTMXSboAA56UB.jpg",
+        "https://cms-assets.youmind.com/media/1771655080119_brox5w_HBmTMYvaQAA82vy.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655080108_bklf16_HBmTMXSboAA56UB-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655080119_brox5w_HBmTMYvaQAA82vy-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "“超写实主义高定时装肖像，描绘了 {argument name=\"subject\" default=\"Sadie Sink\"} 戴着亮面柔和粉色橄榄球头盔，湿润的后梳发型，水润发光的皮肤，毛孔和水珠清晰可见，柔和自然的魅力妆容，自信地直视镜头，身穿露肩柔和粉色服装，奢华的杂志摄影棚背景，电影级美妆打光，极致锐利对焦”，\n\n  \"image_quality\": {\n    \"resolution\": \"8K 超精细\",\n    \"focus\": \"超锐利\",\n    \"depth_of_field\": \"浅景深\",\n    \"texture_detail\": \"高，逼真的皮肤、头发、织物\"\n  },\n\n  \"lighting\": {\n    \"type\": \"柔和影棚光\",\n    \"shadows\": \"柔和、轻微\",\n    \"contrast\": \"电影感\"\n  },\n\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"steps\": 50,\n    \"cfg_scale\": 9.5,\n    \"style\": \"写实主义\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sadie sink 高级时装肖像提示词 这是一条为 nano banana pro 设计的结构化提示，要求生成一张萨迪·辛克 (sadie sink) 佩戴亮面淡粉色橄榄球头盔的超写实、高级时尚肖像。提示强调湿润的后梳发型、带可见毛孔的晶莹发光肌肤，以及在奢华时尚摄影棚背景下的电影级美妆灯光效果。 \"ultra-photorealistic high-fashion portrait of {argument name=\"subject\" default=\"sadie sink\"} wear a glossy pastel pink football helmet , wet slicked-back hair, dewy glowing skin with visible pores and water droplets, soft natural glam makeup, confident direct eye contact, off-shoulder pastel pink outfit, luxury editorial studio background, cinematic beauty lighting, extremely sharp focus\",\n\n  \"image_quality\": {\n    \"resolution\": \"8k ultra-detailed\",\n    \"focus\": \"ultra-sharp\",\n    \"depth_of_field\": \"shallow\",\n    \"texture_detail\": \"high, realistic skin, hair, fabric\"\n  },\n\n  \"lighting\": {\n    \"type\": \"soft studio lighting\",\n    \"shadows\": \"gentle, soft\",\n    \"contrast\": \"cinematic\"\n  },\n\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"steps\": 50,\n    \"cfg_scale\": 9.5,\n    \"style\": \"photorealistic\"\n  }\n} “超写实主义高定时装肖像，描绘了 {argument name=\"subject\" default=\"sadie sink\"} 戴着亮面柔和粉色橄榄球头盔，湿润的后梳发型，水润发光的皮肤，毛孔和水珠清晰可见，柔和自然的魅力妆容，自信地直视镜头，身穿露肩柔和粉色服装，奢华的杂志摄影棚背景，电影级美妆打光，极致锐利对焦”，\n\n  \"image_quality\": {\n    \"resolution\": \"8k 超精细\",\n    \"focus\": \"超锐利\",\n    \"depth_of_field\": \"浅景深\",\n    \"texture_detail\": \"高，逼真的皮肤、头发、织物\"\n  },\n\n  \"lighting\": {\n    \"type\": \"柔和影棚光\",\n    \"shadows\": \"柔和、轻微\",\n    \"contrast\": \"电影感\"\n  },\n\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"steps\": 50,\n    \"cfg_scale\": 9.5,\n    \"style\": \"写实主义\"\n  }\n} ankit patel 🇮🇳 | ai 10525",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10496,
+      "title": "电影级黄金时段时尚男士肖像",
+      "description": "生成一张电影感十足的黄金时段肖像照的提示词：一位时尚男士斜靠在纹理石墙上，身穿米色麂皮夹克，戴着太阳镜。图像强调温暖的大地色调、强烈的侧光、高对比度以及浅景深，以呈现超现实的时尚摄影美学。",
+      "sourceLink": "https://x.com/ZaraIrahh/status/2024808774993694890",
+      "sourcePublishedAt": "2026-02-20T11:30:05.000Z",
+      "author": {
+        "name": "Zara",
+        "link": "https://x.com/ZaraIrahh"
+      },
+      "content": "A cinematic golden hour portrait of a stylish man leaning against a textured stone wall, wearing dark sunglasses, a beige suede jacket with large front pockets, and a white crew-neck shirt underneath, warm sunlight casting sharp shadows across the wall, soft natural beard, well-groomed dark hair styled back, confident relaxed pose with one hand raised near his face, warm earthy color palette, strong side lighting, high contrast highlights and shadows, shallow depth of field, ultra-realistic fashion photography, editorial street style aesthetic, 85mm lens, f/2.0, crisp detail, natural skin tones, 4K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655064110_rvkqsd_HBmQ16VWMAASj2M.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655064110_rvkqsd_HBmQ16VWMAASj2M-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张电影般的黄金时段肖像，一位时尚男士斜倚在纹理石墙旁，戴着深色太阳镜，身穿米色麂皮夹克，带有大前袋，内搭白色圆领衬衫，温暖的阳光在墙上投下锐利的阴影，柔和自然的胡须，精心打理的深色头发向后梳理，自信放松的姿势，一只手抬至脸旁，温暖的大地色调，强烈的侧光，高对比度的光影，浅景深，超现实时尚摄影，社论街头风格美学，85mm 镜头，f/2.0 光圈，细节清晰，自然肤色，4K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级黄金时段时尚男士肖像 生成一张电影感十足的黄金时段肖像照的提示词：一位时尚男士斜靠在纹理石墙上，身穿米色麂皮夹克，戴着太阳镜。图像强调温暖的大地色调、强烈的侧光、高对比度以及浅景深，以呈现超现实的时尚摄影美学。 a cinematic golden hour portrait of a stylish man leaning against a textured stone wall, wearing dark sunglasses, a beige suede jacket with large front pockets, and a white crew-neck shirt underneath, warm sunlight casting sharp shadows across the wall, soft natural beard, well-groomed dark hair styled back, confident relaxed pose with one hand raised near his face, warm earthy color palette, strong side lighting, high contrast highlights and shadows, shallow depth of field, ultra-realistic fashion photography, editorial street style aesthetic, 85mm lens, f/2.0, crisp detail, natural skin tones, 4k resolution. 一张电影般的黄金时段肖像，一位时尚男士斜倚在纹理石墙旁，戴着深色太阳镜，身穿米色麂皮夹克，带有大前袋，内搭白色圆领衬衫，温暖的阳光在墙上投下锐利的阴影，柔和自然的胡须，精心打理的深色头发向后梳理，自信放松的姿势，一只手抬至脸旁，温暖的大地色调，强烈的侧光，高对比度的光影，浅景深，超现实时尚摄影，社论街头风格美学，85mm 镜头，f/2.0 光圈，细节清晰，自然肤色，4k 分辨率。 zara 10496",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10488,
+      "title": "风格化鱼类水彩画学校",
+      "description": "一个提示，用于生成一幅充满活力的、俯视视角的风格化鱼群水彩画，使用粉色、橙色、黄色和蓝色调色板，在柔和的粉色背景上以俏皮、重叠的图案排列。",
+      "sourceLink": "https://x.com/heathergreen/status/2024805005773918281",
+      "sourcePublishedAt": "2026-02-20T11:15:07.000Z",
+      "author": {
+        "name": "Heather Green",
+        "link": "https://x.com/heathergreen"
+      },
+      "content": "A vibrant, top-down view of a school of colorful, stylized fish swimming against a soft pink background. The fish are depicted in a watercolor style, with bold brushstrokes and a palette dominated by shades of pink, orange, yellow, and blue. They are arranged in a playful, overlapping pattern, with some facing left, some right, and some head-on. Each fish has large, expressive eyes and distinct fins. The overall impression is one of cheerful, aquatic energy.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655061017_l8e4w2_HBmNa-PWUAAk7kX.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655061017_l8e4w2_HBmNa-PWUAAk7kX-300x201.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一幅充满活力的俯视图，描绘了一群色彩斑斓、风格独特的鱼儿在柔和的粉色背景下畅游。这些鱼儿以水彩风格呈现，笔触大胆，色调以粉色、橙色、黄色和蓝色为主。它们以一种活泼、交叠的姿态排列，有的朝左，有的朝右，有的则正面朝向。每条鱼都有一双大而富有表现力的眼睛和独特的鱼鳍。整体印象是充满欢快的水生能量。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "风格化鱼类水彩画学校 一个提示，用于生成一幅充满活力的、俯视视角的风格化鱼群水彩画，使用粉色、橙色、黄色和蓝色调色板，在柔和的粉色背景上以俏皮、重叠的图案排列。 a vibrant, top-down view of a school of colorful, stylized fish swimming against a soft pink background. the fish are depicted in a watercolor style, with bold brushstrokes and a palette dominated by shades of pink, orange, yellow, and blue. they are arranged in a playful, overlapping pattern, with some facing left, some right, and some head-on. each fish has large, expressive eyes and distinct fins. the overall impression is one of cheerful, aquatic energy. 一幅充满活力的俯视图，描绘了一群色彩斑斓、风格独特的鱼儿在柔和的粉色背景下畅游。这些鱼儿以水彩风格呈现，笔触大胆，色调以粉色、橙色、黄色和蓝色为主。它们以一种活泼、交叠的姿态排列，有的朝左，有的朝右，有的则正面朝向。每条鱼都有一双大而富有表现力的眼睛和独特的鱼鳍。整体印象是充满欢快的水生能量。 heather green 10488",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10540,
+      "title": "图像序列视频提示词（GPT-5 生成）",
+      "description": "这条推文提到，该视频是通过对 Nano Banana Pro 生成的四张图片进行序列处理而创建的，图片和视频生成都使用了由 GPT-5 设计的通用提示词。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2024801215545000240",
+      "sourcePublishedAt": "2026-02-20T11:00:03.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "Nano Banana Proで生成した4枚の画像をプロンプトで指定して順番に切り替わるようにして動画化しています",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655086300_7mwpkh_HBkU39Ga0AAFwL6.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655086300_7mwpkh_HBkU39Ga0AAFwL6-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "我通过在提示中指定 Nano Banana Pro 生成的 4 张图片，创建了一个视频，让它们按顺序切换。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图像序列视频提示词（gpt-5 生成） 这条推文提到，该视频是通过对 nano banana pro 生成的四张图片进行序列处理而创建的，图片和视频生成都使用了由 gpt-5 设计的通用提示词。 nano banana proで生成した4枚の画像をプロンプトで指定して順番に切り替わるようにして動画化しています 我通过在提示中指定 nano banana pro 生成的 4 张图片，创建了一个视频，让它们按顺序切换。 空想写真家 10540",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10506,
+      "title": "身着黄色礼服女士的超逼真工作室肖像",
+      "description": "一个用于生成基于参考图像的超逼真 8K 高清单反工作室肖像的提示。它描述了一位身穿黄色向日葵礼服的优雅女士，坐在一张维多利亚时代的椅子上，沐浴在黄金时段的光线中，背景是一个布满向日葵的拱门。",
+      "sourceLink": "https://x.com/AbidkingB/status/2024800473983922295",
+      "sourcePublishedAt": "2026-02-20T10:57:06.000Z",
+      "author": {
+        "name": "𓆩𝐀𝐛𝐢𝐝 𝐇𝐮𝐬𝐬𝐚𝐢𝐧𓆪",
+        "link": "https://x.com/AbidkingB"
+      },
+      "content": "Create photo using the attached file, with 100% realistic faces. Ultra-realistic 8K HD DSLR studio portrait based on the image reference — make it realistic, do not change.\nA slim graceful lady with black wavy hair, wearing a long flowing yellow gown with sunflower motif bodice and delicate pearl accessories. She is seated on a white cushioned Victorian-style chair beside a small table decorated with sunflowers and candles. Background: elegant sunflower-filled archway with soft bokeh effect. Lighting: golden-hour simulation highlighting her features. Pose: leaning slightly to one side, eyes toward the camera, smiling radiantly, evoking calm and beauty.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655070732_a7abrt_HBmJSzFa8AAeUlW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655070732_a7abrt_HBmJSzFa8AAeUlW-300x386.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "根据附件文件创建照片，面部需 100% 真实。基于图像参考，生成超逼真的 8K 高清数码单反相机工作室肖像——务必真实，不要改动。\n一位身材苗条、优雅的女士，留着黑色波浪发，身穿一件带有向日葵图案紧身胸衣的黄色飘逸长裙，佩戴精致的珍珠配饰。她坐在一张白色软垫的维多利亚风格椅子上，旁边是一张摆放着向日葵和蜡烛的小桌子。背景：优雅的向日葵拱门，带有柔和的焦外虚化效果。灯光：模拟黄金时段光线，突出她的面部特征。姿势：身体微微向一侧倾斜，目光望向镜头，笑容灿烂，散发出宁静与美丽。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身着黄色礼服女士的超逼真工作室肖像 一个用于生成基于参考图像的超逼真 8k 高清单反工作室肖像的提示。它描述了一位身穿黄色向日葵礼服的优雅女士，坐在一张维多利亚时代的椅子上，沐浴在黄金时段的光线中，背景是一个布满向日葵的拱门。 create photo using the attached file, with 100% realistic faces. ultra-realistic 8k hd dslr studio portrait based on the image reference — make it realistic, do not change.\na slim graceful lady with black wavy hair, wearing a long flowing yellow gown with sunflower motif bodice and delicate pearl accessories. she is seated on a white cushioned victorian-style chair beside a small table decorated with sunflowers and candles. background: elegant sunflower-filled archway with soft bokeh effect. lighting: golden-hour simulation highlighting her features. pose: leaning slightly to one side, eyes toward the camera, smiling radiantly, evoking calm and beauty. 根据附件文件创建照片，面部需 100% 真实。基于图像参考，生成超逼真的 8k 高清数码单反相机工作室肖像——务必真实，不要改动。\n一位身材苗条、优雅的女士，留着黑色波浪发，身穿一件带有向日葵图案紧身胸衣的黄色飘逸长裙，佩戴精致的珍珠配饰。她坐在一张白色软垫的维多利亚风格椅子上，旁边是一张摆放着向日葵和蜡烛的小桌子。背景：优雅的向日葵拱门，带有柔和的焦外虚化效果。灯光：模拟黄金时段光线，突出她的面部特征。姿势：身体微微向一侧倾斜，目光望向镜头，笑容灿烂，散发出宁静与美丽。 𓆩𝐀𝐛𝐢𝐝 𝐇𝐮𝐬𝐬𝐚𝐢𝐧𓆪 10506",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10521,
+      "title": "Billie Eilish 红毯造型提示 (乌尔都语/英语)",
+      "description": "一个为 Gemini Nano Banana Pro 设计的结构化提示，详细描述了 Billie Eilish 的三款红毯造型，以乌尔都语和英语混合的形式，具体说明了服装、发色、配饰和背景。",
+      "sourceLink": "https://x.com/TzqQaiser/status/2024792202862330145",
+      "sourcePublishedAt": "2026-02-20T10:24:14.000Z",
+      "author": {
+        "name": "Qaiser Tzq",
+        "link": "https://x.com/TzqQaiser"
+      },
+      "content": "[\n  {\n    \"file_naam\": \"image-10.jpg\",\n    \"shakhsiyat\": \"Billie Eilish\",\n    \"waqiya\": \"Gala/Award show (Red Carpet)\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"Off-shoulder sweetheart neckline\",\n      \"rang\": \"Creamy white satin base\",\n      \"design\": \"Neeche ki taraf surkh (red) rang ki barik embroidery jo patton (leaves) ki shakal ki hai\",\n      \"fit\": \"Body-hugging bodice\"\n    },\n    \"hair_style\": \"Silver/Grey baal jinhe peeche choti (braid) mein bandha gaya hai aur chehre par do lambi latein (strands) chhodi gayi hain\",\n    \"accessories\": {\n      \"neck\": \"Teensura (Triple layered): Ek 'LONDON' likha hua black choker, ek patli gold chain aur ek moti gold chain\",\n      \"ears\": \"Bade size ke patle golden hoop earrings\"\n    },\n    \"makeup\": \"Natural look, halki pink lipstick aur wazeh eyebrows\"\n  },\n  {\n    \"file_naam\": \"image-8.jpg\",\n    \"shakhsiyat\": \"Billie Eilish\",\n    \"waqiya\": \"iHeartRadio Music Awards\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"Strapless corset-style gown\",\n      \"rang\": \"Deep Crimson Red\",\n      \"material\": \"High-shine silk/satin kapda\",\n      \"fit\": \"Skin-tight fit jo kamar se curve dikhata hai\"\n    },\n    \"hair_style\": \"Messy braid (dhili choti) jo ek taraf kandhe par giri hui hai, silver-lavender shade ke saath\",\n    \"accessories\": {\n      \"neck\": \"Wahi signature 'LONDON' strap choker aur lambi gold chain jo sine tak ja rahi hai\",\n      \"ears\": \"Medium sized gold hoops\"\n    },\n    \"background\": \"Blue backdrop jis par iHeartRadio ka logo wazeh hai\"\n  },\n  {\n    \"file_naam\": \"image-20.jpg\",\n    \"shakhsiyat\": \"Billie Eilish\",\n    \"waqiya\": \"ELLE Women in Music event\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"Sleeveless cowl neck dress\",\n      \"rang\": \"Royal Blue / Electric Blue\",\n      \"material\": \"Satin fabric jo roshni mein chamak raha hai\",\n      \"vibe\": \"Elegant aur sophisticated look\"\n    },\n    \"hair_style\": \"Baal khule hue aur side-parted hain, rang bilkul light silver/white hai\",\n    \"makeup\": \"Minimalist 'no-makeup' look, palkon par halka mascara aur pale pink lips\",\n    \"background\": \"Saaf sufaid background jis par 'ELLE' ka brand name likha hai\"\n  }\n]",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655077921_9swgup_HBmBw_KacAAZDex.jpg",
+        "https://cms-assets.youmind.com/media/1771655077912_0ms5ws_HBmBw71aIAAy2TG.jpg",
+        "https://cms-assets.youmind.com/media/1771655077931_dyojng_HBmBw75bgAAhXUV.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655077921_9swgup_HBmBw_KacAAZDex-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1771655077912_0ms5ws_HBmBw71aIAAy2TG-300x200.jpg",
+        "https://cms-assets.youmind.com/media/1771655077931_dyojng_HBmBw75bgAAhXUV-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n[\n  {\n    \"file_name\": \"image-10.jpg\",\n    \"personality\": \"Billie Eilish\",\n    \"event\": \"晚会/颁奖典礼（红毯）\",\n    \"outfit_details\": {\n      \"style\": \"露肩甜心领口\",\n      \"color\": \"奶油白色缎面底色\",\n      \"design\": \"底部有精美的红色叶状刺绣\",\n      \"fit\": \"紧身胸衣\"\n    },\n    \"hair_style\": \"银灰色头发在脑后编成辫子，脸颊两侧留有两缕长发\",\n    \"accessories\": {\n      \"neck\": \"三层项链：一条写有“LONDON”字样的黑色颈链、一条细金链和一条粗金链\",\n      \"ears\": \"大而薄的金色圈形耳环\"\n    },\n    \"makeup\": \"自然妆容，淡粉色口红和浓密的眉毛\"\n  },\n  {\n    \"file_name\": \"image-8.jpg\",\n    \"personality\": \"Billie Eilish\",\n    \"event\": \"iHeartRadio 音乐奖\",\n    \"outfit_details\": {\n      \"style\": \"无肩带束身胸衣式礼服\",\n      \"color\": \"深绯红色\",\n      \"material\": \"高光泽丝绸/缎面面料\",\n      \"fit\": \"紧身剪裁，展现腰部曲线\"\n    },\n    \"hair_style\": \"凌乱的辫子（松散的辫子）垂在一侧肩膀上，呈银紫色调\",\n    \"accessories\": {\n      \"neck\": \"标志性的“LONDON”字样颈链和垂至胸部的长金链\",\n      \"ears\": \"中等大小的金色圈形耳环\"\n    },\n    \"background\": \"蓝色背景，iHeartRadio 标志醒目\"\n  },\n  {\n    \"file_name\": \"image-20.jpg\",\n    \"personality\": \"Billie Eilish\",\n    \"event\": \"ELLE 女性音乐活动\",\n    \"outfit_details\": {\n      \"style\": \"无袖垂坠领连衣裙\",\n      \"color\": \"宝蓝色 / 电光蓝\",\n      \"material\": \"在灯光下闪耀的缎面面料\",\n      \"vibe\": \"优雅精致的造型\"\n    },\n    \"hair_style\": \"披散的头发，侧分，发色为极浅的银色/白色\",\n    \"makeup\": \"极简“裸妆”造型，睫毛上涂有少量睫毛膏，淡粉色嘴唇\",\n    \"background\": \"干净的白色背景，上面写有“ELLE”品牌名称\"\n  }\n]\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "billie eilish 红毯造型提示 (乌尔都语/英语) 一个为 gemini nano banana pro 设计的结构化提示，详细描述了 billie eilish 的三款红毯造型，以乌尔都语和英语混合的形式，具体说明了服装、发色、配饰和背景。 [\n  {\n    \"file_naam\": \"image-10.jpg\",\n    \"shakhsiyat\": \"billie eilish\",\n    \"waqiya\": \"gala/award show (red carpet)\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"off-shoulder sweetheart neckline\",\n      \"rang\": \"creamy white satin base\",\n      \"design\": \"neeche ki taraf surkh (red) rang ki barik embroidery jo patton (leaves) ki shakal ki hai\",\n      \"fit\": \"body-hugging bodice\"\n    },\n    \"hair_style\": \"silver/grey baal jinhe peeche choti (braid) mein bandha gaya hai aur chehre par do lambi latein (strands) chhodi gayi hain\",\n    \"accessories\": {\n      \"neck\": \"teensura (triple layered): ek 'london' likha hua black choker, ek patli gold chain aur ek moti gold chain\",\n      \"ears\": \"bade size ke patle golden hoop earrings\"\n    },\n    \"makeup\": \"natural look, halki pink lipstick aur wazeh eyebrows\"\n  },\n  {\n    \"file_naam\": \"image-8.jpg\",\n    \"shakhsiyat\": \"billie eilish\",\n    \"waqiya\": \"iheartradio music awards\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"strapless corset-style gown\",\n      \"rang\": \"deep crimson red\",\n      \"material\": \"high-shine silk/satin kapda\",\n      \"fit\": \"skin-tight fit jo kamar se curve dikhata hai\"\n    },\n    \"hair_style\": \"messy braid (dhili choti) jo ek taraf kandhe par giri hui hai, silver-lavender shade ke saath\",\n    \"accessories\": {\n      \"neck\": \"wahi signature 'london' strap choker aur lambi gold chain jo sine tak ja rahi hai\",\n      \"ears\": \"medium sized gold hoops\"\n    },\n    \"background\": \"blue backdrop jis par iheartradio ka logo wazeh hai\"\n  },\n  {\n    \"file_naam\": \"image-20.jpg\",\n    \"shakhsiyat\": \"billie eilish\",\n    \"waqiya\": \"elle women in music event\",\n    \"libas_ki_tafseel\": {\n      \"style\": \"sleeveless cowl neck dress\",\n      \"rang\": \"royal blue / electric blue\",\n      \"material\": \"satin fabric jo roshni mein chamak raha hai\",\n      \"vibe\": \"elegant aur sophisticated look\"\n    },\n    \"hair_style\": \"baal khule hue aur side-parted hain, rang bilkul light silver/white hai\",\n    \"makeup\": \"minimalist 'no-makeup' look, palkon par halka mascara aur pale pink lips\",\n    \"background\": \"saaf sufaid background jis par 'elle' ka brand name likha hai\"\n  }\n] ```json\n[\n  {\n    \"file_name\": \"image-10.jpg\",\n    \"personality\": \"billie eilish\",\n    \"event\": \"晚会/颁奖典礼（红毯）\",\n    \"outfit_details\": {\n      \"style\": \"露肩甜心领口\",\n      \"color\": \"奶油白色缎面底色\",\n      \"design\": \"底部有精美的红色叶状刺绣\",\n      \"fit\": \"紧身胸衣\"\n    },\n    \"hair_style\": \"银灰色头发在脑后编成辫子，脸颊两侧留有两缕长发\",\n    \"accessories\": {\n      \"neck\": \"三层项链：一条写有“london”字样的黑色颈链、一条细金链和一条粗金链\",\n      \"ears\": \"大而薄的金色圈形耳环\"\n    },\n    \"makeup\": \"自然妆容，淡粉色口红和浓密的眉毛\"\n  },\n  {\n    \"file_name\": \"image-8.jpg\",\n    \"personality\": \"billie eilish\",\n    \"event\": \"iheartradio 音乐奖\",\n    \"outfit_details\": {\n      \"style\": \"无肩带束身胸衣式礼服\",\n      \"color\": \"深绯红色\",\n      \"material\": \"高光泽丝绸/缎面面料\",\n      \"fit\": \"紧身剪裁，展现腰部曲线\"\n    },\n    \"hair_style\": \"凌乱的辫子（松散的辫子）垂在一侧肩膀上，呈银紫色调\",\n    \"accessories\": {\n      \"neck\": \"标志性的“london”字样颈链和垂至胸部的长金链\",\n      \"ears\": \"中等大小的金色圈形耳环\"\n    },\n    \"background\": \"蓝色背景，iheartradio 标志醒目\"\n  },\n  {\n    \"file_name\": \"image-20.jpg\",\n    \"personality\": \"billie eilish\",\n    \"event\": \"elle 女性音乐活动\",\n    \"outfit_details\": {\n      \"style\": \"无袖垂坠领连衣裙\",\n      \"color\": \"宝蓝色 / 电光蓝\",\n      \"material\": \"在灯光下闪耀的缎面面料\",\n      \"vibe\": \"优雅精致的造型\"\n    },\n    \"hair_style\": \"披散的头发，侧分，发色为极浅的银色/白色\",\n    \"makeup\": \"极简“裸妆”造型，睫毛上涂有少量睫毛膏，淡粉色嘴唇\",\n    \"background\": \"干净的白色背景，上面写有“elle”品牌名称\"\n  }\n]\n``` qaiser tzq 10521",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10490,
+      "title": "奢华微距商业渲染：天鹅绒红玫瑰",
+      "description": "一个高度详细的 JSON 提示，用于生成 8K 超逼真豪华商业渲染，内容为一朵盛开的丝绒红玫瑰，强调宏观细节、微小露珠、戏剧性的低调工作室照明以及带有漂浮颗粒的电影构图。",
+      "sourceLink": "https://x.com/john_my07/status/2024788731975352399",
+      "sourcePublishedAt": "2026-02-20T10:10:27.000Z",
+      "author": {
+        "name": "Johnn",
+        "link": "https://x.com/john_my07"
+      },
+      "content": "{\n\"master_prompt\": {\n\"subject\": {\n\"type\": \"luxury aesthetic flower\",\n\"species\": \"velvet red rose in full bloom\",\n\"petal_texture\": \"soft velvety petals with delicate natural curvature\",\n\"color_gradient\": \"deep crimson transitioning into rich ruby tones\",\n\"details\": \"micro dewdrops resting on petals enhancing realism\",\n\"stem_style\": \"slender dark green stem with subtle thorns\",\n\"leaf_texture\": \"glossy deep emerald leaves with natural veining\"\n},\n\"composition\": {\n\"scene_type\": \"ultra-cinematic luxury botanical advertising photography\",\n\"orientation\": \"vertical\",\n\"aspect_ratio\": \"4:5\",\n\"camera_angle\": \"dramatic diagonal hero angle\",\n\"subject_position\": \"floating mid-air with elegant natural tilt\",\n\"motion\": \"petals and fine mist particles suspended in motion\"\n},\n\"environment\": {\n\"background\": \"deep black velvet gradient fading into shadow\",\n\"atmosphere\": \"soft volumetric mist enhancing depth and softness\",\n\"floating_elements\": [\n\"delicate falling rose petals\",\n\"microscopic water droplets suspended mid-air\",\n\"fine dust particles shimmering in light\",\n\"subtle glass-like dew spheres catching highlights\"\n],\n\"surface_effects\": \"micro condensation beads and soft reflective moisture enhancing realism\"\n},\n\"lighting\": {\n\"style\": \"dramatic low-key studio lighting\",\n\"key_light\": \"soft directional light sculpting petal texture\",\n\"rim_lights\": \"gentle rim lighting outlining petal edges\",\n\"accent_lights\": \"warm highlights adding depth and softness\",\n\"shadow_depth\": \"deep cinematic shadows for luxury mood\",\n\"contrast\": \"high contrast with luminous highlights and soft falloff\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"deep crimson\", \"ruby red\", \"velvet burgundy\"],\n\"accent_colors\": [\"emerald green\", \"soft champagne glow\"]\n},\n\"camera_settings\": {\n\"lens\": \"macro cinema prime lens\",\n\"depth_of_field\": \"shallow depth isolating flower from background\",\n\"focus_point\": \"central petals and dew droplets\",\n\"bokeh\": \"smooth cinematic bokeh from floating particles\",\n\"detail_capture\": \"extreme micro-detail clarity\"\n},\n\"render_quality\": {\n\"resolution\": \"8K ultra high definition\",\n\"render_style\": \"hyper-realistic luxury commercial render\",\n\"petal_physics\": \"natural curvature and translucency\",\n\"moisture_simulation\": \"physically accurate droplet behavior\",\n\"textures\": \"ultra-detailed petal fibers, dew droplets, and micro particles\",\n\"sharpness\": \"tack sharp subject focus with cinematic background softness\",\n\"noise\": \"none\",\n\"artifacts\": \"none\"\n},\n\"mood\": {\n\"tone\": \"romantic, elegant, and serene\",\n\"emotion\": \"beauty, purity, luxury, timeless sophistication\"\n},\n\"final_output\": {\n\"usage\": \"luxury floral campaign, fine art print, botanical advertising\",\n\"branding_focus\": \"hero floral elegance with premium aesthetic\",\n\"visual_style\": \"cinematic botanical commercial aesthetic\"\n}\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655061188_n4n2jm_HBl-ndJaIAAjDel.jpg",
+        "https://cms-assets.youmind.com/media/1771655061450_gbj6uq_HBl-nsAaYAAVn9-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655061188_n4n2jm_HBl-ndJaIAAjDel-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1771655061450_gbj6uq_HBl-nsAaYAAVn9--300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"master_prompt\": {\n\"subject\": {\n\"type\": \"奢华美学花卉\",\n\"species\": \"盛开的丝绒红玫瑰\",\n\"petal_texture\": \"柔软丝滑的花瓣，带有精致的自然弧度\",\n\"color_gradient\": \"深绯红色渐变为浓郁的宝石红色调\",\n\"details\": \"花瓣上停留的微小露珠，增强真实感\",\n\"stem_style\": \"纤细的深绿色茎秆，带有细微的荆棘\",\n\"leaf_texture\": \"光泽的深祖母绿色叶片，带有自然叶脉\"\n},\n\"composition\": {\n\"scene_type\": \"超电影感奢华植物广告摄影\",\n\"orientation\": \"垂直\",\n\"aspect_ratio\": \"4:5\",\n\"camera_angle\": \"戏剧性的对角英雄视角\",\n\"subject_position\": \"优雅自然倾斜，悬浮在半空中\",\n\"motion\": \"花瓣和细微的雾气颗粒悬浮在动态中\"\n},\n\"environment\": {\n\"background\": \"深黑色丝绒渐变，融入阴影\",\n\"atmosphere\": \"柔和的体积雾气，增强深度和柔和感\",\n\"floating_elements\": [\n\"精致飘落的玫瑰花瓣\",\n\"悬浮在半空中的微小水滴\",\n\"在光线中闪烁的细微尘埃颗粒\",\n\"捕捉高光的微妙玻璃状露珠球体\"\n],\n\"surface_effects\": \"微凝结珠和柔和的反光湿气，增强真实感\"\n},\n\"lighting\": {\n\"style\": \"戏剧性的低调影棚照明\",\n\"key_light\": \"柔和的方向光，雕塑花瓣纹理\",\n\"rim_lights\": \"柔和的轮廓光，勾勒花瓣边缘\",\n\"accent_lights\": \"温暖的高光，增加深度和柔和感\",\n\"shadow_depth\": \"深邃的电影感阴影，营造奢华氛围\",\n\"contrast\": \"高对比度，带有明亮的高光和柔和的衰减\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"深绯红\", \"宝石红\", \"丝绒勃艮第\"],\n\"accent_colors\": [\"祖母绿\", \"柔和的香槟色光芒\"]\n},\n\"camera_settings\": {\n\"lens\": \"微距电影定焦镜头\",\n\"depth_of_field\": \"浅景深，将花朵与背景分离\",\n\"focus_point\": \"中心花瓣和露珠\",\n\"bokeh\": \"漂浮颗粒产生的平滑电影感散景\",\n\"detail_capture\": \"极致微观细节清晰度\"\n},\n\"render_quality\": {\n\"resolution\": \"8K 超高清\",\n\"render_style\": \"超现实奢华商业渲染\",\n\"petal_physics\": \"自然弧度和半透明度\",\n\"moisture_simulation\": \"物理精确的水滴行为\",\n\"textures\": \"超详细的花瓣纤维、露珠和微粒\",\n\"sharpness\": \"主体对焦锐利，背景具有电影感柔和度\",\n\"noise\": \"无\",\n\"artifacts\": \"无\"\n},\n\"mood\": {\n\"tone\": \"浪漫、优雅、宁静\",\n\"emotion\": \"美丽、纯洁、奢华、永恒的精致\"\n},\n\"final_output\": {\n\"usage\": \"奢华花卉广告活动、艺术微喷、植物广告\",\n\"branding_focus\": \"以高级美学为核心的花卉优雅\",\n\"visual_style\": \"电影感植物商业美学\"\n}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华微距商业渲染：天鹅绒红玫瑰 一个高度详细的 json 提示，用于生成 8k 超逼真豪华商业渲染，内容为一朵盛开的丝绒红玫瑰，强调宏观细节、微小露珠、戏剧性的低调工作室照明以及带有漂浮颗粒的电影构图。 {\n\"master_prompt\": {\n\"subject\": {\n\"type\": \"luxury aesthetic flower\",\n\"species\": \"velvet red rose in full bloom\",\n\"petal_texture\": \"soft velvety petals with delicate natural curvature\",\n\"color_gradient\": \"deep crimson transitioning into rich ruby tones\",\n\"details\": \"micro dewdrops resting on petals enhancing realism\",\n\"stem_style\": \"slender dark green stem with subtle thorns\",\n\"leaf_texture\": \"glossy deep emerald leaves with natural veining\"\n},\n\"composition\": {\n\"scene_type\": \"ultra-cinematic luxury botanical advertising photography\",\n\"orientation\": \"vertical\",\n\"aspect_ratio\": \"4:5\",\n\"camera_angle\": \"dramatic diagonal hero angle\",\n\"subject_position\": \"floating mid-air with elegant natural tilt\",\n\"motion\": \"petals and fine mist particles suspended in motion\"\n},\n\"environment\": {\n\"background\": \"deep black velvet gradient fading into shadow\",\n\"atmosphere\": \"soft volumetric mist enhancing depth and softness\",\n\"floating_elements\": [\n\"delicate falling rose petals\",\n\"microscopic water droplets suspended mid-air\",\n\"fine dust particles shimmering in light\",\n\"subtle glass-like dew spheres catching highlights\"\n],\n\"surface_effects\": \"micro condensation beads and soft reflective moisture enhancing realism\"\n},\n\"lighting\": {\n\"style\": \"dramatic low-key studio lighting\",\n\"key_light\": \"soft directional light sculpting petal texture\",\n\"rim_lights\": \"gentle rim lighting outlining petal edges\",\n\"accent_lights\": \"warm highlights adding depth and softness\",\n\"shadow_depth\": \"deep cinematic shadows for luxury mood\",\n\"contrast\": \"high contrast with luminous highlights and soft falloff\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"deep crimson\", \"ruby red\", \"velvet burgundy\"],\n\"accent_colors\": [\"emerald green\", \"soft champagne glow\"]\n},\n\"camera_settings\": {\n\"lens\": \"macro cinema prime lens\",\n\"depth_of_field\": \"shallow depth isolating flower from background\",\n\"focus_point\": \"central petals and dew droplets\",\n\"bokeh\": \"smooth cinematic bokeh from floating particles\",\n\"detail_capture\": \"extreme micro-detail clarity\"\n},\n\"render_quality\": {\n\"resolution\": \"8k ultra high definition\",\n\"render_style\": \"hyper-realistic luxury commercial render\",\n\"petal_physics\": \"natural curvature and translucency\",\n\"moisture_simulation\": \"physically accurate droplet behavior\",\n\"textures\": \"ultra-detailed petal fibers, dew droplets, and micro particles\",\n\"sharpness\": \"tack sharp subject focus with cinematic background softness\",\n\"noise\": \"none\",\n\"artifacts\": \"none\"\n},\n\"mood\": {\n\"tone\": \"romantic, elegant, and serene\",\n\"emotion\": \"beauty, purity, luxury, timeless sophistication\"\n},\n\"final_output\": {\n\"usage\": \"luxury floral campaign, fine art print, botanical advertising\",\n\"branding_focus\": \"hero floral elegance with premium aesthetic\",\n\"visual_style\": \"cinematic botanical commercial aesthetic\"\n}\n} ```json\n{\n\"master_prompt\": {\n\"subject\": {\n\"type\": \"奢华美学花卉\",\n\"species\": \"盛开的丝绒红玫瑰\",\n\"petal_texture\": \"柔软丝滑的花瓣，带有精致的自然弧度\",\n\"color_gradient\": \"深绯红色渐变为浓郁的宝石红色调\",\n\"details\": \"花瓣上停留的微小露珠，增强真实感\",\n\"stem_style\": \"纤细的深绿色茎秆，带有细微的荆棘\",\n\"leaf_texture\": \"光泽的深祖母绿色叶片，带有自然叶脉\"\n},\n\"composition\": {\n\"scene_type\": \"超电影感奢华植物广告摄影\",\n\"orientation\": \"垂直\",\n\"aspect_ratio\": \"4:5\",\n\"camera_angle\": \"戏剧性的对角英雄视角\",\n\"subject_position\": \"优雅自然倾斜，悬浮在半空中\",\n\"motion\": \"花瓣和细微的雾气颗粒悬浮在动态中\"\n},\n\"environment\": {\n\"background\": \"深黑色丝绒渐变，融入阴影\",\n\"atmosphere\": \"柔和的体积雾气，增强深度和柔和感\",\n\"floating_elements\": [\n\"精致飘落的玫瑰花瓣\",\n\"悬浮在半空中的微小水滴\",\n\"在光线中闪烁的细微尘埃颗粒\",\n\"捕捉高光的微妙玻璃状露珠球体\"\n],\n\"surface_effects\": \"微凝结珠和柔和的反光湿气，增强真实感\"\n},\n\"lighting\": {\n\"style\": \"戏剧性的低调影棚照明\",\n\"key_light\": \"柔和的方向光，雕塑花瓣纹理\",\n\"rim_lights\": \"柔和的轮廓光，勾勒花瓣边缘\",\n\"accent_lights\": \"温暖的高光，增加深度和柔和感\",\n\"shadow_depth\": \"深邃的电影感阴影，营造奢华氛围\",\n\"contrast\": \"高对比度，带有明亮的高光和柔和的衰减\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"深绯红\", \"宝石红\", \"丝绒勃艮第\"],\n\"accent_colors\": [\"祖母绿\", \"柔和的香槟色光芒\"]\n},\n\"camera_settings\": {\n\"lens\": \"微距电影定焦镜头\",\n\"depth_of_field\": \"浅景深，将花朵与背景分离\",\n\"focus_point\": \"中心花瓣和露珠\",\n\"bokeh\": \"漂浮颗粒产生的平滑电影感散景\",\n\"detail_capture\": \"极致微观细节清晰度\"\n},\n\"render_quality\": {\n\"resolution\": \"8k 超高清\",\n\"render_style\": \"超现实奢华商业渲染\",\n\"petal_physics\": \"自然弧度和半透明度\",\n\"moisture_simulation\": \"物理精确的水滴行为\",\n\"textures\": \"超详细的花瓣纤维、露珠和微粒\",\n\"sharpness\": \"主体对焦锐利，背景具有电影感柔和度\",\n\"noise\": \"无\",\n\"artifacts\": \"无\"\n},\n\"mood\": {\n\"tone\": \"浪漫、优雅、宁静\",\n\"emotion\": \"美丽、纯洁、奢华、永恒的精致\"\n},\n\"final_output\": {\n\"usage\": \"奢华花卉广告活动、艺术微喷、植物广告\",\n\"branding_focus\": \"以高级美学为核心的花卉优雅\",\n\"visual_style\": \"电影感植物商业美学\"\n}\n}\n``` johnn 10490",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10518,
+      "title": "数字故障肖像提示",
+      "description": "一个用于 Nano Banana Pro 的提示，生成一张身穿工装夹克的男士肖像，带有数字故障效果。它指定了双重曝光、运动轨迹、色差、水平扫描线和像素排序，背景为干净的白色。",
+      "sourceLink": "https://x.com/ai_with_shah/status/2024777355609133181",
+      "sourcePublishedAt": "2026-02-20T09:25:14.000Z",
+      "author": {
+        "name": "Shah",
+        "link": "https://x.com/ai_with_shah"
+      },
+      "content": "A man in a brown hooded utility jacket with sharp facial features and curly blonde hair. Double exposure with long motion trails, digital glitch distortion, chromatic aberration in cyan and magenta, horizontal scan lines, and pixel sorting. Clean white backdrop, cinematic lighting, 35mm lens, high resolution, muted natural colors with tech-inspired artifacts.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655075695_88uges_HBl0QywXUAAlPqy.jpg",
+        "https://cms-assets.youmind.com/media/1771655075749_bzbult_HBl0QyxWAAEYzsO.jpg",
+        "https://cms-assets.youmind.com/media/1771655075749_v1s4v3_HBl0QyxWAAA5L3i.jpg",
+        "https://cms-assets.youmind.com/media/1771655076717_yelkj3_HBl0QytXQAMXpGM.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655075695_88uges_HBl0QywXUAAlPqy-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1771655075749_bzbult_HBl0QyxWAAEYzsO-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655075749_v1s4v3_HBl0QyxWAAA5L3i-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655076717_yelkj3_HBl0QytXQAMXpGM-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一名男子，身穿棕色带帽工装夹克，面部轮廓分明，金色卷发。双重曝光，带有长长的运动轨迹、数字故障失真、青色和洋红色色差、水平扫描线和像素排序。干净的白色背景，电影级灯光，35 毫米镜头，高分辨率，柔和的自然色彩与科技感十足的伪影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "数字故障肖像提示 一个用于 nano banana pro 的提示，生成一张身穿工装夹克的男士肖像，带有数字故障效果。它指定了双重曝光、运动轨迹、色差、水平扫描线和像素排序，背景为干净的白色。 a man in a brown hooded utility jacket with sharp facial features and curly blonde hair. double exposure with long motion trails, digital glitch distortion, chromatic aberration in cyan and magenta, horizontal scan lines, and pixel sorting. clean white backdrop, cinematic lighting, 35mm lens, high resolution, muted natural colors with tech-inspired artifacts. 一名男子，身穿棕色带帽工装夹克，面部轮廓分明，金色卷发。双重曝光，带有长长的运动轨迹、数字故障失真、青色和洋红色色差、水平扫描线和像素排序。干净的白色背景，电影级灯光，35 毫米镜头，高分辨率，柔和的自然色彩与科技感十足的伪影。 shah 10518",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10504,
+      "title": "高分辨率冬季时尚背影肖像",
+      "description": "一个详细、结构化的提示，用于生成一张高分辨率、逼真的冬季时尚图片。它着重于一位女性的背影，她拥有特定的身体曲线（臀部突出），身穿鲜艳的 KEOR 紧身裤和 Moon Boots，置身于雪林之中，强调纹理和光线。",
+      "sourceLink": "https://x.com/KeorUnreal/status/2024773864782213456",
+      "sourcePublishedAt": "2026-02-20T09:11:22.000Z",
+      "author": {
+        "name": "KeorUnreal",
+        "link": "https://x.com/KeorUnreal"
+      },
+      "content": "{\n  \"subject\": {\n    \"desc\": \"Ana de Armas resemblance, fit athletic curvy physique, fair natural skin texture\",\n    \"hair\": \"Long wavy black falling over left shoulder/back, partially covered by white earmuffs\",\n    \"apparel\": {\n      \"headwear\": \"Large fluffy yellow earmuffs\",\n      \"top\": \"Tight black long-sleeve crop top exposing lower back/midriff\",\n      \"bottom\": \"Bright green high-waisted seamless KEOR leggings with glute contouring and back waistband branding\",\n      \"footwear\": \"Bulky bright red Moon Boot-style snow boots with white 'MOON BOOT' text and white fur/lace details\"\n    },\n    \"body\": \"Prominent glute definition highlighted by tight leggings and arched posture, natural bust volume\"\n  },\n  \"pose\": {\n    \"orientation\": \"Rear view standing with back to camera\",\n    \"head\": \"Turned right looking back over right shoulder toward viewer\",\n    \"arms_hands\": \"Both extended down, hands resting on outer upper thighs/glutes with fingers spread slightly adjusting fabric\",\n    \"legs\": \"Shoulder-width apart planted firmly in snow\",\n    \"posture\": \"Slight back arch accentuating hip-to-waist ratio and glute projection\"\n  },\n  \"environment\": {\n    \"location\": \"Outdoor winter forest\",\n    \"ground\": \"Thick fresh white snow with uneven texture\",\n    \"background\": \"Dense tall green pine trees and bare white-bark deciduous trees (aspen/birch) blurring into distance, a deer in backdrop\",\n    \"weather\": \"Cold overcast bright winter day\"\n  },\n  \"camera\": {\n    \"shot\": \"Medium-full boots to head, vertical 3:4\",\n    \"angle\": \"Eye-level to slightly low behind subject\",\n    \"focus\": \"Sharp on subject (hair/leggings/boots texture), shallow DOF softening forest background\",\n    \"perspective\": \"Natural no wide distortion, preserving volumetric figure\"\n  },\n  \"lighting\": \"Soft diffuse overcast daylight, even low-contrast, ambient snow fill from below, subtle shadows on clothing folds/muscle contours/boot casts\",\n  \"mood\": \"Playful alluring cozy winter fashion, candid posing with downward/slightly closed eyes\",\n  \"style\": \"High-res photorealistic social media photography, detailed fabric (seamless knit/nylon/fur)/skin/snow textures\",\n  \"colors\": \"Cool whites (snow/top/earmuffs) dominant, vibrant green leggings/red boots contrast, dark forest greens/browns\",\n  \"quality\": \"8K UHD sharp details on fabric weave/fur/snow crystals, clean low ISO\",\n  \"negative_prompt\": \"small/reduced/flattened glutes/bust, slimmed torso/hips, proportion averaging, plastic/airbrushed skin, beautification, stylization, wrong shoe brand, pants instead of leggings, wide distortion, mirror/phone selfies\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655069048_annumv_HBlxFlUXMAAMSXy.jpg",
+        "https://cms-assets.youmind.com/media/1771655069146_9icus8_HBlxFtsX0AAB7qs.jpg",
+        "https://cms-assets.youmind.com/media/1771655069189_bdrxqb_HBlxFpUXIAA4s7U.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655069048_annumv_HBlxFlUXMAAMSXy-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655069146_9icus8_HBlxFtsX0AAB7qs-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655069189_bdrxqb_HBlxFpUXIAA4s7U-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"desc\": \"酷似安娜·德·阿玛斯 (Ana de Armas)，健美、曲线玲珑的身材，白皙自然的皮肤纹理\",\n    \"hair\": \"波浪形长黑发，垂落在左肩/背部，部分被白色耳罩遮盖\",\n    \"apparel\": {\n      \"headwear\": \"大而蓬松的黄色耳罩\",\n      \"top\": \"紧身黑色长袖露脐上衣，露出下背部/腰腹\",\n      \"bottom\": \"亮绿色高腰无缝 KEOR 紧身裤，带有臀部塑形设计和腰部背面品牌标志\",\n      \"footwear\": \"笨重的亮红色 Moon Boot 风格雪地靴，带有白色“MOON BOOT”字样和白色毛皮/鞋带细节\"\n    },\n    \"body\": \"紧身裤和弓形姿势凸显了明显的臀部线条，自然的胸部丰满度\"\n  },\n  \"pose\": {\n    \"orientation\": \"背面站立，背对镜头\",\n    \"head\": \"头部向右转，越过右肩向后看向观者\",\n    \"arms_hands\": \"双臂向下伸展，双手放在大腿外侧上部/臀部，手指略微张开，调整衣物\",\n    \"legs\": \"双腿与肩同宽，稳稳地踩在雪中\",\n    \"posture\": \"轻微弓背，突出腰臀比和臀部突出感\"\n  },\n  \"environment\": {\n    \"location\": \"冬季室外森林\",\n    \"ground\": \"厚厚的、不平整的洁白新雪\",\n    \"background\": \"茂密的绿色高大松树和光秃的白皮落叶树（白杨/桦树）模糊地延伸至远方，背景中有一只鹿\",\n    \"weather\": \"寒冷阴沉但明亮的冬日\"\n  },\n  \"camera\": {\n    \"shot\": \"中全景，从靴子到头部，垂直 3:4\",\n    \"angle\": \"与主体齐平或略低于主体后方\",\n    \"focus\": \"主体（头发/紧身裤/靴子纹理）清晰，浅景深使森林背景柔化\",\n    \"perspective\": \"自然，无广角畸变，保留立体感\"\n  },\n  \"lighting\": \"柔和漫射的阴天日光，均匀的低对比度，下方雪地反射的环境光，衣物褶皱/肌肉轮廓/靴子阴影处有微妙的阴影\",\n  \"mood\": \"俏皮迷人、舒适的冬季时尚，随性摆拍，眼睛向下/略微闭合\",\n  \"style\": \"高分辨率写实社交媒体摄影，细致的织物（无缝针织/尼龙/毛皮）/皮肤/雪地纹理\",\n  \"colors\": \"冷白色（雪/上衣/耳罩）为主，亮绿色紧身裤/红色靴子形成对比，深森林绿/棕色\",\n  \"quality\": \"8K 超高清，织物纹理/毛皮/雪晶细节清晰，干净的低 ISO\",\n  \"negative_prompt\": \"小/缩小/扁平的臀部/胸部，瘦削的躯干/臀部，比例平均化，塑料感/修饰过的皮肤，美化，风格化，错误的鞋子品牌，裤子而不是紧身裤，广角畸变，镜子/手机自拍\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高分辨率冬季时尚背影肖像 一个详细、结构化的提示，用于生成一张高分辨率、逼真的冬季时尚图片。它着重于一位女性的背影，她拥有特定的身体曲线（臀部突出），身穿鲜艳的 keor 紧身裤和 moon boots，置身于雪林之中，强调纹理和光线。 {\n  \"subject\": {\n    \"desc\": \"ana de armas resemblance, fit athletic curvy physique, fair natural skin texture\",\n    \"hair\": \"long wavy black falling over left shoulder/back, partially covered by white earmuffs\",\n    \"apparel\": {\n      \"headwear\": \"large fluffy yellow earmuffs\",\n      \"top\": \"tight black long-sleeve crop top exposing lower back/midriff\",\n      \"bottom\": \"bright green high-waisted seamless keor leggings with glute contouring and back waistband branding\",\n      \"footwear\": \"bulky bright red moon boot-style snow boots with white 'moon boot' text and white fur/lace details\"\n    },\n    \"body\": \"prominent glute definition highlighted by tight leggings and arched posture, natural bust volume\"\n  },\n  \"pose\": {\n    \"orientation\": \"rear view standing with back to camera\",\n    \"head\": \"turned right looking back over right shoulder toward viewer\",\n    \"arms_hands\": \"both extended down, hands resting on outer upper thighs/glutes with fingers spread slightly adjusting fabric\",\n    \"legs\": \"shoulder-width apart planted firmly in snow\",\n    \"posture\": \"slight back arch accentuating hip-to-waist ratio and glute projection\"\n  },\n  \"environment\": {\n    \"location\": \"outdoor winter forest\",\n    \"ground\": \"thick fresh white snow with uneven texture\",\n    \"background\": \"dense tall green pine trees and bare white-bark deciduous trees (aspen/birch) blurring into distance, a deer in backdrop\",\n    \"weather\": \"cold overcast bright winter day\"\n  },\n  \"camera\": {\n    \"shot\": \"medium-full boots to head, vertical 3:4\",\n    \"angle\": \"eye-level to slightly low behind subject\",\n    \"focus\": \"sharp on subject (hair/leggings/boots texture), shallow dof softening forest background\",\n    \"perspective\": \"natural no wide distortion, preserving volumetric figure\"\n  },\n  \"lighting\": \"soft diffuse overcast daylight, even low-contrast, ambient snow fill from below, subtle shadows on clothing folds/muscle contours/boot casts\",\n  \"mood\": \"playful alluring cozy winter fashion, candid posing with downward/slightly closed eyes\",\n  \"style\": \"high-res photorealistic social media photography, detailed fabric (seamless knit/nylon/fur)/skin/snow textures\",\n  \"colors\": \"cool whites (snow/top/earmuffs) dominant, vibrant green leggings/red boots contrast, dark forest greens/browns\",\n  \"quality\": \"8k uhd sharp details on fabric weave/fur/snow crystals, clean low iso\",\n  \"negative_prompt\": \"small/reduced/flattened glutes/bust, slimmed torso/hips, proportion averaging, plastic/airbrushed skin, beautification, stylization, wrong shoe brand, pants instead of leggings, wide distortion, mirror/phone selfies\"\n} ```json\n{\n  \"subject\": {\n    \"desc\": \"酷似安娜·德·阿玛斯 (ana de armas)，健美、曲线玲珑的身材，白皙自然的皮肤纹理\",\n    \"hair\": \"波浪形长黑发，垂落在左肩/背部，部分被白色耳罩遮盖\",\n    \"apparel\": {\n      \"headwear\": \"大而蓬松的黄色耳罩\",\n      \"top\": \"紧身黑色长袖露脐上衣，露出下背部/腰腹\",\n      \"bottom\": \"亮绿色高腰无缝 keor 紧身裤，带有臀部塑形设计和腰部背面品牌标志\",\n      \"footwear\": \"笨重的亮红色 moon boot 风格雪地靴，带有白色“moon boot”字样和白色毛皮/鞋带细节\"\n    },\n    \"body\": \"紧身裤和弓形姿势凸显了明显的臀部线条，自然的胸部丰满度\"\n  },\n  \"pose\": {\n    \"orientation\": \"背面站立，背对镜头\",\n    \"head\": \"头部向右转，越过右肩向后看向观者\",\n    \"arms_hands\": \"双臂向下伸展，双手放在大腿外侧上部/臀部，手指略微张开，调整衣物\",\n    \"legs\": \"双腿与肩同宽，稳稳地踩在雪中\",\n    \"posture\": \"轻微弓背，突出腰臀比和臀部突出感\"\n  },\n  \"environment\": {\n    \"location\": \"冬季室外森林\",\n    \"ground\": \"厚厚的、不平整的洁白新雪\",\n    \"background\": \"茂密的绿色高大松树和光秃的白皮落叶树（白杨/桦树）模糊地延伸至远方，背景中有一只鹿\",\n    \"weather\": \"寒冷阴沉但明亮的冬日\"\n  },\n  \"camera\": {\n    \"shot\": \"中全景，从靴子到头部，垂直 3:4\",\n    \"angle\": \"与主体齐平或略低于主体后方\",\n    \"focus\": \"主体（头发/紧身裤/靴子纹理）清晰，浅景深使森林背景柔化\",\n    \"perspective\": \"自然，无广角畸变，保留立体感\"\n  },\n  \"lighting\": \"柔和漫射的阴天日光，均匀的低对比度，下方雪地反射的环境光，衣物褶皱/肌肉轮廓/靴子阴影处有微妙的阴影\",\n  \"mood\": \"俏皮迷人、舒适的冬季时尚，随性摆拍，眼睛向下/略微闭合\",\n  \"style\": \"高分辨率写实社交媒体摄影，细致的织物（无缝针织/尼龙/毛皮）/皮肤/雪地纹理\",\n  \"colors\": \"冷白色（雪/上衣/耳罩）为主，亮绿色紧身裤/红色靴子形成对比，深森林绿/棕色\",\n  \"quality\": \"8k 超高清，织物纹理/毛皮/雪晶细节清晰，干净的低 iso\",\n  \"negative_prompt\": \"小/缩小/扁平的臀部/胸部，瘦削的躯干/臀部，比例平均化，塑料感/修饰过的皮肤，美化，风格化，错误的鞋子品牌，裤子而不是紧身裤，广角畸变，镜子/手机自拍\"\n}\n``` keorunreal 10504",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10537,
+      "title": "建筑蓝图到日式微缩旅馆场景",
+      "description": "一个高度详细的提示，用于生成一张图像，将传统日式旅馆的建筑蓝图与该空间生动的微缩 3D 表现形式融为一体。场景中包含旅客、一个枯山水庭院、一个温泉浴池和用餐区，强调了从线条图到实际空间的过渡以及建筑工具的存在。",
+      "sourceLink": "https://x.com/lovart_jp/status/2024771019320561819",
+      "sourcePublishedAt": "2026-02-20T09:00:04.000Z",
+      "author": {
+        "name": "Lovart 公式 (ラブアート)",
+        "link": "https://x.com/lovart_jp"
+      },
+      "content": "日本の伝統的な旅館の建築平面図が製図台に広げられ、空間は居住可能なミニチュアへと昇華していく。畳敷きの客室には布団と座卓が敷かれ、浴衣姿の旅人が制作中の枯山水を眺めている。温泉大浴場には檜の浴槽と竹製の湯口があり、年配の客が静かに湯に浸かると湯気が立ち上る。懐石料理の食堂には、座布団の上に漆塗りの盆が置かれ、障子越しに提灯の温かな光が差し込む。壁は線であると同時に、実際の仕切りとしても存在する。平面図に描かれた視線は、空間間の実際の景色となる。人の動線は、かすかな軌跡のように現れる。建築スケールの人物像は、小さな生活を送る小さな住人となり、断面図は垂直方向の関係性を明らかにする。周囲には、スケール、鉛筆など、建築家の道具が配置されている。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655084277_7210b0_HBHC5v8boAA8GFy.jpg",
+        "https://cms-assets.youmind.com/media/1771655084279_3a0fgb_HBHC6NjagAAjnMB.jpg",
+        "https://cms-assets.youmind.com/media/1771655084319_tnn79x_HBHC7YuakAA_2nT.jpg",
+        "https://cms-assets.youmind.com/media/1771655085063_s1kwzm_HBHC7w1aQAEqxoq.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655084277_7210b0_HBHC5v8boAA8GFy-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1771655084279_3a0fgb_HBHC6NjagAAjnMB-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1771655084319_tnn79x_HBHC7YuakAA_2nT-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1771655085063_s1kwzm_HBHC7w1aQAEqxoq-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "传统日式旅馆的建筑蓝图铺展在绘图桌上，空间升华为一个宜居的微缩模型。在铺着榻榻米的客房里，铺好了蒲团和矮桌，一位身着浴衣的旅客正凝视着正在建造的枯山水庭园。宽敞的温泉浴池里有柏木浴桶和竹制出水口，一位年长的客人静静地泡在水中，蒸汽袅袅升起。在怀石料理餐厅里，漆器托盘摆放在坐垫上，灯笼的暖光透过障子纸窗照进来。墙壁同时作为线条和实际的隔断而存在。平面图上绘制的视线成为空间之间真实的风景。人们的移动轨迹呈现出淡淡的痕迹。建筑尺度下的人物变成了过着微小生活的居民，剖面图揭示了垂直关系。场景周围摆放着比例尺和铅笔等建筑工具。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "建筑蓝图到日式微缩旅馆场景 一个高度详细的提示，用于生成一张图像，将传统日式旅馆的建筑蓝图与该空间生动的微缩 3d 表现形式融为一体。场景中包含旅客、一个枯山水庭院、一个温泉浴池和用餐区，强调了从线条图到实际空间的过渡以及建筑工具的存在。 日本の伝統的な旅館の建築平面図が製図台に広げられ、空間は居住可能なミニチュアへと昇華していく。畳敷きの客室には布団と座卓が敷かれ、浴衣姿の旅人が制作中の枯山水を眺めている。温泉大浴場には檜の浴槽と竹製の湯口があり、年配の客が静かに湯に浸かると湯気が立ち上る。懐石料理の食堂には、座布団の上に漆塗りの盆が置かれ、障子越しに提灯の温かな光が差し込む。壁は線であると同時に、実際の仕切りとしても存在する。平面図に描かれた視線は、空間間の実際の景色となる。人の動線は、かすかな軌跡のように現れる。建築スケールの人物像は、小さな生活を送る小さな住人となり、断面図は垂直方向の関係性を明らかにする。周囲には、スケール、鉛筆など、建築家の道具が配置されている。 传统日式旅馆的建筑蓝图铺展在绘图桌上，空间升华为一个宜居的微缩模型。在铺着榻榻米的客房里，铺好了蒲团和矮桌，一位身着浴衣的旅客正凝视着正在建造的枯山水庭园。宽敞的温泉浴池里有柏木浴桶和竹制出水口，一位年长的客人静静地泡在水中，蒸汽袅袅升起。在怀石料理餐厅里，漆器托盘摆放在坐垫上，灯笼的暖光透过障子纸窗照进来。墙壁同时作为线条和实际的隔断而存在。平面图上绘制的视线成为空间之间真实的风景。人们的移动轨迹呈现出淡淡的痕迹。建筑尺度下的人物变成了过着微小生活的居民，剖面图揭示了垂直关系。场景周围摆放着比例尺和铅笔等建筑工具。 lovart 公式 (ラブアート) 10537",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10529,
+      "title": "赛博朋克日本乐队现场表演",
+      "description": "一个详细的提示，用于生成一张超现实照片：一支日本视觉系乐队在一个未来主义的赛博朋克涩谷夜总会现场表演，其中详细说明了人物外观、服装、乐器设计和相机细节。该提示使用了一张参考图像来确定调色板、色调、世界观和构图。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2024769367007699262",
+      "sourcePublishedAt": "2026-02-20T08:53:30.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Photograph. Live-action film.\n*Please generate the photo using the reference image as a color palette. Please also use the reference image as a reference for tone, worldview, and composition when constructing the image.\nCamera/angle: Shot from a frontal angle, with a wide-angle lens from slightly below.\nTheme: A live performance scene of a Japanese band with a cyberpunk look.\nGuitarist/vocalist: A handsome man with short white hair, pink inner coloring, and a gold-blue gradient eye color.\nVocalist's pose: Singing with his foot on the speaker.\nClothing: A combination of 2000s V-kei fashion and cyberpunk. Looks like a visual kei band member. Cyberpunk military black officer's uniform with metal engineer boots. Red armband. Pink glowing infographic UI goggles.\nBand members: A band consisting of guitar, bass, and drums.\nInstrument design: A near-future, cyberpunk design with pink glows in places.\nLocation: A live stage at an upscale nightclub in Shibuya in a cyberpunk setting 100 years in the future.\nPause: The band is belting out.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655082021_bce0vi_HBlp0xhboAAS9i2.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655082021_bce0vi_HBlp0xhboAAS9i2-300x402.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "质量：照片。真人电影。\n*请使用参考图片作为调色板来生成照片。在构建图像时，也请将参考图片作为色调、世界观和构图的参考。\n摄像机/角度：正面角度拍摄，使用广角镜头从略低处拍摄。\n主题：一个具有赛博朋克风格的日本乐队的现场表演场景。\n吉他手/主唱：一位帅气的男士，留着白色短发，内层染成粉色，眼睛是金蓝色渐变色。\n主唱姿势：脚踩音箱唱歌。\n服装：2000 年代 V 系时尚与赛博朋克风格的结合。看起来像视觉系乐队成员。赛博朋克军事黑色军官制服，搭配金属工程师靴。红色臂章。粉色发光的图形信息 UI 护目镜。\n乐队成员：一支由吉他、贝斯和鼓组成的乐队。\n乐器设计：近未来赛博朋克设计，局部带有粉色发光效果。\n地点：100 年后赛博朋克背景下涩谷一家高档夜总会的现场舞台。\n暂停：乐队正在倾情演唱。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克日本乐队现场表演 一个详细的提示，用于生成一张超现实照片：一支日本视觉系乐队在一个未来主义的赛博朋克涩谷夜总会现场表演，其中详细说明了人物外观、服装、乐器设计和相机细节。该提示使用了一张参考图像来确定调色板、色调、世界观和构图。 quality: photograph. live-action film.\n*please generate the photo using the reference image as a color palette. please also use the reference image as a reference for tone, worldview, and composition when constructing the image.\ncamera/angle: shot from a frontal angle, with a wide-angle lens from slightly below.\ntheme: a live performance scene of a japanese band with a cyberpunk look.\nguitarist/vocalist: a handsome man with short white hair, pink inner coloring, and a gold-blue gradient eye color.\nvocalist's pose: singing with his foot on the speaker.\nclothing: a combination of 2000s v-kei fashion and cyberpunk. looks like a visual kei band member. cyberpunk military black officer's uniform with metal engineer boots. red armband. pink glowing infographic ui goggles.\nband members: a band consisting of guitar, bass, and drums.\ninstrument design: a near-future, cyberpunk design with pink glows in places.\nlocation: a live stage at an upscale nightclub in shibuya in a cyberpunk setting 100 years in the future.\npause: the band is belting out. 质量：照片。真人电影。\n*请使用参考图片作为调色板来生成照片。在构建图像时，也请将参考图片作为色调、世界观和构图的参考。\n摄像机/角度：正面角度拍摄，使用广角镜头从略低处拍摄。\n主题：一个具有赛博朋克风格的日本乐队的现场表演场景。\n吉他手/主唱：一位帅气的男士，留着白色短发，内层染成粉色，眼睛是金蓝色渐变色。\n主唱姿势：脚踩音箱唱歌。\n服装：2000 年代 v 系时尚与赛博朋克风格的结合。看起来像视觉系乐队成员。赛博朋克军事黑色军官制服，搭配金属工程师靴。红色臂章。粉色发光的图形信息 ui 护目镜。\n乐队成员：一支由吉他、贝斯和鼓组成的乐队。\n乐器设计：近未来赛博朋克设计，局部带有粉色发光效果。\n地点：100 年后赛博朋克背景下涩谷一家高档夜总会的现场舞台。\n暂停：乐队正在倾情演唱。 とすくん 10529",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10539,
+      "title": "赛博朋克视觉系摇滚音乐视频提示词 (Grok)",
+      "description": "一个为 Grok 设计的详细视频提示，用于生成一个以赛博朋克世界为背景，配有日系 V-kei 摇滚乐的短音乐视频。该提示指定了高速剪辑、各种摄像机角度、未来主义的涩谷场景，以及包括吉他手唱歌、乐队成员充满活力地演奏、激光束和歌手砸碎吉他的戏剧性结局等具体场景。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2024763346172711119",
+      "sourcePublishedAt": "2026-02-20T08:29:34.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live-action film, high-speed cuts, numerous frames, 24fps, photorealistic, high-definition 2.5D. A 2.5x-speed action movie.\nCuts: Video created from a variety of camera angles, including overhead shots and drone footage.\nMusic: Japanese V-kei rock.\nLocations:\n- A cyberpunk nightclub and live music venue in Shibuya 100 years in the future.\n- A huge audience.\n- 360-degree video displays on LED panels on the wall.\nA short music video set in a cyberpunk world.\n\nLyrics: \" はたんしても生成するしかない。さあ生成しようぜ。\"\n\n- Scene 1:\nA guitarist sings Japanese rock.\n\n- Scene 2:\nThe camera switches to show the band members playing vigorously.\nThe huge audience gets really excited.\n\n- Scene 3:\nThe camera switches to a frontal view of the band.\nColorful laser beams emerge from behind.\nMany pillars of fire rise from behind.\n\nScene 4\nAt the end of the song, the singer slams the guitar into the ground with great force, destroying it and ending the performance.\nThe screen goes dark.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人电影，高速剪辑，多帧画面，24fps，超写实，高清 2.5D。一部 2.5 倍速的动作电影。\n剪辑：视频由多种摄像机角度拍摄，包括俯拍和无人机镜头。\n音乐：日本视觉系摇滚。\n场景：\n- 100 年后涩谷的赛博朋克夜总会和现场音乐表演场所。\n- 巨大的观众群。\n- 墙壁上的 LED 面板显示 360 度视频。\n一个设定在赛博朋克世界的短音乐视频。\n\n歌词：“就算破产，我们也别无选择，只能生成。来吧，让我们生成。”\n\n- 场景 1：\n一位吉他手演唱日本摇滚乐。\n\n- 场景 2：\n镜头切换，展示乐队成员们充满活力地演奏。\n巨大的观众群变得异常兴奋。\n\n- 场景 3：\n镜头切换到乐队正面视角。\n五彩斑斓的激光束从后方射出。\n许多火柱从后方升起。\n\n场景 4：\n歌曲结束时，歌手猛地将吉他砸向地面，将其摧毁，结束了表演。\n屏幕变暗。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克视觉系摇滚音乐视频提示词 (grok) 一个为 grok 设计的详细视频提示，用于生成一个以赛博朋克世界为背景，配有日系 v-kei 摇滚乐的短音乐视频。该提示指定了高速剪辑、各种摄像机角度、未来主义的涩谷场景，以及包括吉他手唱歌、乐队成员充满活力地演奏、激光束和歌手砸碎吉他的戏剧性结局等具体场景。 quality: live-action film, high-speed cuts, numerous frames, 24fps, photorealistic, high-definition 2.5d. a 2.5x-speed action movie.\ncuts: video created from a variety of camera angles, including overhead shots and drone footage.\nmusic: japanese v-kei rock.\nlocations:\n- a cyberpunk nightclub and live music venue in shibuya 100 years in the future.\n- a huge audience.\n- 360-degree video displays on led panels on the wall.\na short music video set in a cyberpunk world.\n\nlyrics: \" はたんしても生成するしかない。さあ生成しようぜ。\"\n\n- scene 1:\na guitarist sings japanese rock.\n\n- scene 2:\nthe camera switches to show the band members playing vigorously.\nthe huge audience gets really excited.\n\n- scene 3:\nthe camera switches to a frontal view of the band.\ncolorful laser beams emerge from behind.\nmany pillars of fire rise from behind.\n\nscene 4\nat the end of the song, the singer slams the guitar into the ground with great force, destroying it and ending the performance.\nthe screen goes dark. 质量：真人电影，高速剪辑，多帧画面，24fps，超写实，高清 2.5d。一部 2.5 倍速的动作电影。\n剪辑：视频由多种摄像机角度拍摄，包括俯拍和无人机镜头。\n音乐：日本视觉系摇滚。\n场景：\n- 100 年后涩谷的赛博朋克夜总会和现场音乐表演场所。\n- 巨大的观众群。\n- 墙壁上的 led 面板显示 360 度视频。\n一个设定在赛博朋克世界的短音乐视频。\n\n歌词：“就算破产，我们也别无选择，只能生成。来吧，让我们生成。”\n\n- 场景 1：\n一位吉他手演唱日本摇滚乐。\n\n- 场景 2：\n镜头切换，展示乐队成员们充满活力地演奏。\n巨大的观众群变得异常兴奋。\n\n- 场景 3：\n镜头切换到乐队正面视角。\n五彩斑斓的激光束从后方射出。\n许多火柱从后方升起。\n\n场景 4：\n歌曲结束时，歌手猛地将吉他砸向地面，将其摧毁，结束了表演。\n屏幕变暗。 とすくん 10539",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10498,
+      "title": "高级时尚编辑肖像：精确的身份和姿势复制",
+      "description": "一个复杂、高度详细的提示，用于拍摄一张高级时装编辑肖像，要求 100% 保留参考图像中的身份，精确复制一个戏剧性的姿势（手遮住脸），特定的戏剧性影棚灯光，以及精确复制服装和配饰（黑色抹胸、白色蕾丝头巾、特定手链）。",
+      "sourceLink": "https://x.com/oye_samia/status/2024744731792871647",
+      "sourcePublishedAt": "2026-02-20T07:15:36.000Z",
+      "author": {
+        "name": "Dr. Samia",
+        "link": "https://x.com/oye_samia"
+      },
+      "content": "Role: high-fashion editorial photographer shooting a bold luxury studio portrait, ultra-realistic photography\nSubject: use the attached face photo as the exact facial identity (100% identity preservation, anatomical precision, original facial proportions, natural skin texture, no AI reshaping, no beautification distortion), seamlessly replace the model's face from the reference image with the attached face, perfect alignment of jawline, cheekbones, eye spacing, nose structure, lip shape, and skin tone matching, maintain realistic skin texture with visible pores and natural tonal transitions, no visible blending artifacts\nPose & Expression (match reference EXACTLY): tight upper body framing (mid-torso to top of head), body facing camera, left arm raised with hand covering upper half of face, fingers spread naturally across forehead and eyebrow area, palm angled diagonally, eye visible through fingers, other arm relaxed downward, intense direct gaze through fingers, mouth slightly open (natural parted lips exactly like reference, relaxed jaw, subtle sensual tension), bold confident expression\nLighting (replicate reference precisely): dramatic directional studio lighting, strong key light from front-left, visible highlight on left side of face and arm, defined shadow gradient across right side of face, controlled contrast, subtle specular highlights on skin, crisp shadow separation from background, no soft diffused beauty lighting\nBackground: neutral dark grey seamless studio background, clean minimal composition, slight falloff gradient\nOutfit (exact replication): black strapless bandeau top, smooth stretch fabric, minimalistic silhouette\nAccessories (must match exactly): white lace headscarf tightly wrapped around head, large glossy white bangle bracelet with bold black double-C logo, no necklace, no additional visible jewelry\nHair (match styling exactly): very long straight dark brown hair, sleek glossy finish, center part under headscarf, hair falling evenly over both shoulders, realistic strand detail\nMakeup (exact replication): glam makeup, matte sculpted skin, defined brows, soft brown smoky eye, subtle eyeliner, contoured cheekbones, nude matte lips, high-definition editorial finish\nRealism Requirements: ultra high resolution, sharp focus on visible eye, realistic skin pores, accurate lace texture, realistic plastic gloss on bracelet, natural arm anatomy, no plastic skin, no oversmoothing, no AI artifacts\nCamera: full-frame camera, 85mm portrait lens, shallow depth of field, high-fashion editorial color grading, neutral cool-toned palette\nNegative prompt: low resolution, distorted face, incorrect anatomy, asymmetry errors, extra fingers, warped hands, artificial skin texture, over-smoothed skin, soft beauty lighting, flat lighting, wrong hand placement, closed mouth, exaggerated open mouth, wrong hairstyle, short hair, different headscarf, missing bracelet, incorrect",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655065994_33t24v_HBlWmW4bUAMZXeA.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655065994_33t24v_HBlWmW4bUAMZXeA-300x541.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "角色：拍摄大胆奢华影棚肖像的高级时装编辑摄影师，超写实摄影\n主体：使用附件中的面部照片作为精确的面部身份（100% 身份保留，解剖学精确，原始面部比例，自然皮肤纹理，无 AI 重塑，无美化扭曲），将参考图像中模特的脸无缝替换为附件中的脸，完美对齐下颌线、颧骨、眼睛间距、鼻子结构、嘴唇形状和肤色匹配，保持逼真的皮肤纹理，可见毛孔和自然的色调过渡，无可见的混合痕迹\n姿势和表情（与参考图完全匹配）：紧凑的上半身构图（从躯干中部到头顶），身体面向镜头，左臂抬起，手遮住上半部分脸，手指自然张开，覆盖前额和眉毛区域，手掌呈对角线角度，眼睛透过手指可见，另一只手臂自然下垂，透过手指凝视，嘴巴微张（与参考图完全相同的自然微张嘴唇，放松的下颌，微妙的性感张力），大胆自信的表情\n灯光（精确复制参考图）：戏剧性的定向影棚灯光，强烈的关键光从左前方照射，左侧脸部和手臂有明显高光，右侧脸部有清晰的阴影渐变，受控对比度，皮肤上有微妙的镜面高光，背景与阴影清晰分离，无柔和漫射美颜灯光\n背景：中性深灰色无缝影棚背景，简洁构图，轻微的渐变衰减\n服装（精确复制）：黑色无肩带抹胸上衣，光滑弹力面料，极简廓形\n配饰（必须完全匹配）：白色蕾丝头巾紧紧包裹头部，大号光泽白色手镯，带有醒目的黑色双 C 标志，无项链，无其他可见首饰\n发型（精确匹配造型）：超长直深棕色头发，光滑亮泽，头巾下中分，头发均匀地披在双肩上，逼真的发丝细节\n妆容（精确复制）：魅力妆容，哑光雕塑感肌肤，精致眉毛，柔和棕色烟熏眼妆，微妙眼线，修容颧骨，裸色哑光唇，高清编辑级妆效\n真实感要求：超高分辨率，可见眼睛锐利对焦，逼真皮肤毛孔，精确蕾丝纹理，手镯逼真塑料光泽，自然手臂解剖结构，无塑料感皮肤，无过度平滑，无 AI 伪影\n相机：全画幅相机，85mm 人像镜头，浅景深，高级时装编辑级调色，中性冷色调\n负面提示：低分辨率，脸部扭曲，解剖结构不正确，不对称错误，多余手指，手部变形，人造皮肤纹理，过度平滑皮肤，柔和美颜灯光，扁平灯光，手部放置错误，闭嘴，夸张张嘴，错误发型，短发，不同头巾，缺少手镯，不正确",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高级时尚编辑肖像：精确的身份和姿势复制 一个复杂、高度详细的提示，用于拍摄一张高级时装编辑肖像，要求 100% 保留参考图像中的身份，精确复制一个戏剧性的姿势（手遮住脸），特定的戏剧性影棚灯光，以及精确复制服装和配饰（黑色抹胸、白色蕾丝头巾、特定手链）。 role: high-fashion editorial photographer shooting a bold luxury studio portrait, ultra-realistic photography\nsubject: use the attached face photo as the exact facial identity (100% identity preservation, anatomical precision, original facial proportions, natural skin texture, no ai reshaping, no beautification distortion), seamlessly replace the model's face from the reference image with the attached face, perfect alignment of jawline, cheekbones, eye spacing, nose structure, lip shape, and skin tone matching, maintain realistic skin texture with visible pores and natural tonal transitions, no visible blending artifacts\npose & expression (match reference exactly): tight upper body framing (mid-torso to top of head), body facing camera, left arm raised with hand covering upper half of face, fingers spread naturally across forehead and eyebrow area, palm angled diagonally, eye visible through fingers, other arm relaxed downward, intense direct gaze through fingers, mouth slightly open (natural parted lips exactly like reference, relaxed jaw, subtle sensual tension), bold confident expression\nlighting (replicate reference precisely): dramatic directional studio lighting, strong key light from front-left, visible highlight on left side of face and arm, defined shadow gradient across right side of face, controlled contrast, subtle specular highlights on skin, crisp shadow separation from background, no soft diffused beauty lighting\nbackground: neutral dark grey seamless studio background, clean minimal composition, slight falloff gradient\noutfit (exact replication): black strapless bandeau top, smooth stretch fabric, minimalistic silhouette\naccessories (must match exactly): white lace headscarf tightly wrapped around head, large glossy white bangle bracelet with bold black double-c logo, no necklace, no additional visible jewelry\nhair (match styling exactly): very long straight dark brown hair, sleek glossy finish, center part under headscarf, hair falling evenly over both shoulders, realistic strand detail\nmakeup (exact replication): glam makeup, matte sculpted skin, defined brows, soft brown smoky eye, subtle eyeliner, contoured cheekbones, nude matte lips, high-definition editorial finish\nrealism requirements: ultra high resolution, sharp focus on visible eye, realistic skin pores, accurate lace texture, realistic plastic gloss on bracelet, natural arm anatomy, no plastic skin, no oversmoothing, no ai artifacts\ncamera: full-frame camera, 85mm portrait lens, shallow depth of field, high-fashion editorial color grading, neutral cool-toned palette\nnegative prompt: low resolution, distorted face, incorrect anatomy, asymmetry errors, extra fingers, warped hands, artificial skin texture, over-smoothed skin, soft beauty lighting, flat lighting, wrong hand placement, closed mouth, exaggerated open mouth, wrong hairstyle, short hair, different headscarf, missing bracelet, incorrect 角色：拍摄大胆奢华影棚肖像的高级时装编辑摄影师，超写实摄影\n主体：使用附件中的面部照片作为精确的面部身份（100% 身份保留，解剖学精确，原始面部比例，自然皮肤纹理，无 ai 重塑，无美化扭曲），将参考图像中模特的脸无缝替换为附件中的脸，完美对齐下颌线、颧骨、眼睛间距、鼻子结构、嘴唇形状和肤色匹配，保持逼真的皮肤纹理，可见毛孔和自然的色调过渡，无可见的混合痕迹\n姿势和表情（与参考图完全匹配）：紧凑的上半身构图（从躯干中部到头顶），身体面向镜头，左臂抬起，手遮住上半部分脸，手指自然张开，覆盖前额和眉毛区域，手掌呈对角线角度，眼睛透过手指可见，另一只手臂自然下垂，透过手指凝视，嘴巴微张（与参考图完全相同的自然微张嘴唇，放松的下颌，微妙的性感张力），大胆自信的表情\n灯光（精确复制参考图）：戏剧性的定向影棚灯光，强烈的关键光从左前方照射，左侧脸部和手臂有明显高光，右侧脸部有清晰的阴影渐变，受控对比度，皮肤上有微妙的镜面高光，背景与阴影清晰分离，无柔和漫射美颜灯光\n背景：中性深灰色无缝影棚背景，简洁构图，轻微的渐变衰减\n服装（精确复制）：黑色无肩带抹胸上衣，光滑弹力面料，极简廓形\n配饰（必须完全匹配）：白色蕾丝头巾紧紧包裹头部，大号光泽白色手镯，带有醒目的黑色双 c 标志，无项链，无其他可见首饰\n发型（精确匹配造型）：超长直深棕色头发，光滑亮泽，头巾下中分，头发均匀地披在双肩上，逼真的发丝细节\n妆容（精确复制）：魅力妆容，哑光雕塑感肌肤，精致眉毛，柔和棕色烟熏眼妆，微妙眼线，修容颧骨，裸色哑光唇，高清编辑级妆效\n真实感要求：超高分辨率，可见眼睛锐利对焦，逼真皮肤毛孔，精确蕾丝纹理，手镯逼真塑料光泽，自然手臂解剖结构，无塑料感皮肤，无过度平滑，无 ai 伪影\n相机：全画幅相机，85mm 人像镜头，浅景深，高级时装编辑级调色，中性冷色调\n负面提示：低分辨率，脸部扭曲，解剖结构不正确，不对称错误，多余手指，手部变形，人造皮肤纹理，过度平滑皮肤，柔和美颜灯光，扁平灯光，手部放置错误，闭嘴，夸张张嘴，错误发型，短发，不同头巾，缺少手镯，不正确 dr. samia 10498",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10535,
+      "title": "一位女士抱着泰迪熊的温暖怀旧电影视频",
+      "description": "以下是用于图像生成（Nano Banana Pro）和后续视频生成（Kling 3.0 Omni）的摘要提示。该提示描述了一个温暖、怀旧的电影式视频，内容是一位女性与泰迪熊互动，通过柔和、温暖的灯光和浅景深，通过特写镜头和拥抱动作来传达亲密和可爱。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2024740807522341114",
+      "sourcePublishedAt": "2026-02-20T07:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "クマのぬいぐるみと戯れる女性の姿を捉えた、温かくノスタルジックなシネマティック映像。柔らかな暖色のライティングと浅い被写界深度を用い、手元のクローズアップや抱きしめる仕草を通じて親密さと可愛らしさを表現する。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一段温暖而怀旧的电影视频，捕捉了一位女性与泰迪熊玩耍的场景。使用柔和、温暖的灯光和浅景深，通过特写她的双手和拥抱的姿势来表达亲密和可爱。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "一位女士抱着泰迪熊的温暖怀旧电影视频 以下是用于图像生成（nano banana pro）和后续视频生成（kling 3.0 omni）的摘要提示。该提示描述了一个温暖、怀旧的电影式视频，内容是一位女性与泰迪熊互动，通过柔和、温暖的灯光和浅景深，通过特写镜头和拥抱动作来传达亲密和可爱。 クマのぬいぐるみと戯れる女性の姿を捉えた、温かくノスタルジックなシネマティック映像。柔らかな暖色のライティングと浅い被写界深度を用い、手元のクローズアップや抱きしめる仕草を通じて親密さと可愛らしさを表現する。 一段温暖而怀旧的电影视频，捕捉了一位女性与泰迪熊玩耍的场景。使用柔和、温暖的灯光和浅景深，通过特写她的双手和拥抱的姿势来表达亲密和可爱。 空想写真家 10535",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10517,
+      "title": "黄金时段户外生活方式肖像提示",
+      "description": "一个针对 Google Nano Banana Pro 的高度详细的结构化提示，要求生成一张年轻女性在城市公园黄金时段的户外生活方式肖像。它指定了铂金色头发、花卉纹身、飘逸的米色连衣裙以及柔和、阳光温暖的灯光等元素。",
+      "sourceLink": "https://x.com/MrDasOnX/status/2024740412003668462",
+      "sourcePublishedAt": "2026-02-20T06:58:26.000Z",
+      "author": {
+        "name": "Mr Das",
+        "link": "https://x.com/MrDasOnX"
+      },
+      "content": "{\n  \"scene_type\": \"Outdoor lifestyle portrait\",\n  \"environment\": {\n    \"location\": \"Quiet urban park during golden hour\",\n    \"background\": {\n      \"main_elements\": \"Lush green grass, scattered wildflowers, large old oak trees with dappled light, soft bokeh city skyline peeking through distant foliage\",\n      \"props\": \"Vintage wooden bench partially visible, fallen petals on the ground\",\n      \"color_palette\": \"Warm golds, soft greens, creamy highlights, subtle pastel wildflower accents\"\n    },\n    \"atmosphere\": \"Warm, peaceful, golden, gently breezy, late-afternoon serenity\"\n  },\n  \"subject\": {\n    \"gender_presentation\": \"Feminine\",\n    \"approximate_age_group\": \"Young adult\",\n    \"skin_tone\": \"Fair with natural texture and subtle sun-kissed glow\",\n    \"hair\": {\n      \"color\": \"{argument name=\"hair color\" default=\"Platinum blonde\"}\",\n      \"style\": \"Long, loose waves with natural movement from a light breeze, strands catching golden light\"\n    },\n    \"facial_features\": {\n      \"expression\": \"Soft, content half-smile, eyes gently looking toward camera / reflection, relaxed and dreamy\",\n      \"makeup\": \"Minimal, natural dewy look with soft glow and hint of bronzer\"\n    },\n    \"body_details\": {\n      \"build\": \"Slim to average\",\n      \"visible_tattoos\": [\n        \"Floral and illustrative tattoos on arms\",\n        \"Small delicate tattoo visible on upper thigh / calf area\"\n      ]\n    }\n  },\n  \"pose\": {\n    \"position\": \"Standing casually in open grassy area, holding phone for mirror-style selfie (using phone screen reflection or front camera)\",\n    \"body_orientation\": \"Three-quarter turn toward camera, weight on back leg, hip slightly popped for natural curve\",\n    \"legs\": \"Relaxed stance, one foot playfully turned inward, creating gentle S-curve silhouette\",\n    \"arms\": \"One hand holding phone at chest/waist level, other hand lightly brushing hair back or resting on hip\",\n    \"head\": \"Slightly tilted, looking directly at camera with soft eye contact\",\n    \"overall_feel\": \"Effortless, carefree, sun-warmed confidence, lightly playful outdoor moment\"\n  },\n  \"clothing\": {\n    \"outfit_type\": \"Light, breezy summer dress or co-ord set\",\n    \"color\": \"Soft buttery cream / pale lavender with subtle floral print\",\n    \"material\": \"Flowy cotton-linen blend or chiffon with gentle movement in the breeze\",\n    \"details\": \"Delicate thin straps or off-shoulder neckline, midi or just-above-knee length, soft ruffle or lace trim accents\"\n  },\n  \"styling\": {\n    \"accessories\": [\n      \"Delicate layered thin necklaces\",\n      \"Small hoop or stud earrings\",\n      \"Minimalist ring or two\"\n    ],\n    \"overall_style\": \"Romantic, feminine, sun-drenched casual elegance\"\n  },\n  \"lighting\": {\n    \"type\": \"Golden hour natural sunlight\",\n    \"source\": \"Low warm sun from slightly behind and to the side (back/side lighting)\",\n    \"quality\": \"Rich golden rim light, soft flattering fill, long gentle shadows\",\n    \"shadows\": \"Subtle and sculpted — defining cheekbones, collarbones, fabric fold\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1771655075961_q1zggq_HBlSqE2b0AAJm9W.jpg",
+        "https://cms-assets.youmind.com/media/1771655075983_yfyrt1_HBlSqDMbUAkHaiN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1771655075961_q1zggq_HBlSqE2b0AAJm9W-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1771655075983_yfyrt1_HBlSqDMbUAkHaiN-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene_type\": \"户外生活方式肖像\",\n  \"environment\": {\n    \"location\": \"黄金时段宁静的城市公园\",\n    \"background\": {\n      \"main_elements\": \"郁郁葱葱的绿草、零星的野花、斑驳光影下的古老橡树、透过远处树叶隐约可见的柔和虚化城市天际线\",\n      \"props\": \"部分可见的复古木质长椅、地上散落的花瓣\",\n      \"color_palette\": \"暖金色、柔和的绿色、奶油色高光、微妙的柔和野花点缀\"\n    },\n    \"atmosphere\": \"温暖、宁静、金色、微风轻拂、傍晚的安详\"\n  },\n  \"subject\": {\n    \"gender_presentation\": \"女性化\",\n    \"approximate_age_group\": \"青年\",\n    \"skin_tone\": \"白皙，带有自然纹理和微妙的晒后光泽\",\n    \"hair\": {\n      \"color\": \"{argument name=\\\"hair color\\\" default=\\\"铂金色\\\"}\",\n      \"style\": \"长发，松散的波浪，微风带来自然动感，发丝捕捉金色光线\"\n    },\n    \"facial_features\": {\n      \"expression\": \"柔和、满足的半微笑，眼睛温柔地看向镜头 / 反射，放松而梦幻\",\n      \"makeup\": \"极简、自然的露水般妆容，带有柔和光泽和一丝古铜色\"\n    },\n    \"body_details\": {\n      \"build\": \"苗条至中等\",\n      \"visible_tattoos\": [\n        \"手臂上的花卉和插画纹身\",\n        \"大腿上部 / 小腿区域可见的小巧精致纹身\"\n      ]\n    }\n  },\n  \"pose\": {\n    \"position\": \"随意站立在开阔的草地上，手持手机进行镜面式自拍（使用手机屏幕反射或前置摄像头）\",\n    \"body_orientation\": \"身体四分之三转向镜头，重心放在后腿，臀部略微突出，形成自然曲线\",\n    \"legs\": \"放松的姿态，一只脚俏皮地向内转，形成柔和的 S 形轮廓\",\n    \"arms\": \"一只手在胸部/腰部高度拿着手机，另一只手轻轻拨弄头发或放在臀部\",\n    \"head\": \"略微倾斜，柔和地与镜头进行眼神交流\",\n    \"overall_feel\": \"轻松、无忧无虑、阳光温暖的自信、略带俏皮的户外瞬间\"\n  },\n  \"clothing\": {\n    \"outfit_type\": \"轻盈、飘逸的夏日连衣裙或套装\",\n    \"color\": \"柔和的奶油黄 / 淡紫色，带有微妙的花卉图案\",\n    \"material\": \"飘逸的棉麻混纺或雪纺，在微风中轻轻摆动\",\n    \"details\": \"精致的细肩带或露肩领口，中长款或及膝长度，柔软的荷叶边或蕾丝边饰点缀\"\n  },\n  \"styling\": {\n    \"accessories\": [\n      \"精致的叠戴细项链\",\n      \"小耳圈或耳钉\",\n      \"一两枚极简戒指\"\n    ],\n    \"overall_style\": \"浪漫、女性化、阳光明媚的休闲优雅\"\n  },\n  \"lighting\": {\n    \"type\": \"黄金时段自然阳光\",\n    \"source\": \"低角度的温暖阳光从略微后方和侧面照射（背光/侧光）\",\n    \"quality\": \"丰富的金色轮廓光，柔和讨喜的补光，长而柔和的阴影\",\n    \"shadows\": \"微妙而富有雕塑感——勾勒颧骨、锁骨、织物褶皱\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黄金时段户外生活方式肖像提示 一个针对 google nano banana pro 的高度详细的结构化提示，要求生成一张年轻女性在城市公园黄金时段的户外生活方式肖像。它指定了铂金色头发、花卉纹身、飘逸的米色连衣裙以及柔和、阳光温暖的灯光等元素。 {\n  \"scene_type\": \"outdoor lifestyle portrait\",\n  \"environment\": {\n    \"location\": \"quiet urban park during golden hour\",\n    \"background\": {\n      \"main_elements\": \"lush green grass, scattered wildflowers, large old oak trees with dappled light, soft bokeh city skyline peeking through distant foliage\",\n      \"props\": \"vintage wooden bench partially visible, fallen petals on the ground\",\n      \"color_palette\": \"warm golds, soft greens, creamy highlights, subtle pastel wildflower accents\"\n    },\n    \"atmosphere\": \"warm, peaceful, golden, gently breezy, late-afternoon serenity\"\n  },\n  \"subject\": {\n    \"gender_presentation\": \"feminine\",\n    \"approximate_age_group\": \"young adult\",\n    \"skin_tone\": \"fair with natural texture and subtle sun-kissed glow\",\n    \"hair\": {\n      \"color\": \"{argument name=\"hair color\" default=\"platinum blonde\"}\",\n      \"style\": \"long, loose waves with natural movement from a light breeze, strands catching golden light\"\n    },\n    \"facial_features\": {\n      \"expression\": \"soft, content half-smile, eyes gently looking toward camera / reflection, relaxed and dreamy\",\n      \"makeup\": \"minimal, natural dewy look with soft glow and hint of bronzer\"\n    },\n    \"body_details\": {\n      \"build\": \"slim to average\",\n      \"visible_tattoos\": [\n        \"floral and illustrative tattoos on arms\",\n        \"small delicate tattoo visible on upper thigh / calf area\"\n      ]\n    }\n  },\n  \"pose\": {\n    \"position\": \"standing casually in open grassy area, holding phone for mirror-style selfie (using phone screen reflection or front camera)\",\n    \"body_orientation\": \"three-quarter turn toward camera, weight on back leg, hip slightly popped for natural curve\",\n    \"legs\": \"relaxed stance, one foot playfully turned inward, creating gentle s-curve silhouette\",\n    \"arms\": \"one hand holding phone at chest/waist level, other hand lightly brushing hair back or resting on hip\",\n    \"head\": \"slightly tilted, looking directly at camera with soft eye contact\",\n    \"overall_feel\": \"effortless, carefree, sun-warmed confidence, lightly playful outdoor moment\"\n  },\n  \"clothing\": {\n    \"outfit_type\": \"light, breezy summer dress or co-ord set\",\n    \"color\": \"soft buttery cream / pale lavender with subtle floral print\",\n    \"material\": \"flowy cotton-linen blend or chiffon with gentle movement in the breeze\",\n    \"details\": \"delicate thin straps or off-shoulder neckline, midi or just-above-knee length, soft ruffle or lace trim accents\"\n  },\n  \"styling\": {\n    \"accessories\": [\n      \"delicate layered thin necklaces\",\n      \"small hoop or stud earrings\",\n      \"minimalist ring or two\"\n    ],\n    \"overall_style\": \"romantic, feminine, sun-drenched casual elegance\"\n  },\n  \"lighting\": {\n    \"type\": \"golden hour natural sunlight\",\n    \"source\": \"low warm sun from slightly behind and to the side (back/side lighting)\",\n    \"quality\": \"rich golden rim light, soft flattering fill, long gentle shadows\",\n    \"shadows\": \"subtle and sculpted — defining cheekbones, collarbones, fabric fold\" ```json\n{\n  \"scene_type\": \"户外生活方式肖像\",\n  \"environment\": {\n    \"location\": \"黄金时段宁静的城市公园\",\n    \"background\": {\n      \"main_elements\": \"郁郁葱葱的绿草、零星的野花、斑驳光影下的古老橡树、透过远处树叶隐约可见的柔和虚化城市天际线\",\n      \"props\": \"部分可见的复古木质长椅、地上散落的花瓣\",\n      \"color_palette\": \"暖金色、柔和的绿色、奶油色高光、微妙的柔和野花点缀\"\n    },\n    \"atmosphere\": \"温暖、宁静、金色、微风轻拂、傍晚的安详\"\n  },\n  \"subject\": {\n    \"gender_presentation\": \"女性化\",\n    \"approximate_age_group\": \"青年\",\n    \"skin_tone\": \"白皙，带有自然纹理和微妙的晒后光泽\",\n    \"hair\": {\n      \"color\": \"{argument name=\\\"hair color\\\" default=\\\"铂金色\\\"}\",\n      \"style\": \"长发，松散的波浪，微风带来自然动感，发丝捕捉金色光线\"\n    },\n    \"facial_features\": {\n      \"expression\": \"柔和、满足的半微笑，眼睛温柔地看向镜头 / 反射，放松而梦幻\",\n      \"makeup\": \"极简、自然的露水般妆容，带有柔和光泽和一丝古铜色\"\n    },\n    \"body_details\": {\n      \"build\": \"苗条至中等\",\n      \"visible_tattoos\": [\n        \"手臂上的花卉和插画纹身\",\n        \"大腿上部 / 小腿区域可见的小巧精致纹身\"\n      ]\n    }\n  },\n  \"pose\": {\n    \"position\": \"随意站立在开阔的草地上，手持手机进行镜面式自拍（使用手机屏幕反射或前置摄像头）\",\n    \"body_orientation\": \"身体四分之三转向镜头，重心放在后腿，臀部略微突出，形成自然曲线\",\n    \"legs\": \"放松的姿态，一只脚俏皮地向内转，形成柔和的 s 形轮廓\",\n    \"arms\": \"一只手在胸部/腰部高度拿着手机，另一只手轻轻拨弄头发或放在臀部\",\n    \"head\": \"略微倾斜，柔和地与镜头进行眼神交流\",\n    \"overall_feel\": \"轻松、无忧无虑、阳光温暖的自信、略带俏皮的户外瞬间\"\n  },\n  \"clothing\": {\n    \"outfit_type\": \"轻盈、飘逸的夏日连衣裙或套装\",\n    \"color\": \"柔和的奶油黄 / 淡紫色，带有微妙的花卉图案\",\n    \"material\": \"飘逸的棉麻混纺或雪纺，在微风中轻轻摆动\",\n    \"details\": \"精致的细肩带或露肩领口，中长款或及膝长度，柔软的荷叶边或蕾丝边饰点缀\"\n  },\n  \"styling\": {\n    \"accessories\": [\n      \"精致的叠戴细项链\",\n      \"小耳圈或耳钉\",\n      \"一两枚极简戒指\"\n    ],\n    \"overall_style\": \"浪漫、女性化、阳光明媚的休闲优雅\"\n  },\n  \"lighting\": {\n    \"type\": \"黄金时段自然阳光\",\n    \"source\": \"低角度的温暖阳光从略微后方和侧面照射（背光/侧光）\",\n    \"quality\": \"丰富的金色轮廓光，柔和讨喜的补光，长而柔和的阴影\",\n    \"shadows\": \"微妙而富有雕塑感——勾勒颧骨、锁骨、织物褶皱\"\n  }\n}\n``` mr das 10517",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 154,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

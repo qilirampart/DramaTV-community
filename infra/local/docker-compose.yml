@@ -1,0 +1,69 @@
+name: dramatv-local
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: dramatv-postgres
+    environment:
+      POSTGRES_DB: ${DRAMATV_PG_DB:-dramatv}
+      POSTGRES_USER: ${DRAMATV_PG_USER:-dramatv}
+      POSTGRES_PASSWORD: ${DRAMATV_PG_PASSWORD:-dramatv}
+      TZ: ${DRAMATV_TZ:-Asia/Shanghai}
+    ports:
+      - "${DRAMATV_PG_PORT:-5432}:5432"
+    volumes:
+      - dramatv-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DRAMATV_PG_USER:-dramatv} -d ${DRAMATV_PG_DB:-dramatv}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: dramatv-redis
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+    ports:
+      - "${DRAMATV_REDIS_PORT:-6379}:6379"
+    volumes:
+      - dramatv-redis-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: dramatv-pgadmin
+    profiles:
+      - tools
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${DRAMATV_PGADMIN_EMAIL:-admin@dramatv.com}
+      PGADMIN_DEFAULT_PASSWORD: ${DRAMATV_PGADMIN_PASSWORD:-dramatv-admin}
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "False"
+    ports:
+      - "${DRAMATV_PGADMIN_PORT:-5050}:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - dramatv-pgadmin-data:/var/lib/pgadmin
+    restart: unless-stopped
+
+volumes:
+  dramatv-postgres-data:
+  dramatv-redis-data:
+  dramatv-pgadmin-data:

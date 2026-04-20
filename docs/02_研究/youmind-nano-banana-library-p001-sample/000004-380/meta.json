@@ -1,0 +1,29 @@
+{
+  "rank": 4,
+  "id": 380,
+  "title": "德国水彩地图，附带各州名称",
+  "description": "一个德语提示，用于生成一张水彩风格的德国地图，其中所有联邦州都用圆珠笔标注，适用于教育或信息图表风格的地图。",
+  "language": "de",
+  "authorName": "Florian Gallwitz",
+  "authorLink": "https://x.com/FlorianGallwitz",
+  "featured": true,
+  "sourceLink": "https://x.com/FlorianGallwitz/status/1991796624646091091",
+  "sourcePublishedAt": "2025-11-21T09:11:35.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 1,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ],
+    "thumbs": []
+  }
+}

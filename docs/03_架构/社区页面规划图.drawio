@@ -1,0 +1,225 @@
+<mxfile host="app.diagrams.net" modified="2026-04-07T20:05:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="dramatv-page-plan" name="社区页面规划图">
+    <mxGraphModel dx="2200" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="10" value="DramaTV 社区页面规划图&#xa;先看优秀社区借鉴，再看五个核心页面的结构规划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1040" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="11" value="优秀社区借鉴" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0F172A;fontColor=#FFFFFF;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="170" height="52" as="geometry" />
+        </mxCell>
+
+        <mxCell id="12" value="Runway&#xa;精选片场 / 大视觉 / 电影感首页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="122" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="TapTap&#xa;条目页 / 评论区 / 对象型详情页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#2563EB;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="122" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="LiblibAI&#xa;作品 + 工作流 + 创作者中心" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#7C3AED;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="122" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="RunningHub&#xa;工作流可运行 / 可复制 / 可接画布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBF7D0;strokeColor=#16A34A;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="122" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Pinterest&#xa;发现流 / 陈列感 / 作品浏览节奏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#DB2777;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="122" width="190" height="74" as="geometry" />
+        </mxCell>
+
+        <mxCell id="20" value="五个核心页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0F172A;fontColor=#FFFFFF;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="170" height="52" as="geometry" />
+        </mxCell>
+
+        <mxCell id="30" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="360" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="社区首页&#xa;定位：精选片场 + 推荐流 + 发现入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F59E0B;strokeColor=#B45309;fontColor=#111827;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="68" y="346" width="304" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="1. Hero：精选片场 / 本周主题 / 创作主张" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="68" y="448" width="304" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="2. 推荐流：视频作品优先，带作者与来源工作流信号" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="68" y="546" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="3. 热门工作流：方法对象直接露出，不做附件区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="68" y="658" width="304" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="4. 创作者入口：值得关注的作者与专题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="68" y="764" width="304" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="5. 讨论 / 挑战 / 栏目：为后续运营和征集预留位置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="68" y="870" width="304" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="6. 创作入口：开始发布 / 查看工作流 / 进入画布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F766E;strokeColor=#14B8A6;fontColor=#ECFEFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="68" y="980" width="304" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="借鉴重点&#xa;Runway 的精选感 + Pinterest 的发现流 + Linear 的控件秩序" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#E2E8F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="68" y="1090" width="304" height="94" as="geometry" />
+        </mxCell>
+
+        <mxCell id="40" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="430" y="320" width="360" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="视频详情页&#xa;定位：作品主视觉 + 来源工作流 + 社区讨论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#38BDF8;strokeColor=#0284C7;fontColor=#082F49;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="458" y="346" width="304" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="1. 主视频区：视频、封面、播放信息、精选状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="458" y="448" width="304" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="2. 作品信息：标题、简介、标签、场景、提示词摘要" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="458" y="546" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="3. 作者关系：作者信息、关注动作、作者主页入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="458" y="658" width="304" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="4. 来源工作流：查看方法、复制工作流、在画布中打开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F766E;strokeColor=#14B8A6;fontColor=#ECFEFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="458" y="764" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="5. 评论区：经验交流、提示词讨论、创作反馈" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="458" y="876" width="304" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="6. 相关推荐：同作者作品 / 关联工作流 / 继续创作入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="458" y="982" width="304" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="借鉴重点&#xa;Runway 的媒体优先 + TapTap 的对象详情 + Midjourney 的创作信息露出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#E2E8F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="458" y="1096" width="304" height="94" as="geometry" />
+        </mxCell>
+
+        <mxCell id="50" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="820" y="320" width="360" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="工作流详情页&#xa;定位：方法对象 / 复制入口 / 画布桥接页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#34D399;strokeColor=#059669;fontColor=#052E16;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="848" y="346" width="304" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="1. 工作流头部：标题、简介、适用场景、权限状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="848" y="448" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="2. 主操作：复制工作流 / 在画布中打开 / 收藏工作流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F766E;strokeColor=#14B8A6;fontColor=#ECFEFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="848" y="552" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="3. 方法说明：节点逻辑、适配模型、依赖、使用建议" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="848" y="664" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="4. 关联作品：这个工作流做出了哪些视频成果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="848" y="776" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="56" value="5. 作者信息：作者主页、更多工作流、关注作者" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="848" y="880" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="57" value="6. 版本 / 评论 / 可见性说明：为未来派生和治理预留" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="848" y="984" width="304" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="58" value="借鉴重点&#xa;Linear 的对象页秩序 + RunningHub 的运行/复制心智 + LiblibAI 的资源对象化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#E2E8F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="848" y="1104" width="304" height="94" as="geometry" />
+        </mxCell>
+
+        <mxCell id="60" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="320" width="360" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="作者主页&#xa;定位：创作者片场 / 作品与方法双视角" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FB7185;strokeColor=#E11D48;fontColor=#4C0519;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="346" width="304" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="1. 作者头部：头像、身份、风格标签、代表方向、关注动作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="448" width="304" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="2. 作品区：代表作品 / 最新作品 / 热门作品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="558" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="3. 工作流区：代表工作流 / 可复制工作流 / 方法合集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="662" width="304" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="4. 创作叙事：作者简介、创作主题、片场栏目、精选案例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="772" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="5. 社区关系：关注、收藏、讨论、专题聚合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="884" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="6. 向创作返回：发布作品 / 查看全部工作流 / 回到首页精选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F766E;strokeColor=#14B8A6;fontColor=#ECFEFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="988" width="304" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="68" value="借鉴重点&#xa;Pinterest 的内容陈列 + TapTap/LiblibAI 的作者对象页 + DramaTV 的创作人格表达" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#E2E8F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="1108" width="304" height="94" as="geometry" />
+        </mxCell>
+
+        <mxCell id="70" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="320" width="360" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="发布页&#xa;定位：创作者工作台 / 发布中心" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A78BFA;strokeColor=#7C3AED;fontColor=#2E1065;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="346" width="304" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="1. 类型选择：发布作品 / 发布工作流（结构预留）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="448" width="304" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="73" value="2. 媒体上传：视频、封面、预览、示例素材" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="550" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="3. 基本信息：标题、简介、标签、分区、创作说明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="654" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="75" value="4. 绑定工作流：来源工作流、画布映射、方法说明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F766E;strokeColor=#14B8A6;fontColor=#ECFEFF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="766" width="304" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="76" value="5. 状态区：草稿 / 待审核 / 已发布 / 驳回说明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="876" width="304" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="77" value="6. 主动作：保存草稿 / 提交审核 / 预览社区落点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F59E0B;strokeColor=#B45309;fontColor=#111827;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="980" width="304" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="78" value="借鉴重点&#xa;Linear 的工作台结构 + LiblibAI 的创作者中心心智 + DramaTV 的社区发布主线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#E2E8F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1628" y="1096" width="304" height="94" as="geometry" />
+        </mxCell>
+
+        <mxCell id="80" value="用户主路径&#xa;首页发现作品 -> 进入视频详情 -> 查看来源工作流 -> 进入作者主页 -> 创作者继续发布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#111827;strokeColor=#374151;fontColor=#F9FAFB;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1328" width="840" height="66" as="geometry" />
+        </mxCell>
+
+        <mxCell id="100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F59E0B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="12" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38BDF8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="12" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38BDF8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="13" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34D399;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="14" target="51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34D399;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="15" target="51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FB7185;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="16" target="61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#A78BFA;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="14" target="71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="31" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="41" target="51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="51" target="61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="61" target="71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="71" target="31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1780" y="1410" />
+              <mxPoint x="220" y="1410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

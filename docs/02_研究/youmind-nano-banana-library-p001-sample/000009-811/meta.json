@@ -1,0 +1,29 @@
+{
+  "rank": 9,
+  "id": 811,
+  "title": "江户时代浮世绘风格的现代场景再现",
+  "description": "一个高度结构化的图像提示，用于描绘一个被重新构想为江户时代日本浮世绘木版画的现代场景，并详细指导如何处理时代错位的科技、构图、纹理和色彩。",
+  "language": "en",
+  "authorName": "VoxcatAI",
+  "authorLink": "https://x.com/VoxcatAI",
+  "featured": true,
+  "sourceLink": "https://x.com/VoxcatAI/status/1995497350543110411",
+  "sourcePublishedAt": "2025-12-01T14:16:57.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 1,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ],
+    "thumbs": []
+  }
+}

@@ -1,0 +1,473 @@
+{
+  "prompts": [
+    {
+      "id": 10971,
+      "title": "简单的 2D 平面包装生成提示",
+      "description": "使用 Nano Banana Pro 的一个简单提示，即可将包装转换为白色背景的 2D 平面版本。",
+      "sourceLink": "https://x.com/BetterC47506916/status/2027620984358900078",
+      "sourcePublishedAt": "2026-02-28T05:44:48.000Z",
+      "author": {
+        "name": "Paul 👾",
+        "link": "https://x.com/BetterC47506916"
+      },
+      "content": "\"Give me this front packaging on a 2D flat white background\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346679731_3cj70c_HCOMeamXgAAzwiQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346679731_3cj70c_HCOMeamXgAAzwiQ-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请给我这个正面包装的 2D 平面白色背景图",
+      "sourcePlatform": "twitter",
+      "searchIndex": "简单的 2d 平面包装生成提示 使用 nano banana pro 的一个简单提示，即可将包装转换为白色背景的 2d 平面版本。 \"give me this front packaging on a 2d flat white background\" 请给我这个正面包装的 2d 平面白色背景图 paul 👾 10971",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11027,
+      "title": "奢华旅行杂志版面提示",
+      "description": "一个日式提示，用于生成以初秋朝圣为主题的奢华旅行杂志版面，特写文章的标题和描述以英文形式醒目地显示在整个屏幕上。",
+      "sourceLink": "https://x.com/aiartchino/status/2027619408416567361",
+      "sourcePublishedAt": "2026-02-28T05:38:32.000Z",
+      "author": {
+        "name": "AIArtChino",
+        "link": "https://x.com/aiartchino"
+      },
+      "content": "ラグジュアリーな旅雑誌。テーマは初秋の旅。特集：聖地巡礼。画面全体に特集記事のタイトルや説明を英語で。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772259950313_93o4ay_HCOL1iFbEAINBWI.jpg",
+        "https://cms-assets.youmind.com/media/1772259950406_7h75h5_HCOLzjVbEAUYSHT.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772259950313_93o4ay_HCOL1iFbEAINBWI-300x717.jpg",
+        "https://cms-assets.youmind.com/media/1772259950406_7h75h5_HCOLzjVbEAUYSHT-300x537.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "**圣地朝圣之旅**\n\n探索全球最神圣的地点，开启一段触及灵魂的旅程。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华旅行杂志版面提示 一个日式提示，用于生成以初秋朝圣为主题的奢华旅行杂志版面，特写文章的标题和描述以英文形式醒目地显示在整个屏幕上。 ラグジュアリーな旅雑誌。テーマは初秋の旅。特集：聖地巡礼。画面全体に特集記事のタイトルや説明を英語で。 **圣地朝圣之旅**\n\n探索全球最神圣的地点，开启一段触及灵魂的旅程。 aiartchino 11027",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 10969,
+      "title": "电影般的海滨场景提示，包含详细的纹理要求",
+      "description": "一个为 Nano Banana 2 设计的高度详细的提示，专注于生成一个电影般的日落海滨场景，画面中有一个人坐在布满鹅卵石的海滩上。该提示强调逼真的纺织品行为、自然的姿态、特定的光照条件（灵感来自柯达 Portra 400 胶卷），以及高照片真实感。",
+      "sourceLink": "https://x.com/AIwithSarah_/status/2027619015594827881",
+      "sourcePublishedAt": "2026-02-28T05:36:59.000Z",
+      "author": {
+        "name": "Sarah",
+        "link": "https://x.com/AIwithSarah_"
+      },
+      "content": "Cinematic seaside scene at sunset with a dramatic, cloud-filled sky. The palette blends cool blue-gray atmospheric tones with a soft peach glow near the horizon. The person sits sideways on a pebbled beach close to the shoreline, body oriented toward the sea, gaze directed over the water. Posture natural and relaxed, anatomically correct, no exaggerated posing. A light coastal breeze creates subtle environmental movement — gentle fabric motion and natural interaction with the surroundings. Seagulls circle in the sky, some with slight motion blur for realistic depth and spatial layering. Wardrobe is minimal and neutral: a dark basic T-shirt layered under a loose knitted cardigan, paired with relaxed straight-leg jeans. Fabrics must show realistic textile behavior — visible knit texture, natural folds, weight, gravity tension at elbows and waist, authentic denim structure and stitching details. Lighting is soft natural sunset light with realistic falloff. Subtle rim light from the horizon, balanced exposure on skin without over-smoothing. Shadows remain matte and dimensional. Shot with a photographer’s mindset — 35mm lens look, natural perspective, shallow but believable depth of field. Vintage film-inspired color science reminiscent of Kodak Portra 400: soft contrast, muted highlights, matte shadows, mild desaturation, organic film grain. Editorial framing, high photorealism, 4K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772259921511_jpzph6_HCOMv4WbEAEy5lG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772259921511_jpzph6_HCOMv4WbEAEy5lG-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "日落时分的海边电影场景，天空充满戏剧性的云彩。色调融合了冷蓝色调的灰蒙蒙大气，地平线附近泛着柔和的桃色光芒。人物侧身坐在布满鹅卵石的海滩上，靠近海岸线，身体朝向大海，目光凝视水面。姿势自然放松，符合人体解剖学，没有夸张的造型。轻柔的海风营造出微妙的环境动态——衣物轻柔摆动，与周围环境自然互动。海鸥在空中盘旋，部分带有轻微的运动模糊，以实现逼真的景深和空间分层。服饰简约中性：深色基本款 T 恤内搭宽松针织开衫，配以宽松直筒牛仔裤。面料必须展现逼真的纺织品特性——可见的针织纹理、自然的褶皱、重量、肘部和腰部的重力张力、真实的牛仔布结构和缝线细节。光线是柔和的自然日落光，具有逼真的衰减。来自地平线的微妙轮廓光，皮肤曝光平衡，不过度平滑。阴影保持哑光和立体感。以摄影师的视角拍摄——35 毫米镜头效果，自然透视，景深较浅但真实可信。复古胶片风格的色彩科学，让人联想到 Kodak Portra 400：柔和对比度，柔和高光，哑光阴影，轻微去饱和，有机胶片颗粒。编辑式构图，高照片真实感，4K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影般的海滨场景提示，包含详细的纹理要求 一个为 nano banana 2 设计的高度详细的提示，专注于生成一个电影般的日落海滨场景，画面中有一个人坐在布满鹅卵石的海滩上。该提示强调逼真的纺织品行为、自然的姿态、特定的光照条件（灵感来自柯达 portra 400 胶卷），以及高照片真实感。 cinematic seaside scene at sunset with a dramatic, cloud-filled sky. the palette blends cool blue-gray atmospheric tones with a soft peach glow near the horizon. the person sits sideways on a pebbled beach close to the shoreline, body oriented toward the sea, gaze directed over the water. posture natural and relaxed, anatomically correct, no exaggerated posing. a light coastal breeze creates subtle environmental movement — gentle fabric motion and natural interaction with the surroundings. seagulls circle in the sky, some with slight motion blur for realistic depth and spatial layering. wardrobe is minimal and neutral: a dark basic t-shirt layered under a loose knitted cardigan, paired with relaxed straight-leg jeans. fabrics must show realistic textile behavior — visible knit texture, natural folds, weight, gravity tension at elbows and waist, authentic denim structure and stitching details. lighting is soft natural sunset light with realistic falloff. subtle rim light from the horizon, balanced exposure on skin without over-smoothing. shadows remain matte and dimensional. shot with a photographer’s mindset — 35mm lens look, natural perspective, shallow but believable depth of field. vintage film-inspired color science reminiscent of kodak portra 400: soft contrast, muted highlights, matte shadows, mild desaturation, organic film grain. editorial framing, high photorealism, 4k resolution. 日落时分的海边电影场景，天空充满戏剧性的云彩。色调融合了冷蓝色调的灰蒙蒙大气，地平线附近泛着柔和的桃色光芒。人物侧身坐在布满鹅卵石的海滩上，靠近海岸线，身体朝向大海，目光凝视水面。姿势自然放松，符合人体解剖学，没有夸张的造型。轻柔的海风营造出微妙的环境动态——衣物轻柔摆动，与周围环境自然互动。海鸥在空中盘旋，部分带有轻微的运动模糊，以实现逼真的景深和空间分层。服饰简约中性：深色基本款 t 恤内搭宽松针织开衫，配以宽松直筒牛仔裤。面料必须展现逼真的纺织品特性——可见的针织纹理、自然的褶皱、重量、肘部和腰部的重力张力、真实的牛仔布结构和缝线细节。光线是柔和的自然日落光，具有逼真的衰减。来自地平线的微妙轮廓光，皮肤曝光平衡，不过度平滑。阴影保持哑光和立体感。以摄影师的视角拍摄——35 毫米镜头效果，自然透视，景深较浅但真实可信。复古胶片风格的色彩科学，让人联想到 kodak portra 400：柔和对比度，柔和高光，哑光阴影，轻微去饱和，有机胶片颗粒。编辑式构图，高照片真实感，4k 分辨率。 sarah 10969",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11124,
+      "title": "霓虹双色电影人像",
+      "description": "生成一张超现实电影风格的年轻女性肖像的提示词，使用高对比度霓虹灯光：脸部左侧为洋红色，右侧为冷蓝色；景深较浅，并带有现代科技美学。",
+      "sourceLink": "https://x.com/ChillaiKalan__/status/2027611517081030818",
+      "sourcePublishedAt": "2026-02-28T05:07:11.000Z",
+      "author": {
+        "name": "K",
+        "link": "https://x.com/ChillaiKalan__"
+      },
+      "content": "Hyper-realistic cinematic portrait of a young women with looking slightly upward with a confident thoughtful expression. Neon magenta light illuminating the left side of her face and cool blue light illuminating the right side. Soft studio lighting, high contrast, sharp focus, detailed skin texture, shallow depth of field, blurred abstract purple-blue background with soft yellow foreground bokeh shapes. Shot on 85mm lens, f/1.8, professional DSLR, ultra high resolution, editorial photography, dramatic color grading, modern tech aesthetic, Instagram promotional style.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346687121_kzxaba_HCOF7AXbEAEzGpi.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346687121_kzxaba_HCOF7AXbEAEzGpi-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位年轻女性的超写实电影感肖像，她略微抬头，神情自信而沉思。霓虹洋红色光线照亮她脸部的左侧，冷蓝色光线照亮右侧。柔和的影棚灯光，高对比度，锐利聚焦，细腻的皮肤纹理，浅景深，模糊的抽象紫蓝色背景，前景有柔和的黄色散景形状。使用 85mm 镜头拍摄，f/1.8 光圈，专业单反相机，超高分辨率，编辑摄影，戏剧性色彩分级，现代科技美学，Instagram 宣传风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "霓虹双色电影人像 生成一张超现实电影风格的年轻女性肖像的提示词，使用高对比度霓虹灯光：脸部左侧为洋红色，右侧为冷蓝色；景深较浅，并带有现代科技美学。 hyper-realistic cinematic portrait of a young women with looking slightly upward with a confident thoughtful expression. neon magenta light illuminating the left side of her face and cool blue light illuminating the right side. soft studio lighting, high contrast, sharp focus, detailed skin texture, shallow depth of field, blurred abstract purple-blue background with soft yellow foreground bokeh shapes. shot on 85mm lens, f/1.8, professional dslr, ultra high resolution, editorial photography, dramatic color grading, modern tech aesthetic, instagram promotional style. 一位年轻女性的超写实电影感肖像，她略微抬头，神情自信而沉思。霓虹洋红色光线照亮她脸部的左侧，冷蓝色光线照亮右侧。柔和的影棚灯光，高对比度，锐利聚焦，细腻的皮肤纹理，浅景深，模糊的抽象紫蓝色背景，前景有柔和的黄色散景形状。使用 85mm 镜头拍摄，f/1.8 光圈，专业单反相机，超高分辨率，编辑摄影，戏剧性色彩分级，现代科技美学，instagram 宣传风格。 k 11124",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11054,
+      "title": "高端数码绘画肖像",
+      "description": "一个详细的提示，用于创建一幅高端、风格化的数字绘画肖像，该肖像必须 100% 准确地保持参考照片中的面部特征。风格包括动态的飞溅颜料、分层的复古报纸背景，以及具有现代海报美学的电影级高对比度照明。",
+      "sourceLink": "https://x.com/weiinberg/status/2027610358035423634",
+      "sourcePublishedAt": "2026-02-28T05:02:35.000Z",
+      "author": {
+        "name": "Weinberg",
+        "link": "https://x.com/weiinberg"
+      },
+      "content": "Create a high-end stylized artistic portrait of the same person in a modern digital painting / illustrated poster style. The face must remain 100% identical to the reference photo — preserve exact facial structure, proportions, skin tone, facial features, age, hairstyle, and identity. No modification, beautification, reshaping, or enhancement of the face is allowed. Absolute identity accuracy required.\nThe subject is shown in a half-body or close-up framing, looking slightly upward with a confident and calm expression. Maintain realistic proportions and natural anatomy while rendering in a detailed illustration style.\nThe face must be ultra-detailed and sharply focused, with realistic skin texture translated into a refined digital painting finish — not cartoonish, not exaggerated, not distorted.\nSurround the portrait with dynamic colorful paint splashes and expressive ink strokes, blending organically into the composition. Use bold yet controlled blue and orange tones for contrast and energy.\nBackground: layered vintage newspaper collage texture with subtle typography fragments, distressed paper details, and abstract paint splashes integrated naturally into the layout. The collage should feel artistic but clean, not cluttered.\nLighting: cinematic high-contrast lighting with dramatic highlights and controlled shadows, enhancing depth while maintaining natural facial realism.\nColor grading: vibrant but balanced, strong blue and orange contrast, modern poster aesthetic.\nOutput: ultra-detailed, 4K resolution, clean edges, sharp rendering, professional poster art quality, modern digital illustration with realistic depth and premium finish",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346658124_d9vr99_HCOE3l_bEAU1bZt.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346658124_d9vr99_HCOE3l_bEAU1bZt-300x451.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张同一人物的高端风格化艺术肖像，采用现代数字绘画/插画海报风格。面部必须与参考照片 100% 相同——保留精确的面部结构、比例、肤色、面部特征、年龄、发型和身份。不允许对面部进行任何修改、美化、重塑或增强。要求绝对的身份准确性。\n主体以半身或特写构图呈现，略微向上看，表情自信而平静。在细节插画风格的渲染中，保持真实的比例和自然的解剖结构。\n面部必须超详细且聚焦锐利，逼真的皮肤纹理转化为精致的数字绘画效果——不卡通化、不夸张、不扭曲。\n肖像周围环绕着动态的彩色泼墨和富有表现力的墨迹，有机地融入构图。使用大胆而克制的蓝色和橙色调来营造对比和活力。\n背景：分层复古报纸拼贴纹理，带有微妙的排版碎片、做旧纸张细节和抽象泼墨，自然地融入布局。拼贴应具有艺术感但整洁，不显杂乱。\n光照：电影级高对比度光照，具有戏剧性的高光和受控的阴影，增强深度同时保持面部自然真实感。\n色彩分级：鲜艳但平衡，强烈的蓝色和橙色对比，现代海报美学。\n输出：超详细、4K 分辨率、边缘清晰、渲染锐利、专业海报艺术品质、具有真实深度和高级感的现代数字插画。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高端数码绘画肖像 一个详细的提示，用于创建一幅高端、风格化的数字绘画肖像，该肖像必须 100% 准确地保持参考照片中的面部特征。风格包括动态的飞溅颜料、分层的复古报纸背景，以及具有现代海报美学的电影级高对比度照明。 create a high-end stylized artistic portrait of the same person in a modern digital painting / illustrated poster style. the face must remain 100% identical to the reference photo — preserve exact facial structure, proportions, skin tone, facial features, age, hairstyle, and identity. no modification, beautification, reshaping, or enhancement of the face is allowed. absolute identity accuracy required.\nthe subject is shown in a half-body or close-up framing, looking slightly upward with a confident and calm expression. maintain realistic proportions and natural anatomy while rendering in a detailed illustration style.\nthe face must be ultra-detailed and sharply focused, with realistic skin texture translated into a refined digital painting finish — not cartoonish, not exaggerated, not distorted.\nsurround the portrait with dynamic colorful paint splashes and expressive ink strokes, blending organically into the composition. use bold yet controlled blue and orange tones for contrast and energy.\nbackground: layered vintage newspaper collage texture with subtle typography fragments, distressed paper details, and abstract paint splashes integrated naturally into the layout. the collage should feel artistic but clean, not cluttered.\nlighting: cinematic high-contrast lighting with dramatic highlights and controlled shadows, enhancing depth while maintaining natural facial realism.\ncolor grading: vibrant but balanced, strong blue and orange contrast, modern poster aesthetic.\noutput: ultra-detailed, 4k resolution, clean edges, sharp rendering, professional poster art quality, modern digital illustration with realistic depth and premium finish 创作一张同一人物的高端风格化艺术肖像，采用现代数字绘画/插画海报风格。面部必须与参考照片 100% 相同——保留精确的面部结构、比例、肤色、面部特征、年龄、发型和身份。不允许对面部进行任何修改、美化、重塑或增强。要求绝对的身份准确性。\n主体以半身或特写构图呈现，略微向上看，表情自信而平静。在细节插画风格的渲染中，保持真实的比例和自然的解剖结构。\n面部必须超详细且聚焦锐利，逼真的皮肤纹理转化为精致的数字绘画效果——不卡通化、不夸张、不扭曲。\n肖像周围环绕着动态的彩色泼墨和富有表现力的墨迹，有机地融入构图。使用大胆而克制的蓝色和橙色调来营造对比和活力。\n背景：分层复古报纸拼贴纹理，带有微妙的排版碎片、做旧纸张细节和抽象泼墨，自然地融入布局。拼贴应具有艺术感但整洁，不显杂乱。\n光照：电影级高对比度光照，具有戏剧性的高光和受控的阴影，增强深度同时保持面部自然真实感。\n色彩分级：鲜艳但平衡，强烈的蓝色和橙色对比，现代海报美学。\n输出：超详细、4k 分辨率、边缘清晰、渲染锐利、专业海报艺术品质、具有真实深度和高级感的现代数字插画。 weinberg 11054",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11126,
+      "title": "《疯狂的麦克斯》废土幸存者电影剧照",
+      "description": "一个详细的提示，用于生成一张《疯狂的麦克斯：狂暴之路》风格的电影级写实剧照（无 CGI）。它强调保留参考照片中人物的精确身份和瑕疵，将他们描绘成一个废土幸存者，手持一把临时制作的霰弹枪，置身于严酷、阳光炙烤的沙漠环境中，并带有强烈的青色和橙色调色。",
+      "sourceLink": "https://x.com/rovvmut_/status/2027609486505218524",
+      "sourcePublishedAt": "2026-02-28T04:59:07.000Z",
+      "author": {
+        "name": "Heisenberg",
+        "link": "https://x.com/rovvmut_"
+      },
+      "content": "Photorealistic cinematic film still live-action (no CGI). Preserve the subject's identity exactly from the reference photo: same facial structure, asymmetry, skin texture, pores, dirt, sweat. No beautification. Three-quarter body portrait, vertical. Torso angled sideways, head toward camera. Hands gripping a rugged improvised shotgun at waist level. Wasteland survivor - Mad Max: Fury Road visual language. Practical, battle-worn realism. Environment: open desert wasteland, orange sand and dust clouds, saturated turquoise sky. Background: slightly blurred post-apocalyptic pursuit vehicles, sense of imminent chase. Subtle motion blur and heat haze. Lighting: harsh overhead desert sun, extremely hard shadows. Rich detail in sun-bleached highlights and deep crushed shadows. Wardrobe & details: distressed leather, scarf around neck, dusty welding goggles on forehead. Windblown messy hair. Face smeared with engine grease and sand (naturalistic). Look & color: shot on 35mm film, Kodak Vision3 feel. Organic film grain, high contrast. Strong teal & orange grading, realistic skin tones. Emphasis on tactile realism: rusted metal, sand particles, sweat, grease, fabric weave. Final: raw, tense, sun-blasted, high-energy cinematic still.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346687677_003o3q_HCOEFGlbEAQP7g1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346687677_003o3q_HCOEFGlbEAQP7g1-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "电影级写实画面，电影剧照，真人实景（无 CGI）。精确保留主体身份，与参考照片完全一致：相同的面部结构、不对称性、皮肤纹理、毛孔、污垢、汗水。无美化。四分之三身长肖像，垂直构图。躯干侧向，头部朝向镜头。双手在腰部位置紧握一把粗糙的自制霰弹枪。废土幸存者——《疯狂的麦克斯：狂暴之路》视觉风格。实用、饱经战火的写实感。环境：开阔的沙漠废土，橙色沙尘，饱和的碧绿色天空。背景：略微模糊的末日追逐车辆，营造迫在眉睫的追逐感。细微的运动模糊和热浪。光线：刺眼的头顶沙漠阳光，极硬的阴影。阳光漂白的亮部和深邃的暗部细节丰富。服装与细节：做旧皮革，颈部围巾，额头戴着沾满灰尘的焊接护目镜。被风吹乱的凌乱头发。脸上沾有发动机油污和沙子（自然写实）。外观与色彩：使用 35mm 胶片拍摄，柯达 Vision3 质感。有机胶片颗粒，高对比度。强烈的青色与橙色调色，真实的肤色。强调触感写实：生锈的金属、沙粒、汗水、油污、织物纹理。最终效果：原始、紧张、阳光炙烤、高能量的电影剧照。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "《疯狂的麦克斯》废土幸存者电影剧照 一个详细的提示，用于生成一张《疯狂的麦克斯：狂暴之路》风格的电影级写实剧照（无 cgi）。它强调保留参考照片中人物的精确身份和瑕疵，将他们描绘成一个废土幸存者，手持一把临时制作的霰弹枪，置身于严酷、阳光炙烤的沙漠环境中，并带有强烈的青色和橙色调色。 photorealistic cinematic film still live-action (no cgi). preserve the subject's identity exactly from the reference photo: same facial structure, asymmetry, skin texture, pores, dirt, sweat. no beautification. three-quarter body portrait, vertical. torso angled sideways, head toward camera. hands gripping a rugged improvised shotgun at waist level. wasteland survivor - mad max: fury road visual language. practical, battle-worn realism. environment: open desert wasteland, orange sand and dust clouds, saturated turquoise sky. background: slightly blurred post-apocalyptic pursuit vehicles, sense of imminent chase. subtle motion blur and heat haze. lighting: harsh overhead desert sun, extremely hard shadows. rich detail in sun-bleached highlights and deep crushed shadows. wardrobe & details: distressed leather, scarf around neck, dusty welding goggles on forehead. windblown messy hair. face smeared with engine grease and sand (naturalistic). look & color: shot on 35mm film, kodak vision3 feel. organic film grain, high contrast. strong teal & orange grading, realistic skin tones. emphasis on tactile realism: rusted metal, sand particles, sweat, grease, fabric weave. final: raw, tense, sun-blasted, high-energy cinematic still. 电影级写实画面，电影剧照，真人实景（无 cgi）。精确保留主体身份，与参考照片完全一致：相同的面部结构、不对称性、皮肤纹理、毛孔、污垢、汗水。无美化。四分之三身长肖像，垂直构图。躯干侧向，头部朝向镜头。双手在腰部位置紧握一把粗糙的自制霰弹枪。废土幸存者——《疯狂的麦克斯：狂暴之路》视觉风格。实用、饱经战火的写实感。环境：开阔的沙漠废土，橙色沙尘，饱和的碧绿色天空。背景：略微模糊的末日追逐车辆，营造迫在眉睫的追逐感。细微的运动模糊和热浪。光线：刺眼的头顶沙漠阳光，极硬的阴影。阳光漂白的亮部和深邃的暗部细节丰富。服装与细节：做旧皮革，颈部围巾，额头戴着沾满灰尘的焊接护目镜。被风吹乱的凌乱头发。脸上沾有发动机油污和沙子（自然写实）。外观与色彩：使用 35mm 胶片拍摄，柯达 vision3 质感。有机胶片颗粒，高对比度。强烈的青色与橙色调色，真实的肤色。强调触感写实：生锈的金属、沙粒、汗水、油污、织物纹理。最终效果：原始、紧张、阳光炙烤、高能量的电影剧照。 heisenberg 11126",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11119,
+      "title": "温馨粉色氛围室内肖像",
+      "description": "一个结构化的 JSON 提示词，用于生成一张室内肖像，描绘一位时尚的金色头发女性在卧室环境中，重点营造出由温暖环境光线带来的舒适、亲密的夜晚氛围，她身穿粉色短款上衣和深紫色内衣裤。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027607035404296238",
+      "sourcePublishedAt": "2026-02-28T04:49:23.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Cozy Pink Vibes\",\n  \"category\": \"Indoor Portrait Photography\",\n  \"description\": \"A stylish blonde woman posing confidently in a softly illuminated bedroom setting. She is dressed in a fitted pink crop top layered over a contrasting inner strap and paired with dark purple lingerie bottoms. The warm bedside lighting enhances the natural skin tones and creates a calm, intimate evening atmosphere.\",\n  \"environment\": {\n    \"location\": \"Bedroom\",\n    \"background_elements\": [\n      \"Soft bed with white bedding\",\n      \"Pillows arranged against the headboard\",\n      \"Bedside table with warm lamp lighting\"\n    ],\n    \"interior_style\": \"Minimal and cozy\"\n  },\n  \"lighting\": {\n    \"type\": \"Warm ambient lighting\",\n    \"source\": \"Bedside lamps\",\n    \"effect\": \"Soft shadows and smooth highlights\"\n  },\n  \"appearance\": {\n    \"hair\": \"Long straight blonde hair\",\n    \"expression\": \"Relaxed and confident\",\n    \"makeup\": \"Natural makeup with glossy lips\"\n  },\n  \"outfit\": {\n    \"top\": {\n      \"type\": \"Fitted crop top\",\n      \"color\": \"Pink\",\n      \"style\": \"Sleeveless with thin straps\"\n    },\n    \"bottom\": {\n      \"type\": \"Lingerie bottoms\",\n      \"color\": \"Dark purple\",\n      \"details\": \"Minimal design with side strap accents\"\n    }\n  },\n  \"pose\": {\n    \"stance\": \"Standing upright\",\n    \"hand_position\": \"One hand resting on hip\",\n    \"camera_interaction\": \"Facing directly toward the camera\"\n  },\n  \"mood\": \"Confident, cozy, and softly glamorous\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346685515_1q4169_HCOB2fNWUAASKVI.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346685515_1q4169_HCOB2fNWUAASKVI-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"温馨粉色情调\",\n  \"category\": \"室内人像摄影\",\n  \"description\": \"一位时尚的金发女性在柔和灯光下的卧室里自信地摆姿势。她身穿一件合身的粉色露脐上衣，内搭一件对比鲜明的吊带，下身搭配深紫色内衣。床边的暖光增强了自然的肤色，营造出一种宁静、亲密的夜晚氛围。\",\n  \"environment\": {\n    \"location\": \"卧室\",\n    \"background_elements\": [\n      \"铺有白色床品的柔软床铺\",\n      \"靠在床头板上的枕头\",\n      \"带有暖色灯光的床头柜\"\n    ],\n    \"interior_style\": \"简约舒适\"\n  },\n  \"lighting\": {\n    \"type\": \"暖色环境光\",\n    \"source\": \"床头灯\",\n    \"effect\": \"柔和的阴影和顺滑的高光\"\n  },\n  \"appearance\": {\n    \"hair\": \"金色长直发\",\n    \"expression\": \"放松自信\",\n    \"makeup\": \"自然妆容，唇部有光泽\"\n  },\n  \"outfit\": {\n    \"top\": {\n      \"type\": \"合身露脐上衣\",\n      \"color\": \"粉色\",\n      \"style\": \"无袖细肩带\"\n    },\n    \"bottom\": {\n      \"type\": \"内衣下装\",\n      \"color\": \"深紫色\",\n      \"details\": \"简约设计，侧边有肩带点缀\"\n    }\n  },\n  \"pose\": {\n    \"stance\": \"直立站姿\",\n    \"hand_position\": \"一只手放在臀部\",\n    \"camera_interaction\": \"正对镜头\"\n  },\n  \"mood\": \"自信、舒适、柔美迷人\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "温馨粉色氛围室内肖像 一个结构化的 json 提示词，用于生成一张室内肖像，描绘一位时尚的金色头发女性在卧室环境中，重点营造出由温暖环境光线带来的舒适、亲密的夜晚氛围，她身穿粉色短款上衣和深紫色内衣裤。 {\n  \"title\": \"cozy pink vibes\",\n  \"category\": \"indoor portrait photography\",\n  \"description\": \"a stylish blonde woman posing confidently in a softly illuminated bedroom setting. she is dressed in a fitted pink crop top layered over a contrasting inner strap and paired with dark purple lingerie bottoms. the warm bedside lighting enhances the natural skin tones and creates a calm, intimate evening atmosphere.\",\n  \"environment\": {\n    \"location\": \"bedroom\",\n    \"background_elements\": [\n      \"soft bed with white bedding\",\n      \"pillows arranged against the headboard\",\n      \"bedside table with warm lamp lighting\"\n    ],\n    \"interior_style\": \"minimal and cozy\"\n  },\n  \"lighting\": {\n    \"type\": \"warm ambient lighting\",\n    \"source\": \"bedside lamps\",\n    \"effect\": \"soft shadows and smooth highlights\"\n  },\n  \"appearance\": {\n    \"hair\": \"long straight blonde hair\",\n    \"expression\": \"relaxed and confident\",\n    \"makeup\": \"natural makeup with glossy lips\"\n  },\n  \"outfit\": {\n    \"top\": {\n      \"type\": \"fitted crop top\",\n      \"color\": \"pink\",\n      \"style\": \"sleeveless with thin straps\"\n    },\n    \"bottom\": {\n      \"type\": \"lingerie bottoms\",\n      \"color\": \"dark purple\",\n      \"details\": \"minimal design with side strap accents\"\n    }\n  },\n  \"pose\": {\n    \"stance\": \"standing upright\",\n    \"hand_position\": \"one hand resting on hip\",\n    \"camera_interaction\": \"facing directly toward the camera\"\n  },\n  \"mood\": \"confident, cozy, and softly glamorous\"\n} ```json\n{\n  \"title\": \"温馨粉色情调\",\n  \"category\": \"室内人像摄影\",\n  \"description\": \"一位时尚的金发女性在柔和灯光下的卧室里自信地摆姿势。她身穿一件合身的粉色露脐上衣，内搭一件对比鲜明的吊带，下身搭配深紫色内衣。床边的暖光增强了自然的肤色，营造出一种宁静、亲密的夜晚氛围。\",\n  \"environment\": {\n    \"location\": \"卧室\",\n    \"background_elements\": [\n      \"铺有白色床品的柔软床铺\",\n      \"靠在床头板上的枕头\",\n      \"带有暖色灯光的床头柜\"\n    ],\n    \"interior_style\": \"简约舒适\"\n  },\n  \"lighting\": {\n    \"type\": \"暖色环境光\",\n    \"source\": \"床头灯\",\n    \"effect\": \"柔和的阴影和顺滑的高光\"\n  },\n  \"appearance\": {\n    \"hair\": \"金色长直发\",\n    \"expression\": \"放松自信\",\n    \"makeup\": \"自然妆容，唇部有光泽\"\n  },\n  \"outfit\": {\n    \"top\": {\n      \"type\": \"合身露脐上衣\",\n      \"color\": \"粉色\",\n      \"style\": \"无袖细肩带\"\n    },\n    \"bottom\": {\n      \"type\": \"内衣下装\",\n      \"color\": \"深紫色\",\n      \"details\": \"简约设计，侧边有肩带点缀\"\n    }\n  },\n  \"pose\": {\n    \"stance\": \"直立站姿\",\n    \"hand_position\": \"一只手放在臀部\",\n    \"camera_interaction\": \"正对镜头\"\n  },\n  \"mood\": \"自信、舒适、柔美迷人\"\n}\n``` zainab fatima 11119",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11135,
+      "title": "一位女士享用甜点的电影感视频（图片和视频提示）",
+      "description": "这是一个详细的电影式提示，用于在 Nano Banana Pro 中生成四张图像，然后使用 Kling 3.0 Omni 将其转换为视频。该提示侧重于特写镜头、灯光和 ASMR 元素。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2027594614002348480",
+      "sourcePublishedAt": "2026-02-28T04:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "テーブルに置かれたスイーツを楽しむ可愛らしい女性のシネマティックな映像。手元のクローズアップから始まり、フォークを手に取る繊細な動き、照れたような笑顔のミディアムショット、そして咀嚼や口元の動きを捉えたマクロショットへとスムーズに展開する。柔らかな照明と浅い被写界深度が質感を際立たせ、最後は満足げな余韻を残す引きの画で締めくくられる、ASMR要素を取り入れた静かで美しい構成。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一段电影般的视频，一位可爱的女士正在享用桌上的甜点。视频流畅地过渡，从她手部的特写开始，接着是拿起叉子的轻柔动作，然后是她腼腆微笑的中景，以及捕捉咀嚼和嘴部动作的微距镜头。柔和的灯光和浅景深突出了食物的质感。视频以一个广角镜头结束，留下满足而回味无穷的印象，整体构图安静而优美，并融入了 ASMR 元素。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "一位女士享用甜点的电影感视频（图片和视频提示） 这是一个详细的电影式提示，用于在 nano banana pro 中生成四张图像，然后使用 kling 3.0 omni 将其转换为视频。该提示侧重于特写镜头、灯光和 asmr 元素。 テーブルに置かれたスイーツを楽しむ可愛らしい女性のシネマティックな映像。手元のクローズアップから始まり、フォークを手に取る繊細な動き、照れたような笑顔のミディアムショット、そして咀嚼や口元の動きを捉えたマクロショットへとスムーズに展開する。柔らかな照明と浅い被写界深度が質感を際立たせ、最後は満足げな余韻を残す引きの画で締めくくられる、asmr要素を取り入れた静かで美しい構成。 一段电影般的视频，一位可爱的女士正在享用桌上的甜点。视频流畅地过渡，从她手部的特写开始，接着是拿起叉子的轻柔动作，然后是她腼腆微笑的中景，以及捕捉咀嚼和嘴部动作的微距镜头。柔和的灯光和浅景深突出了食物的质感。视频以一个广角镜头结束，留下满足而回味无穷的印象，整体构图安静而优美，并融入了 asmr 元素。 空想写真家 11135",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11145,
+      "title": "地图转动漫全景图",
+      "description": "一个用于 Nano Banana 2 AI 动画功能的提示，可将地图截图转换为动漫风格的全景图，突出了其与 Adobe Firefly 的兼容性。",
+      "sourceLink": "https://x.com/FutureToolsAI/status/2027579456353701938",
+      "sourcePublishedAt": "2026-02-28T02:59:47.000Z",
+      "author": {
+        "name": "FutureToolsAI",
+        "link": "https://x.com/FutureToolsAI"
+      },
+      "content": "Hazme un panorama de esta ubicación en estilo anime.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346696653_n7s2t6_HCNoZUYawAA86Df.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346696653_n7s2t6_HCNoZUYawAA86Df-300x403.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请为我制作一张这个地点动漫风格的全景图。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "地图转动漫全景图 一个用于 nano banana 2 ai 动画功能的提示，可将地图截图转换为动漫风格的全景图，突出了其与 adobe firefly 的兼容性。 hazme un panorama de esta ubicación en estilo anime. 请为我制作一张这个地点动漫风格的全景图。 futuretoolsai 11145",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11117,
+      "title": "现代简约室内设计展示板",
+      "description": "一个用于根据上传的 2D 平面图生成专业室内设计展示板的提示。输出应为一个拼贴画，其中包含一张较大的客厅/餐厅主图和三张较小的图片，分别展示主卧室、家庭办公室和 3D 俯视平面图，所有图像均以一致的现代简约风格呈现。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2027572199364956632",
+      "sourcePublishedAt": "2026-02-28T02:30:57.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "Based on the uploaded 2D floor plan, generate a professional interior design presentation board in a single image. Layout : The final image should be a collage with one large main image at the top, and several smaller images below it. Content of Each Panel :\n\n1. Main Image (Top) : A wide-angle perspective view of the main living area , showing the connection between the living room and dining area.\n\n2. Small Image (Bottom Left) : A view of the Master Bedroom , focusing on the bed and window.\n\n3. Small Image (Bottom Middle) : A view of the Home Office / Study room .\n\n4. Small Image (Bottom Right) : A 3D top-down floor plan view showing the furniture layout. Overall Style : Apply a consistent Modern Minimalist style with warm oak wood flooring and off-white walls across ALL images. Quality : Photorealistic rendering, soft natural lighting.\nImage Ratio 3:4",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346684789_0n5kmy_HCNiK1QaMAAFRnN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346684789_0n5kmy_HCNiK1QaMAAFRnN-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "根据上传的 2D 平面图，生成一张专业的室内设计展示板，所有内容整合在一张图片中。布局：最终图片应为拼贴画形式，顶部一张大的主图，下方几张小图。各面板内容：\n\n1. 主图（顶部）：主起居区的广角透视图，展示客厅与餐厅之间的连接。\n\n2. 小图（左下）：主卧室视图，重点展示床和窗户。\n\n3. 小图（中下）：家庭办公室/书房视图。\n\n4. 小图（右下）：3D 俯视平面图，展示家具布局。整体风格：所有图片均采用一致的现代简约风格，搭配温暖的橡木地板和米白色墙壁。质量：照片级真实感渲染，柔和的自然光照。\n图片比例 3:4",
+      "sourcePlatform": "twitter",
+      "searchIndex": "现代简约室内设计展示板 一个用于根据上传的 2d 平面图生成专业室内设计展示板的提示。输出应为一个拼贴画，其中包含一张较大的客厅/餐厅主图和三张较小的图片，分别展示主卧室、家庭办公室和 3d 俯视平面图，所有图像均以一致的现代简约风格呈现。 based on the uploaded 2d floor plan, generate a professional interior design presentation board in a single image. layout : the final image should be a collage with one large main image at the top, and several smaller images below it. content of each panel :\n\n1. main image (top) : a wide-angle perspective view of the main living area , showing the connection between the living room and dining area.\n\n2. small image (bottom left) : a view of the master bedroom , focusing on the bed and window.\n\n3. small image (bottom middle) : a view of the home office / study room .\n\n4. small image (bottom right) : a 3d top-down floor plan view showing the furniture layout. overall style : apply a consistent modern minimalist style with warm oak wood flooring and off-white walls across all images. quality : photorealistic rendering, soft natural lighting.\nimage ratio 3:4 根据上传的 2d 平面图，生成一张专业的室内设计展示板，所有内容整合在一张图片中。布局：最终图片应为拼贴画形式，顶部一张大的主图，下方几张小图。各面板内容：\n\n1. 主图（顶部）：主起居区的广角透视图，展示客厅与餐厅之间的连接。\n\n2. 小图（左下）：主卧室视图，重点展示床和窗户。\n\n3. 小图（中下）：家庭办公室/书房视图。\n\n4. 小图（右下）：3d 俯视平面图，展示家具布局。整体风格：所有图片均采用一致的现代简约风格，搭配温暖的橡木地板和米白色墙壁。质量：照片级真实感渲染，柔和的自然光照。\n图片比例 3:4 shreya♡ 11117",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11063,
+      "title": "JSON 提示词，用于海滩自拍肖像",
+      "description": "一个结构化的 JSON 提示，用于生成一张在热带海滩上的女性特写自拍照，详细说明了环境细节、服装、姿势和相机设置（广角、特写自拍、自然日光），以营造轻松的度假氛围。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027568852809486409",
+      "sourcePublishedAt": "2026-02-28T02:17:39.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"id\": \"img_2026_beach_01\",\n  \"title\": \"Golden Smile by the Sea\",\n  \"category\": \"travel_lifestyle\",\n  \"description\": \"A cheerful woman taking a close-up selfie while sitting on a wooden swing at a bright tropical beach. She is smiling warmly at the camera and holding the rope of the swing. The background features soft white sand, crystal-clear turquoise ocean water, gentle waves, and a vibrant blue sky filled with scattered fluffy clouds. A person can be seen walking along the shoreline in the distance.\",\n  \"subject\": {\n    \"gender\": \"female\",\n    \"expression\": \"happy_smile\",\n    \"pose\": \"holding_swing_rope_selfie\",\n    \"hair_style\": \"tied_back\"\n  },\n  \"outfit\": {\n    \"type\": \"bikini\",\n    \"style\": \"two_piece\",\n    \"color\": \"light_pink\",\n    \"pattern\": \"subtle_circular_print\"\n  },\n  \"environment\": {\n    \"location_type\": \"tropical_beach\",\n    \"sand_color\": \"white\",\n    \"water_color\": \"turquoise_blue\",\n    \"sky\": \"bright_blue_with_clouds\",\n    \"weather\": \"sunny\"\n  },\n  \"objects_present\": [\n    \"wooden_swing\",\n    \"swing_rope\",\n    \"sand\",\n    \"ocean_waves\",\n    \"clouds\"\n  ],\n  \"camera_details\": {\n    \"angle\": \"wide_angle\",\n    \"shot_type\": \"close_up_selfie\",\n    \"lighting\": \"natural_daylight\"\n  },\n  \"mood\": \"relaxed_vacation_vibes\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346662037_8pgonj_HCNfGq8bEAAVz1H.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346662037_8pgonj_HCNfGq8bEAAVz1H-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"id\": \"img_2026_beach_01\",\n  \"title\": \"海边的金色笑容\",\n  \"category\": \"travel_lifestyle\",\n  \"description\": \"一位开朗的女士在明媚的热带海滩上，坐在木制秋千上自拍特写。她对着镜头温暖地微笑，并握着秋千的绳索。背景是柔软的白色沙滩、晶莹剔透的碧绿海水、轻柔的海浪，以及布满零星蓬松云朵的湛蓝天空。远处可以看到一个人沿着海岸线散步。\",\n  \"subject\": {\n    \"gender\": \"female\",\n    \"expression\": \"happy_smile\",\n    \"pose\": \"holding_swing_rope_selfie\",\n    \"hair_style\": \"tied_back\"\n  },\n  \"outfit\": {\n    \"type\": \"bikini\",\n    \"style\": \"two_piece\",\n    \"color\": \"light_pink\",\n    \"pattern\": \"subtle_circular_print\"\n  },\n  \"environment\": {\n    \"location_type\": \"tropical_beach\",\n    \"sand_color\": \"white\",\n    \"water_color\": \"turquoise_blue\",\n    \"sky\": \"bright_blue_with_clouds\",\n    \"weather\": \"sunny\"\n  },\n  \"objects_present\": [\n    \"wooden_swing\",\n    \"swing_rope\",\n    \"sand\",\n    \"ocean_waves\",\n    \"clouds\"\n  ],\n  \"camera_details\": {\n    \"angle\": \"wide_angle\",\n    \"shot_type\": \"close_up_selfie\",\n    \"lighting\": \"natural_daylight\"\n  },\n  \"mood\": \"relaxed_vacation_vibes\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "json 提示词，用于海滩自拍肖像 一个结构化的 json 提示，用于生成一张在热带海滩上的女性特写自拍照，详细说明了环境细节、服装、姿势和相机设置（广角、特写自拍、自然日光），以营造轻松的度假氛围。 {\n  \"id\": \"img_2026_beach_01\",\n  \"title\": \"golden smile by the sea\",\n  \"category\": \"travel_lifestyle\",\n  \"description\": \"a cheerful woman taking a close-up selfie while sitting on a wooden swing at a bright tropical beach. she is smiling warmly at the camera and holding the rope of the swing. the background features soft white sand, crystal-clear turquoise ocean water, gentle waves, and a vibrant blue sky filled with scattered fluffy clouds. a person can be seen walking along the shoreline in the distance.\",\n  \"subject\": {\n    \"gender\": \"female\",\n    \"expression\": \"happy_smile\",\n    \"pose\": \"holding_swing_rope_selfie\",\n    \"hair_style\": \"tied_back\"\n  },\n  \"outfit\": {\n    \"type\": \"bikini\",\n    \"style\": \"two_piece\",\n    \"color\": \"light_pink\",\n    \"pattern\": \"subtle_circular_print\"\n  },\n  \"environment\": {\n    \"location_type\": \"tropical_beach\",\n    \"sand_color\": \"white\",\n    \"water_color\": \"turquoise_blue\",\n    \"sky\": \"bright_blue_with_clouds\",\n    \"weather\": \"sunny\"\n  },\n  \"objects_present\": [\n    \"wooden_swing\",\n    \"swing_rope\",\n    \"sand\",\n    \"ocean_waves\",\n    \"clouds\"\n  ],\n  \"camera_details\": {\n    \"angle\": \"wide_angle\",\n    \"shot_type\": \"close_up_selfie\",\n    \"lighting\": \"natural_daylight\"\n  },\n  \"mood\": \"relaxed_vacation_vibes\"\n} ```json\n{\n  \"id\": \"img_2026_beach_01\",\n  \"title\": \"海边的金色笑容\",\n  \"category\": \"travel_lifestyle\",\n  \"description\": \"一位开朗的女士在明媚的热带海滩上，坐在木制秋千上自拍特写。她对着镜头温暖地微笑，并握着秋千的绳索。背景是柔软的白色沙滩、晶莹剔透的碧绿海水、轻柔的海浪，以及布满零星蓬松云朵的湛蓝天空。远处可以看到一个人沿着海岸线散步。\",\n  \"subject\": {\n    \"gender\": \"female\",\n    \"expression\": \"happy_smile\",\n    \"pose\": \"holding_swing_rope_selfie\",\n    \"hair_style\": \"tied_back\"\n  },\n  \"outfit\": {\n    \"type\": \"bikini\",\n    \"style\": \"two_piece\",\n    \"color\": \"light_pink\",\n    \"pattern\": \"subtle_circular_print\"\n  },\n  \"environment\": {\n    \"location_type\": \"tropical_beach\",\n    \"sand_color\": \"white\",\n    \"water_color\": \"turquoise_blue\",\n    \"sky\": \"bright_blue_with_clouds\",\n    \"weather\": \"sunny\"\n  },\n  \"objects_present\": [\n    \"wooden_swing\",\n    \"swing_rope\",\n    \"sand\",\n    \"ocean_waves\",\n    \"clouds\"\n  ],\n  \"camera_details\": {\n    \"angle\": \"wide_angle\",\n    \"shot_type\": \"close_up_selfie\",\n    \"lighting\": \"natural_daylight\"\n  },\n  \"mood\": \"relaxed_vacation_vibes\"\n}\n``` zainab fatima 11063",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11039,
+      "title": "史诗武侠电影海报提示词（Nano Banana 2 对比 Pro）",
+      "description": "这是一个极其详细的多段式提示，用于生成一张古装武侠电影海报，海报中包含一个从砖砌天井底部向上仰视的低角度镜头。该提示详细说明了人物外观、服装、构图、灯光和配色方案（去饱和的冷灰色调，带血红色点缀）。此提示用于比较 Nano Banana 2 和 Nano Banana Pro 的性能。",
+      "sourceLink": "https://x.com/john87445528/status/2027566743426605539",
+      "sourcePublishedAt": "2026-02-28T02:09:16.000Z",
+      "author": {
+        "name": "John",
+        "link": "https://x.com/john87445528"
+      },
+      "content": "风格 32：古风武侠砖石井壁仰拍风格\n完整创作指南\n【风格概述】\n风格名称：古风武侠砖石井壁仰拍风格\n风格编号：32\n风格类型：古风武侠电影海报\n核心美学：砖石井壁内院仰拍、圆形围合结构、多人包围、血色书法、冷灰蓝色调、幽闭压抑\n【核心特征】\n关键元素：\n✅ 极低角度仰拍（从砖石井壁内院地面向上看）\n✅ 圆形砖石井壁结构背景（非土楼、非石井、非地牢，完全贴合参考图）\n✅ 中心主角（参考图 1）在画面中下部\n✅ 四名敌人包围（左上、右上、左下、右下）\n✅ 左下角色使用参考图 2 样貌\n✅ 褪色蓝灰色古风汉服\n✅ 顶部白光光晕 + 血色书法标题\n✅ 粗糙砖石与木质横梁纹理（完全贴合参考图）\n✅ 冷灰蓝主色调（去饱和，非纯蓝）\n✅ 阴雨湿润氛围\n氛围定位：\n核心情绪：紧张、幽闭、宿命感、对抗、囚禁、背叛\n视觉基调：压抑、冷峻、武侠史诗\n文化语境：古风武侠、权力斗争、生存绝境\n色彩方案（严格参考参考图3，去饱和中性冷灰蓝）：\n主色调：去饱和冷灰蓝（#2A3038、#445058、#7A8890、#B0BEC5）\n重点色：血红色（#9D1A1A）- 仅用于标题\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图去色感，不要纯蓝）\n色温：3800-4200K（轻微冷调，带灰褐底色）\n【核心指令】\n作为世界级古风武侠电影海报摄影师，为 **[{argument name=\"主角人物\" default=\"参考图 1 人物\"}]（中心主角）和 [{argument name=\"敌人人物\" default=\"参考图 2 人物\"}]（左下敌人）创作砖石井壁内院仰拍 ** 的古风武侠海报。\n五大核心要求：\n100% 严格还原参考图 1 人物作为中心主角\n100% 严格还原参考图 2 人物作为左下敌人\n气质转化为古风武侠对抗\n完全汲取参考图视觉 DNA（砖石井壁内院仰拍、圆形围合、多人包围、冷灰蓝、血色标题）\n允许创意微调\n【一、人物样貌还原】\nA. 中心主角（参考图 1）- 绝对核心\n样貌还原：\n✅ 100% 还原参考图 1\n脸型、五官、年龄感、体型完全一致\n发型：完全按照参考图1\n不做任何预设\n\n表情：\n✅ 坚定、锐利、不屈\n眼神向下看\n直视镜头（仰拍视角）\n下颌紧绷\n传递 \"绝境中的决心\"\n姿态：\n✅ 站立，身体前倾\n面向镜头\n右手自然垂于身侧\n左手部分可见\n身体略前倾，传递对抗感\nB. 左下敌人（参考图 2）\n样貌还原：\n✅ 100% 还原参考图 2\n脸型、五官、年龄感完全一致\n发型：完全按照参考图 2\n不做任何预设\n服饰：\n✅ 灰蓝色甲胄\n✅ 深色头盔\n✅ 臂甲、皮质束带\n姿态：\n✅ 蹲伏，手持武器\n位于画面左下角\n俯视中心主角\n攻击性强姿态\n表情：\n✅ 攻击性强、充满对抗感\nC. 其他三名敌人（非参考图）\n左上敌人：\n服饰：灰蓝色甲胄、深色头盔\n姿态：俯身于砖石井壁横梁处，向下凝视\n表情：凶狠、带有掠夺感\n右上敌人：\n服饰：灰蓝色甲胄、深色头盔\n姿态：俯身于砖石井壁横梁处，向下凝视\n表情：凶狠、带有掠夺感\n右下敌人：\n服饰：绿色甲胄、深色头盔\n姿态：站立，手持刀剑\n表情：轻蔑、不屑\n【二、服装设计 - 古风汉服 + 甲胄】\n中心主角服装（参考图 1）：\n古风汉服（核心）：\n✅ 单层长袍\n类型：古风汉服长袍\n颜色：褪色蓝灰色（#4A6B73 - #8B9A9F）\n面料：粗糙亚麻质感\n宽袖、及地长袍\n✅ 深棕色腰带\n皮革或布质\n束于腰间\n✅ 黑色皮质护腕\n双手手腕\n皮革质感\n✅ 腰间配剑\n剑鞘可见\n古风长剑\n整体风格：\n\"粗糙、朴素、战损感\"\n\"褪色、风化\"\n\"古风武侠侠客\"\n敌人服装：\n灰蓝色甲胄（左上、右上、左下）：\n✅ 金属或皮革甲片\n✅ 深色头盔\n✅ 皮质束带、臂甲\n✅ 武器：石锤、刀剑\n绿色甲胄（右下）：\n✅ 绿色金属甲片\n✅ 深色头盔\n✅ 手持刀剑\n【三、核心构图 - 极低角度砖石井壁内院仰拍】\n拍摄视角（绝对核心）：\n极低角度仰拍 参考参考图3角度（最关键）：\n✅ 镜头类型：\n标准广角镜头，16-24mm 等效\n非鱼眼，无桶形畸变\n建筑垂直线自然向顶部圆形天光汇聚\n✅ 镜头位置：\n位于砖石井壁内院地面\n极低位置\n向上仰拍（-60 度至 - 80 度）\n✅ 视角效果：\n中心主角从下往上看，显得高大\n四周砖石井壁结构向顶部圆形天光自然收拢\n圆形天井开口在顶部，透出白色漫射天光\n传递 \"困兽之斗\"/\"绝境反击\"\n人物位置布局：\n中心主角（参考图 1）：\n✅ 位置：画面中下部\n✅ 占比：占画面 30-40%\n✅ 视线：向下看，直视镜头\n四名敌人包围：\n✅ 左上：俯身于砖石井壁上层横梁，向下凝视\n✅ 右上：俯身于砖石井壁上层横梁，向下凝视\n✅ 左下（参考图 2）：蹲伏于院内地面，手持武器\n✅ 右下：站立于院内地面，手持刀剑\n视觉包围感：\n✅ 四名敌人形成 \"牢笼\" 式包围\n✅ 非对称布局\n✅ 增加压迫感\n【四、背景设计 - 圆形砖石井壁内院】\n核心背景（绝对核心）：\n圆形砖石井壁内院（完全贴合参考图，非土楼、非石井、非地牢）：\n✅ 结构：\n圆形砖石井壁内院\n四周为粗糙砖石砌筑的圆形井壁与多层木质横梁结构\n井壁向上逐层收窄，汇聚至顶部圆形天井开口\n直径约 15-20 米，深度感强\n✅ 材质：\n粗糙砖石墙面，深灰褐色，粗糙质感\n木质横梁与结构，老旧斑驳\n与参考图建筑材质完全一致\n✅ 纹理细节：\n砖石层叠纹理、砌缝清晰\n木质老旧、风化\n水渍痕迹、青苔\n裂缝、斑驳\n✅ 顶部开口：\n圆形天井开口\n透出阴雨天空漫射白光\n形成柔和光晕效果\n氛围效果：\n✅ 幽闭、压抑\n✅ 阴雨感、湿润\n✅ 传递 \"囚笼\"/\"绝境\"\n【五、灯光设计 - 顶光 + 冷调】\n主光 - 顶部开口光（核心）：\n光源设定：\n✅ 顶部自然光\n来自天井圆形开口\n自上而下照射\n阴雨天漫射白光，柔和不刺眼\n形成光晕效果\n照明效果：\n中心主角：\n✅ 顶光照亮头部、肩膀\n✅ 面部受光\n✅ 身体下部略暗\n敌人：\n✅ 逆光或侧光\n✅ 轮廓光明显\n砖石井壁与横梁：\n✅ 环形光影\n✅ 砖石与木质纹理清晰\n✅ 冷灰蓝色调\n整体氛围：\n✅ 冷调、阴郁\n✅ 阴雨天气感\n✅ 湿润砖石与木面\n【六、色彩方案 - 冷灰蓝 + 血红】\n主色调（严格参考参考图，去饱和中性冷调）：\n冷灰蓝色调（非纯蓝，带灰褐底色）：\n✅ 深灰蓝（#2A3038）- 阴影、甲胄\n✅ 灰蓝（#445058）- 砖石、木质\n✅ 中灰蓝（#7A8890）- 中间调\n✅ 浅灰蓝（#B0BEC5）- 高光、天光\n重点色彩：\n✅ 血红色（#9D1A1A）\n仅用于标题文字\n高饱和（80-90%）\n画面唯一暖色\n整体处理：\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图去色感）\n色温：3800-4200K（轻微冷调，带灰褐底，非纯冷蓝）\n色彩分级：冷灰蓝 + 血红重音\n【七、质感与后期 - 湿润风化】\n皮肤纹理：\n✅ 完全不磨皮\n✅ 真实质感\n✅ 略显湿润（雨水",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346691417_wug01c_HCNdLkIbUAEWOvC.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346691417_wug01c_HCNdLkIbUAEWOvC-300x402.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "风格 32：古风武侠砖井庭院低角度风格\n完整创作指南\n[风格概述]\n风格名称：古风武侠砖井庭院低角度风格\n风格编号：32\n风格类型：古风武侠电影海报\n核心美学：砖井庭院低角度仰视，圆形围合结构，多人环绕，血红色书法字，冷灰蓝色调，压抑局促\n[核心特征]\n关键元素：\n✅ 极致低角度仰视（从砖井庭院地面向上看）\n✅ 圆形砖井结构背景（不是土楼，不是石井，不是地牢，严格参照参考图）\n✅ 画面中下部为中心主角（参考图 1）\n✅ 四个敌人环绕（左上、右上、左下、右下）\n✅ 左下角人物使用参考图 2 的形象\n✅ 做旧的蓝灰色古风汉服\n✅ 顶部白色光晕 + 血红色书法标题\n✅ 粗糙砖块和木梁的质感（严格参照参考图）\n✅ 冷灰蓝色主色调（去饱和，非纯蓝色）\n✅ 阴雨潮湿的氛围\n氛围定位：\n核心情绪：紧张、局促、宿命感、对峙、囚禁、背叛\n视觉基调：压抑、冷峻、武侠史诗感\n文化语境：古代武侠、权力斗争、绝境\n配色方案（严格参照参考图 3，去饱和中性冷灰蓝色）：\n主色调：去饱和冷灰蓝色（#2A3038, #445058, #7A8890, #B0BEC5）\n点缀色：血红色（#9D1A1A）- 仅用于标题\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图的去饱和感，避免纯蓝色）\n色温：3800-4200K（略带冷调，有灰褐色底色）\n[核心指令]\n作为一名世界级的古风武侠电影海报摄影师，请为**[参考图 1 中的人物]（中心主角）和[参考图 2 中的人物]（左下角敌人）**创作一张以砖井庭院低角度仰视为主题的古风武侠海报。\n五项核心要求：\n100% 严格还原参考图 1 人物为中心主角\n100% 严格还原参考图 2 人物为左下角敌人\n将气质转化为古风武侠对峙感\n充分捕捉参考图的视觉 DNA（砖井庭院低角度仰视，圆形围合，多人环绕，冷灰蓝色调，血红色标题）\n允许创意微调\n[I. 人物形象还原]\nA. 中心主角（参考图 1）- 绝对核心\n形象还原：\n✅ 100% 还原参考图 1\n脸型、五官、年龄、体型完全一致\n发型：严格按照参考图 1\n无预设\n表情：\n✅ 坚定、锐利、不屈\n眼神向下看\n直视镜头（低角度视角）\n下颌紧绷\n传达“绝境中的坚定”\n姿态：\n✅ 站立，身体前倾\n面向镜头\n右手自然垂于身侧\n左手部分可见\n身体略微前倾，传达对峙感\nB. 左下角敌人（参考图 2）\n形象还原：\n✅ 100% 还原参考图 2\n脸型、五官、年龄完全一致\n发型：严格按照参考图 2\n无预设\n服饰：\n✅ 灰蓝色盔甲\n✅ 深色头盔\n✅ 臂甲、皮带\n姿态：\n✅ 蹲伏，手持武器\n位于画面左下角\n俯视中心主角\n具有攻击性姿态\n表情：\n✅ 极具攻击性，充满对峙感\nC. 其他三名敌人（非参考图）\n左上角敌人：\n服饰：灰蓝色盔甲，深色头盔\n姿态：趴在砖井木梁上，向下凝视\n表情：凶狠，充满捕食欲\n右上角敌人：\n服饰：灰蓝色盔甲，深色头盔\n姿态：趴在砖井木梁上，向下凝视\n表情：凶狠，充满捕食欲\n右下角敌人：\n服饰：绿色盔甲，深色头盔\n姿态：站立，手持长剑\n表情：轻蔑，不屑\n[II. 服装设计 - 古风汉服 + 盔甲]\n中心主角服饰（参考图 1）：\n古风汉服（核心）：\n✅ 单层长袍\n类型：古风汉服长袍\n颜色：做旧的蓝灰色（#4A6B73 - #8B9A9F）\n面料：粗麻布质感\n宽袖，及地长袍\n✅ 深棕色腰带\n皮革或布料\n系于腰间\n✅ 黑色皮质护腕\n戴在双腕\n皮革质感\n✅ 腰间佩剑\n剑鞘可见\n古风长剑\n整体风格：\n“粗犷、朴素、战损感”\n“做旧、风化”\n“古风武侠英雄”\n敌人服饰：\n灰蓝色盔甲（左上、右上、左下）：\n✅ 金属或皮革甲片\n✅ 深色头盔\n✅ 皮革绑带、臂甲\n✅ 武器：石锤、长剑\n绿色盔甲（右下）：\n✅ 绿色金属甲片\n✅ 深色头盔\n✅ 手持长剑\n[III. 核心构图 - 极致低角度砖井庭院仰视]\n拍摄视角（绝对核心）：\n极致低角度仰视，参照参考图 3 的角度（最关键）：\n✅ 镜头类型：\n标准广角镜头，16-24mm 等效\n非鱼眼，无桶形畸变\n建筑垂直线条自然向顶部圆形天窗汇聚\n✅ 镜头位置：\n位于砖井庭院地面\n极低位置\n向上仰视（-60 度至 -80 度）\n✅ 透视效果：\n中心主角从下方看显得高大\n周围砖井结构自然向顶部圆形天窗汇聚\n圆形天井开口在顶部，透出漫射白光\n传达“困兽之斗”/“绝境反击”\n人物布局：\n中心主角（参考图 1）：\n✅ 位置：画面中下部\n✅ 比例：占据画面 30-40%\n✅ 眼神：向下看，直视镜头\n四名敌人环绕：\n✅ 左上：趴在砖井木梁上，向下凝视\n✅ 右上：趴在砖井木梁上，向下凝视\n✅ 左下（参考图 2）：蹲伏在庭院地面，手持武器\n✅ 右下：站立在庭院地面，手持长剑\n视觉围合：\n✅ 四名敌人形成“牢笼”般的围合感\n✅ 不对称布局\n✅ 增加压迫感\n[IV. 背景设计 - 圆形砖井庭院]\n核心背景（绝对核心）：\n圆形砖井庭院（严格参照参考图，不是土楼，不是石井，不是地牢）：\n✅ 结构：\n圆形砖井庭院\n四周是粗糙的砖石结构，形成圆形井壁和多层木梁\n井壁向上逐渐收窄，汇聚到顶部圆形天窗开口\n直径约 15-20 米，纵深感强\n✅ 材质：\n粗糙砖墙表面，深灰褐色，粗砺质感\n木梁和结构，老旧斑驳\n材质质感与参考图建筑完全一致\n✅ 纹理细节：\n分层砖块和灰缝的清晰纹理\n木材老旧风化\n水渍、青苔\n裂缝、斑驳\n✅ 顶部开口：\n圆形天窗开口\n阴雨天的漫射白光从上方照射下来\n形成柔和的光晕效果\n氛围效果：\n✅ 局促、压抑\n✅ 阴雨感，潮湿\n✅ 传达“牢笼”/“绝境”\n[V. 灯光设计 - 顶光 + 冷调]\n主光源 - 顶部开口光（核心）：\n光源设置：\n✅ 顶部自然光\n来自天窗的圆形开口\n从上向下照射\n阴雨天的漫射白光，柔和不刺眼\n形成光晕效果\n光照效果：\n中心主角：\n✅ 顶光照亮头部和肩部\n✅ 面部受光\n✅ 下半身略暗\n敌人：\n✅ 逆光或侧光\n✅ 清晰的轮廓光\n砖井和木梁：\n✅ 圆形的光影变化\n✅ 砖块和木材的清晰质感\n✅ 冷灰蓝色调\n整体氛围：\n✅ 冷调，阴郁\n✅ 阴雨天气感\n✅ 潮湿的砖块和木材表面\n[VI. 配色方案 - 冷灰蓝色 + 血红色]\n主色调（严格参照参考图，去饱和中性冷调）：\n冷灰蓝色调（非纯蓝色，有灰褐色底色）：\n✅ 深灰蓝色（#2A3038）- 阴影、盔甲\n✅ 灰蓝色（#445058）- 砖块、木材\n✅ 中灰蓝色（#7A8890）- 中间调\n✅ 浅灰蓝色（#B0BEC5）- 高光、天光\n点缀色：\n✅ 血红色（#9D1A1A）\n仅用于标题文字\n高饱和度（80-90%）\n画面中唯一的暖色\n整体处理：\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图的去饱和感）\n色温：3800-4200K（略带冷调，有灰褐色底色，非纯冷蓝色）\n色彩分级：冷灰蓝色 + 血红色点缀\n[VII. 纹理和后期处理 - 潮湿风化]\n皮肤纹理：\n✅ 完全无磨皮\n✅ 真实质感\n✅ 略带潮湿感（雨水",
+      "sourcePlatform": "twitter",
+      "searchIndex": "史诗武侠电影海报提示词（nano banana 2 对比 pro） 这是一个极其详细的多段式提示，用于生成一张古装武侠电影海报，海报中包含一个从砖砌天井底部向上仰视的低角度镜头。该提示详细说明了人物外观、服装、构图、灯光和配色方案（去饱和的冷灰色调，带血红色点缀）。此提示用于比较 nano banana 2 和 nano banana pro 的性能。 风格 32：古风武侠砖石井壁仰拍风格\n完整创作指南\n【风格概述】\n风格名称：古风武侠砖石井壁仰拍风格\n风格编号：32\n风格类型：古风武侠电影海报\n核心美学：砖石井壁内院仰拍、圆形围合结构、多人包围、血色书法、冷灰蓝色调、幽闭压抑\n【核心特征】\n关键元素：\n✅ 极低角度仰拍（从砖石井壁内院地面向上看）\n✅ 圆形砖石井壁结构背景（非土楼、非石井、非地牢，完全贴合参考图）\n✅ 中心主角（参考图 1）在画面中下部\n✅ 四名敌人包围（左上、右上、左下、右下）\n✅ 左下角色使用参考图 2 样貌\n✅ 褪色蓝灰色古风汉服\n✅ 顶部白光光晕 + 血色书法标题\n✅ 粗糙砖石与木质横梁纹理（完全贴合参考图）\n✅ 冷灰蓝主色调（去饱和，非纯蓝）\n✅ 阴雨湿润氛围\n氛围定位：\n核心情绪：紧张、幽闭、宿命感、对抗、囚禁、背叛\n视觉基调：压抑、冷峻、武侠史诗\n文化语境：古风武侠、权力斗争、生存绝境\n色彩方案（严格参考参考图3，去饱和中性冷灰蓝）：\n主色调：去饱和冷灰蓝（#2a3038、#445058、#7a8890、#b0bec5）\n重点色：血红色（#9d1a1a）- 仅用于标题\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图去色感，不要纯蓝）\n色温：3800-4200k（轻微冷调，带灰褐底色）\n【核心指令】\n作为世界级古风武侠电影海报摄影师，为 **[{argument name=\"主角人物\" default=\"参考图 1 人物\"}]（中心主角）和 [{argument name=\"敌人人物\" default=\"参考图 2 人物\"}]（左下敌人）创作砖石井壁内院仰拍 ** 的古风武侠海报。\n五大核心要求：\n100% 严格还原参考图 1 人物作为中心主角\n100% 严格还原参考图 2 人物作为左下敌人\n气质转化为古风武侠对抗\n完全汲取参考图视觉 dna（砖石井壁内院仰拍、圆形围合、多人包围、冷灰蓝、血色标题）\n允许创意微调\n【一、人物样貌还原】\na. 中心主角（参考图 1）- 绝对核心\n样貌还原：\n✅ 100% 还原参考图 1\n脸型、五官、年龄感、体型完全一致\n发型：完全按照参考图1\n不做任何预设\n\n表情：\n✅ 坚定、锐利、不屈\n眼神向下看\n直视镜头（仰拍视角）\n下颌紧绷\n传递 \"绝境中的决心\"\n姿态：\n✅ 站立，身体前倾\n面向镜头\n右手自然垂于身侧\n左手部分可见\n身体略前倾，传递对抗感\nb. 左下敌人（参考图 2）\n样貌还原：\n✅ 100% 还原参考图 2\n脸型、五官、年龄感完全一致\n发型：完全按照参考图 2\n不做任何预设\n服饰：\n✅ 灰蓝色甲胄\n✅ 深色头盔\n✅ 臂甲、皮质束带\n姿态：\n✅ 蹲伏，手持武器\n位于画面左下角\n俯视中心主角\n攻击性强姿态\n表情：\n✅ 攻击性强、充满对抗感\nc. 其他三名敌人（非参考图）\n左上敌人：\n服饰：灰蓝色甲胄、深色头盔\n姿态：俯身于砖石井壁横梁处，向下凝视\n表情：凶狠、带有掠夺感\n右上敌人：\n服饰：灰蓝色甲胄、深色头盔\n姿态：俯身于砖石井壁横梁处，向下凝视\n表情：凶狠、带有掠夺感\n右下敌人：\n服饰：绿色甲胄、深色头盔\n姿态：站立，手持刀剑\n表情：轻蔑、不屑\n【二、服装设计 - 古风汉服 + 甲胄】\n中心主角服装（参考图 1）：\n古风汉服（核心）：\n✅ 单层长袍\n类型：古风汉服长袍\n颜色：褪色蓝灰色（#4a6b73 - #8b9a9f）\n面料：粗糙亚麻质感\n宽袖、及地长袍\n✅ 深棕色腰带\n皮革或布质\n束于腰间\n✅ 黑色皮质护腕\n双手手腕\n皮革质感\n✅ 腰间配剑\n剑鞘可见\n古风长剑\n整体风格：\n\"粗糙、朴素、战损感\"\n\"褪色、风化\"\n\"古风武侠侠客\"\n敌人服装：\n灰蓝色甲胄（左上、右上、左下）：\n✅ 金属或皮革甲片\n✅ 深色头盔\n✅ 皮质束带、臂甲\n✅ 武器：石锤、刀剑\n绿色甲胄（右下）：\n✅ 绿色金属甲片\n✅ 深色头盔\n✅ 手持刀剑\n【三、核心构图 - 极低角度砖石井壁内院仰拍】\n拍摄视角（绝对核心）：\n极低角度仰拍 参考参考图3角度（最关键）：\n✅ 镜头类型：\n标准广角镜头，16-24mm 等效\n非鱼眼，无桶形畸变\n建筑垂直线自然向顶部圆形天光汇聚\n✅ 镜头位置：\n位于砖石井壁内院地面\n极低位置\n向上仰拍（-60 度至 - 80 度）\n✅ 视角效果：\n中心主角从下往上看，显得高大\n四周砖石井壁结构向顶部圆形天光自然收拢\n圆形天井开口在顶部，透出白色漫射天光\n传递 \"困兽之斗\"/\"绝境反击\"\n人物位置布局：\n中心主角（参考图 1）：\n✅ 位置：画面中下部\n✅ 占比：占画面 30-40%\n✅ 视线：向下看，直视镜头\n四名敌人包围：\n✅ 左上：俯身于砖石井壁上层横梁，向下凝视\n✅ 右上：俯身于砖石井壁上层横梁，向下凝视\n✅ 左下（参考图 2）：蹲伏于院内地面，手持武器\n✅ 右下：站立于院内地面，手持刀剑\n视觉包围感：\n✅ 四名敌人形成 \"牢笼\" 式包围\n✅ 非对称布局\n✅ 增加压迫感\n【四、背景设计 - 圆形砖石井壁内院】\n核心背景（绝对核心）：\n圆形砖石井壁内院（完全贴合参考图，非土楼、非石井、非地牢）：\n✅ 结构：\n圆形砖石井壁内院\n四周为粗糙砖石砌筑的圆形井壁与多层木质横梁结构\n井壁向上逐层收窄，汇聚至顶部圆形天井开口\n直径约 15-20 米，深度感强\n✅ 材质：\n粗糙砖石墙面，深灰褐色，粗糙质感\n木质横梁与结构，老旧斑驳\n与参考图建筑材质完全一致\n✅ 纹理细节：\n砖石层叠纹理、砌缝清晰\n木质老旧、风化\n水渍痕迹、青苔\n裂缝、斑驳\n✅ 顶部开口：\n圆形天井开口\n透出阴雨天空漫射白光\n形成柔和光晕效果\n氛围效果：\n✅ 幽闭、压抑\n✅ 阴雨感、湿润\n✅ 传递 \"囚笼\"/\"绝境\"\n【五、灯光设计 - 顶光 + 冷调】\n主光 - 顶部开口光（核心）：\n光源设定：\n✅ 顶部自然光\n来自天井圆形开口\n自上而下照射\n阴雨天漫射白光，柔和不刺眼\n形成光晕效果\n照明效果：\n中心主角：\n✅ 顶光照亮头部、肩膀\n✅ 面部受光\n✅ 身体下部略暗\n敌人：\n✅ 逆光或侧光\n✅ 轮廓光明显\n砖石井壁与横梁：\n✅ 环形光影\n✅ 砖石与木质纹理清晰\n✅ 冷灰蓝色调\n整体氛围：\n✅ 冷调、阴郁\n✅ 阴雨天气感\n✅ 湿润砖石与木面\n【六、色彩方案 - 冷灰蓝 + 血红】\n主色调（严格参考参考图，去饱和中性冷调）：\n冷灰蓝色调（非纯蓝，带灰褐底色）：\n✅ 深灰蓝（#2a3038）- 阴影、甲胄\n✅ 灰蓝（#445058）- 砖石、木质\n✅ 中灰蓝（#7a8890）- 中间调\n✅ 浅灰蓝（#b0bec5）- 高光、天光\n重点色彩：\n✅ 血红色（#9d1a1a）\n仅用于标题文字\n高饱和（80-90%）\n画面唯一暖色\n整体处理：\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图去色感）\n色温：3800-4200k（轻微冷调，带灰褐底，非纯冷蓝）\n色彩分级：冷灰蓝 + 血红重音\n【七、质感与后期 - 湿润风化】\n皮肤纹理：\n✅ 完全不磨皮\n✅ 真实质感\n✅ 略显湿润（雨水 风格 32：古风武侠砖井庭院低角度风格\n完整创作指南\n[风格概述]\n风格名称：古风武侠砖井庭院低角度风格\n风格编号：32\n风格类型：古风武侠电影海报\n核心美学：砖井庭院低角度仰视，圆形围合结构，多人环绕，血红色书法字，冷灰蓝色调，压抑局促\n[核心特征]\n关键元素：\n✅ 极致低角度仰视（从砖井庭院地面向上看）\n✅ 圆形砖井结构背景（不是土楼，不是石井，不是地牢，严格参照参考图）\n✅ 画面中下部为中心主角（参考图 1）\n✅ 四个敌人环绕（左上、右上、左下、右下）\n✅ 左下角人物使用参考图 2 的形象\n✅ 做旧的蓝灰色古风汉服\n✅ 顶部白色光晕 + 血红色书法标题\n✅ 粗糙砖块和木梁的质感（严格参照参考图）\n✅ 冷灰蓝色主色调（去饱和，非纯蓝色）\n✅ 阴雨潮湿的氛围\n氛围定位：\n核心情绪：紧张、局促、宿命感、对峙、囚禁、背叛\n视觉基调：压抑、冷峻、武侠史诗感\n文化语境：古代武侠、权力斗争、绝境\n配色方案（严格参照参考图 3，去饱和中性冷灰蓝色）：\n主色调：去饱和冷灰蓝色（#2a3038, #445058, #7a8890, #b0bec5）\n点缀色：血红色（#9d1a1a）- 仅用于标题\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图的去饱和感，避免纯蓝色）\n色温：3800-4200k（略带冷调，有灰褐色底色）\n[核心指令]\n作为一名世界级的古风武侠电影海报摄影师，请为**[参考图 1 中的人物]（中心主角）和[参考图 2 中的人物]（左下角敌人）**创作一张以砖井庭院低角度仰视为主题的古风武侠海报。\n五项核心要求：\n100% 严格还原参考图 1 人物为中心主角\n100% 严格还原参考图 2 人物为左下角敌人\n将气质转化为古风武侠对峙感\n充分捕捉参考图的视觉 dna（砖井庭院低角度仰视，圆形围合，多人环绕，冷灰蓝色调，血红色标题）\n允许创意微调\n[i. 人物形象还原]\na. 中心主角（参考图 1）- 绝对核心\n形象还原：\n✅ 100% 还原参考图 1\n脸型、五官、年龄、体型完全一致\n发型：严格按照参考图 1\n无预设\n表情：\n✅ 坚定、锐利、不屈\n眼神向下看\n直视镜头（低角度视角）\n下颌紧绷\n传达“绝境中的坚定”\n姿态：\n✅ 站立，身体前倾\n面向镜头\n右手自然垂于身侧\n左手部分可见\n身体略微前倾，传达对峙感\nb. 左下角敌人（参考图 2）\n形象还原：\n✅ 100% 还原参考图 2\n脸型、五官、年龄完全一致\n发型：严格按照参考图 2\n无预设\n服饰：\n✅ 灰蓝色盔甲\n✅ 深色头盔\n✅ 臂甲、皮带\n姿态：\n✅ 蹲伏，手持武器\n位于画面左下角\n俯视中心主角\n具有攻击性姿态\n表情：\n✅ 极具攻击性，充满对峙感\nc. 其他三名敌人（非参考图）\n左上角敌人：\n服饰：灰蓝色盔甲，深色头盔\n姿态：趴在砖井木梁上，向下凝视\n表情：凶狠，充满捕食欲\n右上角敌人：\n服饰：灰蓝色盔甲，深色头盔\n姿态：趴在砖井木梁上，向下凝视\n表情：凶狠，充满捕食欲\n右下角敌人：\n服饰：绿色盔甲，深色头盔\n姿态：站立，手持长剑\n表情：轻蔑，不屑\n[ii. 服装设计 - 古风汉服 + 盔甲]\n中心主角服饰（参考图 1）：\n古风汉服（核心）：\n✅ 单层长袍\n类型：古风汉服长袍\n颜色：做旧的蓝灰色（#4a6b73 - #8b9a9f）\n面料：粗麻布质感\n宽袖，及地长袍\n✅ 深棕色腰带\n皮革或布料\n系于腰间\n✅ 黑色皮质护腕\n戴在双腕\n皮革质感\n✅ 腰间佩剑\n剑鞘可见\n古风长剑\n整体风格：\n“粗犷、朴素、战损感”\n“做旧、风化”\n“古风武侠英雄”\n敌人服饰：\n灰蓝色盔甲（左上、右上、左下）：\n✅ 金属或皮革甲片\n✅ 深色头盔\n✅ 皮革绑带、臂甲\n✅ 武器：石锤、长剑\n绿色盔甲（右下）：\n✅ 绿色金属甲片\n✅ 深色头盔\n✅ 手持长剑\n[iii. 核心构图 - 极致低角度砖井庭院仰视]\n拍摄视角（绝对核心）：\n极致低角度仰视，参照参考图 3 的角度（最关键）：\n✅ 镜头类型：\n标准广角镜头，16-24mm 等效\n非鱼眼，无桶形畸变\n建筑垂直线条自然向顶部圆形天窗汇聚\n✅ 镜头位置：\n位于砖井庭院地面\n极低位置\n向上仰视（-60 度至 -80 度）\n✅ 透视效果：\n中心主角从下方看显得高大\n周围砖井结构自然向顶部圆形天窗汇聚\n圆形天井开口在顶部，透出漫射白光\n传达“困兽之斗”/“绝境反击”\n人物布局：\n中心主角（参考图 1）：\n✅ 位置：画面中下部\n✅ 比例：占据画面 30-40%\n✅ 眼神：向下看，直视镜头\n四名敌人环绕：\n✅ 左上：趴在砖井木梁上，向下凝视\n✅ 右上：趴在砖井木梁上，向下凝视\n✅ 左下（参考图 2）：蹲伏在庭院地面，手持武器\n✅ 右下：站立在庭院地面，手持长剑\n视觉围合：\n✅ 四名敌人形成“牢笼”般的围合感\n✅ 不对称布局\n✅ 增加压迫感\n[iv. 背景设计 - 圆形砖井庭院]\n核心背景（绝对核心）：\n圆形砖井庭院（严格参照参考图，不是土楼，不是石井，不是地牢）：\n✅ 结构：\n圆形砖井庭院\n四周是粗糙的砖石结构，形成圆形井壁和多层木梁\n井壁向上逐渐收窄，汇聚到顶部圆形天窗开口\n直径约 15-20 米，纵深感强\n✅ 材质：\n粗糙砖墙表面，深灰褐色，粗砺质感\n木梁和结构，老旧斑驳\n材质质感与参考图建筑完全一致\n✅ 纹理细节：\n分层砖块和灰缝的清晰纹理\n木材老旧风化\n水渍、青苔\n裂缝、斑驳\n✅ 顶部开口：\n圆形天窗开口\n阴雨天的漫射白光从上方照射下来\n形成柔和的光晕效果\n氛围效果：\n✅ 局促、压抑\n✅ 阴雨感，潮湿\n✅ 传达“牢笼”/“绝境”\n[v. 灯光设计 - 顶光 + 冷调]\n主光源 - 顶部开口光（核心）：\n光源设置：\n✅ 顶部自然光\n来自天窗的圆形开口\n从上向下照射\n阴雨天的漫射白光，柔和不刺眼\n形成光晕效果\n光照效果：\n中心主角：\n✅ 顶光照亮头部和肩部\n✅ 面部受光\n✅ 下半身略暗\n敌人：\n✅ 逆光或侧光\n✅ 清晰的轮廓光\n砖井和木梁：\n✅ 圆形的光影变化\n✅ 砖块和木材的清晰质感\n✅ 冷灰蓝色调\n整体氛围：\n✅ 冷调，阴郁\n✅ 阴雨天气感\n✅ 潮湿的砖块和木材表面\n[vi. 配色方案 - 冷灰蓝色 + 血红色]\n主色调（严格参照参考图，去饱和中性冷调）：\n冷灰蓝色调（非纯蓝色，有灰褐色底色）：\n✅ 深灰蓝色（#2a3038）- 阴影、盔甲\n✅ 灰蓝色（#445058）- 砖块、木材\n✅ 中灰蓝色（#7a8890）- 中间调\n✅ 浅灰蓝色（#b0bec5）- 高光、天光\n点缀色：\n✅ 血红色（#9d1a1a）\n仅用于标题文字\n高饱和度（80-90%）\n画面中唯一的暖色\n整体处理：\n对比度：60-70%（中高对比）\n饱和度：20-35%（低饱和，接近参考图的去饱和感）\n色温：3800-4200k（略带冷调，有灰褐色底色，非纯冷蓝色）\n色彩分级：冷灰蓝色 + 血红色点缀\n[vii. 纹理和后期处理 - 潮湿风化]\n皮肤纹理：\n✅ 完全无磨皮\n✅ 真实质感\n✅ 略带潮湿感（雨水 john 11039",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11111,
+      "title": "红发女性电影特写肖像",
+      "description": "两个独立的提示，用于生成一位年轻红发雀斑女性的超逼真电影特写肖像。第一个提示使用温暖的黄金时段光线营造出水润感，第二个提示则使用低调照明营造出情绪化、高对比度的效果，两者都强调超现实的皮肤纹理和专业的摄影设置。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2027564034028093612",
+      "sourcePublishedAt": "2026-02-28T01:58:30.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Prompt 1:\n\nUltra-realistic cinematic close-up portrait of a young red-haired woman with natural freckles, wet dewy skin with visible water droplets, green eyes, soft parted lips, intense direct eye contact, warm golden hour lighting, dramatic shadows, shallow depth of field, 85mm lens, f/1.4, high detail skin texture, soft natural makeup, moody dark blurred background, volumetric light, photorealistic, 8k, RAW photo\n\nPrompt 2:\nUltra-detailed close-up portrait of a young woman with short messy copper-red hair, prominent freckles across nose and cheeks, glowing slightly sweaty skin, deep brown eyes, neutral expression, cinematic low-key lighting, soft rim light on hair, dark moody background, shallow depth of field, 85mm lens, f/1.8, hyper-realistic skin texture, natural tones, professional photography, high contrast, 8k resolution, RAW, sharp focus on eyes",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346683069_t5iavj_HCNavKBbcAA-DBi.jpg",
+        "https://cms-assets.youmind.com/media/1772346683068_8c157p_HCNavKCagAAbEM0.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346683069_t5iavj_HCNavKBbcAA-DBi-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772346683068_8c157p_HCNavKCagAAbEM0-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "提示 1:\n\n超写实电影级特写肖像，一位年轻的红发女子，脸上有天然雀斑，皮肤湿润带露珠，可见水滴，绿眼睛，微张的柔和嘴唇，眼神强烈直视，温暖的黄金时段光线，戏剧性阴影，浅景深，85mm 镜头，f/1.4 光圈，高细节皮肤纹理，柔和自然妆容，情绪化暗色模糊背景，体积光，照片级真实感，8k，RAW 照片\n\n提示 2:\n\n超细节特写肖像，一位年轻女子，短而凌乱的铜红色头发，鼻梁和脸颊上有明显的雀斑，皮肤泛着微光，略带汗意，深棕色眼睛，中性表情，电影级低调照明，头发上有柔和的轮廓光，暗色情绪化背景，浅景深，85mm 镜头，f/1.8 光圈，超真实皮肤纹理，自然色调，专业摄影，高对比度，8k 分辨率，RAW，眼睛锐利对焦",
+      "sourcePlatform": "twitter",
+      "searchIndex": "红发女性电影特写肖像 两个独立的提示，用于生成一位年轻红发雀斑女性的超逼真电影特写肖像。第一个提示使用温暖的黄金时段光线营造出水润感，第二个提示则使用低调照明营造出情绪化、高对比度的效果，两者都强调超现实的皮肤纹理和专业的摄影设置。 prompt 1:\n\nultra-realistic cinematic close-up portrait of a young red-haired woman with natural freckles, wet dewy skin with visible water droplets, green eyes, soft parted lips, intense direct eye contact, warm golden hour lighting, dramatic shadows, shallow depth of field, 85mm lens, f/1.4, high detail skin texture, soft natural makeup, moody dark blurred background, volumetric light, photorealistic, 8k, raw photo\n\nprompt 2:\nultra-detailed close-up portrait of a young woman with short messy copper-red hair, prominent freckles across nose and cheeks, glowing slightly sweaty skin, deep brown eyes, neutral expression, cinematic low-key lighting, soft rim light on hair, dark moody background, shallow depth of field, 85mm lens, f/1.8, hyper-realistic skin texture, natural tones, professional photography, high contrast, 8k resolution, raw, sharp focus on eyes 提示 1:\n\n超写实电影级特写肖像，一位年轻的红发女子，脸上有天然雀斑，皮肤湿润带露珠，可见水滴，绿眼睛，微张的柔和嘴唇，眼神强烈直视，温暖的黄金时段光线，戏剧性阴影，浅景深，85mm 镜头，f/1.4 光圈，高细节皮肤纹理，柔和自然妆容，情绪化暗色模糊背景，体积光，照片级真实感，8k，raw 照片\n\n提示 2:\n\n超细节特写肖像，一位年轻女子，短而凌乱的铜红色头发，鼻梁和脸颊上有明显的雀斑，皮肤泛着微光，略带汗意，深棕色眼睛，中性表情，电影级低调照明，头发上有柔和的轮廓光，暗色情绪化背景，浅景深，85mm 镜头，f/1.8 光圈，超真实皮肤纹理，自然色调，专业摄影，高对比度，8k 分辨率，raw，眼睛锐利对焦 kashberg 11111",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11109,
+      "title": "Sadie Sink 科幻角色扮演肖像",
+      "description": "一个用于生成年轻女性（酷似 Sadie Sink）写实角色扮演肖像的提示，她身着精致的奇幻科幻服装。该提示详细描述了服装组件（发光的霓虹电路手套、金色盔甲、青色紧身胸衣）、发型、姿势（跪姿）以及意想不到的室内环境（摆放着动漫手办的现代卧室），在主体和背景之间形成了对比。",
+      "sourceLink": "https://x.com/NameIsSudee/status/2027563537909092588",
+      "sourcePublishedAt": "2026-02-28T01:56:32.000Z",
+      "author": {
+        "name": "Sudee🥀",
+        "link": "https://x.com/NameIsSudee"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"type\": \"young woman \",\n      \"features\": \"pale skin, light blue eyes, subtle makeup with eyeliner\",\n      \"expression\": \"thoughtful, looking up and slightly to the left\"\n    },\n    \"hair\": {\n      \"color\": \"dark emerald green/teal\",\n      \"style\": \"straight bob with blunt bangs\",\n      \"accessories\": \"gold metallic headpiece with a central triangular teal gem and small fin-like 'horns' on the sides\"\n    },\n    \"outfit\": {\n      \"theme\": \"intricate fantasy sci-fi cosplay\",\n      \"main_colors\": [\"black\", \"dark teal\", \"gold\", \"white\"],\n      \"components\": [\n        \"black long gloves featuring glowing teal neon circuitry lines and pointed gold finger-claws\",\n        \"gold shoulder armor with large triangular teal glowing emblems\",\n        \"dark teal bodice with geometric gold trim\",\n        \"long flowing fabric panels in white, teal, and lime green attached to the waist\"\n      ]\n    },\n    \"pose\": {\n      \"stance\": \"kneeling on the floor\",\n      \"right_hand\": \"fingers resting gently against her chin/lower lip\",\n      \"left_hand\": \"resting flat on the carpet supporting her weight\"\n    },\n    \"environment\": {\n      \"setting\": \"indoor, contemporary bedroom or hobby room\",\n      \"floor\": \"soft, light pinkish-beige textured carpet\",\n      \"background_elements\": [\n        \"white modular drawer cabinet on the left\",\n        \"anime figurines resting on top of the cabinet\",\n        \"plain light grey/beige walls with white baseboards\",\n        \"standard white electrical wall outlet\",\n        \"small poster or photo tacked high on the wall\"\n      ]\n    },\n    \"cinematography\": {\n      \"style\": \"photorealistic cosplay portraiture\",\n      \"lighting\": \"soft, diffused indoor lighting\",\n      \"camera_angle\": \"eye-level medium shot\",\n      \"focus\": \"sharp focus on the subject with a softly blurred background\"\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346682628_x1rnqs_HCNaSHMbEAE7Aot.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346682628_x1rnqs_HCNaSHMbEAE7Aot-300x361.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"type\": \"年轻女性\",\n      \"features\": \"苍白的皮肤，浅蓝色眼睛，化着淡妆，有眼线\",\n      \"expression\": \"若有所思，向上并略微向左看\"\n    },\n    \"hair\": {\n      \"color\": \"深祖母绿/蓝绿色\",\n      \"style\": \"齐刘海直发波波头\",\n      \"accessories\": \"金色金属头饰，中央镶嵌一个三角形蓝绿色宝石，两侧有小鱼鳍状的“角”\"\n    },\n    \"outfit\": {\n      \"theme\": \"精致的奇幻科幻角色扮演服装\",\n      \"main_colors\": [\"黑色\", \"深蓝绿色\", \"金色\", \"白色\"],\n      \"components\": [\n        \"黑色长手套，带有发光的蓝绿色霓虹电路线条和尖锐的金色指甲\",\n        \"金色肩甲，带有大型三角形发光的蓝绿色徽章\",\n        \"深蓝绿色紧身胸衣，带有几何金色饰边\",\n        \"腰部系有白色、蓝绿色和石灰绿色长飘逸布料\"\n      ]\n    },\n    \"pose\": {\n      \"stance\": \"跪在地板上\",\n      \"right_hand\": \"手指轻轻抵住下巴/下唇\",\n      \"left_hand\": \"平放在地毯上支撑身体重量\"\n    },\n    \"environment\": {\n      \"setting\": \"室内，现代卧室或爱好室\",\n      \"floor\": \"柔软、浅粉米色纹理地毯\",\n      \"background_elements\": [\n        \"左侧的白色模块化抽屉柜\",\n        \"柜子顶部摆放着动漫手办\",\n        \"素色浅灰色/米色墙壁，带有白色踢脚线\",\n        \"标准白色电源插座\",\n        \"墙壁高处钉着一张小海报或照片\"\n      ]\n    },\n    \"cinematography\": {\n      \"style\": \"写实角色扮演肖像摄影\",\n      \"lighting\": \"柔和、漫射的室内照明\",\n      \"camera_angle\": \"平视中景镜头\",\n      \"focus\": \"主体清晰对焦，背景柔和模糊\"\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sadie sink 科幻角色扮演肖像 一个用于生成年轻女性（酷似 sadie sink）写实角色扮演肖像的提示，她身着精致的奇幻科幻服装。该提示详细描述了服装组件（发光的霓虹电路手套、金色盔甲、青色紧身胸衣）、发型、姿势（跪姿）以及意想不到的室内环境（摆放着动漫手办的现代卧室），在主体和背景之间形成了对比。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"type\": \"young woman \",\n      \"features\": \"pale skin, light blue eyes, subtle makeup with eyeliner\",\n      \"expression\": \"thoughtful, looking up and slightly to the left\"\n    },\n    \"hair\": {\n      \"color\": \"dark emerald green/teal\",\n      \"style\": \"straight bob with blunt bangs\",\n      \"accessories\": \"gold metallic headpiece with a central triangular teal gem and small fin-like 'horns' on the sides\"\n    },\n    \"outfit\": {\n      \"theme\": \"intricate fantasy sci-fi cosplay\",\n      \"main_colors\": [\"black\", \"dark teal\", \"gold\", \"white\"],\n      \"components\": [\n        \"black long gloves featuring glowing teal neon circuitry lines and pointed gold finger-claws\",\n        \"gold shoulder armor with large triangular teal glowing emblems\",\n        \"dark teal bodice with geometric gold trim\",\n        \"long flowing fabric panels in white, teal, and lime green attached to the waist\"\n      ]\n    },\n    \"pose\": {\n      \"stance\": \"kneeling on the floor\",\n      \"right_hand\": \"fingers resting gently against her chin/lower lip\",\n      \"left_hand\": \"resting flat on the carpet supporting her weight\"\n    },\n    \"environment\": {\n      \"setting\": \"indoor, contemporary bedroom or hobby room\",\n      \"floor\": \"soft, light pinkish-beige textured carpet\",\n      \"background_elements\": [\n        \"white modular drawer cabinet on the left\",\n        \"anime figurines resting on top of the cabinet\",\n        \"plain light grey/beige walls with white baseboards\",\n        \"standard white electrical wall outlet\",\n        \"small poster or photo tacked high on the wall\"\n      ]\n    },\n    \"cinematography\": {\n      \"style\": \"photorealistic cosplay portraiture\",\n      \"lighting\": \"soft, diffused indoor lighting\",\n      \"camera_angle\": \"eye-level medium shot\",\n      \"focus\": \"sharp focus on the subject with a softly blurred background\"\n    }\n  }\n} ```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"type\": \"年轻女性\",\n      \"features\": \"苍白的皮肤，浅蓝色眼睛，化着淡妆，有眼线\",\n      \"expression\": \"若有所思，向上并略微向左看\"\n    },\n    \"hair\": {\n      \"color\": \"深祖母绿/蓝绿色\",\n      \"style\": \"齐刘海直发波波头\",\n      \"accessories\": \"金色金属头饰，中央镶嵌一个三角形蓝绿色宝石，两侧有小鱼鳍状的“角”\"\n    },\n    \"outfit\": {\n      \"theme\": \"精致的奇幻科幻角色扮演服装\",\n      \"main_colors\": [\"黑色\", \"深蓝绿色\", \"金色\", \"白色\"],\n      \"components\": [\n        \"黑色长手套，带有发光的蓝绿色霓虹电路线条和尖锐的金色指甲\",\n        \"金色肩甲，带有大型三角形发光的蓝绿色徽章\",\n        \"深蓝绿色紧身胸衣，带有几何金色饰边\",\n        \"腰部系有白色、蓝绿色和石灰绿色长飘逸布料\"\n      ]\n    },\n    \"pose\": {\n      \"stance\": \"跪在地板上\",\n      \"right_hand\": \"手指轻轻抵住下巴/下唇\",\n      \"left_hand\": \"平放在地毯上支撑身体重量\"\n    },\n    \"environment\": {\n      \"setting\": \"室内，现代卧室或爱好室\",\n      \"floor\": \"柔软、浅粉米色纹理地毯\",\n      \"background_elements\": [\n        \"左侧的白色模块化抽屉柜\",\n        \"柜子顶部摆放着动漫手办\",\n        \"素色浅灰色/米色墙壁，带有白色踢脚线\",\n        \"标准白色电源插座\",\n        \"墙壁高处钉着一张小海报或照片\"\n      ]\n    },\n    \"cinematography\": {\n      \"style\": \"写实角色扮演肖像摄影\",\n      \"lighting\": \"柔和、漫射的室内照明\",\n      \"camera_angle\": \"平视中景镜头\",\n      \"focus\": \"主体清晰对焦，背景柔和模糊\"\n    }\n  }\n}\n``` sudee🥀 11109",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11066,
+      "title": "暖心女人与猫咪肖像",
+      "description": "生成一张柔和、超写实的年轻女性工作室肖像的提示，她轻柔地拥抱着一只虎斑猫，重点突出皮肤和毛发的超现实细节，背景为青色渐变，营造出舒适、温馨的氛围，采用 85mm 镜头效果。",
+      "sourceLink": "https://x.com/Taaruk_/status/2027558854234673610",
+      "sourcePublishedAt": "2026-02-28T01:37:55.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "A soft, heartwarming studio portrait of a beautiful young woman gently hugging a tabby cat close to her face. The woman has natural glowing skin, subtle makeup, and a warm, peaceful smile. The cat has striking yellow eyes, detailed fur texture, and a calm expression.\nTeal gradient background, soft diffused studio lighting, gentle shadows, shallow depth of field, ultra-realistic skin and fur detail, 85mm lens, centered composition, emotional connection, cozy and wholesome mood, professional photography, 8K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346663103_81hclm_HCNWBrCbAAAZVc-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346663103_81hclm_HCNWBrCbAAAZVc--300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张柔和、温馨的影棚肖像照，一位美丽的年轻女子轻柔地将一只虎斑猫抱在脸旁。女子拥有自然发光的肌肤、淡雅的妆容和温暖、宁静的笑容。猫咪有着引人注目的黄色眼睛、细致的毛发纹理和平静的表情。\n青色渐变背景，柔和漫射的影棚灯光，轻柔的阴影，浅景深，超逼真的皮肤和毛发细节，85mm 镜头，居中构图，情感连接，舒适温馨的氛围，专业摄影，8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "暖心女人与猫咪肖像 生成一张柔和、超写实的年轻女性工作室肖像的提示，她轻柔地拥抱着一只虎斑猫，重点突出皮肤和毛发的超现实细节，背景为青色渐变，营造出舒适、温馨的氛围，采用 85mm 镜头效果。 a soft, heartwarming studio portrait of a beautiful young woman gently hugging a tabby cat close to her face. the woman has natural glowing skin, subtle makeup, and a warm, peaceful smile. the cat has striking yellow eyes, detailed fur texture, and a calm expression.\nteal gradient background, soft diffused studio lighting, gentle shadows, shallow depth of field, ultra-realistic skin and fur detail, 85mm lens, centered composition, emotional connection, cozy and wholesome mood, professional photography, 8k resolution. 一张柔和、温馨的影棚肖像照，一位美丽的年轻女子轻柔地将一只虎斑猫抱在脸旁。女子拥有自然发光的肌肤、淡雅的妆容和温暖、宁静的笑容。猫咪有着引人注目的黄色眼睛、细致的毛发纹理和平静的表情。\n青色渐变背景，柔和漫射的影棚灯光，轻柔的阴影，浅景深，超逼真的皮肤和毛发细节，85mm 镜头，居中构图，情感连接，舒适温馨的氛围，专业摄影，8k 分辨率。 taaruk 11066",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11142,
+      "title": "Grok Video Generation from Nano Banana 2 Image",
+      "description": "Grok 根据 Nano Banana 2 创建的静态图像（使用引用文章中的提示）生成的视频。该视频提示侧重于高速、杂技般的滑板特技，并带有多个镜头切换和 EDM 音乐。",
+      "sourceLink": "https://x.com/tokyo_Valentine/status/2027558492522131651",
+      "sourcePublishedAt": "2026-02-28T01:36:29.000Z",
+      "author": {
+        "name": "とすくん",
+        "link": "https://x.com/tokyo_Valentine"
+      },
+      "content": "Quality: Live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\nCuts: Footage composed of cuts from various camera angles, including aerial and drone shots.\nMusic: EDM\nScene 1:\nMoving at insane speeds.\nInsane skateboarding techniques, super-fast skateboarding techniques, super-super-fast, super-acrobatic skateboard tricks.\n\nScene 2:\nSuper-super-super-super-fast, super-acrobatic skateboard tricks.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "质量：真人动作，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人动作。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：EDM\n场景 1：\n以惊人的速度移动。\n疯狂的滑板技巧，超高速滑板技巧，超超高速，超杂技滑板特技。\n\n场景 2：\n超超超超超高速，超杂技滑板特技。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "grok video generation from nano banana 2 image grok 根据 nano banana 2 创建的静态图像（使用引用文章中的提示）生成的视频。该视频提示侧重于高速、杂技般的滑板特技，并带有多个镜头切换和 edm 音乐。 quality: live action, high-speed cuts, numerous frames, 24fps, photorealistic, high-quality live action. 2.5x speed action.\ncuts: footage composed of cuts from various camera angles, including aerial and drone shots.\nmusic: edm\nscene 1:\nmoving at insane speeds.\ninsane skateboarding techniques, super-fast skateboarding techniques, super-super-fast, super-acrobatic skateboard tricks.\n\nscene 2:\nsuper-super-super-super-fast, super-acrobatic skateboard tricks. 质量：真人动作，高速剪辑，大量帧数，24fps，照片级真实感，高质量真人动作。2.5 倍速动作。\n剪辑：由多个摄像机角度（包括航拍和无人机镜头）剪辑而成的素材。\n音乐：edm\n场景 1：\n以惊人的速度移动。\n疯狂的滑板技巧，超高速滑板技巧，超超高速，超杂技滑板特技。\n\n场景 2：\n超超超超超高速，超杂技滑板特技。 とすくん 11142",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11146,
+      "title": "凯恩斯写作的电影画面",
+      "description": "一位用户要求 Nano Banana 2.0 生成一张凯恩斯坐在扶手椅上写作的电影感图片，他们对结果印象深刻。",
+      "sourceLink": "https://x.com/luanufal/status/2027547653572014362",
+      "sourcePublishedAt": "2026-02-28T00:53:25.000Z",
+      "author": {
+        "name": "Luan Gomes",
+        "link": "https://x.com/luanufal"
+      },
+      "content": "gerar uma imagem cinematográfica de Keynes escrevendo algo sentado numa poltrona",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346697046_zobzws_HCNLy9KWQAAjcc9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346697046_zobzws_HCNLy9KWQAAjcc9-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "生成一张电影风格的图片，内容是凯恩斯坐在扶手椅上写东西。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "凯恩斯写作的电影画面 一位用户要求 nano banana 2.0 生成一张凯恩斯坐在扶手椅上写作的电影感图片，他们对结果印象深刻。 gerar uma imagem cinematográfica de keynes escrevendo algo sentado numa poltrona 生成一张电影风格的图片，内容是凯恩斯坐在扶手椅上写东西。 luan gomes 11146",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11082,
+      "title": "北极的巨型 Monster Energy 罐",
+      "description": "一个结构化的 JSON 提示，用于 Nano Banana Pro 和 GPT Image 1.5，以生成一张电影级、超现实的图像：一个巨大的、里程碑式的 Monster Energy 罐子，部分被冻结在北极。该提示详细说明了环境（冰、雪）、比例参考（压雪车、穿着红色派克大衣的科学家）、低角度视角以及技术渲染细节（8k、HDR、超详细纹理）。",
+      "sourceLink": "https://x.com/mehvishs25/status/2027542254823608378",
+      "sourcePublishedAt": "2026-02-28T00:31:58.000Z",
+      "author": {
+        "name": "Meem",
+        "link": "https://x.com/mehvishs25"
+      },
+      "content": "{\n  \"scene_metadata\": {\n    \"resolution\": \"8k\",\n    \"aspect_ratio\": \"2:3\",\n    \"style\": \"cinematic_realism\",\n    \"rendering\": [\"HDR\", \"ultra-detailed-textures\"]\n  },\n  \"environment\": {\n    \"location\": \"Arctic\",\n    \"lighting\": \"Overcast arctic daylight\",\n    \"elements\": [\"Thick blue ice\", \"Deep snow\", \"Icicles\"]\n  },\n  \"subject\": {\n    \"primary\": \"Massive Monster Energy Can\",\n    \"scale\": \"Monumental / Megastructure\",\n    \"condition\": \"Partially frozen, frosted texture\",\n    \"details\": [\"Snow-filled pull-tab\", \"Ice-covered logo\"]\n  },\n  \"composition\": {\n    \"camera_angle\": \"Low-angle wide perspective\",\n    \"scale_reference\": [\n      {\"entity\": \"Snowcat vehicle\", \"count\": 1},\n      {\"entity\": \"Scientists\", \"outfit\": \"Red parkas\"}\n    ]\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346670677_9abv3z_HCNG67fakAAUlYW.jpg",
+        "https://cms-assets.youmind.com/media/1772346670749_e16h8h_HCNG67cagAAoSpf.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346670677_9abv3z_HCNG67fakAAUlYW-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1772346670749_e16h8h_HCNG67cagAAoSpf-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene_metadata\": {\n    \"resolution\": \"8k\",\n    \"aspect_ratio\": \"2:3\",\n    \"style\": \"cinematic_realism\",\n    \"rendering\": [\"HDR\", \"ultra-detailed-textures\"]\n  },\n  \"environment\": {\n    \"location\": \"北极\",\n    \"lighting\": \"阴沉的北极日光\",\n    \"elements\": [\"厚厚的蓝色冰层\", \"深厚的积雪\", \"冰柱\"]\n  },\n  \"subject\": {\n    \"primary\": \"巨大的魔爪能量饮料罐\",\n    \"scale\": \"纪念碑式 / 巨型结构\",\n    \"condition\": \"部分结冰，磨砂质感\",\n    \"details\": [\"积雪覆盖的拉环\", \"结冰的标志\"]\n  },\n  \"composition\": {\n    \"camera_angle\": \"低角度广角透视\",\n    \"scale_reference\": [\n      {\"entity\": \"履带式雪地车\", \"count\": 1},\n      {\"entity\": \"科学家\", \"outfit\": \"红色派克大衣\"}\n    ]\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "北极的巨型 monster energy 罐 一个结构化的 json 提示，用于 nano banana pro 和 gpt image 1.5，以生成一张电影级、超现实的图像：一个巨大的、里程碑式的 monster energy 罐子，部分被冻结在北极。该提示详细说明了环境（冰、雪）、比例参考（压雪车、穿着红色派克大衣的科学家）、低角度视角以及技术渲染细节（8k、hdr、超详细纹理）。 {\n  \"scene_metadata\": {\n    \"resolution\": \"8k\",\n    \"aspect_ratio\": \"2:3\",\n    \"style\": \"cinematic_realism\",\n    \"rendering\": [\"hdr\", \"ultra-detailed-textures\"]\n  },\n  \"environment\": {\n    \"location\": \"arctic\",\n    \"lighting\": \"overcast arctic daylight\",\n    \"elements\": [\"thick blue ice\", \"deep snow\", \"icicles\"]\n  },\n  \"subject\": {\n    \"primary\": \"massive monster energy can\",\n    \"scale\": \"monumental / megastructure\",\n    \"condition\": \"partially frozen, frosted texture\",\n    \"details\": [\"snow-filled pull-tab\", \"ice-covered logo\"]\n  },\n  \"composition\": {\n    \"camera_angle\": \"low-angle wide perspective\",\n    \"scale_reference\": [\n      {\"entity\": \"snowcat vehicle\", \"count\": 1},\n      {\"entity\": \"scientists\", \"outfit\": \"red parkas\"}\n    ]\n  }\n} ```json\n{\n  \"scene_metadata\": {\n    \"resolution\": \"8k\",\n    \"aspect_ratio\": \"2:3\",\n    \"style\": \"cinematic_realism\",\n    \"rendering\": [\"hdr\", \"ultra-detailed-textures\"]\n  },\n  \"environment\": {\n    \"location\": \"北极\",\n    \"lighting\": \"阴沉的北极日光\",\n    \"elements\": [\"厚厚的蓝色冰层\", \"深厚的积雪\", \"冰柱\"]\n  },\n  \"subject\": {\n    \"primary\": \"巨大的魔爪能量饮料罐\",\n    \"scale\": \"纪念碑式 / 巨型结构\",\n    \"condition\": \"部分结冰，磨砂质感\",\n    \"details\": [\"积雪覆盖的拉环\", \"结冰的标志\"]\n  },\n  \"composition\": {\n    \"camera_angle\": \"低角度广角透视\",\n    \"scale_reference\": [\n      {\"entity\": \"履带式雪地车\", \"count\": 1},\n      {\"entity\": \"科学家\", \"outfit\": \"红色派克大衣\"}\n    ]\n  }\n}\n``` meem 11082",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 123,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

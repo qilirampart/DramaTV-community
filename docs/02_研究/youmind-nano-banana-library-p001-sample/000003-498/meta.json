@@ -1,0 +1,30 @@
+{
+  "rank": 3,
+  "id": 498,
+  "title": "手绘风格标题图片提示（来自照片）",
+  "description": "手绘风格的头部图片，描绘一个人正在介绍 Nano Banana Pro。",
+  "language": "ja",
+  "authorName": "セミナー講師専門AIコンシェルジュ｜工藤 晶",
+  "authorLink": "https://x.com/akirakudo_ai",
+  "featured": true,
+  "sourceLink": "https://x.com/akirakudo_ai/status/1992096860765561190",
+  "sourcePublishedAt": "2025-11-22T05:04:37.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 1,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg",
+      "02.jpg"
+    ],
+    "thumbs": []
+  }
+}

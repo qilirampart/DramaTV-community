@@ -1,0 +1,30 @@
+{
+  "rank": 12,
+  "id": 13335,
+  "title": "Knolling 风格平铺提示词：带标签的拆解部件",
+  "description": "这是一份专为 Nano Banana Pro 设计的详细提示词，旨在将任何物体（基于参考图像）转化为超写实的 8K Knolling 风格平铺图像。该提示词要求将物体拆解为 8 至 12 个带有标签的组件，并以精确的网格排列，强调技术编辑美学、完美的对齐以及真实的材质渲染。",
+  "language": "en",
+  "authorName": "Tischeins",
+  "authorLink": "https://x.com/tisch_eins",
+  "featured": false,
+  "sourceLink": "https://x.com/tisch_eins/status/2041962183207059670",
+  "sourcePublishedAt": "2026-04-08T19:31:36.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 0,
+  "needReferenceImages": true,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg",
+      "02.jpg"
+    ],
+    "thumbs": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "prompt": "A stylish young blonde woman with long wavy hair standing on a European city street, in front of a black Mercedes G-Wagon. She is holding a green juice in a clear cup with a straw, wearing a fitted white long-sleeve crop top and loose light-wash jeans. She has a pink shoulder bag, minimal gold jewelry, and natural makeup. Background features elegant beige townhouse buildings with white trim and balconies, soft overcast lighting, luxury lifestyle aesthetic, candid street photography.",
+  "style": "photorealistic, luxury lifestyle, influencer aesthetic",
+  "camera": "iPhone photo, 50mm lens look, shallow depth of field",
+  "lighting": "natural daylight, soft overcast, diffused lighting",
+  "quality": "ultra realistic, 8k, high detail",
+  "composition": "centered subject, full body, slightly angled pose, street-level perspective",
+  "aspect_ratio": "9:16"
+}

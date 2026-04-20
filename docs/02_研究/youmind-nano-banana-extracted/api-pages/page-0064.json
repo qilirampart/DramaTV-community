@@ -1,0 +1,510 @@
+{
+  "prompts": [
+    {
+      "id": 12082,
+      "title": "iPhone 镜面自拍，搭配格纹露脐上衣",
+      "description": "一个高度详细的提示，用于生成一张用 iPhone 拍摄的镜面自拍，强调镜头畸变和特定的身体特征（丰满的胸部、突出的臀部、高腰臀比）。主体背对镜子站立，回头看，穿着配套的格子露脐上衣和超短裤，需要一张参考图片以保持面部一致性。",
+      "sourceLink": "https://x.com/BananaPromptPro/status/2032551837489074673",
+      "sourcePublishedAt": "2026-03-13T20:18:15.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/BananaPromptPro"
+      },
+      "content": "{\n  \"photo_type\": \"Mirror Selfie captured on an iPhone 16 Pro front camera with typical arm distortion and lens curvature\",\n  \"subject\": {\n    \"age\": \"Young adult\",\n    \"body_type\": \"adult woman with mature features, outer-full fullness, Large fuller chest measurement, Large prominent chest projection, deep décolletage, tapered waistline, high waist-to-hip contrast, extremely Large peach-shaped glute definition, thick, powerful thighs, prominent hip curve, princess seams enhancing the bust\",\n    \"description\": \"An adult woman with an oval-shaped face and a smooth, fair complexion. She has almond-shaped eyes with brown irises, framed by prominent, dark, and well-arched eyebrows. Her nose is straight with a slightly rounded tip, and her lips are full and symmetrical with a defined cupid's bow. She is framed by long, dark, wavy hair styled over one shoulder. Notable features include several tattoos visible on her right shoulder and arm.\",\n    \"ethnicity\": \"Caucasian\",\n    \"expression\": \"Neutral, focused on the smartphone screen\",\n    \"gender\": \"Female\",\n    \"mirror_rules\": \"Reflected image must show the subject's front and the room's messy background; the phone case text should appear reversed and slightly out of focus due to the mirror's surface texture.\",\n    \"pose_description\": \"Standing with her back to a large wall mirror, head turned over her left shoulder to look at the phone she is holding with both hands to capture the reflection of her profile and backside.\",\n    \"tattoos\": \"Several dark ink tattoos visible on her right shoulder and upper arm.\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"Maroon, brown, and cream\",\n      \"details\": \"High-waisted fit with a plaid checkered pattern\",\n      \"fabric\": \"Soft cotton blend\",\n      \"type\": \"Tight Micro shorts\"\n    },\n    \"fit_and_physics\": \"The fabric shows significant tension and compression creases around the waistband. There is visible stretching across the glutes with princess seams slightly straining to follow the body's curves.\",\n    \"outerwear\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"shoes\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"top\": {\n      \"color\": \"Maroon, brown, and cream\",\n      \"details\": \"Matching plaid checkered pattern, cropped length with thin straps\",\n      \"fabric\": \"Soft cotton blend\",\n      \"type\": \"Crop top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"Dark brown\",\n    \"interaction\": \"Hair falls naturally over her left shoulder and down her back, following the turn of her head.\",\n    \"style\": \"Long, dark, wavy hair styled over one shoulder\"\n  },\n  \"face\": {\n    \"description\": \"Use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"Prominent, dark, and well-\"\n  }",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469784746_pluf5e_HDUS57laQAAVPL_.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469784746_pluf5e_HDUS57laQAAVPL_-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"photo_type\": \"使用 iPhone 16 Pro 前置摄像头拍摄的镜面自拍，具有典型的手臂畸变和镜头曲率\",\n  \"subject\": {\n    \"age\": \"青年\",\n    \"body_type\": \"成年女性，面部特征成熟，外部丰满，胸部尺寸大而丰满，胸部突出度大，深 V 领，腰部收窄，腰臀比高，臀部呈极其饱满的桃形，大腿粗壮有力，臀部曲线突出，公主缝线凸显胸部\",\n    \"description\": \"一位成年女性，鹅蛋脸，肤色光滑白皙。她有一双杏仁状的眼睛，棕色虹膜，被突出、深色且弧度优美的眉毛框住。她的鼻子笔直，鼻尖略圆，嘴唇饱满对称，唇峰清晰。她留着一头长长的深色波浪发，披在一侧肩膀上。显著特征包括右肩和手臂上可见的几处纹身。\",\n    \"ethnicity\": \"白种人\",\n    \"expression\": \"中性，专注于智能手机屏幕\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"反射图像必须显示主体正面和房间凌乱的背景；由于镜面纹理，手机壳上的文字应反向显示且略微失焦。\",\n    \"pose_description\": \"背对一面大镜子站立，头转向左肩，看着她双手拿着的手机，以捕捉她侧面和背部的反射。\",\n    \"tattoos\": \"右肩和上臂上可见几处深色墨水纹身。\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"栗色、棕色和米色\",\n      \"details\": \"高腰剪裁，格子图案\",\n      \"fabric\": \"柔软棉混纺\",\n      \"type\": \"紧身超短裤\"\n    },\n    \"fit_and_physics\": \"面料在腰部周围显示出明显的张力和压缩褶皱。臀部有明显的拉伸，公主缝线略微紧绷以贴合身体曲线。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"top\": {\n      \"color\": \"栗色、棕色和米色\",\n      \"details\": \"配套的格子图案，露脐短款，细肩带\",\n      \"fabric\": \"柔软棉混纺\",\n      \"type\": \"露脐上衣\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"深棕色\",\n    \"interaction\": \"头发自然地垂落在她的左肩和背部，随着她头部的转动而摆动。\",\n    \"style\": \"长长的深色波浪发，披在一侧肩膀上\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"突出、深色且弧度优美\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "iphone 镜面自拍，搭配格纹露脐上衣 一个高度详细的提示，用于生成一张用 iphone 拍摄的镜面自拍，强调镜头畸变和特定的身体特征（丰满的胸部、突出的臀部、高腰臀比）。主体背对镜子站立，回头看，穿着配套的格子露脐上衣和超短裤，需要一张参考图片以保持面部一致性。 {\n  \"photo_type\": \"mirror selfie captured on an iphone 16 pro front camera with typical arm distortion and lens curvature\",\n  \"subject\": {\n    \"age\": \"young adult\",\n    \"body_type\": \"adult woman with mature features, outer-full fullness, large fuller chest measurement, large prominent chest projection, deep décolletage, tapered waistline, high waist-to-hip contrast, extremely large peach-shaped glute definition, thick, powerful thighs, prominent hip curve, princess seams enhancing the bust\",\n    \"description\": \"an adult woman with an oval-shaped face and a smooth, fair complexion. she has almond-shaped eyes with brown irises, framed by prominent, dark, and well-arched eyebrows. her nose is straight with a slightly rounded tip, and her lips are full and symmetrical with a defined cupid's bow. she is framed by long, dark, wavy hair styled over one shoulder. notable features include several tattoos visible on her right shoulder and arm.\",\n    \"ethnicity\": \"caucasian\",\n    \"expression\": \"neutral, focused on the smartphone screen\",\n    \"gender\": \"female\",\n    \"mirror_rules\": \"reflected image must show the subject's front and the room's messy background; the phone case text should appear reversed and slightly out of focus due to the mirror's surface texture.\",\n    \"pose_description\": \"standing with her back to a large wall mirror, head turned over her left shoulder to look at the phone she is holding with both hands to capture the reflection of her profile and backside.\",\n    \"tattoos\": \"several dark ink tattoos visible on her right shoulder and upper arm.\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"maroon, brown, and cream\",\n      \"details\": \"high-waisted fit with a plaid checkered pattern\",\n      \"fabric\": \"soft cotton blend\",\n      \"type\": \"tight micro shorts\"\n    },\n    \"fit_and_physics\": \"the fabric shows significant tension and compression creases around the waistband. there is visible stretching across the glutes with princess seams slightly straining to follow the body's curves.\",\n    \"outerwear\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"shoes\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"top\": {\n      \"color\": \"maroon, brown, and cream\",\n      \"details\": \"matching plaid checkered pattern, cropped length with thin straps\",\n      \"fabric\": \"soft cotton blend\",\n      \"type\": \"crop top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"dark brown\",\n    \"interaction\": \"hair falls naturally over her left shoulder and down her back, following the turn of her head.\",\n    \"style\": \"long, dark, wavy hair styled over one shoulder\"\n  },\n  \"face\": {\n    \"description\": \"use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"prominent, dark, and well-\"\n  } ```json\n{\n  \"photo_type\": \"使用 iphone 16 pro 前置摄像头拍摄的镜面自拍，具有典型的手臂畸变和镜头曲率\",\n  \"subject\": {\n    \"age\": \"青年\",\n    \"body_type\": \"成年女性，面部特征成熟，外部丰满，胸部尺寸大而丰满，胸部突出度大，深 v 领，腰部收窄，腰臀比高，臀部呈极其饱满的桃形，大腿粗壮有力，臀部曲线突出，公主缝线凸显胸部\",\n    \"description\": \"一位成年女性，鹅蛋脸，肤色光滑白皙。她有一双杏仁状的眼睛，棕色虹膜，被突出、深色且弧度优美的眉毛框住。她的鼻子笔直，鼻尖略圆，嘴唇饱满对称，唇峰清晰。她留着一头长长的深色波浪发，披在一侧肩膀上。显著特征包括右肩和手臂上可见的几处纹身。\",\n    \"ethnicity\": \"白种人\",\n    \"expression\": \"中性，专注于智能手机屏幕\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"反射图像必须显示主体正面和房间凌乱的背景；由于镜面纹理，手机壳上的文字应反向显示且略微失焦。\",\n    \"pose_description\": \"背对一面大镜子站立，头转向左肩，看着她双手拿着的手机，以捕捉她侧面和背部的反射。\",\n    \"tattoos\": \"右肩和上臂上可见几处深色墨水纹身。\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"栗色、棕色和米色\",\n      \"details\": \"高腰剪裁，格子图案\",\n      \"fabric\": \"柔软棉混纺\",\n      \"type\": \"紧身超短裤\"\n    },\n    \"fit_and_physics\": \"面料在腰部周围显示出明显的张力和压缩褶皱。臀部有明显的拉伸，公主缝线略微紧绷以贴合身体曲线。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"top\": {\n      \"color\": \"栗色、棕色和米色\",\n      \"details\": \"配套的格子图案，露脐短款，细肩带\",\n      \"fabric\": \"柔软棉混纺\",\n      \"type\": \"露脐上衣\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"深棕色\",\n    \"interaction\": \"头发自然地垂落在她的左肩和背部，随着她头部的转动而摆动。\",\n    \"style\": \"长长的深色波浪发，披在一侧肩膀上\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"突出、深色且弧度优美\"\n  }\n}\n``` layla 🌙 12082",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12073,
+      "title": "深夜厨房 iPhone 抓拍",
+      "description": "一个旨在生成超逼真、深夜 iPhone 抓拍照片的提示，内容为一名亚洲女性在厨房中，被冰箱灯照亮。该提示使用详细的元数据来设置相机、灯光和特定的角色特征，以实现真实的、手持拍摄的美感。",
+      "sourceLink": "https://x.com/bananababydoll/status/2032548502023045170",
+      "sourcePublishedAt": "2026-03-13T20:05:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro Max\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"3:4\",\n    \"style\": \"late night iphone candid\",\n    \"quality\": \"ultra photorealistic\",\n    \"time_of_day\": \"1:18 AM\",\n    \"lighting_temperature\": \"cool fridge light + warm ceiling mix\",\n    \"natural_mobile_hdr\": true,\n    \"handheld_realism\": true\n  },\n\n  \"character_lock\": {\n    \"ethnicity\": \"Asian (Korean/Japanese mix)\",\n    \"face\": \"sharp jawline, glossy lips\",\n    \"body\": \"slim thick, tight waist, round hips\",\n    \"hair\": \"jet black high ponytail slightly loosened\"\n  },\n\n  \"scene\": {\n    \"location\": \"kitchen, fridge door open\",\n    \"background\": \"dark kitchen, fridge light illuminating body\"\n  },\n\n  \"pose\": {\n    \"position\": \"standing sideways, one hand holding fridge door\",\n    \"expression\": \"caught off guard smirk\",\n    \"camera_angle\": \"slightly low, candid friend shot\"\n  },\n\n  \"outfit\": {\n    \"top\": \"thin black ribbed tank top, braless, soft stretch fabric\",\n    \"bottom\": \"low-rise satin pajama pants, dark navy, relaxed fit\"\n  },\n\n  \"details\": {\n    \"lighting_effect\": \"fridge light creating highlights on collarbones\",\n    \"skin_texture\": \"realistic shine and pores\",\n    \"grain\": \"subtle low-light grain\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469780051_5o9m2p_HCfChfsXcAEBD1p.jpg",
+        "https://cms-assets.youmind.com/media/1773469780135_7wuh3q_HCfChMFXcAAHrua.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469780051_5o9m2p_HCfChfsXcAEBD1p-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773469780135_7wuh3q_HCfChMFXcAAHrua-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro Max\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"3:4\",\n    \"style\": \"深夜 iPhone 抓拍\",\n    \"quality\": \"超逼真照片级\",\n    \"time_of_day\": \"凌晨 1:18\",\n    \"lighting_temperature\": \"冷色冰箱灯光 + 暖色天花板灯光混合\",\n    \"natural_mobile_hdr\": true,\n    \"handheld_realism\": true\n  },\n  \"character_lock\": {\n    \"ethnicity\": \"亚洲人（韩国/日本混血）\",\n    \"face\": \"下颌线分明，唇部水润有光泽\",\n    \"body\": \"纤细丰腴，腰肢紧致，臀部圆润\",\n    \"hair\": \"乌黑高马尾，略微松散\"\n  },\n  \"scene\": {\n    \"location\": \"厨房，冰箱门开着\",\n    \"background\": \"黑暗的厨房，冰箱灯光照亮身体\"\n  },\n  \"pose\": {\n    \"position\": \"侧身站立，一只手扶着冰箱门\",\n    \"expression\": \"被抓拍时的狡黠笑容\",\n    \"camera_angle\": \"略低角度，朋友随手抓拍\"\n  },\n  \"outfit\": {\n    \"top\": \"黑色细罗纹背心，不穿内衣，柔软弹力面料\",\n    \"bottom\": \"低腰缎面睡裤，深海军蓝，宽松版型\"\n  },\n  \"details\": {\n    \"lighting_effect\": \"冰箱灯光在锁骨处形成高光\",\n    \"skin_texture\": \"逼真的光泽和毛孔\",\n    \"grain\": \"微妙的弱光颗粒感\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "深夜厨房 iphone 抓拍 一个旨在生成超逼真、深夜 iphone 抓拍照片的提示，内容为一名亚洲女性在厨房中，被冰箱灯照亮。该提示使用详细的元数据来设置相机、灯光和特定的角色特征，以实现真实的、手持拍摄的美感。 {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro max\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"3:4\",\n    \"style\": \"late night iphone candid\",\n    \"quality\": \"ultra photorealistic\",\n    \"time_of_day\": \"1:18 am\",\n    \"lighting_temperature\": \"cool fridge light + warm ceiling mix\",\n    \"natural_mobile_hdr\": true,\n    \"handheld_realism\": true\n  },\n\n  \"character_lock\": {\n    \"ethnicity\": \"asian (korean/japanese mix)\",\n    \"face\": \"sharp jawline, glossy lips\",\n    \"body\": \"slim thick, tight waist, round hips\",\n    \"hair\": \"jet black high ponytail slightly loosened\"\n  },\n\n  \"scene\": {\n    \"location\": \"kitchen, fridge door open\",\n    \"background\": \"dark kitchen, fridge light illuminating body\"\n  },\n\n  \"pose\": {\n    \"position\": \"standing sideways, one hand holding fridge door\",\n    \"expression\": \"caught off guard smirk\",\n    \"camera_angle\": \"slightly low, candid friend shot\"\n  },\n\n  \"outfit\": {\n    \"top\": \"thin black ribbed tank top, braless, soft stretch fabric\",\n    \"bottom\": \"low-rise satin pajama pants, dark navy, relaxed fit\"\n  },\n\n  \"details\": {\n    \"lighting_effect\": \"fridge light creating highlights on collarbones\",\n    \"skin_texture\": \"realistic shine and pores\",\n    \"grain\": \"subtle low-light grain\"\n  }\n} ```json\n{\n  \"meta\": {\n    \"camera\": \"iphone 17 pro max\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"3:4\",\n    \"style\": \"深夜 iphone 抓拍\",\n    \"quality\": \"超逼真照片级\",\n    \"time_of_day\": \"凌晨 1:18\",\n    \"lighting_temperature\": \"冷色冰箱灯光 + 暖色天花板灯光混合\",\n    \"natural_mobile_hdr\": true,\n    \"handheld_realism\": true\n  },\n  \"character_lock\": {\n    \"ethnicity\": \"亚洲人（韩国/日本混血）\",\n    \"face\": \"下颌线分明，唇部水润有光泽\",\n    \"body\": \"纤细丰腴，腰肢紧致，臀部圆润\",\n    \"hair\": \"乌黑高马尾，略微松散\"\n  },\n  \"scene\": {\n    \"location\": \"厨房，冰箱门开着\",\n    \"background\": \"黑暗的厨房，冰箱灯光照亮身体\"\n  },\n  \"pose\": {\n    \"position\": \"侧身站立，一只手扶着冰箱门\",\n    \"expression\": \"被抓拍时的狡黠笑容\",\n    \"camera_angle\": \"略低角度，朋友随手抓拍\"\n  },\n  \"outfit\": {\n    \"top\": \"黑色细罗纹背心，不穿内衣，柔软弹力面料\",\n    \"bottom\": \"低腰缎面睡裤，深海军蓝，宽松版型\"\n  },\n  \"details\": {\n    \"lighting_effect\": \"冰箱灯光在锁骨处形成高光\",\n    \"skin_texture\": \"逼真的光泽和毛孔\",\n    \"grain\": \"微妙的弱光颗粒感\"\n  }\n}\n``` babydoll 12073",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12109,
+      "title": "戏剧性黑白家庭肖像提示",
+      "description": "生成富有表现力的黑白特写工作室肖像的两个独立提示，描绘一位母亲和她的孩子们（一男一女），要求 100% 保留上传参考照片中的面部相似度，采用戏剧性布光，并着重表现母子之间的亲密关系。",
+      "sourceLink": "https://x.com/Aipromptslap/status/2032540081471279481",
+      "sourcePublishedAt": "2026-03-13T19:31:32.000Z",
+      "author": {
+        "name": "Ai Prompts Lab",
+        "link": "https://x.com/Aipromptslap"
+      },
+      "content": "100% likeness, do not change facial features. Preserve realistic skin texture and pores, avoiding plastic smoothing. Maintain natural proportions. Positioned one behind the other. Create a close-up portrait without altering the facial features. Black and white, expressive close-up studio portrait, focused on the faces of a woman and a boy. The woman is standing in the background, her mouth is completely covered by the boy's head, only her eyes and forehead are visible. The boy is in the foreground, looking directly into the camera with an important, serious expression. He is wearing a black turtleneck. Dark background. The lighting is soft but dramatic, emphasizing only the facial features, with a high lighting placement and a cinematic feel. Appearance and facial features must be strictly preserved compared to the reference photo. Atmosphere: the bond between son and mother. Vertical portrait, 4K quality.\n\nPhoto 2: Mother with Girl\n\nPrompt ⤵️\n100% likeness, do not change facial features. Preserve realistic skin and pore texture, avoiding plastic smoothing. Maintain natural proportions. Positioned one behind the other. Create a close-up portrait without altering facial features. Black and white, expressive close-up studio portrait focused on the faces of a woman and a little girl. The woman stands in the background, her mouth is completely covered by the girl's head, only her eyes and forehead are visible. The little girl is in the foreground, looking directly into the camera with a serious expression. She is wearing a black turtleneck. The background is dark. The lighting is soft but dramatic, emphasizing only the facial features, high lighting placement, cinematic subject.\nAppearance and facial features are strictly preserved compared to the reference photo. Atmosphere: the bond between daughter and mother. Vertical portrait, 4K quality.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469800092_jqbs91_HDUIastXwAANIsN.jpg",
+        "https://cms-assets.youmind.com/media/1773469800228_qaz68z_HDUIasqXgAA2CAB.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469800092_jqbs91_HDUIastXwAANIsN-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773469800228_qaz68z_HDUIasqXgAA2CAB-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "100% 相似度，不改变面部特征。保留真实的皮肤纹理和毛孔，避免塑料般的平滑感。保持自然比例。一前一后排列。创作一张特写肖像，不改变面部特征。{argument name=\"color style\" default=\"Black and white\"}，富有表现力的特写工作室肖像，聚焦于一位女性和一个男孩的面部。女性站在背景中，她的嘴巴完全被男孩的头部遮挡，只露出眼睛和额头。男孩在前景中，带着重要而严肃的表情直视镜头。他穿着黑色高领毛衣。深色背景。灯光柔和但富有戏剧性，只强调面部特征，高位布光，具有电影感。外观和面部特征必须严格保留与参考照片一致。氛围：母子之间的纽带。竖版肖像，4K 画质。\n\n照片 2：母亲与女孩\n\n提示 ⤵️\n100% 相似度，不改变面部特征。保留真实的皮肤和毛孔纹理，避免塑料般的平滑感。保持自然比例。一前一后排列。创作一张特写肖像，不改变面部特征。黑白，富有表现力的特写工作室肖像，聚焦于一位女性和一个小女孩的面部。女性站在背景中，她的嘴巴完全被女孩的头部遮挡，只露出眼睛和额头。小女孩在前景中，带着严肃的表情直视镜头。她穿着黑色高领毛衣。背景是深色的。灯光柔和但富有戏剧性，只强调面部特征，高位布光，电影感主题。\n外观和面部特征严格保留与参考照片一致。氛围：母女之间的纽带。竖版肖像，4K 画质。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "戏剧性黑白家庭肖像提示 生成富有表现力的黑白特写工作室肖像的两个独立提示，描绘一位母亲和她的孩子们（一男一女），要求 100% 保留上传参考照片中的面部相似度，采用戏剧性布光，并着重表现母子之间的亲密关系。 100% likeness, do not change facial features. preserve realistic skin texture and pores, avoiding plastic smoothing. maintain natural proportions. positioned one behind the other. create a close-up portrait without altering the facial features. black and white, expressive close-up studio portrait, focused on the faces of a woman and a boy. the woman is standing in the background, her mouth is completely covered by the boy's head, only her eyes and forehead are visible. the boy is in the foreground, looking directly into the camera with an important, serious expression. he is wearing a black turtleneck. dark background. the lighting is soft but dramatic, emphasizing only the facial features, with a high lighting placement and a cinematic feel. appearance and facial features must be strictly preserved compared to the reference photo. atmosphere: the bond between son and mother. vertical portrait, 4k quality.\n\nphoto 2: mother with girl\n\nprompt ⤵️\n100% likeness, do not change facial features. preserve realistic skin and pore texture, avoiding plastic smoothing. maintain natural proportions. positioned one behind the other. create a close-up portrait without altering facial features. black and white, expressive close-up studio portrait focused on the faces of a woman and a little girl. the woman stands in the background, her mouth is completely covered by the girl's head, only her eyes and forehead are visible. the little girl is in the foreground, looking directly into the camera with a serious expression. she is wearing a black turtleneck. the background is dark. the lighting is soft but dramatic, emphasizing only the facial features, high lighting placement, cinematic subject.\nappearance and facial features are strictly preserved compared to the reference photo. atmosphere: the bond between daughter and mother. vertical portrait, 4k quality. 100% 相似度，不改变面部特征。保留真实的皮肤纹理和毛孔，避免塑料般的平滑感。保持自然比例。一前一后排列。创作一张特写肖像，不改变面部特征。{argument name=\"color style\" default=\"black and white\"}，富有表现力的特写工作室肖像，聚焦于一位女性和一个男孩的面部。女性站在背景中，她的嘴巴完全被男孩的头部遮挡，只露出眼睛和额头。男孩在前景中，带着重要而严肃的表情直视镜头。他穿着黑色高领毛衣。深色背景。灯光柔和但富有戏剧性，只强调面部特征，高位布光，具有电影感。外观和面部特征必须严格保留与参考照片一致。氛围：母子之间的纽带。竖版肖像，4k 画质。\n\n照片 2：母亲与女孩\n\n提示 ⤵️\n100% 相似度，不改变面部特征。保留真实的皮肤和毛孔纹理，避免塑料般的平滑感。保持自然比例。一前一后排列。创作一张特写肖像，不改变面部特征。黑白，富有表现力的特写工作室肖像，聚焦于一位女性和一个小女孩的面部。女性站在背景中，她的嘴巴完全被女孩的头部遮挡，只露出眼睛和额头。小女孩在前景中，带着严肃的表情直视镜头。她穿着黑色高领毛衣。背景是深色的。灯光柔和但富有戏剧性，只强调面部特征，高位布光，电影感主题。\n外观和面部特征严格保留与参考照片一致。氛围：母女之间的纽带。竖版肖像，4k 画质。 ai prompts lab 12109",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12094,
+      "title": "安雅·泰勒-乔伊 (Anya Taylor-Joy) 蜘蛛侠 Cosplay 镜面自拍",
+      "description": "一个高度详细、结构化的提示，用于生成一张亲密、情绪化的镜面自拍，主角是一位成年女性，外貌酷似安雅·泰勒-乔伊 (Anya Taylor-Joy)，身穿“IG-baddie”风格的蜘蛛侠紧身衣。场景设定在一个现代卧室，光线昏暗，散发着温暖的琥珀色光芒，阴影深邃，背景中有一位身着经典蜘蛛侠角色扮演服装的男性。",
+      "sourceLink": "https://x.com/lexx_aura/status/2032536154856398890",
+      "sourcePublishedAt": "2026-03-13T19:15:56.000Z",
+      "author": {
+        "name": "Lex",
+        "link": "https://x.com/lexx_aura"
+      },
+      "content": "{\n  \"subject\": {\n    \"description\": \"Young female adult closely resembling Anya Taylor-Joy, featuring long, glossy, voluminous blonde hair styled in loose waves that perfectly frame her soft yet confident facial structure.\",\n    \"pose\": \"Seated cross-legged on the bedroom floor, hips angled subtly toward the mirror. Her spine is relaxed with shoulders rolled back casually as she holds a smartphone up to capture a mirror selfie.\",\n    \"expression\": \"Sultry, self-assured, and calm. She maintains a neutral expression with relaxed lips and confident, direct eye contact with her reflection.\",\n    \"attire\": {\n      \"type\": \"Form-fitting full-body spandex cosplay suit\",\n      \"design\": \"Feminine, 'IG-baddie' reinterpretation of a Spider-Man bodysuit\",\n      \"colors\": [\n        \"Vibrant yellow base\",\n        \"Crisp black web patterns\",\n        \"Central black spider emblem on the chest\"\n      ],\n      \"fit\": \"Ultra-snug and contour-hugging, designed to emphasize curves while preserving a sleek, athletic silhouette\",\n      \"styling_notes\": \"High-stretch, smooth fabric featuring a subtle sheen that interacts with low-light environments to accentuate the body's natural contours\"\n    },\n    \"beauty_details\": {\n      \"makeup\": \"Soft glam approach featuring subtle contouring, glossy lips, gently defined eyelashes, and natural, brushed-up brows\",\n      \"nails\": \"Extended, almond-shaped acrylics in a soft milky white or pale pink tone\",\n      \"accessories\": \"Kept to an absolute minimum to ensure the focus remains entirely on the pose and the bodysuit\"\n    }\n  },\n  \"setting\": {\n    \"location\": \"Modern, moody bedroom with a comfortable, lived-in aesthetic\",\n    \"elements\": [\n      \"A dark, casually unmade bed situated directly behind the subject\",\n      \"Softly folded neutral-toned sheets and blankets\",\n      \"A male figure in a classic Spider-Man cosplay seated casually on the edge of the bed near the subject, facing the camera\",\n      \"A large Avengers movie poster displayed prominently on the back wall\",\n      \"A softly glowing red-orange neon sign reading 'BigMotion AI' mounted in the background\",\n      \"An open closet revealing hanging clothes to add depth and environmental realism\"\n    ],\n    \"atmosphere\": \"Confident, intimate, late-night influencer aesthetic\"\n  },\n  \"lighting_and_color\": {\n    \"primary_source\": \"A warm, amber-toned bedside lamp casting light from behind and slightly to the side\",\n    \"effect\": \"Moody, low-key lighting producing a soft rim light that traces the subject's hair, shoulders, and torso, while deep shadows sculpt the overall figure\",\n    \"color_palette\": [\n      \"Warm amber tones\",\n      \"Deep, enveloping shadows\",\n      \"Dark navy lowlights\",\n      \"Punchy vibrant yellow from the suit\",\n      \"Red-orange neon luminescence\"\n    ],\n    \"contrast\": \"Highly contrasting elements with dramatic shadow falloff, creating a\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469791518_xlxbuv_HDUE1zFb0AAt9Gr.jpg",
+        "https://cms-assets.youmind.com/media/1773469791541_rge6mq_HDUE1zGbsAAbNzD.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469791518_xlxbuv_HDUE1zFb0AAt9Gr-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773469791541_rge6mq_HDUE1zGbsAAbNzD-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"description\": \"一位年轻的成年女性，与安雅·泰勒-乔伊 (Anya Taylor-Joy) 极为相似，拥有一头长而富有光泽、蓬松的金色秀发，发型为松散的波浪，完美地勾勒出她柔和而自信的面部轮廓。\",\n    \"pose\": \"盘腿坐在卧室地板上，臀部微妙地朝向镜子。她的脊椎放松，肩膀随意向后，举起智能手机自拍。\",\n    \"expression\": \"性感、自信、平静。她保持着中性的表情，嘴唇放松，眼神自信而直接地与镜中的自己对视。\",\n    \"attire\": {\n      \"type\": \"紧身连体氨纶紧身衣\",\n      \"design\": \"女性化、带有“IG 网红”风格的蜘蛛侠紧身衣重塑设计\",\n      \"colors\": [\n        \"鲜艳的黄色底色\",\n        \"清晰的黑色蜘蛛网图案\",\n        \"胸部中央的黑色蜘蛛标志\"\n      ],\n      \"fit\": \"超紧身、贴合曲线，旨在突出身体曲线，同时保持流畅、运动的轮廓\",\n      \"styling_notes\": \"高弹力、光滑面料，带有微妙的光泽，在弱光环境下能凸显身体的自然轮廓\"\n    },\n    \"beauty_details\": {\n      \"makeup\": \"柔和的魅力妆容，包括微妙的修容、光泽唇、轻柔勾勒的睫毛和自然上扬的眉毛\",\n      \"nails\": \"加长、杏仁形的亚克力美甲，呈柔和的乳白色或淡粉色调\",\n      \"accessories\": \"极简配饰，确保焦点完全集中在姿势和紧身衣上\"\n    }\n  },\n  \"setting\": {\n    \"location\": \"现代、氛围感十足的卧室，具有舒适、生活化的美感\",\n    \"elements\": [\n      \"一张深色、随意铺设的床，位于主体人物正后方\",\n      \"柔软折叠的米色床单和毯子\",\n      \"一个身着经典蜘蛛侠 cosplay 服装的男性人物，随意地坐在床边靠近主体人物的位置，面向镜头\",\n      \"一张大型复仇者联盟 (Avengers) 电影海报，醒目地展示在后墙上\",\n      \"一个柔和发光的红橙色霓虹灯招牌，上面写着“BigMotion AI”，安装在背景中\",\n      \"一个敞开的衣柜，露出挂着的衣服，增加深度和环境真实感\"\n    ],\n    \"atmosphere\": \"自信、私密、深夜网红风格\"\n  },\n  \"lighting_and_color\": {\n    \"primary_source\": \"一盏温暖的琥珀色床头灯，从后方和侧面投射光线\",\n    \"effect\": \"情绪化、低调的照明，产生柔和的轮廓光，勾勒出主体人物的头发、肩膀和躯干，同时深邃的阴影塑造出整体轮廓\",\n    \"color_palette\": [\n      \"温暖的琥珀色调\",\n      \"深邃、包围的阴影\",\n      \"深海军蓝的低光\",\n      \"紧身衣上醒目的鲜黄色\",\n      \"红橙色霓虹灯光\"\n    ],\n    \"contrast\": \"高对比度元素，具有戏剧性的阴影衰减，营造出一种\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "安雅·泰勒-乔伊 (anya taylor-joy) 蜘蛛侠 cosplay 镜面自拍 一个高度详细、结构化的提示，用于生成一张亲密、情绪化的镜面自拍，主角是一位成年女性，外貌酷似安雅·泰勒-乔伊 (anya taylor-joy)，身穿“ig-baddie”风格的蜘蛛侠紧身衣。场景设定在一个现代卧室，光线昏暗，散发着温暖的琥珀色光芒，阴影深邃，背景中有一位身着经典蜘蛛侠角色扮演服装的男性。 {\n  \"subject\": {\n    \"description\": \"young female adult closely resembling anya taylor-joy, featuring long, glossy, voluminous blonde hair styled in loose waves that perfectly frame her soft yet confident facial structure.\",\n    \"pose\": \"seated cross-legged on the bedroom floor, hips angled subtly toward the mirror. her spine is relaxed with shoulders rolled back casually as she holds a smartphone up to capture a mirror selfie.\",\n    \"expression\": \"sultry, self-assured, and calm. she maintains a neutral expression with relaxed lips and confident, direct eye contact with her reflection.\",\n    \"attire\": {\n      \"type\": \"form-fitting full-body spandex cosplay suit\",\n      \"design\": \"feminine, 'ig-baddie' reinterpretation of a spider-man bodysuit\",\n      \"colors\": [\n        \"vibrant yellow base\",\n        \"crisp black web patterns\",\n        \"central black spider emblem on the chest\"\n      ],\n      \"fit\": \"ultra-snug and contour-hugging, designed to emphasize curves while preserving a sleek, athletic silhouette\",\n      \"styling_notes\": \"high-stretch, smooth fabric featuring a subtle sheen that interacts with low-light environments to accentuate the body's natural contours\"\n    },\n    \"beauty_details\": {\n      \"makeup\": \"soft glam approach featuring subtle contouring, glossy lips, gently defined eyelashes, and natural, brushed-up brows\",\n      \"nails\": \"extended, almond-shaped acrylics in a soft milky white or pale pink tone\",\n      \"accessories\": \"kept to an absolute minimum to ensure the focus remains entirely on the pose and the bodysuit\"\n    }\n  },\n  \"setting\": {\n    \"location\": \"modern, moody bedroom with a comfortable, lived-in aesthetic\",\n    \"elements\": [\n      \"a dark, casually unmade bed situated directly behind the subject\",\n      \"softly folded neutral-toned sheets and blankets\",\n      \"a male figure in a classic spider-man cosplay seated casually on the edge of the bed near the subject, facing the camera\",\n      \"a large avengers movie poster displayed prominently on the back wall\",\n      \"a softly glowing red-orange neon sign reading 'bigmotion ai' mounted in the background\",\n      \"an open closet revealing hanging clothes to add depth and environmental realism\"\n    ],\n    \"atmosphere\": \"confident, intimate, late-night influencer aesthetic\"\n  },\n  \"lighting_and_color\": {\n    \"primary_source\": \"a warm, amber-toned bedside lamp casting light from behind and slightly to the side\",\n    \"effect\": \"moody, low-key lighting producing a soft rim light that traces the subject's hair, shoulders, and torso, while deep shadows sculpt the overall figure\",\n    \"color_palette\": [\n      \"warm amber tones\",\n      \"deep, enveloping shadows\",\n      \"dark navy lowlights\",\n      \"punchy vibrant yellow from the suit\",\n      \"red-orange neon luminescence\"\n    ],\n    \"contrast\": \"highly contrasting elements with dramatic shadow falloff, creating a\"\n  }\n} ```json\n{\n  \"subject\": {\n    \"description\": \"一位年轻的成年女性，与安雅·泰勒-乔伊 (anya taylor-joy) 极为相似，拥有一头长而富有光泽、蓬松的金色秀发，发型为松散的波浪，完美地勾勒出她柔和而自信的面部轮廓。\",\n    \"pose\": \"盘腿坐在卧室地板上，臀部微妙地朝向镜子。她的脊椎放松，肩膀随意向后，举起智能手机自拍。\",\n    \"expression\": \"性感、自信、平静。她保持着中性的表情，嘴唇放松，眼神自信而直接地与镜中的自己对视。\",\n    \"attire\": {\n      \"type\": \"紧身连体氨纶紧身衣\",\n      \"design\": \"女性化、带有“ig 网红”风格的蜘蛛侠紧身衣重塑设计\",\n      \"colors\": [\n        \"鲜艳的黄色底色\",\n        \"清晰的黑色蜘蛛网图案\",\n        \"胸部中央的黑色蜘蛛标志\"\n      ],\n      \"fit\": \"超紧身、贴合曲线，旨在突出身体曲线，同时保持流畅、运动的轮廓\",\n      \"styling_notes\": \"高弹力、光滑面料，带有微妙的光泽，在弱光环境下能凸显身体的自然轮廓\"\n    },\n    \"beauty_details\": {\n      \"makeup\": \"柔和的魅力妆容，包括微妙的修容、光泽唇、轻柔勾勒的睫毛和自然上扬的眉毛\",\n      \"nails\": \"加长、杏仁形的亚克力美甲，呈柔和的乳白色或淡粉色调\",\n      \"accessories\": \"极简配饰，确保焦点完全集中在姿势和紧身衣上\"\n    }\n  },\n  \"setting\": {\n    \"location\": \"现代、氛围感十足的卧室，具有舒适、生活化的美感\",\n    \"elements\": [\n      \"一张深色、随意铺设的床，位于主体人物正后方\",\n      \"柔软折叠的米色床单和毯子\",\n      \"一个身着经典蜘蛛侠 cosplay 服装的男性人物，随意地坐在床边靠近主体人物的位置，面向镜头\",\n      \"一张大型复仇者联盟 (avengers) 电影海报，醒目地展示在后墙上\",\n      \"一个柔和发光的红橙色霓虹灯招牌，上面写着“bigmotion ai”，安装在背景中\",\n      \"一个敞开的衣柜，露出挂着的衣服，增加深度和环境真实感\"\n    ],\n    \"atmosphere\": \"自信、私密、深夜网红风格\"\n  },\n  \"lighting_and_color\": {\n    \"primary_source\": \"一盏温暖的琥珀色床头灯，从后方和侧面投射光线\",\n    \"effect\": \"情绪化、低调的照明，产生柔和的轮廓光，勾勒出主体人物的头发、肩膀和躯干，同时深邃的阴影塑造出整体轮廓\",\n    \"color_palette\": [\n      \"温暖的琥珀色调\",\n      \"深邃、包围的阴影\",\n      \"深海军蓝的低光\",\n      \"紧身衣上醒目的鲜黄色\",\n      \"红橙色霓虹灯光\"\n    ],\n    \"contrast\": \"高对比度元素，具有戏剧性的阴影衰减，营造出一种\"\n  }\n}\n``` lex 12094",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12079,
+      "title": "哈莉·奎茵 Cosplay 侧面快照",
+      "description": "一个详细的提示，用于生成一张曲线玲珑的女性扮演哈莉·奎茵 (Harley Quinn) 的业余快照风格图像。该提示详细说明了体型特征（丰满、曲线玲珑）、服装（金属质感红/蓝拼接短裤、露脐 T 恤、束带）、姿势（侧身回头看肩膀）和妆容细节，并要求使用参考图像以保持面部一致性。",
+      "sourceLink": "https://x.com/BananaPromptPro/status/2032535986786415054",
+      "sourcePublishedAt": "2026-03-13T19:15:16.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/BananaPromptPro"
+      },
+      "content": "{\n  \"photo_type\": \"Amateur Snapshot\",\n  \"subject\": {\n    \"age\": \"Mid-20s\",\n    \"body_type\": \"Young American Woman, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"Young American Woman with a buxom and curvy figure in a Harley Quinn cosplay theme, featuring an oval-to-heart-shaped face and a fair complexion.\",\n    \"ethnicity\": \"North African / American \",\n    \"expression\": \"Sultry and intense gaze looking back over the shoulder\",\n    \"gender\": \"Female\",\n    \"mirror_rules\": \"N/A\",\n    \"pose_description\": \"Side-profile stance, body angled toward a textured wall, turning the head back toward the camera to show off the silhouette and facial expression.\",\n    \"tattoos\": \"A small black heart motif on the upper cheek under the eye\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"Split red and blue\",\n      \"details\": \"Very short, high-waisted metallic shorts worn over black fishnet stockings\",\n      \"fabric\": \"Shiny metallic spandex\",\n      \"type\": \"Booty shorts\"\n    },\n    \"fit_and_physics\": \"The clothing is tight and strained over a fuller bust and prominent hips, accentuating a top-heavy silhouette and high waist-to-hip contrast.\",\n    \"outerwear\": {\n      \"color\": \"Black\",\n      \"details\": \"Shoulder harness and straps with silver rivets\",\n      \"fabric\": \"Leather-look synthetic\",\n      \"type\": \"Harness holster\"\n    },\n    \"shoes\": {\n      \"color\": \"N/A\",\n      \"details\": \"Not visible in frame\",\n      \"fabric\": \"N/A\",\n      \"type\": \"N/A\"\n    },\n    \"top\": {\n      \"color\": \"Red and white\",\n      \"details\": \"Cropped raglan style, tight-fitting with a raw hem\",\n      \"fabric\": \"Cotton jersey\",\n      \"type\": \"Cropped t-shirt\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"Blonde\",\n    \"interaction\": \"Hair is styled into two high pigtails held by red and blue scrunchies, with loose strands framing the face\",\n    \"style\": \"Center part, pigtails\"\n  },\n  \"face\": {\n    \"description\": \"Use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"Prominent, arched dark eyebrows\",\n    \"eyes\": \"Dark brown, almond-shaped\",\n    \"lips\": \"Full and symmetrical with defined smudged red lipstick\",\n    \"makeup\": \"Harley Quinn style smudged blue and pink eyeshadow, heavy eyeliner, and red lipstick\"\n  },\n  \"skin_texture\": \"Natural smartphone-captured texture with visible pores and slight oily sheen on the face\",\n  \"biological_features\": {\n    \"eye_complexity\": \"Natural reflections from on-camera flash\",\n    \"hair_strand_phys\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469783055_6xlcqe_HDUBtkfaMAQGiq4.jpg",
+        "https://cms-assets.youmind.com/media/1773469783153_8y9srx_HDUBtkjaMAkc_wh.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469783055_6xlcqe_HDUBtkfaMAQGiq4-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773469783153_8y9srx_HDUBtkjaMAkc_wh-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"photo_type\": \"业余快照\",\n  \"subject\": {\n    \"age\": \"25 岁左右\",\n    \"body_type\": \"年轻美国女性，胸部呈圆形，突出，胸围丰满，大胸比例，胸部框架饱满，上半身轮廓优美，上身丰满，身材丰腴，腰臀对比明显，腰线分明，臀部丰满，曲线玲珑，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位年轻的美国女性，身材丰腴，曲线玲珑，装扮成哈莉·奎茵（Harley Quinn）主题，脸型呈椭圆形至心形，肤色白皙。\",\n    \"ethnicity\": \"北非裔 / 美国人\",\n    \"expression\": \"性感而专注的眼神，回眸望向镜头\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"侧身站立，身体朝向一面有纹理的墙壁，头部转向后方，看向镜头，以展示其轮廓和面部表情。\",\n    \"tattoos\": \"眼睛下方上脸颊处有一个黑色小爱心图案\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"红蓝拼色\",\n      \"details\": \"非常短的高腰金属短裤，内搭黑色渔网袜\",\n      \"fabric\": \"闪亮金属氨纶\",\n      \"type\": \"热裤\"\n    },\n    \"fit_and_physics\": \"衣物紧绷，包裹着丰满的胸部和突出的臀部，凸显了上身丰满的轮廓和明显的腰臀对比。\",\n    \"outerwear\": {\n      \"color\": \"黑色\",\n      \"details\": \"肩部束带和肩带，带有银色铆钉\",\n      \"fabric\": \"仿皮革合成材料\",\n      \"type\": \"束带枪套\"\n    },\n    \"shoes\": {\n      \"color\": \"不适用\",\n      \"details\": \"画面中不可见\",\n      \"fabric\": \"不适用\",\n      \"type\": \"不适用\"\n    },\n    \"top\": {\n      \"color\": \"红色和白色\",\n      \"details\": \"短款插肩袖款式，紧身，下摆未经处理\",\n      \"fabric\": \"棉质平纹针织布\",\n      \"type\": \"短款 T 恤\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"头发梳成两个高高的马尾辫，用红蓝发圈固定，脸部周围有散落的发丝\",\n    \"style\": \"中分，马尾辫\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的角色参考图像，面部细节 100% 保持不变\",\n    \"eyebrows\": \"突出，拱形深色眉毛\",\n    \"eyes\": \"深棕色，杏仁状\",\n    \"lips\": \"丰满对称，涂有清晰的晕染红色口红\",\n    \"makeup\": \"哈莉·奎茵（Harley Quinn）风格的晕染蓝粉色眼影，浓重眼线和红色口红\"\n  },\n  \"skin_texture\": \"智能手机拍摄的自然纹理，可见毛孔，面部略带油光\",\n  \"biological_features\": {\n    \"eye_complexity\": \"相机闪光灯产生的自然反光\",\n    \"hair_strand_phys\": \"不适用\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "哈莉·奎茵 cosplay 侧面快照 一个详细的提示，用于生成一张曲线玲珑的女性扮演哈莉·奎茵 (harley quinn) 的业余快照风格图像。该提示详细说明了体型特征（丰满、曲线玲珑）、服装（金属质感红/蓝拼接短裤、露脐 t 恤、束带）、姿势（侧身回头看肩膀）和妆容细节，并要求使用参考图像以保持面部一致性。 {\n  \"photo_type\": \"amateur snapshot\",\n  \"subject\": {\n    \"age\": \"mid-20s\",\n    \"body_type\": \"young american woman, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"young american woman with a buxom and curvy figure in a harley quinn cosplay theme, featuring an oval-to-heart-shaped face and a fair complexion.\",\n    \"ethnicity\": \"north african / american \",\n    \"expression\": \"sultry and intense gaze looking back over the shoulder\",\n    \"gender\": \"female\",\n    \"mirror_rules\": \"n/a\",\n    \"pose_description\": \"side-profile stance, body angled toward a textured wall, turning the head back toward the camera to show off the silhouette and facial expression.\",\n    \"tattoos\": \"a small black heart motif on the upper cheek under the eye\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"split red and blue\",\n      \"details\": \"very short, high-waisted metallic shorts worn over black fishnet stockings\",\n      \"fabric\": \"shiny metallic spandex\",\n      \"type\": \"booty shorts\"\n    },\n    \"fit_and_physics\": \"the clothing is tight and strained over a fuller bust and prominent hips, accentuating a top-heavy silhouette and high waist-to-hip contrast.\",\n    \"outerwear\": {\n      \"color\": \"black\",\n      \"details\": \"shoulder harness and straps with silver rivets\",\n      \"fabric\": \"leather-look synthetic\",\n      \"type\": \"harness holster\"\n    },\n    \"shoes\": {\n      \"color\": \"n/a\",\n      \"details\": \"not visible in frame\",\n      \"fabric\": \"n/a\",\n      \"type\": \"n/a\"\n    },\n    \"top\": {\n      \"color\": \"red and white\",\n      \"details\": \"cropped raglan style, tight-fitting with a raw hem\",\n      \"fabric\": \"cotton jersey\",\n      \"type\": \"cropped t-shirt\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"blonde\",\n    \"interaction\": \"hair is styled into two high pigtails held by red and blue scrunchies, with loose strands framing the face\",\n    \"style\": \"center part, pigtails\"\n  },\n  \"face\": {\n    \"description\": \"use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"prominent, arched dark eyebrows\",\n    \"eyes\": \"dark brown, almond-shaped\",\n    \"lips\": \"full and symmetrical with defined smudged red lipstick\",\n    \"makeup\": \"harley quinn style smudged blue and pink eyeshadow, heavy eyeliner, and red lipstick\"\n  },\n  \"skin_texture\": \"natural smartphone-captured texture with visible pores and slight oily sheen on the face\",\n  \"biological_features\": {\n    \"eye_complexity\": \"natural reflections from on-camera flash\",\n    \"hair_strand_phys\" ```json\n{\n  \"photo_type\": \"业余快照\",\n  \"subject\": {\n    \"age\": \"25 岁左右\",\n    \"body_type\": \"年轻美国女性，胸部呈圆形，突出，胸围丰满，大胸比例，胸部框架饱满，上半身轮廓优美，上身丰满，身材丰腴，腰臀对比明显，腰线分明，臀部丰满，曲线玲珑，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位年轻的美国女性，身材丰腴，曲线玲珑，装扮成哈莉·奎茵（harley quinn）主题，脸型呈椭圆形至心形，肤色白皙。\",\n    \"ethnicity\": \"北非裔 / 美国人\",\n    \"expression\": \"性感而专注的眼神，回眸望向镜头\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"侧身站立，身体朝向一面有纹理的墙壁，头部转向后方，看向镜头，以展示其轮廓和面部表情。\",\n    \"tattoos\": \"眼睛下方上脸颊处有一个黑色小爱心图案\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"红蓝拼色\",\n      \"details\": \"非常短的高腰金属短裤，内搭黑色渔网袜\",\n      \"fabric\": \"闪亮金属氨纶\",\n      \"type\": \"热裤\"\n    },\n    \"fit_and_physics\": \"衣物紧绷，包裹着丰满的胸部和突出的臀部，凸显了上身丰满的轮廓和明显的腰臀对比。\",\n    \"outerwear\": {\n      \"color\": \"黑色\",\n      \"details\": \"肩部束带和肩带，带有银色铆钉\",\n      \"fabric\": \"仿皮革合成材料\",\n      \"type\": \"束带枪套\"\n    },\n    \"shoes\": {\n      \"color\": \"不适用\",\n      \"details\": \"画面中不可见\",\n      \"fabric\": \"不适用\",\n      \"type\": \"不适用\"\n    },\n    \"top\": {\n      \"color\": \"红色和白色\",\n      \"details\": \"短款插肩袖款式，紧身，下摆未经处理\",\n      \"fabric\": \"棉质平纹针织布\",\n      \"type\": \"短款 t 恤\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"头发梳成两个高高的马尾辫，用红蓝发圈固定，脸部周围有散落的发丝\",\n    \"style\": \"中分，马尾辫\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的角色参考图像，面部细节 100% 保持不变\",\n    \"eyebrows\": \"突出，拱形深色眉毛\",\n    \"eyes\": \"深棕色，杏仁状\",\n    \"lips\": \"丰满对称，涂有清晰的晕染红色口红\",\n    \"makeup\": \"哈莉·奎茵（harley quinn）风格的晕染蓝粉色眼影，浓重眼线和红色口红\"\n  },\n  \"skin_texture\": \"智能手机拍摄的自然纹理，可见毛孔，面部略带油光\",\n  \"biological_features\": {\n    \"eye_complexity\": \"相机闪光灯产生的自然反光\",\n    \"hair_strand_phys\": \"不适用\"\n  }\n}\n``` layla 🌙 12079",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12066,
+      "title": "超逼真护肤品摄影提示词",
+      "description": "一个为 Nano Banana Pro 设计的提示，旨在生成超逼真的护肤品广告摄影——具体来说，是一个磨砂柑橘玻璃瓶装的“Glow Recipe – Lemon Brightening Glow Serum (30 ml)”——在空中漂浮。",
+      "sourceLink": "https://x.com/MasterAi33020/status/2032533154389479894",
+      "sourcePublishedAt": "2026-03-13T19:04:01.000Z",
+      "author": {
+        "name": "Olivia | UGC CREATOR",
+        "link": "https://x.com/MasterAi33020"
+      },
+      "content": "Ultra-realistic skincare advertising photography featuring a frosted citrus glass bottle labeled “{argument name=\"product name\" default=\"Glow Recipe – Lemon Brightening Glow Serum (30 ml)\"}” floating mid-air.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469775457_hzifvo_HDUCH8NaMAAOcy0.jpg",
+        "https://cms-assets.youmind.com/media/1773469775486_7ye0zu_HDUCH6LaMAAlak6.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469775457_hzifvo_HDUCH8NaMAAOcy0-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773469775486_7ye0zu_HDUCH6LaMAAlak6-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的护肤品广告摄影，一个磨砂柑橘玻璃瓶，上面标有“{argument name=\"product name\" default=\"Glow Recipe – Lemon Brightening Glow Serum (30 ml)\"}”，在半空中漂浮。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真护肤品摄影提示词 一个为 nano banana pro 设计的提示，旨在生成超逼真的护肤品广告摄影——具体来说，是一个磨砂柑橘玻璃瓶装的“glow recipe – lemon brightening glow serum (30 ml)”——在空中漂浮。 ultra-realistic skincare advertising photography featuring a frosted citrus glass bottle labeled “{argument name=\"product name\" default=\"glow recipe – lemon brightening glow serum (30 ml)\"}” floating mid-air. 超逼真的护肤品广告摄影，一个磨砂柑橘玻璃瓶，上面标有“{argument name=\"product name\" default=\"glow recipe – lemon brightening glow serum (30 ml)\"}”，在半空中漂浮。 olivia | ugc creator 12066",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12097,
+      "title": "工业设计概念提示",
+      "description": "一个复杂的多步骤提示模板，用于在纯白色背景上生成一个高级工业设计概念，重点关注建筑几何、材料表面处理、品牌整合和人机交互元素。",
+      "sourceLink": "https://x.com/AmirMushich/status/2032532248046489986",
+      "sourcePublishedAt": "2026-03-13T19:00:25.000Z",
+      "author": {
+        "name": "AmirMušić",
+        "link": "https://x.com/AmirMushich"
+      },
+      "content": "[BRAND NAME]: The core identity.\n\n[CATEGORY]: Clothing / Food / Automotive / Lifestyle.\n\nGoal: Generate a premium industrial design concept on a PURE WHITE background. \n\n1. INNOVATION & OBJECT\n\n- Select one mundane functional object from [CATEGORY].\n\n- Redesign it using unconventional, architectural, or origami-inspired geometry.\n\n- The object must look like a high-end designer invention, not a standard product.\n\n2. UNIFIED COMPOSITION\n\n- Environment: A seamless, pure white studio background with a flat white floor.\n\n- Interaction: A human hand (natural texture) is shown using the object in the foreground, demonstrating its unique ergonomics.\n\n- Static Display: Right next to the hand, the same object is placed in a static, perfect pose to show its full silhouette and branding.\n\n- Shadows: Soft, realistic grey drop shadows on the white floor to provide depth and ground the objects.\n\n3. BRANDING & TEXT\n\n- Identity: Apply the \"{argument name=\"brand name\" default=\"BRAND NAME\"}\" logo in a high-contrast dark color (Black or Navy) directly onto the object's surface.\n\n- Technical Detail: Add small, elegant blocks of justified \"specification text\" in the white negative space around the objects for an editorial look.\n\n- Pattern: Use a subtle, oversized abstract fragment of the brand's logo as a texture on the object's material.\n\n4. MATERIALS & FINISH\n\n- High-quality matte materials only: heavy-duty recycled paper, sandblasted metal, or soft-touch polymer.\n\n- Sharp architectural lines and clean, premium craftsmanship.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469793658_apvbcz_HDUBTobX0AA8p5-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469793658_apvbcz_HDUBTobX0AA8p5--300x375.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "[BRAND NAME]：核心识别。\n\n[CATEGORY]：服装 / 食品 / 汽车 / 生活方式。\n\n目标：在纯白色背景上生成一个高端工业设计概念。\n\n1. 创新与物体\n\n- 从 [CATEGORY] 中选择一个普通的实用物品。\n\n- 运用非传统、建筑风格或折纸启发式的几何形状对其进行重新设计。\n\n- 该物品必须看起来像一个高端设计师的发明，而非标准产品。\n\n2. 统一构图\n\n- 环境：无缝、纯白色的工作室背景，配有平坦的白色地板。\n\n- 互动：一只人手（自然纹理）在前景中展示如何使用该物品，以体现其独特的人体工程学设计。\n\n- 静态展示：在手旁边，将同一物品以静态、完美的姿态放置，以展示其完整的轮廓和品牌标识。\n\n- 阴影：白色地板上柔和、逼真的灰色投影，以提供深度并使物体有落地感。\n\n3. 品牌与文字\n\n- 标识：将“{argument name=\"brand name\" default=\"BRAND NAME\"}”标志以高对比度的深色（黑色或海军蓝）直接应用于物体表面。\n\n- 技术细节：在物体周围的白色留白区域添加小巧、雅致的“规格说明文字”块，使其两端对齐，营造出编辑排版感。\n\n- 图案：使用品牌标志的微妙、超大抽象碎片作为物体材料的纹理。\n\n4. 材料与表面处理\n\n- 仅限高品质哑光材料：重磅再生纸、喷砂金属或软触感聚合物。\n\n- 锐利的建筑线条和干净、优质的工艺。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "工业设计概念提示 一个复杂的多步骤提示模板，用于在纯白色背景上生成一个高级工业设计概念，重点关注建筑几何、材料表面处理、品牌整合和人机交互元素。 [brand name]: the core identity.\n\n[category]: clothing / food / automotive / lifestyle.\n\ngoal: generate a premium industrial design concept on a pure white background. \n\n1. innovation & object\n\n- select one mundane functional object from [category].\n\n- redesign it using unconventional, architectural, or origami-inspired geometry.\n\n- the object must look like a high-end designer invention, not a standard product.\n\n2. unified composition\n\n- environment: a seamless, pure white studio background with a flat white floor.\n\n- interaction: a human hand (natural texture) is shown using the object in the foreground, demonstrating its unique ergonomics.\n\n- static display: right next to the hand, the same object is placed in a static, perfect pose to show its full silhouette and branding.\n\n- shadows: soft, realistic grey drop shadows on the white floor to provide depth and ground the objects.\n\n3. branding & text\n\n- identity: apply the \"{argument name=\"brand name\" default=\"brand name\"}\" logo in a high-contrast dark color (black or navy) directly onto the object's surface.\n\n- technical detail: add small, elegant blocks of justified \"specification text\" in the white negative space around the objects for an editorial look.\n\n- pattern: use a subtle, oversized abstract fragment of the brand's logo as a texture on the object's material.\n\n4. materials & finish\n\n- high-quality matte materials only: heavy-duty recycled paper, sandblasted metal, or soft-touch polymer.\n\n- sharp architectural lines and clean, premium craftsmanship. [brand name]：核心识别。\n\n[category]：服装 / 食品 / 汽车 / 生活方式。\n\n目标：在纯白色背景上生成一个高端工业设计概念。\n\n1. 创新与物体\n\n- 从 [category] 中选择一个普通的实用物品。\n\n- 运用非传统、建筑风格或折纸启发式的几何形状对其进行重新设计。\n\n- 该物品必须看起来像一个高端设计师的发明，而非标准产品。\n\n2. 统一构图\n\n- 环境：无缝、纯白色的工作室背景，配有平坦的白色地板。\n\n- 互动：一只人手（自然纹理）在前景中展示如何使用该物品，以体现其独特的人体工程学设计。\n\n- 静态展示：在手旁边，将同一物品以静态、完美的姿态放置，以展示其完整的轮廓和品牌标识。\n\n- 阴影：白色地板上柔和、逼真的灰色投影，以提供深度并使物体有落地感。\n\n3. 品牌与文字\n\n- 标识：将“{argument name=\"brand name\" default=\"brand name\"}”标志以高对比度的深色（黑色或海军蓝）直接应用于物体表面。\n\n- 技术细节：在物体周围的白色留白区域添加小巧、雅致的“规格说明文字”块，使其两端对齐，营造出编辑排版感。\n\n- 图案：使用品牌标志的微妙、超大抽象碎片作为物体材料的纹理。\n\n4. 材料与表面处理\n\n- 仅限高品质哑光材料：重磅再生纸、喷砂金属或软触感聚合物。\n\n- 锐利的建筑线条和干净、优质的工艺。 amirmušić 12097",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12112,
+      "title": "桀骜不驯的复古跑车主题",
+      "description": "以下是 Nano Banana 0.42 版的图像生成提示，描述了一个中景镜头：主体坐在一块砖面上，做出挑衅姿态，身穿定制的白色西装外套，背景是一辆亮黄色的 1980 年代异国跑车。该提示强调高对比度照明、饱和的 1980 年代胶片色调和模拟胶片效果。",
+      "sourceLink": "https://x.com/Arsistyle/status/2032532144929829273",
+      "sourcePublishedAt": "2026-03-13T19:00:00.000Z",
+      "author": {
+        "name": "Arsistyle",
+        "link": "https://x.com/Arsistyle"
+      },
+      "content": "\"Image from subject, medium shot, eye-level. Subject seated on a brick surface, legs crossed, facing forward. Hands raised in a defiant double middle-finger gesture. Wearing a white tailored suit jacket over a dark, unbuttoned collared shirt. Gold watch and ring accessories. Positioned on a sun-drenched brick driveway. Immediately behind is the rear profile of a bright {argument name=\"car color\" default=\"yellow\"} 1980s-era exotic sports car. Soft-focus tropical greenery in the deep background. Harsh, direct overhead sunlight creating high-contrast shadows. Saturated 1980s film palette with warm yellow tones and brilliant whites. High-key lighting with deep blacks. Coarse 50mm analog film grain, vintage lens bloom, and slight color fringing. Artistic interpretation, prioritize the camera angle, lighting scheme, and color grading over realistic skin tones.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469801997_okb7do_HDKa668WwAAB9O6.jpg",
+        "https://cms-assets.youmind.com/media/1773469802000_j8tdlo_HDKa66_XoAIekIg.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469801997_okb7do_HDKa668WwAAB9O6-300x375.jpg",
+        "https://cms-assets.youmind.com/media/1773469802000_j8tdlo_HDKa66_XoAIekIg-300x375.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "主体人物的图像，中景，平视视角。主体人物坐在一块砖面上，双腿交叉，面向前方。双手举起，做出挑衅性的双中指手势。身穿白色定制西装外套，内搭深色未扣领衬衫。佩戴金色手表和戒指配饰。置身于阳光普照的砖砌车道上。正后方是一辆亮{argument name=\"car color\" default=\"黄色\"}的 20 世纪 80 年代异国跑车的车尾轮廓。远景是柔焦的热带植物。强烈、直接的顶光营造出高对比度的阴影。饱和的 20 世纪 80 年代电影色调，带有温暖的黄色和明亮的白色。高调布光，深黑色。粗糙的 50 毫米模拟胶片颗粒、复古镜头光晕和轻微的色边。艺术化诠释，优先考虑拍摄角度、布光方案和色彩分级，而非真实的肤色。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "桀骜不驯的复古跑车主题 以下是 nano banana 0.42 版的图像生成提示，描述了一个中景镜头：主体坐在一块砖面上，做出挑衅姿态，身穿定制的白色西装外套，背景是一辆亮黄色的 1980 年代异国跑车。该提示强调高对比度照明、饱和的 1980 年代胶片色调和模拟胶片效果。 \"image from subject, medium shot, eye-level. subject seated on a brick surface, legs crossed, facing forward. hands raised in a defiant double middle-finger gesture. wearing a white tailored suit jacket over a dark, unbuttoned collared shirt. gold watch and ring accessories. positioned on a sun-drenched brick driveway. immediately behind is the rear profile of a bright {argument name=\"car color\" default=\"yellow\"} 1980s-era exotic sports car. soft-focus tropical greenery in the deep background. harsh, direct overhead sunlight creating high-contrast shadows. saturated 1980s film palette with warm yellow tones and brilliant whites. high-key lighting with deep blacks. coarse 50mm analog film grain, vintage lens bloom, and slight color fringing. artistic interpretation, prioritize the camera angle, lighting scheme, and color grading over realistic skin tones.\" 主体人物的图像，中景，平视视角。主体人物坐在一块砖面上，双腿交叉，面向前方。双手举起，做出挑衅性的双中指手势。身穿白色定制西装外套，内搭深色未扣领衬衫。佩戴金色手表和戒指配饰。置身于阳光普照的砖砌车道上。正后方是一辆亮{argument name=\"car color\" default=\"黄色\"}的 20 世纪 80 年代异国跑车的车尾轮廓。远景是柔焦的热带植物。强烈、直接的顶光营造出高对比度的阴影。饱和的 20 世纪 80 年代电影色调，带有温暖的黄色和明亮的白色。高调布光，深黑色。粗糙的 50 毫米模拟胶片颗粒、复古镜头光晕和轻微的色边。艺术化诠释，优先考虑拍摄角度、布光方案和色彩分级，而非真实的肤色。 arsistyle 12112",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12080,
+      "title": "灵动肖像，俏皮眨眼",
+      "description": "一个详细的提示，用于生成一张空灵、电影感的年轻女性肖像，她正在俏皮地眨眼。提示中指定了柔和、发光的皮肤纹理，休闲时尚的街头服饰（白色背心、橄榄色飞行夹克、牛仔裤），温暖的午后阳光营造出光晕效果，以及带有奶油般虚化的浅景深。",
+      "sourceLink": "https://x.com/_dailyboost/status/2032518058212995371",
+      "sourcePublishedAt": "2026-03-13T18:04:02.000Z",
+      "author": {
+        "name": "Luxerelia",
+        "link": "https://x.com/_dailyboost"
+      },
+      "content": "Ethereal portrait of a charming young woman in her early twenties, captured in a relaxed candid moment, giving a gentle playful wink toward the camera with a dreamy, slightly mischievous expression. Her skin appears porcelain-smooth with a natural glow, lightly dusted with faint freckles across the bridge of her nose and cheeks. She has soft glossy lips with subtle natural makeup, delicate blush on her cheeks, and luminous skin tones that catch the warm afternoon sunlight.\nHer hair falls naturally around her shoulders, softly tousled by a light breeze, with individual strands illuminated by golden sunlight. The lighting creates a glowing halo effect around her silhouette, producing a dreamy, almost cinematic atmosphere.\nShe is wearing a simple white cropped tank top paired with a loose olive-green bomber jacket draped casually over her shoulders, giving a relaxed yet stylish street-fashion vibe. The outfit is completed with light-wash vintage-style denim jeans and a classic black belt, creating a balanced casual-chic look that feels effortless and modern.\nThe background is softly blurred with creamy bokeh, suggesting an outdoor urban setting during a warm afternoon. The sunlight filters through the environment, creating soft highlights, gentle shadows, and a nostalgic film-photography aesthetic. The scene feels airy, romantic, and slightly whimsical.\nShot in a cinematic film photography style using a high-end portrait lens ({argument name=\"lens focal length\" default=\"85mm\"}, f/1.4), shallow depth of field, soft focus falloff, natural color grading, subtle film grain, and warm tones. Ultra-realistic skin texture, visible pores and fine details, photorealistic lighting, high dynamic range, extremely detailed fabric textures, professional fashion photography composition, masterpiece quality, 8k ultra-high resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469783915_gqfyx9_HDT0X9KaMAEbeBj.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469783915_gqfyx9_HDT0X9KaMAEbeBj-300x373.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位二十出头的年轻女子，在轻松随意的瞬间被捕捉到，她带着梦幻般略带顽皮的表情，对着镜头轻轻地眨着眼，呈现出空灵的肖像。她的皮肤如瓷般光滑，散发着自然的光泽，鼻梁和脸颊上点缀着淡淡的雀斑。她拥有柔软而富有光泽的嘴唇，化着淡雅的自然妆容，脸颊上泛着精致的腮红，明亮的肤色捕捉着温暖的午后阳光。\n\n她的头发自然地披散在肩上，被微风轻轻吹拂，缕缕发丝在金色阳光的照耀下熠熠生辉。光线在她周身形成了一圈发光的“光晕”效果，营造出梦幻般、近乎电影般的氛围。\n\n她穿着一件简单的白色短款背心，肩上随意地披着一件宽松的橄榄绿色飞行员夹克，散发出轻松而时尚的街头潮流气息。搭配浅色复古牛仔裤和经典黑色皮带，打造出一种平衡的休闲时尚感，显得毫不费力又现代。\n\n背景被柔和地虚化，呈现出奶油般的焦外散景，暗示着一个温暖午后的户外都市场景。阳光透过环境洒落，营造出柔和的高光、轻柔的阴影和怀旧的胶片摄影美学。整个场景感觉轻盈、浪漫，略带一丝奇思妙想。\n\n以电影胶片摄影风格拍摄，使用高端人像镜头（{argument name=\"lens focal length\" default=\"85mm\"}，f/1.4），浅景深，柔和的焦点衰减，自然色彩分级，细微胶片颗粒，暖色调。超逼真的皮肤纹理，可见毛孔和精微细节，照片级真实感光照，高动态范围，极其详细的织物纹理，专业时尚摄影构图，杰作品质，8k 超高分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "灵动肖像，俏皮眨眼 一个详细的提示，用于生成一张空灵、电影感的年轻女性肖像，她正在俏皮地眨眼。提示中指定了柔和、发光的皮肤纹理，休闲时尚的街头服饰（白色背心、橄榄色飞行夹克、牛仔裤），温暖的午后阳光营造出光晕效果，以及带有奶油般虚化的浅景深。 ethereal portrait of a charming young woman in her early twenties, captured in a relaxed candid moment, giving a gentle playful wink toward the camera with a dreamy, slightly mischievous expression. her skin appears porcelain-smooth with a natural glow, lightly dusted with faint freckles across the bridge of her nose and cheeks. she has soft glossy lips with subtle natural makeup, delicate blush on her cheeks, and luminous skin tones that catch the warm afternoon sunlight.\nher hair falls naturally around her shoulders, softly tousled by a light breeze, with individual strands illuminated by golden sunlight. the lighting creates a glowing halo effect around her silhouette, producing a dreamy, almost cinematic atmosphere.\nshe is wearing a simple white cropped tank top paired with a loose olive-green bomber jacket draped casually over her shoulders, giving a relaxed yet stylish street-fashion vibe. the outfit is completed with light-wash vintage-style denim jeans and a classic black belt, creating a balanced casual-chic look that feels effortless and modern.\nthe background is softly blurred with creamy bokeh, suggesting an outdoor urban setting during a warm afternoon. the sunlight filters through the environment, creating soft highlights, gentle shadows, and a nostalgic film-photography aesthetic. the scene feels airy, romantic, and slightly whimsical.\nshot in a cinematic film photography style using a high-end portrait lens ({argument name=\"lens focal length\" default=\"85mm\"}, f/1.4), shallow depth of field, soft focus falloff, natural color grading, subtle film grain, and warm tones. ultra-realistic skin texture, visible pores and fine details, photorealistic lighting, high dynamic range, extremely detailed fabric textures, professional fashion photography composition, masterpiece quality, 8k ultra-high resolution. 一位二十出头的年轻女子，在轻松随意的瞬间被捕捉到，她带着梦幻般略带顽皮的表情，对着镜头轻轻地眨着眼，呈现出空灵的肖像。她的皮肤如瓷般光滑，散发着自然的光泽，鼻梁和脸颊上点缀着淡淡的雀斑。她拥有柔软而富有光泽的嘴唇，化着淡雅的自然妆容，脸颊上泛着精致的腮红，明亮的肤色捕捉着温暖的午后阳光。\n\n她的头发自然地披散在肩上，被微风轻轻吹拂，缕缕发丝在金色阳光的照耀下熠熠生辉。光线在她周身形成了一圈发光的“光晕”效果，营造出梦幻般、近乎电影般的氛围。\n\n她穿着一件简单的白色短款背心，肩上随意地披着一件宽松的橄榄绿色飞行员夹克，散发出轻松而时尚的街头潮流气息。搭配浅色复古牛仔裤和经典黑色皮带，打造出一种平衡的休闲时尚感，显得毫不费力又现代。\n\n背景被柔和地虚化，呈现出奶油般的焦外散景，暗示着一个温暖午后的户外都市场景。阳光透过环境洒落，营造出柔和的高光、轻柔的阴影和怀旧的胶片摄影美学。整个场景感觉轻盈、浪漫，略带一丝奇思妙想。\n\n以电影胶片摄影风格拍摄，使用高端人像镜头（{argument name=\"lens focal length\" default=\"85mm\"}，f/1.4），浅景深，柔和的焦点衰减，自然色彩分级，细微胶片颗粒，暖色调。超逼真的皮肤纹理，可见毛孔和精微细节，照片级真实感光照，高动态范围，极其详细的织物纹理，专业时尚摄影构图，杰作品质，8k 超高分辨率。 luxerelia 12080",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12116,
+      "title": "时尚 LCD 脸机器人提示",
+      "description": "一个可重复使用的提示模板，用于生成具有大型矩形 LCD 屏幕作为面部的超逼真、时尚现代机器人，强调工业设计、戏剧性照明和高细节。此提示专为 Nano Banana（在 Adobe Firefly 中使用）设计。",
+      "sourceLink": "https://x.com/ToshiArte/status/2032517048421503479",
+      "sourcePublishedAt": "2026-03-13T18:00:01.000Z",
+      "author": {
+        "name": "Toshi",
+        "link": "https://x.com/ToshiArte"
+      },
+      "content": "hyper-realistic close-up of a sleek modern robot with a large rectangular LCD screen as its face, high-resolution display showing **{argument name=\"display content\" default=\"display content\"}**, sharp crisp pixels and subtle backlight glow, matte black metallic body with subtle panel lines and brushed aluminum accents, glowing blue LED trim around the screen edges, articulated neck and shoulders with visible cables and servos, cool industrial design with faint reflections on the screen glass, dramatic cinematic studio lighting with strong rim light and soft volumetric highlights, ultra detailed screen texture, realistic LCD bloom and slight scan lines, futuristic yet grounded aesthetic, masterpiece, sharp focus",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469803937_0nqg4l_HDTUXjcWwAETfkO.jpg",
+        "https://cms-assets.youmind.com/media/1773469803962_nrjn1r_HDTUXjybwAA5aoT.jpg",
+        "https://cms-assets.youmind.com/media/1773469804654_w7n12r_HDTUXjZXYAA7kky.jpg",
+        "https://cms-assets.youmind.com/media/1773469805452_t1rz38_HDTUXjVXcAA1RvU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469803937_0nqg4l_HDTUXjcWwAETfkO-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469803962_nrjn1r_HDTUXjybwAA5aoT-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469804654_w7n12r_HDTUXjZXYAA7kky-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469805452_t1rz38_HDTUXjVXcAA1RvU-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个时尚现代机器人的超逼真特写，其面部是一个巨大的矩形 LCD 屏幕，高分辨率显示屏显示着 **{argument name=\"display content\" default=\"display content\"}**，像素锐利清晰，带有微妙的背光光晕，哑光黑色金属机身，带有细微的面板线条和拉丝铝点缀，屏幕边缘环绕着发光的蓝色 LED 饰边，颈部和肩部可活动，可见电缆和伺服系统，酷炫的工业设计，屏幕玻璃上隐约可见反射，戏剧性的电影级工作室灯光，带有强烈的轮廓光和柔和的体积高光，超精细的屏幕纹理，逼真的 LCD 泛光和轻微的扫描线，未来感十足而又脚踏实地的美学，杰作，锐利聚焦",
+      "sourcePlatform": "twitter",
+      "searchIndex": "时尚 lcd 脸机器人提示 一个可重复使用的提示模板，用于生成具有大型矩形 lcd 屏幕作为面部的超逼真、时尚现代机器人，强调工业设计、戏剧性照明和高细节。此提示专为 nano banana（在 adobe firefly 中使用）设计。 hyper-realistic close-up of a sleek modern robot with a large rectangular lcd screen as its face, high-resolution display showing **{argument name=\"display content\" default=\"display content\"}**, sharp crisp pixels and subtle backlight glow, matte black metallic body with subtle panel lines and brushed aluminum accents, glowing blue led trim around the screen edges, articulated neck and shoulders with visible cables and servos, cool industrial design with faint reflections on the screen glass, dramatic cinematic studio lighting with strong rim light and soft volumetric highlights, ultra detailed screen texture, realistic lcd bloom and slight scan lines, futuristic yet grounded aesthetic, masterpiece, sharp focus 一个时尚现代机器人的超逼真特写，其面部是一个巨大的矩形 lcd 屏幕，高分辨率显示屏显示着 **{argument name=\"display content\" default=\"display content\"}**，像素锐利清晰，带有微妙的背光光晕，哑光黑色金属机身，带有细微的面板线条和拉丝铝点缀，屏幕边缘环绕着发光的蓝色 led 饰边，颈部和肩部可活动，可见电缆和伺服系统，酷炫的工业设计，屏幕玻璃上隐约可见反射，戏剧性的电影级工作室灯光，带有强烈的轮廓光和柔和的体积高光，超精细的屏幕纹理，逼真的 lcd 泛光和轻微的扫描线，未来感十足而又脚踏实地的美学，杰作，锐利聚焦 toshi 12116",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12095,
+      "title": "身穿休闲日间服饰的尼日利亚成年人",
+      "description": "生成一张尼日利亚成年人图片的提示，年龄在 25 岁到 30 岁出头，身穿休闲日间服装（T 恤或修身款上衣）。描述强调自然发型，以及一个在拉各斯炎热天气中应对日常脱水的、 relatable 的普通人。",
+      "sourceLink": "https://x.com/Boluwatifeolad7/status/2032514518195253610",
+      "sourcePublishedAt": "2026-03-13T17:49:58.000Z",
+      "author": {
+        "name": "C G B E A S T 💎",
+        "link": "https://x.com/Boluwatifeolad7"
+      },
+      "content": "CHARACTER DESCRIPTION: Main subject: Nigerian adult, mid-20s to early 30s. Natural hair (low cut, locs, or twist-out). Wearing casual daytime clothing, simple t-shirt or fitted top, comfortable. Relatable, everyday person. Someone who's active, works hard, moves through Lagos heat. Not an athlete, just a regular person dealing with daily dehydration without knowing why.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469792059_72s4y7_HDSP5jMWcAAUlpQ.jpg",
+        "https://cms-assets.youmind.com/media/1773469792126_ce45p1_HDSP5jWXwAA1CjH.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469792059_72s4y7_HDSP5jMWcAAUlpQ-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469792126_ce45p1_HDSP5jWXwAA1CjH-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "人物描述： 主角：20 多岁到 30 出头，尼日利亚成年人。自然发型（短发、脏辫或扭发）。穿着休闲日常服装，简单的 T 恤或合身背心，舒适。亲切、普通人。一个活跃、努力工作、在拉各斯炎热天气中穿梭的人。不是运动员，只是一个普通人，在不知情的情况下应对日常脱水。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身穿休闲日间服饰的尼日利亚成年人 生成一张尼日利亚成年人图片的提示，年龄在 25 岁到 30 岁出头，身穿休闲日间服装（t 恤或修身款上衣）。描述强调自然发型，以及一个在拉各斯炎热天气中应对日常脱水的、 relatable 的普通人。 character description: main subject: nigerian adult, mid-20s to early 30s. natural hair (low cut, locs, or twist-out). wearing casual daytime clothing, simple t-shirt or fitted top, comfortable. relatable, everyday person. someone who's active, works hard, moves through lagos heat. not an athlete, just a regular person dealing with daily dehydration without knowing why. 人物描述： 主角：20 多岁到 30 出头，尼日利亚成年人。自然发型（短发、脏辫或扭发）。穿着休闲日常服装，简单的 t 恤或合身背心，舒适。亲切、普通人。一个活跃、努力工作、在拉各斯炎热天气中穿梭的人。不是运动员，只是一个普通人，在不知情的情况下应对日常脱水。 c g b e a s t 💎 12095",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12090,
+      "title": "老照片修复",
+      "description": "一个通用提示，用于将饱经岁月、破损的纪念品转换为超清晰、DSLR（数码单反相机）质量的数字传家宝，暗示这是一项照片修复任务。",
+      "sourceLink": "https://x.com/workflowaitools/status/2032503453982097509",
+      "sourcePublishedAt": "2026-03-13T17:06:00.000Z",
+      "author": {
+        "name": "workflow ai tools",
+        "link": "https://x.com/workflowaitools"
+      },
+      "content": "Convert your age-worn, damaged keepsakes into ultra-sharp, DSLR-quality digital heirlooms.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469789555_gdujyz_HDTnGTLbMAArE5f.jpg",
+        "https://cms-assets.youmind.com/media/1773469789816_vx2z6x_HDTnGTcbsAA3wgW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469789816_vx2z6x_HDTnGTcbsAA3wgW-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "将您饱经风霜、受损的珍贵纪念品转化为超清晰、DSLR（数码单反相机）品质的数字传家宝。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "老照片修复 一个通用提示，用于将饱经岁月、破损的纪念品转换为超清晰、dslr（数码单反相机）质量的数字传家宝，暗示这是一项照片修复任务。 convert your age-worn, damaged keepsakes into ultra-sharp, dslr-quality digital heirlooms. 将您饱经风霜、受损的珍贵纪念品转化为超清晰、dslr（数码单反相机）品质的数字传家宝。 workflow ai tools 12090",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12098,
+      "title": "超现实巴洛克香水广告提示",
+      "description": "一个详细的提示，用于生成一张超现实、高端的巴洛克风格产品广告图片，其中包含一个香水瓶、象征性物品、荷兰黄金时代的光线和超逼真的纹理。",
+      "sourceLink": "https://x.com/ai_with_shah/status/2032501001928798428",
+      "sourcePublishedAt": "2026-03-13T16:56:15.000Z",
+      "author": {
+        "name": "Shah",
+        "link": "https://x.com/ai_with_shah"
+      },
+      "content": "Surreal baroque luxury perfume ad: turquoise floral bottle with ornate gold cap floating above rustic wooden table, surrounded by suspended symbolic objects – silver chalice overflowing white jasmine, halved fig dripping juice, split pomegranate seeds falling, dried roses, tipped antique hourglass, realistic human skull, dark stormy cloud background, moody Dutch golden age lighting, hyper-real textures, cinematic shadows, volumetric god rays, editorial 8K product photography",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469793010_qy4low_HDTk2rAXcAYGqlF.jpg",
+        "https://cms-assets.youmind.com/media/1773469793142_484n5z_HDTk2rYXcAMTydF.jpg",
+        "https://cms-assets.youmind.com/media/1773469793039_vwk1ow_HDTk2q-XcAIozOz.jpg",
+        "https://cms-assets.youmind.com/media/1773469793989_b4w2rq_HDTk2rHXcAc048Z.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469793010_qy4low_HDTk2rAXcAYGqlF-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469793142_484n5z_HDTk2rYXcAMTydF-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469793039_vwk1ow_HDTk2q-XcAIozOz-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773469793989_b4w2rq_HDTk2rHXcAc048Z-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超现实巴洛克奢华香水广告：一个 {argument name=\"bottle description\" default=\"绿松石色花卉瓶身，配有华丽金色瓶盖\"} 漂浮在质朴的木桌上方，周围环绕着悬浮的象征性物品——溢出白色茉莉的银色圣杯、滴着汁液的半个无花果、散落的石榴籽、干枯的玫瑰、倾斜的古董沙漏、逼真的人类头骨、黑暗暴风雨般的云层背景、情绪化的荷兰黄金时代光线、超现实纹理、电影般的阴影、体积光、编辑级 8K 产品摄影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实巴洛克香水广告提示 一个详细的提示，用于生成一张超现实、高端的巴洛克风格产品广告图片，其中包含一个香水瓶、象征性物品、荷兰黄金时代的光线和超逼真的纹理。 surreal baroque luxury perfume ad: turquoise floral bottle with ornate gold cap floating above rustic wooden table, surrounded by suspended symbolic objects – silver chalice overflowing white jasmine, halved fig dripping juice, split pomegranate seeds falling, dried roses, tipped antique hourglass, realistic human skull, dark stormy cloud background, moody dutch golden age lighting, hyper-real textures, cinematic shadows, volumetric god rays, editorial 8k product photography 超现实巴洛克奢华香水广告：一个 {argument name=\"bottle description\" default=\"绿松石色花卉瓶身，配有华丽金色瓶盖\"} 漂浮在质朴的木桌上方，周围环绕着悬浮的象征性物品——溢出白色茉莉的银色圣杯、滴着汁液的半个无花果、散落的石榴籽、干枯的玫瑰、倾斜的古董沙漏、逼真的人类头骨、黑暗暴风雨般的云层背景、情绪化的荷兰黄金时代光线、超现实纹理、电影般的阴影、体积光、编辑级 8k 产品摄影。 shah 12098",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12070,
+      "title": "用立体模型风格可视化量子力学",
+      "description": "一个为 Nano Banana Pro 设计的复杂、公式化的提示，旨在以微缩景观风格可视化量子力学概念。它结合了雕塑微缩模型、树脂材料、电影级照明和一个迷你吉祥物角色等元素，同时明确排除了照片级真实感和人体比例。",
+      "sourceLink": "https://x.com/Gdgtify/status/2032499931551060254",
+      "sourcePublishedAt": "2026-03-13T16:52:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "2x2 grid of famous quantum mechanics concepts:\n\nRender =\n( Micro_Diorama_Platform * 1.0 ) +\n( Sculpted_Miniature_Backdrop_[TOPIC] * 1.5 ) +\n( 3D_Miniature_Scene_Sculpt_[TOPIC] * 2.0 ) +\n( Resin_and_Clay_Materials * 2.0 ) +\n( Cinematic_Miniature_Lighting * 2.0 ) +\n( Tiny_Mascot_Character * 1.0 ) +\n( Clean_Studio_Void * 1.0 )\n-\n( Photorealism / 2.0 ) -\n( Human_Proportions )",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469778324_ttp0no_HDKuCiJW8AII5Bt.jpg",
+        "https://cms-assets.youmind.com/media/1773469778525_cfgtq0_HDKuCirbQAMMYPY.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469778324_ttp0no_HDKuCiJW8AII5Bt-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773469778525_cfgtq0_HDKuCirbQAMMYPY-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "著名的量子力学概念 2x2 网格：\n\n渲染 =\n( 微型透视模型平台 * 1.0 ) +\n( 微缩雕塑背景_[主题] * 1.5 ) +\n( 3D 微缩场景雕塑_[主题] * 2.0 ) +\n( 树脂和粘土材料 * 2.0 ) +\n( 电影级微缩灯光 * 2.0 ) +\n( 迷你吉祥物角色 * 1.0 ) +\n( 干净的影棚虚空 * 1.0 )\n-\n( 超写实主义 / 2.0 ) -\n( 人体比例 )",
+      "sourcePlatform": "twitter",
+      "searchIndex": "用立体模型风格可视化量子力学 一个为 nano banana pro 设计的复杂、公式化的提示，旨在以微缩景观风格可视化量子力学概念。它结合了雕塑微缩模型、树脂材料、电影级照明和一个迷你吉祥物角色等元素，同时明确排除了照片级真实感和人体比例。 2x2 grid of famous quantum mechanics concepts:\n\nrender =\n( micro_diorama_platform * 1.0 ) +\n( sculpted_miniature_backdrop_[topic] * 1.5 ) +\n( 3d_miniature_scene_sculpt_[topic] * 2.0 ) +\n( resin_and_clay_materials * 2.0 ) +\n( cinematic_miniature_lighting * 2.0 ) +\n( tiny_mascot_character * 1.0 ) +\n( clean_studio_void * 1.0 )\n-\n( photorealism / 2.0 ) -\n( human_proportions ) 著名的量子力学概念 2x2 网格：\n\n渲染 =\n( 微型透视模型平台 * 1.0 ) +\n( 微缩雕塑背景_[主题] * 1.5 ) +\n( 3d 微缩场景雕塑_[主题] * 2.0 ) +\n( 树脂和粘土材料 * 2.0 ) +\n( 电影级微缩灯光 * 2.0 ) +\n( 迷你吉祥物角色 * 1.0 ) +\n( 干净的影棚虚空 * 1.0 )\n-\n( 超写实主义 / 2.0 ) -\n( 人体比例 ) gadgetify 12070",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12122,
+      "title": "Sydney Sweeney 奢华厨房时尚大片",
+      "description": "一个为 Nano Banana 2 设计的详细 JSON 提示，用于生成一张悉尼·斯威尼（Sydney Sweeney）在豪华现代厨房中的超现实电影级时尚照片。该提示详细说明了她的姿势、服装（黑色缎面迷你吊带裙）、灯光（橱柜下方的暖光）和相机设置（50mm 人像镜头，8K 画质），以实现超现实的时尚大片效果。",
+      "sourceLink": "https://x.com/Strength04_X/status/2032475643783352620",
+      "sourcePublishedAt": "2026-03-13T15:15:29.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "{\n  \"scene\": {\n    \"type\": \"luxury modern kitchen interior\",\n    \"style\": \"ultra realistic cinematic fashion photography\",\n    \"environment\": \"high-end contemporary kitchen with dark cabinets, marble island counter, warm under-cabinet lighting, wooden floor\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"celebrity name\" default=\"Sydney Sweeney\"}\",\n    \"pose\": \"standing beside a marble kitchen island, leaning slightly with one hand resting on the counter, one leg bent forward in an elegant pose\",\n    \"expression\": \"calm confident gaze directed at the camera\",\n    \"appearance\": {\n      \"hair\": \"long soft wavy blonde hair\",\n      \"makeup\": \"soft glamorous makeup with natural glowing skin\",\n      \"skin_texture\": \"highly detailed natural skin\"\n    }\n  },\n  \"wardrobe\": {\n    \"outfit\": \"black satin mini slip dress with thin straps\",\n    \"footwear\": \"elegant silver high heel sandals with thin straps\"\n  },\n  \"composition\": {\n    \"framing\": \"full body portrait\",\n    \"camera_angle\": \"eye level fashion photography perspective\",\n    \"background\": \"modern kitchen interior softly blurred\"\n  },\n  \"lighting\": {\n    \"setup\": \"soft cinematic interior lighting\",\n    \"details\": \"warm under-cabinet lights illuminating the kitchen, balanced soft shadows, natural skin highlights\"\n  },\n  \"camera\": {\n    \"type\": \"professional DSLR\",\n    \"lens\": \"50mm portrait lens\",\n    \"settings\": \"f/2.8 shallow depth of field\",\n    \"quality\": \"8k ultra photorealistic\",\n    \"focus\": \"sharp focus on subject\"\n  },\n  \"render\": {\n    \"style\": \"hyper realistic fashion editorial photography\",\n    \"details\": \"realistic fabric texture, natural hair strands, cinematic lighting, professional photography look\",\n    \"restrictions\": \"no watermark, no logo, no text\"\n  },\n  \"aspect_ratio\": \"3:4\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469808702_wm35b7_HDTNz2saoAAqFF6.jpg",
+        "https://cms-assets.youmind.com/media/1773469808665_zmjszy_HDTNz2va0AAwFZP.jpg",
+        "https://cms-assets.youmind.com/media/1773469808700_43bvo7_HDTNzz1aMAAnTv-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469808702_wm35b7_HDTNz2saoAAqFF6-300x224.jpg",
+        "https://cms-assets.youmind.com/media/1773469808665_zmjszy_HDTNz2va0AAwFZP-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773469808700_43bvo7_HDTNzz1aMAAnTv--300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": {\n    \"type\": \"奢华现代厨房内景\",\n    \"style\": \"超现实电影时尚摄影\",\n    \"environment\": \"高端现代厨房，配有深色橱柜、大理石岛台、温暖的橱柜下方照明、木地板\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"celebrity name\\\" default=\\\"Sydney Sweeney\\\"}\",\n    \"pose\": \"站在大理石厨房岛台旁，身体微倾，一只手搭在台面上，一条腿优雅地向前弯曲\",\n    \"expression\": \"平静自信地凝视镜头\",\n    \"appearance\": {\n      \"hair\": \"长而柔顺的波浪金发\",\n      \"makeup\": \"柔和迷人的妆容，肌肤自然焕发光泽\",\n      \"skin_texture\": \"高度细致的自然肌肤\"\n    }\n  },\n  \"wardrobe\": {\n    \"outfit\": \"黑色缎面细吊带迷你连衣裙\",\n    \"footwear\": \"优雅的银色细带高跟凉鞋\"\n  },\n  \"composition\": {\n    \"framing\": \"全身肖像\",\n    \"camera_angle\": \"与视线齐平的时尚摄影视角\",\n    \"background\": \"现代厨房内景，柔和虚化\"\n  },\n  \"lighting\": {\n    \"setup\": \"柔和的电影内景照明\",\n    \"details\": \"温暖的橱柜下方灯光照亮厨房，平衡的柔和阴影，自然的肌肤高光\"\n  },\n  \"camera\": {\n    \"type\": \"专业单反相机\",\n    \"lens\": \"50mm 人像镜头\",\n    \"settings\": \"f/2.8 浅景深\",\n    \"quality\": \"8k 超逼真\",\n    \"focus\": \"主体对焦锐利\"\n  },\n  \"render\": {\n    \"style\": \"超现实时尚杂志摄影\",\n    \"details\": \"逼真的织物纹理，自然的头发丝，电影级照明，专业摄影效果\",\n    \"restrictions\": \"无水印，无标志，无文字\"\n  },\n  \"aspect_ratio\": \"3:4\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sydney sweeney 奢华厨房时尚大片 一个为 nano banana 2 设计的详细 json 提示，用于生成一张悉尼·斯威尼（sydney sweeney）在豪华现代厨房中的超现实电影级时尚照片。该提示详细说明了她的姿势、服装（黑色缎面迷你吊带裙）、灯光（橱柜下方的暖光）和相机设置（50mm 人像镜头，8k 画质），以实现超现实的时尚大片效果。 {\n  \"scene\": {\n    \"type\": \"luxury modern kitchen interior\",\n    \"style\": \"ultra realistic cinematic fashion photography\",\n    \"environment\": \"high-end contemporary kitchen with dark cabinets, marble island counter, warm under-cabinet lighting, wooden floor\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"celebrity name\" default=\"sydney sweeney\"}\",\n    \"pose\": \"standing beside a marble kitchen island, leaning slightly with one hand resting on the counter, one leg bent forward in an elegant pose\",\n    \"expression\": \"calm confident gaze directed at the camera\",\n    \"appearance\": {\n      \"hair\": \"long soft wavy blonde hair\",\n      \"makeup\": \"soft glamorous makeup with natural glowing skin\",\n      \"skin_texture\": \"highly detailed natural skin\"\n    }\n  },\n  \"wardrobe\": {\n    \"outfit\": \"black satin mini slip dress with thin straps\",\n    \"footwear\": \"elegant silver high heel sandals with thin straps\"\n  },\n  \"composition\": {\n    \"framing\": \"full body portrait\",\n    \"camera_angle\": \"eye level fashion photography perspective\",\n    \"background\": \"modern kitchen interior softly blurred\"\n  },\n  \"lighting\": {\n    \"setup\": \"soft cinematic interior lighting\",\n    \"details\": \"warm under-cabinet lights illuminating the kitchen, balanced soft shadows, natural skin highlights\"\n  },\n  \"camera\": {\n    \"type\": \"professional dslr\",\n    \"lens\": \"50mm portrait lens\",\n    \"settings\": \"f/2.8 shallow depth of field\",\n    \"quality\": \"8k ultra photorealistic\",\n    \"focus\": \"sharp focus on subject\"\n  },\n  \"render\": {\n    \"style\": \"hyper realistic fashion editorial photography\",\n    \"details\": \"realistic fabric texture, natural hair strands, cinematic lighting, professional photography look\",\n    \"restrictions\": \"no watermark, no logo, no text\"\n  },\n  \"aspect_ratio\": \"3:4\"\n} ```json\n{\n  \"scene\": {\n    \"type\": \"奢华现代厨房内景\",\n    \"style\": \"超现实电影时尚摄影\",\n    \"environment\": \"高端现代厨房，配有深色橱柜、大理石岛台、温暖的橱柜下方照明、木地板\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"celebrity name\\\" default=\\\"sydney sweeney\\\"}\",\n    \"pose\": \"站在大理石厨房岛台旁，身体微倾，一只手搭在台面上，一条腿优雅地向前弯曲\",\n    \"expression\": \"平静自信地凝视镜头\",\n    \"appearance\": {\n      \"hair\": \"长而柔顺的波浪金发\",\n      \"makeup\": \"柔和迷人的妆容，肌肤自然焕发光泽\",\n      \"skin_texture\": \"高度细致的自然肌肤\"\n    }\n  },\n  \"wardrobe\": {\n    \"outfit\": \"黑色缎面细吊带迷你连衣裙\",\n    \"footwear\": \"优雅的银色细带高跟凉鞋\"\n  },\n  \"composition\": {\n    \"framing\": \"全身肖像\",\n    \"camera_angle\": \"与视线齐平的时尚摄影视角\",\n    \"background\": \"现代厨房内景，柔和虚化\"\n  },\n  \"lighting\": {\n    \"setup\": \"柔和的电影内景照明\",\n    \"details\": \"温暖的橱柜下方灯光照亮厨房，平衡的柔和阴影，自然的肌肤高光\"\n  },\n  \"camera\": {\n    \"type\": \"专业单反相机\",\n    \"lens\": \"50mm 人像镜头\",\n    \"settings\": \"f/2.8 浅景深\",\n    \"quality\": \"8k 超逼真\",\n    \"focus\": \"主体对焦锐利\"\n  },\n  \"render\": {\n    \"style\": \"超现实时尚杂志摄影\",\n    \"details\": \"逼真的织物纹理，自然的头发丝，电影级照明，专业摄影效果\",\n    \"restrictions\": \"无水印，无标志，无文字\"\n  },\n  \"aspect_ratio\": \"3:4\"\n}\n``` 𝐌 12122",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12076,
+      "title": "图片编辑的文本替换提示",
+      "description": "一个提示，指示 AI 将参考图片上的文本从“Children's Day Fest”更改为“Colour Pop Day”，同时保持原有风格，并确保“Day”一词位于“Pop”下方的新行。这是一个图像编辑/处理提示。",
+      "sourceLink": "https://x.com/art_ireolu/status/2032471996219466007",
+      "sourcePublishedAt": "2026-03-13T15:01:00.000Z",
+      "author": {
+        "name": "Theophilus E. Oni",
+        "link": "https://x.com/art_ireolu"
+      },
+      "content": "Change the text on the image reference from \"Children's Day Fest\" to \"Colour Pop Day\". Put the \"Pop\" on the next line with \"Day\". Ensure the style is maintained.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469781868_mblw3j_HDTKglcWwAA6JXu.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469781868_mblw3j_HDTKglcWwAA6JXu-300x163.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "将图片参考中的文字从 \"Children's Day Fest\" 改为 \"Colour Pop Day\"。将 \"Pop\" 放在下一行，与 \"Day\" 对齐。确保保持原有风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "图片编辑的文本替换提示 一个提示，指示 ai 将参考图片上的文本从“children's day fest”更改为“colour pop day”，同时保持原有风格，并确保“day”一词位于“pop”下方的新行。这是一个图像编辑/处理提示。 change the text on the image reference from \"children's day fest\" to \"colour pop day\". put the \"pop\" on the next line with \"day\". ensure the style is maintained. 将图片参考中的文字从 \"children's day fest\" 改为 \"colour pop day\"。将 \"pop\" 放在下一行，与 \"day\" 对齐。确保保持原有风格。 theophilus e. oni 12076",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12092,
+      "title": "水彩森林溪流空地",
+      "description": "一个用于生成带有小溪的森林空地图像的提示，采用精致、半透明的水彩风格。它指定了体积光照、超精细的形状，以及无轮廓的湿画法。",
+      "sourceLink": "https://x.com/artingent/status/2032463441114669149",
+      "sourcePublishedAt": "2026-03-13T14:27:00.000Z",
+      "author": {
+        "name": "Artingent",
+        "link": "https://x.com/artingent"
+      },
+      "content": "Scene \nA forest clearing with a stream passing across \n\nStyle Delicate, translucent watercolor with ultra detailed shapes preserving natural irregularities and clear edges but no outlines and no lines at the edges. Soft, wet-into-wet technique. \n\nLighting \nDaylight Volumetric lighting \n\nNegative Prompt Lines Line Drawing Line Illustration Ink Sketch",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469790663_gx65ph_HDTCKOtbwAEr9Ve.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469790663_gx65ph_HDTCKOtbwAEr9Ve-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "场景\n一条小溪穿过森林中的空地。\n\n风格\n精致、半透明的水彩画，形状超精细，保留了自然的纹理和清晰的边缘，但没有轮廓线，边缘也没有线条。采用柔和的湿画法。\n\n光照\n日光 体积光\n\n负面提示\n线条 线稿 线条插画 墨水速写",
+      "sourcePlatform": "twitter",
+      "searchIndex": "水彩森林溪流空地 一个用于生成带有小溪的森林空地图像的提示，采用精致、半透明的水彩风格。它指定了体积光照、超精细的形状，以及无轮廓的湿画法。 scene \na forest clearing with a stream passing across \n\nstyle delicate, translucent watercolor with ultra detailed shapes preserving natural irregularities and clear edges but no outlines and no lines at the edges. soft, wet-into-wet technique. \n\nlighting \ndaylight volumetric lighting \n\nnegative prompt lines line drawing line illustration ink sketch 场景\n一条小溪穿过森林中的空地。\n\n风格\n精致、半透明的水彩画，形状超精细，保留了自然的纹理和清晰的边缘，但没有轮廓线，边缘也没有线条。采用柔和的湿画法。\n\n光照\n日光 体积光\n\n负面提示\n线条 线稿 线条插画 墨水速写 artingent 12092",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12065,
+      "title": "安雅·泰勒-乔伊 (Anya Taylor-Joy) 相似者的超逼真肖像",
+      "description": "一个为 Nano Banana 2 设计的详细、超真实感提示，用于生成一张酷似安雅·泰勒-乔伊 (Anya Taylor-Joy) 的女性的私密、抓拍肖像。该提示细致地定义了场景、光线（柔和的室内日光）、拍摄对象的着装（格子套装配红色蝴蝶结）、姿势（坐在白色亚麻布上），以及诸如涂有亮红色指甲油的完美赤脚等具体细节。",
+      "sourceLink": "https://x.com/chatgptpaglu/status/2032463214194348137",
+      "sourcePublishedAt": "2026-03-13T14:26:06.000Z",
+      "author": {
+        "name": "yusra.",
+        "link": "https://x.com/chatgptpaglu"
+      },
+      "content": "{\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “soft, natural indoor daylight, subtle bedroom shadows”,\n    “style”: “intimate, candid portrait, detailed focus”,\n    “aspect_ratio”: “3:4”\n  },\n  “scene”: {\n    “location”: “A minimalist, bright indoor bedroom setting. A bed with white rumpled linen sheets and pillows against a plain white wall.”,\n    “atmosphere”: “Candid, stylish, relaxed.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"celebrity lookalike\" default=\"Anya Taylor-Joy\"}”,\n    “body”: {\n      “type”: “Naturally slim and toned physique, in a seated pose on the white bed sheets, legs crossed with one leg extended forward and the other tucked. All visible skin on her body, including her legs, feet, and ankles, is completely smooth, clean, flawless, and free of any tattoos or marks.”\n    },\n“face”: {\n      “features”: “Striking features with a clear direct gaze towards the camera, detailed eye makeup with winged eyeliner, and a soft red lip color. Her platinum blonde hair is styled with soft waves and adorned with a large, prominent bright red bow headband.”,\n      “expression”: “Confident, direct gaze.”\n    },\n    “outfit”: {\n      “description”: “A two-piece blue and white gingham coordinate set. Spaghetti strap crop top with red embroidery (heart and cherry cluster motif) on the chest and white scalloped lace trim. Matching pleated mini-skirt with matching scalloped lace hem, in a classic mini length.”,\n      “fit”: “Tailored, form-fitting, chic.”,\n      “accessory”: “Blue cube-like geometric stud earrings. A small white clutch purse with gold hardware is visible on the bed in the foreground corner.”\n    },\n“pose”: “Seated on the white bed sheets, legs crossed with one foot resting on the sheet and the other tucked. Left arm extended backward, right hand supporting her on the sheet, with a direct gaze at the camera.”,\n    “footwear”: “Explicitly and completely barefoot. No mules or slippers.”,\n    “details”: “Her bare toes are clearly visible resting on the white linen sheet, and all toenails are painted with a vibrant, glossy, polished red nail polish.”\n  },\n  “composition”: “Medium full-body shot, capturing her from head to foot, high-angle perspective. Sharp focus on all details: Anya Taylor-Joy’s face, the red bow, the intricate gingham fabric of the classic mini-skirt, and the barefoot toes with glossy red polish. The white bed setting and clutch are clear but softly blurred.”\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773469775721_o70s6a_HDTChPlWkAIeAca.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773469775721_o70s6a_HDTChPlWkAIeAca-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"quality\": \"超逼真、原始风格、8k\",\n  \"camera\": \"iPhone 15 Pro Max\",\n  \"lighting\": \"柔和、自然室内日光、卧室微妙阴影\",\n  \"style\": \"亲密、抓拍肖像、细节聚焦\",\n  \"aspect_ratio\": \"3:4\"\n},\n  \"scene\": {\n    \"location\": \"极简、明亮的室内卧室场景。一张铺着白色凌乱亚麻床单和枕头的床，靠着一面纯白色墙壁。\",\n    \"atmosphere\": \"自然、时尚、放松。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"celebrity lookalike\\\" default=\\\"Anya Taylor-Joy\\\"}\",\n    \"body\": {\n      \"type\": \"自然纤细健美的体型，以坐姿坐在白色床单上，双腿交叉，一条腿向前伸展，另一条腿收拢。她身体所有可见的皮肤，包括腿部、脚部和脚踝，都完全光滑、洁净、无瑕，没有任何纹身或印记。\"\n    },\n    \"face\": {\n      \"features\": \"引人注目的五官，目光清晰直视镜头，精致的眼妆带有飞扬的眼线，柔和的红色唇色。她的铂金色头发造型为柔和的波浪，并佩戴着一个大而醒目的亮红色蝴蝶结发带。\",\n      \"expression\": \"自信、直视的目光。\"\n    },\n    \"outfit\": {\n      \"description\": \"一套两件式蓝白格纹套装。细肩带露脐上衣，胸部有红色刺绣（心形和樱桃簇图案），白色扇形蕾丝边饰。配套的褶裥迷你裙，带有匹配的扇形蕾丝下摆，经典迷你长度。\",\n      \"fit\": \"剪裁合身、贴身、时尚。\",\n      \"accessory\": \"蓝色方块状几何耳钉。前景角落的床上可见一个带有金色五金件的小白色手拿包。\"\n    },\n    \"pose\": \"坐在白色床单上，双腿交叉，一只脚放在床单上，另一只脚收拢。左臂向后伸展，右手支撑在床单上，目光直视镜头。\",\n    \"footwear\": \"明确且完全赤脚。没有穆勒鞋或拖鞋。\",\n    \"details\": \"她赤裸的脚趾清晰可见地放在白色亚麻床单上，所有脚趾甲都涂有鲜艳、有光泽、抛光的红色指甲油。\"\n  },\n  \"composition\": \"中景全身照，从头到脚捕捉她，高角度视角。所有细节都清晰聚焦：Anya Taylor-Joy 的脸部、红色蝴蝶结、经典迷你裙精致的格纹面料，以及涂有光泽红色指甲油的赤脚脚趾。白色床景和手拿包清晰但柔和模糊。\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "安雅·泰勒-乔伊 (anya taylor-joy) 相似者的超逼真肖像 一个为 nano banana 2 设计的详细、超真实感提示，用于生成一张酷似安雅·泰勒-乔伊 (anya taylor-joy) 的女性的私密、抓拍肖像。该提示细致地定义了场景、光线（柔和的室内日光）、拍摄对象的着装（格子套装配红色蝴蝶结）、姿势（坐在白色亚麻布上），以及诸如涂有亮红色指甲油的完美赤脚等具体细节。 {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “soft, natural indoor daylight, subtle bedroom shadows”,\n    “style”: “intimate, candid portrait, detailed focus”,\n    “aspect_ratio”: “3:4”\n  },\n  “scene”: {\n    “location”: “a minimalist, bright indoor bedroom setting. a bed with white rumpled linen sheets and pillows against a plain white wall.”,\n    “atmosphere”: “candid, stylish, relaxed.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"celebrity lookalike\" default=\"anya taylor-joy\"}”,\n    “body”: {\n      “type”: “naturally slim and toned physique, in a seated pose on the white bed sheets, legs crossed with one leg extended forward and the other tucked. all visible skin on her body, including her legs, feet, and ankles, is completely smooth, clean, flawless, and free of any tattoos or marks.”\n    },\n“face”: {\n      “features”: “striking features with a clear direct gaze towards the camera, detailed eye makeup with winged eyeliner, and a soft red lip color. her platinum blonde hair is styled with soft waves and adorned with a large, prominent bright red bow headband.”,\n      “expression”: “confident, direct gaze.”\n    },\n    “outfit”: {\n      “description”: “a two-piece blue and white gingham coordinate set. spaghetti strap crop top with red embroidery (heart and cherry cluster motif) on the chest and white scalloped lace trim. matching pleated mini-skirt with matching scalloped lace hem, in a classic mini length.”,\n      “fit”: “tailored, form-fitting, chic.”,\n      “accessory”: “blue cube-like geometric stud earrings. a small white clutch purse with gold hardware is visible on the bed in the foreground corner.”\n    },\n“pose”: “seated on the white bed sheets, legs crossed with one foot resting on the sheet and the other tucked. left arm extended backward, right hand supporting her on the sheet, with a direct gaze at the camera.”,\n    “footwear”: “explicitly and completely barefoot. no mules or slippers.”,\n    “details”: “her bare toes are clearly visible resting on the white linen sheet, and all toenails are painted with a vibrant, glossy, polished red nail polish.”\n  },\n  “composition”: “medium full-body shot, capturing her from head to foot, high-angle perspective. sharp focus on all details: anya taylor-joy’s face, the red bow, the intricate gingham fabric of the classic mini-skirt, and the barefoot toes with glossy red polish. the white bed setting and clutch are clear but softly blurred.”\n} ```json\n{\n  \"quality\": \"超逼真、原始风格、8k\",\n  \"camera\": \"iphone 15 pro max\",\n  \"lighting\": \"柔和、自然室内日光、卧室微妙阴影\",\n  \"style\": \"亲密、抓拍肖像、细节聚焦\",\n  \"aspect_ratio\": \"3:4\"\n},\n  \"scene\": {\n    \"location\": \"极简、明亮的室内卧室场景。一张铺着白色凌乱亚麻床单和枕头的床，靠着一面纯白色墙壁。\",\n    \"atmosphere\": \"自然、时尚、放松。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"celebrity lookalike\\\" default=\\\"anya taylor-joy\\\"}\",\n    \"body\": {\n      \"type\": \"自然纤细健美的体型，以坐姿坐在白色床单上，双腿交叉，一条腿向前伸展，另一条腿收拢。她身体所有可见的皮肤，包括腿部、脚部和脚踝，都完全光滑、洁净、无瑕，没有任何纹身或印记。\"\n    },\n    \"face\": {\n      \"features\": \"引人注目的五官，目光清晰直视镜头，精致的眼妆带有飞扬的眼线，柔和的红色唇色。她的铂金色头发造型为柔和的波浪，并佩戴着一个大而醒目的亮红色蝴蝶结发带。\",\n      \"expression\": \"自信、直视的目光。\"\n    },\n    \"outfit\": {\n      \"description\": \"一套两件式蓝白格纹套装。细肩带露脐上衣，胸部有红色刺绣（心形和樱桃簇图案），白色扇形蕾丝边饰。配套的褶裥迷你裙，带有匹配的扇形蕾丝下摆，经典迷你长度。\",\n      \"fit\": \"剪裁合身、贴身、时尚。\",\n      \"accessory\": \"蓝色方块状几何耳钉。前景角落的床上可见一个带有金色五金件的小白色手拿包。\"\n    },\n    \"pose\": \"坐在白色床单上，双腿交叉，一只脚放在床单上，另一只脚收拢。左臂向后伸展，右手支撑在床单上，目光直视镜头。\",\n    \"footwear\": \"明确且完全赤脚。没有穆勒鞋或拖鞋。\",\n    \"details\": \"她赤裸的脚趾清晰可见地放在白色亚麻床单上，所有脚趾甲都涂有鲜艳、有光泽、抛光的红色指甲油。\"\n  },\n  \"composition\": \"中景全身照，从头到脚捕捉她，高角度视角。所有细节都清晰聚焦：anya taylor-joy 的脸部、红色蝴蝶结、经典迷你裙精致的格纹面料，以及涂有光泽红色指甲油的赤脚脚趾。白色床景和手拿包清晰但柔和模糊。\"\n}\n``` yusra. 12065",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 64,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

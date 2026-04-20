@@ -1,0 +1,500 @@
+{
+  "prompts": [
+    {
+      "id": 11141,
+      "title": "比较 ChatGPT 5.2 和 Nano Banana 2 在恶魔人建模方面的表现",
+      "description": "以下是使用过去的建模数据，对“恶魔人昭和动画风味版”在 ChatGPT 5.2 和 Nano Banana 2 之间生成结果的比较。提示要求根据参考图像，以正面斜角呈现一个人物，同时尊重原始设计的细节和配色。",
+      "sourceLink": "https://x.com/SanShiroH_X/status/2027673873215639820",
+      "sourcePublishedAt": "2026-02-28T09:14:58.000Z",
+      "author": {
+        "name": "真坂参志郎",
+        "link": "https://x.com/SanShiroH_X"
+      },
+      "content": "画像のフィギュアの斜め前アングルを作成して下さい、フィギュアのディテールと配色はオリジナルデザインを尊重し性格に再現して下さい、背景は白、アスベクト比は1：1の正方形で出力し、フィギュアの全景が余裕を持って画面内に収まるようにサイズ調整して下さい",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346693898_kcxvcb_HCO4IkObEAUFRoT.jpg",
+        "https://cms-assets.youmind.com/media/1772346693923_48bj2a_HCO4JJTaEAIDEF3.jpg",
+        "https://cms-assets.youmind.com/media/1772346693868_izcgpr_HCO4L-daYAA4_-4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346693898_kcxvcb_HCO4IkObEAUFRoT-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772346693923_48bj2a_HCO4JJTaEAIDEF3-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1772346693868_izcgpr_HCO4L-daYAA4_-4-300x480.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "请创建图像中人物的正面斜角视图。请根据原始设计，尊重并准确再现人物的细节和配色方案。背景应为白色，宽高比应为 1:1 的正方形，并调整尺寸，使整个人物舒适地置于画面中。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "比较 chatgpt 5.2 和 nano banana 2 在恶魔人建模方面的表现 以下是使用过去的建模数据，对“恶魔人昭和动画风味版”在 chatgpt 5.2 和 nano banana 2 之间生成结果的比较。提示要求根据参考图像，以正面斜角呈现一个人物，同时尊重原始设计的细节和配色。 画像のフィギュアの斜め前アングルを作成して下さい、フィギュアのディテールと配色はオリジナルデザインを尊重し性格に再現して下さい、背景は白、アスベクト比は1：1の正方形で出力し、フィギュアの全景が余裕を持って画面内に収まるようにサイズ調整して下さい 请创建图像中人物的正面斜角视图。请根据原始设计，尊重并准确再现人物的细节和配色方案。背景应为白色，宽高比应为 1:1 的正方形，并调整尺寸，使整个人物舒适地置于画面中。 真坂参志郎 11141",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11113,
+      "title": "热带海滩自拍肖像",
+      "description": "一个高度结构化的 JSON 提示，用于生成一张特写、高分辨率的智能手机自拍，描绘一位年轻女性在热带环境中，强调自然的皮肤纹理、强烈阳光，以及湿发和水滴等具体细节，捕捉度假氛围。",
+      "sourceLink": "https://x.com/aisauce_x/status/2027673190705861064",
+      "sourcePublishedAt": "2026-02-28T09:12:15.000Z",
+      "author": {
+        "name": "AISauce",
+        "link": "https://x.com/aisauce_x"
+      },
+      "content": "{\n\"subject\": {\n\"description\": \"Young woman captured in a close-up selfie pose, leaning her head against her left arm/shoulder, making direct eye contact with a relaxed demeanor\",\n\"age\": \"Early to mid-20s\",\n\"expression\": \"Subtle, closed-mouth smile, calm gaze, eyes slightly squinted against the bright sun\",\n\"hair\": {\n\"color\": \"Dark brown to black\",\n\"style\": \"Shoulder-length, damp/wet texture (beach waves), with piecey bangs framing the forehead and windswept sides\"\n},\n\"skin_details\": \"Sun-kissed tan complexion, visible natural skin texture (pores), clear water droplets standing on the surface of the left shoulder and upper arm\",\n\"clothing\": {\n\"top\": {\n\"type\": \"Swimwear edge (implied)\",\n\"color\": \"Black\",\n\"details\": \"Only a minuscule fragment of a black edge/strap is visible at the extreme bottom right; image is dominated by bare skin on shoulders and arms\"\n}\n},\n\"face\": {\n\"preserve_original\": true,\n\"makeup\": \"Minimalist 'clean girl' aesthetic, natural brushed-up eyebrows, dewy skin finish, uncolored lips\"\n}\n},\n\"photography\": {\n\"camera_style\": \"High-resolution smartphone selfie, sharp foreground focus\",\n\"angle\": \"Low angle, tilted upwards towards the sky and tree canopy\",\n\"shot_type\": \"Close-up portrait, framing head and shoulders\",\n\"aspect_ratio\": \"Vertical (approx 9:16)\",\n\"texture\": \"Sharp, high-contrast daylight photography, natural lighting artifacts\"\n},\n\"background\": {\n\"setting\": \"Tropical outdoor setting, likely a beach\",\n\"elements\": [\n\"Tall coconut palm tree trunks with grey ringed texture\",\n\"Vibrant green palm fronds extending overhead\",\n\"Bright azure blue sky\",\n\"White fluffy cumulus clouds in the distance\"\n],\n\"atmosphere\": \"Sunny, hot, tropical vacation mood\",\n\"lighting\": \"Hard, direct natural sunlight originating from the upper left, casting distinct shadows on the right side of the face and neck, creating a harsh but flattering highlight on the cheekbone\"\n}\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346683698_j32ky8_HCO-Am7bQAAwoDK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346683698_j32ky8_HCO-Am7bQAAwoDK-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"subject\": {\n\"description\": \"一位年轻女性以自拍姿势特写入镜，头部靠在左臂/肩膀上，眼神放松地直视镜头\",\n\"age\": \"20 岁出头到 25 岁左右\",\n\"expression\": \"含蓄的闭口微笑，眼神平静，双眼因阳光明媚而略微眯起\",\n\"hair\": {\n\"color\": \"深棕色至黑色\",\n\"style\": \"齐肩长发，湿润/潮湿的质感（海滩波浪），零碎的刘海修饰额头，两侧被风吹拂\"\n},\n\"skin_details\": \"晒黑的古铜色肤色，可见自然的皮肤纹理（毛孔），左肩和上臂表面有清晰的水珠\",\n\"clothing\": {\n\"top\": {\n\"type\": \"泳装边缘（暗示）\",\n\"color\": \"黑色\",\n\"details\": \"右下角仅可见一小部分黑色边缘/肩带；图像主要展示肩膀和手臂的裸露皮肤\"\n}\n},\n\"face\": {\n\"preserve_original\": true,\n\"makeup\": \"极简的“清纯女孩”妆容，自然的眉毛向上梳理，水润的皮肤光泽，无色唇部\"\n}\n},\n\"photography\": {\n\"camera_style\": \"高分辨率智能手机自拍，前景对焦清晰\",\n\"angle\": \"低角度，向上倾斜，对着天空和树冠\",\n\"shot_type\": \"特写肖像，构图为头部和肩膀\",\n\"aspect_ratio\": \"垂直（约 9:16）\",\n\"texture\": \"锐利、高对比度的日光摄影，自然光影效果\"\n},\n\"background\": {\n\"setting\": \"热带户外环境，可能是海滩\",\n\"elements\": [\n\"高大的椰子树干，带有灰色环状纹理\",\n\"上方延伸的翠绿色棕榈叶\",\n\"明亮的蔚蓝色天空\",\n\"远处洁白的积云\"\n],\n\"atmosphere\": \"阳光明媚、炎热，充满热带度假氛围\",\n\"lighting\": \"强烈、直射的自然阳光来自左上方，在脸部和颈部右侧投下清晰的阴影，在颧骨上形成强烈但迷人的高光\"\n}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "热带海滩自拍肖像 一个高度结构化的 json 提示，用于生成一张特写、高分辨率的智能手机自拍，描绘一位年轻女性在热带环境中，强调自然的皮肤纹理、强烈阳光，以及湿发和水滴等具体细节，捕捉度假氛围。 {\n\"subject\": {\n\"description\": \"young woman captured in a close-up selfie pose, leaning her head against her left arm/shoulder, making direct eye contact with a relaxed demeanor\",\n\"age\": \"early to mid-20s\",\n\"expression\": \"subtle, closed-mouth smile, calm gaze, eyes slightly squinted against the bright sun\",\n\"hair\": {\n\"color\": \"dark brown to black\",\n\"style\": \"shoulder-length, damp/wet texture (beach waves), with piecey bangs framing the forehead and windswept sides\"\n},\n\"skin_details\": \"sun-kissed tan complexion, visible natural skin texture (pores), clear water droplets standing on the surface of the left shoulder and upper arm\",\n\"clothing\": {\n\"top\": {\n\"type\": \"swimwear edge (implied)\",\n\"color\": \"black\",\n\"details\": \"only a minuscule fragment of a black edge/strap is visible at the extreme bottom right; image is dominated by bare skin on shoulders and arms\"\n}\n},\n\"face\": {\n\"preserve_original\": true,\n\"makeup\": \"minimalist 'clean girl' aesthetic, natural brushed-up eyebrows, dewy skin finish, uncolored lips\"\n}\n},\n\"photography\": {\n\"camera_style\": \"high-resolution smartphone selfie, sharp foreground focus\",\n\"angle\": \"low angle, tilted upwards towards the sky and tree canopy\",\n\"shot_type\": \"close-up portrait, framing head and shoulders\",\n\"aspect_ratio\": \"vertical (approx 9:16)\",\n\"texture\": \"sharp, high-contrast daylight photography, natural lighting artifacts\"\n},\n\"background\": {\n\"setting\": \"tropical outdoor setting, likely a beach\",\n\"elements\": [\n\"tall coconut palm tree trunks with grey ringed texture\",\n\"vibrant green palm fronds extending overhead\",\n\"bright azure blue sky\",\n\"white fluffy cumulus clouds in the distance\"\n],\n\"atmosphere\": \"sunny, hot, tropical vacation mood\",\n\"lighting\": \"hard, direct natural sunlight originating from the upper left, casting distinct shadows on the right side of the face and neck, creating a harsh but flattering highlight on the cheekbone\"\n}\n} ```json\n{\n\"subject\": {\n\"description\": \"一位年轻女性以自拍姿势特写入镜，头部靠在左臂/肩膀上，眼神放松地直视镜头\",\n\"age\": \"20 岁出头到 25 岁左右\",\n\"expression\": \"含蓄的闭口微笑，眼神平静，双眼因阳光明媚而略微眯起\",\n\"hair\": {\n\"color\": \"深棕色至黑色\",\n\"style\": \"齐肩长发，湿润/潮湿的质感（海滩波浪），零碎的刘海修饰额头，两侧被风吹拂\"\n},\n\"skin_details\": \"晒黑的古铜色肤色，可见自然的皮肤纹理（毛孔），左肩和上臂表面有清晰的水珠\",\n\"clothing\": {\n\"top\": {\n\"type\": \"泳装边缘（暗示）\",\n\"color\": \"黑色\",\n\"details\": \"右下角仅可见一小部分黑色边缘/肩带；图像主要展示肩膀和手臂的裸露皮肤\"\n}\n},\n\"face\": {\n\"preserve_original\": true,\n\"makeup\": \"极简的“清纯女孩”妆容，自然的眉毛向上梳理，水润的皮肤光泽，无色唇部\"\n}\n},\n\"photography\": {\n\"camera_style\": \"高分辨率智能手机自拍，前景对焦清晰\",\n\"angle\": \"低角度，向上倾斜，对着天空和树冠\",\n\"shot_type\": \"特写肖像，构图为头部和肩膀\",\n\"aspect_ratio\": \"垂直（约 9:16）\",\n\"texture\": \"锐利、高对比度的日光摄影，自然光影效果\"\n},\n\"background\": {\n\"setting\": \"热带户外环境，可能是海滩\",\n\"elements\": [\n\"高大的椰子树干，带有灰色环状纹理\",\n\"上方延伸的翠绿色棕榈叶\",\n\"明亮的蔚蓝色天空\",\n\"远处洁白的积云\"\n],\n\"atmosphere\": \"阳光明媚、炎热，充满热带度假氛围\",\n\"lighting\": \"强烈、直射的自然阳光来自左上方，在脸部和颈部右侧投下清晰的阴影，在颧骨上形成强烈但迷人的高光\"\n}\n}\n``` aisauce 11113",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11058,
+      "title": "超逼真蒜蓉黄油虾广告",
+      "description": "一个简短、描述性的提示，用于生成一张大蒜黄油虾在半空中凝固的超现实图像，旨在呈现高端设备拍摄的豪华餐厅广告美学。",
+      "sourceLink": "https://x.com/Strength04_X/status/2027660892465467697",
+      "sourcePublishedAt": "2026-02-28T08:23:23.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "Ultra realistic garlic butter shrimp frozen mid air looks like a luxury restaurant ad shot on a million dollar camera",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346660583_admx8n_HCOyxzIbEAg52mR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346660583_admx8n_HCOyxzIbEAg52mR-300x535.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的蒜蓉黄油虾在半空中凝固，看起来就像是用百万美元的相机拍摄的豪华餐厅广告。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真蒜蓉黄油虾广告 一个简短、描述性的提示，用于生成一张大蒜黄油虾在半空中凝固的超现实图像，旨在呈现高端设备拍摄的豪华餐厅广告美学。 ultra realistic garlic butter shrimp frozen mid air looks like a luxury restaurant ad shot on a million dollar camera 超逼真的蒜蓉黄油虾在半空中凝固，看起来就像是用百万美元的相机拍摄的豪华餐厅广告。 𝐌 11058",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11088,
+      "title": "GG Monogram 连裤袜的高级时装大片",
+      "description": "一个为 Hailuo AI 的 Nano Banana Pro 设计的高度详细的 JSON 提示，用于拍摄一位身穿绿色定制西装连衣裙的女性主题的高级时装社论照片。该提示详细说明了服装，包括带有重复 GG 字母组合标志的黑色透明连裤袜、厚底黑色乐福鞋和超大白色缎面蝴蝶结，所有这些都置于一个简洁的影棚环境中。",
+      "sourceLink": "https://x.com/rowundd/status/2027657419539550542",
+      "sourcePublishedAt": "2026-02-28T08:09:35.000Z",
+      "author": {
+        "name": "Rowund",
+        "link": "https://x.com/rowundd"
+      },
+      "content": "{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"English\",\n  \"scene\": {\n    \"environment\": \"Clean studio setup with a seamless light grey to white background\",\n    \"floor\": \"Smooth studio floor matching the background for a continuous look\"\n  },\n  \"subject\": { \n    \"appearance\": {\n      \"gender_presentation\": \"female-presenting\",\n      \"age_description\": \"young adult, fashion/editorial context only\",\n      \"skin_tone\": \"light\",\n      \"hair\": \"straight blond hair parted near the center, pulled back neatly with a subtle accessory, with a few loose strands framing the face\",\n      \"makeup\": \"refined editorial makeup with soft blush, subtle eyeliner, defined brows, and natural pink lips\",\n      \"expression\": \"calm, composed, slightly serious\",\n      \"gaze\": \"direct eye contact with the camera\"\n    }\n  },\n  \"outfit\": {\n    \"dress\": {\n      \"type\": \"tailored blazer dress\",\n      \"color\": \"green\",\n      \"construction\": \"double-breasted with structured shoulders and a cinched waist\",\n      \"shoulder_detail\": \"slightly puffed shoulders creating a sculpted silhouette\",\n      \"length\": \"mini length ending mid-thigh\"\n    },\n    \"neck_detail\": {\n      \"type\": \"oversized bow\",\n      \"color\": \"white\",\n      \"material\": \"smooth satin-like fabric\",\n      \"placement\": \"tied at the collar with long ribbon tails draping over the chest\"\n    },\n    \"hosiery\": {\n      \"type\": \"sheer black tights\",\n      \"opacity\": \"semi-transparent\",\n      \"pattern\": \"repeating GG monogram logos distributed evenly across the entire length of the legs\",\n      \"logo_detail\": \" GG logos clearly visible on thighs, knees, calves, and ankles, aligned consistently and evenly spaced\",\n      \"fit\": \"snug and smooth, following the natural contours of the legs without wrinkles\"\n      \"White ankle socks\"\n    },\n    \"footwear\": {\n      \"type\": \"black leather loafers\",\n      \"style\": \"chunky sole with a slight platform\",\n      \"details\": \"polished leather finish with gold-tone hardware across the instep\",\n      \"fit\": \"structured and clean, worn directly over the tights\"\n    },\n    \"accessories\": {\n      \"handbag\": {\n        \"type\": \"small structured top-handle bag\",\n        \"pattern\": \"dark brown luxury monogram print\",\n        \"hardware\": \"gold-tone clasp and accents\",\n        \"placement\": \"resting on the floor to the subject’s left side\"\n        \"Gloves: white gloves\"\n      }\n    }\n  },\n  \"pose_and_posture\": {\n    \"overall_position\": \"Subject seated on the floor in an elegant side-oriented seated pose\",\n    \"torso\": {\n      \"orientation\": \"Torso angled slightly to the left relative to the camera\",\n      \"spine\": \"Upright with a subtle natural curve\",\n      \"shoulders\": \"Relaxed and level\"\n    },\n    \"arms_and_hands\": {\n      \"right_arm\": {\n        \"position\": \"Extended backward\",\n        \"hand_position\": \"Right palm flat on the floor behind the body for support\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346672673_d4kx3u_HCOvrGRWUAAshO_.jpg",
+        "https://cms-assets.youmind.com/media/1772346672675_ge1w4d_HCOvrGQWIAAjw35.jpg",
+        "https://cms-assets.youmind.com/media/1772346672717_n7ibvo_HCOvrGxa4AAPcDL.jpg",
+        "https://cms-assets.youmind.com/media/1772346673402_7jobrm_HCOvrGSXUAAIfmE.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346672673_d4kx3u_HCOvrGRWUAAshO_-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346672675_ge1w4d_HCOvrGQWIAAjw35-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346672717_n7ibvo_HCOvrGxa4AAPcDL-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346673402_7jobrm_HCOvrGSXUAAIfmE-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"Simplified Chinese\",\n  \"scene\": {\n    \"environment\": \"干净的摄影棚布景，背景为无缝的浅灰色至白色渐变\",\n    \"floor\": \"光滑的摄影棚地板与背景颜色一致，营造出连贯的视觉效果\"\n  },\n  \"subject\": {\n    \"appearance\": {\n      \"gender_presentation\": \"女性化呈现\",\n      \"age_description\": \"年轻成人，仅限时尚/杂志背景\",\n      \"skin_tone\": \"浅肤色\",\n      \"hair\": \"直发金发，发际线偏中，整齐地向后梳理，佩戴精致发饰，几缕发丝自然垂落修饰脸庞\",\n      \"makeup\": \"精致的杂志妆容，柔和腮红，精致眼线，眉毛清晰，自然粉色唇妆\",\n      \"expression\": \"平静、沉着、略显严肃\",\n      \"gaze\": \"与镜头直接眼神交流\"\n    }\n  },\n  \"outfit\": {\n    \"dress\": {\n      \"type\": \"修身西装连衣裙\",\n      \"color\": \"绿色\",\n      \"construction\": \"双排扣设计，肩部结构感强，腰部收紧\",\n      \"shoulder_detail\": \"略微蓬松的肩部设计，营造出雕塑般的轮廓\",\n      \"length\": \"迷你裙长，及大腿中部\"\n    },\n    \"neck_detail\": {\n      \"type\": \"超大蝴蝶结\",\n      \"color\": \"白色\",\n      \"material\": \"光滑的缎面材质\",\n      \"placement\": \"系在衣领处，长长的丝带垂坠于胸前\"\n    },\n    \"hosiery\": {\n      \"type\": \"透明黑色丝袜\",\n      \"opacity\": \"半透明\",\n      \"pattern\": \"GG 字母组合标志均匀分布于腿部，重复排列\",\n      \"logo_detail\": \"GG 标志在大腿、膝盖、小腿和脚踝处清晰可见，排列一致且间距均匀\",\n      \"fit\": \"紧密光滑，贴合腿部自然轮廓，无褶皱\",\n      \"White ankle socks\": \"白色短袜\"\n    },\n    \"footwear\": {\n      \"type\": \"黑色皮革乐福鞋\",\n      \"style\": \"厚底设计，略带防水台\",\n      \"details\": \"抛光皮革表面，鞋面有金色调五金装饰\",\n      \"fit\": \"结构感强，干净利落，直接穿在丝袜外面\"\n    },\n    \"accessories\": {\n      \"handbag\": {\n        \"type\": \"小巧有型的顶部提手包\",\n        \"pattern\": \"深棕色奢华字母组合印花\",\n        \"hardware\": \"金色调搭扣和装饰\",\n        \"placement\": \"放置在主体左侧的地板上\",\n        \"Gloves: white gloves\": \"手套：白色手套\"\n      }\n    }\n  },\n  \"pose_and_posture\": {\n    \"overall_position\": \"主体以优雅的侧向坐姿坐在地板上\",\n    \"torso\": {\n      \"orientation\": \"躯干相对于镜头略微向左倾斜\",\n      \"spine\": \"挺直，带有微妙的自然曲线\",\n      \"shoulders\": \"放松且平齐\"\n    },\n    \"arms_and_hands\": {\n      \"right_arm\": {\n        \"position\": \"向后伸展\",\n        \"hand_position\": \"右手掌平放在身体后方的地板上以作支撑\"\n      }\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "gg monogram 连裤袜的高级时装大片 一个为 hailuo ai 的 nano banana pro 设计的高度详细的 json 提示，用于拍摄一位身穿绿色定制西装连衣裙的女性主题的高级时装社论照片。该提示详细说明了服装，包括带有重复 gg 字母组合标志的黑色透明连裤袜、厚底黑色乐福鞋和超大白色缎面蝴蝶结，所有这些都置于一个简洁的影棚环境中。 {\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"english\",\n  \"scene\": {\n    \"environment\": \"clean studio setup with a seamless light grey to white background\",\n    \"floor\": \"smooth studio floor matching the background for a continuous look\"\n  },\n  \"subject\": { \n    \"appearance\": {\n      \"gender_presentation\": \"female-presenting\",\n      \"age_description\": \"young adult, fashion/editorial context only\",\n      \"skin_tone\": \"light\",\n      \"hair\": \"straight blond hair parted near the center, pulled back neatly with a subtle accessory, with a few loose strands framing the face\",\n      \"makeup\": \"refined editorial makeup with soft blush, subtle eyeliner, defined brows, and natural pink lips\",\n      \"expression\": \"calm, composed, slightly serious\",\n      \"gaze\": \"direct eye contact with the camera\"\n    }\n  },\n  \"outfit\": {\n    \"dress\": {\n      \"type\": \"tailored blazer dress\",\n      \"color\": \"green\",\n      \"construction\": \"double-breasted with structured shoulders and a cinched waist\",\n      \"shoulder_detail\": \"slightly puffed shoulders creating a sculpted silhouette\",\n      \"length\": \"mini length ending mid-thigh\"\n    },\n    \"neck_detail\": {\n      \"type\": \"oversized bow\",\n      \"color\": \"white\",\n      \"material\": \"smooth satin-like fabric\",\n      \"placement\": \"tied at the collar with long ribbon tails draping over the chest\"\n    },\n    \"hosiery\": {\n      \"type\": \"sheer black tights\",\n      \"opacity\": \"semi-transparent\",\n      \"pattern\": \"repeating gg monogram logos distributed evenly across the entire length of the legs\",\n      \"logo_detail\": \" gg logos clearly visible on thighs, knees, calves, and ankles, aligned consistently and evenly spaced\",\n      \"fit\": \"snug and smooth, following the natural contours of the legs without wrinkles\"\n      \"white ankle socks\"\n    },\n    \"footwear\": {\n      \"type\": \"black leather loafers\",\n      \"style\": \"chunky sole with a slight platform\",\n      \"details\": \"polished leather finish with gold-tone hardware across the instep\",\n      \"fit\": \"structured and clean, worn directly over the tights\"\n    },\n    \"accessories\": {\n      \"handbag\": {\n        \"type\": \"small structured top-handle bag\",\n        \"pattern\": \"dark brown luxury monogram print\",\n        \"hardware\": \"gold-tone clasp and accents\",\n        \"placement\": \"resting on the floor to the subject’s left side\"\n        \"gloves: white gloves\"\n      }\n    }\n  },\n  \"pose_and_posture\": {\n    \"overall_position\": \"subject seated on the floor in an elegant side-oriented seated pose\",\n    \"torso\": {\n      \"orientation\": \"torso angled slightly to the left relative to the camera\",\n      \"spine\": \"upright with a subtle natural curve\",\n      \"shoulders\": \"relaxed and level\"\n    },\n    \"arms_and_hands\": {\n      \"right_arm\": {\n        \"position\": \"extended backward\",\n        \"hand_position\": \"right palm flat on the floor behind the body for support\" ```json\n{\n  \"prompt_type\": \"photo-based description\",\n  \"language\": \"simplified chinese\",\n  \"scene\": {\n    \"environment\": \"干净的摄影棚布景，背景为无缝的浅灰色至白色渐变\",\n    \"floor\": \"光滑的摄影棚地板与背景颜色一致，营造出连贯的视觉效果\"\n  },\n  \"subject\": {\n    \"appearance\": {\n      \"gender_presentation\": \"女性化呈现\",\n      \"age_description\": \"年轻成人，仅限时尚/杂志背景\",\n      \"skin_tone\": \"浅肤色\",\n      \"hair\": \"直发金发，发际线偏中，整齐地向后梳理，佩戴精致发饰，几缕发丝自然垂落修饰脸庞\",\n      \"makeup\": \"精致的杂志妆容，柔和腮红，精致眼线，眉毛清晰，自然粉色唇妆\",\n      \"expression\": \"平静、沉着、略显严肃\",\n      \"gaze\": \"与镜头直接眼神交流\"\n    }\n  },\n  \"outfit\": {\n    \"dress\": {\n      \"type\": \"修身西装连衣裙\",\n      \"color\": \"绿色\",\n      \"construction\": \"双排扣设计，肩部结构感强，腰部收紧\",\n      \"shoulder_detail\": \"略微蓬松的肩部设计，营造出雕塑般的轮廓\",\n      \"length\": \"迷你裙长，及大腿中部\"\n    },\n    \"neck_detail\": {\n      \"type\": \"超大蝴蝶结\",\n      \"color\": \"白色\",\n      \"material\": \"光滑的缎面材质\",\n      \"placement\": \"系在衣领处，长长的丝带垂坠于胸前\"\n    },\n    \"hosiery\": {\n      \"type\": \"透明黑色丝袜\",\n      \"opacity\": \"半透明\",\n      \"pattern\": \"gg 字母组合标志均匀分布于腿部，重复排列\",\n      \"logo_detail\": \"gg 标志在大腿、膝盖、小腿和脚踝处清晰可见，排列一致且间距均匀\",\n      \"fit\": \"紧密光滑，贴合腿部自然轮廓，无褶皱\",\n      \"white ankle socks\": \"白色短袜\"\n    },\n    \"footwear\": {\n      \"type\": \"黑色皮革乐福鞋\",\n      \"style\": \"厚底设计，略带防水台\",\n      \"details\": \"抛光皮革表面，鞋面有金色调五金装饰\",\n      \"fit\": \"结构感强，干净利落，直接穿在丝袜外面\"\n    },\n    \"accessories\": {\n      \"handbag\": {\n        \"type\": \"小巧有型的顶部提手包\",\n        \"pattern\": \"深棕色奢华字母组合印花\",\n        \"hardware\": \"金色调搭扣和装饰\",\n        \"placement\": \"放置在主体左侧的地板上\",\n        \"gloves: white gloves\": \"手套：白色手套\"\n      }\n    }\n  },\n  \"pose_and_posture\": {\n    \"overall_position\": \"主体以优雅的侧向坐姿坐在地板上\",\n    \"torso\": {\n      \"orientation\": \"躯干相对于镜头略微向左倾斜\",\n      \"spine\": \"挺直，带有微妙的自然曲线\",\n      \"shoulders\": \"放松且平齐\"\n    },\n    \"arms_and_hands\": {\n      \"right_arm\": {\n        \"position\": \"向后伸展\",\n        \"hand_position\": \"右手掌平放在身体后方的地板上以作支撑\"\n      }\n    }\n  }\n}\n``` rowund 11088",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11138,
+      "title": "生成宝可梦图鉴风格的艺术作品",
+      "description": "用户使用 Nano Banana（非 Pro 版）创作了宝可梦图鉴风格的角色插画，以庆祝宝可梦 30 周年。提示词已在 ALT 文本中分享。",
+      "sourceLink": "https://x.com/silver_AIArt/status/2027649343449403653",
+      "sourcePublishedAt": "2026-02-28T07:37:30.000Z",
+      "author": {
+        "name": "シルバー",
+        "link": "https://x.com/silver_AIArt"
+      },
+      "content": "このキャラクターを参照して、ポケモン図鑑風のイラストを生成。図鑑No.は{argument name=\"図鑑ナンバー\" default=\"[図鑑No.を記載]\"}。背景は白。図鑑の解説文は{argument name=\"解説文\" default=\"[解説文を記載]\"}。図鑑のレイアウトとデザインを再現。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346692714_c8s49l_HCOoVFubEAAoja7.jpg",
+        "https://cms-assets.youmind.com/media/1772346693074_6ksinz_HCOoVFra8AA44Pf.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346692714_c8s49l_HCOoVFubEAAoja7-300x265.jpg",
+        "https://cms-assets.youmind.com/media/1772346693074_6ksinz_HCOoVFra8AA44Pf-300x265.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "参考此角色，生成宝可梦图鉴风格的插画。图鉴编号为 {argument name=\"Zukan Number\" default=\"[输入图鉴编号]\"}。背景为白色。图鉴描述文本为 {argument name=\"Description Text\" default=\"[输入描述文本]\"}。重现图鉴的布局和设计。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "生成宝可梦图鉴风格的艺术作品 用户使用 nano banana（非 pro 版）创作了宝可梦图鉴风格的角色插画，以庆祝宝可梦 30 周年。提示词已在 alt 文本中分享。 このキャラクターを参照して、ポケモン図鑑風のイラストを生成。図鑑no.は{argument name=\"図鑑ナンバー\" default=\"[図鑑no.を記載]\"}。背景は白。図鑑の解説文は{argument name=\"解説文\" default=\"[解説文を記載]\"}。図鑑のレイアウトとデザインを再現。 参考此角色，生成宝可梦图鉴风格的插画。图鉴编号为 {argument name=\"zukan number\" default=\"[输入图鉴编号]\"}。背景为白色。图鉴描述文本为 {argument name=\"description text\" default=\"[输入描述文本]\"}。重现图鉴的布局和设计。 シルバー 11138",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11075,
+      "title": "超逼真的冬季街头摄影",
+      "description": "一个针对 Gemini Nano Banana 2 的高度详细提示，指示其生成一张超现实的冬季街头男士写真图像。该提示强调严格保留上传照片中的面部，精确的姿势和服装细节（u2k 风格），固定的拍摄角度（iPhone 胸部水平），密集的背景元素（湿沥青、汽车、商店橱窗），以及特定的光照条件（冬日傍晚的冷暖混合光），以捕捉 2000 年代风格的“定格瞬间”。",
+      "sourceLink": "https://x.com/harboriis/status/2027646958064513085",
+      "sourcePublishedAt": "2026-02-28T07:28:01.000Z",
+      "author": {
+        "name": "Harboriis",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "Shot on iPhone, winter street photoshoot, ultra-realism, natural shot: SAVE FACE FROM UPLOADED PHOTO 1:1 — do not change features, proportions, age, facial expressions and similarity even by 1%, use the uploaded photo as the ONLY face standard), plot: a man in the center of a busy winter city street makes a \"reporter's\" street shot, holds a compact camera/camcorder to his face, as if he is filming in response, the pose is fixed, stance U2K confident, pelvis slightly shifted to the right, shoulders relaxed, one hand holds a compact camera to the lips/chin, the other hand deep in the pocket, elbow slightly pulled back, looking straight into the lens, expression calm and bold; the angle is fixed: shooting on an iPhone from chest level, slight wide-angle (26mm feel), the hero is strictly in the center, the frame is waist-deep, the perspective is minimal, without a \"corridor\" into the distance, the background is dense and close; the background is strictly defined: a winter evening in the city, wet asphalt and slush, behind the hero there is a wide street with closely parked cars in two rows, on the right next to (3-5 meters) a parked dark minivan, on the left the facade of a building with brightly lit shop-windows and an entrance, above the entrance there are 2-3 small neon signs without legible words, on the sidewalk around the hero there are 10-15 people in winter clothes (some are passing by, some are standing in a group near the shop-window), all the faces of passers-by are slightly blurred so that the focus remains on the model; a street lamp, road signs, reflections of lights in the wet asphalt are visible in the frame, no long horizon, a \"wall\" of buildings and cars in the background, short depth; The clothes are strictly defined (u2k unisex, winter): a short glossy down jacket \"metallic silver\" made of nylon with a high collar, under it a white tight-fitting thermal jacket without prints, bottoms: low-rise dark gray baggy jeans with a belt, shoes: winter sneakers/boots white and gray with a massive sole, accessories: narrow rectangular glasses u2k with dark lenses, black gloves, a small black shoulder-bag with a short strap over the shoulder, in hand a black compact camera/camcorder without logos; fixed light; winter evening mixed cold street + warm shop-window light, soft contrast, no flash, no studio light, natural shadows under the nose and chin, glare from the wet road; atmosphere: lively urban winter street, city noise, people moving, the feeling of a \"captured moment\" in the style of the 2000s; textures: hyper-realistic skin texture, natural pores and fine details, Subtle imperfections, slight reddening of cheeks from the cold, realistic lip gloss, detailed texture of the glossy nylon down jacket, visible seams and zipper, denim with a pronounced weave and creases, wet asphalt with reflections, grainy slush, camera plastic with small scratches; camera and processing: iPhone photo look, iPhone RAW, slight dig",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346668193_w29esz_HCOmEeSbEAERbxg.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346668193_w29esz_HCOmEeSbEAERbxg-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "用 iPhone 拍摄，冬季街头摄影，超现实主义，自然抓拍：从上传的照片中保存面部 1:1 — 不要改变特征、比例、年龄、面部表情和相似度，即使是 1% 也不行，将上传的照片作为唯一的面部标准），情节：一个男人在繁忙的冬季城市街道中央进行“记者式”街拍，将一台小型相机/摄像机举到脸前，仿佛正在回应拍摄，姿势固定，站姿自信，骨盆略微向右倾斜，肩膀放松，一只手将小型相机举到嘴唇/下巴处，另一只手插在口袋深处，手肘略微向后收，直视镜头，表情平静而大胆；角度固定：用 iPhone 从胸部高度拍摄，略带广角（26mm 视角），主人公严格居中，画面到腰部，透视感极小，没有“走廊”般的远景，背景密集而近；背景严格限定：城市冬日傍晚，湿漉漉的柏油路和泥泞，主人公身后是一条宽阔的街道，两排汽车紧密停放，右侧（3-5 米处）停着一辆深色小型货车，左侧是一栋建筑的立面，橱窗灯火通明，入口上方有 2-3 个没有清晰文字的小霓虹灯牌，人行道上主人公周围有 10-15 个穿着冬装的人（一些人路过，一些人成群站在橱窗旁），所有路人的脸部都略微模糊，以便焦点保持在模特身上；画面中可见路灯、路标、湿柏油路上的灯光倒影，没有长长的地平线，背景是建筑物和汽车组成的“墙”，景深短；服装严格限定（中性，冬季）：一件短款亮面“金属银”尼龙羽绒服，高领，内搭一件白色紧身无印花保暖内衣，下装：低腰深灰色宽松牛仔裤配腰带，鞋子：冬季运动鞋/靴子，白色和灰色，厚底，配饰：窄长方形深色镜片眼镜，黑色手套，一个短肩带黑色小斜挎包，手中拿着一台无标志的黑色小型相机/摄像机；光线固定：冬日傍晚，混合了寒冷的街灯和温暖的橱窗灯光，柔和对比，无闪光灯，无影室灯，鼻子和下巴下方有自然阴影，湿漉漉的路上有眩光；氛围：热闹的城市冬季街道，城市喧嚣，人来人往，2000 年代风格的“抓拍瞬间”感；纹理：超逼真的皮肤纹理，自然的毛孔和细微细节，细微的瑕疵，脸颊因寒冷而略微泛红，逼真的唇彩，亮面尼龙羽绒服的细节纹理，可见的接缝和拉链，有明显编织和褶皱的牛仔布，有倒影的湿柏油路，颗粒状的泥泞，有小划痕的相机塑料；相机和后期：iPhone 摄影效果，iPhone RAW，轻微数码感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真的冬季街头摄影 一个针对 gemini nano banana 2 的高度详细提示，指示其生成一张超现实的冬季街头男士写真图像。该提示强调严格保留上传照片中的面部，精确的姿势和服装细节（u2k 风格），固定的拍摄角度（iphone 胸部水平），密集的背景元素（湿沥青、汽车、商店橱窗），以及特定的光照条件（冬日傍晚的冷暖混合光），以捕捉 2000 年代风格的“定格瞬间”。 shot on iphone, winter street photoshoot, ultra-realism, natural shot: save face from uploaded photo 1:1 — do not change features, proportions, age, facial expressions and similarity even by 1%, use the uploaded photo as the only face standard), plot: a man in the center of a busy winter city street makes a \"reporter's\" street shot, holds a compact camera/camcorder to his face, as if he is filming in response, the pose is fixed, stance u2k confident, pelvis slightly shifted to the right, shoulders relaxed, one hand holds a compact camera to the lips/chin, the other hand deep in the pocket, elbow slightly pulled back, looking straight into the lens, expression calm and bold; the angle is fixed: shooting on an iphone from chest level, slight wide-angle (26mm feel), the hero is strictly in the center, the frame is waist-deep, the perspective is minimal, without a \"corridor\" into the distance, the background is dense and close; the background is strictly defined: a winter evening in the city, wet asphalt and slush, behind the hero there is a wide street with closely parked cars in two rows, on the right next to (3-5 meters) a parked dark minivan, on the left the facade of a building with brightly lit shop-windows and an entrance, above the entrance there are 2-3 small neon signs without legible words, on the sidewalk around the hero there are 10-15 people in winter clothes (some are passing by, some are standing in a group near the shop-window), all the faces of passers-by are slightly blurred so that the focus remains on the model; a street lamp, road signs, reflections of lights in the wet asphalt are visible in the frame, no long horizon, a \"wall\" of buildings and cars in the background, short depth; the clothes are strictly defined (u2k unisex, winter): a short glossy down jacket \"metallic silver\" made of nylon with a high collar, under it a white tight-fitting thermal jacket without prints, bottoms: low-rise dark gray baggy jeans with a belt, shoes: winter sneakers/boots white and gray with a massive sole, accessories: narrow rectangular glasses u2k with dark lenses, black gloves, a small black shoulder-bag with a short strap over the shoulder, in hand a black compact camera/camcorder without logos; fixed light; winter evening mixed cold street + warm shop-window light, soft contrast, no flash, no studio light, natural shadows under the nose and chin, glare from the wet road; atmosphere: lively urban winter street, city noise, people moving, the feeling of a \"captured moment\" in the style of the 2000s; textures: hyper-realistic skin texture, natural pores and fine details, subtle imperfections, slight reddening of cheeks from the cold, realistic lip gloss, detailed texture of the glossy nylon down jacket, visible seams and zipper, denim with a pronounced weave and creases, wet asphalt with reflections, grainy slush, camera plastic with small scratches; camera and processing: iphone photo look, iphone raw, slight dig 用 iphone 拍摄，冬季街头摄影，超现实主义，自然抓拍：从上传的照片中保存面部 1:1 — 不要改变特征、比例、年龄、面部表情和相似度，即使是 1% 也不行，将上传的照片作为唯一的面部标准），情节：一个男人在繁忙的冬季城市街道中央进行“记者式”街拍，将一台小型相机/摄像机举到脸前，仿佛正在回应拍摄，姿势固定，站姿自信，骨盆略微向右倾斜，肩膀放松，一只手将小型相机举到嘴唇/下巴处，另一只手插在口袋深处，手肘略微向后收，直视镜头，表情平静而大胆；角度固定：用 iphone 从胸部高度拍摄，略带广角（26mm 视角），主人公严格居中，画面到腰部，透视感极小，没有“走廊”般的远景，背景密集而近；背景严格限定：城市冬日傍晚，湿漉漉的柏油路和泥泞，主人公身后是一条宽阔的街道，两排汽车紧密停放，右侧（3-5 米处）停着一辆深色小型货车，左侧是一栋建筑的立面，橱窗灯火通明，入口上方有 2-3 个没有清晰文字的小霓虹灯牌，人行道上主人公周围有 10-15 个穿着冬装的人（一些人路过，一些人成群站在橱窗旁），所有路人的脸部都略微模糊，以便焦点保持在模特身上；画面中可见路灯、路标、湿柏油路上的灯光倒影，没有长长的地平线，背景是建筑物和汽车组成的“墙”，景深短；服装严格限定（中性，冬季）：一件短款亮面“金属银”尼龙羽绒服，高领，内搭一件白色紧身无印花保暖内衣，下装：低腰深灰色宽松牛仔裤配腰带，鞋子：冬季运动鞋/靴子，白色和灰色，厚底，配饰：窄长方形深色镜片眼镜，黑色手套，一个短肩带黑色小斜挎包，手中拿着一台无标志的黑色小型相机/摄像机；光线固定：冬日傍晚，混合了寒冷的街灯和温暖的橱窗灯光，柔和对比，无闪光灯，无影室灯，鼻子和下巴下方有自然阴影，湿漉漉的路上有眩光；氛围：热闹的城市冬季街道，城市喧嚣，人来人往，2000 年代风格的“抓拍瞬间”感；纹理：超逼真的皮肤纹理，自然的毛孔和细微细节，细微的瑕疵，脸颊因寒冷而略微泛红，逼真的唇彩，亮面尼龙羽绒服的细节纹理，可见的接缝和拉链，有明显编织和褶皱的牛仔布，有倒影的湿柏油路，颗粒状的泥泞，有小划痕的相机塑料；相机和后期：iphone 摄影效果，iphone raw，轻微数码感。 harboriis 11075",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11053,
+      "title": "奢华护肤品商业视频提示",
+      "description": "一个为视频生成（Kling 3.0 + Nano Banana Pro）设计的详细提示，用于创建一支奢华护肤品广告。它明确了美学风格、产品摆放、灯光、摄像机运动（缓慢的 360 度环绕）和整体氛围，并要求使用提供的产品图片作为造型和细节的参考。",
+      "sourceLink": "https://x.com/Sheldon056/status/2027645181538025847",
+      "sourcePublishedAt": "2026-02-28T07:20:57.000Z",
+      "author": {
+        "name": "Duet | AI",
+        "link": "https://x.com/Sheldon056"
+      },
+      "content": "Luxury skincare commercial, ultra-premium aesthetic. Use the provided product image as the exact reference for bottle shape, label design, liquid tone, reflections, and overall styling.\n\nThe bottle stands perfectly upright at the center of the frame, surrounded by a glossy liquid surface with smooth, elegant ripples. Soft fluid splashes form a graceful crown around the base, catching light like crystal. Background is a dreamy pastel aqua-to-soft lavender gradient with a silky, creamy atmosphere and subtle mist particles floating in the air.\n\nCamera motion:\nSlow, continuous 360-degree cinematic orbit around the product. Movement is smooth, controlled, and hypnotic. Constant speed throughout. No shaking, no zooming, no speed changes. The product remains perfectly centered and stable at all times.\n\nFraming:\nMid close-up beauty shot. Bottle remains vertical and motionless, hero focus.\n\nLighting:\nHigh-end studio lighting, soft diffused glow with gentle highlights and glossy reflections. Subtle rim light to outline the bottle. Liquid and glass look luminous, hydrated, and silky.\n\nMood & style:\nSensual, elegant, and premium beauty campaign. Smooth motion, glossy textures, soft reflections, cinematic depth of field, slow-motion feel, luxury skincare advertisement, 4K photorealistic, polished commercial look.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346658088_ducqk7_HCOkdQtaoAAkqjK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346658088_ducqk7_HCOkdQtaoAAkqjK-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "奢华护肤品广告，极致高端美学。请以提供的产品图片为精确参考，包括瓶身形状、标签设计、液体色调、反光效果和整体造型。\n\n瓶身完美地垂直立于画面中央，周围环绕着光泽的液面，泛起柔和优雅的涟漪。柔和的液体飞溅在瓶身底部形成一个优美的“皇冠”，如水晶般捕捉着光线。背景是梦幻般的柔和水绿色到淡薰衣草色的渐变，营造出丝滑、奶油般的氛围，空气中漂浮着细微的雾气颗粒。\n\n镜头运动：\n围绕产品进行缓慢、连续的 360 度电影式环绕拍摄。运动流畅、受控且富有催眠感。全程保持恒定速度。无抖动、无变焦、无速度变化。产品始终保持完美居中和稳定。\n\n构图：\n中景特写美妆镜头。瓶身保持垂直静止，作为核心焦点。\n\n灯光：\n高端影棚布光，柔和漫射光，带有轻微的高光和光泽反射。细微的轮廓光勾勒出瓶身。液体和玻璃看起来晶莹剔透、水润丝滑。\n\n氛围与风格：\n性感、优雅、高端的美容广告活动。流畅的运动、光泽的质感、柔和的反光、电影般的景深、慢动作感、奢华护肤品广告、4K 超逼真、精致的商业广告效果。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华护肤品商业视频提示 一个为视频生成（kling 3.0 + nano banana pro）设计的详细提示，用于创建一支奢华护肤品广告。它明确了美学风格、产品摆放、灯光、摄像机运动（缓慢的 360 度环绕）和整体氛围，并要求使用提供的产品图片作为造型和细节的参考。 luxury skincare commercial, ultra-premium aesthetic. use the provided product image as the exact reference for bottle shape, label design, liquid tone, reflections, and overall styling.\n\nthe bottle stands perfectly upright at the center of the frame, surrounded by a glossy liquid surface with smooth, elegant ripples. soft fluid splashes form a graceful crown around the base, catching light like crystal. background is a dreamy pastel aqua-to-soft lavender gradient with a silky, creamy atmosphere and subtle mist particles floating in the air.\n\ncamera motion:\nslow, continuous 360-degree cinematic orbit around the product. movement is smooth, controlled, and hypnotic. constant speed throughout. no shaking, no zooming, no speed changes. the product remains perfectly centered and stable at all times.\n\nframing:\nmid close-up beauty shot. bottle remains vertical and motionless, hero focus.\n\nlighting:\nhigh-end studio lighting, soft diffused glow with gentle highlights and glossy reflections. subtle rim light to outline the bottle. liquid and glass look luminous, hydrated, and silky.\n\nmood & style:\nsensual, elegant, and premium beauty campaign. smooth motion, glossy textures, soft reflections, cinematic depth of field, slow-motion feel, luxury skincare advertisement, 4k photorealistic, polished commercial look. 奢华护肤品广告，极致高端美学。请以提供的产品图片为精确参考，包括瓶身形状、标签设计、液体色调、反光效果和整体造型。\n\n瓶身完美地垂直立于画面中央，周围环绕着光泽的液面，泛起柔和优雅的涟漪。柔和的液体飞溅在瓶身底部形成一个优美的“皇冠”，如水晶般捕捉着光线。背景是梦幻般的柔和水绿色到淡薰衣草色的渐变，营造出丝滑、奶油般的氛围，空气中漂浮着细微的雾气颗粒。\n\n镜头运动：\n围绕产品进行缓慢、连续的 360 度电影式环绕拍摄。运动流畅、受控且富有催眠感。全程保持恒定速度。无抖动、无变焦、无速度变化。产品始终保持完美居中和稳定。\n\n构图：\n中景特写美妆镜头。瓶身保持垂直静止，作为核心焦点。\n\n灯光：\n高端影棚布光，柔和漫射光，带有轻微的高光和光泽反射。细微的轮廓光勾勒出瓶身。液体和玻璃看起来晶莹剔透、水润丝滑。\n\n氛围与风格：\n性感、优雅、高端的美容广告活动。流畅的运动、光泽的质感、柔和的反光、电影般的景深、慢动作感、奢华护肤品广告、4k 超逼真、精致的商业广告效果。 duet | ai 11053",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11132,
+      "title": "3D 微缩建筑蓝图提示词",
+      "description": "一个为 Nano Banana 2 设计的详细提示模板，用于生成一张从蓝图上浮现的超逼真微型建筑透视模型，重点突出施工细节和电影级布光。",
+      "sourceLink": "https://x.com/0x00_Krypt/status/2027644159285465175",
+      "sourcePublishedAt": "2026-02-28T07:16:54.000Z",
+      "author": {
+        "name": "两斤",
+        "link": "https://x.com/0x00_Krypt"
+      },
+      "content": "An architectural blueprint of {argument name=\"building name\" default=\"BUILDING_NAME\"} placed on a {argument name=\"surface\" default=\"SURFACE\"}, with a photorealistic miniature under-construction version of {argument name=\"building name 2\" default=\"BUILDING_NAME\"} emerging from it — {STRUCTURAL_ELEMENT_1}, {STRUCTURAL_ELEMENT_2}, {STRUCTURAL_ELEMENT_3}, {CONSTRUCTION_DETAIL}, {WORKER_SCENE}, {MATERIAL_ELEMENT}, and {EXTRA_DETAIL}. All elements grow from the blueprint like a 3D architectural diorama, steel beams rising from the drawn lines, scaffolding threading through the paper. Studio soft lighting, cinematic depth, 2:3",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346690560_7tusmp_HCOjmpwbkAAMFX5.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346690560_7tusmp_HCOjmpwbkAAMFX5-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张放置在 {argument name=\"surface\" default=\"SURFACE\"} 上的 {argument name=\"building name\" default=\"BUILDING_NAME\"} 建筑蓝图，蓝图上浮现出一个逼真的、正在建造中的 {argument name=\"building name 2\" default=\"BUILDING_NAME\"} 微缩模型——{STRUCTURAL_ELEMENT_1}、{STRUCTURAL_ELEMENT_2}、{STRUCTURAL_ELEMENT_3}、{CONSTRUCTION_DETAIL}、{WORKER_SCENE}、{MATERIAL_ELEMENT} 和 {EXTRA_DETAIL}。所有元素都像 3D 建筑透视模型一样从蓝图中生长出来，钢梁从图纸线条中升起，脚手架穿梭于纸张之间。工作室柔和灯光，电影级景深，2:3",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 微缩建筑蓝图提示词 一个为 nano banana 2 设计的详细提示模板，用于生成一张从蓝图上浮现的超逼真微型建筑透视模型，重点突出施工细节和电影级布光。 an architectural blueprint of {argument name=\"building name\" default=\"building_name\"} placed on a {argument name=\"surface\" default=\"surface\"}, with a photorealistic miniature under-construction version of {argument name=\"building name 2\" default=\"building_name\"} emerging from it — {structural_element_1}, {structural_element_2}, {structural_element_3}, {construction_detail}, {worker_scene}, {material_element}, and {extra_detail}. all elements grow from the blueprint like a 3d architectural diorama, steel beams rising from the drawn lines, scaffolding threading through the paper. studio soft lighting, cinematic depth, 2:3 一张放置在 {argument name=\"surface\" default=\"surface\"} 上的 {argument name=\"building name\" default=\"building_name\"} 建筑蓝图，蓝图上浮现出一个逼真的、正在建造中的 {argument name=\"building name 2\" default=\"building_name\"} 微缩模型——{structural_element_1}、{structural_element_2}、{structural_element_3}、{construction_detail}、{worker_scene}、{material_element} 和 {extra_detail}。所有元素都像 3d 建筑透视模型一样从蓝图中生长出来，钢梁从图纸线条中升起，脚手架穿梭于纸张之间。工作室柔和灯光，电影级景深，2:3 两斤 11132",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11133,
+      "title": "使用 Nano Banana 2 提升番茄销量的商业提示",
+      "description": "以下是为 Nano Banana 2 设计的两个商业用途提示，旨在推广番茄。第一个提示生成用于线下推广的极简主义 KV 海报，第二个提示生成带有手写文字的文艺复兴风格社交媒体图片，用于线上推广。",
+      "sourceLink": "https://x.com/Adam38363368936/status/2027643708552728959",
+      "sourcePublishedAt": "2026-02-28T07:15:06.000Z",
+      "author": {
+        "name": "Adam也叫吉米",
+        "link": "https://x.com/Adam38363368936"
+      },
+      "content": "为这堆西红柿设计一个走极简风的有机品牌，品牌名‘{argument name=\"品牌名\" default=\"赤诚\"}’，生成一张放在高档超市货架上的KV海报图\n\n把这堆西红柿变成一张小红书风格的配图。背景换成文艺复兴风格的餐桌，要在显眼位置加上一段清新的手写体文字：“{argument name=\"手写文字\" default=\"夏日里的第一口酸甜\"}”，要拍出大片的感觉",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346690424_mv05cn_HCOgqlobEAAHXSL.jpg",
+        "https://cms-assets.youmind.com/media/1772346690416_d29rui_HCOggRCbsAAANu_.png",
+        "https://cms-assets.youmind.com/media/1772346690452_aqxl33_HCOgmNUbEAMM4Ss.jpg",
+        "https://cms-assets.youmind.com/media/1772346691173_r6ilgh_HCOgtmybEAcBPr4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346690424_mv05cn_HCOgqlobEAAHXSL-300x178.jpg",
+        "https://cms-assets.youmind.com/media/1772346690416_d29rui_HCOggRCbsAAANu_-300x242.png",
+        "https://cms-assets.youmind.com/media/1772346690452_aqxl33_HCOgmNUbEAMM4Ss-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772346691173_r6ilgh_HCOgtmybEAcBPr4-300x402.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "为这堆番茄设计一个极简主义的有机品牌，品牌名称为“{argument name=\"brand name\" default=\"Sincerity\"}”，生成一张放置在高端超市货架上的主视觉海报。\n\n将这堆番茄变成一张适合小红书风格的图片。将背景改为文艺复兴风格的餐桌，并在显眼位置添加一段手写文字：“{argument name=\"handwritten text\" default=\"夏日第一口酸甜\"}”，以营造大片感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用 nano banana 2 提升番茄销量的商业提示 以下是为 nano banana 2 设计的两个商业用途提示，旨在推广番茄。第一个提示生成用于线下推广的极简主义 kv 海报，第二个提示生成带有手写文字的文艺复兴风格社交媒体图片，用于线上推广。 为这堆西红柿设计一个走极简风的有机品牌，品牌名‘{argument name=\"品牌名\" default=\"赤诚\"}’，生成一张放在高档超市货架上的kv海报图\n\n把这堆西红柿变成一张小红书风格的配图。背景换成文艺复兴风格的餐桌，要在显眼位置加上一段清新的手写体文字：“{argument name=\"手写文字\" default=\"夏日里的第一口酸甜\"}”，要拍出大片的感觉 为这堆番茄设计一个极简主义的有机品牌，品牌名称为“{argument name=\"brand name\" default=\"sincerity\"}”，生成一张放置在高端超市货架上的主视觉海报。\n\n将这堆番茄变成一张适合小红书风格的图片。将背景改为文艺复兴风格的餐桌，并在显眼位置添加一段手写文字：“{argument name=\"handwritten text\" default=\"夏日第一口酸甜\"}”，以营造大片感。 adam也叫吉米 11133",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11072,
+      "title": "猩红街宁静",
+      "description": "一个详细的 JSON 提示，专为 Gemini Nano Banana Pro 设计，用于生成一张自信的红发女子骑着亮黄色自行车穿过宁静郊区街道的图像。该提示详细说明了主体细节、服装、活动、背景元素、调色板、情绪、光照和构图，以生成一张清新、自然、高质量的图像。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027640948025336011",
+      "sourcePublishedAt": "2026-02-28T07:04:08.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"id\": \"img_78421\",\n  \"title\": \"Scarlet Street Serenity\",\n  \"category\": \"Outdoor Lifestyle Photography\",\n  \"description\": \"A young red-haired woman with light freckles confidently riding a bright yellow bicycle along a quiet suburban street. She is wearing a red sleeveless one-piece outfit that contrasts beautifully with the greenery around her. Her hair is tied back casually, and she looks directly at the camera with a calm yet strong expression. The peaceful residential background includes a light-colored house, trimmed bushes, trees, a stone boundary wall, and a smooth paved road, creating a fresh and natural atmosphere.\",\n  \"subject_details\": {\n    \"gender\": \"Female\",\n    \"hair_color\": \"Red\",\n    \"hair_style\": \"Tied back\",\n    \"skin_tone\": \"Fair with freckles\",\n    \"expression\": \"Calm and confident\",\n    \"pose\": \"Sitting upright on bicycle, hands on handlebars, facing forward\"\n  },\n  \"outfit_details\": {\n    \"type\": \"Sleeveless one-piece outfit\",\n    \"color\": \"Red\",\n    \"style\": \"Simple, fitted, minimalistic\"\n  },\n  \"activity\": {\n    \"action\": \"Cycling\",\n    \"environment\": \"Residential suburban street\",\n    \"time_of_day\": \"Daytime\"\n  },\n  \"background_elements\": [\n    \"Single-story residential house\",\n    \"Green bushes\",\n    \"Tall trees\",\n    \"Stone wall boundary\",\n    \"Concrete pavement\",\n    \"Asphalt road\"\n  ],\n  \"objects\": [\n    {\n      \"item\": \"Bicycle\",\n      \"color\": \"Yellow\",\n      \"type\": \"Classic city bike\"\n    }\n  ],\n  \"color_palette\": {\n    \"primary_colors\": [\"Red\", \"Yellow\"],\n    \"secondary_colors\": [\"Green\", \"Blue\", \"Gray\", \"White\"]\n  },\n  \"mood\": [\"Peaceful\", \"Confident\", \"Natural\", \"Fresh\"],\n  \"lighting\": \"Natural daylight\",\n  \"composition\": \"Centered subject, symmetrical framing, eye-level perspective\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346667135_z0lm3q_HCOgsaPX0AEZxOK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346667135_z0lm3q_HCOgsaPX0AEZxOK-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"id\": \"img_78421\",\n  \"title\": \"猩红街道的宁静\",\n  \"category\": \"户外生活摄影\",\n  \"description\": \"一位年轻的红发女子，脸上带着淡淡的雀斑，自信地骑着一辆亮黄色的自行车，穿行在一条宁静的郊区街道上。她身穿一件红色无袖连体衣，与周围的绿色植物形成鲜明对比。她的头发随意地扎在脑后，眼神平静而坚定地直视镜头。宁静的住宅背景包括一栋浅色房屋、修剪整齐的灌木丛、树木、一道石墙和一条平坦的柏油路，营造出清新自然的氛围。\",\n  \"subject_details\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"红色\",\n    \"hair_style\": \"扎在脑后\",\n    \"skin_tone\": \"白皙，带雀斑\",\n    \"expression\": \"平静而自信\",\n    \"pose\": \"端坐在自行车上，双手扶着车把，面向前方\"\n  },\n  \"outfit_details\": {\n    \"type\": \"无袖连体衣\",\n    \"color\": \"红色\",\n    \"style\": \"简约、合身、极简主义\"\n  },\n  \"activity\": {\n    \"action\": \"骑自行车\",\n    \"environment\": \"郊区住宅街道\",\n    \"time_of_day\": \"白天\"\n  },\n  \"background_elements\": [\n    \"单层住宅\",\n    \"绿色灌木丛\",\n    \"高大的树木\",\n    \"石墙边界\",\n    \"混凝土人行道\",\n    \"柏油路\"\n  ],\n  \"objects\": [\n    {\n      \"item\": \"自行车\",\n      \"color\": \"黄色\",\n      \"type\": \"经典城市自行车\"\n    }\n  ],\n  \"color_palette\": {\n    \"primary_colors\": [\"红色\", \"黄色\"],\n    \"secondary_colors\": [\"绿色\", \"蓝色\", \"灰色\", \"白色\"]\n  },\n  \"mood\": [\"宁静\", \"自信\", \"自然\", \"清新\"],\n  \"lighting\": \"自然日光\",\n  \"composition\": \"主体居中，对称构图，平视视角\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "猩红街宁静 一个详细的 json 提示，专为 gemini nano banana pro 设计，用于生成一张自信的红发女子骑着亮黄色自行车穿过宁静郊区街道的图像。该提示详细说明了主体细节、服装、活动、背景元素、调色板、情绪、光照和构图，以生成一张清新、自然、高质量的图像。 {\n  \"id\": \"img_78421\",\n  \"title\": \"scarlet street serenity\",\n  \"category\": \"outdoor lifestyle photography\",\n  \"description\": \"a young red-haired woman with light freckles confidently riding a bright yellow bicycle along a quiet suburban street. she is wearing a red sleeveless one-piece outfit that contrasts beautifully with the greenery around her. her hair is tied back casually, and she looks directly at the camera with a calm yet strong expression. the peaceful residential background includes a light-colored house, trimmed bushes, trees, a stone boundary wall, and a smooth paved road, creating a fresh and natural atmosphere.\",\n  \"subject_details\": {\n    \"gender\": \"female\",\n    \"hair_color\": \"red\",\n    \"hair_style\": \"tied back\",\n    \"skin_tone\": \"fair with freckles\",\n    \"expression\": \"calm and confident\",\n    \"pose\": \"sitting upright on bicycle, hands on handlebars, facing forward\"\n  },\n  \"outfit_details\": {\n    \"type\": \"sleeveless one-piece outfit\",\n    \"color\": \"red\",\n    \"style\": \"simple, fitted, minimalistic\"\n  },\n  \"activity\": {\n    \"action\": \"cycling\",\n    \"environment\": \"residential suburban street\",\n    \"time_of_day\": \"daytime\"\n  },\n  \"background_elements\": [\n    \"single-story residential house\",\n    \"green bushes\",\n    \"tall trees\",\n    \"stone wall boundary\",\n    \"concrete pavement\",\n    \"asphalt road\"\n  ],\n  \"objects\": [\n    {\n      \"item\": \"bicycle\",\n      \"color\": \"yellow\",\n      \"type\": \"classic city bike\"\n    }\n  ],\n  \"color_palette\": {\n    \"primary_colors\": [\"red\", \"yellow\"],\n    \"secondary_colors\": [\"green\", \"blue\", \"gray\", \"white\"]\n  },\n  \"mood\": [\"peaceful\", \"confident\", \"natural\", \"fresh\"],\n  \"lighting\": \"natural daylight\",\n  \"composition\": \"centered subject, symmetrical framing, eye-level perspective\"\n} ```json\n{\n  \"id\": \"img_78421\",\n  \"title\": \"猩红街道的宁静\",\n  \"category\": \"户外生活摄影\",\n  \"description\": \"一位年轻的红发女子，脸上带着淡淡的雀斑，自信地骑着一辆亮黄色的自行车，穿行在一条宁静的郊区街道上。她身穿一件红色无袖连体衣，与周围的绿色植物形成鲜明对比。她的头发随意地扎在脑后，眼神平静而坚定地直视镜头。宁静的住宅背景包括一栋浅色房屋、修剪整齐的灌木丛、树木、一道石墙和一条平坦的柏油路，营造出清新自然的氛围。\",\n  \"subject_details\": {\n    \"gender\": \"女性\",\n    \"hair_color\": \"红色\",\n    \"hair_style\": \"扎在脑后\",\n    \"skin_tone\": \"白皙，带雀斑\",\n    \"expression\": \"平静而自信\",\n    \"pose\": \"端坐在自行车上，双手扶着车把，面向前方\"\n  },\n  \"outfit_details\": {\n    \"type\": \"无袖连体衣\",\n    \"color\": \"红色\",\n    \"style\": \"简约、合身、极简主义\"\n  },\n  \"activity\": {\n    \"action\": \"骑自行车\",\n    \"environment\": \"郊区住宅街道\",\n    \"time_of_day\": \"白天\"\n  },\n  \"background_elements\": [\n    \"单层住宅\",\n    \"绿色灌木丛\",\n    \"高大的树木\",\n    \"石墙边界\",\n    \"混凝土人行道\",\n    \"柏油路\"\n  ],\n  \"objects\": [\n    {\n      \"item\": \"自行车\",\n      \"color\": \"黄色\",\n      \"type\": \"经典城市自行车\"\n    }\n  ],\n  \"color_palette\": {\n    \"primary_colors\": [\"红色\", \"黄色\"],\n    \"secondary_colors\": [\"绿色\", \"蓝色\", \"灰色\", \"白色\"]\n  },\n  \"mood\": [\"宁静\", \"自信\", \"自然\", \"清新\"],\n  \"lighting\": \"自然日光\",\n  \"composition\": \"主体居中，对称构图，平视视角\"\n}\n``` zainab fatima 11072",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11137,
+      "title": "使用 Nano Banana Pro 图像和 Google Veo 3.1 进行视频创作",
+      "description": "使用 Google Veo 3.1 基于 Nano Banana Pro 生成的图像创建的视频。从图像到视频生成，整个过程在 Freepik Spaces 上无缝完成。提示词侧重于创建逼真的、高质量的、在夜间室内拍摄的 vlog 风格视频。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2027639909905826034",
+      "sourcePublishedAt": "2026-02-28T07:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象被设定为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线是 [添加符合 UGC 风格镜头的真实光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 Vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉像是一个个人空间。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 Vlog 瞬间。\n\n这位女士的台词是：“今天时尚的亮点是 [添加时尚特色]！”她一边轻抚衣服，一边用温柔的语气说道。最后她笑了。\n\n背景音乐：一段适合 Vlog 风格时尚氛围的悦耳音乐正在轻柔播放。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用 nano banana pro 图像和 google veo 3.1 进行视频创作 使用 google veo 3.1 基于 nano banana pro 生成的图像创建的视频。从图像到视频生成，整个过程在 freepik spaces 上无缝完成。提示词侧重于创建逼真的、高质量的、在夜间室内拍摄的 vlog 风格视频。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは【ファッションの特徴を追加】がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接位于拍摄对象前方。根据姿势和构图，拍摄对象被设定为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。光线是 [添加符合 ugc 风格镜头的真实光线]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉像是一个个人空间。散景是由于摄像机本身的限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 vlog 瞬间。\n\n这位女士的台词是：“今天时尚的亮点是 [添加时尚特色]！”她一边轻抚衣服，一边用温柔的语气说道。最后她笑了。\n\n背景音乐：一段适合 vlog 风格时尚氛围的悦耳音乐正在轻柔播放。 空想写真家 11137",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11057,
+      "title": "活力果饮产品广告",
+      "description": "一个用于生成超逼真高端果汁饮料瓶广告的提示，广告中包含动态液体飞溅、爆裂的新鲜水果、电影般的金色阳光以及高速摄影风格。",
+      "sourceLink": "https://x.com/Taaruk_/status/2027637680696357356",
+      "sourcePublishedAt": "2026-02-28T06:51:09.000Z",
+      "author": {
+        "name": "Taaruk",
+        "link": "https://x.com/Taaruk_"
+      },
+      "content": "Ultra-realistic product ad of a premium fruit drink bottle, dynamic liquid splash frozen mid-air, fresh fruits ({argument name=\"fruit 1\" default=\"orange\"}, {argument name=\"fruit 2\" default=\"kiwi\"}, {argument name=\"fruit 3\" default=\"strawberry\"}, mango, passionfruit) exploding around the bottle, cinematic golden sunlight, outdoor orchard/beach setting, shallow depth of field, vibrant colors, glossy reflections, high-speed photography style, hyper-detailed liquid physics, clean branding label, 8K, commercial advertising, perfect composition.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346658118_4hrxme_HCOdtxkbUAAg2r0.jpg",
+        "https://cms-assets.youmind.com/media/1772346659002_v9x4yp_HCOdt74bEAM87kt.jpg",
+        "https://cms-assets.youmind.com/media/1772346659735_qohboi_HCOdtv4bEAENdmy.jpg",
+        "https://cms-assets.youmind.com/media/1772346659779_hqbz81_HCOdtv5bEAEObPZ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346658118_4hrxme_HCOdtxkbUAAg2r0-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346659002_v9x4yp_HCOdt74bEAM87kt-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346659735_qohboi_HCOdtv4bEAENdmy-300x372.jpg",
+        "https://cms-assets.youmind.com/media/1772346659779_hqbz81_HCOdtv5bEAEObPZ-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一款超逼真的高端果汁饮料瓶广告，动态的液体飞溅在半空中凝固，新鲜水果（{argument name=\"fruit 1\" default=\"orange\"}、{argument name=\"fruit 2\" default=\"kiwi\"}、{argument name=\"fruit 3\" default=\"strawberry\"}、芒果、百香果）在瓶子周围爆开，电影般的金色阳光，户外果园/海滩背景，浅景深，鲜艳的色彩，光泽的倒影，高速摄影风格，超精细的液体物理效果，清晰的品牌标签，8K，商业广告，完美构图。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "活力果饮产品广告 一个用于生成超逼真高端果汁饮料瓶广告的提示，广告中包含动态液体飞溅、爆裂的新鲜水果、电影般的金色阳光以及高速摄影风格。 ultra-realistic product ad of a premium fruit drink bottle, dynamic liquid splash frozen mid-air, fresh fruits ({argument name=\"fruit 1\" default=\"orange\"}, {argument name=\"fruit 2\" default=\"kiwi\"}, {argument name=\"fruit 3\" default=\"strawberry\"}, mango, passionfruit) exploding around the bottle, cinematic golden sunlight, outdoor orchard/beach setting, shallow depth of field, vibrant colors, glossy reflections, high-speed photography style, hyper-detailed liquid physics, clean branding label, 8k, commercial advertising, perfect composition. 一款超逼真的高端果汁饮料瓶广告，动态的液体飞溅在半空中凝固，新鲜水果（{argument name=\"fruit 1\" default=\"orange\"}、{argument name=\"fruit 2\" default=\"kiwi\"}、{argument name=\"fruit 3\" default=\"strawberry\"}、芒果、百香果）在瓶子周围爆开，电影般的金色阳光，户外果园/海滩背景，浅景深，鲜艳的色彩，光泽的倒影，高速摄影风格，超精细的液体物理效果，清晰的品牌标签，8k，商业广告，完美构图。 taaruk 11057",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11097,
+      "title": "3D 迷你纽约城立体模型",
+      "description": "生成一张纽约市 3D 微缩模型照片的提示词，该模型从放置在深色桌面上的街景地图中浮现。它指定了关键地标、霓虹灯元素、车辆以及工作室柔和灯光和宽高比等技术细节，营造出一种都市立体模型效果。",
+      "sourceLink": "https://x.com/PixPrettyAI/status/2027632125986439618",
+      "sourcePublishedAt": "2026-02-28T06:29:05.000Z",
+      "author": {
+        "name": "PixPretty",
+        "link": "https://x.com/PixPrettyAI"
+      },
+      "content": "\"A street-style map of New York City placed on a dark textured tabletop, with a photorealistic miniature version of New York City emerging from it the Statue of Liberty, the Empire State Building, the Brooklyn Bridge, a lush green Central Park, clusters of glowing neon skyscrapers, yellow taxis and silver subway trains, and a detailed street grid base with \"{argument name=\"city name\" default=\"NEW YORK\"}\" typography. All elements grow from the map like a 3D urban diorama. Studio soft lighting, cinematic depth, 2:3 format.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346677365_w8ijx8_HCOYCZzaYAAy7en.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346677365_w8ijx8_HCOYCZzaYAAy7en-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张纽约市的街景地图，放置在深色纹理的桌面上，地图上浮现出逼真的纽约市微缩景观：自由女神像、帝国大厦、布鲁克林大桥、郁郁葱葱的中央公园、霓虹闪烁的摩天大楼群、黄色出租车和银色地铁列车，以及带有“{argument name=\"city name\" default=\"NEW YORK\"}”字样的详细街道网格底座。所有元素都像 3D 城市立体模型一样从地图中生长出来。工作室柔和灯光，电影级景深，2:3 构图。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 迷你纽约城立体模型 生成一张纽约市 3d 微缩模型照片的提示词，该模型从放置在深色桌面上的街景地图中浮现。它指定了关键地标、霓虹灯元素、车辆以及工作室柔和灯光和宽高比等技术细节，营造出一种都市立体模型效果。 \"a street-style map of new york city placed on a dark textured tabletop, with a photorealistic miniature version of new york city emerging from it the statue of liberty, the empire state building, the brooklyn bridge, a lush green central park, clusters of glowing neon skyscrapers, yellow taxis and silver subway trains, and a detailed street grid base with \"{argument name=\"city name\" default=\"new york\"}\" typography. all elements grow from the map like a 3d urban diorama. studio soft lighting, cinematic depth, 2:3 format.\" 一张纽约市的街景地图，放置在深色纹理的桌面上，地图上浮现出逼真的纽约市微缩景观：自由女神像、帝国大厦、布鲁克林大桥、郁郁葱葱的中央公园、霓虹闪烁的摩天大楼群、黄色出租车和银色地铁列车，以及带有“{argument name=\"city name\" default=\"new york\"}”字样的详细街道网格底座。所有元素都像 3d 城市立体模型一样从地图中生长出来。工作室柔和灯光，电影级景深，2:3 构图。 pixpretty 11097",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11050,
+      "title": "身着钩编服装的金发女性超写实肖像",
+      "description": "一个用于“Nano Banana 2”模型的图像生成提示，旨在创作一张超现实、高细节的时尚肖像。画面中，一位金发女性身着米色钩针服装，背景是瓷砖别墅墙，并利用了直射闪光灯和 85mm 镜头等特定相机和照明参数。",
+      "sourceLink": "https://x.com/tealdog2/status/2027628983601532935",
+      "sourcePublishedAt": "2026-02-28T06:16:35.000Z",
+      "author": {
+        "name": "David",
+        "link": "https://x.com/tealdog2"
+      },
+      "content": "Ultra-realistic portrait of a blonde woman standing against a bedroom villa tile wall at night. She is wearing a beige crochet one-shoulder cutout top with silk details and a matching crochet skirt. She has a toned physique, large bust, subtle golden tan skin, glossy pink lips, defined brows, and soft glam makeup. Her straight blonde hair is center-parted and falls past her shoulders. She is wearing gold bangles on both wrists and a small navel piercing. The lighting is direct flash photography, creating sharp highlights on skin and a slightly shadowed textured stone background. High detail, sharp focus, professional fashion photography, 85mm lens, shallow depth of field, natural skin texture, high resolution.”,\n“pose”: “posing with an arched back, candid with one hand on hip”,\n“style”: “fashion photography, ultra-realistic, flash photography”,\n“lighting”: “direct on-camera flash, high contrast, nighttime ambient background”,\n“camera”: “85mm lens, f/2.0, ISO 200, sharp focus”,\n“resolution”: “4k”,\n“aspect_ratio”: “2:3",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772259962733_r5s5r9_HCOV0FgbEAM6b8h.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772259962733_r5s5r9_HCOV0FgbEAM6b8h-300x401.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "“一位金发女性在夜晚卧室别墅的瓷砖墙前，摆出超逼真的肖像。她身穿米色钩针编织单肩镂空上衣，带有丝绸细节，搭配同款钩针编织半身裙。她身材健美，胸部丰满，皮肤呈现微妙的金色晒黑，嘴唇粉嫩有光泽，眉毛精致，妆容柔和迷人。她的金色直发中分，垂过肩膀。她的双腕戴着金色手镯，肚脐处有一个小小的穿孔。灯光是直射闪光摄影，在皮肤上形成鲜明的亮点，背景是略带阴影的纹理石墙。高细节，锐利对焦，专业时尚摄影，85mm 镜头，浅景深，自然皮肤纹理，高分辨率。”\n“姿势”：“弓背摆姿，一只手叉腰的抓拍姿势”\n“风格”：“时尚摄影，超现实主义，闪光摄影”\n“灯光”：“机顶直闪，高对比度，夜间环境背景”\n“相机”：“85mm 镜头，f/2.0，ISO 200，锐利对焦”\n“分辨率”：“4k”\n“长宽比”：“2:3”",
+      "sourcePlatform": "twitter",
+      "searchIndex": "身着钩编服装的金发女性超写实肖像 一个用于“nano banana 2”模型的图像生成提示，旨在创作一张超现实、高细节的时尚肖像。画面中，一位金发女性身着米色钩针服装，背景是瓷砖别墅墙，并利用了直射闪光灯和 85mm 镜头等特定相机和照明参数。 ultra-realistic portrait of a blonde woman standing against a bedroom villa tile wall at night. she is wearing a beige crochet one-shoulder cutout top with silk details and a matching crochet skirt. she has a toned physique, large bust, subtle golden tan skin, glossy pink lips, defined brows, and soft glam makeup. her straight blonde hair is center-parted and falls past her shoulders. she is wearing gold bangles on both wrists and a small navel piercing. the lighting is direct flash photography, creating sharp highlights on skin and a slightly shadowed textured stone background. high detail, sharp focus, professional fashion photography, 85mm lens, shallow depth of field, natural skin texture, high resolution.”,\n“pose”: “posing with an arched back, candid with one hand on hip”,\n“style”: “fashion photography, ultra-realistic, flash photography”,\n“lighting”: “direct on-camera flash, high contrast, nighttime ambient background”,\n“camera”: “85mm lens, f/2.0, iso 200, sharp focus”,\n“resolution”: “4k”,\n“aspect_ratio”: “2:3 “一位金发女性在夜晚卧室别墅的瓷砖墙前，摆出超逼真的肖像。她身穿米色钩针编织单肩镂空上衣，带有丝绸细节，搭配同款钩针编织半身裙。她身材健美，胸部丰满，皮肤呈现微妙的金色晒黑，嘴唇粉嫩有光泽，眉毛精致，妆容柔和迷人。她的金色直发中分，垂过肩膀。她的双腕戴着金色手镯，肚脐处有一个小小的穿孔。灯光是直射闪光摄影，在皮肤上形成鲜明的亮点，背景是略带阴影的纹理石墙。高细节，锐利对焦，专业时尚摄影，85mm 镜头，浅景深，自然皮肤纹理，高分辨率。”\n“姿势”：“弓背摆姿，一只手叉腰的抓拍姿势”\n“风格”：“时尚摄影，超现实主义，闪光摄影”\n“灯光”：“机顶直闪，高对比度，夜间环境背景”\n“相机”：“85mm 镜头，f/2.0，iso 200，锐利对焦”\n“分辨率”：“4k”\n“长宽比”：“2:3” david 11050",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11086,
+      "title": "电影感双重曝光人像",
+      "description": "为 Nano Banana 2 创建超逼真电影感双重曝光肖像的详细提示。它要求从上传的参考照片中严格锁定身份，使用拍摄对象的侧面轮廓作为外部剪影。内部场景必须是黄金时段的戏剧性城市街道，拍摄对象向前行走，营造出一种喜怒无常但充满希望的氛围，具有强烈的背光和 8K 分辨率。",
+      "sourceLink": "https://x.com/HaniaAi12/status/2027628259467313402",
+      "sourcePublishedAt": "2026-02-28T06:13:43.000Z",
+      "author": {
+        "name": "Hania Ai",
+        "link": "https://x.com/HaniaAi12"
+      },
+      "content": "Use the uploaded picture as a reference (Strict identity lock, the face must match the attached reference photo exactly, preserving facial structure, skin tone, expression, and hairstyle (same haircut and hair texture) to create an ultra-realistic cinematic double exposure portrait of me in a clean left-facing side profile, sharp jawline and natural facial structure clearly defined.\nThe outer silhouette is dark and well-contoured against a soft warm beige sunset background. Inside the silhouette, seamlessly blend a dramatic urban street scene at golden hour: a lone me walking forward in the center of an empty destroyed city road, symmetrical perspective lines, damaged buildings on both sides, broken debris scattered along sidewalks, electric poles and cables stretching into the distance.\nThe sun positioned directly at the horizon behind the walking figure, creating strong backlight glow and long stretched shadow toward the camera.\nWarm orange sunlight flooding through the internal city scene, high contrast, cinematic depth, realistic textures, smooth blending edges between portrait and environment.\nMoody yet hopeful atmosphere, 8K resolution, sharp detail, soft vignette. size 4 5 image generate.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346672393_212rwr_HCOVJ5QWUAA1DNU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346672393_212rwr_HCOVJ5QWUAA1DNU-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "请使用上传的图片作为参考（严格保持身份锁定，面部必须与所附参考照片完全匹配，保留面部结构、肤色、表情和发型（相同的发型和发质），以创建我的超现实电影感双重曝光肖像。肖像为清晰的左侧面轮廓，下颌线分明，面部结构自然。\n外部轮廓在柔和温暖的米色日落背景下显得深邃且轮廓分明。在轮廓内部，无缝融合一个戏剧性的城市街景，处于黄金时段：一个孤独的我走在空旷的被毁城市道路中央，对称的透视线，两侧是受损的建筑，人行道上散落着破碎的瓦砾，电线杆和电缆延伸向远方。\n太阳正好位于行走人物身后地平线处，形成强烈的背光光晕，并向镜头方向投射出长长的阴影。\n温暖的橙色阳光洒满内部城市场景，高对比度，电影般的景深，逼真的纹理，肖像与环境之间平滑的融合边缘。\n忧郁而充满希望的氛围，8K 分辨率，细节锐利，柔和的渐晕效果。图片尺寸 4:5。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影感双重曝光人像 为 nano banana 2 创建超逼真电影感双重曝光肖像的详细提示。它要求从上传的参考照片中严格锁定身份，使用拍摄对象的侧面轮廓作为外部剪影。内部场景必须是黄金时段的戏剧性城市街道，拍摄对象向前行走，营造出一种喜怒无常但充满希望的氛围，具有强烈的背光和 8k 分辨率。 use the uploaded picture as a reference (strict identity lock, the face must match the attached reference photo exactly, preserving facial structure, skin tone, expression, and hairstyle (same haircut and hair texture) to create an ultra-realistic cinematic double exposure portrait of me in a clean left-facing side profile, sharp jawline and natural facial structure clearly defined.\nthe outer silhouette is dark and well-contoured against a soft warm beige sunset background. inside the silhouette, seamlessly blend a dramatic urban street scene at golden hour: a lone me walking forward in the center of an empty destroyed city road, symmetrical perspective lines, damaged buildings on both sides, broken debris scattered along sidewalks, electric poles and cables stretching into the distance.\nthe sun positioned directly at the horizon behind the walking figure, creating strong backlight glow and long stretched shadow toward the camera.\nwarm orange sunlight flooding through the internal city scene, high contrast, cinematic depth, realistic textures, smooth blending edges between portrait and environment.\nmoody yet hopeful atmosphere, 8k resolution, sharp detail, soft vignette. size 4 5 image generate. 请使用上传的图片作为参考（严格保持身份锁定，面部必须与所附参考照片完全匹配，保留面部结构、肤色、表情和发型（相同的发型和发质），以创建我的超现实电影感双重曝光肖像。肖像为清晰的左侧面轮廓，下颌线分明，面部结构自然。\n外部轮廓在柔和温暖的米色日落背景下显得深邃且轮廓分明。在轮廓内部，无缝融合一个戏剧性的城市街景，处于黄金时段：一个孤独的我走在空旷的被毁城市道路中央，对称的透视线，两侧是受损的建筑，人行道上散落着破碎的瓦砾，电线杆和电缆延伸向远方。\n太阳正好位于行走人物身后地平线处，形成强烈的背光光晕，并向镜头方向投射出长长的阴影。\n温暖的橙色阳光洒满内部城市场景，高对比度，电影般的景深，逼真的纹理，肖像与环境之间平滑的融合边缘。\n忧郁而充满希望的氛围，8k 分辨率，细节锐利，柔和的渐晕效果。图片尺寸 4:5。 hania ai 11086",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11120,
+      "title": "金皇家华丽镜面自拍",
+      "description": "一个 JSON 提示，用于在影棚环境中生成一张迷人的镜面自拍，强调海军蓝和金色主题、金属配饰以及大胆、奢华、时尚前卫的氛围。",
+      "sourceLink": "https://x.com/Zainabfat2728/status/2027623483895910597",
+      "sourcePublishedAt": "2026-02-28T05:54:44.000Z",
+      "author": {
+        "name": "Zainab Fatima",
+        "link": "https://x.com/Zainabfat2728"
+      },
+      "content": "{\n  \"title\": \"Golden Royal Glam\",\n  \"description\": \"A confident mirror selfie featuring a glamorous navy blue and gold statement outfit. The look is bold and luxurious with metallic gold accessories and stylish details, captured in a studio setting with soft lighting.\",\n  \"outfit\": {\n    \"color_theme\": \"Navy Blue and Gold\",\n    \"style\": \"Bold, Glamorous, Statement\",\n    \"accessories\": [\"Gold choker\", \"Metallic belt\", \"Gold chains\", \"Thigh straps\"],\n    \"vibe\": \"Confident, Luxurious, Fashion-forward\"\n  },\n  \"setting\": {\n    \"location_type\": \"Indoor Studio\",\n    \"lighting\": \"Soft professional lighting\",\n    \"background_elements\": [\"White couch\", \"Studio equipment\", \"Mirror\"]\n  },\n  \"mood\": \"Confident and stylish\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346685684_uxfela_HCOQz6sWcAA3LOq.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346685684_uxfela_HCOQz6sWcAA3LOq-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"title\": \"金色皇家魅力\",\n  \"description\": \"一张自信的镜面自拍照，身着华丽的海军蓝金色个性服装。造型大胆奢华，搭配金属金色配饰和时尚细节，在柔和灯光的影棚中拍摄。\",\n  \"outfit\": {\n    \"color_theme\": \"海军蓝与金色\",\n    \"style\": \"大胆、华丽、个性\",\n    \"accessories\": [\"金色项圈\", \"金属腰带\", \"金色链条\", \"大腿绑带\"],\n    \"vibe\": \"自信、奢华、时尚前卫\"\n  },\n  \"setting\": {\n    \"location_type\": \"室内影棚\",\n    \"lighting\": \"柔和专业的灯光\",\n    \"background_elements\": [\"白色沙发\", \"影棚设备\", \"镜子\"]\n  },\n  \"mood\": \"自信且时尚\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "金皇家华丽镜面自拍 一个 json 提示，用于在影棚环境中生成一张迷人的镜面自拍，强调海军蓝和金色主题、金属配饰以及大胆、奢华、时尚前卫的氛围。 {\n  \"title\": \"golden royal glam\",\n  \"description\": \"a confident mirror selfie featuring a glamorous navy blue and gold statement outfit. the look is bold and luxurious with metallic gold accessories and stylish details, captured in a studio setting with soft lighting.\",\n  \"outfit\": {\n    \"color_theme\": \"navy blue and gold\",\n    \"style\": \"bold, glamorous, statement\",\n    \"accessories\": [\"gold choker\", \"metallic belt\", \"gold chains\", \"thigh straps\"],\n    \"vibe\": \"confident, luxurious, fashion-forward\"\n  },\n  \"setting\": {\n    \"location_type\": \"indoor studio\",\n    \"lighting\": \"soft professional lighting\",\n    \"background_elements\": [\"white couch\", \"studio equipment\", \"mirror\"]\n  },\n  \"mood\": \"confident and stylish\"\n} ```json\n{\n  \"title\": \"金色皇家魅力\",\n  \"description\": \"一张自信的镜面自拍照，身着华丽的海军蓝金色个性服装。造型大胆奢华，搭配金属金色配饰和时尚细节，在柔和灯光的影棚中拍摄。\",\n  \"outfit\": {\n    \"color_theme\": \"海军蓝与金色\",\n    \"style\": \"大胆、华丽、个性\",\n    \"accessories\": [\"金色项圈\", \"金属腰带\", \"金色链条\", \"大腿绑带\"],\n    \"vibe\": \"自信、奢华、时尚前卫\"\n  },\n  \"setting\": {\n    \"location_type\": \"室内影棚\",\n    \"lighting\": \"柔和专业的灯光\",\n    \"background_elements\": [\"白色沙发\", \"影棚设备\", \"镜子\"]\n  },\n  \"mood\": \"自信且时尚\"\n}\n``` zainab fatima 11120",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11052,
+      "title": "使用 Nano Banana 2 制作 LINE 贴图",
+      "description": "一个详细的提示模板，用于生成一套 16 款 LINE 贴图，贴图内容为一个基于参考图片的可爱 Q 版角色。这些贴图专为高中女生日常对话使用而设计，包含各种姿势、日文文本和白色背景。",
+      "sourceLink": "https://x.com/SSSS_CRYPTOMAN/status/2027623135080837419",
+      "sourcePublishedAt": "2026-02-28T05:53:21.000Z",
+      "author": {
+        "name": "SSSS_CRYPTOMAN",
+        "link": "https://x.com/SSSS_CRYPTOMAN"
+      },
+      "content": "このキャラクターを参照してかわいくデフォルメ。16種類のLINEスタンプをデザイン。バリエーション豊富なセットになるようにポーズや文字配置を工夫して似たスタンプが無いように仕上げる。台詞は日本語でポップな文字。背景は白。「{argument name=\"ターゲット\" default=\"女子高生\"}」の日常会話で使いやすいセットを作成。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772346692709_x04nrb_HCOQfkabEAIBJz7.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772346692709_x04nrb_HCOQfkabEAIBJz7-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "参考这个角色，将其可爱化变形。设计 16 种 LINE 贴图。设计姿势和文字排版，以创造一套变化丰富的贴图，确保没有相似的贴图。对话应为日文，并采用流行风格的文字。背景为白色。创建一套易于在“{argument name=\"target\" default=\"高中女生\"}”日常对话中使用的贴图。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用 nano banana 2 制作 line 贴图 一个详细的提示模板，用于生成一套 16 款 line 贴图，贴图内容为一个基于参考图片的可爱 q 版角色。这些贴图专为高中女生日常对话使用而设计，包含各种姿势、日文文本和白色背景。 このキャラクターを参照してかわいくデフォルメ。16種類のlineスタンプをデザイン。バリエーション豊富なセットになるようにポーズや文字配置を工夫して似たスタンプが無いように仕上げる。台詞は日本語でポップな文字。背景は白。「{argument name=\"ターゲット\" default=\"女子高生\"}」の日常会話で使いやすいセットを作成。 参考这个角色，将其可爱化变形。设计 16 种 line 贴图。设计姿势和文字排版，以创造一套变化丰富的贴图，确保没有相似的贴图。对话应为日文，并采用流行风格的文字。背景为白色。创建一套易于在“{argument name=\"target\" default=\"高中女生\"}”日常对话中使用的贴图。 ssss_cryptoman 11052",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 10951,
+      "title": "高端品牌商品胶囊系列（平铺视角）",
+      "description": "一个概念性的提示，用于生成一张品牌周边“胶囊系列”的优质图像。它指定了一个干净、有条理的平铺或等距构图，其中包含与品牌行业相关的各种实物，所有物品均采用品牌的标志性配色方案和大胆的徽标整合，置于无缝的白色摄影棚背景上。",
+      "sourceLink": "https://x.com/Naiknelofar788/status/2027622284446548285",
+      "sourcePublishedAt": "2026-02-28T05:49:58.000Z",
+      "author": {
+        "name": "simeon-sanai",
+        "link": "https://x.com/Naiknelofar788"
+      },
+      "content": "[Brand Name], conceptualized as a cohesive, premium \"capsule collection\" of branded merchandise and functional souvenirs. The image displays a curated set of various physical objects (such as tech accessories, utility gear, lifestyle items, or stationery) that are semantically relevant to the brand's specific industry and audience. Every item is designed using the brand's official signature color palette and features bold logo integration.\nThe objects are arranged in a clean, organized group composition (knolling or isometric perspective) on a seamless, infinite studio white background. The lighting is soft and professional, creating subtle shadows. The framing is wide, ensuring significant negative space (air) surrounds the product grouping on all sides.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1772259911182_75hir8_HCOPuDbbEAI_1lW.jpg",
+        "https://cms-assets.youmind.com/media/1772259911280_11bfbt_HCOPuM6bEAUPZ68.jpg",
+        "https://cms-assets.youmind.com/media/1772259911709_ayt5tl_HCOPuDWbMAABbji.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1772259911182_75hir8_HCOPuDbbEAI_1lW-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1772259911280_11bfbt_HCOPuM6bEAUPZ68-300x411.jpg",
+        "https://cms-assets.youmind.com/media/1772259911709_ayt5tl_HCOPuDWbMAABbji-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "[Brand Name] 被构思为一个有凝聚力、高品质的“胶囊系列”，包含品牌商品和实用纪念品。图片展示了一系列精心挑选的实物（例如科技配件、实用工具、生活用品或文具），这些物品在语义上与品牌所属的特定行业和受众相关。每件商品都采用品牌的官方标志性配色方案设计，并融入了醒目的品牌标志。\n这些物品以整洁、有序的组合方式（平铺或等距透视）排列在无缝、无限延伸的纯白影棚背景上。灯光柔和而专业，营造出微妙的阴影。构图宽广，确保产品组合四周留有充足的负空间（留白）。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高端品牌商品胶囊系列（平铺视角） 一个概念性的提示，用于生成一张品牌周边“胶囊系列”的优质图像。它指定了一个干净、有条理的平铺或等距构图，其中包含与品牌行业相关的各种实物，所有物品均采用品牌的标志性配色方案和大胆的徽标整合，置于无缝的白色摄影棚背景上。 [brand name], conceptualized as a cohesive, premium \"capsule collection\" of branded merchandise and functional souvenirs. the image displays a curated set of various physical objects (such as tech accessories, utility gear, lifestyle items, or stationery) that are semantically relevant to the brand's specific industry and audience. every item is designed using the brand's official signature color palette and features bold logo integration.\nthe objects are arranged in a clean, organized group composition (knolling or isometric perspective) on a seamless, infinite studio white background. the lighting is soft and professional, creating subtle shadows. the framing is wide, ensuring significant negative space (air) surrounds the product grouping on all sides. [brand name] 被构思为一个有凝聚力、高品质的“胶囊系列”，包含品牌商品和实用纪念品。图片展示了一系列精心挑选的实物（例如科技配件、实用工具、生活用品或文具），这些物品在语义上与品牌所属的特定行业和受众相关。每件商品都采用品牌的官方标志性配色方案设计，并融入了醒目的品牌标志。\n这些物品以整洁、有序的组合方式（平铺或等距透视）排列在无缝、无限延伸的纯白影棚背景上。灯光柔和而专业，营造出微妙的阴影。构图宽广，确保产品组合四周留有充足的负空间（留白）。 simeon-sanai 10951",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 122,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

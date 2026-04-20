@@ -1,0 +1,500 @@
+{
+  "prompts": [
+    {
+      "id": 12009,
+      "title": "分屏街头摄影",
+      "description": "一个为 Nano Banana 2（通过 Adobe Firefly 使用）设计的简洁图像生成提示，要求生成一张分屏图像，包含两个不同地点、地理位置准确的地标，以及一个无缝的中心分隔，以 8K 街头摄影风格渲染。",
+      "sourceLink": "https://x.com/GlennHasABeard/status/2032065948950073835",
+      "sourcePublishedAt": "2026-03-12T12:07:30.000Z",
+      "author": {
+        "name": "Glenn Williams",
+        "link": "https://x.com/GlennHasABeard"
+      },
+      "content": "Split scene, left half [location 1], right half [location 2], geographically accurate landmarks and signage, seamless center divide, 8K street photography.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383470498_a8tvzz_HDNZNjjWQAAsYP2.jpg",
+        "https://cms-assets.youmind.com/media/1773383470362_bl1g16_HDNZNi_XwAAQ939.jpg",
+        "https://cms-assets.youmind.com/media/1773383470473_b2zvf3_HDNZNjBW0AA3A6o.jpg",
+        "https://cms-assets.youmind.com/media/1773383471319_2bnqw2_HDNZNnkXAAAwsXX.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383470498_a8tvzz_HDNZNjjWQAAsYP2-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773383470362_bl1g16_HDNZNi_XwAAQ939-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773383470473_b2zvf3_HDNZNjBW0AA3A6o-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773383471319_2bnqw2_HDNZNnkXAAAwsXX-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "分屏场景，左半部分为 [地点 1]，右半部分为 [地点 2]，具有地理精确的地标和标牌，中心无缝分割，8K 街景摄影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "分屏街头摄影 一个为 nano banana 2（通过 adobe firefly 使用）设计的简洁图像生成提示，要求生成一张分屏图像，包含两个不同地点、地理位置准确的地标，以及一个无缝的中心分隔，以 8k 街头摄影风格渲染。 split scene, left half [location 1], right half [location 2], geographically accurate landmarks and signage, seamless center divide, 8k street photography. 分屏场景，左半部分为 [地点 1]，右半部分为 [地点 2]，具有地理精确的地标和标牌，中心无缝分割，8k 街景摄影。 glenn williams 12009",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12034,
+      "title": "3x3 网格角色一致性提示",
+      "description": "一个给 Nano Banana 2 的提示，指示模型生成一个 3x3 的网格，其中每个单元格都具有 2:3 的宽高比，展示同一角色从不同角度摆出随机姿势，同时保持场景一致性。",
+      "sourceLink": "https://x.com/underwoodxie96/status/2032062558656741514",
+      "sourcePublishedAt": "2026-03-12T11:54:02.000Z",
+      "author": {
+        "name": "underwood",
+        "link": "https://x.com/underwoodxie96"
+      },
+      "content": "In a 3×3 grid, each cell should have an aspect ratio of 2:3. Show the same character from different angles while keeping the scene consistent, with randomized poses in each cell.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383487434_vu1j30_HDNWAsUbUAAViNo.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383487434_vu1j30_HDNWAsUbUAAViNo-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "在一个 3×3 的网格中，每个单元格的长宽比应为 2:3。在保持场景一致的情况下，从不同角度展示同一个角色，每个单元格中的姿势随机。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3x3 网格角色一致性提示 一个给 nano banana 2 的提示，指示模型生成一个 3x3 的网格，其中每个单元格都具有 2:3 的宽高比，展示同一角色从不同角度摆出随机姿势，同时保持场景一致性。 in a 3×3 grid, each cell should have an aspect ratio of 2:3. show the same character from different angles while keeping the scene consistent, with randomized poses in each cell. 在一个 3×3 的网格中，每个单元格的长宽比应为 2:3。在保持场景一致的情况下，从不同角度展示同一个角色，每个单元格中的姿势随机。 underwood 12034",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12041,
+      "title": "Sydney Sweeney 绿色比基尼海滩快照提示词，适用于 Nano Banana Pro",
+      "description": "一个高度详细的 JSON 提示，用于 Nano Banana Pro 生成一张业余海滩快照，其中包含一位具有特定身体特征、服装和逼真皮肤纹理的女性，需要上传一张面部参考图像。",
+      "sourceLink": "https://x.com/BananaPromptPro/status/2032052482969682177",
+      "sourcePublishedAt": "2026-03-12T11:14:00.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/BananaPromptPro"
+      },
+      "content": "{\n  \"photo_type\": \"Amateur beach snapshot\",\n  \"subject\": {\n    \"age\": \"39 years old\",\n    \"body_type\": \"Well Endowed Australian Blond Women, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"A fair-skinned woman with a mature, buxom figure sitting on a beach towel in a tropical setting.\",\n    \"ethnicity\": \"Caucasian\",\n    \"expression\": \"Slightly looking down with a relaxed, casual expression\",\n    \"gender\": \"Female\",\n    \"mirror_rules\": \"Not applicable\",\n    \"pose_description\": \"Sitting on a white towel on the sand, legs spread and knees bent, leaning slightly back on one arm while looking downward.\",\n    \"tattoos\": \"None\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"Forest green\",\n      \"details\": \"Tie-side bikini bottom\",\n      \"fabric\": \"Smooth synthetic swimwear fabric\",\n      \"type\": \"Bikini bottoms\"\n    },\n    \"fit_and_physics\": \"The bikini fabric is strained over the subject's full bust and wide hips, creating natural skin-to-fabric tension.\",\n    \"outerwear\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"shoes\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"Barefoot\"\n    },\n    \"top\": {\n      \"color\": \"Forest green\",\n      \"details\": \"Triangle bikini top with thin halter straps\",\n      \"fabric\": \"Matte synthetic fabric\",\n      \"type\": \"Bikini top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"Blonde\",\n    \"interaction\": \"Several strands falling forward over her face and shoulders\",\n    \"style\": \"Long, straight, light blonde hair with darker roots, parted centrally\"\n  },\n  \"face\": {\n    \"description\": \"Use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"Groomed, arched blonde eyebrows\",\n    \"eyes\": \"Almond-shaped with light-colored irises\",\n    \"lips\": \"Full lips with a defined cupid's bow\",\n    \"makeup\": \"Subtle makeup with a focus on defined lips\"\n  },\n  \"skin_texture\": \"Fair complexion with a smooth, natural texture and visible pores under direct sunlight.\",\n  \"biological_features\": {\n    \"eye_complexity\": \"Natural light-colored iris detailing\",\n    \"hair_strand_physics\": \"Fine blonde strands moving naturally in a light sea breeze\",\n    \"skin_micro_texture\": \"Subtle skin texture, natural fair-skinned pigmentation, no airbrushing\",\n    \"subsurface_scattering\": \"Natural warmth in skin where sunlight hits\",\n    \"vascularity_and_pigment\": \"Subtle visible veins in hands and natural skin tones acr",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383492994_9zh5yi_HDNMr_6akAAUnRc.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383492994_9zh5yi_HDNMr_6akAAUnRc-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"photo_type\": \"业余海滩快照\",\n  \"subject\": {\n    \"age\": \"39 岁\",\n    \"body_type\": \"身材丰满的澳大利亚金发女性，胸部呈圆形，突出，胸围丰满，大胸比例，胸部框架更宽，上半身轮廓优美，上身丰满，体态丰腴，腰臀对比度高，腰线分明，臀部丰满，曲线优美，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位皮肤白皙、身材丰满的成熟女性，坐在一片热带海滩的沙滩巾上。\",\n    \"ethnicity\": \"白种人\",\n    \"expression\": \"略微向下看，表情放松随意\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"坐在沙滩上的白色毛巾上，双腿张开，膝盖弯曲，身体微微向后靠在一只手臂上，同时向下看。\",\n    \"tattoos\": \"无\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"森林绿\",\n      \"details\": \"系带比基尼下装\",\n      \"fabric\": \"光滑的合成泳装面料\",\n      \"type\": \"比基尼下装\"\n    },\n    \"fit_and_physics\": \"比基尼面料紧绷在主体丰满的胸部和宽阔的臀部上，形成自然的皮肤与面料之间的张力。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"赤脚\"\n    },\n    \"top\": {\n      \"color\": \"森林绿\",\n      \"details\": \"带细吊带的三角比基尼上装\",\n      \"fabric\": \"哑光合成面料\",\n      \"type\": \"比基尼上装\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"几缕头发垂落在脸部和肩部\",\n    \"style\": \"长直发，浅金色，发根颜色较深，中分\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"修剪整齐的拱形金色眉毛\",\n    \"eyes\": \"杏仁状，虹膜颜色较浅\",\n    \"lips\": \"丰满的嘴唇，唇峰分明\",\n    \"makeup\": \"淡妆，重点突出唇部\"\n  },\n  \"skin_texture\": \"白皙的肤色，光滑自然的质地，在阳光直射下可见毛孔。\",\n  \"biological_features\": {\n    \"eye_complexity\": \"自然的浅色虹膜细节\",\n    \"hair_strand_physics\": \"细软的金发在微风中自然飘动\",\n    \"skin_micro_texture\": \"微妙的皮肤纹理，自然的白皙肤色，无修图痕迹\",\n    \"subsurface_scattering\": \"阳光照射到的皮肤呈现自然的暖色调\",\n    \"vascularity_and_pigment\": \"手部可见细微血管，肤色自然\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sydney sweeney 绿色比基尼海滩快照提示词，适用于 nano banana pro 一个高度详细的 json 提示，用于 nano banana pro 生成一张业余海滩快照，其中包含一位具有特定身体特征、服装和逼真皮肤纹理的女性，需要上传一张面部参考图像。 {\n  \"photo_type\": \"amateur beach snapshot\",\n  \"subject\": {\n    \"age\": \"39 years old\",\n    \"body_type\": \"well endowed australian blond women, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"a fair-skinned woman with a mature, buxom figure sitting on a beach towel in a tropical setting.\",\n    \"ethnicity\": \"caucasian\",\n    \"expression\": \"slightly looking down with a relaxed, casual expression\",\n    \"gender\": \"female\",\n    \"mirror_rules\": \"not applicable\",\n    \"pose_description\": \"sitting on a white towel on the sand, legs spread and knees bent, leaning slightly back on one arm while looking downward.\",\n    \"tattoos\": \"none\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"forest green\",\n      \"details\": \"tie-side bikini bottom\",\n      \"fabric\": \"smooth synthetic swimwear fabric\",\n      \"type\": \"bikini bottoms\"\n    },\n    \"fit_and_physics\": \"the bikini fabric is strained over the subject's full bust and wide hips, creating natural skin-to-fabric tension.\",\n    \"outerwear\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"shoes\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"barefoot\"\n    },\n    \"top\": {\n      \"color\": \"forest green\",\n      \"details\": \"triangle bikini top with thin halter straps\",\n      \"fabric\": \"matte synthetic fabric\",\n      \"type\": \"bikini top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"blonde\",\n    \"interaction\": \"several strands falling forward over her face and shoulders\",\n    \"style\": \"long, straight, light blonde hair with darker roots, parted centrally\"\n  },\n  \"face\": {\n    \"description\": \"use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"groomed, arched blonde eyebrows\",\n    \"eyes\": \"almond-shaped with light-colored irises\",\n    \"lips\": \"full lips with a defined cupid's bow\",\n    \"makeup\": \"subtle makeup with a focus on defined lips\"\n  },\n  \"skin_texture\": \"fair complexion with a smooth, natural texture and visible pores under direct sunlight.\",\n  \"biological_features\": {\n    \"eye_complexity\": \"natural light-colored iris detailing\",\n    \"hair_strand_physics\": \"fine blonde strands moving naturally in a light sea breeze\",\n    \"skin_micro_texture\": \"subtle skin texture, natural fair-skinned pigmentation, no airbrushing\",\n    \"subsurface_scattering\": \"natural warmth in skin where sunlight hits\",\n    \"vascularity_and_pigment\": \"subtle visible veins in hands and natural skin tones acr ```json\n{\n  \"photo_type\": \"业余海滩快照\",\n  \"subject\": {\n    \"age\": \"39 岁\",\n    \"body_type\": \"身材丰满的澳大利亚金发女性，胸部呈圆形，突出，胸围丰满，大胸比例，胸部框架更宽，上半身轮廓优美，上身丰满，体态丰腴，腰臀对比度高，腰线分明，臀部丰满，曲线优美，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位皮肤白皙、身材丰满的成熟女性，坐在一片热带海滩的沙滩巾上。\",\n    \"ethnicity\": \"白种人\",\n    \"expression\": \"略微向下看，表情放松随意\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"坐在沙滩上的白色毛巾上，双腿张开，膝盖弯曲，身体微微向后靠在一只手臂上，同时向下看。\",\n    \"tattoos\": \"无\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"森林绿\",\n      \"details\": \"系带比基尼下装\",\n      \"fabric\": \"光滑的合成泳装面料\",\n      \"type\": \"比基尼下装\"\n    },\n    \"fit_and_physics\": \"比基尼面料紧绷在主体丰满的胸部和宽阔的臀部上，形成自然的皮肤与面料之间的张力。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"赤脚\"\n    },\n    \"top\": {\n      \"color\": \"森林绿\",\n      \"details\": \"带细吊带的三角比基尼上装\",\n      \"fabric\": \"哑光合成面料\",\n      \"type\": \"比基尼上装\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"几缕头发垂落在脸部和肩部\",\n    \"style\": \"长直发，浅金色，发根颜色较深，中分\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"修剪整齐的拱形金色眉毛\",\n    \"eyes\": \"杏仁状，虹膜颜色较浅\",\n    \"lips\": \"丰满的嘴唇，唇峰分明\",\n    \"makeup\": \"淡妆，重点突出唇部\"\n  },\n  \"skin_texture\": \"白皙的肤色，光滑自然的质地，在阳光直射下可见毛孔。\",\n  \"biological_features\": {\n    \"eye_complexity\": \"自然的浅色虹膜细节\",\n    \"hair_strand_physics\": \"细软的金发在微风中自然飘动\",\n    \"skin_micro_texture\": \"微妙的皮肤纹理，自然的白皙肤色，无修图痕迹\",\n    \"subsurface_scattering\": \"阳光照射到的皮肤呈现自然的暖色调\",\n    \"vascularity_and_pigment\": \"手部可见细微血管，肤色自然\"\n  }\n}\n``` layla 🌙 12041",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 11997,
+      "title": "详细的 JSON 提示词，用于生成游戏少女自拍",
+      "description": "一个高度详细、结构化的 JSON 提示，专为 Nano Banana Pro 设计，描述了一位年轻的东亚女性在现代玩家房间里对着镜子自拍。该提示着重强调了夸张的身体比例、具体的服装细节（超大连帽衫、皮卡丘主题短裤）、灯光、相机设置（广角、浅景深）以及负面约束。",
+      "sourceLink": "https://x.com/itsjessiababy/status/2032049273433432532",
+      "sourcePublishedAt": "2026-03-12T11:01:15.000Z",
+      "author": {
+        "name": "Jessia",
+        "link": "https://x.com/itsjessiababy"
+      },
+      "content": "{\n  \"subject\": {\n    \"type\": \"person\",\n    \"description\": \"A beautiful East Asian young woman with long, dark red/burgundy hair tied back in a ponytail. She is sitting on a plush carpet in a gaming room, facing away from the camera, holding up her phone to take a mirror selfie. She is no longer wearing glasses.\",\n    \"body\": {\n      \"physique\": \"Extraordinarily pronounced hourglass figure with very large, prominent glutes and an extreme waist-to-hip ratio. Her hips are wide, and her waist is very narrow. Her legs are athletic and toned, tucked under her as she sits. Her back is arched, emphasizing her curves.\",\n      \"proportions\": \"Exaggerated lower body curve, full and rounded glutes, slender upper body, toned limbs.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"A oversized, light grey hooded sweatshirt with the hood down, revealing her neck and back.\",\n      \"bottoms\": \"Ultra-short, form-fitting shorts in a vibrant yellow and green pattern, possibly featuring stylized Pikachu or similar characters. The shorts are significantly shorter than, barely covering her large glutes.\",\n      \"accessories\": \"No glasses, ear piercings, holding a smartphone with a black patterned case.\"\n    }\n  },\n  \"scene\": {\n    \"type\": \"interior\",\n    \"description\": \"A detailed, modern gamer room. The background includes a large desk with a multi-monitor setup showing gaming interfaces, a high-end gaming chair, RGB LED light strips lining shelves and behind the monitors creating a warm and cool light mix (blues, purples, oranges), various gaming peripherals, posters, and collectible figurines on shelves. A plush grey carpet covers the floor.\",\n    \"objects\": [\n      \"Multi-monitor PC setup\",\n      \"Gaming chair\",\n      \"RGB LED light strips\",\n      \"Gaming keyboard and mouse\",\n      \"Posters\",\n      \"Collectible figurines\",\n      \"Headset stand\",\n      \"Plush grey carpet\"\n    ]\n  },\n  \"lighting\": {\n    \"type\": \"mixed\",\n    \"description\": \"Warm and cool light from the RGB LEDs and screen glow, creating soft shadows and highlights on her body and the room's textures. The primary light source is from the gaming setup and ambient room LEDs.\",\n    \"setup\": \"Professional interior lighting with LED accents, creating a cozy and dynamic atmosphere.\"\n  },\n  \"camera\": {\n    \"type\": \"DSLR\",\n    \"lens\": \"Wide-angle lens\",\n    \"aperture\": \"Low f-stop, shallow depth of field, focused on the subject, particularly her back and glutes\",\n    \"perspective\": \"Eye-level, capturing the selfie reflection\",\n    \"style\": \"Professional photograph with sharp details and rich colors\"\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"negative_constraints\": [\n    \"no logos\",\n    \"no beautify smoothing\",\n    \"no extra limbs\",\n    \"no text\"\n  ],\n  \"reflection_integrity_rules\": \"Ensure the mirror reflection accurately matches the subject's pose, wardrobe, and the gaming room background without distortion.\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383462411_bz1msh_HDNKBF6bAAA4KaT.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383462411_bz1msh_HDNKBF6bAAA4KaT-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"type\": \"人物\",\n    \"description\": \"一位美丽的东亚年轻女性，留着深红色/酒红色长发，扎成马尾辫。她坐在游戏室的毛绒地毯上，背对镜头，举着手机自拍。她没有戴眼镜。\",\n    \"body\": {\n      \"physique\": \"身材呈极其明显的沙漏型，臀部非常丰满突出，腰臀比极高。她的臀部宽大，腰部非常纤细。双腿健美紧致，坐着时收拢在身下。她的背部拱起，凸显了曲线。\",\n      \"proportions\": \"下半身曲线夸张，臀部丰满圆润，上半身纤细，四肢紧致。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"一件宽松的浅灰色连帽卫衣，帽子放下，露出颈部和背部。\",\n      \"bottoms\": \"超短紧身短裤，图案为鲜艳的黄色和绿色，可能带有皮卡丘或类似角色的风格化图案。短裤比她的臀部短很多，几乎无法完全遮盖。\",\n      \"accessories\": \"没有戴眼镜，有耳洞，手持一部带有黑色图案手机壳的智能手机。\"\n    }\n  },\n  \"scene\": {\n    \"type\": \"室内\",\n    \"description\": \"一间细节丰富的现代游戏室。背景包括一张带有多显示器设置的大书桌，显示着游戏界面；一把高端游戏椅；沿着置物架和显示器后方排列的 RGB LED 灯带，营造出冷暖光线混合（蓝色、紫色、橙色）的效果；各种游戏外设、海报和置物架上的收藏手办。地面铺着一张毛绒灰色地毯。\",\n    \"objects\": [\n      \"多显示器电脑设置\",\n      \"游戏椅\",\n      \"RGB LED 灯带\",\n      \"游戏键盘和鼠标\",\n      \"海报\",\n      \"收藏手办\",\n      \"耳机支架\",\n      \"毛绒灰色地毯\"\n    ]\n  },\n  \"lighting\": {\n    \"type\": \"混合\",\n    \"description\": \"来自 RGB LED 灯和屏幕光线的冷暖混合光，在她的身体和房间的纹理上形成柔和的阴影和高光。主要光源来自游戏设备和环境 LED 灯。\",\n    \"setup\": \"专业的室内照明，带有 LED 装饰，营造出舒适而充满活力的氛围。\"\n  },\n  \"camera\": {\n    \"type\": \"数码单反相机\",\n    \"lens\": \"广角镜头\",\n    \"aperture\": \"低光圈，景深较浅，聚焦于主体，特别是她的背部和臀部\",\n    \"perspective\": \"视线水平，捕捉自拍反射\",\n    \"style\": \"专业的照片，细节清晰，色彩丰富\"\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"negative_constraints\": [\n    \"无标志\",\n    \"无美颜平滑\",\n    \"无多余肢体\",\n    \"无文字\"\n  ],\n  \"reflection_integrity_rules\": \"确保镜面反射准确匹配主体的姿势、服装和游戏室背景，无失真。\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "详细的 json 提示词，用于生成游戏少女自拍 一个高度详细、结构化的 json 提示，专为 nano banana pro 设计，描述了一位年轻的东亚女性在现代玩家房间里对着镜子自拍。该提示着重强调了夸张的身体比例、具体的服装细节（超大连帽衫、皮卡丘主题短裤）、灯光、相机设置（广角、浅景深）以及负面约束。 {\n  \"subject\": {\n    \"type\": \"person\",\n    \"description\": \"a beautiful east asian young woman with long, dark red/burgundy hair tied back in a ponytail. she is sitting on a plush carpet in a gaming room, facing away from the camera, holding up her phone to take a mirror selfie. she is no longer wearing glasses.\",\n    \"body\": {\n      \"physique\": \"extraordinarily pronounced hourglass figure with very large, prominent glutes and an extreme waist-to-hip ratio. her hips are wide, and her waist is very narrow. her legs are athletic and toned, tucked under her as she sits. her back is arched, emphasizing her curves.\",\n      \"proportions\": \"exaggerated lower body curve, full and rounded glutes, slender upper body, toned limbs.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"a oversized, light grey hooded sweatshirt with the hood down, revealing her neck and back.\",\n      \"bottoms\": \"ultra-short, form-fitting shorts in a vibrant yellow and green pattern, possibly featuring stylized pikachu or similar characters. the shorts are significantly shorter than, barely covering her large glutes.\",\n      \"accessories\": \"no glasses, ear piercings, holding a smartphone with a black patterned case.\"\n    }\n  },\n  \"scene\": {\n    \"type\": \"interior\",\n    \"description\": \"a detailed, modern gamer room. the background includes a large desk with a multi-monitor setup showing gaming interfaces, a high-end gaming chair, rgb led light strips lining shelves and behind the monitors creating a warm and cool light mix (blues, purples, oranges), various gaming peripherals, posters, and collectible figurines on shelves. a plush grey carpet covers the floor.\",\n    \"objects\": [\n      \"multi-monitor pc setup\",\n      \"gaming chair\",\n      \"rgb led light strips\",\n      \"gaming keyboard and mouse\",\n      \"posters\",\n      \"collectible figurines\",\n      \"headset stand\",\n      \"plush grey carpet\"\n    ]\n  },\n  \"lighting\": {\n    \"type\": \"mixed\",\n    \"description\": \"warm and cool light from the rgb leds and screen glow, creating soft shadows and highlights on her body and the room's textures. the primary light source is from the gaming setup and ambient room leds.\",\n    \"setup\": \"professional interior lighting with led accents, creating a cozy and dynamic atmosphere.\"\n  },\n  \"camera\": {\n    \"type\": \"dslr\",\n    \"lens\": \"wide-angle lens\",\n    \"aperture\": \"low f-stop, shallow depth of field, focused on the subject, particularly her back and glutes\",\n    \"perspective\": \"eye-level, capturing the selfie reflection\",\n    \"style\": \"professional photograph with sharp details and rich colors\"\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"negative_constraints\": [\n    \"no logos\",\n    \"no beautify smoothing\",\n    \"no extra limbs\",\n    \"no text\"\n  ],\n  \"reflection_integrity_rules\": \"ensure the mirror reflection accurately matches the subject's pose, wardrobe, and the gaming room background without distortion.\"\n} ```json\n{\n  \"subject\": {\n    \"type\": \"人物\",\n    \"description\": \"一位美丽的东亚年轻女性，留着深红色/酒红色长发，扎成马尾辫。她坐在游戏室的毛绒地毯上，背对镜头，举着手机自拍。她没有戴眼镜。\",\n    \"body\": {\n      \"physique\": \"身材呈极其明显的沙漏型，臀部非常丰满突出，腰臀比极高。她的臀部宽大，腰部非常纤细。双腿健美紧致，坐着时收拢在身下。她的背部拱起，凸显了曲线。\",\n      \"proportions\": \"下半身曲线夸张，臀部丰满圆润，上半身纤细，四肢紧致。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"一件宽松的浅灰色连帽卫衣，帽子放下，露出颈部和背部。\",\n      \"bottoms\": \"超短紧身短裤，图案为鲜艳的黄色和绿色，可能带有皮卡丘或类似角色的风格化图案。短裤比她的臀部短很多，几乎无法完全遮盖。\",\n      \"accessories\": \"没有戴眼镜，有耳洞，手持一部带有黑色图案手机壳的智能手机。\"\n    }\n  },\n  \"scene\": {\n    \"type\": \"室内\",\n    \"description\": \"一间细节丰富的现代游戏室。背景包括一张带有多显示器设置的大书桌，显示着游戏界面；一把高端游戏椅；沿着置物架和显示器后方排列的 rgb led 灯带，营造出冷暖光线混合（蓝色、紫色、橙色）的效果；各种游戏外设、海报和置物架上的收藏手办。地面铺着一张毛绒灰色地毯。\",\n    \"objects\": [\n      \"多显示器电脑设置\",\n      \"游戏椅\",\n      \"rgb led 灯带\",\n      \"游戏键盘和鼠标\",\n      \"海报\",\n      \"收藏手办\",\n      \"耳机支架\",\n      \"毛绒灰色地毯\"\n    ]\n  },\n  \"lighting\": {\n    \"type\": \"混合\",\n    \"description\": \"来自 rgb led 灯和屏幕光线的冷暖混合光，在她的身体和房间的纹理上形成柔和的阴影和高光。主要光源来自游戏设备和环境 led 灯。\",\n    \"setup\": \"专业的室内照明，带有 led 装饰，营造出舒适而充满活力的氛围。\"\n  },\n  \"camera\": {\n    \"type\": \"数码单反相机\",\n    \"lens\": \"广角镜头\",\n    \"aperture\": \"低光圈，景深较浅，聚焦于主体，特别是她的背部和臀部\",\n    \"perspective\": \"视线水平，捕捉自拍反射\",\n    \"style\": \"专业的照片，细节清晰，色彩丰富\"\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"negative_constraints\": [\n    \"无标志\",\n    \"无美颜平滑\",\n    \"无多余肢体\",\n    \"无文字\"\n  ],\n  \"reflection_integrity_rules\": \"确保镜面反射准确匹配主体的姿势、服装和游戏室背景，无失真。\"\n}\n``` jessia 11997",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12057,
+      "title": "电影短片图像和视频生成提示",
+      "description": "一个详细的电影级提示，用于使用 Nano Banana Pro 生成四张图像，然后将这些图像作为 Kling 3.0 Omni 视频的输入。该提示侧重于捕捉一位女性吃甜食的魅力，强调电影拍摄技巧和 ASMR 声音设计。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2032048961910157341",
+      "sourcePublishedAt": "2026-03-12T11:00:00.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "スイーツを食べる女性の愛らしさを描く、全4カットのシネマティックなショートフィルム。温かみのあるカラーグレーディングと浅い被写界深度を用い、ASMR的な音響演出を重視する。構成は、パッケージを開ける手元のクローズアップから始まり、スイーツを口にする繊細な表情と咀嚼音、舞い散る粉や質感を捉えたスローモーションを含むミディアムショット、そして最後の一口を味わう満足げな余韻へとシームレスに展開する。視覚と聴覚の両面で「美味しさ」と「幸福感」を表現する。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383503347_hbmqqw_HDLAw3HbQAAr1Yy.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383503347_hbmqqw_HDLAw3HbQAAr1Yy-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一部由四个镜头组成的电影短片，描绘了一位女性吃甜点时的魅力。影片采用暖色调和浅景深，并优先考虑 ASMR 般的音效设计。镜头无缝衔接，从特写双手打开包装，到中景捕捉她吃甜点时精致的表情和咀嚼声，包括捕捉散落的粉末和质感的慢动作镜头，最后到品尝完最后一口后的满足余韵。通过视觉和听觉两种方式，表达“美味”和“幸福”。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影短片图像和视频生成提示 一个详细的电影级提示，用于使用 nano banana pro 生成四张图像，然后将这些图像作为 kling 3.0 omni 视频的输入。该提示侧重于捕捉一位女性吃甜食的魅力，强调电影拍摄技巧和 asmr 声音设计。 スイーツを食べる女性の愛らしさを描く、全4カットのシネマティックなショートフィルム。温かみのあるカラーグレーディングと浅い被写界深度を用い、asmr的な音響演出を重視する。構成は、パッケージを開ける手元のクローズアップから始まり、スイーツを口にする繊細な表情と咀嚼音、舞い散る粉や質感を捉えたスローモーションを含むミディアムショット、そして最後の一口を味わう満足げな余韻へとシームレスに展開する。視覚と聴覚の両面で「美味しさ」と「幸福感」を表現する。 一部由四个镜头组成的电影短片，描绘了一位女性吃甜点时的魅力。影片采用暖色调和浅景深，并优先考虑 asmr 般的音效设计。镜头无缝衔接，从特写双手打开包装，到中景捕捉她吃甜点时精致的表情和咀嚼声，包括捕捉散落的粉末和质感的慢动作镜头，最后到品尝完最后一口后的满足余韵。通过视觉和听觉两种方式，表达“美味”和“幸福”。 空想写真家 12057",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12048,
+      "title": "比基尼丰满女性床照提示词，适用于 Nano Banana Pro",
+      "description": "一个高度详细的 JSON 提示，用于 Nano Banana Pro 生成一张特写肖像：一位曲线玲珑、纹身密布的女性躺在床上，重点关注特定的身体比例、服装细节（紧绷的比基尼上衣）和光照条件。",
+      "sourceLink": "https://x.com/brindleyai/status/2032048643860041965",
+      "sourcePublishedAt": "2026-03-12T10:58:44.000Z",
+      "author": {
+        "name": "brindley",
+        "link": "https://x.com/brindleyai"
+      },
+      "content": "{\n  \"subject\": {\n    \"description\": \"A close-up photograph of the young woman, lying in bed, looking up at the camera.\",\n    \"body\": {\n      \"build\": \"Curvaceous hourglass figure with exceptionally large, prominent breasts (F-cup or larger, extremely full and heavy), contrasting with a slim waist and defined shoulders.\",\n      \"details\": \"Covered in extensive dark floral and illustrative tattoos on her arms and chest, extending over her very large breasts. She has freckles across her nose and cheeks and long brown hair.\",\n      \"pose\": \"Lying on her back, arms bent, with very large breasts filling much of the frame.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"A green-yellow string bikini top that is stretched across her extremely large bust.\"\n    }\n  },\n  \"scene\": {\n    \"location\": \"Lying in a bed.\",\n    \"background\": \"Green patterned duvet cover with white floral designs and a pink plush pillow.\",\n    \"props\": {\n      \"pillow\": \"Pink plush pillow has a blue tag that reads 'PEEPS'.\"\n    },\n    \"lighting\": {\n      \"type\": \"Soft, natural daylight from a window.\",\n      \"quality\": \"Gentle, warm light highlighting skin and fabric textures.\"\n    }\n  },\n  \"camera\": {\n    \"type\": \"DSLR\",\n    \"lens\": \"Wide-angle lens.\",\n    \"perspective\": \"High angle, looking down.\",\n    \"focus\": \"Sharp focus on her face and very large breasts.\",\n    \"format\": \"9:16 vertical aspect ratio.\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383497414_ij3omw_HDNJdp7b0AAyQJK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383497414_ij3omw_HDNJdp7b0AAyQJK-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": {\n    \"description\": \"一名年轻女性的特写照片，她躺在床上，向上看着镜头。\",\n    \"body\": {\n      \"build\": \"曲线玲珑的沙漏型身材，胸部异常丰满突出（F 罩杯或更大，极其饱满沉重），与纤细的腰肢和分明的肩部形成对比。\",\n      \"details\": \"手臂和胸部覆盖着大面积的深色花卉和插画纹身，延伸至她非常丰满的胸部。鼻梁和脸颊有雀斑，留着长长的棕色头发。\",\n      \"pose\": \"仰卧，双臂弯曲，非常丰满的胸部占据了画面大部分空间。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"一件黄绿色系带比基尼上衣，紧绷在她极其丰满的胸部上。\"\n    }\n  },\n  \"scene\": {\n    \"location\": \"躺在床上。\",\n    \"background\": \"绿色图案的羽绒被套，上面有白色花卉图案和一个粉色毛绒枕头。\",\n    \"props\": {\n      \"pillow\": \"粉色毛绒枕头上有一个蓝色标签，上面写着“PEEPS”。\"\n    },\n    \"lighting\": {\n      \"type\": \"窗户射入的柔和自然日光。\",\n      \"quality\": \"柔和温暖的光线，突出了皮肤和织物的质感。\"\n    }\n  },\n  \"camera\": {\n    \"type\": \"单反相机\",\n    \"lens\": \"广角镜头。\",\n    \"perspective\": \"高角度，向下俯视。\",\n    \"focus\": \"对她的脸部和非常丰满的胸部进行清晰对焦。\",\n    \"format\": \"9:16 垂直宽高比。\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "比基尼丰满女性床照提示词，适用于 nano banana pro 一个高度详细的 json 提示，用于 nano banana pro 生成一张特写肖像：一位曲线玲珑、纹身密布的女性躺在床上，重点关注特定的身体比例、服装细节（紧绷的比基尼上衣）和光照条件。 {\n  \"subject\": {\n    \"description\": \"a close-up photograph of the young woman, lying in bed, looking up at the camera.\",\n    \"body\": {\n      \"build\": \"curvaceous hourglass figure with exceptionally large, prominent breasts (f-cup or larger, extremely full and heavy), contrasting with a slim waist and defined shoulders.\",\n      \"details\": \"covered in extensive dark floral and illustrative tattoos on her arms and chest, extending over her very large breasts. she has freckles across her nose and cheeks and long brown hair.\",\n      \"pose\": \"lying on her back, arms bent, with very large breasts filling much of the frame.\"\n    },\n    \"wardrobe\": {\n      \"top\": \"a green-yellow string bikini top that is stretched across her extremely large bust.\"\n    }\n  },\n  \"scene\": {\n    \"location\": \"lying in a bed.\",\n    \"background\": \"green patterned duvet cover with white floral designs and a pink plush pillow.\",\n    \"props\": {\n      \"pillow\": \"pink plush pillow has a blue tag that reads 'peeps'.\"\n    },\n    \"lighting\": {\n      \"type\": \"soft, natural daylight from a window.\",\n      \"quality\": \"gentle, warm light highlighting skin and fabric textures.\"\n    }\n  },\n  \"camera\": {\n    \"type\": \"dslr\",\n    \"lens\": \"wide-angle lens.\",\n    \"perspective\": \"high angle, looking down.\",\n    \"focus\": \"sharp focus on her face and very large breasts.\",\n    \"format\": \"9:16 vertical aspect ratio.\"\n  }\n} ```json\n{\n  \"subject\": {\n    \"description\": \"一名年轻女性的特写照片，她躺在床上，向上看着镜头。\",\n    \"body\": {\n      \"build\": \"曲线玲珑的沙漏型身材，胸部异常丰满突出（f 罩杯或更大，极其饱满沉重），与纤细的腰肢和分明的肩部形成对比。\",\n      \"details\": \"手臂和胸部覆盖着大面积的深色花卉和插画纹身，延伸至她非常丰满的胸部。鼻梁和脸颊有雀斑，留着长长的棕色头发。\",\n      \"pose\": \"仰卧，双臂弯曲，非常丰满的胸部占据了画面大部分空间。\"\n    },\n    \"wardrobe\": {\n      \"top\": \"一件黄绿色系带比基尼上衣，紧绷在她极其丰满的胸部上。\"\n    }\n  },\n  \"scene\": {\n    \"location\": \"躺在床上。\",\n    \"background\": \"绿色图案的羽绒被套，上面有白色花卉图案和一个粉色毛绒枕头。\",\n    \"props\": {\n      \"pillow\": \"粉色毛绒枕头上有一个蓝色标签，上面写着“peeps”。\"\n    },\n    \"lighting\": {\n      \"type\": \"窗户射入的柔和自然日光。\",\n      \"quality\": \"柔和温暖的光线，突出了皮肤和织物的质感。\"\n    }\n  },\n  \"camera\": {\n    \"type\": \"单反相机\",\n    \"lens\": \"广角镜头。\",\n    \"perspective\": \"高角度，向下俯视。\",\n    \"focus\": \"对她的脸部和非常丰满的胸部进行清晰对焦。\",\n    \"format\": \"9:16 垂直宽高比。\"\n  }\n}\n``` brindley 12048",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12062,
+      "title": "Nano Banana 2 提示词，用于创建人物和 3D 模型",
+      "description": "一个为 Nano Banana 2 设计的详细提示模板，旨在将输入的角色图像渲染成高端 PVC 手办和 3D 模型渲染图，重点关注产品摄影质量、纹理和技术细节。",
+      "sourceLink": "https://x.com/AI_Kei75/status/2032041871405694991",
+      "sourcePublishedAt": "2026-03-12T10:31:50.000Z",
+      "author": {
+        "name": "Kei🍤衣装本舗",
+        "link": "https://x.com/AI_Kei75"
+      },
+      "content": "Masterpiece, best quality, (product photography:1.6), macro lens, 8k resolution, (photorealistic:1.5).\n\n(Core Subject: High-End PVC Figure):\nThe EXACT character from the input image is rendered as a (high-end 1/7 scale PVC figure:1.6).\nThe figure stands on a clean wooden desk surface, out of the box.\n(Texture & Quality - CRITICAL):\nPremium matte plastic skin texture, glossy eye paint, intricate clothing folds, and precise airbrush shading.\nThe figure looks like a tangible, expensive collector's item (Good Smile Company or Alter quality).\nA clear acrylic circular base supports the figure.\n\n(Background: 3D Workspace):\nBehind the figure, a computer monitor displays a (3D modeling software interface:1.5) (like Blender, Maya, or ZBrush).\nOn the screen: A (grey wireframe mesh or untextured clay render:1.5) of the SAME character is visible.\nThe screen represents the digital prototype of the physical figure.\n\n(Surroundings):\nThe figure's retail packaging box stands vertically next to the figure, featuring the character art.\nA blurred mechanical keyboard and mouse are visible in the background.\nSoft, professional studio lighting illuminates the figure from above.\n\n(Technical Tags): (depth of field:1.4), (bokeh:1.3), (PVC texture:1.5), (figure photography:1.4), (ray tracing), sharp focus on figure face.\n(Negative prompt): (2D illustration:1.6), (anime style:1.5), (drawing), (sketch), (distorted face:1.5), (melted plastic), (bad painting), (messy desk), (screen off), (wrong character on screen), low quality, blurry.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383505535_y72ylq_HDNDMNuacAAvkXT.jpg",
+        "https://cms-assets.youmind.com/media/1773383505513_0ukp2a_HDNDNazakAAEIAO.jpg",
+        "https://cms-assets.youmind.com/media/1773383505614_2odvax_HDNDLOxbQAAHvOv.jpg",
+        "https://cms-assets.youmind.com/media/1773383506704_zd8arv_HDNDTrEbQAEMXw1.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383505535_y72ylq_HDNDMNuacAAvkXT-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773383505513_0ukp2a_HDNDNazakAAEIAO-300x400.jpg",
+        "https://cms-assets.youmind.com/media/1773383505614_2odvax_HDNDLOxbQAAHvOv-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773383506704_zd8arv_HDNDTrEbQAEMXw1-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "杰作，最佳品质，（产品摄影：1.6），微距镜头，8k 分辨率，（超写实：1.5）。\n\n（核心主题：高端 PVC 手办）：\n输入图片中的 EXACT 角色被渲染成一个（高端 1/7 比例 PVC 手办：1.6）。\n手办摆放在干净的木质桌面上，已从包装盒中取出。\n（纹理与品质 - 至关重要）：\n优质哑光塑料皮肤纹理，光泽眼部涂装，精致的服装褶皱，以及精准的喷枪阴影。\n手办看起来像一个有形、昂贵的收藏品（Good Smile Company 或 Alter 品质）。\n一个透明的圆形亚克力底座支撑着手办。\n\n（背景：3D 工作区）：\n手办后面，一台电脑显示器显示着（3D 建模软件界面：1.5）（如 Blender、Maya 或 ZBrush）。\n屏幕上：可见同一角色的（灰色线框网格或未上色的粘土渲染：1.5）。\n屏幕代表着实体手办的数字原型。\n\n（周围环境）：\n手办的零售包装盒垂直立在手办旁边，上面印有角色插画。\n背景中可见模糊的机械键盘和鼠标。\n柔和、专业的摄影棚灯光从上方照亮手办。\n\n（技术标签）：（景深：1.4），（散景：1.3），（PVC 纹理：1.5），（手办摄影：1.4），（光线追踪），手办面部锐利对焦。\n（负面提示）：（2D 插画：1.6），（动漫风格：1.5），（绘画），（素描），（扭曲的面部：1.5），（融化的塑料），（糟糕的绘画），（凌乱的桌面），（屏幕关闭），（屏幕上显示错误的角色），低质量，模糊。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 提示词，用于创建人物和 3d 模型 一个为 nano banana 2 设计的详细提示模板，旨在将输入的角色图像渲染成高端 pvc 手办和 3d 模型渲染图，重点关注产品摄影质量、纹理和技术细节。 masterpiece, best quality, (product photography:1.6), macro lens, 8k resolution, (photorealistic:1.5).\n\n(core subject: high-end pvc figure):\nthe exact character from the input image is rendered as a (high-end 1/7 scale pvc figure:1.6).\nthe figure stands on a clean wooden desk surface, out of the box.\n(texture & quality - critical):\npremium matte plastic skin texture, glossy eye paint, intricate clothing folds, and precise airbrush shading.\nthe figure looks like a tangible, expensive collector's item (good smile company or alter quality).\na clear acrylic circular base supports the figure.\n\n(background: 3d workspace):\nbehind the figure, a computer monitor displays a (3d modeling software interface:1.5) (like blender, maya, or zbrush).\non the screen: a (grey wireframe mesh or untextured clay render:1.5) of the same character is visible.\nthe screen represents the digital prototype of the physical figure.\n\n(surroundings):\nthe figure's retail packaging box stands vertically next to the figure, featuring the character art.\na blurred mechanical keyboard and mouse are visible in the background.\nsoft, professional studio lighting illuminates the figure from above.\n\n(technical tags): (depth of field:1.4), (bokeh:1.3), (pvc texture:1.5), (figure photography:1.4), (ray tracing), sharp focus on figure face.\n(negative prompt): (2d illustration:1.6), (anime style:1.5), (drawing), (sketch), (distorted face:1.5), (melted plastic), (bad painting), (messy desk), (screen off), (wrong character on screen), low quality, blurry. 杰作，最佳品质，（产品摄影：1.6），微距镜头，8k 分辨率，（超写实：1.5）。\n\n（核心主题：高端 pvc 手办）：\n输入图片中的 exact 角色被渲染成一个（高端 1/7 比例 pvc 手办：1.6）。\n手办摆放在干净的木质桌面上，已从包装盒中取出。\n（纹理与品质 - 至关重要）：\n优质哑光塑料皮肤纹理，光泽眼部涂装，精致的服装褶皱，以及精准的喷枪阴影。\n手办看起来像一个有形、昂贵的收藏品（good smile company 或 alter 品质）。\n一个透明的圆形亚克力底座支撑着手办。\n\n（背景：3d 工作区）：\n手办后面，一台电脑显示器显示着（3d 建模软件界面：1.5）（如 blender、maya 或 zbrush）。\n屏幕上：可见同一角色的（灰色线框网格或未上色的粘土渲染：1.5）。\n屏幕代表着实体手办的数字原型。\n\n（周围环境）：\n手办的零售包装盒垂直立在手办旁边，上面印有角色插画。\n背景中可见模糊的机械键盘和鼠标。\n柔和、专业的摄影棚灯光从上方照亮手办。\n\n（技术标签）：（景深：1.4），（散景：1.3），（pvc 纹理：1.5），（手办摄影：1.4），（光线追踪），手办面部锐利对焦。\n（负面提示）：（2d 插画：1.6），（动漫风格：1.5），（绘画），（素描），（扭曲的面部：1.5），（融化的塑料），（糟糕的绘画），（凌乱的桌面），（屏幕关闭），（屏幕上显示错误的角色），低质量，模糊。 kei🍤衣装本舗 12062",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12018,
+      "title": "液态镀铬金属特效提示词",
+      "description": "一个用于生成超逼真液态金属铬图形的提示，该图形具有完美的反射表面、流畅的扭曲和高光泽的镜面高光，适用于现代奢侈品品牌。",
+      "sourceLink": "https://x.com/KTDS_Official/status/2032040021369270403",
+      "sourcePublishedAt": "2026-03-12T10:24:29.000Z",
+      "author": {
+        "name": "KTDS",
+        "link": "https://x.com/KTDS_Official"
+      },
+      "content": "Hyper-realistic liquid metallic chrome graphic with perfect reflective surfaces, fluid mercury-like distortions, high-gloss specular highlights, smooth gradients and dynamic liquid metal flow. Ultra-modern luxury product and tech branding aesthetic.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383476980_l7cc9a_HDNBFFSWAAADCkQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383476980_l7cc9a_HDNBFFSWAAADCkQ-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的液态金属铬图形，具有完美的反射表面、流畅的水银般扭曲、高光镜面反射、平滑渐变和动态液态金属流动。超现代的奢华产品和科技品牌美学。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "液态镀铬金属特效提示词 一个用于生成超逼真液态金属铬图形的提示，该图形具有完美的反射表面、流畅的扭曲和高光泽的镜面高光，适用于现代奢侈品品牌。 hyper-realistic liquid metallic chrome graphic with perfect reflective surfaces, fluid mercury-like distortions, high-gloss specular highlights, smooth gradients and dynamic liquid metal flow. ultra-modern luxury product and tech branding aesthetic. 超逼真的液态金属铬图形，具有完美的反射表面、流畅的水银般扭曲、高光镜面反射、平滑渐变和动态液态金属流动。超现代的奢华产品和科技品牌美学。 ktds 12018",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12061,
+      "title": "Nano Banana 2 提示：创建包装好的图形",
+      "description": "一个为 Nano Banana 2 设计的详细提示模板，旨在将输入的角色图像渲染成吸塑包装中的密封 PVC 手办，重点关注产品摄影、零售环境并保持角色准确性。",
+      "sourceLink": "https://x.com/AI_Kei75/status/2032039756918661197",
+      "sourcePublishedAt": "2026-03-12T10:23:26.000Z",
+      "author": {
+        "name": "Kei🍤衣装本舗",
+        "link": "https://x.com/AI_Kei75"
+      },
+      "content": "(masterpiece, best quality, product photography, full shot, wide view),\n(Complete view of a sealed PVC figure in its plastic blister packaging), hanging on a metal retail hook on a store shelf.\n(The figure inside is an exact replica of the character in the image: 1.5)\n(The hair color, eye color, and costume details must be exactly the same as the character in the image: 1.5)\n(Figure face must not be distorted, maintain original cuteness:1.4).\n\n(Packaging Details):\nThe packaging cardboard art is fully visible, showing the character illustration.\nThe main text on the packaging is in JAPANESE.\nProduct Name: 「{argument name=\"製品名\" default=\"名前\"}」 (Replace \"名前\" with the character's name).\nOther text: \"完全再現フィギュア\", \"究極の造形\".\nSmaller English sub-text: \"Collector's Edition\", \"PVC Statue\".\nAll branding and logos must be FICTIONAL. NO real-world corporate logos.\n\n(Environment):\nA well-lit toy store aisle, other blurred product packages on surrounding shelves, realistic store lighting reflections on the plastic.\n\n(Technical Tags): (realistic textures:1.3), (plastic material:1.4), depth of field, sharp focus on packaging, Japanese text.\n(Negative prompt): (macro lens, close up:1.2), (altering character features:1.5), (changing hairstyle:1.5), (changing hair color:1.5), (changing outfit:1.5), (cosplay of existing character:1.4), (real world brand logos:1.5), (copyrighted logos:1.5), (corporate logos:1.5), (Nike logo:1.5), (Disney characters:1.5), (distorted face:1.5), bad anatomy, cropped, partially visible, (figure face distorted:1.5).",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383505527_638us8_HDNBWd3boAETcUZ.jpg",
+        "https://cms-assets.youmind.com/media/1773383505654_e316sv_HDNBQT2bQAc2_F0.jpg",
+        "https://cms-assets.youmind.com/media/1773383506237_mivvcd_HDNBRbAbQAMh7-v.jpg",
+        "https://cms-assets.youmind.com/media/1773383506745_t4prmy_HDNBYdYbgAACd0G.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383505527_638us8_HDNBWd3boAETcUZ-300x400.jpg",
+        "https://cms-assets.youmind.com/media/1773383505654_e316sv_HDNBQT2bQAc2_F0-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773383506237_mivvcd_HDNBRbAbQAMh7-v-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773383506745_t4prmy_HDNBYdYbgAACd0G-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "(杰作，最佳品质，产品摄影，全景，广角)，\n(密封在吸塑包装中的 PVC 人偶的完整视图)，挂在商店货架上的金属零售挂钩上。\n(人偶内部是图像中角色的精确复制品：1.5)\n(发色、眼睛颜色和服装细节必须与图像中的角色完全相同：1.5)\n(人偶面部不得扭曲，保持原有可爱度：1.4)。\n\n(包装细节)：\n包装纸板艺术品完全可见，展示了角色插图。\n包装上的主要文字是日文。\n产品名称：「{argument name=\"product name\" default=\"Name\"}」（将 \"Name\" 替换为角色名称）。\n其他文字：\"完全再現フィギュア\"（完美再现人偶），\"究極の造形\"（极致造型）。\n较小的英文副标题：\"Collector's Edition\"（收藏版），\"PVC Statue\"（PVC 雕像）。\n所有品牌和标志必须是虚构的。不得出现真实世界的公司标志。\n\n(环境)：\n光线充足的玩具店过道，周围货架上其他模糊的产品包装，塑料上逼真的商店灯光反射。\n\n(技术标签)：(逼真纹理：1.3)，(塑料材质：1.4)，景深，包装锐利对焦，日文文字。\n(负面提示)：(微距镜头，特写：1.2)，(改变角色特征：1.5)，(改变发型：1.5)，(改变发色：1.5)，(改变服装：1.5)，(现有角色的角色扮演：1.4)，(真实世界品牌标志：1.5)，(受版权保护的标志：1.5)，(公司标志：1.5)，(耐克标志：1.5)，(迪士尼角色：1.5)，(扭曲的面部：1.5)，解剖结构不良，裁剪，部分可见，(人偶面部扭曲：1.5)。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 提示：创建包装好的图形 一个为 nano banana 2 设计的详细提示模板，旨在将输入的角色图像渲染成吸塑包装中的密封 pvc 手办，重点关注产品摄影、零售环境并保持角色准确性。 (masterpiece, best quality, product photography, full shot, wide view),\n(complete view of a sealed pvc figure in its plastic blister packaging), hanging on a metal retail hook on a store shelf.\n(the figure inside is an exact replica of the character in the image: 1.5)\n(the hair color, eye color, and costume details must be exactly the same as the character in the image: 1.5)\n(figure face must not be distorted, maintain original cuteness:1.4).\n\n(packaging details):\nthe packaging cardboard art is fully visible, showing the character illustration.\nthe main text on the packaging is in japanese.\nproduct name: 「{argument name=\"製品名\" default=\"名前\"}」 (replace \"名前\" with the character's name).\nother text: \"完全再現フィギュア\", \"究極の造形\".\nsmaller english sub-text: \"collector's edition\", \"pvc statue\".\nall branding and logos must be fictional. no real-world corporate logos.\n\n(environment):\na well-lit toy store aisle, other blurred product packages on surrounding shelves, realistic store lighting reflections on the plastic.\n\n(technical tags): (realistic textures:1.3), (plastic material:1.4), depth of field, sharp focus on packaging, japanese text.\n(negative prompt): (macro lens, close up:1.2), (altering character features:1.5), (changing hairstyle:1.5), (changing hair color:1.5), (changing outfit:1.5), (cosplay of existing character:1.4), (real world brand logos:1.5), (copyrighted logos:1.5), (corporate logos:1.5), (nike logo:1.5), (disney characters:1.5), (distorted face:1.5), bad anatomy, cropped, partially visible, (figure face distorted:1.5). (杰作，最佳品质，产品摄影，全景，广角)，\n(密封在吸塑包装中的 pvc 人偶的完整视图)，挂在商店货架上的金属零售挂钩上。\n(人偶内部是图像中角色的精确复制品：1.5)\n(发色、眼睛颜色和服装细节必须与图像中的角色完全相同：1.5)\n(人偶面部不得扭曲，保持原有可爱度：1.4)。\n\n(包装细节)：\n包装纸板艺术品完全可见，展示了角色插图。\n包装上的主要文字是日文。\n产品名称：「{argument name=\"product name\" default=\"name\"}」（将 \"name\" 替换为角色名称）。\n其他文字：\"完全再現フィギュア\"（完美再现人偶），\"究極の造形\"（极致造型）。\n较小的英文副标题：\"collector's edition\"（收藏版），\"pvc statue\"（pvc 雕像）。\n所有品牌和标志必须是虚构的。不得出现真实世界的公司标志。\n\n(环境)：\n光线充足的玩具店过道，周围货架上其他模糊的产品包装，塑料上逼真的商店灯光反射。\n\n(技术标签)：(逼真纹理：1.3)，(塑料材质：1.4)，景深，包装锐利对焦，日文文字。\n(负面提示)：(微距镜头，特写：1.2)，(改变角色特征：1.5)，(改变发型：1.5)，(改变发色：1.5)，(改变服装：1.5)，(现有角色的角色扮演：1.4)，(真实世界品牌标志：1.5)，(受版权保护的标志：1.5)，(公司标志：1.5)，(耐克标志：1.5)，(迪士尼角色：1.5)，(扭曲的面部：1.5)，解剖结构不良，裁剪，部分可见，(人偶面部扭曲：1.5)。 kei🍤衣装本舗 12061",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12049,
+      "title": "Sydney Sweeney 罗纹短款上衣肖像提示，适用于 Nano Banana 2",
+      "description": "一个高度详细的 JSON 提示，用于 Nano Banana 2 生成一张业余快照风格的女性肖像，其中包含特定的身体特征和服装，重点关注逼真的织物物理效果和皮肤纹理，需要上传一张参考图像作为面部。",
+      "sourceLink": "https://x.com/BananaPromptPro/status/2032039438378037634",
+      "sourcePublishedAt": "2026-03-12T10:22:10.000Z",
+      "author": {
+        "name": "Layla 🌙",
+        "link": "https://x.com/BananaPromptPro"
+      },
+      "content": "{\n  \"photo_type\": \"Amateur Snapshot\",\n  \"subject\": {\n    \"age\": \"Early 20s\",\n    \"body_type\": \"Well Endowed Australian Woman, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"A young woman with an oval-shaped face and fair skin tone, featuring a top-heavy silhouette and thick, Blond hair. She has a visible black line-art tattoo on her left upper arm. Her anatomy is defined by a natural, heavy bust volume and a slim waist, creating a high-contrast figure that is preserved with raw biological reality.\",\n    \"ethnicity\": \"Australian\",\n    \"expression\": \"Soft, direct gaze toward the camera\",\n    \"gender\": \"Female\",\n    \"mirror_rules\": \"Not applicable\",\n    \"pose_description\": \"Seated in a grey office chair, body angled slightly left. Right arm is raised with the hand touching the back of her head, elbow at ear level. Torso is upright but relaxed with a 10-degree head tilt to the left.\",\n    \"tattoos\": \"Black line-art tattoo on the left upper arm\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"None visible\",\n      \"details\": \"Subject is captured from the waist up\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"fit_and_physics\": \"The grey crop top fabric is strained and pulled across the fuller chest frame, showing compression creases around the armpits and knotted center. The ribbed fabric shows realistic stretching over the bust volume.\",\n    \"outerwear\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"shoes\": {\n      \"color\": \"None\",\n      \"details\": \"None\",\n      \"fabric\": \"None\",\n      \"type\": \"None\"\n    },\n    \"top\": {\n      \"color\": \"Grey\",\n      \"details\": \"Off-the-shoulder design, long-sleeved, deep neckline, knotted tie detail at the center chest\",\n      \"fabric\": \"Ribbed knit\",\n      \"type\": \"Crop top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"Blond\",\n    \"interaction\": \"Right hand is touching the back of the head, lightly disturbing the strands\",\n    \"style\": \"Messy, loose high bun with thick, dark, wavy stray strands framing the face\"\n  },\n  \"face\": {\n    \"description\": \"Use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"Prominent, darkly pigmented, and arched\",\n    \"eyes\": \"Large and almond-shaped with dark brown irises\",\n    \"lips\": \"Full and symmetrical with a pronounced Cupid’s bow\",\n    \"makeup\": \"Prominent black winged eyeliner and neutral pink lipstick\"\n  },\n  \"skin_texture\": \"Natural fair skin with visible pores, faint redness from vascularity, and slight imperfections like tiny razor bumps or moles, avoiding any p",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383497763_z5qgra_HDNA6PhaoAAFVJw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383497763_z5qgra_HDNA6PhaoAAFVJw-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"photo_type\": \"业余快照\",\n  \"subject\": {\n    \"age\": \"20 岁出头\",\n    \"body_type\": \"身材丰满的澳大利亚女性，圆形乳房，突出饱满的轮廓，胸围丰满，大胸比例，胸部框架更饱满，上半身曲线优美，上身丰满，身材丰腴，腰臀对比度高，腰线分明，臀部丰满，曲线玲珑，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位年轻女性，椭圆形脸，白皙肤色，上身丰满，金发浓密。左上臂有清晰可见的黑色线条纹身。她的解剖结构特点是自然丰满的胸部和纤细的腰肢，形成高对比度的身材，保留了原始的生物真实感。\",\n    \"ethnicity\": \"澳大利亚人\",\n    \"expression\": \"柔和、直接地凝视镜头\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"坐在灰色办公椅上，身体略微向左倾斜。右臂抬起，手触及后脑勺，手肘与耳朵齐平。躯干挺直但放松，头部向左倾斜 10 度。\",\n    \"tattoos\": \"左上臂有黑色线条纹身\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"不可见\",\n      \"details\": \"主体从腰部以上拍摄\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"fit_and_physics\": \"灰色露脐上衣面料在丰满的胸部框架上被拉伸和绷紧，腋下和打结的中心处有压痕。罗纹面料在胸部体积上显示出真实的拉伸效果。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"top\": {\n      \"color\": \"灰色\",\n      \"details\": \"露肩设计，长袖，深领口，胸部中央有打结细节\",\n      \"fabric\": \"罗纹针织\",\n      \"type\": \"露脐上衣\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"右手触及后脑勺，轻微拨弄发丝\",\n    \"style\": \"凌乱、松散的高发髻，浓密、深色、波浪状的散发垂在脸庞周围\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"突出、色素深、呈弓形\",\n    \"eyes\": \"大而杏仁状，深棕色虹膜\",\n    \"lips\": \"丰满对称，有明显的丘比特弓\",\n    \"makeup\": \"明显的黑色飞翼眼线和中性粉色口红\"\n  },\n  \"skin_texture\": \"自然的白皙皮肤，毛孔可见，血管造成的轻微泛红，以及微小的剃须刀疹或痣等轻微瑕疵，避免任何 P\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "sydney sweeney 罗纹短款上衣肖像提示，适用于 nano banana 2 一个高度详细的 json 提示，用于 nano banana 2 生成一张业余快照风格的女性肖像，其中包含特定的身体特征和服装，重点关注逼真的织物物理效果和皮肤纹理，需要上传一张参考图像作为面部。 {\n  \"photo_type\": \"amateur snapshot\",\n  \"subject\": {\n    \"age\": \"early 20s\",\n    \"body_type\": \"well endowed australian woman, round breast shape, prominent projected profile, fuller bust measurement, large-breasted proportions, fuller chest frame, shapely upper silhouette, top-heavy silhouette, buxom figure, high waist-to-hip contrast, defined waistline, fuller glute measurement, curvy, prominent hips, rounded hip contour, curvy lower body, thick, powerful thighs, full thighs, push-up bra effect\",\n    \"description\": \"a young woman with an oval-shaped face and fair skin tone, featuring a top-heavy silhouette and thick, blond hair. she has a visible black line-art tattoo on her left upper arm. her anatomy is defined by a natural, heavy bust volume and a slim waist, creating a high-contrast figure that is preserved with raw biological reality.\",\n    \"ethnicity\": \"australian\",\n    \"expression\": \"soft, direct gaze toward the camera\",\n    \"gender\": \"female\",\n    \"mirror_rules\": \"not applicable\",\n    \"pose_description\": \"seated in a grey office chair, body angled slightly left. right arm is raised with the hand touching the back of her head, elbow at ear level. torso is upright but relaxed with a 10-degree head tilt to the left.\",\n    \"tattoos\": \"black line-art tattoo on the left upper arm\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"none visible\",\n      \"details\": \"subject is captured from the waist up\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"fit_and_physics\": \"the grey crop top fabric is strained and pulled across the fuller chest frame, showing compression creases around the armpits and knotted center. the ribbed fabric shows realistic stretching over the bust volume.\",\n    \"outerwear\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"shoes\": {\n      \"color\": \"none\",\n      \"details\": \"none\",\n      \"fabric\": \"none\",\n      \"type\": \"none\"\n    },\n    \"top\": {\n      \"color\": \"grey\",\n      \"details\": \"off-the-shoulder design, long-sleeved, deep neckline, knotted tie detail at the center chest\",\n      \"fabric\": \"ribbed knit\",\n      \"type\": \"crop top\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"blond\",\n    \"interaction\": \"right hand is touching the back of the head, lightly disturbing the strands\",\n    \"style\": \"messy, loose high bun with thick, dark, wavy stray strands framing the face\"\n  },\n  \"face\": {\n    \"description\": \"use the uploaded character reference image, keep all facial details 100% unchanged\",\n    \"eyebrows\": \"prominent, darkly pigmented, and arched\",\n    \"eyes\": \"large and almond-shaped with dark brown irises\",\n    \"lips\": \"full and symmetrical with a pronounced cupid’s bow\",\n    \"makeup\": \"prominent black winged eyeliner and neutral pink lipstick\"\n  },\n  \"skin_texture\": \"natural fair skin with visible pores, faint redness from vascularity, and slight imperfections like tiny razor bumps or moles, avoiding any p ```json\n{\n  \"photo_type\": \"业余快照\",\n  \"subject\": {\n    \"age\": \"20 岁出头\",\n    \"body_type\": \"身材丰满的澳大利亚女性，圆形乳房，突出饱满的轮廓，胸围丰满，大胸比例，胸部框架更饱满，上半身曲线优美，上身丰满，身材丰腴，腰臀对比度高，腰线分明，臀部丰满，曲线玲珑，臀部突出，臀部轮廓圆润，下半身曲线优美，大腿粗壮有力，大腿丰满，有聚拢文胸效果\",\n    \"description\": \"一位年轻女性，椭圆形脸，白皙肤色，上身丰满，金发浓密。左上臂有清晰可见的黑色线条纹身。她的解剖结构特点是自然丰满的胸部和纤细的腰肢，形成高对比度的身材，保留了原始的生物真实感。\",\n    \"ethnicity\": \"澳大利亚人\",\n    \"expression\": \"柔和、直接地凝视镜头\",\n    \"gender\": \"女性\",\n    \"mirror_rules\": \"不适用\",\n    \"pose_description\": \"坐在灰色办公椅上，身体略微向左倾斜。右臂抬起，手触及后脑勺，手肘与耳朵齐平。躯干挺直但放松，头部向左倾斜 10 度。\",\n    \"tattoos\": \"左上臂有黑色线条纹身\"\n  },\n  \"clothing\": {\n    \"bottom\": {\n      \"color\": \"不可见\",\n      \"details\": \"主体从腰部以上拍摄\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"fit_and_physics\": \"灰色露脐上衣面料在丰满的胸部框架上被拉伸和绷紧，腋下和打结的中心处有压痕。罗纹面料在胸部体积上显示出真实的拉伸效果。\",\n    \"outerwear\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"shoes\": {\n      \"color\": \"无\",\n      \"details\": \"无\",\n      \"fabric\": \"无\",\n      \"type\": \"无\"\n    },\n    \"top\": {\n      \"color\": \"灰色\",\n      \"details\": \"露肩设计，长袖，深领口，胸部中央有打结细节\",\n      \"fabric\": \"罗纹针织\",\n      \"type\": \"露脐上衣\"\n    }\n  },\n  \"hair\": {\n    \"color\": \"金色\",\n    \"interaction\": \"右手触及后脑勺，轻微拨弄发丝\",\n    \"style\": \"凌乱、松散的高发髻，浓密、深色、波浪状的散发垂在脸庞周围\"\n  },\n  \"face\": {\n    \"description\": \"使用上传的人物参考图像，保持所有面部细节 100% 不变\",\n    \"eyebrows\": \"突出、色素深、呈弓形\",\n    \"eyes\": \"大而杏仁状，深棕色虹膜\",\n    \"lips\": \"丰满对称，有明显的丘比特弓\",\n    \"makeup\": \"明显的黑色飞翼眼线和中性粉色口红\"\n  },\n  \"skin_texture\": \"自然的白皙皮肤，毛孔可见，血管造成的轻微泛红，以及微小的剃须刀疹或痣等轻微瑕疵，避免任何 p\"\n}\n``` layla 🌙 12049",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12051,
+      "title": "Ana de Armas 美容广告文案，适用于 Nano Banana 2",
+      "description": "一个结构化的 JSON 提示词，用于让 Nano Banana 2 生成一个迷人、超逼真的美妆广告，其中包含安娜·德·阿玛斯（Ana de Armas），强调其光泽肌肤、特定的口红细节以及极简主义背景下的电影级灯光效果。",
+      "sourceLink": "https://x.com/Just_sharon7/status/2032037072588959857",
+      "sourcePublishedAt": "2026-03-12T10:12:46.000Z",
+      "author": {
+        "name": "Sharon Riley",
+        "link": "https://x.com/Just_sharon7"
+      },
+      "content": "{\n  \"subject\": \"{argument name=\"subject name\" default=\"Ana de Armas\"}\",\n  \"style\": \"glamorous, hyper-realistic beauty advertisement\",\n  \"appearance\": {\n    \"skin\": \"glowing under soft studio lighting\",\n    \"lipstick\": {\n      \"color\": \"deep chocolate-brown\",\n      \"brand\": \"Fenty Beauty\",\n      \"type\": \"sleek matte\",\n      \"position\": \"held elegantly near lips\"\n    },\n    \"pose\": \"seated on a modern minimalist stool, leaning forward, one elbow on knee, other hand touching hair, looking over shoulder at camera\"\n  },\n  \"background\": \"minimalist neutral gray\",\n  \"lighting\": \"cinematic with gentle highlights and specular reflections\",\n  \"focus\": \"soft-focus depth of field\",\n  \"resolution\": \"8k\",\n  \"camera\": \"Hasselblad\",\n  \"textures\": \"ultra-detailed\",\n  \"facial_features\": \"ultra-detailed\",\n  \"hair\": \"ultra-detailed\",\n  \"aesthetic\": \"sophisticated, high-end cosmetic ad, food-meets-beauty elegance\",\n  \"composition\": {\n    \"aspect_ratio\": \"3:4\",\n    \"stylize\": 250,\n    \"version\": 6\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383499448_vgk4to_HDM-8MeWgAA7KMB.jpg",
+        "https://cms-assets.youmind.com/media/1773383499478_7ni64m_HDM-8KPbEAA6cx-.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383499448_vgk4to_HDM-8MeWgAA7KMB-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773383499478_7ni64m_HDM-8KPbEAA6cx--300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"subject\": \"{argument name=\\\"subject name\\\" default=\\\"Ana de Armas\\\"}\",\n  \"style\": \"迷人、超现实主义的美容广告\",\n  \"appearance\": {\n    \"skin\": \"在柔和的摄影棚灯光下焕发光泽\",\n    \"lipstick\": {\n      \"color\": \"深巧克力棕色\",\n      \"brand\": \"Fenty Beauty\",\n      \"type\": \"光滑哑光\",\n      \"position\": \"优雅地靠近嘴唇\"\n    },\n    \"pose\": \"坐在现代简约凳上，身体前倾，一只手肘撑在膝盖上，另一只手抚摸头发，越过肩膀看向镜头\"\n  },\n  \"background\": \"简约中性灰色\",\n  \"lighting\": \"电影级灯光，带有柔和的高光和镜面反射\",\n  \"focus\": \"柔焦景深\",\n  \"resolution\": \"8k\",\n  \"camera\": \"Hasselblad\",\n  \"textures\": \"超细节\",\n  \"facial_features\": \"超细节\",\n  \"hair\": \"超细节\",\n  \"aesthetic\": \"精致、高端的化妆品广告，美食与美妆的优雅结合\",\n  \"composition\": {\n    \"aspect_ratio\": \"3:4\",\n    \"stylize\": 250,\n    \"version\": 6\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ana de armas 美容广告文案，适用于 nano banana 2 一个结构化的 json 提示词，用于让 nano banana 2 生成一个迷人、超逼真的美妆广告，其中包含安娜·德·阿玛斯（ana de armas），强调其光泽肌肤、特定的口红细节以及极简主义背景下的电影级灯光效果。 {\n  \"subject\": \"{argument name=\"subject name\" default=\"ana de armas\"}\",\n  \"style\": \"glamorous, hyper-realistic beauty advertisement\",\n  \"appearance\": {\n    \"skin\": \"glowing under soft studio lighting\",\n    \"lipstick\": {\n      \"color\": \"deep chocolate-brown\",\n      \"brand\": \"fenty beauty\",\n      \"type\": \"sleek matte\",\n      \"position\": \"held elegantly near lips\"\n    },\n    \"pose\": \"seated on a modern minimalist stool, leaning forward, one elbow on knee, other hand touching hair, looking over shoulder at camera\"\n  },\n  \"background\": \"minimalist neutral gray\",\n  \"lighting\": \"cinematic with gentle highlights and specular reflections\",\n  \"focus\": \"soft-focus depth of field\",\n  \"resolution\": \"8k\",\n  \"camera\": \"hasselblad\",\n  \"textures\": \"ultra-detailed\",\n  \"facial_features\": \"ultra-detailed\",\n  \"hair\": \"ultra-detailed\",\n  \"aesthetic\": \"sophisticated, high-end cosmetic ad, food-meets-beauty elegance\",\n  \"composition\": {\n    \"aspect_ratio\": \"3:4\",\n    \"stylize\": 250,\n    \"version\": 6\n  }\n} ```json\n{\n  \"subject\": \"{argument name=\\\"subject name\\\" default=\\\"ana de armas\\\"}\",\n  \"style\": \"迷人、超现实主义的美容广告\",\n  \"appearance\": {\n    \"skin\": \"在柔和的摄影棚灯光下焕发光泽\",\n    \"lipstick\": {\n      \"color\": \"深巧克力棕色\",\n      \"brand\": \"fenty beauty\",\n      \"type\": \"光滑哑光\",\n      \"position\": \"优雅地靠近嘴唇\"\n    },\n    \"pose\": \"坐在现代简约凳上，身体前倾，一只手肘撑在膝盖上，另一只手抚摸头发，越过肩膀看向镜头\"\n  },\n  \"background\": \"简约中性灰色\",\n  \"lighting\": \"电影级灯光，带有柔和的高光和镜面反射\",\n  \"focus\": \"柔焦景深\",\n  \"resolution\": \"8k\",\n  \"camera\": \"hasselblad\",\n  \"textures\": \"超细节\",\n  \"facial_features\": \"超细节\",\n  \"hair\": \"超细节\",\n  \"aesthetic\": \"精致、高端的化妆品广告，美食与美妆的优雅结合\",\n  \"composition\": {\n    \"aspect_ratio\": \"3:4\",\n    \"stylize\": 250,\n    \"version\": 6\n  }\n}\n``` sharon riley 12051",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 11999,
+      "title": "豪华阳台上男士的电影肖像",
+      "description": "Nano Banana Pro 的详细图像生成提示，描述了一张高度逼真的电影级照片：在温暖的傍晚，一位自信的年轻男子站在现代豪华阳台上。提示将重点关注具体的服装、姿态、建筑细节和摄影风格。",
+      "sourceLink": "https://x.com/harboriis/status/2032035920212631859",
+      "sourcePublishedAt": "2026-03-12T10:08:11.000Z",
+      "author": {
+        "name": "Harboriis",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "A highly realistic cinematic photograph of a confident young man standing on a modern luxury balcony during a bright, warm evening. He is wearing dark sunglasses, a light pink linen shirt with the top buttons casually open and the sleeves rolled up to his elbows, paired with clean white linen trousers and dark brown leather loafers. The outfit gives a relaxed yet stylish summer look.\nThe man is leaning casually against a sleek white balcony railing that features modern geometric cut-out patterns. His posture is natural and confident. His left hand is placed inside his trouser pocket while his right arm rests comfortably along the top of the railing. His body is slightly angled toward the camera, creating a relaxed lifestyle portrait feeling.\nTo the left side of the frame sits a large matte dark-grey planter containing a lush green ornamental plant with broad leaves, adding contrast and a touch of nature to the modern setting. The balcony floor is smooth light stone or polished concrete, reflecting a subtle warm glow from the evening light.\nThe environment suggests a modern upscale residential building or luxury apartment balcony with an open view beyond the railing. Soft golden evening sunlight illuminates the scene, casting gentle highlights on the white architecture and warm tones on the subject’s clothing. The lighting creates soft shadows and a calm atmosphere.\nShot in a clean editorial lifestyle photography style, shallow depth of field, natural skin tones, ultra-detailed textures in the linen fabric, sharp focus on the subject, soft background blur, balanced composition, 85mm lens look, high resolution, photorealistic, modern luxury aesthetic, warm evening ambiance.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383463343_lnm2uz_HDM95P7agAE0MZl.jpg",
+        "https://cms-assets.youmind.com/media/1773383463300_atd6hg_HDM945vaYAA_j3D.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383463343_lnm2uz_HDM95P7agAE0MZl-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773383463300_atd6hg_HDM945vaYAA_j3D-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张高度逼真的电影感照片，捕捉了一位自信的年轻男士在一个明亮温暖的傍晚，站在现代奢华阳台上。他戴着深色太阳镜，身穿浅粉色亚麻衬衫，领口纽扣随意解开，袖子卷至手肘，搭配干净的白色亚麻长裤和深棕色皮乐福鞋。这身装扮营造出轻松又不失时尚的夏日造型。\n\n男士随意地倚靠在光滑的白色阳台栏杆上，栏杆上饰有现代几何镂空图案。他的姿态自然而自信。左手插在裤袋里，右臂舒适地搭在栏杆顶部。他的身体略微面向镜头，营造出一种轻松的生活方式肖像感。\n\n画面左侧放着一个大型哑光深灰色花盆，里面种着一株枝繁叶茂的观赏植物，叶片宽大，为现代环境增添了对比和一丝自然气息。阳台地面是光滑的浅色石材或抛光混凝土，反射着傍晚柔和的暖光。\n\n环境暗示着这是一栋现代高档住宅楼或豪华公寓的阳台，栏杆外视野开阔。柔和的金***光照亮了整个场景，在白色建筑上投下柔和的高光，并在人物的衣物上呈现出温暖的色调。灯光营造出柔和的阴影和宁静的氛围。\n\n拍摄风格为干净的编辑式生活摄影，浅景深，自然肤色，亚麻面料的超细节纹理，主体对焦锐利，背景柔和模糊，构图平衡，85mm 镜头效果，高分辨率，照片级真实感，现代奢华美学，温暖的傍晚氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "豪华阳台上男士的电影肖像 nano banana pro 的详细图像生成提示，描述了一张高度逼真的电影级照片：在温暖的傍晚，一位自信的年轻男子站在现代豪华阳台上。提示将重点关注具体的服装、姿态、建筑细节和摄影风格。 a highly realistic cinematic photograph of a confident young man standing on a modern luxury balcony during a bright, warm evening. he is wearing dark sunglasses, a light pink linen shirt with the top buttons casually open and the sleeves rolled up to his elbows, paired with clean white linen trousers and dark brown leather loafers. the outfit gives a relaxed yet stylish summer look.\nthe man is leaning casually against a sleek white balcony railing that features modern geometric cut-out patterns. his posture is natural and confident. his left hand is placed inside his trouser pocket while his right arm rests comfortably along the top of the railing. his body is slightly angled toward the camera, creating a relaxed lifestyle portrait feeling.\nto the left side of the frame sits a large matte dark-grey planter containing a lush green ornamental plant with broad leaves, adding contrast and a touch of nature to the modern setting. the balcony floor is smooth light stone or polished concrete, reflecting a subtle warm glow from the evening light.\nthe environment suggests a modern upscale residential building or luxury apartment balcony with an open view beyond the railing. soft golden evening sunlight illuminates the scene, casting gentle highlights on the white architecture and warm tones on the subject’s clothing. the lighting creates soft shadows and a calm atmosphere.\nshot in a clean editorial lifestyle photography style, shallow depth of field, natural skin tones, ultra-detailed textures in the linen fabric, sharp focus on the subject, soft background blur, balanced composition, 85mm lens look, high resolution, photorealistic, modern luxury aesthetic, warm evening ambiance. 一张高度逼真的电影感照片，捕捉了一位自信的年轻男士在一个明亮温暖的傍晚，站在现代奢华阳台上。他戴着深色太阳镜，身穿浅粉色亚麻衬衫，领口纽扣随意解开，袖子卷至手肘，搭配干净的白色亚麻长裤和深棕色皮乐福鞋。这身装扮营造出轻松又不失时尚的夏日造型。\n\n男士随意地倚靠在光滑的白色阳台栏杆上，栏杆上饰有现代几何镂空图案。他的姿态自然而自信。左手插在裤袋里，右臂舒适地搭在栏杆顶部。他的身体略微面向镜头，营造出一种轻松的生活方式肖像感。\n\n画面左侧放着一个大型哑光深灰色花盆，里面种着一株枝繁叶茂的观赏植物，叶片宽大，为现代环境增添了对比和一丝自然气息。阳台地面是光滑的浅色石材或抛光混凝土，反射着傍晚柔和的暖光。\n\n环境暗示着这是一栋现代高档住宅楼或豪华公寓的阳台，栏杆外视野开阔。柔和的金***光照亮了整个场景，在白色建筑上投下柔和的高光，并在人物的衣物上呈现出温暖的色调。灯光营造出柔和的阴影和宁静的氛围。\n\n拍摄风格为干净的编辑式生活摄影，浅景深，自然肤色，亚麻面料的超细节纹理，主体对焦锐利，背景柔和模糊，构图平衡，85mm 镜头效果，高分辨率，照片级真实感，现代奢华美学，温暖的傍晚氛围。 harboriis 11999",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12058,
+      "title": "Nano Banana Pro 图像提示解构的系统提示",
+      "description": "这是一个系统提示，旨在指导 Nano Banana Pro（一个图像生成模型）充当专业的图像提示解构专家。任务是分析图像并输出一个中文提示，该提示可用于重新生成图像，优先考虑文本内容 (P0) 和视觉细节 (P1)。这是一个用于生成其他提示的元提示，而不是直接的图像生成提示。",
+      "sourceLink": "https://x.com/jinwen189431/status/2032035826276991382",
+      "sourcePublishedAt": "2026-03-12T10:07:49.000Z",
+      "author": {
+        "name": "jeenie",
+        "link": "https://x.com/jinwen189431"
+      },
+      "content": "你是专业的图片提示词拆解专家任务：分析图片，输出可用于重新生成的中文提示词  拆解优先级： 【P0】文字内容 - 明确写出图中的具体汉字 - 描述字体风格（毛笔/霓虹/金属/3D等） - 说明排版布局  【P1】画面细节 - 补充模糊部分的合理推测",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383503371_wptd0o_HDM9MF0bgAA7_Bd.jpg",
+        "https://cms-assets.youmind.com/media/1773383503421_nzewwz_HDM9Ng4bQAA6OOv.jpg",
+        "https://cms-assets.youmind.com/media/1773383503454_y4qdk9_HDM9M6Mb0AAkEBG.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383503371_wptd0o_HDM9MF0bgAA7_Bd-300x232.jpg",
+        "https://cms-assets.youmind.com/media/1773383503421_nzewwz_HDM9Ng4bQAA6OOv-300x236.jpg",
+        "https://cms-assets.youmind.com/media/1773383503454_y4qdk9_HDM9M6Mb0AAkEBG-300x216.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "您是一位专业的图像提示解构专家。任务：分析图像并输出可用于再生成的中文提示。解构优先级：[P0] 文本内容 - 清晰写出图像中的具体中文字符 - 描述字体样式（毛笔/霓虹/金属/3D 等） - 解释布局和构图 [P1] 视觉细节 - 对模糊部分进行合理补充猜测",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 图像提示解构的系统提示 这是一个系统提示，旨在指导 nano banana pro（一个图像生成模型）充当专业的图像提示解构专家。任务是分析图像并输出一个中文提示，该提示可用于重新生成图像，优先考虑文本内容 (p0) 和视觉细节 (p1)。这是一个用于生成其他提示的元提示，而不是直接的图像生成提示。 你是专业的图片提示词拆解专家任务：分析图片，输出可用于重新生成的中文提示词  拆解优先级： 【p0】文字内容 - 明确写出图中的具体汉字 - 描述字体风格（毛笔/霓虹/金属/3d等） - 说明排版布局  【p1】画面细节 - 补充模糊部分的合理推测 您是一位专业的图像提示解构专家。任务：分析图像并输出可用于再生成的中文提示。解构优先级：[p0] 文本内容 - 清晰写出图像中的具体中文字符 - 描述字体样式（毛笔/霓虹/金属/3d 等） - 解释布局和构图 [p1] 视觉细节 - 对模糊部分进行合理补充猜测 jeenie 12058",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12024,
+      "title": "可见丁字裤腰带的坦率镜面自拍提示",
+      "description": "一个高度详细的提示，用于生成一张年轻女性在光线明亮的卧室里拍摄的坦率、超真实的镜子自拍照，重点关注特定的服装（柔和的黄色抹胸、未扣的牛仔裤，可见丁字裤腰带）、配饰和背景细节。",
+      "sourceLink": "https://x.com/sumiturkude007/status/2032035031439327438",
+      "sourcePublishedAt": "2026-03-12T10:04:39.000Z",
+      "author": {
+        "name": "sammy",
+        "link": "https://x.com/sumiturkude007"
+      },
+      "content": "A candid, realistic mirror selfie photograph taken in a brightly lit bedroom during daytime. The image captures a young adult woman from the waist up looking directly at her reflection while taking the photo with her phone. The mood is casual and confident.\n\nShe has long blonde hair with a natural wavy texture, parted slightly to the left and falling over her shoulders. She has fair skin with natural texture and a subtle flush on the cheeks. Her blue-green eyes look directly at the camera with a natural expression. She has naturally shaped filled blonde eyebrows, a straight well-proportioned nose, and full naturally pink lips with a subtle clear gloss or balm. Her facial expression is confident and neutral. She is making a thumbs-up gesture with her right hand.\n\nShe is standing slightly angled toward the mirror, holding her phone in her left hand to take the selfie, while her right arm is raised with the thumb extended in a thumbs-up gesture.\n\nShe is wearing a pastel yellow strapless bandeau-style tube top made of soft stretchy cotton fabric. She is wearing light beige or khaki denim jeans that are loose, unbuttoned and slightly unzipped at the waist. A plain white thong waistband is clearly visible above the unbuttoned jeans.\n\nShe is holding an iPhone with three camera lenses in a pink and white gingham plaid patterned phone case. She is wearing a delicate gold chain necklace with a small pendant, layered bracelets on her left wrist including a red beaded bracelet and other small charm bracelets, small stud earrings, and short fingernails with a light pink gel manicure.\n\nThe mirror reflection shows a well-lit bedroom. On the left side a white wardrobe cabinet is partially visible. In the background there is a bed with white linens and a pale pink throw blanket. Behind the bed is a window with partially closed white horizontal blinds. On the windowsill there are small decorative items including a small pink flower pot and some seashells. A white radiator is visible below the window. The flooring is light wood laminate. The edge of a white framed mirror is visible on the left side of the image.\n\nPhotography style: candid mirror selfie, natural daylight from the window evenly lighting the room, sharp focus on the subject’s face and reflection, medium close-up composition, vertical 4:5 aspect ratio, realistic unaltered phone camera aesthetic with natural film grain.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383480771_l70i63_HDM8666bQAAenwd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383480771_l70i63_HDM8666bQAAenwd-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张在白天光线充足的卧室里拍摄的真实、自然的镜子自拍照。画面中，一位年轻的成年女性从腰部以上入镜，她正对着镜子中的自己，用手机拍照。整体氛围休闲而自信。\n\n她留着一头自然波浪状的金色长发，略微偏向左侧，披散在肩上。她的皮肤白皙，带有自然的纹理，脸颊上泛着淡淡的红晕。她蓝绿色的眼睛直视镜头，表情自然。她的眉毛是自然修饰过的金色，鼻梁挺直匀称，嘴唇丰满，呈自然的粉红色，涂有淡淡的透明唇彩或润唇膏。她的面部表情自信而平静。她右手比划着竖起大拇指的手势。\n\n她身体略微倾斜对着镜子，左手拿着手机自拍，右手则举起，大拇指向上比划着“赞”的手势。\n\n她穿着一件柔和的黄色无肩带抹胸式上衣，由柔软有弹性的棉质面料制成。她穿着浅米色或卡其色的牛仔裤，裤腰宽松，未扣扣子，拉链也略微敞开。一条纯白色的丁字裤腰带清晰可见地露在未扣扣子的牛仔裤上方。\n\n她拿着一部带有三个摄像头的 iPhone，手机壳是粉白色格子图案的。她戴着一条精致的金色项链，上面有一个小吊坠；左手腕上戴着多层手链，包括一条红色珠子手链和其他一些小吊坠手链；戴着小耳钉；指甲修剪得很短，涂着浅粉色凝胶美甲。\n\n镜子反射出光线充足的卧室。左侧部分可见一个白色衣柜。背景是一张铺着白色床单和淡粉色毛毯的床。床后面是一扇窗户，窗户上的白色百叶窗半开着。窗台上摆放着一些小装饰品，包括一个粉色小花盆和一些贝壳。窗户下方可见一个白色暖气片。地板是浅色木纹复合地板。图像左侧可见一个白色边框镜子的边缘。\n\n摄影风格：真实的镜子自拍，窗户透进的自然日光均匀地照亮房间，主体面部和倒影对焦清晰，中景特写构图，垂直 4:5 宽高比，真实的未修饰手机相机美学，带有自然的胶片颗粒感。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "可见丁字裤腰带的坦率镜面自拍提示 一个高度详细的提示，用于生成一张年轻女性在光线明亮的卧室里拍摄的坦率、超真实的镜子自拍照，重点关注特定的服装（柔和的黄色抹胸、未扣的牛仔裤，可见丁字裤腰带）、配饰和背景细节。 a candid, realistic mirror selfie photograph taken in a brightly lit bedroom during daytime. the image captures a young adult woman from the waist up looking directly at her reflection while taking the photo with her phone. the mood is casual and confident.\n\nshe has long blonde hair with a natural wavy texture, parted slightly to the left and falling over her shoulders. she has fair skin with natural texture and a subtle flush on the cheeks. her blue-green eyes look directly at the camera with a natural expression. she has naturally shaped filled blonde eyebrows, a straight well-proportioned nose, and full naturally pink lips with a subtle clear gloss or balm. her facial expression is confident and neutral. she is making a thumbs-up gesture with her right hand.\n\nshe is standing slightly angled toward the mirror, holding her phone in her left hand to take the selfie, while her right arm is raised with the thumb extended in a thumbs-up gesture.\n\nshe is wearing a pastel yellow strapless bandeau-style tube top made of soft stretchy cotton fabric. she is wearing light beige or khaki denim jeans that are loose, unbuttoned and slightly unzipped at the waist. a plain white thong waistband is clearly visible above the unbuttoned jeans.\n\nshe is holding an iphone with three camera lenses in a pink and white gingham plaid patterned phone case. she is wearing a delicate gold chain necklace with a small pendant, layered bracelets on her left wrist including a red beaded bracelet and other small charm bracelets, small stud earrings, and short fingernails with a light pink gel manicure.\n\nthe mirror reflection shows a well-lit bedroom. on the left side a white wardrobe cabinet is partially visible. in the background there is a bed with white linens and a pale pink throw blanket. behind the bed is a window with partially closed white horizontal blinds. on the windowsill there are small decorative items including a small pink flower pot and some seashells. a white radiator is visible below the window. the flooring is light wood laminate. the edge of a white framed mirror is visible on the left side of the image.\n\nphotography style: candid mirror selfie, natural daylight from the window evenly lighting the room, sharp focus on the subject’s face and reflection, medium close-up composition, vertical 4:5 aspect ratio, realistic unaltered phone camera aesthetic with natural film grain. 一张在白天光线充足的卧室里拍摄的真实、自然的镜子自拍照。画面中，一位年轻的成年女性从腰部以上入镜，她正对着镜子中的自己，用手机拍照。整体氛围休闲而自信。\n\n她留着一头自然波浪状的金色长发，略微偏向左侧，披散在肩上。她的皮肤白皙，带有自然的纹理，脸颊上泛着淡淡的红晕。她蓝绿色的眼睛直视镜头，表情自然。她的眉毛是自然修饰过的金色，鼻梁挺直匀称，嘴唇丰满，呈自然的粉红色，涂有淡淡的透明唇彩或润唇膏。她的面部表情自信而平静。她右手比划着竖起大拇指的手势。\n\n她身体略微倾斜对着镜子，左手拿着手机自拍，右手则举起，大拇指向上比划着“赞”的手势。\n\n她穿着一件柔和的黄色无肩带抹胸式上衣，由柔软有弹性的棉质面料制成。她穿着浅米色或卡其色的牛仔裤，裤腰宽松，未扣扣子，拉链也略微敞开。一条纯白色的丁字裤腰带清晰可见地露在未扣扣子的牛仔裤上方。\n\n她拿着一部带有三个摄像头的 iphone，手机壳是粉白色格子图案的。她戴着一条精致的金色项链，上面有一个小吊坠；左手腕上戴着多层手链，包括一条红色珠子手链和其他一些小吊坠手链；戴着小耳钉；指甲修剪得很短，涂着浅粉色凝胶美甲。\n\n镜子反射出光线充足的卧室。左侧部分可见一个白色衣柜。背景是一张铺着白色床单和淡粉色毛毯的床。床后面是一扇窗户，窗户上的白色百叶窗半开着。窗台上摆放着一些小装饰品，包括一个粉色小花盆和一些贝壳。窗户下方可见一个白色暖气片。地板是浅色木纹复合地板。图像左侧可见一个白色边框镜子的边缘。\n\n摄影风格：真实的镜子自拍，窗户透进的自然日光均匀地照亮房间，主体面部和倒影对焦清晰，中景特写构图，垂直 4:5 宽高比，真实的未修饰手机相机美学，带有自然的胶片颗粒感。 sammy 12024",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12003,
+      "title": "机械发条立体模型概念",
+      "description": "为 Nano Banana Pro 设计的复杂、结构化提示模板，旨在可视化一个机械发条立体模型，其中一位超级英雄从漫画格中挣脱而出，详细说明了基本设置、核心动作、变体、叙事元素以及蒸汽朋克美学和 Octane 渲染等技术细节。",
+      "sourceLink": "https://x.com/Gdgtify/status/2032030589151265269",
+      "sourcePublishedAt": "2026-03-12T09:47:00.000Z",
+      "author": {
+        "name": "Gadgetify",
+        "link": "https://x.com/Gdgtify"
+      },
+      "content": "2x2 grid, do this for 4 lesser known scifi movies <instructions>\n \nconcept: a mechanical wind-up diorama where a superhero activates and bursts free from confining comic panels in perpetual motion.\ninput variables:\n[insert superhero character]\n[insert signature action or power]\n[insert mechanical elements]\n[insert surrounding props]\nworkflow:\nbase setup: intricate brass and wood kinetic sculpture on a desk, with visible gears, springs, and [insert mechanical elements] implying automated movement.\ncore action/composition: [insert superhero character] posed mid-[insert signature action or power], breaking out of hinged comic panel frames that flip open like doors.\nvariants and details: multiple pose variants connected via hidden mechanisms, with scattered tools hinting at handmade construction.\nnarrative/interactive elements: implied perpetual motion as the figure \"escapes\" repeatedly, with engraved onomatopoeia plates.\ngod-level details: steampunk-inspired macro photography angle, warm tungsten lighting casting gear shadows, polished metal reflections and aged paper textures, hyper-realistic kinetic blur, 8k octane render with caustic light play.\n</instructions>",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383466860_gt7tm7_HDAOlFsWYAAVBHV.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383466860_gt7tm7_HDAOlFsWYAAVBHV-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "2x2 网格，为 4 部鲜为人知的科幻电影制作此内容 <说明>\n\n概念：一个机械发条立体模型，超级英雄在其中启动并从束缚的漫画格中挣脱出来，永不停歇。\n输入变量：\n[插入超级英雄角色]\n[插入标志性动作或能力]\n[插入机械元素]\n[插入周围道具]\n工作流程：\n基本设置：桌面上的精巧黄铜和木制动力雕塑，带有可见的齿轮、弹簧和 [插入机械元素]，暗示着自动运动。\n核心动作/构图：[插入超级英雄角色] 摆出 [插入标志性动作或能力] 的姿势，从中途打开的漫画格框架中挣脱出来，这些框架像门一样翻开。\n变体和细节：通过隐藏机制连接的多个姿势变体，散落的工具暗示着手工制作。\n叙事/互动元素：暗示着人物反复“逃脱”的永恒运动，并刻有拟声词牌。\n神级细节：蒸汽朋克风格的微距摄影角度，暖钨丝灯光投射出齿轮阴影，抛光金属反光和做旧纸张纹理，超逼真的动态模糊，8k Octane 渲染，带有焦散光效。\n</说明>",
+      "sourcePlatform": "twitter",
+      "searchIndex": "机械发条立体模型概念 为 nano banana pro 设计的复杂、结构化提示模板，旨在可视化一个机械发条立体模型，其中一位超级英雄从漫画格中挣脱而出，详细说明了基本设置、核心动作、变体、叙事元素以及蒸汽朋克美学和 octane 渲染等技术细节。 2x2 grid, do this for 4 lesser known scifi movies <instructions>\n \nconcept: a mechanical wind-up diorama where a superhero activates and bursts free from confining comic panels in perpetual motion.\ninput variables:\n[insert superhero character]\n[insert signature action or power]\n[insert mechanical elements]\n[insert surrounding props]\nworkflow:\nbase setup: intricate brass and wood kinetic sculpture on a desk, with visible gears, springs, and [insert mechanical elements] implying automated movement.\ncore action/composition: [insert superhero character] posed mid-[insert signature action or power], breaking out of hinged comic panel frames that flip open like doors.\nvariants and details: multiple pose variants connected via hidden mechanisms, with scattered tools hinting at handmade construction.\nnarrative/interactive elements: implied perpetual motion as the figure \"escapes\" repeatedly, with engraved onomatopoeia plates.\ngod-level details: steampunk-inspired macro photography angle, warm tungsten lighting casting gear shadows, polished metal reflections and aged paper textures, hyper-realistic kinetic blur, 8k octane render with caustic light play.\n</instructions> 2x2 网格，为 4 部鲜为人知的科幻电影制作此内容 <说明>\n\n概念：一个机械发条立体模型，超级英雄在其中启动并从束缚的漫画格中挣脱出来，永不停歇。\n输入变量：\n[插入超级英雄角色]\n[插入标志性动作或能力]\n[插入机械元素]\n[插入周围道具]\n工作流程：\n基本设置：桌面上的精巧黄铜和木制动力雕塑，带有可见的齿轮、弹簧和 [插入机械元素]，暗示着自动运动。\n核心动作/构图：[插入超级英雄角色] 摆出 [插入标志性动作或能力] 的姿势，从中途打开的漫画格框架中挣脱出来，这些框架像门一样翻开。\n变体和细节：通过隐藏机制连接的多个姿势变体，散落的工具暗示着手工制作。\n叙事/互动元素：暗示着人物反复“逃脱”的永恒运动，并刻有拟声词牌。\n神级细节：蒸汽朋克风格的微距摄影角度，暖钨丝灯光投射出齿轮阴影，抛光金属反光和做旧纸张纹理，超逼真的动态模糊，8k octane 渲染，带有焦散光效。\n</说明> gadgetify 12003",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12052,
+      "title": "Anya Taylor-Joy 格子卧室肖像提示，适用于 Nano Banana 2",
+      "description": "一个结构化的 JSON 提示词，用于让 Nano Banana 2 生成一张安雅·泰勒-乔伊 (Anya Taylor-Joy) 赤脚坐在卧室里，身穿蓝白格纹套装的亲密、超写实肖像，其中包含配饰、姿势和指甲油的具体细节。",
+      "sourceLink": "https://x.com/Strength04_X/status/2032027679193706680",
+      "sourcePublishedAt": "2026-03-12T09:35:26.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "{\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iPhone 15 Pro Max”,\n    “lighting”: “soft, natural indoor daylight, subtle bedroom shadows”,\n    “style”: “intimate, candid portrait, detailed focus”,\n    “aspect_ratio”: “3:4”\n  },\n  “scene”: {\n    “location”: “A minimalist, bright indoor bedroom setting. A bed with white rumpled linen sheets and pillows against a plain white wall.”,\n    “atmosphere”: “Candid, stylish, relaxed.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"Anya Taylor-Joy\"}”,\n    “body”: {\n      “type”: “Naturally slim and toned physique, in a seated pose on the white bed sheets, legs crossed with one leg extended forward and the other tucked. All visible skin on her body, including her legs, feet, and ankles, is completely smooth, clean, flawless, and free of any tattoos or marks.”\n    },\n“face”: {\n      “features”: “Striking features with a clear direct gaze towards the camera, detailed eye makeup with winged eyeliner, and a soft red lip color. Her platinum blonde hair is styled with soft waves and adorned with a large, prominent bright red bow headband.”,\n      “expression”: “Confident, direct gaze.”\n    },\n    “outfit”: {\n      “description”: “A two-piece blue and white gingham coordinate set. Spaghetti strap crop top with red embroidery (heart and cherry cluster motif) on the chest and white scalloped lace trim. Matching pleated mini-skirt with matching scalloped lace hem, in a classic mini length.”,\n      “fit”: “Tailored, form-fitting, chic.”,\n      “accessory”: “Blue cube-like geometric stud earrings. A small white clutch purse with gold hardware is visible on the bed in the foreground corner.”\n    },\n“pose”: “Seated on the white bed sheets, legs crossed with one foot resting on the sheet and the other tucked. Left arm extended backward, right hand supporting her on the sheet, with a direct gaze at the camera.”,\n    “footwear”: “Explicitly and completely barefoot. No mules or slippers.”,\n    “details”: “Her bare toes are clearly visible resting on the white linen sheet, and all toenails are painted with a vibrant, glossy, polished red nail polish.”\n  },\n  “composition”: “Medium full-body shot, capturing her from head to foot, high-angle perspective. Sharp focus on all details: Anya Taylor-Joy’s face, the red bow, the intricate gingham fabric of the classic mini-skirt, and the barefoot toes with glossy red polish. The white bed setting and clutch are clear but softly blurred.”\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383499739_ijxotn_HDM2YkpaUAA03y9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383499739_ijxotn_HDM2YkpaUAA03y9-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n    \"quality\": \"超逼真、原始风格、8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lighting\": \"柔和、自然室内日光、卧室微妙阴影\",\n    \"style\": \"私密、抓拍人像、细节聚焦\",\n    \"aspect_ratio\": \"3:4\"\n  },\n  \"scene\": {\n    \"location\": \"极简、明亮的室内卧室场景。一张铺着白色凌乱床单和枕头的床，靠着一堵纯白色的墙。\",\n    \"atmosphere\": \"自然、时尚、放松。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"Anya Taylor-Joy\\\"}\",\n    \"body\": {\n      \"type\": \"天生纤细健美的身材，以坐姿坐在白色床单上，双腿交叉，一条腿向前伸展，另一条腿收拢。她身体所有可见的皮肤，包括腿部、脚部和脚踝，都完全光滑、洁净、无瑕，没有任何纹身或印记。\"\n    },\n    \"face\": {\n      \"features\": \"引人注目的五官，清晰地直视镜头，精致的眼部妆容，带有上扬眼线，柔和的红色唇色。她的铂金色头发造型为柔和的波浪，并戴着一个大而醒目的亮红色蝴蝶结发箍。\",\n      \"expression\": \"自信、直视的目光。\"\n    },\n    \"outfit\": {\n      \"description\": \"一套两件式蓝白格纹套装。细肩带露脐上衣，胸部有红色刺绣（心形和樱桃簇图案），白色扇形蕾丝边饰。配套的百褶迷你裙，带有相同的扇形蕾丝下摆，经典迷你长度。\",\n      \"fit\": \"剪裁合身、修身、时尚。\",\n      \"accessory\": \"蓝色立方体几何耳钉。前景角落的床上可见一个带有金色五金件的小白色手拿包。\"\n    },\n    \"pose\": \"坐在白色床单上，双腿交叉，一只脚放在床单上，另一只脚收拢。左臂向后伸展，右手支撑在床单上，直视镜头。\",\n    \"footwear\": \"明确且完全赤脚。没有穆勒鞋或拖鞋。\",\n    \"details\": \"她赤裸的脚趾清晰可见地放在白色亚麻床单上，所有脚趾甲都涂有鲜艳、有光泽、抛光的红色指甲油。\"\n  },\n  \"composition\": \"中等全身镜头，从头到脚捕捉她，高角度视角。所有细节都清晰对焦：Anya Taylor-Joy 的脸、红色蝴蝶结、经典迷你裙精致的格纹面料，以及涂有光泽红色指甲油的赤脚脚趾。白色床景和手拿包清晰但柔和模糊。\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "anya taylor-joy 格子卧室肖像提示，适用于 nano banana 2 一个结构化的 json 提示词，用于让 nano banana 2 生成一张安雅·泰勒-乔伊 (anya taylor-joy) 赤脚坐在卧室里，身穿蓝白格纹套装的亲密、超写实肖像，其中包含配饰、姿势和指甲油的具体细节。 {\n    “quality”: “ultra_photorealistic, raw style, 8k”,\n    “camera”: “iphone 15 pro max”,\n    “lighting”: “soft, natural indoor daylight, subtle bedroom shadows”,\n    “style”: “intimate, candid portrait, detailed focus”,\n    “aspect_ratio”: “3:4”\n  },\n  “scene”: {\n    “location”: “a minimalist, bright indoor bedroom setting. a bed with white rumpled linen sheets and pillows against a plain white wall.”,\n    “atmosphere”: “candid, stylish, relaxed.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"anya taylor-joy\"}”,\n    “body”: {\n      “type”: “naturally slim and toned physique, in a seated pose on the white bed sheets, legs crossed with one leg extended forward and the other tucked. all visible skin on her body, including her legs, feet, and ankles, is completely smooth, clean, flawless, and free of any tattoos or marks.”\n    },\n“face”: {\n      “features”: “striking features with a clear direct gaze towards the camera, detailed eye makeup with winged eyeliner, and a soft red lip color. her platinum blonde hair is styled with soft waves and adorned with a large, prominent bright red bow headband.”,\n      “expression”: “confident, direct gaze.”\n    },\n    “outfit”: {\n      “description”: “a two-piece blue and white gingham coordinate set. spaghetti strap crop top with red embroidery (heart and cherry cluster motif) on the chest and white scalloped lace trim. matching pleated mini-skirt with matching scalloped lace hem, in a classic mini length.”,\n      “fit”: “tailored, form-fitting, chic.”,\n      “accessory”: “blue cube-like geometric stud earrings. a small white clutch purse with gold hardware is visible on the bed in the foreground corner.”\n    },\n“pose”: “seated on the white bed sheets, legs crossed with one foot resting on the sheet and the other tucked. left arm extended backward, right hand supporting her on the sheet, with a direct gaze at the camera.”,\n    “footwear”: “explicitly and completely barefoot. no mules or slippers.”,\n    “details”: “her bare toes are clearly visible resting on the white linen sheet, and all toenails are painted with a vibrant, glossy, polished red nail polish.”\n  },\n  “composition”: “medium full-body shot, capturing her from head to foot, high-angle perspective. sharp focus on all details: anya taylor-joy’s face, the red bow, the intricate gingham fabric of the classic mini-skirt, and the barefoot toes with glossy red polish. the white bed setting and clutch are clear but softly blurred.”\n} ```json\n{\n    \"quality\": \"超逼真、原始风格、8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lighting\": \"柔和、自然室内日光、卧室微妙阴影\",\n    \"style\": \"私密、抓拍人像、细节聚焦\",\n    \"aspect_ratio\": \"3:4\"\n  },\n  \"scene\": {\n    \"location\": \"极简、明亮的室内卧室场景。一张铺着白色凌乱床单和枕头的床，靠着一堵纯白色的墙。\",\n    \"atmosphere\": \"自然、时尚、放松。\"\n  },\n  \"subject\": {\n    \"gender\": \"女性\",\n    \"name\": \"{argument name=\\\"subject name\\\" default=\\\"anya taylor-joy\\\"}\",\n    \"body\": {\n      \"type\": \"天生纤细健美的身材，以坐姿坐在白色床单上，双腿交叉，一条腿向前伸展，另一条腿收拢。她身体所有可见的皮肤，包括腿部、脚部和脚踝，都完全光滑、洁净、无瑕，没有任何纹身或印记。\"\n    },\n    \"face\": {\n      \"features\": \"引人注目的五官，清晰地直视镜头，精致的眼部妆容，带有上扬眼线，柔和的红色唇色。她的铂金色头发造型为柔和的波浪，并戴着一个大而醒目的亮红色蝴蝶结发箍。\",\n      \"expression\": \"自信、直视的目光。\"\n    },\n    \"outfit\": {\n      \"description\": \"一套两件式蓝白格纹套装。细肩带露脐上衣，胸部有红色刺绣（心形和樱桃簇图案），白色扇形蕾丝边饰。配套的百褶迷你裙，带有相同的扇形蕾丝下摆，经典迷你长度。\",\n      \"fit\": \"剪裁合身、修身、时尚。\",\n      \"accessory\": \"蓝色立方体几何耳钉。前景角落的床上可见一个带有金色五金件的小白色手拿包。\"\n    },\n    \"pose\": \"坐在白色床单上，双腿交叉，一只脚放在床单上，另一只脚收拢。左臂向后伸展，右手支撑在床单上，直视镜头。\",\n    \"footwear\": \"明确且完全赤脚。没有穆勒鞋或拖鞋。\",\n    \"details\": \"她赤裸的脚趾清晰可见地放在白色亚麻床单上，所有脚趾甲都涂有鲜艳、有光泽、抛光的红色指甲油。\"\n  },\n  \"composition\": \"中等全身镜头，从头到脚捕捉她，高角度视角。所有细节都清晰对焦：anya taylor-joy 的脸、红色蝴蝶结、经典迷你裙精致的格纹面料，以及涂有光泽红色指甲油的赤脚脚趾。白色床景和手拿包清晰但柔和模糊。\"\n}\n``` 𝐌 12052",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12026,
+      "title": "3D 卡通说唱风格女性提示",
+      "description": "一个用于创建高度精细的皮克斯风格 3D 卡通女性的提示，她具有说唱美学，穿着超大号的服装和配饰，灵感来源于一张参考图片。",
+      "sourceLink": "https://x.com/Naiknelofar788/status/2032026944481739045",
+      "sourcePublishedAt": "2026-03-12T09:32:31.000Z",
+      "author": {
+        "name": "simeon-sanai",
+        "link": "https://x.com/Naiknelofar788"
+      },
+      "content": "Create a 3D cartoon-style woman with a rap style (the face is inspired by the reference image). She should have a large head and oversized sneakers, an extra-large hoodie with a rap-style print, loose black pants, big sunglasses, and a thick chain necklace. Place her in a fun pose, with a white background, cinematic lighting, and a highly detailed Pixar-style render.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773383482387_7cchr7_HDM1vL7bQAAce5u.jpg",
+        "https://cms-assets.youmind.com/media/1773383482353_djq20j_HDM1vIpbkAAzljr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773383482387_7cchr7_HDM1vL7bQAAce5u-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773383482353_djq20j_HDM1vIpbkAAzljr-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一个 3D 卡通风格的女性形象，她具有说唱风格（面部灵感来自参考图片）。她应该有一个大头和超大运动鞋，一件印有说唱风格图案的超大连帽衫，宽松的黑色裤子，大墨镜，以及一条粗大的项链。让她摆出一个有趣的姿势，背景为白色，采用电影级布光，并以高度精细的皮克斯风格渲染。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 卡通说唱风格女性提示 一个用于创建高度精细的皮克斯风格 3d 卡通女性的提示，她具有说唱美学，穿着超大号的服装和配饰，灵感来源于一张参考图片。 create a 3d cartoon-style woman with a rap style (the face is inspired by the reference image). she should have a large head and oversized sneakers, an extra-large hoodie with a rap-style print, loose black pants, big sunglasses, and a thick chain necklace. place her in a fun pose, with a white background, cinematic lighting, and a highly detailed pixar-style render. 创作一个 3d 卡通风格的女性形象，她具有说唱风格（面部灵感来自参考图片）。她应该有一个大头和超大运动鞋，一件印有说唱风格图案的超大连帽衫，宽松的黑色裤子，大墨镜，以及一条粗大的项链。让她摆出一个有趣的姿势，背景为白色，采用电影级布光，并以高度精细的皮克斯风格渲染。 simeon-sanai 12026",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12035,
+      "title": "Nano Banana 2 的图像转熔岩石转换提示",
+      "description": "一个为 Nano Banana 2 设计的详细提示，将上传的图像转化为由冷却的火山熔岩雕刻而成的结构，保留主体轮廓的同时，应用多孔玄武岩的纹理、裂缝和微弱的炽热余烬效果。",
+      "sourceLink": "https://x.com/tisch_eins/status/2032024332847726617",
+      "sourcePublishedAt": "2026-03-12T09:22:08.000Z",
+      "author": {
+        "name": "Tischeins",
+        "link": "https://x.com/tisch_eins"
+      },
+      "content": "Reinterpret the uploaded image as a structure carved from cooled volcanic lava rock. Preserve the main subject, silhouette, proportions, and recognizable structure of the original image, but transform all surfaces into porous basalt stone. The subject appears sculpted from hardened lava with rough textures, volcanic pores, cracks, and irregular rock surfaces typical of basalt formations. Some areas show subtle glowing embers deep within cracks while most of the rock appears dark and cooled. The environment feels volcanic and rugged with dramatic lighting emphasizing the texture of the stone. Cinematic geological photography, high detail, strong shadows, tactile rock textures. Negative constraints: no readable text, no letters, no numbers, no logos, no duplicated objects, no smooth plastic surfaces, no cartoon rendering style.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "将上传的图像重新诠释为由冷却的火山熔岩雕刻而成的结构。保留原始图像的主体、轮廓、比例和可识别的结构，但将所有表面转化为多孔的玄武岩。主体看起来像是用硬化的熔岩雕刻而成，具有粗糙的纹理、火山孔隙、裂缝和不规则的岩石表面，这些都是玄武岩地层的典型特征。某些区域的裂缝深处隐约可见发光的余烬，而大部分岩石则呈现出深色和冷却的状态。环境充满火山气息，崎岖不平，戏剧性的光线突出了石头的纹理。电影级的地质摄影，高细节，强烈的阴影，触感十足的岩石纹理。负面约束：无可读文本，无字母，无数字，无标志，无重复物体，无光滑塑料表面，无卡通渲染风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的图像转熔岩石转换提示 一个为 nano banana 2 设计的详细提示，将上传的图像转化为由冷却的火山熔岩雕刻而成的结构，保留主体轮廓的同时，应用多孔玄武岩的纹理、裂缝和微弱的炽热余烬效果。 reinterpret the uploaded image as a structure carved from cooled volcanic lava rock. preserve the main subject, silhouette, proportions, and recognizable structure of the original image, but transform all surfaces into porous basalt stone. the subject appears sculpted from hardened lava with rough textures, volcanic pores, cracks, and irregular rock surfaces typical of basalt formations. some areas show subtle glowing embers deep within cracks while most of the rock appears dark and cooled. the environment feels volcanic and rugged with dramatic lighting emphasizing the texture of the stone. cinematic geological photography, high detail, strong shadows, tactile rock textures. negative constraints: no readable text, no letters, no numbers, no logos, no duplicated objects, no smooth plastic surfaces, no cartoon rendering style. 将上传的图像重新诠释为由冷却的火山熔岩雕刻而成的结构。保留原始图像的主体、轮廓、比例和可识别的结构，但将所有表面转化为多孔的玄武岩。主体看起来像是用硬化的熔岩雕刻而成，具有粗糙的纹理、火山孔隙、裂缝和不规则的岩石表面，这些都是玄武岩地层的典型特征。某些区域的裂缝深处隐约可见发光的余烬，而大部分岩石则呈现出深色和冷却的状态。环境充满火山气息，崎岖不平，戏剧性的光线突出了石头的纹理。电影级的地质摄影，高细节，强烈的阴影，触感十足的岩石纹理。负面约束：无可读文本，无字母，无数字，无标志，无重复物体，无光滑塑料表面，无卡通渲染风格。 tischeins 12035",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 69,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

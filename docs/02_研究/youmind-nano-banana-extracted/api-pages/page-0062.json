@@ -1,0 +1,496 @@
+{
+  "prompts": [
+    {
+      "id": 12147,
+      "title": "鲜花环绕的逼真智能手机自拍",
+      "description": "一个详细的提示，旨在生成一张年轻女性在欧洲街道上，手持一大束淡粉色鲜花的逼真、自然的户外手持自拍照，其中指定了相机设置、光线、构图，并包含大量负面提示，以避免出现“AI 感”。此提示已在 GPT Image 1.5 和 Nano Banana Pro 上进行测试。",
+      "sourceLink": "https://x.com/IqraSaifiii/status/2032893530117648789",
+      "sourcePublishedAt": "2026-03-14T18:56:01.000Z",
+      "author": {
+        "name": "Iqra Saifi",
+        "link": "https://x.com/IqraSaifiii"
+      },
+      "content": "\"prompt\": \"Natural handheld outdoor selfie of a young woman standing on a quiet residential European street during daytime, gently smiling at the camera while holding a large bouquet of soft pastel pink flowers wrapped in white paper. The bouquet contains pale pink roses, gerbera daisies, lisianthus, and small cream accent flowers arranged tightly. She slightly tilts her head toward the bouquet with a relaxed expression. Her dark brown hair is tied back in a loose bun with a few strands falling naturally near the face. She is wearing a simple sleeveless black top. The photo is taken at arm’s length as a selfie with natural perspective. Background shows leafy green trees, parked cars, street signs, and light colored residential buildings softly blurred by shallow depth of field. Lighting is soft natural daylight filtered through trees, creating gentle shadows and even skin tones. The image should look like a real smartphone photograph captured casually while walking outside, authentic colors, realistic skin texture, subtle imperfections, and natural background detail.\",\n\n\"style\": \"realistic photography\",\n\n\"camera\": {\n\n\"type\": \"smartphone front camera\",\n\n\"lens_equivalent\": \"26mm\",\n\n\"aperture\": \"f/2.0\",\n\n\"depth_of_field\": \"shallow\",\n\n\"perspective\": \"arm length selfie angle\"\n\n},\n\n\"lighting\": {\n\n\"type\": \"natural daylight\",\n\n\"quality\": \"soft diffused sunlight through trees\",\n\n\"time_of_day\": \"late morning or early afternoon\"\n\n},\n\n\"composition\": {\n\n\"framing\": \"head and shoulders selfie with bouquet filling lower right frame\",\n\n\"focus\": \"sharp focus on face and flowers\",\n\n\"background\": \"suburban street softly blurred\"\n\n},\n\n\"negative_prompt\": \"ai generated look, artificial skin smoothing, plastic skin, exaggerated beauty filters, unrealistic lighting, studio lighting, oversaturated colors, cartoon style, painterly style, overly sharp edges, warped anatomy, distorted hands, extra fingers, unrealistic flowers, synthetic textures, fake bokeh, fantasy environment\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556644816_2n0hmt_HDZJmUvaIAAZf4r.jpg",
+        "https://cms-assets.youmind.com/media/1773556644821_t2z6mh_HDZJk5XaMAQ16ZK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556644816_2n0hmt_HDZJmUvaIAAZf4r-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1773556644821_t2z6mh_HDZJk5XaMAQ16ZK-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "\"prompt\": \"一名年轻女子白天站在欧洲安静的居民街道上，手持自拍，自然地微笑着看向镜头，手里拿着一大束用白纸包裹的柔和淡粉色鲜花。花束中紧密排列着淡粉色玫瑰、非洲菊、洋桔梗和少量米色点缀小花。她头部微微倾向花束，表情放松。深棕色头发松散地扎成发髻，几缕发丝自然地垂落在脸庞附近。她穿着一件简单的无袖黑色上衣。照片以手臂长度自拍，视角自然。背景是绿叶树木、停放的汽车、路牌和浅色住宅建筑，通过浅景深柔和虚化。光线是穿过树木的柔和自然日光，营造出柔和的阴影和均匀的肤色。图像应看起来像是在户外行走时随意拍摄的真实智能手机照片，色彩真实，皮肤纹理逼真，带有细微瑕疵，背景细节自然。\",\n\n\"style\": \"写实摄影\",\n\n\"camera\": {\n\n\"type\": \"智能手机前置摄像头\",\n\n\"lens_equivalent\": \"26mm\",\n\n\"aperture\": \"f/2.0\",\n\n\"depth_of_field\": \"浅景深\",\n\n\"perspective\": \"手臂长度自拍角度\"\n\n},\n\n\"lighting\": {\n\n\"type\": \"自然日光\",\n\n\"quality\": \"穿过树木的柔和散射阳光\",\n\n\"time_of_day\": \"上午晚些时候或下午早些时候\"\n\n},\n\n\"composition\": {\n\n\"framing\": \"头部和肩部自拍，花束充满画面右下角\",\n\n\"focus\": \"面部和花朵清晰对焦\",\n\n\"background\": \"郊区街道柔和虚化\"\n\n},\n\n\"negative_prompt\": \"AI 生成外观、人工皮肤平滑、塑料皮肤、夸张美颜滤镜、不真实光线、影棚光线、色彩过饱和、卡通风格、绘画风格、边缘过于锐利、扭曲解剖结构、手部变形、多余手指、不真实花朵、合成纹理、虚假焦外虚化、奇幻环境\"",
+      "sourcePlatform": "twitter",
+      "searchIndex": "鲜花环绕的逼真智能手机自拍 一个详细的提示，旨在生成一张年轻女性在欧洲街道上，手持一大束淡粉色鲜花的逼真、自然的户外手持自拍照，其中指定了相机设置、光线、构图，并包含大量负面提示，以避免出现“ai 感”。此提示已在 gpt image 1.5 和 nano banana pro 上进行测试。 \"prompt\": \"natural handheld outdoor selfie of a young woman standing on a quiet residential european street during daytime, gently smiling at the camera while holding a large bouquet of soft pastel pink flowers wrapped in white paper. the bouquet contains pale pink roses, gerbera daisies, lisianthus, and small cream accent flowers arranged tightly. she slightly tilts her head toward the bouquet with a relaxed expression. her dark brown hair is tied back in a loose bun with a few strands falling naturally near the face. she is wearing a simple sleeveless black top. the photo is taken at arm’s length as a selfie with natural perspective. background shows leafy green trees, parked cars, street signs, and light colored residential buildings softly blurred by shallow depth of field. lighting is soft natural daylight filtered through trees, creating gentle shadows and even skin tones. the image should look like a real smartphone photograph captured casually while walking outside, authentic colors, realistic skin texture, subtle imperfections, and natural background detail.\",\n\n\"style\": \"realistic photography\",\n\n\"camera\": {\n\n\"type\": \"smartphone front camera\",\n\n\"lens_equivalent\": \"26mm\",\n\n\"aperture\": \"f/2.0\",\n\n\"depth_of_field\": \"shallow\",\n\n\"perspective\": \"arm length selfie angle\"\n\n},\n\n\"lighting\": {\n\n\"type\": \"natural daylight\",\n\n\"quality\": \"soft diffused sunlight through trees\",\n\n\"time_of_day\": \"late morning or early afternoon\"\n\n},\n\n\"composition\": {\n\n\"framing\": \"head and shoulders selfie with bouquet filling lower right frame\",\n\n\"focus\": \"sharp focus on face and flowers\",\n\n\"background\": \"suburban street softly blurred\"\n\n},\n\n\"negative_prompt\": \"ai generated look, artificial skin smoothing, plastic skin, exaggerated beauty filters, unrealistic lighting, studio lighting, oversaturated colors, cartoon style, painterly style, overly sharp edges, warped anatomy, distorted hands, extra fingers, unrealistic flowers, synthetic textures, fake bokeh, fantasy environment\" \"prompt\": \"一名年轻女子白天站在欧洲安静的居民街道上，手持自拍，自然地微笑着看向镜头，手里拿着一大束用白纸包裹的柔和淡粉色鲜花。花束中紧密排列着淡粉色玫瑰、非洲菊、洋桔梗和少量米色点缀小花。她头部微微倾向花束，表情放松。深棕色头发松散地扎成发髻，几缕发丝自然地垂落在脸庞附近。她穿着一件简单的无袖黑色上衣。照片以手臂长度自拍，视角自然。背景是绿叶树木、停放的汽车、路牌和浅色住宅建筑，通过浅景深柔和虚化。光线是穿过树木的柔和自然日光，营造出柔和的阴影和均匀的肤色。图像应看起来像是在户外行走时随意拍摄的真实智能手机照片，色彩真实，皮肤纹理逼真，带有细微瑕疵，背景细节自然。\",\n\n\"style\": \"写实摄影\",\n\n\"camera\": {\n\n\"type\": \"智能手机前置摄像头\",\n\n\"lens_equivalent\": \"26mm\",\n\n\"aperture\": \"f/2.0\",\n\n\"depth_of_field\": \"浅景深\",\n\n\"perspective\": \"手臂长度自拍角度\"\n\n},\n\n\"lighting\": {\n\n\"type\": \"自然日光\",\n\n\"quality\": \"穿过树木的柔和散射阳光\",\n\n\"time_of_day\": \"上午晚些时候或下午早些时候\"\n\n},\n\n\"composition\": {\n\n\"framing\": \"头部和肩部自拍，花束充满画面右下角\",\n\n\"focus\": \"面部和花朵清晰对焦\",\n\n\"background\": \"郊区街道柔和虚化\"\n\n},\n\n\"negative_prompt\": \"ai 生成外观、人工皮肤平滑、塑料皮肤、夸张美颜滤镜、不真实光线、影棚光线、色彩过饱和、卡通风格、绘画风格、边缘过于锐利、扭曲解剖结构、手部变形、多余手指、不真实花朵、合成纹理、虚假焦外虚化、奇幻环境\" iqra saifi 12147",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12152,
+      "title": "超逼真健身主题摄影",
+      "description": "为 Nano Banana 2 创建的详细提示，用于生成一张超逼真的 8k 编辑级健身照片，内容为一名印尼女性在豪华健身房中，重点突出健美的体格、真实的汗水和浅景深。",
+      "sourceLink": "https://x.com/Shreyayadav/status/2032884180036817234",
+      "sourcePublishedAt": "2026-03-14T18:18:52.000Z",
+      "author": {
+        "name": "Shreya♡",
+        "link": "https://x.com/Shreyayadav"
+      },
+      "content": "{\n  \"prompt_type\": \"ultra_realistic_editorial_photography\",\n  \"image_style\": \"8k UHD ultra-detailed editorial grade fitness photography\",\n  \"aspect_ratio\": \"1:2\",\n  \"scene\": {\n    \"environment\": \"luxury high-end gym interior\",\n    \"background_description\": \"modern premium fitness center with sleek mirrored walls, polished metal equipment, matte black weight racks, reflective rubber flooring and subtle ambient LED accents\",\n    \"background_effect\": \"soft cinematic bokeh blur emphasizing subject depth separation while preserving subtle recognizable gym shapes\",\n    \"atmosphere\": \"clean high-end athletic environment with energetic professional fitness photoshoot vibe\",\n    \"depth_of_field\": \"shallow depth of field with smooth background blur\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"21-year-old Indonesian woman\"}\",\n    \"appearance\": {\n      \"body_type\": \"athletic, toned physique with natural muscle definition\",\n      \"skin\": \"warm medium tan Indonesian skin tone with natural healthy glow and visible micro skin texture\",\n      \"skin_details\": \"realistic sweat droplets forming on forehead, collarbone, shoulders and upper chest after intense workout\",\n      \"face_structure\": \"natural facial anatomy with symmetrical features and realistic bone structure\",\n      \"expression\": \"focused and determined expression while lifting weights\",\n      \"hair\": {\n        \"color\": \"deep chestnut brown\",\n        \"style\": \"effortless messy bun with a few loose strands framing the face\",\n        \"movement\": \"slightly damp strands from sweat sticking lightly to temples\"\n      }\n    },\n    \"anatomy_constraints\": {\n      \"face_accuracy\": \"maintain 1:1 anatomical accuracy of facial structure\",\n      \"torso_accuracy\": \"do not alter skeletal frame or chest proportions\",\n      \"natural_proportions\": \"realistic human anatomy without exaggeration\"\n    }\n  },\n  \"clothing\": {\n    \"outfit\": \"premium athletic bodysuit\",\n    \"material\": \"high-performance stretch fabric with subtle compression fit\",\n    \"fit\": \"form-fitting design highlighting athletic physique\",\n    \"texture_details\": \"slight fabric sheen catching gym lighting, realistic fabric folds and tension lines\",\n    \"style\": \"minimalist luxury sportswear aesthetic\"\n  },\n  \"action\": {\n    \"activity\": \"lifting weights during workout\",\n    \"pose\": \"dynamic medium full-body shot capturing the motion of lifting a dumbbell or barbell\",\n    \"body_language\": \"strong posture with engaged muscles and visible effort\",\n    \"movement_detail\": \"subtle motion tension in arms and shoulders\"\n  },\n  \"camera\": {\n    \"framing\": \"dynamic medium full shot\",\n    \"lens\": \"85mm professional portrait lens\",\n    \"camera_type\": \"high-end full-frame DSLR or mirrorless camera\",\n    \"aperture\": \"f/2.0\",\n    \"iso\": \"100\",\n    \"shutter_speed\": \"1/500s\",\n    \"focus\": \"sharp focus on face an",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556647067_caad9u_HDZBYGyaMAAve3z.jpg",
+        "https://cms-assets.youmind.com/media/1773556647140_rwi8sv_HDZBW_vboAAFY22.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556647067_caad9u_HDZBYGyaMAAve3z-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773556647140_rwi8sv_HDZBW_vboAAFY22-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt_type\": \"ultra_realistic_editorial_photography\",\n  \"image_style\": \"8k UHD 超细节编辑级健身摄影\",\n  \"aspect_ratio\": \"1:2\",\n  \"scene\": {\n    \"environment\": \"豪华高端健身房内部\",\n    \"background_description\": \"现代高级健身中心，配有光滑的镜面墙壁、抛光的金属器械、哑光黑色置重架、反光橡胶地板和柔和的环境 LED 灯光点缀\",\n    \"background_effect\": \"柔和的电影散景模糊，强调主体景深分离，同时保留微妙可辨的健身房形状\",\n    \"atmosphere\": \"干净高端的运动环境，充满活力专业的健身摄影氛围\",\n    \"depth_of_field\": \"浅景深，背景平滑模糊\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"21 岁印度尼西亚女性\\\"}\",\n    \"appearance\": {\n      \"body_type\": \"健美、匀称的体格，肌肉线条自然分明\",\n      \"skin\": \"温暖的中等棕褐色印度尼西亚肤色，自然健康的肤色光泽和可见的微小皮肤纹理\",\n      \"skin_details\": \"剧烈运动后，额头、锁骨、肩膀和上胸部形成逼真的汗珠\",\n      \"face_structure\": \"自然的脸部解剖结构，五官对称，骨骼结构逼真\",\n      \"expression\": \"举重时专注而坚定的表情\",\n      \"hair\": {\n        \"color\": \"深栗色\",\n        \"style\": \"随意的凌乱发髻，几缕松散的头发框住脸部\",\n        \"movement\": \"因汗水而略湿的头发轻微地粘在太阳穴上\"\n      }\n    },\n    \"anatomy_constraints\": {\n      \"face_accuracy\": \"保持面部结构 1:1 的解剖学准确性\",\n      \"torso_accuracy\": \"不要改变骨骼结构或胸部比例\",\n      \"natural_proportions\": \"逼真的人体解剖结构，无夸张\"\n    }\n  },\n  \"clothing\": {\n    \"outfit\": \"高级运动紧身衣\",\n    \"material\": \"高性能弹力面料，具有微妙的压缩贴合感\",\n    \"fit\": \"修身设计，凸显运动体格\",\n    \"texture_details\": \"面料在健身房灯光下略微闪亮，逼真的面料褶皱和张力线\",\n    \"style\": \"极简奢华运动服美学\"\n  },\n  \"action\": {\n    \"activity\": \"锻炼时举重\",\n    \"pose\": \"动态中景全身照，捕捉举起哑铃或杠铃的动作\",\n    \"body_language\": \"强健的姿势，肌肉紧绷，可见用力\",\n    \"movement_detail\": \"手臂和肩膀有微妙的运动张力\"\n  },\n  \"camera\": {\n    \"framing\": \"动态中景全身照\",\n    \"lens\": \"85mm 专业人像镜头\",\n    \"camera_type\": \"高端全画幅单反或无反相机\",\n    \"aperture\": \"f/2.0\",\n    \"iso\": \"100\",\n    \"shutter_speed\": \"1/500s\",\n    \"focus\": \"面部清晰对焦\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真健身主题摄影 为 nano banana 2 创建的详细提示，用于生成一张超逼真的 8k 编辑级健身照片，内容为一名印尼女性在豪华健身房中，重点突出健美的体格、真实的汗水和浅景深。 {\n  \"prompt_type\": \"ultra_realistic_editorial_photography\",\n  \"image_style\": \"8k uhd ultra-detailed editorial grade fitness photography\",\n  \"aspect_ratio\": \"1:2\",\n  \"scene\": {\n    \"environment\": \"luxury high-end gym interior\",\n    \"background_description\": \"modern premium fitness center with sleek mirrored walls, polished metal equipment, matte black weight racks, reflective rubber flooring and subtle ambient led accents\",\n    \"background_effect\": \"soft cinematic bokeh blur emphasizing subject depth separation while preserving subtle recognizable gym shapes\",\n    \"atmosphere\": \"clean high-end athletic environment with energetic professional fitness photoshoot vibe\",\n    \"depth_of_field\": \"shallow depth of field with smooth background blur\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\"subject identity\" default=\"21-year-old indonesian woman\"}\",\n    \"appearance\": {\n      \"body_type\": \"athletic, toned physique with natural muscle definition\",\n      \"skin\": \"warm medium tan indonesian skin tone with natural healthy glow and visible micro skin texture\",\n      \"skin_details\": \"realistic sweat droplets forming on forehead, collarbone, shoulders and upper chest after intense workout\",\n      \"face_structure\": \"natural facial anatomy with symmetrical features and realistic bone structure\",\n      \"expression\": \"focused and determined expression while lifting weights\",\n      \"hair\": {\n        \"color\": \"deep chestnut brown\",\n        \"style\": \"effortless messy bun with a few loose strands framing the face\",\n        \"movement\": \"slightly damp strands from sweat sticking lightly to temples\"\n      }\n    },\n    \"anatomy_constraints\": {\n      \"face_accuracy\": \"maintain 1:1 anatomical accuracy of facial structure\",\n      \"torso_accuracy\": \"do not alter skeletal frame or chest proportions\",\n      \"natural_proportions\": \"realistic human anatomy without exaggeration\"\n    }\n  },\n  \"clothing\": {\n    \"outfit\": \"premium athletic bodysuit\",\n    \"material\": \"high-performance stretch fabric with subtle compression fit\",\n    \"fit\": \"form-fitting design highlighting athletic physique\",\n    \"texture_details\": \"slight fabric sheen catching gym lighting, realistic fabric folds and tension lines\",\n    \"style\": \"minimalist luxury sportswear aesthetic\"\n  },\n  \"action\": {\n    \"activity\": \"lifting weights during workout\",\n    \"pose\": \"dynamic medium full-body shot capturing the motion of lifting a dumbbell or barbell\",\n    \"body_language\": \"strong posture with engaged muscles and visible effort\",\n    \"movement_detail\": \"subtle motion tension in arms and shoulders\"\n  },\n  \"camera\": {\n    \"framing\": \"dynamic medium full shot\",\n    \"lens\": \"85mm professional portrait lens\",\n    \"camera_type\": \"high-end full-frame dslr or mirrorless camera\",\n    \"aperture\": \"f/2.0\",\n    \"iso\": \"100\",\n    \"shutter_speed\": \"1/500s\",\n    \"focus\": \"sharp focus on face an ```json\n{\n  \"prompt_type\": \"ultra_realistic_editorial_photography\",\n  \"image_style\": \"8k uhd 超细节编辑级健身摄影\",\n  \"aspect_ratio\": \"1:2\",\n  \"scene\": {\n    \"environment\": \"豪华高端健身房内部\",\n    \"background_description\": \"现代高级健身中心，配有光滑的镜面墙壁、抛光的金属器械、哑光黑色置重架、反光橡胶地板和柔和的环境 led 灯光点缀\",\n    \"background_effect\": \"柔和的电影散景模糊，强调主体景深分离，同时保留微妙可辨的健身房形状\",\n    \"atmosphere\": \"干净高端的运动环境，充满活力专业的健身摄影氛围\",\n    \"depth_of_field\": \"浅景深，背景平滑模糊\"\n  },\n  \"subject\": {\n    \"identity\": \"{argument name=\\\"subject identity\\\" default=\\\"21 岁印度尼西亚女性\\\"}\",\n    \"appearance\": {\n      \"body_type\": \"健美、匀称的体格，肌肉线条自然分明\",\n      \"skin\": \"温暖的中等棕褐色印度尼西亚肤色，自然健康的肤色光泽和可见的微小皮肤纹理\",\n      \"skin_details\": \"剧烈运动后，额头、锁骨、肩膀和上胸部形成逼真的汗珠\",\n      \"face_structure\": \"自然的脸部解剖结构，五官对称，骨骼结构逼真\",\n      \"expression\": \"举重时专注而坚定的表情\",\n      \"hair\": {\n        \"color\": \"深栗色\",\n        \"style\": \"随意的凌乱发髻，几缕松散的头发框住脸部\",\n        \"movement\": \"因汗水而略湿的头发轻微地粘在太阳穴上\"\n      }\n    },\n    \"anatomy_constraints\": {\n      \"face_accuracy\": \"保持面部结构 1:1 的解剖学准确性\",\n      \"torso_accuracy\": \"不要改变骨骼结构或胸部比例\",\n      \"natural_proportions\": \"逼真的人体解剖结构，无夸张\"\n    }\n  },\n  \"clothing\": {\n    \"outfit\": \"高级运动紧身衣\",\n    \"material\": \"高性能弹力面料，具有微妙的压缩贴合感\",\n    \"fit\": \"修身设计，凸显运动体格\",\n    \"texture_details\": \"面料在健身房灯光下略微闪亮，逼真的面料褶皱和张力线\",\n    \"style\": \"极简奢华运动服美学\"\n  },\n  \"action\": {\n    \"activity\": \"锻炼时举重\",\n    \"pose\": \"动态中景全身照，捕捉举起哑铃或杠铃的动作\",\n    \"body_language\": \"强健的姿势，肌肉紧绷，可见用力\",\n    \"movement_detail\": \"手臂和肩膀有微妙的运动张力\"\n  },\n  \"camera\": {\n    \"framing\": \"动态中景全身照\",\n    \"lens\": \"85mm 专业人像镜头\",\n    \"camera_type\": \"高端全画幅单反或无反相机\",\n    \"aperture\": \"f/2.0\",\n    \"iso\": \"100\",\n    \"shutter_speed\": \"1/500s\",\n    \"focus\": \"面部清晰对焦\"\n  }\n}\n``` shreya♡ 12152",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12141,
+      "title": "超逼真的古罗马帝国硬币",
+      "description": "一个可分享的提示模板，用于在 Adobe Firefly 中使用 Nano Banana 生成古罗马帝国硬币的超写实特写，并允许自定义硬币上的主题。",
+      "sourceLink": "https://x.com/ToshiArte/status/2032879433825091907",
+      "sourcePublishedAt": "2026-03-14T18:00:00.000Z",
+      "author": {
+        "name": "Toshi",
+        "link": "https://x.com/ToshiArte"
+      },
+      "content": "hyperrealistic close-up of an ancient Roman Empire style coin, large detailed portrait of **{argument name=\"subject\" default=\"subject\"}** in profile on the obverse, wearing a laurel wreath or imperial diadem, sharp classical Roman features, intricate engraved details, surrounded by fine Roman lettering in Latin style around the rim, reverse side visible in slight angle showing classic Roman motifs like eagle, victory figure or SPQR symbols, heavy gold-bronze patina with realistic wear, scratches, oxidation spots and subtle verdigris, high relief engraving, dramatic macro studio lighting with strong specular highlights on metal and deep shadows in recesses, ultra detailed numismatic texture, lifelike metallic reflections, museum-quality artifact photography, sharp focus, 8k resolution",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556640792_is83ol_HDWTGEeXIAAI4w0.jpg",
+        "https://cms-assets.youmind.com/media/1773556640813_tvrbt5_HDWTGE3b0AA0fO5.jpg",
+        "https://cms-assets.youmind.com/media/1773556640859_daull1_HDWTGEdWEAAHuR6.jpg",
+        "https://cms-assets.youmind.com/media/1773556641703_31fqy2_HDWTI2yXIAAoRAp.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556640792_is83ol_HDWTGEeXIAAI4w0-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556640813_tvrbt5_HDWTGE3b0AA0fO5-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556640859_daull1_HDWTGEdWEAAHuR6-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556641703_31fqy2_HDWTI2yXIAAoRAp-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "古罗马帝国风格硬币的超写实特写，硬币正面是 **{argument name=\"subject\" default=\"subject\"}** 的大型精细侧面肖像，头戴月桂花环或帝国头饰，面部具有鲜明的古典罗马特征，雕刻细节错综复杂，边缘环绕着精美的拉丁风格罗马字母。硬币背面以微斜角度可见，展示了经典的罗马图案，如鹰、胜利女神或 SPQR 符号。硬币呈现厚重的金铜色包浆，带有逼真的磨损、划痕、氧化斑点和细微的铜绿。高浮雕雕刻，戏剧性的微距摄影棚布光，金属上高光强烈，凹陷处阴影深邃，超精细的钱币纹理，栩栩如生的金属反光，博物馆品质的文物摄影，锐利对焦，8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真的古罗马帝国硬币 一个可分享的提示模板，用于在 adobe firefly 中使用 nano banana 生成古罗马帝国硬币的超写实特写，并允许自定义硬币上的主题。 hyperrealistic close-up of an ancient roman empire style coin, large detailed portrait of **{argument name=\"subject\" default=\"subject\"}** in profile on the obverse, wearing a laurel wreath or imperial diadem, sharp classical roman features, intricate engraved details, surrounded by fine roman lettering in latin style around the rim, reverse side visible in slight angle showing classic roman motifs like eagle, victory figure or spqr symbols, heavy gold-bronze patina with realistic wear, scratches, oxidation spots and subtle verdigris, high relief engraving, dramatic macro studio lighting with strong specular highlights on metal and deep shadows in recesses, ultra detailed numismatic texture, lifelike metallic reflections, museum-quality artifact photography, sharp focus, 8k resolution 古罗马帝国风格硬币的超写实特写，硬币正面是 **{argument name=\"subject\" default=\"subject\"}** 的大型精细侧面肖像，头戴月桂花环或帝国头饰，面部具有鲜明的古典罗马特征，雕刻细节错综复杂，边缘环绕着精美的拉丁风格罗马字母。硬币背面以微斜角度可见，展示了经典的罗马图案，如鹰、胜利女神或 spqr 符号。硬币呈现厚重的金铜色包浆，带有逼真的磨损、划痕、氧化斑点和细微的铜绿。高浮雕雕刻，戏剧性的微距摄影棚布光，金属上高光强烈，凹陷处阴影深邃，超精细的钱币纹理，栩栩如生的金属反光，博物馆品质的文物摄影，锐利对焦，8k 分辨率。 toshi 12141",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12142,
+      "title": "都市时尚：小巷中的潮流大片",
+      "description": "为 Nano Banana 2 设计的结构化提示，用于生成一张时尚社论图片：一位时尚年轻女性身处都市小巷，重点突出特定的服装、配饰和温暖的电影感灯光。",
+      "sourceLink": "https://x.com/mizq06/status/2032878173550223861",
+      "sourcePublishedAt": "2026-03-14T17:55:00.000Z",
+      "author": {
+        "name": "Miz",
+        "link": "https://x.com/mizq06"
+      },
+      "content": "{\n  \"prompt\": \"A stylish young woman with long red hair sitting thoughtfully on a white plastic chair in an urban alleyway. She wears a sheer olive-green floral sleeveless top and a short burgundy sequin skirt. Her legs are crossed, showing strappy black high-heeled sandals wrapped around her calves. She accessorizes with large hoop earrings, stacked silver bangles, and holds a small red handbag and smartphone. The setting features teal corrugated metal walls, wooden pallets on the ground, and soft warm sunlight casting cinematic shadows. The mood is fashion editorial, urban chic, high detail, natural skin texture, shallow depth of field, editorial photography style.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted anatomy, extra limbs, poorly drawn hands, harsh shadows, overexposed, underexposed, cluttered composition\",\n  \"style\": \"fashion editorial photography\",\n  \"lighting\": \"warm natural sunlight, soft shadows\",\n  \"camera\": \"85mm lens, shallow depth of field, high detail\",\n  \"quality\": \"ultra realistic, high resolution\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556641353_2kmoc2_HDY7TnIaMAAeOiC.jpg",
+        "https://cms-assets.youmind.com/media/1773556641427_vwa662_HDY7VrAbYAADTPd.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556641353_2kmoc2_HDY7TnIaMAAeOiC-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773556641427_vwa662_HDY7VrAbYAADTPd-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"一位时尚的年轻女子，留着一头红色长发，若有所思地坐在一张白色塑料椅子上，身处城市小巷中。她身穿一件透明的橄榄绿色花卉无袖上衣和一条酒红色亮片短裙。她双腿交叉，露出缠绕在她小腿上的黑色细带高跟凉鞋。她佩戴着大耳环、叠戴的银色手镯，手持一个红色小手提包和一部智能手机。场景特色是青色的波纹金属墙、地上的木托盘，以及柔和温暖的阳光投射出电影般的阴影。整体氛围是时尚杂志风格、都市别致、高细节、自然皮肤纹理、浅景深、编辑摄影风格。\",\n  \"negative_prompt\": \"模糊、低分辨率、解剖结构扭曲、多余肢体、手部描绘拙劣、刺眼阴影、过曝、欠曝、构图杂乱\",\n  \"style\": \"时尚杂志摄影\",\n  \"lighting\": \"温暖自然阳光、柔和阴影\",\n  \"camera\": \"85mm 镜头、浅景深、高细节\",\n  \"quality\": \"超现实、高分辨率\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "都市时尚：小巷中的潮流大片 为 nano banana 2 设计的结构化提示，用于生成一张时尚社论图片：一位时尚年轻女性身处都市小巷，重点突出特定的服装、配饰和温暖的电影感灯光。 {\n  \"prompt\": \"a stylish young woman with long red hair sitting thoughtfully on a white plastic chair in an urban alleyway. she wears a sheer olive-green floral sleeveless top and a short burgundy sequin skirt. her legs are crossed, showing strappy black high-heeled sandals wrapped around her calves. she accessorizes with large hoop earrings, stacked silver bangles, and holds a small red handbag and smartphone. the setting features teal corrugated metal walls, wooden pallets on the ground, and soft warm sunlight casting cinematic shadows. the mood is fashion editorial, urban chic, high detail, natural skin texture, shallow depth of field, editorial photography style.\",\n  \"negative_prompt\": \"blurry, low resolution, distorted anatomy, extra limbs, poorly drawn hands, harsh shadows, overexposed, underexposed, cluttered composition\",\n  \"style\": \"fashion editorial photography\",\n  \"lighting\": \"warm natural sunlight, soft shadows\",\n  \"camera\": \"85mm lens, shallow depth of field, high detail\",\n  \"quality\": \"ultra realistic, high resolution\"\n} ```json\n{\n  \"prompt\": \"一位时尚的年轻女子，留着一头红色长发，若有所思地坐在一张白色塑料椅子上，身处城市小巷中。她身穿一件透明的橄榄绿色花卉无袖上衣和一条酒红色亮片短裙。她双腿交叉，露出缠绕在她小腿上的黑色细带高跟凉鞋。她佩戴着大耳环、叠戴的银色手镯，手持一个红色小手提包和一部智能手机。场景特色是青色的波纹金属墙、地上的木托盘，以及柔和温暖的阳光投射出电影般的阴影。整体氛围是时尚杂志风格、都市别致、高细节、自然皮肤纹理、浅景深、编辑摄影风格。\",\n  \"negative_prompt\": \"模糊、低分辨率、解剖结构扭曲、多余肢体、手部描绘拙劣、刺眼阴影、过曝、欠曝、构图杂乱\",\n  \"style\": \"时尚杂志摄影\",\n  \"lighting\": \"温暖自然阳光、柔和阴影\",\n  \"camera\": \"85mm 镜头、浅景深、高细节\",\n  \"quality\": \"超现实、高分辨率\"\n}\n``` miz 12142",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12146,
+      "title": "一位男士与一辆复古保时捷的编辑摄影",
+      "description": "一个极其详细、结构化的提示，用于生成一张编辑类照片：画面中一名男子身穿驼色大衣，站在一辆复古银色保时捷 Targa 旁边。提示中详细说明了构图、色彩配置文件、高对比度自然光、技术规格和艺术氛围，由 Gemini Nano Banana Pro 创建。",
+      "sourceLink": "https://x.com/pictsbyai/status/2032871464307736577",
+      "sourcePublishedAt": "2026-03-14T17:28:20.000Z",
+      "author": {
+        "name": "Picts by AI",
+        "link": "https://x.com/pictsbyai"
+      },
+      "content": "{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"4:5\",\n\"layout\": \"multi-element\",\n\"focal_points\": [\n\"The man's face and upper torso\",\n\"The vintage silver Porsche Targa\"\n],\n\"visual_hierarchy\": \"Eye starts at the man's sharply focused face, moves down his light-colored outfit, then sweeps right along the silver curves of the classic car, finally resting on the background foliage.\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"Camel\",\n\"hex\": \"#C19A6B\",\n\"percentage\": \"20\",\n\"role\": \"primary subject\"\n},\n{\n\"color\": \"Forest Green\",\n\"hex\": \"#2E4A22\",\n\"percentage\": \"45\",\n\"role\": \"background\"\n},\n{\n\"color\": \"Silver/Grey\",\n\"hex\": \"#A8A9AD\",\n\"percentage\": \"25\",\n\"role\": \"secondary subject\"\n},\n{\n\"color\": \"Cream/Off-White\",\n\"hex\": \"#F5F5DC\",\n\"percentage\": \"10\",\n\"role\": \"accent\"\n}\n],\n\"color_palette\": \"analogous with neutral contrast\",\n\"temperature\": \"warm\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural sunlight\",\n\"source_count\": \"single source\",\n\"direction\": \"45-degree side\",\n\"directionality\": \"highly directional\",\n\"quality\": \"hard light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"sophisticated\",\n\"shadows\": {\n\"type\": \"harsh defined edges\",\n\"density\": \"deep black\",\n\"placement\": \"cast by the man onto the car, and under the car onto the ground\",\n\"length\": \"medium\"\n},\n\"highlights\": {\n\"treatment\": \"blown out on the direct sun patches on the coat, specular on the car\",\n\"placement\": \"right side of the camel coat, chrome side mirror, right side of the face\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"warm (golden)\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"film grain\",\n\"depth_of_field\": \"medium\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial\",\n\"influences\": [\n\"Classic menswear photography\",\n\"Automotive lifestyle editorial\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"Wealthy, relaxed weekend in the countryside, combining classic tailoring with vintage automotive appreciation.\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": true,\n\"fonts\": [\n{\n\"type\": \"script\",\n\"weight\": \"regular\",\n\"characteristics\": \"vintage\"\n}\n],\n\"placement\": \"integrated on the car's roll bar (reading 'targa')\",\n\"integration\": \"subtle\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"A Caucasian male in his late 30s to 40s wearing a camel double-breasted overcoat, unbuttoned white dress shirt, and cream trousers with brown suede loafers. Hair analysis: Medium length, approximately 3-4 inches on top, swept back with a natural wave. Classic gentleman's cut with tapered sides. Texture is natural wi",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556644202_68tbyd_HDY1x3UXkAAD1rn.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556644202_68tbyd_HDY1x3UXkAAD1rn-300x311.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法构图\",\n\"aspect_ratio\": \"4:5\",\n\"layout\": \"多元素\",\n\"focal_points\": [\n\"男士的面部和上半身\",\n\"复古银色保时捷 Targa\"\n],\n\"visual_hierarchy\": \"视线从男士清晰聚焦的脸部开始，向下移动到他浅色的服装，然后沿着经典汽车的银色曲线向右扫过，最后停留在背景的树叶上。\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"驼色\",\n\"hex\": \"#C19A6B\",\n\"percentage\": \"20\",\n\"role\": \"主要主体\"\n},\n{\n\"color\": \"森林绿\",\n\"hex\": \"#2E4A22\",\n\"percentage\": \"45\",\n\"role\": \"背景\"\n},\n{\n\"color\": \"银色/灰色\",\n\"hex\": \"#A8A9AD\",\n\"percentage\": \"25\",\n\"role\": \"次要主体\"\n},\n{\n\"color\": \"奶油色/米白\",\n\"hex\": \"#F5F5DC\",\n\"percentage\": \"10\",\n\"role\": \"点缀\"\n}\n],\n\"color_palette\": \"类似色调与中性对比\",\n\"temperature\": \"暖色调\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然阳光\",\n\"source_count\": \"单一光源\",\n\"direction\": \"45 度侧面\",\n\"directionality\": \"高度定向\",\n\"quality\": \"硬光\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"精致\",\n\"shadows\": {\n\"type\": \"边缘分明的硬影\",\n\"density\": \"深黑色\",\n\"placement\": \"男士投射到汽车上，以及汽车下方投射到地面上\",\n\"length\": \"中等\"\n},\n\"highlights\": {\n\"treatment\": \"外套上阳光直射的部分过曝，汽车上呈镜面反射\",\n\"placement\": \"驼色外套右侧、镀铬侧后视镜、脸部右侧\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"暖色调（金色）\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度锐利\",\n\"grain\": \"胶片颗粒\",\n\"depth_of-field\": \"中等\",\n\"perspective\": \"正面直视\"\n},\n\"artistic_elements\": {\n\"genre\": \"社论\",\n\"influences\": [\n\"经典男装摄影\",\n\"汽车生活方式社论\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"富裕、轻松的乡村周末，将经典剪裁与复古汽车鉴赏相结合。\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": true,\n\"fonts\": [\n{\n\"type\": \"手写体\",\n\"weight\": \"常规\",\n\"characteristics\": \"复古\"\n}\n],\n\"placement\": \"集成在汽车防滚架上（显示“targa”）\",\n\"integration\": \"微妙\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"一名 30 岁末至 40 岁出头的白人男性，身穿驼色双排扣大衣、未扣扣子的白色正装衬衫和奶油色长裤，搭配棕色麂皮乐福鞋。发型分析：中等长度，顶部约 3-4 英寸，向后梳理，带有自然波浪。经典绅士发型，两侧渐细。发质自然。\"\n}\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "一位男士与一辆复古保时捷的编辑摄影 一个极其详细、结构化的提示，用于生成一张编辑类照片：画面中一名男子身穿驼色大衣，站在一辆复古银色保时捷 targa 旁边。提示中详细说明了构图、色彩配置文件、高对比度自然光、技术规格和艺术氛围，由 gemini nano banana pro 创建。 {\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"4:5\",\n\"layout\": \"multi-element\",\n\"focal_points\": [\n\"the man's face and upper torso\",\n\"the vintage silver porsche targa\"\n],\n\"visual_hierarchy\": \"eye starts at the man's sharply focused face, moves down his light-colored outfit, then sweeps right along the silver curves of the classic car, finally resting on the background foliage.\",\n\"balance\": \"asymmetric\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"camel\",\n\"hex\": \"#c19a6b\",\n\"percentage\": \"20\",\n\"role\": \"primary subject\"\n},\n{\n\"color\": \"forest green\",\n\"hex\": \"#2e4a22\",\n\"percentage\": \"45\",\n\"role\": \"background\"\n},\n{\n\"color\": \"silver/grey\",\n\"hex\": \"#a8a9ad\",\n\"percentage\": \"25\",\n\"role\": \"secondary subject\"\n},\n{\n\"color\": \"cream/off-white\",\n\"hex\": \"#f5f5dc\",\n\"percentage\": \"10\",\n\"role\": \"accent\"\n}\n],\n\"color_palette\": \"analogous with neutral contrast\",\n\"temperature\": \"warm\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural sunlight\",\n\"source_count\": \"single source\",\n\"direction\": \"45-degree side\",\n\"directionality\": \"highly directional\",\n\"quality\": \"hard light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"sophisticated\",\n\"shadows\": {\n\"type\": \"harsh defined edges\",\n\"density\": \"deep black\",\n\"placement\": \"cast by the man onto the car, and under the car onto the ground\",\n\"length\": \"medium\"\n},\n\"highlights\": {\n\"treatment\": \"blown out on the direct sun patches on the coat, specular on the car\",\n\"placement\": \"right side of the camel coat, chrome side mirror, right side of the face\"\n},\n\"ambient_fill\": \"present\",\n\"light_temperature\": \"warm (golden)\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"film grain\",\n\"depth_of_field\": \"medium\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"editorial\",\n\"influences\": [\n\"classic menswear photography\",\n\"automotive lifestyle editorial\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"wealthy, relaxed weekend in the countryside, combining classic tailoring with vintage automotive appreciation.\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": true,\n\"fonts\": [\n{\n\"type\": \"script\",\n\"weight\": \"regular\",\n\"characteristics\": \"vintage\"\n}\n],\n\"placement\": \"integrated on the car's roll bar (reading 'targa')\",\n\"integration\": \"subtle\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"a caucasian male in his late 30s to 40s wearing a camel double-breasted overcoat, unbuttoned white dress shirt, and cream trousers with brown suede loafers. hair analysis: medium length, approximately 3-4 inches on top, swept back with a natural wave. classic gentleman's cut with tapered sides. texture is natural wi ```json\n{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法构图\",\n\"aspect_ratio\": \"4:5\",\n\"layout\": \"多元素\",\n\"focal_points\": [\n\"男士的面部和上半身\",\n\"复古银色保时捷 targa\"\n],\n\"visual_hierarchy\": \"视线从男士清晰聚焦的脸部开始，向下移动到他浅色的服装，然后沿着经典汽车的银色曲线向右扫过，最后停留在背景的树叶上。\",\n\"balance\": \"不对称\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"驼色\",\n\"hex\": \"#c19a6b\",\n\"percentage\": \"20\",\n\"role\": \"主要主体\"\n},\n{\n\"color\": \"森林绿\",\n\"hex\": \"#2e4a22\",\n\"percentage\": \"45\",\n\"role\": \"背景\"\n},\n{\n\"color\": \"银色/灰色\",\n\"hex\": \"#a8a9ad\",\n\"percentage\": \"25\",\n\"role\": \"次要主体\"\n},\n{\n\"color\": \"奶油色/米白\",\n\"hex\": \"#f5f5dc\",\n\"percentage\": \"10\",\n\"role\": \"点缀\"\n}\n],\n\"color_palette\": \"类似色调与中性对比\",\n\"temperature\": \"暖色调\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然阳光\",\n\"source_count\": \"单一光源\",\n\"direction\": \"45 度侧面\",\n\"directionality\": \"高度定向\",\n\"quality\": \"硬光\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"精致\",\n\"shadows\": {\n\"type\": \"边缘分明的硬影\",\n\"density\": \"深黑色\",\n\"placement\": \"男士投射到汽车上，以及汽车下方投射到地面上\",\n\"length\": \"中等\"\n},\n\"highlights\": {\n\"treatment\": \"外套上阳光直射的部分过曝，汽车上呈镜面反射\",\n\"placement\": \"驼色外套右侧、镀铬侧后视镜、脸部右侧\"\n},\n\"ambient_fill\": \"存在\",\n\"light_temperature\": \"暖色调（金色）\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度锐利\",\n\"grain\": \"胶片颗粒\",\n\"depth_of-field\": \"中等\",\n\"perspective\": \"正面直视\"\n},\n\"artistic_elements\": {\n\"genre\": \"社论\",\n\"influences\": [\n\"经典男装摄影\",\n\"汽车生活方式社论\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"富裕、轻松的乡村周末，将经典剪裁与复古汽车鉴赏相结合。\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": true,\n\"fonts\": [\n{\n\"type\": \"手写体\",\n\"weight\": \"常规\",\n\"characteristics\": \"复古\"\n}\n],\n\"placement\": \"集成在汽车防滚架上（显示“targa”）\",\n\"integration\": \"微妙\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"一名 30 岁末至 40 岁出头的白人男性，身穿驼色双排扣大衣、未扣扣子的白色正装衬衫和奶油色长裤，搭配棕色麂皮乐福鞋。发型分析：中等长度，顶部约 3-4 英寸，向后梳理，带有自然波浪。经典绅士发型，两侧渐细。发质自然。\"\n}\n}\n``` picts by ai 12146",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12144,
+      "title": "Pixar 风格 3D 头像提示词，适用于 Nano Banana",
+      "description": "一个给 Nano Banana 的提示，用于生成参考人物的皮克斯风格 3D 头像特写，强调自信的表情、量身定制的服装和专业的影棚灯光。",
+      "sourceLink": "https://x.com/RegularPeopleAI/status/2032864973798649929",
+      "sourcePublishedAt": "2026-03-14T17:02:33.000Z",
+      "author": {
+        "name": "RegularPeopleAI",
+        "link": "https://x.com/RegularPeopleAI"
+      },
+      "content": "Pixar-style 3D avatar of [ reference person ], confident, warm smile. Tailored outfit, subtle catchlights in eyes, soft corporate studio lighting, clean white background, executive headshot",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556643004_u2ntez_HDYvZoEbcAA_4bh.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556643004_u2ntez_HDYvZoEbcAA_4bh-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "[ 参考人物 ] 的皮克斯风格 3D 头像，自信，温暖的微笑。量身定制的服装，眼睛里有微妙的眼神光，柔和的企业工作室灯光，干净的白色背景，高管头像。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "pixar 风格 3d 头像提示词，适用于 nano banana 一个给 nano banana 的提示，用于生成参考人物的皮克斯风格 3d 头像特写，强调自信的表情、量身定制的服装和专业的影棚灯光。 pixar-style 3d avatar of [ reference person ], confident, warm smile. tailored outfit, subtle catchlights in eyes, soft corporate studio lighting, clean white background, executive headshot [ 参考人物 ] 的皮克斯风格 3d 头像，自信，温暖的微笑。量身定制的服装，眼睛里有微妙的眼神光，柔和的企业工作室灯光，干净的白色背景，高管头像。 regularpeopleai 12144",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12151,
+      "title": "黄昏时燃烧屋顶上的电影级恶魔服装",
+      "description": "一个电影般的概念摄影提示，适用于 Nano Banana Pro (Flow)，详细描述了一位身穿鲜红色魔鬼服装的年轻女子，在黄昏时分坐在一栋燃烧的砖砌建筑屋顶边缘，强调火焰带来的戏剧性高对比度光影。",
+      "sourceLink": "https://x.com/SedraLab/status/2032863466017493109",
+      "sourcePublishedAt": "2026-03-14T16:56:33.000Z",
+      "author": {
+        "name": "Sedra",
+        "link": "https://x.com/SedraLab"
+      },
+      "content": "{\n  \"scene\": \"A young woman dressed in a devil costume sitting on the edge of a burning brick building rooftop at dusk.\",\n  \"subject\": {\n    \"character\": \"Young woman with a playful, mischievous persona.\",\n    \"face\": {\n      \"structure\": \"Soft features with a joyful expression.\",\n      \"skin\": \"Warm tone illuminated by firelight.\",\n      \"eyes\": {\n        \"shape\": \"Almond\",\n        \"expression\": \"Looking down with a satisfied smile.\"\n      },\n      \"mouth\": {\n        \"lips\": \"Full, natural color, wide smile.\"\n      }\n    },\n    \"hair\": {\n      \"color\": \"Dark brown\",\n      \"length\": \"Shoulder-length\",\n      \"texture\": \"Straight\",\n      \"style\": \"Down with bangs\"\n    },\n    \"accessories\": {\n      \"hat\": \"Red devil horns headband.\",\n      \"pitchfork\": \"Long black staff with a three-pronged red tip.\",\n      \"tail\": \"Pointed red devil tail hanging from the dress.\",\n      \"choker\": \"Red fabric choker.\"\n    }\n  },\n  \"pose\": {\n    \"overall\": \"Relaxed and perched on a ledge.\",\n    \"position\": {\n      \"base\": \"Sitting on the corner edge of a rooftop.\",\n      \"orientation\": \"Facing slightly right, looking downward.\"\n    },\n    \"torso\": {\n      \"direction\": \"Slightly angled\",\n      \"posture\": \"Lean and graceful\"\n    },\n    \"arms\": {\n      \"position\": \"Holding the pitchfork across her lap with both hands.\"\n    },\n    \"legs\": {\n      \"position\": \"Crossed at the knees, dangling over the edge.\",\n      \"visible\": \"Fully visible\"\n    },\n    \"head\": {\n      \"turn\": \"Tilted down toward the burning window.\",\n      \"expression\": \"Amused\"\n    }\n  },\n  \"outfit\": {\n    \"costume\": {\n      \"type\": \"Devil costume\",\n      \"color\": \"Vibrant red\",\n      \"style\": \"Mini dress with long sleeves and a V-neckline.\",\n      \"shoes\": \"Black Mary Jane style chunky heels.\"\n    }\n  },\n  \"body\": {\n    \"type\": \"Slim\",\n    \"skin\": \"Fair with orange glow\"\n  },\n  \"environment\": {\n    \"location\": \"A brick building rooftop with active fire and smoke.\",\n    \"building\": {\n      \"material\": \"Red brick\",\n      \"structure\": \"Corner of a flat-roofed building with windows.\",\n      \"fire\": \"Large flames erupting from the roof and a lower window.\"\n    },\n    \"background\": {\n      \"sky\": \"Deep blue twilight sky with heavy grey and orange smoke clouds.\",\n      \"trees\": \"Dark silhouettes of trees in the far distance.\"\n    }\n  },\n  \"lighting\": {\n    \"type\": \"Dramatic high-contrast lighting.\",\n    \"quality\": {\n      \"intensity\": \"Strong warm glow from the fire against cool ambient dusk.\",\n      \"direction\": \"Backlit by roof flames and bottom-lit by window flames.\"\n    },\n    \"on_subject\": {\n      \"skin\": \"Vivid orange highlights\",\n      \"hair\": \"Warm rim lighting\"\n    }\n  },\n  \"photography\": {\n    \"angle\": \"Slightly low angle looking up at the rooftop.\",\n    \"framing\": \"Full body shot including the building corner.\",\n    \"focus\": \"Sharp on the subject and the immediate flames.\",\n    \"style\": \"Cinematic conceptual photography\"\n  },\n  \"color_palette\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556646867_ln4w8m_HDYuemcXkAE5kqA.png"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556646867_ln4w8m_HDYuemcXkAE5kqA-300x534.png"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"scene\": \"一名年轻女子身着恶魔服装，在黄昏时分坐在一栋燃烧的砖砌建筑屋顶边缘。\",\n  \"subject\": {\n    \"character\": \"年轻女子，带着俏皮、淘气的个性。\",\n    \"face\": {\n      \"structure\": \"柔和的五官，带着愉悦的表情。\",\n      \"skin\": \"温暖的肤色，被火光照亮。\",\n      \"eyes\": {\n        \"shape\": \"杏仁状\",\n        \"expression\": \"低头，带着满足的微笑。\"\n      },\n      \"mouth\": {\n        \"lips\": \"丰满，自然唇色，笑容灿烂。\"\n      }\n    },\n    \"hair\": {\n      \"color\": \"深棕色\",\n      \"length\": \"及肩\",\n      \"texture\": \"直发\",\n      \"style\": \"披散，带刘海\"\n    },\n    \"accessories\": {\n      \"hat\": \"红色恶魔角发箍。\",\n      \"pitchfork\": \"长长的黑色手杖，带有三叉红色尖端。\",\n      \"tail\": \"从裙子垂下的尖头红色恶魔尾巴。\",\n      \"choker\": \"红色布料项圈。\"\n    }\n  },\n  \"pose\": {\n    \"overall\": \"放松地栖息在壁架上。\",\n    \"position\": {\n      \"base\": \"坐在屋顶的角落边缘。\",\n      \"orientation\": \"略微朝右，向下看。\"\n    },\n    \"torso\": {\n      \"direction\": \"略微倾斜\",\n      \"posture\": \"苗条而优雅\"\n    },\n    \"arms\": {\n      \"position\": \"双手将干草叉横放在膝上。\"\n    },\n    \"legs\": {\n      \"position\": \"膝盖交叉，悬垂在边缘。\",\n      \"visible\": \"完全可见\"\n    },\n    \"head\": {\n      \"turn\": \"头向下倾斜，朝向燃烧的窗户。\",\n      \"expression\": \" amused\"\n    }\n  },\n  \"outfit\": {\n    \"costume\": {\n      \"type\": \"恶魔服装\",\n      \"color\": \"鲜红色\",\n      \"style\": \"迷你连衣裙，长袖，V 领。\",\n      \"shoes\": \"黑色玛丽珍款式粗跟鞋。\"\n    }\n  },\n  \"body\": {\n    \"type\": \"苗条\",\n    \"skin\": \"白皙，带有橙色光泽\"\n  },\n  \"environment\": {\n    \"location\": \"一栋砖砌建筑的屋顶，有活跃的火焰和烟雾。\",\n    \"building\": {\n      \"material\": \"红砖\",\n      \"structure\": \"平顶建筑的角落，有窗户。\",\n      \"fire\": \"屋顶和下方窗户喷出大火。\"\n    },\n    \"background\": {\n      \"sky\": \"深蓝色黄昏天空，伴有浓重的灰色和橙色烟云。\",\n      \"trees\": \"远处树木的黑色剪影。\"\n    }\n  },\n  \"lighting\": {\n    \"type\": \"戏剧性的高对比度照明。\",\n    \"quality\": {\n      \"intensity\": \"火焰发出强烈的暖光，与凉爽的黄昏环境光形成对比。\",\n      \"direction\": \"被屋顶火焰背光，被窗户火焰底光照亮。\"\n    },\n    \"on_subject\": {\n      \"skin\": \"鲜明的橙色高光\",\n      \"hair\": \"温暖的轮廓光\"\n    }\n  },\n  \"photography\": {\n    \"angle\": \"略微低角度，向上看屋顶。\",\n    \"framing\": \"全身镜头，包括建筑角落。\",\n    \"focus\": \"主体和即时火焰清晰。\",\n    \"style\": \"电影概念摄影\"\n  },\n  \"color_palette\": \"\"\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "黄昏时燃烧屋顶上的电影级恶魔服装 一个电影般的概念摄影提示，适用于 nano banana pro (flow)，详细描述了一位身穿鲜红色魔鬼服装的年轻女子，在黄昏时分坐在一栋燃烧的砖砌建筑屋顶边缘，强调火焰带来的戏剧性高对比度光影。 {\n  \"scene\": \"a young woman dressed in a devil costume sitting on the edge of a burning brick building rooftop at dusk.\",\n  \"subject\": {\n    \"character\": \"young woman with a playful, mischievous persona.\",\n    \"face\": {\n      \"structure\": \"soft features with a joyful expression.\",\n      \"skin\": \"warm tone illuminated by firelight.\",\n      \"eyes\": {\n        \"shape\": \"almond\",\n        \"expression\": \"looking down with a satisfied smile.\"\n      },\n      \"mouth\": {\n        \"lips\": \"full, natural color, wide smile.\"\n      }\n    },\n    \"hair\": {\n      \"color\": \"dark brown\",\n      \"length\": \"shoulder-length\",\n      \"texture\": \"straight\",\n      \"style\": \"down with bangs\"\n    },\n    \"accessories\": {\n      \"hat\": \"red devil horns headband.\",\n      \"pitchfork\": \"long black staff with a three-pronged red tip.\",\n      \"tail\": \"pointed red devil tail hanging from the dress.\",\n      \"choker\": \"red fabric choker.\"\n    }\n  },\n  \"pose\": {\n    \"overall\": \"relaxed and perched on a ledge.\",\n    \"position\": {\n      \"base\": \"sitting on the corner edge of a rooftop.\",\n      \"orientation\": \"facing slightly right, looking downward.\"\n    },\n    \"torso\": {\n      \"direction\": \"slightly angled\",\n      \"posture\": \"lean and graceful\"\n    },\n    \"arms\": {\n      \"position\": \"holding the pitchfork across her lap with both hands.\"\n    },\n    \"legs\": {\n      \"position\": \"crossed at the knees, dangling over the edge.\",\n      \"visible\": \"fully visible\"\n    },\n    \"head\": {\n      \"turn\": \"tilted down toward the burning window.\",\n      \"expression\": \"amused\"\n    }\n  },\n  \"outfit\": {\n    \"costume\": {\n      \"type\": \"devil costume\",\n      \"color\": \"vibrant red\",\n      \"style\": \"mini dress with long sleeves and a v-neckline.\",\n      \"shoes\": \"black mary jane style chunky heels.\"\n    }\n  },\n  \"body\": {\n    \"type\": \"slim\",\n    \"skin\": \"fair with orange glow\"\n  },\n  \"environment\": {\n    \"location\": \"a brick building rooftop with active fire and smoke.\",\n    \"building\": {\n      \"material\": \"red brick\",\n      \"structure\": \"corner of a flat-roofed building with windows.\",\n      \"fire\": \"large flames erupting from the roof and a lower window.\"\n    },\n    \"background\": {\n      \"sky\": \"deep blue twilight sky with heavy grey and orange smoke clouds.\",\n      \"trees\": \"dark silhouettes of trees in the far distance.\"\n    }\n  },\n  \"lighting\": {\n    \"type\": \"dramatic high-contrast lighting.\",\n    \"quality\": {\n      \"intensity\": \"strong warm glow from the fire against cool ambient dusk.\",\n      \"direction\": \"backlit by roof flames and bottom-lit by window flames.\"\n    },\n    \"on_subject\": {\n      \"skin\": \"vivid orange highlights\",\n      \"hair\": \"warm rim lighting\"\n    }\n  },\n  \"photography\": {\n    \"angle\": \"slightly low angle looking up at the rooftop.\",\n    \"framing\": \"full body shot including the building corner.\",\n    \"focus\": \"sharp on the subject and the immediate flames.\",\n    \"style\": \"cinematic conceptual photography\"\n  },\n  \"color_palette\" ```json\n{\n  \"scene\": \"一名年轻女子身着恶魔服装，在黄昏时分坐在一栋燃烧的砖砌建筑屋顶边缘。\",\n  \"subject\": {\n    \"character\": \"年轻女子，带着俏皮、淘气的个性。\",\n    \"face\": {\n      \"structure\": \"柔和的五官，带着愉悦的表情。\",\n      \"skin\": \"温暖的肤色，被火光照亮。\",\n      \"eyes\": {\n        \"shape\": \"杏仁状\",\n        \"expression\": \"低头，带着满足的微笑。\"\n      },\n      \"mouth\": {\n        \"lips\": \"丰满，自然唇色，笑容灿烂。\"\n      }\n    },\n    \"hair\": {\n      \"color\": \"深棕色\",\n      \"length\": \"及肩\",\n      \"texture\": \"直发\",\n      \"style\": \"披散，带刘海\"\n    },\n    \"accessories\": {\n      \"hat\": \"红色恶魔角发箍。\",\n      \"pitchfork\": \"长长的黑色手杖，带有三叉红色尖端。\",\n      \"tail\": \"从裙子垂下的尖头红色恶魔尾巴。\",\n      \"choker\": \"红色布料项圈。\"\n    }\n  },\n  \"pose\": {\n    \"overall\": \"放松地栖息在壁架上。\",\n    \"position\": {\n      \"base\": \"坐在屋顶的角落边缘。\",\n      \"orientation\": \"略微朝右，向下看。\"\n    },\n    \"torso\": {\n      \"direction\": \"略微倾斜\",\n      \"posture\": \"苗条而优雅\"\n    },\n    \"arms\": {\n      \"position\": \"双手将干草叉横放在膝上。\"\n    },\n    \"legs\": {\n      \"position\": \"膝盖交叉，悬垂在边缘。\",\n      \"visible\": \"完全可见\"\n    },\n    \"head\": {\n      \"turn\": \"头向下倾斜，朝向燃烧的窗户。\",\n      \"expression\": \" amused\"\n    }\n  },\n  \"outfit\": {\n    \"costume\": {\n      \"type\": \"恶魔服装\",\n      \"color\": \"鲜红色\",\n      \"style\": \"迷你连衣裙，长袖，v 领。\",\n      \"shoes\": \"黑色玛丽珍款式粗跟鞋。\"\n    }\n  },\n  \"body\": {\n    \"type\": \"苗条\",\n    \"skin\": \"白皙，带有橙色光泽\"\n  },\n  \"environment\": {\n    \"location\": \"一栋砖砌建筑的屋顶，有活跃的火焰和烟雾。\",\n    \"building\": {\n      \"material\": \"红砖\",\n      \"structure\": \"平顶建筑的角落，有窗户。\",\n      \"fire\": \"屋顶和下方窗户喷出大火。\"\n    },\n    \"background\": {\n      \"sky\": \"深蓝色黄昏天空，伴有浓重的灰色和橙色烟云。\",\n      \"trees\": \"远处树木的黑色剪影。\"\n    }\n  },\n  \"lighting\": {\n    \"type\": \"戏剧性的高对比度照明。\",\n    \"quality\": {\n      \"intensity\": \"火焰发出强烈的暖光，与凉爽的黄昏环境光形成对比。\",\n      \"direction\": \"被屋顶火焰背光，被窗户火焰底光照亮。\"\n    },\n    \"on_subject\": {\n      \"skin\": \"鲜明的橙色高光\",\n      \"hair\": \"温暖的轮廓光\"\n    }\n  },\n  \"photography\": {\n    \"angle\": \"略微低角度，向上看屋顶。\",\n    \"framing\": \"全身镜头，包括建筑角落。\",\n    \"focus\": \"主体和即时火焰清晰。\",\n    \"style\": \"电影概念摄影\"\n  },\n  \"color_palette\": \"\"\n}\n``` sedra 12151",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12134,
+      "title": "现代别墅布局提示",
+      "description": "一个用于 Google Nano Banana 的提示，以创建现代别墅的图像布局，包括草图分析渲染图。",
+      "sourceLink": "https://x.com/AbedGhalayini1/status/2032859301652377739",
+      "sourcePublishedAt": "2026-03-14T16:40:00.000Z",
+      "author": {
+        "name": "Abed",
+        "link": "https://x.com/AbedGhalayini1"
+      },
+      "content": "Create an image layout of a modern villa with sketchy analysis renders",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556637589_3fog8t_HDYqwSUXwAAyZ4j.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556637589_3fog8t_HDYqwSUXwAAyZ4j-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建一个现代别墅的图像布局，并附带草图分析渲染图",
+      "sourcePlatform": "twitter",
+      "searchIndex": "现代别墅布局提示 一个用于 google nano banana 的提示，以创建现代别墅的图像布局，包括草图分析渲染图。 create an image layout of a modern villa with sketchy analysis renders 创建一个现代别墅的图像布局，并附带草图分析渲染图 abed 12134",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12136,
+      "title": "时尚专题摄影提示",
+      "description": "在 Yapper 上为 Google Nano Banana Pro 提供一个详细的提示，以生成一张女性在现代简约工作室中的全身时尚编辑照片，具体说明她的服装、姿势、配饰以及工作室环境和灯光。",
+      "sourceLink": "https://x.com/mehvishs25/status/2032851180863512777",
+      "sourcePublishedAt": "2026-03-14T16:07:44.000Z",
+      "author": {
+        "name": "Meem",
+        "link": "https://x.com/mehvishs25"
+      },
+      "content": "A full-body fashion editorial photograph of a woman standing indoors in a modern minimalist studio. She stands slightly angled left, looking away from the camera in a relaxed pose, one hand in her trouser pocket and the other holding a burgundy handbag. She wears a deep burgundy long-sleeve blouse with a dramatic ruffle across the chest and light beige high-waisted wide-leg trousers. Her brown hair is styled in a messy low bun with loose strands and small drop earrings. The room features a light sofa, arched wall opening, white curtains, indoor plant, side table, and a visible studio softbox. Soft natural light enters from the left creating gentle shadows. Clean editorial fashion photography style, shallow depth of field, neutral tones, ultra-detailed, 8K, vertical portrait.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556637748_r63pou_HDYjXciacAAcye3.jpg",
+        "https://cms-assets.youmind.com/media/1773556637779_2uaasu_HDYjXeEaMAUjpsP.jpg",
+        "https://cms-assets.youmind.com/media/1773556637594_vehhxg_HDYjXeCaMAMtk61.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556637748_r63pou_HDYjXciacAAcye3-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773556637779_2uaasu_HDYjXeEaMAUjpsP-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773556637594_vehhxg_HDYjXeCaMAMtk61-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张全身时尚杂志风格的照片，一名女性站在室内现代简约的工作室中。她身体略微向左倾斜，目光看向别处，姿态放松，一只手插在裤兜里，另一只手拿着一个酒红色手提包。她穿着一件深酒红色长袖衬衫，胸前有引人注目的荷叶边，搭配浅米色高腰阔腿裤。她的棕色头发梳成凌乱的低发髻，留有几缕散发，佩戴小巧的垂坠耳环。房间内有浅色沙发、拱形墙洞、白色窗帘、室内植物、边桌，以及一个可见的工作室柔光箱。柔和的自然光从左侧射入，营造出轻柔的阴影。干净的时尚杂志摄影风格，浅景深，中性色调，超细节，8K，竖幅肖像。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "时尚专题摄影提示 在 yapper 上为 google nano banana pro 提供一个详细的提示，以生成一张女性在现代简约工作室中的全身时尚编辑照片，具体说明她的服装、姿势、配饰以及工作室环境和灯光。 a full-body fashion editorial photograph of a woman standing indoors in a modern minimalist studio. she stands slightly angled left, looking away from the camera in a relaxed pose, one hand in her trouser pocket and the other holding a burgundy handbag. she wears a deep burgundy long-sleeve blouse with a dramatic ruffle across the chest and light beige high-waisted wide-leg trousers. her brown hair is styled in a messy low bun with loose strands and small drop earrings. the room features a light sofa, arched wall opening, white curtains, indoor plant, side table, and a visible studio softbox. soft natural light enters from the left creating gentle shadows. clean editorial fashion photography style, shallow depth of field, neutral tones, ultra-detailed, 8k, vertical portrait. 一张全身时尚杂志风格的照片，一名女性站在室内现代简约的工作室中。她身体略微向左倾斜，目光看向别处，姿态放松，一只手插在裤兜里，另一只手拿着一个酒红色手提包。她穿着一件深酒红色长袖衬衫，胸前有引人注目的荷叶边，搭配浅米色高腰阔腿裤。她的棕色头发梳成凌乱的低发髻，留有几缕散发，佩戴小巧的垂坠耳环。房间内有浅色沙发、拱形墙洞、白色窗帘、室内植物、边桌，以及一个可见的工作室柔光箱。柔和的自然光从左侧射入，营造出轻柔的阴影。干净的时尚杂志摄影风格，浅景深，中性色调，超细节，8k，竖幅肖像。 meem 12136",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12138,
+      "title": "萨迪·辛克 (Sadie Sink) 在地中海咖啡馆身穿粗花呢的抓拍肖像",
+      "description": "一个详细的提示，用于生成女演员 Sadie Sink 的高分辨率、抓拍肖像，强调柔和、自然的光线和地中海风格的露台背景，使用 Nano Banana Pro 模型。",
+      "sourceLink": "https://x.com/Jodie_Noraa/status/2032830729915347059",
+      "sourcePublishedAt": "2026-03-14T14:46:28.000Z",
+      "author": {
+        "name": "J⭕DIE",
+        "link": "https://x.com/Jodie_Noraa"
+      },
+      "content": "\"A high-resolution, candid portrait of a young woman with vibrant long ginger hair and blue eyes, smiling warmly while resting her chin on her hand at an outdoor café. She wears a light blue and white textured tweed sleeveless dress with thick straps, accessorized with an ornate gold watch, several gold rings, and a small black floral tattoo on her inner wrist. A hot pink quilted luxury handbag with a gold logo sits on her lap, while the background features a classic black wrought iron railing, a sunlit pool with turquoise water, and a woven café chair with an orange and white geometric pattern. The lighting is soft and natural, emphasizing her fair, freckled complexion and the elegant, relaxed atmosphere of a Mediterranean-style terrace.\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556639146_j8t3ln_HDYQsA5akAATsfv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556639146_j8t3ln_HDYQsA5akAATsfv-300x381.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张高分辨率的写实肖像，描绘了一位年轻女性，她拥有一头充满活力的长姜黄色头发和蓝色眼睛，在一家户外咖啡馆里，她将下巴靠在手上，笑容温暖。她身穿一件浅蓝色和白色相间的粗花呢无袖连衣裙，肩带较粗，佩戴着一只华丽的金色手表、几枚金戒指，内手腕上有一个小小的黑色花朵纹身。一个带有金色标志的亮粉色绗缝奢华手袋放在她的腿上，背景是经典的黑色铸铁栏杆、阳光普照的碧蓝色泳池，以及一把带有橙色和白色几何图案的编织咖啡馆椅子。光线柔和自然，突显了她白皙、布满雀斑的肤色，以及地中海风格露台优雅而放松的氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "萨迪·辛克 (sadie sink) 在地中海咖啡馆身穿粗花呢的抓拍肖像 一个详细的提示，用于生成女演员 sadie sink 的高分辨率、抓拍肖像，强调柔和、自然的光线和地中海风格的露台背景，使用 nano banana pro 模型。 \"a high-resolution, candid portrait of a young woman with vibrant long ginger hair and blue eyes, smiling warmly while resting her chin on her hand at an outdoor café. she wears a light blue and white textured tweed sleeveless dress with thick straps, accessorized with an ornate gold watch, several gold rings, and a small black floral tattoo on her inner wrist. a hot pink quilted luxury handbag with a gold logo sits on her lap, while the background features a classic black wrought iron railing, a sunlit pool with turquoise water, and a woven café chair with an orange and white geometric pattern. the lighting is soft and natural, emphasizing her fair, freckled complexion and the elegant, relaxed atmosphere of a mediterranean-style terrace.\" 一张高分辨率的写实肖像，描绘了一位年轻女性，她拥有一头充满活力的长姜黄色头发和蓝色眼睛，在一家户外咖啡馆里，她将下巴靠在手上，笑容温暖。她身穿一件浅蓝色和白色相间的粗花呢无袖连衣裙，肩带较粗，佩戴着一只华丽的金色手表、几枚金戒指，内手腕上有一个小小的黑色花朵纹身。一个带有金色标志的亮粉色绗缝奢华手袋放在她的腿上，背景是经典的黑色铸铁栏杆、阳光普照的碧蓝色泳池，以及一把带有橙色和白色几何图案的编织咖啡馆椅子。光线柔和自然，突显了她白皙、布满雀斑的肤色，以及地中海风格露台优雅而放松的氛围。 j⭕die 12138",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12148,
+      "title": "奢华座驾与山地风情编辑精选",
+      "description": "以下是生成一张时尚编辑图片的提示：一位时尚年轻女性（基于上传的面部）坐在一辆哑光红色豪华跑车上，置身于风景优美的山路上。画面中融入了红玫瑰、优雅的黑色缎面服装和一杯麦当劳冰饮，以营造奢华与休闲元素的对比。此图片使用 Nano Banana Pro 创建。",
+      "sourceLink": "https://x.com/AIwithSynthia/status/2032830216779821124",
+      "sourcePublishedAt": "2026-03-14T14:44:26.000Z",
+      "author": {
+        "name": "Synthia",
+        "link": "https://x.com/AIwithSynthia"
+      },
+      "content": "A stylish young woman with the uploaded image face, wearing an elegant black satin outfit and trendy sunglasses, sits confidently on the back of a matte red luxury sports car parked on a scenic mountain road. Red roses are scattered across the car’s trunk and spoiler, creating a romantic cinematic aesthetic. She holds a McDonald’s iced drink toward the camera as if offering it, with a McDonald’s paper bag and another drink beside her. Moody cloudy mountains in the background, soft cinematic lighting, fashion editorial photography style, shallow depth of field, ultra-realistic, luxury lifestyle vibe.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556645559_ho2zmg_HDYQTuLbwAA8jhJ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556645559_ho2zmg_HDYQTuLbwAA8jhJ-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位时尚的年轻女子，拥有上传图片中的面孔，身着优雅的黑色缎面服装，戴着时髦的太阳镜，自信地坐在一辆停在风景优美的山路上的哑光红色豪华跑车后部。红玫瑰散落在汽车的后备箱和扰流板上，营造出浪漫的电影美学。她手持一杯麦当劳冰饮，仿佛要递给镜头，旁边放着一个麦当劳纸袋和另一杯饮料。背景是阴沉多云的山脉，柔和的电影灯光，时尚杂志摄影风格，浅景深，超现实主义，奢华生活方式氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "奢华座驾与山地风情编辑精选 以下是生成一张时尚编辑图片的提示：一位时尚年轻女性（基于上传的面部）坐在一辆哑光红色豪华跑车上，置身于风景优美的山路上。画面中融入了红玫瑰、优雅的黑色缎面服装和一杯麦当劳冰饮，以营造奢华与休闲元素的对比。此图片使用 nano banana pro 创建。 a stylish young woman with the uploaded image face, wearing an elegant black satin outfit and trendy sunglasses, sits confidently on the back of a matte red luxury sports car parked on a scenic mountain road. red roses are scattered across the car’s trunk and spoiler, creating a romantic cinematic aesthetic. she holds a mcdonald’s iced drink toward the camera as if offering it, with a mcdonald’s paper bag and another drink beside her. moody cloudy mountains in the background, soft cinematic lighting, fashion editorial photography style, shallow depth of field, ultra-realistic, luxury lifestyle vibe. 一位时尚的年轻女子，拥有上传图片中的面孔，身着优雅的黑色缎面服装，戴着时髦的太阳镜，自信地坐在一辆停在风景优美的山路上的哑光红色豪华跑车后部。红玫瑰散落在汽车的后备箱和扰流板上，营造出浪漫的电影美学。她手持一杯麦当劳冰饮，仿佛要递给镜头，旁边放着一个麦当劳纸袋和另一杯饮料。背景是阴沉多云的山脉，柔和的电影灯光，时尚杂志摄影风格，浅景深，超现实主义，奢华生活方式氛围。 synthia 12148",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12154,
+      "title": "Noir Gold 电影肖像海报",
+      "description": "一个给 Google Nano Banana Pro 的提示：创作一张超现实的电影肖像海报，风格为黑色电影金色调，画面中是一位自信的男士，配以富有戏剧性的影棚灯光，背景是巨大的金属金色字体。",
+      "sourceLink": "https://x.com/shushant_l/status/2032819113308074313",
+      "sourcePublishedAt": "2026-03-14T14:00:19.000Z",
+      "author": {
+        "name": "Shushant Lakhyani",
+        "link": "https://x.com/shushant_l"
+      },
+      "content": "ultra realistic cinematic portrait poster of a confident man using the attached face image as reference, centered headshot with shoulders visible and a calm powerful expression. Use dramatic studio lighting with a soft key light and subtle rim lighting for depth and contrast. The background should be dark matte black or charcoal with a luxury cinematic feel. Place very large tall condensed vertical typography behind the subject in the same stretched style as the reference image, partially hidden by the subject, with the text placeholder “[{argument name=\"title text\" default=\"INSERT TITLE TEXT HERE\"}]”. The typography should be metallic gold with a subtle foil shine. Dress the subject in a refined masculine outfit such as a black tailored suit or elegant modern sherwani. Style the image as a classy luxury editorial poster with deep black and gold tones, ultra realistic skin detail, shallow depth of field, cinematic color grading, and high resolution professional photography",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556648326_pq5o4s_HDYGL9waoAA_Ui5.jpg",
+        "https://cms-assets.youmind.com/media/1773556648328_ca81xp_HDYGMhdaUAANIx9.jpg",
+        "https://cms-assets.youmind.com/media/1773556648432_qm8lip_HDYGM8sasAAM_oJ.jpg",
+        "https://cms-assets.youmind.com/media/1773556648853_9o3yds_HDYGNZkaEAAjaa9.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556648326_pq5o4s_HDYGL9waoAA_Ui5-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556648328_ca81xp_HDYGMhdaUAANIx9-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556648432_qm8lip_HDYGM8sasAAM_oJ-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773556648853_9o3yds_HDYGNZkaEAAjaa9-300x168.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "以所附面部图像为参考，创作一张自信男士的超现实电影感肖像海报。居中特写，可见肩膀，表情平静而有力。使用戏剧性的影棚灯光，柔和的主光和微妙的轮廓光，以增加深度和对比度。背景应为深哑光黑色或炭灰色，营造出奢华的电影感。在主体身后放置超大、高挑、紧凑的垂直排版文字，风格与参考图像中的拉伸样式相同，部分被主体遮挡，文本占位符为“[{argument name=\"title text\" default=\"INSERT TITLE TEXT HERE\"}]”。排版文字应为金属金色，带有微妙的箔片光泽。为人物穿上精致的男性服装，例如黑色定制西装或优雅的现代谢尔瓦尼服。将图像风格化为经典奢华的编辑海报，采用深黑色和金色调，超逼真的皮肤细节，浅景深，电影级色彩分级，以及高分辨率专业摄影。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "noir gold 电影肖像海报 一个给 google nano banana pro 的提示：创作一张超现实的电影肖像海报，风格为黑色电影金色调，画面中是一位自信的男士，配以富有戏剧性的影棚灯光，背景是巨大的金属金色字体。 ultra realistic cinematic portrait poster of a confident man using the attached face image as reference, centered headshot with shoulders visible and a calm powerful expression. use dramatic studio lighting with a soft key light and subtle rim lighting for depth and contrast. the background should be dark matte black or charcoal with a luxury cinematic feel. place very large tall condensed vertical typography behind the subject in the same stretched style as the reference image, partially hidden by the subject, with the text placeholder “[{argument name=\"title text\" default=\"insert title text here\"}]”. the typography should be metallic gold with a subtle foil shine. dress the subject in a refined masculine outfit such as a black tailored suit or elegant modern sherwani. style the image as a classy luxury editorial poster with deep black and gold tones, ultra realistic skin detail, shallow depth of field, cinematic color grading, and high resolution professional photography 以所附面部图像为参考，创作一张自信男士的超现实电影感肖像海报。居中特写，可见肩膀，表情平静而有力。使用戏剧性的影棚灯光，柔和的主光和微妙的轮廓光，以增加深度和对比度。背景应为深哑光黑色或炭灰色，营造出奢华的电影感。在主体身后放置超大、高挑、紧凑的垂直排版文字，风格与参考图像中的拉伸样式相同，部分被主体遮挡，文本占位符为“[{argument name=\"title text\" default=\"insert title text here\"}]”。排版文字应为金属金色，带有微妙的箔片光泽。为人物穿上精致的男性服装，例如黑色定制西装或优雅的现代谢尔瓦尼服。将图像风格化为经典奢华的编辑海报，采用深黑色和金色调，超逼真的皮肤细节，浅景深，电影级色彩分级，以及高分辨率专业摄影。 shushant lakhyani 12154",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12155,
+      "title": "哥特式废墟大教堂中的电影人像",
+      "description": "一个戏剧性、电影感的肖像提示，适用于 Gemini Nano Banana 2，描绘了一个主体在黄昏时分的废弃哥特式大教堂中，强调低角度视角、强烈的体积光束、明暗对比的阴影，以及黑暗奇幻史诗电影的美学风格。",
+      "sourceLink": "https://x.com/NikhilRajX/status/2032805100062912798",
+      "sourcePublishedAt": "2026-03-14T13:04:38.000Z",
+      "author": {
+        "name": "Nikhil",
+        "link": "https://x.com/NikhilRajX"
+      },
+      "content": "Cinematic dramatic portrait of [{argument name=\"subject description\" default=\"your description\"}], low camera angle looking up heroically, intense volumetric god rays piercing through shattered stained-glass windows and collapsed roof in an abandoned gothic cathedral at twilight, cool blue-purple volumetric light beams cutting through thick dust, incense-like haze, and floating particles, strong rim lighting and subtle warm backlight halo around the face and hair, sharp chiaroscuro shadows sculpting facial features, towering ruined stone arches, broken pews and debris softly blurred in background, dynamic contemplative pose - head tilted slightly upward toward the divine light, eyes gazing intensely into the beams, subtle wind moving hair and clothing, moody ethereal atmosphere blending dystopian ruin with sacred majesty, film still from dark fantasy epic, volumetric fog everywhere, god rays dominating composition, ultra-realistic skin texture with pores and subtle highlights, anamorphic lens flares, cinematic color grade with deep teal shadows and faint golden rim, shot on 35mm Arri Alexa, directed by Ridley Scott or Guillermo del Toro, atmospheric depth, masterpiece.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556648526_v783m8_HDX5akwaMAAa-uL.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556648526_v783m8_HDX5akwaMAAa-uL-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "电影般的戏剧性肖像，描绘了 [{argument name=\"subject description\" default=\"你的描述\"}]，低机位仰视，呈现出英雄气概，强烈的体积光束穿透废弃哥特式大教堂中破碎的彩色玻璃窗和坍塌的屋顶，时值黄昏，凉爽的蓝紫色体积光束穿过浓厚的灰尘、香炉般的薄雾和漂浮的颗粒，强烈的轮廓光和微妙的暖色背光在脸部和头发周围形成光晕，锐利的明暗对比阴影勾勒出面部特征，高耸的废墟石拱门，破碎的长椅和杂物在背景中柔和模糊，动态的沉思姿态——头部略微向上倾斜，望向神圣的光芒，眼睛凝视着光束，微风轻拂头发和衣物，忧郁空灵的氛围融合了反乌托邦的废墟与神圣的庄严，出自黑暗奇幻史诗的电影剧照，体积雾弥漫，上帝光线主导构图，超逼真的皮肤纹理，带有毛孔和微妙的高光，变形镜头眩光，电影级色彩分级，深青色阴影和微弱的金色边缘光，使用 35mm Arri Alexa 拍摄，由雷德利·斯科特（Ridley Scott）或吉尔莫·德尔·托罗（Guillermo del Toro）执导，富有氛围感的深度，杰作。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "哥特式废墟大教堂中的电影人像 一个戏剧性、电影感的肖像提示，适用于 gemini nano banana 2，描绘了一个主体在黄昏时分的废弃哥特式大教堂中，强调低角度视角、强烈的体积光束、明暗对比的阴影，以及黑暗奇幻史诗电影的美学风格。 cinematic dramatic portrait of [{argument name=\"subject description\" default=\"your description\"}], low camera angle looking up heroically, intense volumetric god rays piercing through shattered stained-glass windows and collapsed roof in an abandoned gothic cathedral at twilight, cool blue-purple volumetric light beams cutting through thick dust, incense-like haze, and floating particles, strong rim lighting and subtle warm backlight halo around the face and hair, sharp chiaroscuro shadows sculpting facial features, towering ruined stone arches, broken pews and debris softly blurred in background, dynamic contemplative pose - head tilted slightly upward toward the divine light, eyes gazing intensely into the beams, subtle wind moving hair and clothing, moody ethereal atmosphere blending dystopian ruin with sacred majesty, film still from dark fantasy epic, volumetric fog everywhere, god rays dominating composition, ultra-realistic skin texture with pores and subtle highlights, anamorphic lens flares, cinematic color grade with deep teal shadows and faint golden rim, shot on 35mm arri alexa, directed by ridley scott or guillermo del toro, atmospheric depth, masterpiece. 电影般的戏剧性肖像，描绘了 [{argument name=\"subject description\" default=\"你的描述\"}]，低机位仰视，呈现出英雄气概，强烈的体积光束穿透废弃哥特式大教堂中破碎的彩色玻璃窗和坍塌的屋顶，时值黄昏，凉爽的蓝紫色体积光束穿过浓厚的灰尘、香炉般的薄雾和漂浮的颗粒，强烈的轮廓光和微妙的暖色背光在脸部和头发周围形成光晕，锐利的明暗对比阴影勾勒出面部特征，高耸的废墟石拱门，破碎的长椅和杂物在背景中柔和模糊，动态的沉思姿态——头部略微向上倾斜，望向神圣的光芒，眼睛凝视着光束，微风轻拂头发和衣物，忧郁空灵的氛围融合了反乌托邦的废墟与神圣的庄严，出自黑暗奇幻史诗的电影剧照，体积雾弥漫，上帝光线主导构图，超逼真的皮肤纹理，带有毛孔和微妙的高光，变形镜头眩光，电影级色彩分级，深青色阴影和微弱的金色边缘光，使用 35mm arri alexa 拍摄，由雷德利·斯科特（ridley scott）或吉尔莫·德尔·托罗（guillermo del toro）执导，富有氛围感的深度，杰作。 nikhil 12155",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12143,
+      "title": "超逼真蓝莓酸奶飞溅广告",
+      "description": "一个为 Nano Banana 2（结合 Google Veo 3.1）设计的提示，用于生成一个超现实的电影级酸奶广告，其中包含高速飞溅的蓝莓酸奶，重点突出奢华的商业美学和高分辨率的液体运动。",
+      "sourceLink": "https://x.com/Strength04_X/status/2032790337073328459",
+      "sourcePublishedAt": "2026-03-14T12:05:58.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "Ultra-realistic cinematic yogurt advertisement showing a premium blueberry yogurt cup labeled “Berry Cream” bursting from a creamy yogurt splash. Fresh blueberries, milk droplets, and glossy cream waves surround the cup. A modern smartphone behind shows a breakfast social feed. Soft purple-blue gradient background, bright studio lights, high-speed liquid motion, luxury dairy commercial, 8K resolution.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556642250_cvd1o8_HDXr_mkaAAA4Q7t.jpg",
+        "https://cms-assets.youmind.com/media/1773556642334_yhh130_HDXr_UFaoAA_e-O.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556642250_cvd1o8_HDXr_mkaAAA4Q7t-300x514.jpg",
+        "https://cms-assets.youmind.com/media/1773556642334_yhh130_HDXr_UFaoAA_e-O-300x513.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超逼真的电影级酸奶广告，展示了一个标有“Berry Cream”字样的优质蓝莓酸奶杯，从奶油般的酸奶飞溅中爆裂而出。新鲜的蓝莓、牛奶滴和光泽的奶油波浪环绕着杯子。后面的一部现代智能手机显示着早餐社交动态。柔和的紫蓝色渐变背景，明亮的摄影棚灯光，高速液体运动，奢华乳制品广告，8K 分辨率。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超逼真蓝莓酸奶飞溅广告 一个为 nano banana 2（结合 google veo 3.1）设计的提示，用于生成一个超现实的电影级酸奶广告，其中包含高速飞溅的蓝莓酸奶，重点突出奢华的商业美学和高分辨率的液体运动。 ultra-realistic cinematic yogurt advertisement showing a premium blueberry yogurt cup labeled “berry cream” bursting from a creamy yogurt splash. fresh blueberries, milk droplets, and glossy cream waves surround the cup. a modern smartphone behind shows a breakfast social feed. soft purple-blue gradient background, bright studio lights, high-speed liquid motion, luxury dairy commercial, 8k resolution. 超逼真的电影级酸奶广告，展示了一个标有“berry cream”字样的优质蓝莓酸奶杯，从奶油般的酸奶飞溅中爆裂而出。新鲜的蓝莓、牛奶滴和光泽的奶油波浪环绕着杯子。后面的一部现代智能手机显示着早餐社交动态。柔和的紫蓝色渐变背景，明亮的摄影棚灯光，高速液体运动，奢华乳制品广告，8k 分辨率。 𝐌 12143",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12164,
+      "title": "AI 图像生成提示词，用于四格漫画：学术界的沉默",
+      "description": "一位用户分享了在 Nano Banana Pro (Gemini 3 Pro Image) 中使用的提示词，以生成一部名为《学术寂静》的四格漫画，内容聚焦于大学名称和学术等级制度。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2032780218734436844",
+      "sourcePublishedAt": "2026-03-14T11:25:46.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "4コマ漫画タイトル：\n学歴の静寂（しじま）\n\n東大　京大\n6大\nMARCH NG\n日東駒専\n\nもう　\n各大学名前がわからないんだけど…笑",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556653400_b89ub8_HDXi1KVaMAAi1XE.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556653400_b89ub8_HDXi1KVaMAAi1XE-300x111.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "四格漫画标题：\n学术寂静\n\n东京大学、京都大学\n六所主要大学\nMARCH NG\n日东驹专\n\n我连大学的名字都不知道了……哈哈",
+      "sourcePlatform": "twitter",
+      "searchIndex": "ai 图像生成提示词，用于四格漫画：学术界的沉默 一位用户分享了在 nano banana pro (gemini 3 pro image) 中使用的提示词，以生成一部名为《学术寂静》的四格漫画，内容聚焦于大学名称和学术等级制度。 4コマ漫画タイトル：\n学歴の静寂（しじま）\n\n東大　京大\n6大\nmarch ng\n日東駒専\n\nもう　\n各大学名前がわからないんだけど…笑 四格漫画标题：\n学术寂静\n\n东京大学、京都大学\n六所主要大学\nmarch ng\n日东驹专\n\n我连大学的名字都不知道了……哈哈 クラリネットクラリオンnobu 12164",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12150,
+      "title": "游戏室中萨布丽娜·卡彭特 (Sabrina Carpenter) 的超逼真镜面自拍",
+      "description": "一个详细的、超逼真的提示，用于 Nano Banana 2 生成一张萨布丽娜·卡彭特（Sabrina Carpenter）在舒适、充满活力的 RGB 灯光游戏室里自拍镜子的图片，重点突出她的“Velma”角色扮演服装和专注的眼神。",
+      "sourceLink": "https://x.com/Strength04_X/status/2032777108267872404",
+      "sourcePublishedAt": "2026-03-14T11:13:24.000Z",
+      "author": {
+        "name": "𝐌",
+        "link": "https://x.com/Strength04_X"
+      },
+      "content": "{\n    “quality”: “ultra_photorealistic, raw style, 8k, highly detailed”,\n    “camera”: “iPhone 15 Pro Max, mirror selfie mode”,\n    “lighting”: “vibrant indoor RGB lighting, soft pink and warm ambient glow”,\n    “style”: “influencer aesthetic, cozy gaming room background”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “A professional gaming room with white wood-paneled walls. The background features a white shelving unit displaying a Nintendo Switch and colorful toy blasters, a plush pink gaming chair with a paw-print cushion, and decorative ivy vines hanging on the wall. A small cherry blossom tree stands on the far left.”,\n    “atmosphere”: “Cozy, playful, modern digital creator aesthetic.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"Sabrina Carpenter\"}”,\n    “body”: {\n“type”: “Slim, fit physique. She is positioned in a full crouching squat, balancing on the balls of her feet and tiptoes atop a white plush shag rug. Her body is oriented in a sharp side profile relative to a large mirror.”\n    },\n    “face”: {\n      “features”: “Identifiable features of {argument name=\"subject name\" default=\"Sabrina Carpenter\"} with long, center-parted blonde hair and curtain bangs. She is wearing thick, black-rimmed glasses.”,\n      “expression”: “A confident and intense gaze, looking directly into the mirror to establish sharp eye contact with the viewer through the reflection.”\n    },\n    “outfit”: {\n      “description”: “A vibrant orange long-sleeved turtleneck crop top paired with a dark red pleated micro-mini skirt and matching orange over-the-knee socks.”,\n      “fit”: “Tight-fitting, stylized ‘Velma’ cosplay that emphasizes the pose.”,\n      “accessory”: “Holding a white iPhone 15 Pro Max in her right hand at chest level.”\n    },\n“pose”: “Squatting on tiptoes with knees deeply bent. Her torso is kept upright in a side-profile view. Her right hand is holding the phone up to capture a mirror selfie, while her left hand is elegantly raised, fingertips lightly touching the side frame of her glasses.”\n  },\n  “composition”: “Vertical 9:16 frame. A full-body side-profile mirror selfie. The focus is sharp on the subject’s profile, the direct eye contact in the reflection, and the texture of the orange fabric. The detailed gaming room background is clearly visible in the mirror’s reflection.”\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556645866_2xfzuu_HDXf-sLaMAEqA7f.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556645866_2xfzuu_HDXf-sLaMAEqA7f-300x224.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n    “quality”: “超逼真、原始风格、8k、高度细节”,\n    “camera”: “iPhone 15 Pro Max, 镜像自拍模式”,\n    “lighting”: “充满活力的室内 RGB 照明，柔和的粉色和温暖的环境光”,\n    “style”: “网红美学，舒适的游戏室背景”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “专业的游戏室，白色木镶板墙壁。背景设有一个白色置物架，上面展示着一台 Nintendo Switch 和色彩鲜艳的玩具枪，一张带有爪印坐垫的毛绒粉色游戏椅，以及墙上悬挂的装饰性常春藤藤蔓。左侧远处有一棵小樱花树。”\n,\n    “atmosphere”: “舒适、俏皮、现代数字创作者美学。”\n  },\n  “subject”: {\n    “gender”: “女性”,\n    “name”: “{argument name=\"subject name\" default=\"Sabrina Carpenter\"}”,\n    “body”: {\n“type”: “苗条、健美的身材。她呈完全蹲姿，脚尖和脚趾着地，平衡在一块白色毛绒地毯上。她的身体相对于一面大镜子呈锐利的侧面轮廓。”\n    },\n    “face”: {\n      “features”: “{argument name=\"subject name\" default=\"Sabrina Carpenter\"} 的可识别特征，长长的中分金发和法式刘海。她戴着厚重的黑框眼镜。”\n,\n      “expression”: “自信而专注的凝视，直视镜子，通过反射与观看者建立锐利的眼神接触。”\n    },\n    “outfit”: {\n      “description”: “一件充满活力的橙色长袖高领露脐上衣，搭配深红色百褶超短迷你裙和配套的橙色过膝袜。”\n,\n      “fit”: “紧身、风格化的‘Velma’角色扮演，强调姿势。”\n,\n      “accessory”: “右手在胸前拿着一部白色 iPhone 15 Pro Max。”\n    },\n“pose”: “脚尖着地深蹲，膝盖弯曲。她的躯干保持直立，呈侧面视图。她的右手举着手机进行镜像自拍，而左手则优雅地抬起，指尖轻轻触碰眼镜的侧框。”\n  },\n  “composition”: “垂直 9:16 构图。全身侧面镜像自拍。焦点清晰地集中在主体侧面轮廓、反射中的直接眼神接触以及橙色织物的纹理上。镜子反射中清晰可见细节丰富的游戏室背景。”\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "游戏室中萨布丽娜·卡彭特 (sabrina carpenter) 的超逼真镜面自拍 一个详细的、超逼真的提示，用于 nano banana 2 生成一张萨布丽娜·卡彭特（sabrina carpenter）在舒适、充满活力的 rgb 灯光游戏室里自拍镜子的图片，重点突出她的“velma”角色扮演服装和专注的眼神。 {\n    “quality”: “ultra_photorealistic, raw style, 8k, highly detailed”,\n    “camera”: “iphone 15 pro max, mirror selfie mode”,\n    “lighting”: “vibrant indoor rgb lighting, soft pink and warm ambient glow”,\n    “style”: “influencer aesthetic, cozy gaming room background”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “a professional gaming room with white wood-paneled walls. the background features a white shelving unit displaying a nintendo switch and colorful toy blasters, a plush pink gaming chair with a paw-print cushion, and decorative ivy vines hanging on the wall. a small cherry blossom tree stands on the far left.”,\n    “atmosphere”: “cozy, playful, modern digital creator aesthetic.”\n  },\n  “subject”: {\n    “gender”: “female”,\n    “name”: “{argument name=\"subject name\" default=\"sabrina carpenter\"}”,\n    “body”: {\n“type”: “slim, fit physique. she is positioned in a full crouching squat, balancing on the balls of her feet and tiptoes atop a white plush shag rug. her body is oriented in a sharp side profile relative to a large mirror.”\n    },\n    “face”: {\n      “features”: “identifiable features of {argument name=\"subject name\" default=\"sabrina carpenter\"} with long, center-parted blonde hair and curtain bangs. she is wearing thick, black-rimmed glasses.”,\n      “expression”: “a confident and intense gaze, looking directly into the mirror to establish sharp eye contact with the viewer through the reflection.”\n    },\n    “outfit”: {\n      “description”: “a vibrant orange long-sleeved turtleneck crop top paired with a dark red pleated micro-mini skirt and matching orange over-the-knee socks.”,\n      “fit”: “tight-fitting, stylized ‘velma’ cosplay that emphasizes the pose.”,\n      “accessory”: “holding a white iphone 15 pro max in her right hand at chest level.”\n    },\n“pose”: “squatting on tiptoes with knees deeply bent. her torso is kept upright in a side-profile view. her right hand is holding the phone up to capture a mirror selfie, while her left hand is elegantly raised, fingertips lightly touching the side frame of her glasses.”\n  },\n  “composition”: “vertical 9:16 frame. a full-body side-profile mirror selfie. the focus is sharp on the subject’s profile, the direct eye contact in the reflection, and the texture of the orange fabric. the detailed gaming room background is clearly visible in the mirror’s reflection.”\n} {\n    “quality”: “超逼真、原始风格、8k、高度细节”,\n    “camera”: “iphone 15 pro max, 镜像自拍模式”,\n    “lighting”: “充满活力的室内 rgb 照明，柔和的粉色和温暖的环境光”,\n    “style”: “网红美学，舒适的游戏室背景”,\n    “aspect_ratio”: “9:16”\n  },\n  “scene”: {\n    “location”: “专业的游戏室，白色木镶板墙壁。背景设有一个白色置物架，上面展示着一台 nintendo switch 和色彩鲜艳的玩具枪，一张带有爪印坐垫的毛绒粉色游戏椅，以及墙上悬挂的装饰性常春藤藤蔓。左侧远处有一棵小樱花树。”\n,\n    “atmosphere”: “舒适、俏皮、现代数字创作者美学。”\n  },\n  “subject”: {\n    “gender”: “女性”,\n    “name”: “{argument name=\"subject name\" default=\"sabrina carpenter\"}”,\n    “body”: {\n“type”: “苗条、健美的身材。她呈完全蹲姿，脚尖和脚趾着地，平衡在一块白色毛绒地毯上。她的身体相对于一面大镜子呈锐利的侧面轮廓。”\n    },\n    “face”: {\n      “features”: “{argument name=\"subject name\" default=\"sabrina carpenter\"} 的可识别特征，长长的中分金发和法式刘海。她戴着厚重的黑框眼镜。”\n,\n      “expression”: “自信而专注的凝视，直视镜子，通过反射与观看者建立锐利的眼神接触。”\n    },\n    “outfit”: {\n      “description”: “一件充满活力的橙色长袖高领露脐上衣，搭配深红色百褶超短迷你裙和配套的橙色过膝袜。”\n,\n      “fit”: “紧身、风格化的‘velma’角色扮演，强调姿势。”\n,\n      “accessory”: “右手在胸前拿着一部白色 iphone 15 pro max。”\n    },\n“pose”: “脚尖着地深蹲，膝盖弯曲。她的躯干保持直立，呈侧面视图。她的右手举着手机进行镜像自拍，而左手则优雅地抬起，指尖轻轻触碰眼镜的侧框。”\n  },\n  “composition”: “垂直 9:16 构图。全身侧面镜像自拍。焦点清晰地集中在主体侧面轮廓、反射中的直接眼神接触以及橙色织物的纹理上。镜子反射中清晰可见细节丰富的游戏室背景。”\n} 𝐌 12150",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12149,
+      "title": "深夜私密浴室自拍",
+      "description": "一个高度详细、结构化的提示，用于生成一张超逼真的、低光照的 iPhone 自拍照，内容为一位拉丁裔女性在浴室中，重点关注亲密写实感、自然的皮肤纹理、特定的服装以及蒸汽和温暖的梳妆台照明等氛围细节，使用 Nano Banana Pro 创建。",
+      "sourceLink": "https://x.com/afigpimp/status/2032774988219011373",
+      "sourcePublishedAt": "2026-03-14T11:04:58.000Z",
+      "author": {
+        "name": "afig",
+        "link": "https://x.com/afigpimp"
+      },
+      "content": "{\n  \"meta\": {\n    \"quality\": \"ultra photorealistic\",\n    \"resolution\": \"8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lens\": \"24mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"low light iphone selfie, soft grain, intimate bedroom realism\"\n  },\n\n  \"character_lock\": {\n    \"age\": \"early 20s\",\n    \"ethnicity\": \"Latina\",\n    \"hair\": { \"color\": \"jet black\", \"style\": \"long loose waves\", \"effect\": \"slightly messy, draped over one shoulder\" },\n    \"body\": { \"type\": \"petite with soft curves\", \"chest\": \"natural B-cup\", \"waist\": \"slim\", \"hips\": \"wide\" }\n  },\n\n  \"scene\": {\n    \"location\": \"bathroom counter\",\n    \"time\": \"late night\",\n    \"atmosphere\": \"quiet, warm, post-shower steam\"\n  },\n\n  \"camera_perspective\": {\n    \"pov\": \"phone held slightly above eye level\",\n    \"angle\": \"high angle selfie\",\n    \"framing\": \"face + chest + counter reflection\"\n  },\n\n  \"subject\": {\n    \"position\": \"leaning forward against bathroom counter\",\n    \"pose\": {\n      \"one_hand\": \"holding phone\",\n      \"expression\": \"soft tired eyes, relaxed lips, subtle smirk\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized vintage band tee slipping off one shoulder\",\n        \"color\": \"faded black\",\n        \"fit\": \"loose, hanging off frame\"\n      },\n      \"bottom\": {\n        \"type\": \"cotton boyshorts\",\n        \"color\": \"grey\"\n      }\n    }\n  },\n\n  \"skin\": {\n    \"tone\": \"warm olive\",\n    \"texture\": \"natural with visible pores, slight flush on cheeks\",\n    \"lighting_effect\": \"soft warm vanity light from above, steam softening edges\"\n  },\n\n  \"background\": {\n    \"setting\": \"modern apartment bathroom\",\n    \"elements\": [\"foggy mirror edge\", \"skincare bottles on counter\", \"warm vanity lighting\"],\n    \"atmosphere\": \"cozy, humid, intimate\"\n  },\n\n  \"the_vibe\": {\n    \"energy\": \"effortless and unbothered\",\n    \"mood\": \"sleepy casual confidence\",\n    \"aesthetic\": \"real late night bathroom mirror moment\",\n    \"authenticity\": \"zero effort, maximum appeal\",\n    \"caption_energy\": \"she wasn't even trying to look good\"\n  },\n\n  \"constraints\": {\n    \"must_keep\": [\"soft warm vanity lighting\", \"steam atmosphere\", \"oversized tee slipping off shoulder\", \"natural skin texture\", \"high angle selfie perspective\"],\n    \"avoid\": [\"bright light\", \"professional photography look\", \"heavy makeup\", \"perfect symmetry\", \"watermark\", \"studio quality\"]\n  },\n\n  \"negative_prompt\": [\"blurry\", \"overexposed\", \"text\", \"watermark\", \"ugly\", \"deformed hands\", \"harsh lighting\", \"studio quality\", \"airbrushed skin\"]\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773556645560_y5pimf_HDXeDkwXoAAFapW.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773556645560_y5pimf_HDXeDkwXoAAFapW-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"meta\": {\n    \"quality\": \"超逼真\",\n    \"resolution\": \"8k\",\n    \"camera\": \"iPhone 15 Pro Max\",\n    \"lens\": \"24mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"弱光 iPhone 自拍，柔和颗粒感，私密卧室写实风格\"\n  },\n  \"character_lock\": {\n    \"age\": \"20 岁出头\",\n    \"ethnicity\": \"拉丁裔\",\n    \"hair\": { \"color\": \"乌黑\", \"style\": \"长而蓬松的波浪卷\", \"effect\": \"略显凌乱，垂在一侧肩膀上\" },\n    \"body\": { \"type\": \"娇小，带有柔和曲线\", \"chest\": \"自然 B 罩杯\", \"waist\": \"纤细\", \"hips\": \"宽臀\" }\n  },\n  \"scene\": {\n    \"location\": \"浴室台面\",\n    \"time\": \"深夜\",\n    \"atmosphere\": \"安静、温暖、沐浴后的蒸汽弥漫\"\n  },\n  \"camera_perspective\": {\n    \"pov\": \"手机略高于视线水平\",\n    \"angle\": \"高角度自拍\",\n    \"framing\": \"脸部 + 胸部 + 台面反射\"\n  },\n  \"subject\": {\n    \"position\": \"身体前倾，靠在浴室台面上\",\n    \"pose\": {\n      \"one_hand\": \"手持手机\",\n      \"expression\": \"柔和疲惫的眼神，放松的嘴唇，微妙的坏笑\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"宽松的复古乐队 T 恤，滑落一侧肩膀\",\n        \"color\": \"褪色黑色\",\n        \"fit\": \"宽松，悬垂在画面外\"\n      },\n      \"bottom\": {\n        \"type\": \"棉质平角短裤\",\n        \"color\": \"灰色\"\n      }\n    }\n  },\n  \"skin\": {\n    \"tone\": \"暖橄榄色\",\n    \"texture\": \"自然，毛孔可见，脸颊略带红晕\",\n    \"lighting_effect\": \"上方柔和温暖的梳妆灯光，蒸汽柔化边缘\"\n  },\n  \"background\": {\n    \"setting\": \"现代公寓浴室\",\n    \"elements\": [\"模糊的镜子边缘\", \"台面上的护肤品瓶子\", \"温暖的梳妆灯光\"],\n    \"atmosphere\": \"舒适、潮湿、私密\"\n  },\n  \"the_vibe\": {\n    \"energy\": \"毫不费力，泰然自若\",\n    \"mood\": \"慵懒随意的自信\",\n    \"aesthetic\": \"真实的深夜浴室镜前时刻\",\n    \"authenticity\": \"毫不刻意，魅力十足\",\n    \"caption_energy\": \"她甚至没想过要打扮得好看\"\n  },\n  \"constraints\": {\n    \"must_keep\": [\"柔和温暖的梳妆灯光\", \"蒸汽弥漫的氛围\", \"宽松 T 恤滑落肩膀\", \"自然肤质\", \"高角度自拍视角\"],\n    \"avoid\": [\"强光\", \"专业摄影效果\", \"浓妆\", \"完美对称\", \"水印\", \"影棚品质\"]\n  },\n  \"negative_prompt\": [\"模糊\", \"过度曝光\", \"文字\", \"水印\", \"丑陋\", \"手部畸形\", \"刺眼灯光\", \"影棚品质\", \"修饰过的皮肤\"]\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "深夜私密浴室自拍 一个高度详细、结构化的提示，用于生成一张超逼真的、低光照的 iphone 自拍照，内容为一位拉丁裔女性在浴室中，重点关注亲密写实感、自然的皮肤纹理、特定的服装以及蒸汽和温暖的梳妆台照明等氛围细节，使用 nano banana pro 创建。 {\n  \"meta\": {\n    \"quality\": \"ultra photorealistic\",\n    \"resolution\": \"8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lens\": \"24mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"low light iphone selfie, soft grain, intimate bedroom realism\"\n  },\n\n  \"character_lock\": {\n    \"age\": \"early 20s\",\n    \"ethnicity\": \"latina\",\n    \"hair\": { \"color\": \"jet black\", \"style\": \"long loose waves\", \"effect\": \"slightly messy, draped over one shoulder\" },\n    \"body\": { \"type\": \"petite with soft curves\", \"chest\": \"natural b-cup\", \"waist\": \"slim\", \"hips\": \"wide\" }\n  },\n\n  \"scene\": {\n    \"location\": \"bathroom counter\",\n    \"time\": \"late night\",\n    \"atmosphere\": \"quiet, warm, post-shower steam\"\n  },\n\n  \"camera_perspective\": {\n    \"pov\": \"phone held slightly above eye level\",\n    \"angle\": \"high angle selfie\",\n    \"framing\": \"face + chest + counter reflection\"\n  },\n\n  \"subject\": {\n    \"position\": \"leaning forward against bathroom counter\",\n    \"pose\": {\n      \"one_hand\": \"holding phone\",\n      \"expression\": \"soft tired eyes, relaxed lips, subtle smirk\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized vintage band tee slipping off one shoulder\",\n        \"color\": \"faded black\",\n        \"fit\": \"loose, hanging off frame\"\n      },\n      \"bottom\": {\n        \"type\": \"cotton boyshorts\",\n        \"color\": \"grey\"\n      }\n    }\n  },\n\n  \"skin\": {\n    \"tone\": \"warm olive\",\n    \"texture\": \"natural with visible pores, slight flush on cheeks\",\n    \"lighting_effect\": \"soft warm vanity light from above, steam softening edges\"\n  },\n\n  \"background\": {\n    \"setting\": \"modern apartment bathroom\",\n    \"elements\": [\"foggy mirror edge\", \"skincare bottles on counter\", \"warm vanity lighting\"],\n    \"atmosphere\": \"cozy, humid, intimate\"\n  },\n\n  \"the_vibe\": {\n    \"energy\": \"effortless and unbothered\",\n    \"mood\": \"sleepy casual confidence\",\n    \"aesthetic\": \"real late night bathroom mirror moment\",\n    \"authenticity\": \"zero effort, maximum appeal\",\n    \"caption_energy\": \"she wasn't even trying to look good\"\n  },\n\n  \"constraints\": {\n    \"must_keep\": [\"soft warm vanity lighting\", \"steam atmosphere\", \"oversized tee slipping off shoulder\", \"natural skin texture\", \"high angle selfie perspective\"],\n    \"avoid\": [\"bright light\", \"professional photography look\", \"heavy makeup\", \"perfect symmetry\", \"watermark\", \"studio quality\"]\n  },\n\n  \"negative_prompt\": [\"blurry\", \"overexposed\", \"text\", \"watermark\", \"ugly\", \"deformed hands\", \"harsh lighting\", \"studio quality\", \"airbrushed skin\"]\n} ```json\n{\n  \"meta\": {\n    \"quality\": \"超逼真\",\n    \"resolution\": \"8k\",\n    \"camera\": \"iphone 15 pro max\",\n    \"lens\": \"24mm\",\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"弱光 iphone 自拍，柔和颗粒感，私密卧室写实风格\"\n  },\n  \"character_lock\": {\n    \"age\": \"20 岁出头\",\n    \"ethnicity\": \"拉丁裔\",\n    \"hair\": { \"color\": \"乌黑\", \"style\": \"长而蓬松的波浪卷\", \"effect\": \"略显凌乱，垂在一侧肩膀上\" },\n    \"body\": { \"type\": \"娇小，带有柔和曲线\", \"chest\": \"自然 b 罩杯\", \"waist\": \"纤细\", \"hips\": \"宽臀\" }\n  },\n  \"scene\": {\n    \"location\": \"浴室台面\",\n    \"time\": \"深夜\",\n    \"atmosphere\": \"安静、温暖、沐浴后的蒸汽弥漫\"\n  },\n  \"camera_perspective\": {\n    \"pov\": \"手机略高于视线水平\",\n    \"angle\": \"高角度自拍\",\n    \"framing\": \"脸部 + 胸部 + 台面反射\"\n  },\n  \"subject\": {\n    \"position\": \"身体前倾，靠在浴室台面上\",\n    \"pose\": {\n      \"one_hand\": \"手持手机\",\n      \"expression\": \"柔和疲惫的眼神，放松的嘴唇，微妙的坏笑\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"宽松的复古乐队 t 恤，滑落一侧肩膀\",\n        \"color\": \"褪色黑色\",\n        \"fit\": \"宽松，悬垂在画面外\"\n      },\n      \"bottom\": {\n        \"type\": \"棉质平角短裤\",\n        \"color\": \"灰色\"\n      }\n    }\n  },\n  \"skin\": {\n    \"tone\": \"暖橄榄色\",\n    \"texture\": \"自然，毛孔可见，脸颊略带红晕\",\n    \"lighting_effect\": \"上方柔和温暖的梳妆灯光，蒸汽柔化边缘\"\n  },\n  \"background\": {\n    \"setting\": \"现代公寓浴室\",\n    \"elements\": [\"模糊的镜子边缘\", \"台面上的护肤品瓶子\", \"温暖的梳妆灯光\"],\n    \"atmosphere\": \"舒适、潮湿、私密\"\n  },\n  \"the_vibe\": {\n    \"energy\": \"毫不费力，泰然自若\",\n    \"mood\": \"慵懒随意的自信\",\n    \"aesthetic\": \"真实的深夜浴室镜前时刻\",\n    \"authenticity\": \"毫不刻意，魅力十足\",\n    \"caption_energy\": \"她甚至没想过要打扮得好看\"\n  },\n  \"constraints\": {\n    \"must_keep\": [\"柔和温暖的梳妆灯光\", \"蒸汽弥漫的氛围\", \"宽松 t 恤滑落肩膀\", \"自然肤质\", \"高角度自拍视角\"],\n    \"avoid\": [\"强光\", \"专业摄影效果\", \"浓妆\", \"完美对称\", \"水印\", \"影棚品质\"]\n  },\n  \"negative_prompt\": [\"模糊\", \"过度曝光\", \"文字\", \"水印\", \"丑陋\", \"手部畸形\", \"刺眼灯光\", \"影棚品质\", \"修饰过的皮肤\"]\n}\n``` afig 12149",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12159,
+      "title": "3D 地图微缩景观生成",
+      "description": "一个用于 Nano Banana 2 的单一提示，可生成一个城市微缩立体模型，使城市从地图中“跃然而出”。该提示旨在通过更改城市名称来轻松自定义。",
+      "sourceLink": "https://x.com/marcyu_ai/status/2032764423958626707",
+      "sourcePublishedAt": "2026-03-14T10:23:00.000Z",
+      "author": {
+        "name": "marcyu（まあちゅう）｜AIはともだち！画像生成ナビ",
+        "link": "https://x.com/marcyu_ai"
+      },
+      "content": "I turned my city into a 3D map.\n\nAll I gave Nano Banana 2 was\none single prompt.\n\nJust swap the city name —\n{argument name=\"city name\" default=\"Tokyo\"}, {argument name=\"city name 2\" default=\"Osaka\"}, New York,\nanywhere you love —\n\nand a miniature diorama\nrises straight out of the map.",
+      "media": [],
+      "language": "en",
+      "translatedContent": "我把我的城市变成了一张 3D 地图。\n\n我给 Nano Banana 2 的，\n就只有一个提示。\n\n只需替换城市名称 —\n{argument name=\"city name\" default=\"Tokyo\"}、{argument name=\"city name 2\" default=\"Osaka\"}、纽约，\n任何你喜欢的城市 —\n\n一个微缩立体模型\n就会直接从地图中升起。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "3d 地图微缩景观生成 一个用于 nano banana 2 的单一提示，可生成一个城市微缩立体模型，使城市从地图中“跃然而出”。该提示旨在通过更改城市名称来轻松自定义。 i turned my city into a 3d map.\n\nall i gave nano banana 2 was\none single prompt.\n\njust swap the city name —\n{argument name=\"city name\" default=\"tokyo\"}, {argument name=\"city name 2\" default=\"osaka\"}, new york,\nanywhere you love —\n\nand a miniature diorama\nrises straight out of the map. 我把我的城市变成了一张 3d 地图。\n\n我给 nano banana 2 的，\n就只有一个提示。\n\n只需替换城市名称 —\n{argument name=\"city name\" default=\"tokyo\"}、{argument name=\"city name 2\" default=\"osaka\"}、纽约，\n任何你喜欢的城市 —\n\n一个微缩立体模型\n就会直接从地图中升起。 marcyu（まあちゅう）｜aiはともだち！画像生成ナビ 12159",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 62,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

@@ -1,0 +1,502 @@
+{
+  "prompts": [
+    {
+      "id": 12330,
+      "title": "一条土路的广角风景提示",
+      "description": "为 Nano Banana 2 生成一张广角风景照片的详细提示，照片内容为一条蜿蜒、被阳光晒得发白的土路，一直延伸到地平线。场景包括郁郁葱葱的绿色牧场、鲜艳的野花、连绵起伏的丘陵和蔚蓝的天空，并指定了电影摄影技术细节（24mm 镜头，大景深）和《国家地理》风格。",
+      "sourceLink": "https://x.com/thetripathi58/status/2033500285155598381",
+      "sourcePublishedAt": "2026-03-16T11:07:03.000Z",
+      "author": {
+        "name": "Chidanand Tripathi",
+        "link": "https://x.com/thetripathi58"
+      },
+      "content": "[Subject]: A winding, sun-baked dirt road stretching endlessly towards the horizon, marked by faint tire tracks and bordered by rustic wooden fences.\n\n[Action]: The road leads the viewer's eye through the heart of the landscape, vanishing into the rolling terrain.\n\n[Environment]: Vast, lush green pastures speckled with vibrant wildflowers like {argument name=\"wildflowers\" default=\"poppies, cornflowers, and daisies\"} swaying in a gentle breeze; soft, undulating hills in the distance under a brilliant cerulean sky scattered with fluffy, white cumulus clouds.\n\n[Cinematography]: Wide-angle landscape shot ({argument name=\"lens\" default=\"24mm lens\"}), deep depth of field (f/16) ensuring sharpness from the textured gravel in the foreground to the distant peaks.\n\n[Lighting/Style]: Bright, natural daylight with soft, diffuse shadows, invoking a sense of serenity and pastoral beauty; vibrant, true-to-life colors.\n\n[Technical]: 4k resolution, ultra-realistic texture mapping, National Geographic style photography, pristine clarity.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729520137_czjcva_HDhxulzasAAeqDy.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729520137_czjcva_HDhxulzasAAeqDy-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "[主体]: 一条蜿蜒、被阳光晒得发白的土路，向着地平线无限延伸，路面上有淡淡的轮胎痕迹，两侧是质朴的木栅栏。\n\n[动作]: 这条路引导着观者的视线穿过风景的中心，消失在起伏的地形中。\n\n[环境]: 广阔、郁郁葱葱的绿色牧场，点缀着鲜艳的野花，如 {argument name=\"wildflowers\" default=\"罂粟花、矢车菊和雏菊\"} 在微风中摇曳；远处是柔和起伏的丘陵，在灿烂的蔚蓝色天空下，点缀着蓬松的白色积云。\n\n[电影摄影]: 广角风景拍摄（{argument name=\"lens\" default=\"24mm 镜头\"}），深景深（f/16）确保从前景的纹理砂石到远处的山峰都清晰锐利。\n\n[光线/风格]: 明亮、自然的日光，带有柔和、漫射的阴影，唤起一种宁静和田园之美；色彩鲜明，真实生动。\n\n[技术]: 4k 分辨率，超逼真的纹理映射，国家地理风格摄影，原始清晰度。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "一条土路的广角风景提示 为 nano banana 2 生成一张广角风景照片的详细提示，照片内容为一条蜿蜒、被阳光晒得发白的土路，一直延伸到地平线。场景包括郁郁葱葱的绿色牧场、鲜艳的野花、连绵起伏的丘陵和蔚蓝的天空，并指定了电影摄影技术细节（24mm 镜头，大景深）和《国家地理》风格。 [subject]: a winding, sun-baked dirt road stretching endlessly towards the horizon, marked by faint tire tracks and bordered by rustic wooden fences.\n\n[action]: the road leads the viewer's eye through the heart of the landscape, vanishing into the rolling terrain.\n\n[environment]: vast, lush green pastures speckled with vibrant wildflowers like {argument name=\"wildflowers\" default=\"poppies, cornflowers, and daisies\"} swaying in a gentle breeze; soft, undulating hills in the distance under a brilliant cerulean sky scattered with fluffy, white cumulus clouds.\n\n[cinematography]: wide-angle landscape shot ({argument name=\"lens\" default=\"24mm lens\"}), deep depth of field (f/16) ensuring sharpness from the textured gravel in the foreground to the distant peaks.\n\n[lighting/style]: bright, natural daylight with soft, diffuse shadows, invoking a sense of serenity and pastoral beauty; vibrant, true-to-life colors.\n\n[technical]: 4k resolution, ultra-realistic texture mapping, national geographic style photography, pristine clarity. [主体]: 一条蜿蜒、被阳光晒得发白的土路，向着地平线无限延伸，路面上有淡淡的轮胎痕迹，两侧是质朴的木栅栏。\n\n[动作]: 这条路引导着观者的视线穿过风景的中心，消失在起伏的地形中。\n\n[环境]: 广阔、郁郁葱葱的绿色牧场，点缀着鲜艳的野花，如 {argument name=\"wildflowers\" default=\"罂粟花、矢车菊和雏菊\"} 在微风中摇曳；远处是柔和起伏的丘陵，在灿烂的蔚蓝色天空下，点缀着蓬松的白色积云。\n\n[电影摄影]: 广角风景拍摄（{argument name=\"lens\" default=\"24mm 镜头\"}），深景深（f/16）确保从前景的纹理砂石到远处的山峰都清晰锐利。\n\n[光线/风格]: 明亮、自然的日光，带有柔和、漫射的阴影，唤起一种宁静和田园之美；色彩鲜明，真实生动。\n\n[技术]: 4k 分辨率，超逼真的纹理映射，国家地理风格摄影，原始清晰度。 chidanand tripathi 12330",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12354,
+      "title": "Kling 3.0：从 Nano Banana Pro 图像生成视频",
+      "description": "这条推文描述了一个工作流程：四张由 Nano Banana Pro 生成的图片被用作 Kling 3.0 Omni 视频生成的输入。所提供的提示是一个电影化的描述，用于图片和视频生成，但由于图片是首先生成的，因此这被提取为 Nano Banana Pro 的提示。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2033498522063167637",
+      "sourcePublishedAt": "2026-03-16T11:00:02.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "シネマティックで温かみのあるフィルム調の映像。自然光と浅い被写界深度の中、女性が日記を書く静かな時間を描く。ノートを開く手元、紙を走るペン先のクローズアップ、ふと見せる柔らかな微笑み、そしてノートを閉じるまでの繊細な所作を捉え、親密で情緒的な雰囲気を表現する。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729531515_h12dt6_HDgEGPGbcAA0lSN.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729531515_h12dt6_HDgEGPGbcAA0lSN-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "电影般的温暖胶片画面。描绘了一位女士在自然光和浅景深中安静地写日记的瞬间。捕捉了她打开笔记本的细微动作、笔尖划过纸面的特写、她短暂露出的温柔微笑，直到合上笔记本，营造出一种私密而富有情感的氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "kling 3.0：从 nano banana pro 图像生成视频 这条推文描述了一个工作流程：四张由 nano banana pro 生成的图片被用作 kling 3.0 omni 视频生成的输入。所提供的提示是一个电影化的描述，用于图片和视频生成，但由于图片是首先生成的，因此这被提取为 nano banana pro 的提示。 シネマティックで温かみのあるフィルム調の映像。自然光と浅い被写界深度の中、女性が日記を書く静かな時間を描く。ノートを開く手元、紙を走るペン先のクローズアップ、ふと見せる柔らかな微笑み、そしてノートを閉じるまでの繊細な所作を捉え、親密で情緒的な雰囲気を表現する。 电影般的温暖胶片画面。描绘了一位女士在自然光和浅景深中安静地写日记的瞬间。捕捉了她打开笔记本的细微动作、笔尖划过纸面的特写、她短暂露出的温柔微笑，直到合上笔记本，营造出一种私密而富有情感的氛围。 空想写真家 12354",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12332,
+      "title": "在黑暗电影院中拍摄的优雅时尚大片",
+      "description": "这是一个详细的提示，用于使用 Nano Banana Pro 生成一张高级时装编辑照片。场景中，一位身着丝滑白色羽毛袖口服装的时尚女性，坐在一间黑暗的电影院里，电影院内有红色天鹅绒座椅，强调戏剧性的电影灯光和 35 毫米胶片美学。",
+      "sourceLink": "https://x.com/Kashberg_0/status/2033469189164548177",
+      "sourcePublishedAt": "2026-03-16T09:03:29.000Z",
+      "author": {
+        "name": "Kashberg",
+        "link": "https://x.com/Kashberg_0"
+      },
+      "content": "Elegant fashion editorial of a stylish woman sitting alone in a dark movie theater, surrounded by rows of red velvet cinema seats, wearing a silky white satin outfit with feather cuffs, legs crossed, eating popcorn from a bucket with some popcorn spilled on the floor, dramatic cinematic lighting, moody atmosphere, centered composition, high fashion photography, soft shadows, 35mm film look, ultra-detailed, realistic, depth of field.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729521353_7d2u2z_HDhVb8xakAAGlU2.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729521353_7d2u2z_HDhVb8xakAAGlU2-300x400.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位时尚女性独自坐在黑暗电影院的优雅时尚大片，周围是排排红色天鹅绒电影座椅，她身穿丝滑的白色缎面服装，袖口饰有羽毛，双腿交叉，吃着桶里的爆米花，一些爆米花洒落在地上，戏剧性的电影灯光，忧郁的氛围，居中构图，高级时装摄影，柔和的阴影，35 毫米胶片质感，超细节，逼真，景深。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "在黑暗电影院中拍摄的优雅时尚大片 这是一个详细的提示，用于使用 nano banana pro 生成一张高级时装编辑照片。场景中，一位身着丝滑白色羽毛袖口服装的时尚女性，坐在一间黑暗的电影院里，电影院内有红色天鹅绒座椅，强调戏剧性的电影灯光和 35 毫米胶片美学。 elegant fashion editorial of a stylish woman sitting alone in a dark movie theater, surrounded by rows of red velvet cinema seats, wearing a silky white satin outfit with feather cuffs, legs crossed, eating popcorn from a bucket with some popcorn spilled on the floor, dramatic cinematic lighting, moody atmosphere, centered composition, high fashion photography, soft shadows, 35mm film look, ultra-detailed, realistic, depth of field. 一位时尚女性独自坐在黑暗电影院的优雅时尚大片，周围是排排红色天鹅绒电影座椅，她身穿丝滑的白色缎面服装，袖口饰有羽毛，双腿交叉，吃着桶里的爆米花，一些爆米花洒落在地上，戏剧性的电影灯光，忧郁的氛围，居中构图，高级时装摄影，柔和的阴影，35 毫米胶片质感，超细节，逼真，景深。 kashberg 12332",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12361,
+      "title": "Nano Banana Pro 的 Vlog 风格视频拍摄提示（Veo 3.1 的图像输入）",
+      "description": "一个详细的提示，用于使用 Nano Banana Pro 生成图像，然后使用 Google Veo 3.1 将其转换为视频。该提示描述了一个逼真、亲密的 vlog 风格镜头，一名女性正在谈论她的时尚，重点关注构图、光线和氛围。此提示用于图像生成步骤 (Nano Banana Pro)。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2033468326668591341",
+      "sourcePublishedAt": "2026-03-16T09:00:03.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[UGCスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってVlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなVlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは{argument name=\"ファッションの特徴\" default=\"【ファッションの特徴を追加】\"}がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nBGM：Vlog風のファッションの雰囲気に合った音が心地よく流れている。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接放置在拍摄对象前方。根据姿势和构图，拍摄对象被指示为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。灯光是 [根据 UGC 风格镜头添加逼真的灯光]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 Vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于相机限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 Vlog 时刻。\n\n这位女士的台词是：“今天时尚的亮点是 {argument name=\"fashion feature\" default=\"[添加时尚特色]\"}！”她用温柔的语气说出这句话，同时触摸着自己的衣服。最后她笑了。\n\n背景音乐：播放着适合 Vlog 风格时尚氛围的悦耳轻柔音乐。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 的 vlog 风格视频拍摄提示（veo 3.1 的图像输入） 一个详细的提示，用于使用 nano banana pro 生成图像，然后使用 google veo 3.1 将其转换为视频。该提示描述了一个逼真、亲密的 vlog 风格镜头，一名女性正在谈论她的时尚，重点关注构图、光线和氛围。此提示用于图像生成步骤 (nano banana pro)。 正面を向いた動画風のショットを作成。カメラは顔の高さで固定、被写体の真正面に配置。被写体は姿勢と構図から座っていることが示されている。\n\n構図はシンプルで安定しており、劇的なアングルや目立つカメラの動きはない。照明は[ugcスタイルのショットを考慮した現実的な照明を追加]から。顔ははっきり見える。\n\n被写体の表情は穏やかでリラックスしており、自然なほのかな微笑みを浮かべている。まるでカメラに向かってvlogを語り始めようとしているかのようだ。画質は夜間の屋内で撮影された動画（高画質）を反映しており、フィルター、美化効果、人工的なシャープネス処理は一切施されていない。\n\n空間は個人的な空間として感じられる。ボケはカメラの限界によるもので、人工的な被写界深度効果ではない。全体的な雰囲気は温かく、明るく、親密で、被写体が話し始める直前のリアルなvlogの瞬間を思わせる。\n\n女性のセリフは、「今日のファッションは{argument name=\"ファッションの特徴\" default=\"【ファッションの特徴を追加】\"}がポイントです！」と優しい口調で話しながら服を触っている。最後に笑顔になる。\n\nbgm：vlog風のファッションの雰囲気に合った音が心地よく流れている。 创建一个正对镜头的视频风格镜头。摄像机固定在与面部齐平的高度，并直接放置在拍摄对象前方。根据姿势和构图，拍摄对象被指示为坐姿。\n\n构图简洁稳定，没有戏剧性的角度或明显的摄像机移动。灯光是 [根据 ugc 风格镜头添加逼真的灯光]。面部清晰可见。\n\n拍摄对象的表情平静放松，带着自然、微妙的微笑。看起来她正准备对着镜头开始录制 vlog。图像质量反映了室内夜间拍摄的高质量视频，没有应用滤镜、美颜效果或人工锐化。\n\n空间感觉很私密。散景是由于相机限制，而非人工景深效果。整体氛围温暖、明亮、亲密，让人联想到拍摄对象即将开始说话的真实 vlog 时刻。\n\n这位女士的台词是：“今天时尚的亮点是 {argument name=\"fashion feature\" default=\"[添加时尚特色]\"}！”她用温柔的语气说出这句话，同时触摸着自己的衣服。最后她笑了。\n\n背景音乐：播放着适合 vlog 风格时尚氛围的悦耳轻柔音乐。 空想写真家 12361",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12358,
+      "title": "摇滚乐迷的角色描述",
+      "description": "一位日本女性摇滚乐迷的详细人物描述，她喜欢在后排边喝啤酒边听音乐，享受音乐、吸烟和骑摩托车，并且希望被称为“酷”而不是“可爱”。此描述被用作 Nano Banana Pro 和 Nano Banana 2 的提示。",
+      "sourceLink": "https://x.com/ottoaisuki/status/2033468321056899221",
+      "sourcePublishedAt": "2026-03-16T09:00:02.000Z",
+      "author": {
+        "name": "おっと｜OTTO",
+        "link": "https://x.com/ottoaisuki"
+      },
+      "content": "邦楽ロック好きな女性。ライブでは後方でしっぽりビール片手に聴くタイプ。趣味は音楽と火タバコとバイク。可愛いじゃなく、かっこいいと言われたい。好きな人の前では案外甘える。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729532619_aucqlg_HDhUYYFbYAAO6q2.jpg",
+        "https://cms-assets.youmind.com/media/1773729532656_ry5vmw_HDhUYYEaYAA5OAv.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729532619_aucqlg_HDhUYYFbYAAO6q2-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1773729532656_ry5vmw_HDhUYYEaYAA5OAv-300x447.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一个喜欢日本摇滚乐的女人。那种手里拿着啤酒，安静地站在场地后方听歌的类型。爱好包括音乐、抽烟和摩托车。她希望别人称赞她“酷”，而不是“可爱”。在她喜欢的人面前，她会出人意料地甜美。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "摇滚乐迷的角色描述 一位日本女性摇滚乐迷的详细人物描述，她喜欢在后排边喝啤酒边听音乐，享受音乐、吸烟和骑摩托车，并且希望被称为“酷”而不是“可爱”。此描述被用作 nano banana pro 和 nano banana 2 的提示。 邦楽ロック好きな女性。ライブでは後方でしっぽりビール片手に聴くタイプ。趣味は音楽と火タバコとバイク。可愛いじゃなく、かっこいいと言われたい。好きな人の前では案外甘える。 一个喜欢日本摇滚乐的女人。那种手里拿着啤酒，安静地站在场地后方听歌的类型。爱好包括音乐、抽烟和摩托车。她希望别人称赞她“酷”，而不是“可爱”。在她喜欢的人面前，她会出人意料地甜美。 おっと｜otto 12358",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12333,
+      "title": "商业化妆品产品摄影提示",
+      "description": "一个详细的提示，用于生成商业化妆品产品摄影，画面中一个粉色化妆品罐置于一团搅打奶油之上，红色浆果糖浆倾泻而下，周围散落着各种新鲜浆果，强调高分辨率、逼真的纹理和专业的影棚灯光。",
+      "sourceLink": "https://x.com/oggii_0/status/2033465168030777527",
+      "sourcePublishedAt": "2026-03-16T08:47:30.000Z",
+      "author": {
+        "name": "Oogie",
+        "link": "https://x.com/oggii_0"
+      },
+      "content": "A centrally placed pink cosmetic jar labeled “LANEIGE Lip Sleeping Mask [Berry] 3 g” sits on top of a large spiral swirl of white whipped cream. The jar features a matte translucent pink container with minimalist white typography and a square shape with rounded corners. From above, a thick, glossy red berry syrup pours straight down onto the top of the jar, slowly flowing along the sides with visible droplets and shiny liquid trails.\n\nAround the whipped cream are various fresh berries, including raspberries, halved strawberries with green leaves, and dark cherries with stems. Some fruits appear slightly floating or gently resting against the whipped cream.\n\nThe composition is centered, with the jar positioned exactly in the middle of the white cream spiral, while the fruits are asymmetrically arranged around it.\n\nThe background is a soft, solid light pink studio backdrop with a minimalist aesthetic and subtle blurred red shapes in the foreground. Soft, even studio lighting creates gentle shadows and strong glossy reflections on the syrup and jar.\n\nExtremely detailed textures of whipped cream, fruit, and liquid, commercial cosmetic product photography, sharp focus, high resolution, realistic textures, professional advertising photo.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729521460_mk3gsw_HDhRyeEaIAAW8dL.jpg",
+        "https://cms-assets.youmind.com/media/1773729521465_r8581a_HDhRyevakAAmnID.jpg",
+        "https://cms-assets.youmind.com/media/1773729521449_mk8zvb_HDhRyelawAAs5vz.jpg",
+        "https://cms-assets.youmind.com/media/1773729522143_sulq8a_HDhRyfbbkAA3DCP.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729521460_mk3gsw_HDhRyeEaIAAW8dL-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773729521465_r8581a_HDhRyevakAAmnID-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773729521449_mk8zvb_HDhRyelawAAs5vz-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773729522143_sulq8a_HDhRyfbbkAA3DCP-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个贴有“LANEIGE 兰芝唇膜 [浆果味] 3 克”标签的粉色化妆品罐子居中放置，坐落在一大团白色搅打奶油的螺旋形漩涡之上。罐子采用磨砂半透明粉色容器，配以极简的白色字体，呈方形，边角圆润。从上方看，浓稠、晶亮的红色浆果糖浆笔直地浇在罐子顶部，缓慢地沿着罐子侧面流淌，可见液滴和闪亮的液体痕迹。\n\n搅打奶油周围散落着各种新鲜浆果，包括覆盆子、带绿叶的半切草莓以及带梗的深色樱桃。一些水果似乎略微漂浮或轻轻依偎在搅打奶油旁。\n\n构图居中，罐子正好位于白色奶油螺旋的中央，而水果则不对称地围绕其排列。\n\n背景是柔和、纯净的浅粉色影棚背景，呈现极简主义美学，前景处有微妙的模糊红色形状。柔和、均匀的影棚灯光在糖浆和罐子上营造出轻柔的阴影和强烈的反光。\n\n搅打奶油、水果和液体的纹理极其细腻，商业化妆品产品摄影，锐利对焦，高分辨率，逼真的纹理，专业广告照片。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "商业化妆品产品摄影提示 一个详细的提示，用于生成商业化妆品产品摄影，画面中一个粉色化妆品罐置于一团搅打奶油之上，红色浆果糖浆倾泻而下，周围散落着各种新鲜浆果，强调高分辨率、逼真的纹理和专业的影棚灯光。 a centrally placed pink cosmetic jar labeled “laneige lip sleeping mask [berry] 3 g” sits on top of a large spiral swirl of white whipped cream. the jar features a matte translucent pink container with minimalist white typography and a square shape with rounded corners. from above, a thick, glossy red berry syrup pours straight down onto the top of the jar, slowly flowing along the sides with visible droplets and shiny liquid trails.\n\naround the whipped cream are various fresh berries, including raspberries, halved strawberries with green leaves, and dark cherries with stems. some fruits appear slightly floating or gently resting against the whipped cream.\n\nthe composition is centered, with the jar positioned exactly in the middle of the white cream spiral, while the fruits are asymmetrically arranged around it.\n\nthe background is a soft, solid light pink studio backdrop with a minimalist aesthetic and subtle blurred red shapes in the foreground. soft, even studio lighting creates gentle shadows and strong glossy reflections on the syrup and jar.\n\nextremely detailed textures of whipped cream, fruit, and liquid, commercial cosmetic product photography, sharp focus, high resolution, realistic textures, professional advertising photo. 一个贴有“laneige 兰芝唇膜 [浆果味] 3 克”标签的粉色化妆品罐子居中放置，坐落在一大团白色搅打奶油的螺旋形漩涡之上。罐子采用磨砂半透明粉色容器，配以极简的白色字体，呈方形，边角圆润。从上方看，浓稠、晶亮的红色浆果糖浆笔直地浇在罐子顶部，缓慢地沿着罐子侧面流淌，可见液滴和闪亮的液体痕迹。\n\n搅打奶油周围散落着各种新鲜浆果，包括覆盆子、带绿叶的半切草莓以及带梗的深色樱桃。一些水果似乎略微漂浮或轻轻依偎在搅打奶油旁。\n\n构图居中，罐子正好位于白色奶油螺旋的中央，而水果则不对称地围绕其排列。\n\n背景是柔和、纯净的浅粉色影棚背景，呈现极简主义美学，前景处有微妙的模糊红色形状。柔和、均匀的影棚灯光在糖浆和罐子上营造出轻柔的阴影和强烈的反光。\n\n搅打奶油、水果和液体的纹理极其细腻，商业化妆品产品摄影，锐利对焦，高分辨率，逼真的纹理，专业广告照片。 oogie 12333",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12305,
+      "title": "电影级时尚社论肖像，带透视畸变",
+      "description": "为 Nano Banana Pro 创建电影级时尚编辑肖像的超详细提示，使用参考照片，强调戏剧性的低角度、从伸出的手产生的强烈透视畸变、低调照明和超现实纹理。",
+      "sourceLink": "https://x.com/harboriis/status/2033460007241720005",
+      "sourcePublishedAt": "2026-03-16T08:27:00.000Z",
+      "author": {
+        "name": "Harboriis",
+        "link": "https://x.com/harboriis"
+      },
+      "content": "Create A Cinematic Fashion-editorial Portrait Of A Person Using Their Photo As Identity Reference, Framed As A Dramatic Low-angle Medium Close-up (Chest To Head) With Strong Perspective Distortion From An Extended Hand Reaching Toward The Camera, Fingers Slightly Open And Dominating The Foreground; The Subject Stands Centered Against Deep Negative Space, Head Slightly Tilted Downward, Gaze Directed Straight Into The Lens, Expression Calm, Serious, Confident, And Emotionally Restrained; Styling Is Dark And Minimal With A Matte Hooded Jacket Or Hoodie Layered Over A Simple Dark Top, Hood Worn Up, No Logos, Graphics, Jewelry, Or Accessories; Lighting Is Low-key And Sculptural With A Single Soft But Directional Overhead/Front Key Light (-4200-4500k) Illuminating The Face And Hand, Subtle Falloff Toward The Edges, Minimal To No Fill Light, Deep Shadows Preserved, Gentle Highlights Defining Knuckles And Facial Planes; Background Is A Seamless Near-black Gradient (#000000 To #oaoaoa), Textureless And Absorbing Light; Color Palette Is Muted And Natural With Deep Blacks, Soft Neutral Skin Tones, And Subdued Fabric Tones, High Contrast But Not Stylized With Color Gels; Lens Simulation Equivalent To A 35-50mm Cinematic Lens To Emphasize Hand Perspective, Shallow Depth Of Field With Sharp Focus On Face And Leading Hand, Smooth Blur Into The Background; Textures Are Ultra-realistic With Visible Skin Pores, Fabric Weave, And Subtle Film Grain, Overall Mood Is Intimate, Intense, Modern, And Slightly Confrontational, Evoking Contemporary Cinematic Portraiture And High-end Editorial Photography, Editorial, Modern, High-detail, Cinematic Composition, Ultra-realistic Textures, Professional Fashion Photography Style.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729508324_d8dj9w_HDhNGQSbYAAl1Qe.jpg",
+        "https://cms-assets.youmind.com/media/1773729508284_lp9ejm_HDhNGRoasAArvXM.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729508324_d8dj9w_HDhNGQSbYAAl1Qe-300x300.jpg",
+        "https://cms-assets.youmind.com/media/1773729508284_lp9ejm_HDhNGRoasAArvXM-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张电影时尚大片风格的人物肖像，以其照片作为身份参考，构图为戏剧性的低角度中景特写（胸部到头部），一只伸向镜头的手造成强烈的透视畸变，手指微张并主导前景；主体居中站立于深色留白背景前，头部略微向下倾斜，目光直视镜头，表情平静、严肃、自信且情感内敛；造型简约而深沉，一件哑光连帽夹克或连帽衫叠穿在简单的深色上衣外面，帽子戴起，无任何标志、图案、珠宝或配饰；灯光采用低调雕塑感照明，一盏柔和但有方向性的顶置/前置主光（-4200-4500k）照亮面部和手部，光线向边缘柔和衰减，补光极少或没有，深邃的阴影得以保留，柔和的高光勾勒出指关节和面部轮廓；背景是无缝的近黑色渐变（#000000 到 #oaoaoa），无纹理且吸光；色彩调色板柔和自然，包括深黑色、柔和的中性肤色和低饱和度的织物色调，高对比度但未使用彩色滤光片进行风格化处理；镜头模拟等效于 35-50mm 电影镜头，以强调手部透视，景深较浅，面部和前景的手部清晰对焦，背景平滑模糊；纹理超现实，可见皮肤毛孔、织物纹理和细微的胶片颗粒，整体氛围亲密、强烈、现代，略带对抗性，唤起当代电影肖像和高端时尚大片的风格，编辑、现代、高细节、电影构图、超现实纹理、专业时尚摄影风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "电影级时尚社论肖像，带透视畸变 为 nano banana pro 创建电影级时尚编辑肖像的超详细提示，使用参考照片，强调戏剧性的低角度、从伸出的手产生的强烈透视畸变、低调照明和超现实纹理。 create a cinematic fashion-editorial portrait of a person using their photo as identity reference, framed as a dramatic low-angle medium close-up (chest to head) with strong perspective distortion from an extended hand reaching toward the camera, fingers slightly open and dominating the foreground; the subject stands centered against deep negative space, head slightly tilted downward, gaze directed straight into the lens, expression calm, serious, confident, and emotionally restrained; styling is dark and minimal with a matte hooded jacket or hoodie layered over a simple dark top, hood worn up, no logos, graphics, jewelry, or accessories; lighting is low-key and sculptural with a single soft but directional overhead/front key light (-4200-4500k) illuminating the face and hand, subtle falloff toward the edges, minimal to no fill light, deep shadows preserved, gentle highlights defining knuckles and facial planes; background is a seamless near-black gradient (#000000 to #oaoaoa), textureless and absorbing light; color palette is muted and natural with deep blacks, soft neutral skin tones, and subdued fabric tones, high contrast but not stylized with color gels; lens simulation equivalent to a 35-50mm cinematic lens to emphasize hand perspective, shallow depth of field with sharp focus on face and leading hand, smooth blur into the background; textures are ultra-realistic with visible skin pores, fabric weave, and subtle film grain, overall mood is intimate, intense, modern, and slightly confrontational, evoking contemporary cinematic portraiture and high-end editorial photography, editorial, modern, high-detail, cinematic composition, ultra-realistic textures, professional fashion photography style. 创作一张电影时尚大片风格的人物肖像，以其照片作为身份参考，构图为戏剧性的低角度中景特写（胸部到头部），一只伸向镜头的手造成强烈的透视畸变，手指微张并主导前景；主体居中站立于深色留白背景前，头部略微向下倾斜，目光直视镜头，表情平静、严肃、自信且情感内敛；造型简约而深沉，一件哑光连帽夹克或连帽衫叠穿在简单的深色上衣外面，帽子戴起，无任何标志、图案、珠宝或配饰；灯光采用低调雕塑感照明，一盏柔和但有方向性的顶置/前置主光（-4200-4500k）照亮面部和手部，光线向边缘柔和衰减，补光极少或没有，深邃的阴影得以保留，柔和的高光勾勒出指关节和面部轮廓；背景是无缝的近黑色渐变（#000000 到 #oaoaoa），无纹理且吸光；色彩调色板柔和自然，包括深黑色、柔和的中性肤色和低饱和度的织物色调，高对比度但未使用彩色滤光片进行风格化处理；镜头模拟等效于 35-50mm 电影镜头，以强调手部透视，景深较浅，面部和前景的手部清晰对焦，背景平滑模糊；纹理超现实，可见皮肤毛孔、织物纹理和细微的胶片颗粒，整体氛围亲密、强烈、现代，略带对抗性，唤起当代电影肖像和高端时尚大片的风格，编辑、现代、高细节、电影构图、超现实纹理、专业时尚摄影风格。 harboriis 12305",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12327,
+      "title": "Jisoo (Blackpink) 在厨房拍摄的超逼真魅力肖像",
+      "description": "一个详细的 JSON 提示，用于 Nano Banana 2 生成一张 Blackpink 组合成员 Jisoo 的超逼真全身魅力肖像。场景设定为她坐在现代厨房的木制餐桌上，双腿张开，身穿闪亮的金属银色露脐上衣和黑色亮面乳胶裤。该提示详细说明了她的特征、姿势、光线（明亮的自然窗户光线，带有强烈高光）以及高端时尚摄影风格。",
+      "sourceLink": "https://x.com/youngcatwoman/status/2033452961234624754",
+      "sourcePublishedAt": "2026-03-16T07:59:00.000Z",
+      "author": {
+        "name": "Alice",
+        "link": "https://x.com/youngcatwoman"
+      },
+      "content": "{\n  \"prompt\": \"Photorealistic full-body portrait of Jisoo from Blackpink, highlighting her classic heart-shaped lips, elegant visual features, and long silky black hair with sunglasses perched on her head. She has a radiant, porcelain skin tone and a sophisticated, playful smile. She is sitting spread-legged on a wooden kitchen table in a modern kitchen. She wears a shiny metallic silver crop top with a keyhole cutout at the chest, thin straps, and a dangling gold O-ring chain detail, paired with a matching silver choker collar featuring a large metal ring. Tight black glossy latex pants hug her legs, paired with shiny silver platform high-heeled sandals. Pose: sitting upright on the table, legs spread with heels hooked on the table frame, hands gripping the table edge, looking confidently at the camera. Background: bright modern kitchen with white cabinets, neon written 'Jisoo' in backdrop, gray countertops. Realistic skin sheen, hair volume, and latex shine, photorealistic, sharp focus, 8k quality, high-end fashion photography.\",\n  \"negative_prompt\": \"blurry, low resolution, deformed anatomy, mutated hands, poorly drawn face, bad proportions, watermark, text, logo, ugly, cartoon, anime, illustration, 3D render, plastic skin, child, elderly, additional people, matte fabrics, blue pants, red pants.\",\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"photorealistic kitchen glamour portrait with shiny latex fashion\",\n    \"quality\": \"ultra detailed, 8k, razor sharp\",\n    \"lighting\": \"bright natural window light, strong specular highlights on silver metallic top and black latex pants\",\n    \"camera_angle\": \"medium full-body shot from slightly low angle\",\n    \"details\": \"Jisoo Kim, silver metallic crop top, black glossy latex pants, silver platform heels, sunglasses on head, neon name sign\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729518539_kbx8vg_HDdQL1AaQAA5BhW.jpg",
+        "https://cms-assets.youmind.com/media/1773729518601_yfxt3l_HDdQMlKakAEiRI8.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729518539_kbx8vg_HDdQL1AaQAA5BhW-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1773729518601_yfxt3l_HDdQMlKakAEiRI8-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"prompt\": \"Blackpink 成员 Jisoo 的超逼真全身肖像，突出她经典的爱心唇、优雅的五官和头戴太阳镜的乌黑柔顺长发。她拥有光彩照人的瓷器般肤色和精致俏皮的笑容。她以大开腿的姿势坐在现代厨房的木制餐桌上。她身穿闪亮的金属银色露脐上衣，胸部有钥匙孔镂空设计，细肩带，并带有摇曳的金色 O 形环链细节，搭配同款银色颈圈，颈圈上有一个大金属环。紧身黑色亮面乳胶裤包裹着她的双腿，搭配闪亮的银色厚底高跟凉鞋。姿势：端坐在桌上，双腿张开，脚跟勾住桌框，双手紧握桌边，自信地看向镜头。背景：明亮的现代厨房，白色橱柜，背景有霓虹灯拼写的“Jisoo”字样，灰色台面。逼真的皮肤光泽、发量和乳胶光泽，超逼真，锐利对焦，8k 画质，高端时尚摄影。\",\n  \"negative_prompt\": \"模糊，低分辨率，解剖结构变形，手部畸形，面部绘制拙劣，比例不佳，水印，文字，标志，丑陋，卡通，动漫，插画，3D 渲染，塑料皮肤，儿童，老人，额外人物，哑光面料，蓝色裤子，红色裤子。\",\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"超逼真的厨房魅力肖像，搭配闪亮乳胶时装\",\n    \"quality\": \"超精细，8k，锐利无比\",\n    \"lighting\": \"明亮的自然窗户光，银色金属上衣和黑色乳胶裤上有强烈的镜面高光\",\n    \"camera_angle\": \"略低角度的中景全身照\",\n    \"details\": \"金智秀，银色金属露脐上衣，黑色亮面乳胶裤，银色厚底高跟鞋，头戴太阳镜，霓虹灯名字标志\"\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "jisoo (blackpink) 在厨房拍摄的超逼真魅力肖像 一个详细的 json 提示，用于 nano banana 2 生成一张 blackpink 组合成员 jisoo 的超逼真全身魅力肖像。场景设定为她坐在现代厨房的木制餐桌上，双腿张开，身穿闪亮的金属银色露脐上衣和黑色亮面乳胶裤。该提示详细说明了她的特征、姿势、光线（明亮的自然窗户光线，带有强烈高光）以及高端时尚摄影风格。 {\n  \"prompt\": \"photorealistic full-body portrait of jisoo from blackpink, highlighting her classic heart-shaped lips, elegant visual features, and long silky black hair with sunglasses perched on her head. she has a radiant, porcelain skin tone and a sophisticated, playful smile. she is sitting spread-legged on a wooden kitchen table in a modern kitchen. she wears a shiny metallic silver crop top with a keyhole cutout at the chest, thin straps, and a dangling gold o-ring chain detail, paired with a matching silver choker collar featuring a large metal ring. tight black glossy latex pants hug her legs, paired with shiny silver platform high-heeled sandals. pose: sitting upright on the table, legs spread with heels hooked on the table frame, hands gripping the table edge, looking confidently at the camera. background: bright modern kitchen with white cabinets, neon written 'jisoo' in backdrop, gray countertops. realistic skin sheen, hair volume, and latex shine, photorealistic, sharp focus, 8k quality, high-end fashion photography.\",\n  \"negative_prompt\": \"blurry, low resolution, deformed anatomy, mutated hands, poorly drawn face, bad proportions, watermark, text, logo, ugly, cartoon, anime, illustration, 3d render, plastic skin, child, elderly, additional people, matte fabrics, blue pants, red pants.\",\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"photorealistic kitchen glamour portrait with shiny latex fashion\",\n    \"quality\": \"ultra detailed, 8k, razor sharp\",\n    \"lighting\": \"bright natural window light, strong specular highlights on silver metallic top and black latex pants\",\n    \"camera_angle\": \"medium full-body shot from slightly low angle\",\n    \"details\": \"jisoo kim, silver metallic crop top, black glossy latex pants, silver platform heels, sunglasses on head, neon name sign\"\n  }\n} ```json\n{\n  \"prompt\": \"blackpink 成员 jisoo 的超逼真全身肖像，突出她经典的爱心唇、优雅的五官和头戴太阳镜的乌黑柔顺长发。她拥有光彩照人的瓷器般肤色和精致俏皮的笑容。她以大开腿的姿势坐在现代厨房的木制餐桌上。她身穿闪亮的金属银色露脐上衣，胸部有钥匙孔镂空设计，细肩带，并带有摇曳的金色 o 形环链细节，搭配同款银色颈圈，颈圈上有一个大金属环。紧身黑色亮面乳胶裤包裹着她的双腿，搭配闪亮的银色厚底高跟凉鞋。姿势：端坐在桌上，双腿张开，脚跟勾住桌框，双手紧握桌边，自信地看向镜头。背景：明亮的现代厨房，白色橱柜，背景有霓虹灯拼写的“jisoo”字样，灰色台面。逼真的皮肤光泽、发量和乳胶光泽，超逼真，锐利对焦，8k 画质，高端时尚摄影。\",\n  \"negative_prompt\": \"模糊，低分辨率，解剖结构变形，手部畸形，面部绘制拙劣，比例不佳，水印，文字，标志，丑陋，卡通，动漫，插画，3d 渲染，塑料皮肤，儿童，老人，额外人物，哑光面料，蓝色裤子，红色裤子。\",\n  \"parameters\": {\n    \"aspect_ratio\": \"9:16\",\n    \"style\": \"超逼真的厨房魅力肖像，搭配闪亮乳胶时装\",\n    \"quality\": \"超精细，8k，锐利无比\",\n    \"lighting\": \"明亮的自然窗户光，银色金属上衣和黑色乳胶裤上有强烈的镜面高光\",\n    \"camera_angle\": \"略低角度的中景全身照\",\n    \"details\": \"金智秀，银色金属露脐上衣，黑色亮面乳胶裤，银色厚底高跟鞋，头戴太阳镜，霓虹灯名字标志\"\n  }\n}\n``` alice 12327",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12301,
+      "title": "赛博朋克生物机械肖像",
+      "description": "为 Nano Banana Pro 创建的提示，用于生成一张超现实、动漫风格的赛博朋克肖像，描绘一位年轻女性，其面部采用分裂设计，部分露出镀铬头骨和反光的液态铬碎片。",
+      "sourceLink": "https://x.com/iamsofiaijaz/status/2033446280962424929",
+      "sourcePublishedAt": "2026-03-16T07:32:27.000Z",
+      "author": {
+        "name": "Aijaz",
+        "link": "https://x.com/iamsofiaijaz"
+      },
+      "content": "Make a cyberpunk portrait of a young woman with a partially exposed chrome skull, split face design, one side realistic human skin and the other side metallic robotic skull, reflective liquid chrome fragments floating and slicing through the face, futuristic biomechanical aesthetic, glossy metal reflections, red background, dramatic lighting, ultra detailed skin and metal textures, sharp focus, surreal sci-fi concept art, high contrast, hyperrealistic, anime-inspired cyberpunk style, 3D render look, octane render, highly polished chrome, floating metallic shards around the head, cinematic composition, 8k",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729507057_ln5mgk_HDhAmuZa4AA--bR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729507057_ln5mgk_HDhAmuZa4AA--bR-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创作一张赛博朋克风格的年轻女性肖像，部分裸露的镀铬头骨，分裂的脸部设计，一边是逼真的人类皮肤，另一边是金属机械头骨，反射性的液态镀铬碎片漂浮并穿过脸部，未来生物机械美学，光泽金属反射，红色背景，戏剧性光照，超细节皮肤和金属纹理，锐利聚焦，超现实科幻概念艺术，高对比度，超现实主义，动漫风格赛博朋克，3D 渲染效果，Octane 渲染，高度抛光的镀铬，头部周围漂浮的金属碎片，电影构图，8k。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "赛博朋克生物机械肖像 为 nano banana pro 创建的提示，用于生成一张超现实、动漫风格的赛博朋克肖像，描绘一位年轻女性，其面部采用分裂设计，部分露出镀铬头骨和反光的液态铬碎片。 make a cyberpunk portrait of a young woman with a partially exposed chrome skull, split face design, one side realistic human skin and the other side metallic robotic skull, reflective liquid chrome fragments floating and slicing through the face, futuristic biomechanical aesthetic, glossy metal reflections, red background, dramatic lighting, ultra detailed skin and metal textures, sharp focus, surreal sci-fi concept art, high contrast, hyperrealistic, anime-inspired cyberpunk style, 3d render look, octane render, highly polished chrome, floating metallic shards around the head, cinematic composition, 8k 创作一张赛博朋克风格的年轻女性肖像，部分裸露的镀铬头骨，分裂的脸部设计，一边是逼真的人类皮肤，另一边是金属机械头骨，反射性的液态镀铬碎片漂浮并穿过脸部，未来生物机械美学，光泽金属反射，红色背景，戏剧性光照，超细节皮肤和金属纹理，锐利聚焦，超现实科幻概念艺术，高对比度，超现实主义，动漫风格赛博朋克，3d 渲染效果，octane 渲染，高度抛光的镀铬，头部周围漂浮的金属碎片，电影构图，8k。 aijaz 12301",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12351,
+      "title": "装饰性电影标题字体生成",
+      "description": "一个提示模板，旨在根据特定词语生成原创的装饰性电影标题字体，通过视觉效果唤起该词语的含义，并根据设计选择背景颜色。",
+      "sourceLink": "https://x.com/underwoodxie96/status/2033438400431477203",
+      "sourcePublishedAt": "2026-03-16T07:01:08.000Z",
+      "author": {
+        "name": "underwood",
+        "link": "https://x.com/underwoodxie96"
+      },
+      "content": "Based on the word “{argument name=\"word\" default=\"[WORD]\"},” design an original decorative cinematic title font that visually evokes the meaning of the word. Use your imagination to create a unique and original design without being limited by existing typefaces. Choose the background color according to the design.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729529792_e6vk8h_HDg46Ggb0AAA08C.jpg",
+        "https://cms-assets.youmind.com/media/1773729529814_iandvr_HDg46GfbEAAoiCs.jpg",
+        "https://cms-assets.youmind.com/media/1773729529843_5uon89_HDg4934agAAL2YH.jpg",
+        "https://cms-assets.youmind.com/media/1773729530376_fzmwic_HDg493lasAAgaPe.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729529792_e6vk8h_HDg46Ggb0AAA08C-300x201.jpg",
+        "https://cms-assets.youmind.com/media/1773729529814_iandvr_HDg46GfbEAAoiCs-300x201.jpg",
+        "https://cms-assets.youmind.com/media/1773729529843_5uon89_HDg4934agAAL2YH-300x201.jpg",
+        "https://cms-assets.youmind.com/media/1773729530376_fzmwic_HDg493lasAAgaPe-300x201.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "根据词语“{argument name=\"word\" default=\"[WORD]\"}”，设计一个原创的装饰性电影片名字体，使其在视觉上能唤起该词语的含义。请发挥您的想象力，创造一个独特且原创的设计，不受现有字体的限制。根据设计选择背景颜色。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "装饰性电影标题字体生成 一个提示模板，旨在根据特定词语生成原创的装饰性电影标题字体，通过视觉效果唤起该词语的含义，并根据设计选择背景颜色。 based on the word “{argument name=\"word\" default=\"[word]\"},” design an original decorative cinematic title font that visually evokes the meaning of the word. use your imagination to create a unique and original design without being limited by existing typefaces. choose the background color according to the design. 根据词语“{argument name=\"word\" default=\"[word]\"}”，设计一个原创的装饰性电影片名字体，使其在视觉上能唤起该词语的含义。请发挥您的想象力，创造一个独特且原创的设计，不受现有字体的限制。根据设计选择背景颜色。 underwood 12351",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12321,
+      "title": "高级广告宣传照",
+      "description": "一个给 Google Gemini Nano Banana 2 的提示，用于生成一张优质广告照片，照片中一位美丽的西方女性优雅地展示 KitKat 海绵标志，强调高品质品牌宣传活动的构图。",
+      "sourceLink": "https://x.com/Just_sharon7/status/2033431586486493402",
+      "sourcePublishedAt": "2026-03-16T06:34:04.000Z",
+      "author": {
+        "name": "Sharon Riley",
+        "link": "https://x.com/Just_sharon7"
+      },
+      "content": "A premium advertising campaign photograph featuring a beautiful western woman slightly behind the KitKat sponge logo, both hands elegantly presenting the product toward camera, premium brand campaign composition.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729515909_dimgge_HDgzPf-bAAAgZLd.jpg",
+        "https://cms-assets.youmind.com/media/1773729516115_l5x7qv_HDgzPinacAAzHcU.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729515909_dimgge_HDgzPf-bAAAgZLd-300x450.jpg",
+        "https://cms-assets.youmind.com/media/1773729516115_l5x7qv_HDgzPinacAAzHcU-300x450.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一张优质广告宣传照片，画面中一位美丽的西方女性略微位于 KitKat 海绵标志的后方，双手优雅地向镜头展示产品，整体构图呈现出高端品牌宣传的风格。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高级广告宣传照 一个给 google gemini nano banana 2 的提示，用于生成一张优质广告照片，照片中一位美丽的西方女性优雅地展示 kitkat 海绵标志，强调高品质品牌宣传活动的构图。 a premium advertising campaign photograph featuring a beautiful western woman slightly behind the kitkat sponge logo, both hands elegantly presenting the product toward camera, premium brand campaign composition. 一张优质广告宣传照片，画面中一位美丽的西方女性略微位于 kitkat 海绵标志的后方，双手优雅地向镜头展示产品，整体构图呈现出高端品牌宣传的风格。 sharon riley 12321",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12353,
+      "title": "Nano Banana 2 的图像质量增强提示",
+      "description": "这是一个针对 Nano Banana 2 模型的提示词，旨在提升图像质量，特别是改善皮肤纹理和细节，同时保持原始构图和色彩。它指示模型去除模糊，精修皮肤细节（毛孔、纹理、自然光线过渡），并锐化眼睛、睫毛、嘴唇和头发周围的边缘，以达到具有自然皮肤效果的高端美妆摄影美学。这是一个图像到图像的增强提示词。",
+      "sourceLink": "https://x.com/qisi_ai/status/2033431128854413747",
+      "sourcePublishedAt": "2026-03-16T06:32:15.000Z",
+      "author": {
+        "name": "骑司Chase",
+        "link": "https://x.com/qisi_ai"
+      },
+      "content": "在保持精确构图和色彩的同时，增强并提升图像质量。去除模糊，使肌肤呈现逼真细腻的质感：清晰的毛孔、细腻的纹路以及自然的光影过渡。保留浅色调和背景，并优化眼部、睫毛、嘴唇和发丝周围的边缘锐度，使人像照片拥有高端美妆摄影般的质感，呈现自然不做作的肌肤效果",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729531080_2cj6cu_HDgxrRMbUAAXeno.png",
+        "https://cms-assets.youmind.com/media/1773729531116_ymxuby_HDgxveKaQAAdlIQ.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729531116_ymxuby_HDgxveKaQAAdlIQ-300x400.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "在保持精确构图和色彩的同时，提升并改善图像质量。去除模糊，使皮肤呈现逼真细腻的质感：毛孔清晰可见，细纹自然，光影过渡柔和。保留浅色调和背景，并优化眼睛、睫毛、嘴唇和头发周围的边缘锐度，使肖像具有高端美妆摄影的质感，呈现自然不做作的皮肤效果。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的图像质量增强提示 这是一个针对 nano banana 2 模型的提示词，旨在提升图像质量，特别是改善皮肤纹理和细节，同时保持原始构图和色彩。它指示模型去除模糊，精修皮肤细节（毛孔、纹理、自然光线过渡），并锐化眼睛、睫毛、嘴唇和头发周围的边缘，以达到具有自然皮肤效果的高端美妆摄影美学。这是一个图像到图像的增强提示词。 在保持精确构图和色彩的同时，增强并提升图像质量。去除模糊，使肌肤呈现逼真细腻的质感：清晰的毛孔、细腻的纹路以及自然的光影过渡。保留浅色调和背景，并优化眼部、睫毛、嘴唇和发丝周围的边缘锐度，使人像照片拥有高端美妆摄影般的质感，呈现自然不做作的肌肤效果 在保持精确构图和色彩的同时，提升并改善图像质量。去除模糊，使皮肤呈现逼真细腻的质感：毛孔清晰可见，细纹自然，光影过渡柔和。保留浅色调和背景，并优化眼睛、睫毛、嘴唇和头发周围的边缘锐度，使肖像具有高端美妆摄影的质感，呈现自然不做作的皮肤效果。 骑司chase 12353",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 12364,
+      "title": "Nano Banana Pro 提示词，用于生成身穿复古休闲服的玛格特·罗比 (Margot Robbie) 相似形象",
+      "description": "一个详细的 JSON 格式提示，用于 Nano Banana Pro，指示生成一张超逼真的年轻女性图像，该女性酷似玛格特·罗比 (Margot Robbie)，身穿条纹飞行员夹克、露脐上衣和红色短裤，风格古怪复古休闲，斜倚在昏暗休息室的纹理墙壁上。",
+      "sourceLink": "https://x.com/Artist04048661/status/2033426013787390425",
+      "sourcePublishedAt": "2026-03-16T06:11:55.000Z",
+      "author": {
+        "name": "LexiPrompt",
+        "link": "https://x.com/Artist04048661"
+      },
+      "content": "{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"Young woman with a strong resemblance to {argument name=\"subject name\" default=\"Margot Robbie\"}.\",\n      \"hair\": \"Voluminous, long, styled with loose waves, cascading over shoulders.\",\n      \"face\": \"Confident expression, full makeup, matte skin finish.\",\n      \"body\": \"Slim physique, glowing skin on exposed legs.\"\n    },\n    \"attire\": {\n      \"clothing\": \"Unzipped light blue and white striped bomber jacket with red heart patch on right chest. White crop top. Red shorts with white polka dots. White ankle socks. Glossy red stiletto pumps.\",\n      \"style\": \"Quirky retro-casual\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"Small earrings\",\n        \"Rings on fingers\",\n        \"Small red handbag\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"Indoors, leaning against a textured, curved cream-colored wall.\",\n      \"background\": \"Dimly lit lounge area with sofa, small table, and glassware.\",\n      \"water\": \"None\"\n    },\n    \"pose\": {\n      \"posture\": \"Leaning back against wall. One leg straight, the other bent at knee with foot raised slightly.\",\n      \"arms\": \"One hand resting on upper thigh, the other holding a small bag near the hip.\",\n      \"angle\": \"Full-body, slightly low-angle shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Warm artificial indoor lighting casting soft shadows on the textured wall.\",\n      \"mood\": \"Playful and stylish.\",\n      \"colors\": \"Red, white, light blue, warm cream, dim pink.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"Ultra Photorealistic, RAW photo.\",\n      \"lens\": \"35mm\",\n      \"aperture\": \"f/2.8\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"Hasselblad photography\"\n      ]\n    }\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729536045_xw1pq6_HDguF0HW4AE7BIV.jpg",
+        "https://cms-assets.youmind.com/media/1773729536297_x7f7fc_HDguF0HWQAEVpZr.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729536045_xw1pq6_HDguF0HW4AE7BIV-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773729536297_x7f7fc_HDguF0HWQAEVpZr-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位与 {argument name=\\\"subject name\\\" default=\\\"Margot Robbie\\\"} 极其相似的年轻女性。\",\n      \"hair\": \"蓬松、长发，波浪卷发，披散在肩上。\",\n      \"face\": \"自信的表情，浓妆，哑光肤质。\",\n      \"body\": \"苗条身材，裸露的腿部肌肤散发光泽。\"\n    },\n    \"attire\": {\n      \"clothing\": \"未拉拉链的浅蓝色和白色条纹飞行员夹克，右胸有红色心形补丁。白色露脐上衣。红色波点短裤。白色踝袜。亮面红色细高跟鞋。\",\n      \"style\": \"古怪复古休闲风\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"小耳环\",\n        \"手指上的戒指\",\n        \"红色小手提包\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"室内，靠在一面有纹理的弧形米色墙壁上。\",\n      \"background\": \"光线昏暗的休息区，有沙发、小桌子和玻璃器皿。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"靠墙而立。一条腿伸直，另一条腿膝盖弯曲，脚略微抬起。\",\n      \"arms\": \"一只手放在大腿上部，另一只手拿着一个小包靠近臀部。\",\n      \"angle\": \"全身照，略微低角度拍摄。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"温暖的室内人造光线，在有纹理的墙壁上投射出柔和的阴影。\",\n      \"mood\": \"俏皮时尚。\",\n      \"colors\": \"红色、白色、浅蓝色、暖米色、暗粉色。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真、RAW 照片。\",\n      \"lens\": \"35mm\",\n      \"aperture\": \"f/2.8\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超逼真纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n```",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 提示词，用于生成身穿复古休闲服的玛格特·罗比 (margot robbie) 相似形象 一个详细的 json 格式提示，用于 nano banana pro，指示生成一张超逼真的年轻女性图像，该女性酷似玛格特·罗比 (margot robbie)，身穿条纹飞行员夹克、露脐上衣和红色短裤，风格古怪复古休闲，斜倚在昏暗休息室的纹理墙壁上。 {\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"young woman with a strong resemblance to {argument name=\"subject name\" default=\"margot robbie\"}.\",\n      \"hair\": \"voluminous, long, styled with loose waves, cascading over shoulders.\",\n      \"face\": \"confident expression, full makeup, matte skin finish.\",\n      \"body\": \"slim physique, glowing skin on exposed legs.\"\n    },\n    \"attire\": {\n      \"clothing\": \"unzipped light blue and white striped bomber jacket with red heart patch on right chest. white crop top. red shorts with white polka dots. white ankle socks. glossy red stiletto pumps.\",\n      \"style\": \"quirky retro-casual\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"small earrings\",\n        \"rings on fingers\",\n        \"small red handbag\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"indoors, leaning against a textured, curved cream-colored wall.\",\n      \"background\": \"dimly lit lounge area with sofa, small table, and glassware.\",\n      \"water\": \"none\"\n    },\n    \"pose\": {\n      \"posture\": \"leaning back against wall. one leg straight, the other bent at knee with foot raised slightly.\",\n      \"arms\": \"one hand resting on upper thigh, the other holding a small bag near the hip.\",\n      \"angle\": \"full-body, slightly low-angle shot.\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"warm artificial indoor lighting casting soft shadows on the textured wall.\",\n      \"mood\": \"playful and stylish.\",\n      \"colors\": \"red, white, light blue, warm cream, dim pink.\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"ultra photorealistic, raw photo.\",\n      \"lens\": \"35mm\",\n      \"aperture\": \"f/2.8\",\n      \"quality_tags\": [\n        \"8k resolution\",\n        \"highly detailed\",\n        \"volumetric lighting\",\n        \"ray tracing reflections\",\n        \"hyper-realistic texture\",\n        \"hasselblad photography\"\n      ]\n    }\n  }\n} ```json\n{\n  \"image_generation_prompt\": {\n    \"subject\": {\n      \"description\": \"一位与 {argument name=\\\"subject name\\\" default=\\\"margot robbie\\\"} 极其相似的年轻女性。\",\n      \"hair\": \"蓬松、长发，波浪卷发，披散在肩上。\",\n      \"face\": \"自信的表情，浓妆，哑光肤质。\",\n      \"body\": \"苗条身材，裸露的腿部肌肤散发光泽。\"\n    },\n    \"attire\": {\n      \"clothing\": \"未拉拉链的浅蓝色和白色条纹飞行员夹克，右胸有红色心形补丁。白色露脐上衣。红色波点短裤。白色踝袜。亮面红色细高跟鞋。\",\n      \"style\": \"古怪复古休闲风\"\n    },\n    \"styling_and_accessories\": {\n      \"jewelry\": [\n        \"小耳环\",\n        \"手指上的戒指\",\n        \"红色小手提包\"\n      ]\n    },\n    \"environment\": {\n      \"setting\": \"室内，靠在一面有纹理的弧形米色墙壁上。\",\n      \"background\": \"光线昏暗的休息区，有沙发、小桌子和玻璃器皿。\",\n      \"water\": \"无\"\n    },\n    \"pose\": {\n      \"posture\": \"靠墙而立。一条腿伸直，另一条腿膝盖弯曲，脚略微抬起。\",\n      \"arms\": \"一只手放在大腿上部，另一只手拿着一个小包靠近臀部。\",\n      \"angle\": \"全身照，略微低角度拍摄。\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"温暖的室内人造光线，在有纹理的墙壁上投射出柔和的阴影。\",\n      \"mood\": \"俏皮时尚。\",\n      \"colors\": \"红色、白色、浅蓝色、暖米色、暗粉色。\"\n    },\n    \"camera_and_technical\": {\n      \"style\": \"超逼真、raw 照片。\",\n      \"lens\": \"35mm\",\n      \"aperture\": \"f/2.8\",\n      \"quality_tags\": [\n        \"8k 分辨率\",\n        \"高度细节\",\n        \"体积光\",\n        \"光线追踪反射\",\n        \"超逼真纹理\",\n        \"哈苏摄影\"\n      ]\n    }\n  }\n}\n``` lexiprompt 12364",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12307,
+      "title": "明亮清晨街头时尚肖像",
+      "description": "为 Nano Banana 2 生成一张编辑风格、超细节图像的详细提示，描绘了一位穿着街头时尚的年轻女性在日出时分坐在城市人行道边，其中包含具体的服装和光照细节。",
+      "sourceLink": "https://x.com/NikhilRajX/status/2033420448013390069",
+      "sourcePublishedAt": "2026-03-16T05:49:48.000Z",
+      "author": {
+        "name": "Nikhil",
+        "link": "https://x.com/NikhilRajX"
+      },
+      "content": "Bright morning street fashion: young woman sitting relaxed on city sidewalk curb at sunrise, wearing {argument name=\"outfit\" default=\"black oversized hoodie, light gray cargo pants, white sneakers, black baseball cap worn backward\"}, silver chain necklace, small black crossbody bag placed beside her, holding phone casually in one hand, leaning back in relaxed pose with other hand on head, golden warm sunrise light, urban arches background, editorial style photography, highly detailed, 8K",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729509536_f3mpai_HDgpHuPaEAAzQkx.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729509536_f3mpai_HDgpHuPaEAAzQkx-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "明媚的清晨街头时尚：年轻女子在日出时分，轻松地坐在城市人行道边，身穿 {argument name=\"outfit\" default=\"黑色宽松连帽衫、浅灰色工装裤、白色运动鞋、反戴的黑色棒球帽\"}，戴着银色项链，身旁放着一个黑色小斜挎包，一只手随意地拿着手机，另一只手放在头上，身体向后倾斜，姿态放松。金色的温暖日出光线，城市拱门背景，编辑风格摄影，高度细节，8K。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "明亮清晨街头时尚肖像 为 nano banana 2 生成一张编辑风格、超细节图像的详细提示，描绘了一位穿着街头时尚的年轻女性在日出时分坐在城市人行道边，其中包含具体的服装和光照细节。 bright morning street fashion: young woman sitting relaxed on city sidewalk curb at sunrise, wearing {argument name=\"outfit\" default=\"black oversized hoodie, light gray cargo pants, white sneakers, black baseball cap worn backward\"}, silver chain necklace, small black crossbody bag placed beside her, holding phone casually in one hand, leaning back in relaxed pose with other hand on head, golden warm sunrise light, urban arches background, editorial style photography, highly detailed, 8k 明媚的清晨街头时尚：年轻女子在日出时分，轻松地坐在城市人行道边，身穿 {argument name=\"outfit\" default=\"黑色宽松连帽衫、浅灰色工装裤、白色运动鞋、反戴的黑色棒球帽\"}，戴着银色项链，身旁放着一个黑色小斜挎包，一只手随意地拿着手机，另一只手放在头上，身体向后倾斜，姿态放松。金色的温暖日出光线，城市拱门背景，编辑风格摄影，高度细节，8k。 nikhil 12307",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12344,
+      "title": "分屏时尚编辑广告",
+      "description": "生成一张高质量的分屏时尚编辑广告的提示，广告包含多个不同颜色的面板，展示模特穿着阿迪达斯风格的运动服和休闲运动装，服装与充满活力的纯色背景相匹配，整体采用专业、极简主义的美学风格。",
+      "sourceLink": "https://x.com/Mind_Boticni/status/2033403443269030215",
+      "sourcePublishedAt": "2026-03-16T04:42:14.000Z",
+      "author": {
+        "name": "Cherry 2.O",
+        "link": "https://x.com/Mind_Boticni"
+      },
+      "content": "A high-quality, split-screen fashion editorial advertisement featuring multiple panels of different colors (yellow, green, deep red, blue). The image shows models wearing Adidas-style tracksuits and casual sportswear in corresponding colors that match their background panel. One male model in yellow is walking, one female model in green is sitting on a speaker, one male model in red is jumping, one female model in blue is sitting by a blue typewriter, one female model in red is posing in a red panel, and one female model in yellow is standing. Clean studio lighting, vibrant solid-color backgrounds, professional fashion photography, minimalist aesthetic, sharp focus",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729526831_usxwvr_HDgZpRMa4AA2f_m.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729526831_usxwvr_HDgZpRMa4AA2f_m-300x172.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一幅高质量的分屏时尚专题广告，由多个不同颜色的面板（黄色、绿色、深红色、蓝色）组成。画面中，模特们身着阿迪达斯风格的运动服和休闲运动装，服装颜色与各自背景面板的颜色相呼应。一位身穿黄色服装的男模特正在行走，一位身穿绿色服装的女模特坐在音箱上，一位身穿红色服装的男模特正在跳跃，一位身穿蓝色服装的女模特坐在蓝色打字机旁，一位身穿红色服装的女模特在红色面板中摆姿势，还有一位身穿黄色服装的女模特站立着。画面采用干净的影棚布光，鲜艳的纯色背景，专业的时尚摄影，极简主义美学，焦点锐利。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "分屏时尚编辑广告 生成一张高质量的分屏时尚编辑广告的提示，广告包含多个不同颜色的面板，展示模特穿着阿迪达斯风格的运动服和休闲运动装，服装与充满活力的纯色背景相匹配，整体采用专业、极简主义的美学风格。 a high-quality, split-screen fashion editorial advertisement featuring multiple panels of different colors (yellow, green, deep red, blue). the image shows models wearing adidas-style tracksuits and casual sportswear in corresponding colors that match their background panel. one male model in yellow is walking, one female model in green is sitting on a speaker, one male model in red is jumping, one female model in blue is sitting by a blue typewriter, one female model in red is posing in a red panel, and one female model in yellow is standing. clean studio lighting, vibrant solid-color backgrounds, professional fashion photography, minimalist aesthetic, sharp focus 一幅高质量的分屏时尚专题广告，由多个不同颜色的面板（黄色、绿色、深红色、蓝色）组成。画面中，模特们身着阿迪达斯风格的运动服和休闲运动装，服装颜色与各自背景面板的颜色相呼应。一位身穿黄色服装的男模特正在行走，一位身穿绿色服装的女模特坐在音箱上，一位身穿红色服装的男模特正在跳跃，一位身穿蓝色服装的女模特坐在蓝色打字机旁，一位身穿红色服装的女模特在红色面板中摆姿势，还有一位身穿黄色服装的女模特站立着。画面采用干净的影棚布光，鲜艳的纯色背景，专业的时尚摄影，极简主义美学，焦点锐利。 cherry 2.o 12344",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12352,
+      "title": "Nano Banana 2 专业证件照生成提示词",
+      "description": "一个旨在生成专业、高质量证件照的提示，适用于 LinkedIn 等平台，使用 Nano Banana 2 模型。它指定了智能、专业的风格、柔和的自然光照、微妙的灰白渐变背景，并着重于清晰的面部特征、良好的皮肤质感以及放松、自信的表情。输出旨在呈现精致的专业肖像。",
+      "sourceLink": "https://x.com/qisi_ai/status/2033381467125149783",
+      "sourcePublishedAt": "2026-03-16T03:14:54.000Z",
+      "author": {
+        "name": "骑司Chase",
+        "link": "https://x.com/qisi_ai"
+      },
+      "content": "智感职业证件照，整体风格参考美式证件照，人物大小适中。使用淡淡的灰色到白色的渐变摄影背景，灯光柔和自然，突出真实肤色与层次感。画面清晰高质，面部保持对焦，皮肤质感通透气色好，头肩比要正常舒适。整体气质现代且优雅，神情放松，自然自信，眼神明亮有神。中景人像，人物大小适中，人物居中，低对比度，呈现出专业肖像摄影的精致感。适合作为商务与职业形象照。比例3:4",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729530209_m9knv5_HDgFfCAaoAAN_X2.jpg",
+        "https://cms-assets.youmind.com/media/1773729530199_5mj807_HDgEaI7boAAMt9R.jpg",
+        "https://cms-assets.youmind.com/media/1773729530231_t14jzr_HDgEPN2bUAA2uUt.jpg",
+        "https://cms-assets.youmind.com/media/1773729530999_qtlbwb_HDgFhUZaEAA5ubw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729530209_m9knv5_HDgFfCAaoAAN_X2-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773729530199_5mj807_HDgEaI7boAAMt9R-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773729530231_t14jzr_HDgEPN2bUAA2uUt-300x402.jpg",
+        "https://cms-assets.youmind.com/media/1773729530999_qtlbwb_HDgFhUZaEAA5ubw-300x402.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "智能专业证件照，整体风格参考美式证件照，主体大小适中。使用微妙的灰白渐变摄影背景，柔和自然的灯光，突出真实的肤色和层次感。图像应清晰高质量，面部聚焦，皮肤通透质感好，头肩比例舒适正常。整体气质现代优雅，表情放松，自然自信，眼神明亮有神。中景肖像，主体大小适中，主体居中，低对比度，呈现专业肖像摄影的精致品质。适用于商务和专业头像。长宽比 3:4。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 专业证件照生成提示词 一个旨在生成专业、高质量证件照的提示，适用于 linkedin 等平台，使用 nano banana 2 模型。它指定了智能、专业的风格、柔和的自然光照、微妙的灰白渐变背景，并着重于清晰的面部特征、良好的皮肤质感以及放松、自信的表情。输出旨在呈现精致的专业肖像。 智感职业证件照，整体风格参考美式证件照，人物大小适中。使用淡淡的灰色到白色的渐变摄影背景，灯光柔和自然，突出真实肤色与层次感。画面清晰高质，面部保持对焦，皮肤质感通透气色好，头肩比要正常舒适。整体气质现代且优雅，神情放松，自然自信，眼神明亮有神。中景人像，人物大小适中，人物居中，低对比度，呈现出专业肖像摄影的精致感。适合作为商务与职业形象照。比例3:4 智能专业证件照，整体风格参考美式证件照，主体大小适中。使用微妙的灰白渐变摄影背景，柔和自然的灯光，突出真实的肤色和层次感。图像应清晰高质量，面部聚焦，皮肤通透质感好，头肩比例舒适正常。整体气质现代优雅，表情放松，自然自信，眼神明亮有神。中景肖像，主体大小适中，主体居中，低对比度，呈现专业肖像摄影的精致品质。适用于商务和专业头像。长宽比 3:4。 骑司chase 12352",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12362,
+      "title": "Nano Banana 2 的无限装饰文本生成器提示",
+      "description": "一个可重复使用的 Nano Banana 2 提示，可根据指定词语的氛围和意象生成独特的装饰文本。用户只需将所需词语插入方括号中即可。",
+      "sourceLink": "https://x.com/SSSS_CRYPTOMAN/status/2033378783018017002",
+      "sourcePublishedAt": "2026-03-16T03:04:14.000Z",
+      "author": {
+        "name": "SSSS_CRYPTOMAN",
+        "link": "https://x.com/SSSS_CRYPTOMAN"
+      },
+      "content": "「{argument name=\"言葉\" default=\"\"}」という言葉を題材にした装飾文字を作成。この指定した言葉を大きく書き、言葉のイメージから連想されるデザインの装飾文字を作成する。既成のフォントにとらわれず、柔軟な発想で独創的なデザインを作成する事。背景はデザインに合わせて単色の白または黒。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1773729534158_ea45p6_HDgDOZYa0AAqMAW.jpg",
+        "https://cms-assets.youmind.com/media/1773729534150_rx332o_HDgDOZdaEAAgfzb.jpg",
+        "https://cms-assets.youmind.com/media/1773729534489_441o7i_HDgDOZjb0AAsL20.jpg",
+        "https://cms-assets.youmind.com/media/1773729534760_wet9m1_HDgCo-oa4AAwXXP.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1773729534158_ea45p6_HDgDOZYa0AAqMAW-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773729534150_rx332o_HDgDOZdaEAAgfzb-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773729534489_441o7i_HDgDOZjb0AAsL20-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1773729534760_wet9m1_HDgCo-oa4AAwXXP-300x168.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "根据词语“{argument name=\"word\" default=\"\"}”创建装饰性文本。将指定词语放大书写，并围绕该词语的形象设计装饰性文本。以灵活的创意创建原创设计，不受现有字体的限制。背景应为单色，白色或黑色，与设计相匹配。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana 2 的无限装饰文本生成器提示 一个可重复使用的 nano banana 2 提示，可根据指定词语的氛围和意象生成独特的装饰文本。用户只需将所需词语插入方括号中即可。 「{argument name=\"言葉\" default=\"\"}」という言葉を題材にした装飾文字を作成。この指定した言葉を大きく書き、言葉のイメージから連想されるデザインの装飾文字を作成する。既成のフォントにとらわれず、柔軟な発想で独創的なデザインを作成する事。背景はデザインに合わせて単色の白または黒。 根据词语“{argument name=\"word\" default=\"\"}”创建装饰性文本。将指定词语放大书写，并围绕该词语的形象设计装饰性文本。以灵活的创意创建原创设计，不受现有字体的限制。背景应为单色，白色或黑色，与设计相匹配。 ssss_cryptoman 12362",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 12355,
+      "title": "使用 Nano Banana Pro 图像和 Kling 3.0 制作的电影级 ASMR 序列",
+      "description": "用户使用 Nano Banana Pro 生成了四张图片，然后将它们用于制作 Kling 3.0 Omni 视频，并分享了用于图像和视频生成的通用提示词。该提示词描述了一个详细的电影场景，重点是一个复古的卡带播放器和耳机。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2033377372117041437",
+      "sourcePublishedAt": "2026-03-16T02:58:38.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "レトロなラジカセとヘッドホンを用いた、ASMR的な親密さと映画的な質感を備えたシネマティックな映像シーケンス。冒頭は柔らかな光の中で回転するカセットテープと機械的なディテールのマクロクローズアップから始まり、ヘッドホンを装着するミディアムショットへと滑らかに移行する。続いて極小クローズアップで微細な表情の変化と音楽への没入感を捉え、最後はカメラが引いてテープの停止と共に静寂へ戻る余韻のあるエンディングを描写する。全体を通してフィルムグレインと光のフレアを施し、浅い被写界深度とリズムに同期したシームレスなトランジションで構成する。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一段电影般的视频序列，展现了一个复古磁带播放器和耳机，具有 ASMR 般的亲密感和电影质感。视频以旋转磁带和机械细节的特写镜头开始，柔和的光线中，画面平稳过渡到一个人戴上耳机的中景。随后是一个捕捉细微面部表情和沉浸于音乐的超特写镜头，最后以摄像机拉远、磁带停止、寂静回归的悠长结尾结束。整个序列融入了胶片颗粒和光晕效果，由浅景深和与节奏同步的无缝过渡构成。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "使用 nano banana pro 图像和 kling 3.0 制作的电影级 asmr 序列 用户使用 nano banana pro 生成了四张图片，然后将它们用于制作 kling 3.0 omni 视频，并分享了用于图像和视频生成的通用提示词。该提示词描述了一个详细的电影场景，重点是一个复古的卡带播放器和耳机。 レトロなラジカセとヘッドホンを用いた、asmr的な親密さと映画的な質感を備えたシネマティックな映像シーケンス。冒頭は柔らかな光の中で回転するカセットテープと機械的なディテールのマクロクローズアップから始まり、ヘッドホンを装着するミディアムショットへと滑らかに移行する。続いて極小クローズアップで微細な表情の変化と音楽への没入感を捉え、最後はカメラが引いてテープの停止と共に静寂へ戻る余韻のあるエンディングを描写する。全体を通してフィルムグレインと光のフレアを施し、浅い被写界深度とリズムに同期したシームレスなトランジションで構成する。 一段电影般的视频序列，展现了一个复古磁带播放器和耳机，具有 asmr 般的亲密感和电影质感。视频以旋转磁带和机械细节的特写镜头开始，柔和的光线中，画面平稳过渡到一个人戴上耳机的中景。随后是一个捕捉细微面部表情和沉浸于音乐的超特写镜头，最后以摄像机拉远、磁带停止、寂静回归的悠长结尾结束。整个序列融入了胶片颗粒和光晕效果，由浅景深和与节奏同步的无缝过渡构成。 空想写真家 12355",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 56,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

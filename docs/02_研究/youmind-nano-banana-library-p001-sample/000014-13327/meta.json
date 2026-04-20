@@ -1,0 +1,29 @@
+{
+  "rank": 14,
+  "id": 13327,
+  "title": "金发美女与 G-Wagon 的结构化提示词",
+  "description": "一份针对 Nano Banana 2 的结构化 JSON 提示词，详细描述了一位时尚的年轻金发女性站在欧洲城市街道的黑色梅赛德斯 G-Wagon 前，强调奢华生活方式、网红审美以及具有特定相机和光影设置的抓拍街拍风格。",
+  "language": "en",
+  "authorName": "Lore",
+  "authorLink": "https://x.com/l_w_lorenzen",
+  "featured": false,
+  "sourceLink": "https://x.com/l_w_lorenzen/status/2041890544482447401",
+  "sourcePublishedAt": "2026-04-08T14:46:56.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 0,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ],
+    "thumbs": []
+  }
+}

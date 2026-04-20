@@ -1,0 +1,494 @@
+{
+  "prompts": [
+    {
+      "id": 13046,
+      "title": "超写实清晨卧室场景",
+      "description": "这是一个为 Nano Banana 2 精心构建的结构化 JSON 提示词，旨在生成一张超写实的女性卧室清晨金光场景图，重点呈现亲密的构图、柔和的光影以及具体的姿势和服装细节。",
+      "sourceLink": "https://x.com/bananababydoll/status/2038979880889503893",
+      "sourcePublishedAt": "2026-03-31T14:01:00.000Z",
+      "author": {
+        "name": "babydoll",
+        "link": "https://x.com/bananababydoll"
+      },
+      "content": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"soft daylight iphone realism, natural HDR, intimate framing\"\n  },\n\n  \"scene\": {\n    \"location\": \"bedroom with open balcony doors\",\n    \"time\": \"early morning golden light\",\n    \"atmosphere\": \"private, warm, slow morning energy\"\n  },\n\n  \"lighting\": {\n    \"primary\": \"strong sunlight entering from behind\",\n    \"secondary\": \"soft room bounce\",\n    \"effect\": [\n      \"backlit glow around body\",\n      \"light passing through fabric\",\n      \"soft shadows across skin\",\n      \"warm golden tone\"\n    ],\n    \"temperature\": \"warm 5800K\"\n  },\n\n  \"camera\": {\n    \"angle\": \"slightly below chest level\",\n    \"distance\": \"mid shot\",\n    \"focus\": \"sharp subject, soft background\",\n    \"motion\": \"slight handheld realism\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"standing near balcony\",\n      \"action\": \"pulling oversized shirt off one shoulder mid-motion\",\n      \"torso\": \"twisting slightly\",\n      \"hips\": \"angled\"\n    },\n    \"expression\": {\n      \"eyes\": \"looking at camera through sunlight\",\n      \"mouth\": \"soft teasing smile\"\n    },\n    \"hair\": {\n      \"style\": \"natural morning volume\",\n      \"movement\": \"slight breeze\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized button shirt\",\n        \"color\": \"white\",\n        \"state\": \"half falling off shoulder\",\n        \"details\": \"sunlight slightly passing through fabric\"\n      },\n      \"bottom\": {\n        \"type\": \"minimal lounge underwear\",\n        \"color\": \"soft neutral\"\n      }\n    }\n  },\n\n  \"environment_details\": {\n    \"background\": [\n      \"open balcony\",\n      \"flowing curtains\",\n      \"sunlight streaks\",\n      \"unmade bed\"\n    ]\n  },\n\n  \"post_processing\": {\n    \"exposure\": \"+12%\",\n    \"colors\": \"warm\",\n    \"skin\": \"natural texture\"\n  }\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026344166_cj81on_HDnViuUWgAA3OD4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026344166_cj81on_HDnViuUWgAA3OD4-300x372.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"meta\": {\n    \"camera\": \"iPhone 17 Pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"超写实\",\n    \"style\": \"柔和日光 iPhone 真实感，自然 HDR，亲密构图\"\n  },\n\n  \"scene\": {\n    \"location\": \"带有开放式阳台门的卧室\",\n    \"time\": \"清晨金光\",\n    \"atmosphere\": \"私密、温暖、慵懒的清晨氛围\"\n  },\n\n  \"lighting\": {\n    \"primary\": \"从后方射入的强烈阳光\",\n    \"secondary\": \"柔和的室内漫反射\",\n    \"effect\": [\n      \"身体周围的背光光晕\",\n      \"光线穿透织物\",\n      \"皮肤上柔和的阴影\",\n      \"温暖的金色调\"\n    ],\n    \"temperature\": \"暖色调 5800K\"\n  },\n\n  \"camera\": {\n    \"angle\": \"略低于胸部水平\",\n    \"distance\": \"中景\",\n    \"focus\": \"主体清晰，背景柔和\",\n    \"motion\": \"轻微的手持真实感\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"站在阳台附近\",\n      \"action\": \"动作进行中，将超大号衬衫从一侧肩膀拉下\",\n      \"torso\": \"轻微扭转\",\n      \"hips\": \"侧身\"\n    },\n    \"expression\": {\n      \"eyes\": \"透过阳光注视镜头\",\n      \"mouth\": \"柔和俏皮的微笑\"\n    },\n    \"hair\": {\n      \"style\": \"自然的清晨蓬松感\",\n      \"movement\": \"微风拂过\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"超大号衬衫\",\n        \"color\": \"白色\",\n        \"state\": \"半滑落肩头\",\n        \"details\": \"阳光轻微穿透织物\"\n      },\n      \"bottom\": {\n        \"type\": \"极简居家内衣\",\n        \"color\": \"柔和中性色\"\n      }\n    }\n  },\n\n  \"environment_details\": {\n    \"background\": [\n      \"开放式阳台\",\n      \"飘动的窗帘\",\n      \"阳光光束\",\n      \"未整理的床铺\"\n    ]\n  },\n\n  \"post_processing\": {\n    \"exposure\": \"+12%\",\n    \"colors\": \"暖色\",\n    \"skin\": \"自然纹理\"\n  }\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实清晨卧室场景 这是一个为 nano banana 2 精心构建的结构化 json 提示词，旨在生成一张超写实的女性卧室清晨金光场景图，重点呈现亲密的构图、柔和的光影以及具体的姿势和服装细节。 {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"ultra photorealistic\",\n    \"style\": \"soft daylight iphone realism, natural hdr, intimate framing\"\n  },\n\n  \"scene\": {\n    \"location\": \"bedroom with open balcony doors\",\n    \"time\": \"early morning golden light\",\n    \"atmosphere\": \"private, warm, slow morning energy\"\n  },\n\n  \"lighting\": {\n    \"primary\": \"strong sunlight entering from behind\",\n    \"secondary\": \"soft room bounce\",\n    \"effect\": [\n      \"backlit glow around body\",\n      \"light passing through fabric\",\n      \"soft shadows across skin\",\n      \"warm golden tone\"\n    ],\n    \"temperature\": \"warm 5800k\"\n  },\n\n  \"camera\": {\n    \"angle\": \"slightly below chest level\",\n    \"distance\": \"mid shot\",\n    \"focus\": \"sharp subject, soft background\",\n    \"motion\": \"slight handheld realism\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"standing near balcony\",\n      \"action\": \"pulling oversized shirt off one shoulder mid-motion\",\n      \"torso\": \"twisting slightly\",\n      \"hips\": \"angled\"\n    },\n    \"expression\": {\n      \"eyes\": \"looking at camera through sunlight\",\n      \"mouth\": \"soft teasing smile\"\n    },\n    \"hair\": {\n      \"style\": \"natural morning volume\",\n      \"movement\": \"slight breeze\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"oversized button shirt\",\n        \"color\": \"white\",\n        \"state\": \"half falling off shoulder\",\n        \"details\": \"sunlight slightly passing through fabric\"\n      },\n      \"bottom\": {\n        \"type\": \"minimal lounge underwear\",\n        \"color\": \"soft neutral\"\n      }\n    }\n  },\n\n  \"environment_details\": {\n    \"background\": [\n      \"open balcony\",\n      \"flowing curtains\",\n      \"sunlight streaks\",\n      \"unmade bed\"\n    ]\n  },\n\n  \"post_processing\": {\n    \"exposure\": \"+12%\",\n    \"colors\": \"warm\",\n    \"skin\": \"natural texture\"\n  }\n} {\n  \"meta\": {\n    \"camera\": \"iphone 17 pro\",\n    \"lens\": \"35mm\",\n    \"aspect_ratio\": \"4:5\",\n    \"quality\": \"超写实\",\n    \"style\": \"柔和日光 iphone 真实感，自然 hdr，亲密构图\"\n  },\n\n  \"scene\": {\n    \"location\": \"带有开放式阳台门的卧室\",\n    \"time\": \"清晨金光\",\n    \"atmosphere\": \"私密、温暖、慵懒的清晨氛围\"\n  },\n\n  \"lighting\": {\n    \"primary\": \"从后方射入的强烈阳光\",\n    \"secondary\": \"柔和的室内漫反射\",\n    \"effect\": [\n      \"身体周围的背光光晕\",\n      \"光线穿透织物\",\n      \"皮肤上柔和的阴影\",\n      \"温暖的金色调\"\n    ],\n    \"temperature\": \"暖色调 5800k\"\n  },\n\n  \"camera\": {\n    \"angle\": \"略低于胸部水平\",\n    \"distance\": \"中景\",\n    \"focus\": \"主体清晰，背景柔和\",\n    \"motion\": \"轻微的手持真实感\"\n  },\n\n  \"subject\": {\n    \"pose\": {\n      \"position\": \"站在阳台附近\",\n      \"action\": \"动作进行中，将超大号衬衫从一侧肩膀拉下\",\n      \"torso\": \"轻微扭转\",\n      \"hips\": \"侧身\"\n    },\n    \"expression\": {\n      \"eyes\": \"透过阳光注视镜头\",\n      \"mouth\": \"柔和俏皮的微笑\"\n    },\n    \"hair\": {\n      \"style\": \"自然的清晨蓬松感\",\n      \"movement\": \"微风拂过\"\n    },\n    \"outfit\": {\n      \"top\": {\n        \"type\": \"超大号衬衫\",\n        \"color\": \"白色\",\n        \"state\": \"半滑落肩头\",\n        \"details\": \"阳光轻微穿透织物\"\n      },\n      \"bottom\": {\n        \"type\": \"极简居家内衣\",\n        \"color\": \"柔和中性色\"\n      }\n    }\n  },\n\n  \"environment_details\": {\n    \"background\": [\n      \"开放式阳台\",\n      \"飘动的窗帘\",\n      \"阳光光束\",\n      \"未整理的床铺\"\n    ]\n  },\n\n  \"post_processing\": {\n    \"exposure\": \"+12%\",\n    \"colors\": \"暖色\",\n    \"skin\": \"自然纹理\"\n  }\n} babydoll 13046",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13069,
+      "title": "超写实嘟嘴人像提示词",
+      "description": "一个为 Gemini Nano Banana Pro 设计的结构化提示词，用于生成一张 9:16 的超写实人像，画面中是一位正在摆姿势嘟嘴的年轻女性，留着深色长发并带有亮粉色挑染，身穿黑色束身胸衣，佩戴蕾丝手套，背景为挂有马匹艺术画的走廊。",
+      "sourceLink": "https://x.com/Serreh131306/status/2038976329140637749",
+      "sourcePublishedAt": "2026-03-31T13:46:53.000Z",
+      "author": {
+        "name": "Serrah ❀",
+        "link": "https://x.com/Serreh131306"
+      },
+      "content": "{\n  \"subject\": \"Young woman posing and pouting\",\n  \"hair\": \"Long dark straight hair with bright {argument name=\"highlight color\" default=\"pink\"} face-framing highlights\",\n  \"clothing\": \"Black strapless corset, black lace fingerless gloves\",\n  \"accessories\": \"Silver O-ring choker, silver waist chains\",\n  \"background\": \"Indoor hallway with beige walls, ceiling lights, and framed horse artwork\",\n  \"prompt\": \"Photo of a young woman with dark hair and pink highlights, pouting and holding her hair out. Wearing a black corset, lace gloves, O-ring choker, and waist chains. Hallway background with horse painting. 4k ultra quality, 9:16 canvas\"\n}",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026354896_273pth_HEvmKfUawAAWNxK.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026354896_273pth_HEvmKfUawAAWNxK-300x485.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n  \"subject\": \"正在摆姿势嘟嘴的年轻女性\",\n  \"hair\": \"深色长直发，带有亮眼的 {argument name=\"highlight color\" default=\"粉色\"} 脸部修饰挑染\",\n  \"clothing\": \"黑色无肩带束身胸衣，黑色蕾丝露指手套\",\n  \"accessories\": \"银色 O 型环项圈，银色腰链\",\n  \"background\": \"室内走廊，米色墙壁，带有吸顶灯和装裱好的马匹艺术画\",\n  \"prompt\": \"一张年轻女性的照片，留着深色头发和粉色挑染，嘟着嘴并撩起头发。身穿黑色束身胸衣，佩戴蕾丝手套、O 型环项圈和腰链。背景为挂有马匹画作的走廊。4k 超高清画质，9:16 画幅\"\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实嘟嘴人像提示词 一个为 gemini nano banana pro 设计的结构化提示词，用于生成一张 9:16 的超写实人像，画面中是一位正在摆姿势嘟嘴的年轻女性，留着深色长发并带有亮粉色挑染，身穿黑色束身胸衣，佩戴蕾丝手套，背景为挂有马匹艺术画的走廊。 {\n  \"subject\": \"young woman posing and pouting\",\n  \"hair\": \"long dark straight hair with bright {argument name=\"highlight color\" default=\"pink\"} face-framing highlights\",\n  \"clothing\": \"black strapless corset, black lace fingerless gloves\",\n  \"accessories\": \"silver o-ring choker, silver waist chains\",\n  \"background\": \"indoor hallway with beige walls, ceiling lights, and framed horse artwork\",\n  \"prompt\": \"photo of a young woman with dark hair and pink highlights, pouting and holding her hair out. wearing a black corset, lace gloves, o-ring choker, and waist chains. hallway background with horse painting. 4k ultra quality, 9:16 canvas\"\n} {\n  \"subject\": \"正在摆姿势嘟嘴的年轻女性\",\n  \"hair\": \"深色长直发，带有亮眼的 {argument name=\"highlight color\" default=\"粉色\"} 脸部修饰挑染\",\n  \"clothing\": \"黑色无肩带束身胸衣，黑色蕾丝露指手套\",\n  \"accessories\": \"银色 o 型环项圈，银色腰链\",\n  \"background\": \"室内走廊，米色墙壁，带有吸顶灯和装裱好的马匹艺术画\",\n  \"prompt\": \"一张年轻女性的照片，留着深色头发和粉色挑染，嘟着嘴并撩起头发。身穿黑色束身胸衣，佩戴蕾丝手套、o 型环项圈和腰链。背景为挂有马匹画作的走廊。4k 超高清画质，9:16 画幅\"\n} serrah ❀ 13069",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13087,
+      "title": "Nano Banana Pro 四格漫画提示词：绝对零度无视",
+      "description": "用于生成名为“绝对零度无视”的四格漫画的提示词，描绘了极致的冷漠以及发射“无趣大炮”的场景。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038964726546485750",
+      "sourcePublishedAt": "2026-03-31T13:00:47.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "AI画像生成　4コマ漫画\n\nタイトル\n絶対零度のスルー\n\n超スルー\n\n無関心砲が炸裂\n\n目的が炎上にあったなら\n\nざまあみろ！って感じ？　笑",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026363502_xzejsx_HEvbm-hb0AAgl0a.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026363502_xzejsx_HEvbm-hb0AAgl0a-300x164.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "AI 图像生成四格漫画\n\n标题\n绝对零度无视\n\n超级无视\n\n无趣大炮轰然炸裂\n\n如果目的是为了引发骂战\n\n活该！大概吧？哈哈",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 四格漫画提示词：绝对零度无视 用于生成名为“绝对零度无视”的四格漫画的提示词，描绘了极致的冷漠以及发射“无趣大炮”的场景。 ai画像生成　4コマ漫画\n\nタイトル\n絶対零度のスルー\n\n超スルー\n\n無関心砲が炸裂\n\n目的が炎上にあったなら\n\nざまあみろ！って感じ？　笑 ai 图像生成四格漫画\n\n标题\n绝对零度无视\n\n超级无视\n\n无趣大炮轰然炸裂\n\n如果目的是为了引发骂战\n\n活该！大概吧？哈哈 クラリネットクラリオンnobu 13087",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13081,
+      "title": "Nano Banana Pro 四格漫画提示词：爆款公式",
+      "description": "用于生成以令和浪漫（Reiwa Roman）风格呈现、题为《爆款公式》的四格漫画的提示词，重点关注算法对策及排名实验（三明治人、东京 03）。",
+      "sourceLink": "https://x.com/NOBU79834619/status/2038959381803667639",
+      "sourcePublishedAt": "2026-03-31T12:39:33.000Z",
+      "author": {
+        "name": "クラリネットクラリオンNOBU",
+        "link": "https://x.com/NOBU79834619"
+      },
+      "content": "AI画像生成　4コマ漫画\n\nタイトル\nバズりの方程式\n\n令和ロマン　風\nアルゴリズム対策\n\n実験\n芸人ランキング1位\nサンドウィッチマン\n\nコントランキング1位\n東京03\nその他\n4コマ漫画お試し中…",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026361098_gpipwn_HEvWv5Fa8AAbe0g.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026361098_gpipwn_HEvWv5Fa8AAbe0g-300x158.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "AI 图像生成四格漫画\n\n标题\n爆款公式\n\n令和浪漫风格\n算法对策\n\n实验\n搞笑艺人排名第 1 名\n三明治人\n\n短剧排名第 1 名\n东京 03\n其他\n尝试创作四格漫画……",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 四格漫画提示词：爆款公式 用于生成以令和浪漫（reiwa roman）风格呈现、题为《爆款公式》的四格漫画的提示词，重点关注算法对策及排名实验（三明治人、东京 03）。 ai画像生成　4コマ漫画\n\nタイトル\nバズりの方程式\n\n令和ロマン　風\nアルゴリズム対策\n\n実験\n芸人ランキング1位\nサンドウィッチマン\n\nコントランキング1位\n東京03\nその他\n4コマ漫画お試し中… ai 图像生成四格漫画\n\n标题\n爆款公式\n\n令和浪漫风格\n算法对策\n\n实验\n搞笑艺人排名第 1 名\n三明治人\n\n短剧排名第 1 名\n东京 03\n其他\n尝试创作四格漫画…… クラリネットクラリオンnobu 13081",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13054,
+      "title": "非洲大草原的电影感黄金时刻场景",
+      "description": "这是一个为 Nano Banana 2 设计的详细、超写实提示词，聚焦于非洲大草原上温暖的电影感黄金时刻场景，描绘了一名男子拥抱狮子的画面，强调情感连接、浓郁的金色调和高细节表现。",
+      "sourceLink": "https://x.com/iamsofiaijaz/status/2038955405406306790",
+      "sourcePublishedAt": "2026-03-31T12:23:45.000Z",
+      "author": {
+        "name": "Aijaz",
+        "link": "https://x.com/iamsofiaijaz"
+      },
+      "content": "A warm, cinematic golden-hour scene in the African savanna. A young man with short hair and light stubble, wearing a white t-shirt and a wristwatch, sits on dry grass gently hugging a large male lion with a full mane. The lion appears calm and relaxed, eyes closed, leaning into the embrace. The man has a peaceful, content expression with eyes closed, showing deep connection and trust. In the background, soft-focus acacia trees and rolling hills glow under a vivid orange sunset sky. The lighting is soft, warm, and dramatic, with rich golden tones, shallow depth of field, ultra-realistic details, 8K, highly detailed fur texture, natural skin tones, cinematic composition, emotional and serene atmosphere.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026348116_q4053n_HEvTInhaAAAvh2u.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026348116_q4053n_HEvTInhaAAAvh2u-300x401.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "非洲大草原上温暖的电影感黄金时刻场景。一名留着短发、带着浅浅胡茬的年轻男子，身穿白色 T 恤，佩戴着手表，坐在干草地上，温柔地拥抱着一只鬃毛浓密的大雄狮。狮子看起来平静而放松，闭着眼睛，依偎在拥抱中。男子表情宁静满足，双眼微闭，展现出深厚的情感连接与信任。背景中，失焦的相思树和连绵起伏的丘陵在鲜艳的橙色落日下闪烁着光芒。光线柔和、温暖且富有戏剧性，呈现出浓郁的金色调、浅景深、超写实细节、8K 分辨率、高度精细的毛发纹理、自然的肤色、电影级构图，营造出一种情感充沛且宁静的氛围。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "非洲大草原的电影感黄金时刻场景 这是一个为 nano banana 2 设计的详细、超写实提示词，聚焦于非洲大草原上温暖的电影感黄金时刻场景，描绘了一名男子拥抱狮子的画面，强调情感连接、浓郁的金色调和高细节表现。 a warm, cinematic golden-hour scene in the african savanna. a young man with short hair and light stubble, wearing a white t-shirt and a wristwatch, sits on dry grass gently hugging a large male lion with a full mane. the lion appears calm and relaxed, eyes closed, leaning into the embrace. the man has a peaceful, content expression with eyes closed, showing deep connection and trust. in the background, soft-focus acacia trees and rolling hills glow under a vivid orange sunset sky. the lighting is soft, warm, and dramatic, with rich golden tones, shallow depth of field, ultra-realistic details, 8k, highly detailed fur texture, natural skin tones, cinematic composition, emotional and serene atmosphere. 非洲大草原上温暖的电影感黄金时刻场景。一名留着短发、带着浅浅胡茬的年轻男子，身穿白色 t 恤，佩戴着手表，坐在干草地上，温柔地拥抱着一只鬃毛浓密的大雄狮。狮子看起来平静而放松，闭着眼睛，依偎在拥抱中。男子表情宁静满足，双眼微闭，展现出深厚的情感连接与信任。背景中，失焦的相思树和连绵起伏的丘陵在鲜艳的橙色落日下闪烁着光芒。光线柔和、温暖且富有戏剧性，呈现出浓郁的金色调、浅景深、超写实细节、8k 分辨率、高度精细的毛发纹理、自然的肤色、电影级构图，营造出一种情感充沛且宁静的氛围。 aijaz 13054",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13066,
+      "title": "未来感 Nano Banana 超级英雄变身提示词",
+      "description": "这是一个为 Nano Banana Pro 设计的提示词，旨在引导模型以用户提供的照片为参考，将其变身为名为“Nano Banana”的未来感超级英雄。该形象身着发光的黄黑配色战衣，胸前带有香蕉形状的徽章，背景为飞行在霓虹城市上空的电影级光效场景。",
+      "sourceLink": "https://x.com/iamrealsnow/status/2038954382147096943",
+      "sourcePublishedAt": "2026-03-31T12:19:41.000Z",
+      "author": {
+        "name": "Snow",
+        "link": "https://x.com/iamrealsnow"
+      },
+      "content": "Use my photo as reference, transform me into a futuristic superhero called {argument name=\"superhero name\" default=\"Nano Banana\"}, glowing {argument name=\"suit color\" default=\"yellow and black\"} nano suit, banana shaped energy emblem on chest, cinematic lighting, flying above a neon city, ultra realistic, dramatic clouds, 8k, sharp focus, heroic pose",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026353604_jq6z9e_HEvSMpsa8AA2Vcb.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026353604_jq6z9e_HEvSMpsa8AA2Vcb-300x447.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "以我的照片为参考，将我变身为名为 {argument name=\"superhero name\" default=\"Nano Banana\"} 的未来感超级英雄，身着发光的 {argument name=\"suit color\" default=\"yellow and black\"} 纳米战衣，胸前带有香蕉形状的能量徽章，电影级光效，飞行在霓虹城市上空，超写实，戏剧性云层，8k 分辨率，焦点清晰，英雄姿态",
+      "sourcePlatform": "twitter",
+      "searchIndex": "未来感 nano banana 超级英雄变身提示词 这是一个为 nano banana pro 设计的提示词，旨在引导模型以用户提供的照片为参考，将其变身为名为“nano banana”的未来感超级英雄。该形象身着发光的黄黑配色战衣，胸前带有香蕉形状的徽章，背景为飞行在霓虹城市上空的电影级光效场景。 use my photo as reference, transform me into a futuristic superhero called {argument name=\"superhero name\" default=\"nano banana\"}, glowing {argument name=\"suit color\" default=\"yellow and black\"} nano suit, banana shaped energy emblem on chest, cinematic lighting, flying above a neon city, ultra realistic, dramatic clouds, 8k, sharp focus, heroic pose 以我的照片为参考，将我变身为名为 {argument name=\"superhero name\" default=\"nano banana\"} 的未来感超级英雄，身着发光的 {argument name=\"suit color\" default=\"yellow and black\"} 纳米战衣，胸前带有香蕉形状的能量徽章，电影级光效，飞行在霓虹城市上空，超写实，戏剧性云层，8k 分辨率，焦点清晰，英雄姿态 snow 13066",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13092,
+      "title": "Nano Banana Pro 壁纸生成模板",
+      "description": "这是由 Nano Banana Pro 官方提供的模板提示词，旨在生成 9:16 的智能手机壁纸。该模板包含特定的格式说明，包括自然的留白、微妙的渐变以及简洁的构图。用户需在提示词后以英文添加想要生成的主题和风格描述。",
+      "sourceLink": "https://x.com/ai_skillmaster/status/2038949432897556496",
+      "sourcePublishedAt": "2026-03-31T12:00:01.000Z",
+      "author": {
+        "name": "ルナ｜使えるAI案内人",
+        "link": "https://x.com/ai_skillmaster"
+      },
+      "content": "Make a beautiful 9:16 wallpaper. Leave natural negative space near the top and bottom. Give the wallpaper a subtle top to bottom gradient. No blur effects or cropping. Keep the scene simple. (ここからは主題やスタイルなど、生成したい画像のイメージを入力してください）【英語で入力すると希望する画像が出力される確率が高まります】",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026365647_odddit_HBeAe4qXsAAdYv9.jpg",
+        "https://cms-assets.youmind.com/media/1775026365854_pvpdwh_HBeAkq-XsAAaHkB.jpg",
+        "https://cms-assets.youmind.com/media/1775026365881_eumvsf_HBeAe4qXEAAJL40.jpg",
+        "https://cms-assets.youmind.com/media/1775026366635_6jbaic_HBeBCPiWAAA1eGc.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026365647_odddit_HBeAe4qXsAAdYv9-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775026365854_pvpdwh_HBeAkq-XsAAaHkB-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775026365881_eumvsf_HBeAe4qXEAAJL40-300x537.jpg",
+        "https://cms-assets.youmind.com/media/1775026366635_6jbaic_HBeBCPiWAAA1eGc-300x537.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "创建一张精美的 9:16 壁纸。在顶部和底部保留自然的留白。为壁纸添加从上到下的微妙渐变效果。避免使用模糊效果或裁剪。保持画面简洁。（在此处输入你想要生成的图像概念，例如主题、风格等。）[使用英文输入可提高生成目标图像的成功率]",
+      "sourcePlatform": "twitter",
+      "searchIndex": "nano banana pro 壁纸生成模板 这是由 nano banana pro 官方提供的模板提示词，旨在生成 9:16 的智能手机壁纸。该模板包含特定的格式说明，包括自然的留白、微妙的渐变以及简洁的构图。用户需在提示词后以英文添加想要生成的主题和风格描述。 make a beautiful 9:16 wallpaper. leave natural negative space near the top and bottom. give the wallpaper a subtle top to bottom gradient. no blur effects or cropping. keep the scene simple. (ここからは主題やスタイルなど、生成したい画像のイメージを入力してください）【英語で入力すると希望する画像が出力される確率が高まります】 创建一张精美的 9:16 壁纸。在顶部和底部保留自然的留白。为壁纸添加从上到下的微妙渐变效果。避免使用模糊效果或裁剪。保持画面简洁。（在此处输入你想要生成的图像概念，例如主题、风格等。）[使用英文输入可提高生成目标图像的成功率] ルナ｜使えるai案内人 13092",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13075,
+      "title": "适用于 Nano Banana Pro 的超写实商业时尚摄影提示词",
+      "description": "一份为 Nano Banana Pro 设计的详细结构化提示词，用于生成超写实的商业时尚摄影作品。场景描绘了一个角色躺在装满液体的巨大鸡尾酒杯中，强调真实的皮肤纹理、优雅的姿态、动态的溅射效果、电影级光影以及高分辨率。需要提供一张角色面部和头发的参考照片。",
+      "sourceLink": "https://x.com/hxhxhx0916/status/2038944899895353471",
+      "sourcePublishedAt": "2026-03-31T11:42:00.000Z",
+      "author": {
+        "name": "hxhxhx0916",
+        "link": "https://x.com/hxhxhx0916"
+      },
+      "content": "角色躺在装满饮料的巨型鸡尾酒杯中的超写实摄影棚照片。使用[角色照片]作为面部和头发的精确参考，保持自然的皮肤纹理、毛孔和真实的身体比例。俯拍角度，全身可见，手臂和腿部放松且姿态优雅，部分浸入饮料表面，周围环绕着动态的奶油状飞溅和水滴。湿润的皮肤和闪亮的高光，仿佛被饮料覆盖。高端时尚造型，戏剧性的电影级灯光，玻璃杯上强烈的阴影和反射，光泽高光，8K分辨率，极其清晰的焦点，超高细节，照片级写实，无失真，无多余人物，无文字，无水印。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026357959_5676s1_HEvJR2EbAAA-nDE.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026357959_5676s1_HEvJR2EbAAA-nDE-300x447.jpg"
+      ],
+      "language": "zh",
+      "translatedContent": "一张超写实的摄影棚照片，描绘了一个角色躺在装满饮料的巨大鸡尾酒杯中。使用 {argument name=\"character photo\" default=\"[character photo]\"} 作为面部和头发的精确参考，保持自然的皮肤纹理、毛孔和逼真的身体比例。俯视角度，全身可见，手臂和腿部放松并呈优雅姿态，部分浸没在饮料表面，周围环绕着动态的奶油状溅射和液滴。湿润的皮肤和闪亮的高光，仿佛被饮料覆盖。高端时尚造型，戏剧性的电影级光影，玻璃上强烈的阴影和反射，光泽高光，8K 分辨率，极其清晰的对焦，超高细节，照片级真实感，无畸变，无额外角色，无文字，无水印。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "适用于 nano banana pro 的超写实商业时尚摄影提示词 一份为 nano banana pro 设计的详细结构化提示词，用于生成超写实的商业时尚摄影作品。场景描绘了一个角色躺在装满液体的巨大鸡尾酒杯中，强调真实的皮肤纹理、优雅的姿态、动态的溅射效果、电影级光影以及高分辨率。需要提供一张角色面部和头发的参考照片。 角色躺在装满饮料的巨型鸡尾酒杯中的超写实摄影棚照片。使用[角色照片]作为面部和头发的精确参考，保持自然的皮肤纹理、毛孔和真实的身体比例。俯拍角度，全身可见，手臂和腿部放松且姿态优雅，部分浸入饮料表面，周围环绕着动态的奶油状飞溅和水滴。湿润的皮肤和闪亮的高光，仿佛被饮料覆盖。高端时尚造型，戏剧性的电影级灯光，玻璃杯上强烈的阴影和反射，光泽高光，8k分辨率，极其清晰的焦点，超高细节，照片级写实，无失真，无多余人物，无文字，无水印。 一张超写实的摄影棚照片，描绘了一个角色躺在装满饮料的巨大鸡尾酒杯中。使用 {argument name=\"character photo\" default=\"[character photo]\"} 作为面部和头发的精确参考，保持自然的皮肤纹理、毛孔和逼真的身体比例。俯视角度，全身可见，手臂和腿部放松并呈优雅姿态，部分浸没在饮料表面，周围环绕着动态的奶油状溅射和液滴。湿润的皮肤和闪亮的高光，仿佛被饮料覆盖。高端时尚造型，戏剧性的电影级光影，玻璃上强烈的阴影和反射，光泽高光，8k 分辨率，极其清晰的对焦，超高细节，照片级真实感，无畸变，无额外角色，无文字，无水印。 hxhxhx0916 13075",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": true,
+      "promptCategories": []
+    },
+    {
+      "id": 13080,
+      "title": "适用于 Gemini (Nano Banana) 的 VTuber 与街头风格 Logo 提示词",
+      "description": "专为 Gemini (Nano Banana) 设计的提示词，用于生成 VTuber 或街头风格的 Logo，支持自定义文本与图案。该提示词可免费使用。",
+      "sourceLink": "https://x.com/midori_tatsuta/status/2038943474737979850",
+      "sourcePublishedAt": "2026-03-31T11:36:20.000Z",
+      "author": {
+        "name": "みどり🐲Midori Tatsuta",
+        "link": "https://x.com/midori_tatsuta"
+      },
+      "content": "VTuber・ストリート系ロゴのプロンプトを作りました。好きな文字・モチーフで作れます。ご自由にお使いください",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026360112_jkqf5w_HEvHa93bEAAwoa-.jpg",
+        "https://cms-assets.youmind.com/media/1775026360133_q8yoq8_HEvHa48aMAAXI6h.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026360112_jkqf5w_HEvHa93bEAAwoa--300x300.jpg",
+        "https://cms-assets.youmind.com/media/1775026360133_q8yoq8_HEvHa48aMAAXI6h-300x300.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "我创建了一个用于生成 VTuber 和街头风格 Logo 的提示词。你可以使用自己喜欢的文本和图案进行创作，欢迎随意使用。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "适用于 gemini (nano banana) 的 vtuber 与街头风格 logo 提示词 专为 gemini (nano banana) 设计的提示词，用于生成 vtuber 或街头风格的 logo，支持自定义文本与图案。该提示词可免费使用。 vtuber・ストリート系ロゴのプロンプトを作りました。好きな文字・モチーフで作れます。ご自由にお使いください 我创建了一个用于生成 vtuber 和街头风格 logo 的提示词。你可以使用自己喜欢的文本和图案进行创作，欢迎随意使用。 みどり🐲midori tatsuta 13080",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13090,
+      "title": "高中女生海边漫步的电影感场景提示词",
+      "description": "这是一条用于生成电影感视频序列的提示词，结合了单张 Nano Banana Pro 图像与 Kling 3.0 Omni，描述了一位可爱的女高中生在海滨长廊漫步的场景。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2038934337610276978",
+      "sourcePublishedAt": "2026-03-31T11:00:02.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "アッシュグレーのツインテールに紺色のブレザー、赤のチェック柄スカートを身にまとった可愛い女子高生が、陽光の降り注ぐ海沿いの遊歩道を元気よく歩く。彼女は立ち止まって振り返り、チャーミングなウインクと愛嬌のある笑顔を見せる。最後はマジックアワーの広大な風景の中、芝生の斜面を駆け下りながら肩越しに弾けるような笑顔を向ける。温かみのあるレンズフレアと美しいボケ味を活かした、シネマティックでダイナミックな映像。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026364670_356j9j_HEs9GDVaYAAOFGh.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026364670_356j9j_HEs9GDVaYAAOFGh-300x201.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "一位留着灰白色双马尾的可爱高中女生，身穿海军蓝西装外套和红色格子裙，充满活力地走在阳光明媚的海滨长廊上。她停下脚步，回过头，俏皮地眨了眨眼，露出迷人的微笑。最后，在魔幻时刻的广阔背景下，她跑下一段草坡，回眸绽放出灿烂的笑容。这是一段充满电影感和动态效果的视频，运用了温暖的镜头光晕和唯美的焦外成像效果。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "高中女生海边漫步的电影感场景提示词 这是一条用于生成电影感视频序列的提示词，结合了单张 nano banana pro 图像与 kling 3.0 omni，描述了一位可爱的女高中生在海滨长廊漫步的场景。 アッシュグレーのツインテールに紺色のブレザー、赤のチェック柄スカートを身にまとった可愛い女子高生が、陽光の降り注ぐ海沿いの遊歩道を元気よく歩く。彼女は立ち止まって振り返り、チャーミングなウインクと愛嬌のある笑顔を見せる。最後はマジックアワーの広大な風景の中、芝生の斜面を駆け下りながら肩越しに弾けるような笑顔を向ける。温かみのあるレンズフレアと美しいボケ味を活かした、シネマティックでダイナミックな映像。 一位留着灰白色双马尾的可爱高中女生，身穿海军蓝西装外套和红色格子裙，充满活力地走在阳光明媚的海滨长廊上。她停下脚步，回过头，俏皮地眨了眨眼，露出迷人的微笑。最后，在魔幻时刻的广阔背景下，她跑下一段草坡，回眸绽放出灿烂的笑容。这是一段充满电影感和动态效果的视频，运用了温暖的镜头光晕和唯美的焦外成像效果。 空想写真家 13090",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13070,
+      "title": "超写实动漫聚光灯人像提示词",
+      "description": "一份为 Nano Banana 2 准备的详细提示词，用于生成黑色背景下的超写实动漫女性角色人像，通过仅聚焦于面部的窄光束聚光灯，营造出阴郁、高对比度的戏剧性效果。",
+      "sourceLink": "https://x.com/daniayl12/status/2038921238433731055",
+      "sourcePublishedAt": "2026-03-31T10:07:59.000Z",
+      "author": {
+        "name": "Memes",
+        "link": "https://x.com/daniayl12"
+      },
+      "content": "Generate a hyperrealistic realistic-anime portrait of a female character standing in a completely black background.\nLighting: use a **narrow beam spotlight** focused only on the center of the face. \nThe edges of the light must be sharp and dramatic. \nAll areas outside the spotlight should fall quickly into deep darkness \n(high falloff shadow), almost blending into the black background. \nNot soft lighting.\nHair: long dark hair with some strands falling over the face. The lower parts of the hair should fade into the shadows.\nPose: one hand raised gently to the lips in a shy, hesitant gesture. \nEyes looking directly at the camera with a mysterious mood.\nClothing: black long-sleeve knit sweater; \nthe sweater and body should mostly disappear into the darkness with minimal detail.\nOverall tone: dark, moody, dramatic, mysterious. \nHigh-contrast only in the lit portion of the face. \nEverything outside the spotlight should be nearly invisible.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026355185_jd0exo_HEu0Dnea0AADMlw.jpg",
+        "https://cms-assets.youmind.com/media/1775026355463_moydfn_HEu0DnsbkAAUmWw.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026355185_jd0exo_HEu0Dnea0AADMlw-300x164.jpg",
+        "https://cms-assets.youmind.com/media/1775026355463_moydfn_HEu0DnsbkAAUmWw-300x164.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "生成一张超写实动漫风格的女性角色人像，背景为纯黑色。\n光效：使用**窄光束聚光灯**，仅聚焦于面部中心。光线边缘必须锐利且具有戏剧性。聚光灯之外的所有区域应迅速沉入深邃的阴影中（高衰减阴影），几乎与黑色背景融为一体。不要使用柔光。\n发型：长黑发，有几缕发丝垂在脸上。头发下部应逐渐隐入阴影中。\n姿势：一只手轻轻抬起至唇边，做出害羞、迟疑的姿态。双眼直视镜头，营造出神秘的氛围。\n服装：黑色长袖针织衫；针织衫和身体大部分应隐没在黑暗中，仅保留极少细节。\n整体基调：阴郁、情绪化、戏剧性、神秘。仅在面部受光区域保持高对比度。聚光灯之外的一切应几乎不可见。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实动漫聚光灯人像提示词 一份为 nano banana 2 准备的详细提示词，用于生成黑色背景下的超写实动漫女性角色人像，通过仅聚焦于面部的窄光束聚光灯，营造出阴郁、高对比度的戏剧性效果。 generate a hyperrealistic realistic-anime portrait of a female character standing in a completely black background.\nlighting: use a **narrow beam spotlight** focused only on the center of the face. \nthe edges of the light must be sharp and dramatic. \nall areas outside the spotlight should fall quickly into deep darkness \n(high falloff shadow), almost blending into the black background. \nnot soft lighting.\nhair: long dark hair with some strands falling over the face. the lower parts of the hair should fade into the shadows.\npose: one hand raised gently to the lips in a shy, hesitant gesture. \neyes looking directly at the camera with a mysterious mood.\nclothing: black long-sleeve knit sweater; \nthe sweater and body should mostly disappear into the darkness with minimal detail.\noverall tone: dark, moody, dramatic, mysterious. \nhigh-contrast only in the lit portion of the face. \neverything outside the spotlight should be nearly invisible. 生成一张超写实动漫风格的女性角色人像，背景为纯黑色。\n光效：使用**窄光束聚光灯**，仅聚焦于面部中心。光线边缘必须锐利且具有戏剧性。聚光灯之外的所有区域应迅速沉入深邃的阴影中（高衰减阴影），几乎与黑色背景融为一体。不要使用柔光。\n发型：长黑发，有几缕发丝垂在脸上。头发下部应逐渐隐入阴影中。\n姿势：一只手轻轻抬起至唇边，做出害羞、迟疑的姿态。双眼直视镜头，营造出神秘的氛围。\n服装：黑色长袖针织衫；针织衫和身体大部分应隐没在黑暗中，仅保留极少细节。\n整体基调：阴郁、情绪化、戏剧性、神秘。仅在面部受光区域保持高对比度。聚光灯之外的一切应几乎不可见。 memes 13070",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13063,
+      "title": "四格原色网格构图",
+      "description": "一个用于 Google Gemini Nano Banana Pro 的提示词，旨在创作一张仅使用原色（红、蓝、黄、白）的四格方形网格图像，展示身着对应颜色服装并摆出不同姿势的模特，强调建筑构图与高对比度。",
+      "sourceLink": "https://x.com/Mind_Boticni/status/2038915854579249185",
+      "sourcePublishedAt": "2026-03-31T09:46:35.000Z",
+      "author": {
+        "name": "Cherry 2.O",
+        "link": "https://x.com/Mind_Boticni"
+      },
+      "content": "A four-panel square grid using strictly primary colors (Bold Red, Deep Blue, Canary Yellow, Crisp White).\n\nRed Panel: A model in a red puffer jacket doing a high-fashion crouch.\nBlue Panel: A model in a blue knitted sweater sitting on a blue vinyl record crate.\nYellow Panel: A model in yellow athletic gear mid-air, jumping.\nWhite Panel: A model in all-white loungewear standing perfectly still like a https://t.co/Pakv6Bnzg9: Architectural composition, clean lines, professional studio photography, high contrast.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026352347_a91jzt_HEuuuutagAA2r9j.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026352347_a91jzt_HEuuuutagAA2r9j-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一个严格使用原色（鲜红色、深蓝色、金丝雀黄、清爽白色）的四格方形网格。\n\n红色面板：一位身着 {argument name=\"red clothing\" default=\"红色羽绒服\"} 的模特正在进行高阶时尚蹲姿。\n蓝色面板：一位身着 {argument name=\"blue clothing\" default=\"蓝色针织毛衣\"} 的模特坐在蓝色黑胶唱片箱上。\n黄色面板：一位身着黄色运动装备的模特在半空中跳跃。\n白色面板：一位身着全白休闲服的模特像 https://t.co/Pakv6Bnzg9 一样静止站立：建筑构图、简洁线条、专业摄影棚摄影、高对比度。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "四格原色网格构图 一个用于 google gemini nano banana pro 的提示词，旨在创作一张仅使用原色（红、蓝、黄、白）的四格方形网格图像，展示身着对应颜色服装并摆出不同姿势的模特，强调建筑构图与高对比度。 a four-panel square grid using strictly primary colors (bold red, deep blue, canary yellow, crisp white).\n\nred panel: a model in a red puffer jacket doing a high-fashion crouch.\nblue panel: a model in a blue knitted sweater sitting on a blue vinyl record crate.\nyellow panel: a model in yellow athletic gear mid-air, jumping.\nwhite panel: a model in all-white loungewear standing perfectly still like a https://t.co/pakv6bnzg9: architectural composition, clean lines, professional studio photography, high contrast. 一个严格使用原色（鲜红色、深蓝色、金丝雀黄、清爽白色）的四格方形网格。\n\n红色面板：一位身着 {argument name=\"red clothing\" default=\"红色羽绒服\"} 的模特正在进行高阶时尚蹲姿。\n蓝色面板：一位身着 {argument name=\"blue clothing\" default=\"蓝色针织毛衣\"} 的模特坐在蓝色黑胶唱片箱上。\n黄色面板：一位身着黄色运动装备的模特在半空中跳跃。\n白色面板：一位身着全白休闲服的模特像 https://t.co/pakv6bnzg9 一样静止站立：建筑构图、简洁线条、专业摄影棚摄影、高对比度。 cherry 2.o 13063",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13059,
+      "title": "超写实酒吧倒酒场景",
+      "description": "这是一个为 Nano Banana Pro 设计的高细节 JSON 提示词，用于生成一张超写实的图像：一位女性在木质吧台倒红酒，重点强调特定的解剖比例、自然的软组织物理效果以及温暖的环境光。",
+      "sourceLink": "https://x.com/brindleyai/status/2038913441562231075",
+      "sourcePublishedAt": "2026-03-31T09:37:00.000Z",
+      "author": {
+        "name": "brindley",
+        "link": "https://x.com/brindleyai"
+      },
+      "content": "A young adult woman with long, straight brown hair parted in the middle. She has a light caramel skin tone with natural texture, pores, and subtle sheen. She is wearing a deep burgundy halter-neck dress with a severely plunging, wide V-neckline that exposes a substantial amount of cleavage. Her bust is extremely large, full, heavy, and naturally affected by gravity, exhibiting clear forward and outward projection. The bust depth is visibly and significantly greater than the depth of her ribcage, maintaining heavy volume without compression. She wears small gold hoop earrings and delicate gold bangles on her left wrist. She is positioned at a light wooden bar counter. Her torso is angled slightly toward her right, while her head is turned to face the right side of the frame. Her left arm rests casually on the counter with her fingers resting flat. Her right arm is raised and extended, holding a dark glass wine bottle by its lower half, actively pouring red wine into a large, clear wine glass on the counter. Her spine and shoulders maintain a relaxed, natural posture that emphasizes the physical weight and forward projection of her chest. A warmly lit indoor bar or restaurant. In the immediate foreground is a light wood counter, and on the far left edge, a portion of a blue and white patterned ceramic plate is visible. Behind the subject is a reflective mirror, partially showing the room. Above the mirror is a decorative panel featuring geometric star patterns in muted greens, reds, and golds. A small Norwegian flag on a stick is tucked into the decor. Behind the counter to her left, glass shelves hold various drinking glasses and bottles, illuminated by a glowing yellow lamp. Eye-level medium-close up shot from the waist up. The perspective accurately captures the strong three-dimensional depth and forward projection of her torso relative to her waist and the counter. The camera angle does not flatten or minimize the chest volume, preserving the exact spatial relationship and relative scale of her anatomical proportions. Warm, ambient indoor lighting. A soft, directional light source from above and slightly to the right casts gentle, realistic highlights on her forehead, cheeks, shoulders, and prominent décolletage. Natural subsurface scattering is present on the skin, with realistic, soft shadows falling between her breasts and under her arms. The background features warm, glowing bokeh from bar lamps. Relaxed, warm, and casually elegant. She wears a soft, pleasant, closed-mouth smile with her eyes slightly narrowed, conveying a sense of quiet enjoyment while pouring the wine. Ultra-realistic, high-fidelity photograph. Unedited and unretouched, preserving exact anatomical truth, natural soft tissue physics, and un-normalized body proportions. Strictly avoiding any aesthetic averaging or beauty standard enforcement. Warm, earthy color palette. Dominated by the deep, rich burgundy of the dress, golden-caramel skin tones, and the deep ruby red of the wine. Accented by light wood, gold jewelry, and the muted greens and reds of the background decor. Natural contrast and dynamic range. High-resolution photographic capture with sharp focus on the subject's face, upper torso, and the wine glass. Shallow depth of field gently blurring the background shelves and decorative panel. Accurate liquid physics and glass reflections. 3:4 aspect ratio.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026350638_qg4ade_HEus9Z8bQAAW2xR.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026350638_qg4ade_HEus9Z8bQAAW2xR-300x402.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一位留着中分长直棕发的年轻女性。她拥有浅焦糖色的皮肤，呈现出自然的纹理、毛孔和细腻的光泽。她身穿一件深酒红色挂脖连衣裙，领口为极深的宽 V 领，露出大面积的胸部。她的胸部非常丰满、沉重，受重力影响自然下垂，呈现出明显的向前和向外突出感。胸部深度明显且显著大于胸腔深度，在无挤压的情况下保持了沉重的体积感。她佩戴着小巧的金色圆环耳环，左手腕戴着精致的金色手镯。她站在浅色木质吧台前。躯干略微向右倾斜，头部转向画面右侧。左臂随意地放在吧台上，手指平放。右臂抬起并伸展，手持深色玻璃酒瓶的下半部分，正将红酒倒入吧台上的大号透明红酒杯中。她的脊椎和肩膀保持着放松、自然的姿态，突显了胸部的物理重量和向前突出的形态。场景为灯光温暖的室内酒吧或餐厅。近景处是浅色木质吧台，最左侧边缘可见一个蓝白图案陶瓷盘的一部分。主体后方是一面反射镜，部分映照出房间景象。镜子上方是一个装饰面板，上面有柔和的绿色、红色和金色几何星形图案。装饰中插着一面小小的挪威国旗。吧台左后方的玻璃架上摆放着各种酒杯和酒瓶，被一盏发光的黄色灯具照亮。腰部以上的平视中近景镜头。视角准确捕捉到了她躯干相对于腰部和吧台的强烈三维深度和向前突出感。摄像机角度没有扁平化或缩小胸部体积，保留了其解剖比例的精确空间关系和相对尺度。温暖的室内环境光。来自上方和右侧略微偏上的柔和定向光源，在她的额头、脸颊、肩膀和突出的胸前区域投下柔和、写实的高光。皮肤呈现自然的次表面散射效果，胸部之间和腋下有真实、柔和的阴影。背景是酒吧灯光形成的温暖光斑（bokeh）。氛围放松、温暖且随性优雅。她带着柔和、愉悦的闭口微笑，双眼微眯，传达出倒酒时安静享受的神情。超写实、高保真照片。未经编辑和修饰，保留了精确的解剖真实性、自然的软组织物理效果以及未经过标准化的身体比例。严格避免任何审美平均化或美学标准强制要求。温暖的土色调色板。以连衣裙深邃浓郁的酒红色、金焦糖色肤色以及红酒的深宝石红为主色调。辅以浅色木材、金色首饰以及背景装饰中柔和的绿色和红色。自然的对比度和动态范围。高分辨率摄影捕捉，焦点清晰地落在主体面部、上半身和红酒杯上。浅景深效果使背景货架和装饰面板呈现柔和的虚化。准确的液体物理效果和玻璃反射。3:4 纵横比。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超写实酒吧倒酒场景 这是一个为 nano banana pro 设计的高细节 json 提示词，用于生成一张超写实的图像：一位女性在木质吧台倒红酒，重点强调特定的解剖比例、自然的软组织物理效果以及温暖的环境光。 a young adult woman with long, straight brown hair parted in the middle. she has a light caramel skin tone with natural texture, pores, and subtle sheen. she is wearing a deep burgundy halter-neck dress with a severely plunging, wide v-neckline that exposes a substantial amount of cleavage. her bust is extremely large, full, heavy, and naturally affected by gravity, exhibiting clear forward and outward projection. the bust depth is visibly and significantly greater than the depth of her ribcage, maintaining heavy volume without compression. she wears small gold hoop earrings and delicate gold bangles on her left wrist. she is positioned at a light wooden bar counter. her torso is angled slightly toward her right, while her head is turned to face the right side of the frame. her left arm rests casually on the counter with her fingers resting flat. her right arm is raised and extended, holding a dark glass wine bottle by its lower half, actively pouring red wine into a large, clear wine glass on the counter. her spine and shoulders maintain a relaxed, natural posture that emphasizes the physical weight and forward projection of her chest. a warmly lit indoor bar or restaurant. in the immediate foreground is a light wood counter, and on the far left edge, a portion of a blue and white patterned ceramic plate is visible. behind the subject is a reflective mirror, partially showing the room. above the mirror is a decorative panel featuring geometric star patterns in muted greens, reds, and golds. a small norwegian flag on a stick is tucked into the decor. behind the counter to her left, glass shelves hold various drinking glasses and bottles, illuminated by a glowing yellow lamp. eye-level medium-close up shot from the waist up. the perspective accurately captures the strong three-dimensional depth and forward projection of her torso relative to her waist and the counter. the camera angle does not flatten or minimize the chest volume, preserving the exact spatial relationship and relative scale of her anatomical proportions. warm, ambient indoor lighting. a soft, directional light source from above and slightly to the right casts gentle, realistic highlights on her forehead, cheeks, shoulders, and prominent décolletage. natural subsurface scattering is present on the skin, with realistic, soft shadows falling between her breasts and under her arms. the background features warm, glowing bokeh from bar lamps. relaxed, warm, and casually elegant. she wears a soft, pleasant, closed-mouth smile with her eyes slightly narrowed, conveying a sense of quiet enjoyment while pouring the wine. ultra-realistic, high-fidelity photograph. unedited and unretouched, preserving exact anatomical truth, natural soft tissue physics, and un-normalized body proportions. strictly avoiding any aesthetic averaging or beauty standard enforcement. warm, earthy color palette. dominated by the deep, rich burgundy of the dress, golden-caramel skin tones, and the deep ruby red of the wine. accented by light wood, gold jewelry, and the muted greens and reds of the background decor. natural contrast and dynamic range. high-resolution photographic capture with sharp focus on the subject's face, upper torso, and the wine glass. shallow depth of field gently blurring the background shelves and decorative panel. accurate liquid physics and glass reflections. 3:4 aspect ratio. 一位留着中分长直棕发的年轻女性。她拥有浅焦糖色的皮肤，呈现出自然的纹理、毛孔和细腻的光泽。她身穿一件深酒红色挂脖连衣裙，领口为极深的宽 v 领，露出大面积的胸部。她的胸部非常丰满、沉重，受重力影响自然下垂，呈现出明显的向前和向外突出感。胸部深度明显且显著大于胸腔深度，在无挤压的情况下保持了沉重的体积感。她佩戴着小巧的金色圆环耳环，左手腕戴着精致的金色手镯。她站在浅色木质吧台前。躯干略微向右倾斜，头部转向画面右侧。左臂随意地放在吧台上，手指平放。右臂抬起并伸展，手持深色玻璃酒瓶的下半部分，正将红酒倒入吧台上的大号透明红酒杯中。她的脊椎和肩膀保持着放松、自然的姿态，突显了胸部的物理重量和向前突出的形态。场景为灯光温暖的室内酒吧或餐厅。近景处是浅色木质吧台，最左侧边缘可见一个蓝白图案陶瓷盘的一部分。主体后方是一面反射镜，部分映照出房间景象。镜子上方是一个装饰面板，上面有柔和的绿色、红色和金色几何星形图案。装饰中插着一面小小的挪威国旗。吧台左后方的玻璃架上摆放着各种酒杯和酒瓶，被一盏发光的黄色灯具照亮。腰部以上的平视中近景镜头。视角准确捕捉到了她躯干相对于腰部和吧台的强烈三维深度和向前突出感。摄像机角度没有扁平化或缩小胸部体积，保留了其解剖比例的精确空间关系和相对尺度。温暖的室内环境光。来自上方和右侧略微偏上的柔和定向光源，在她的额头、脸颊、肩膀和突出的胸前区域投下柔和、写实的高光。皮肤呈现自然的次表面散射效果，胸部之间和腋下有真实、柔和的阴影。背景是酒吧灯光形成的温暖光斑（bokeh）。氛围放松、温暖且随性优雅。她带着柔和、愉悦的闭口微笑，双眼微眯，传达出倒酒时安静享受的神情。超写实、高保真照片。未经编辑和修饰，保留了精确的解剖真实性、自然的软组织物理效果以及未经过标准化的身体比例。严格避免任何审美平均化或美学标准强制要求。温暖的土色调色板。以连衣裙深邃浓郁的酒红色、金焦糖色肤色以及红酒的深宝石红为主色调。辅以浅色木材、金色首饰以及背景装饰中柔和的绿色和红色。自然的对比度和动态范围。高分辨率摄影捕捉，焦点清晰地落在主体面部、上半身和红酒杯上。浅景深效果使背景货架和装饰面板呈现柔和的虚化。准确的液体物理效果和玻璃反射。3:4 纵横比。 brindley 13059",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13057,
+      "title": "单色排版猫咪插画",
+      "description": "这是一个在包括 Nano Banana Pro 在内的多个模型中使用的详细提示词，旨在生成一幅艺术性的单色排版插画。插画中，“CAT”这一单词被塑造成一只伸懒腰的家猫剪影，强调优雅的形态与极简的构图。",
+      "sourceLink": "https://x.com/umesh_ai/status/2038911952878219696",
+      "sourcePublishedAt": "2026-03-31T09:31:05.000Z",
+      "author": {
+        "name": "Umesh",
+        "link": "https://x.com/umesh_ai"
+      },
+      "content": "An artistic monochrome typographic illustration where the single word \"CAT\" appears only once and becomes a stretching domestic cat, low in front with hindquarters slightly raised and the tail extending backward in a graceful arc. Do not repeat the word and do not add any other text. The single word must be elongated and sculpted into a fluid feline posture, with one section forming the head and front shoulders, another forming the long curved spine, and the final section extending into the tail. The image should feel elegant, flexible, and unmistakably feline. Prioritize silhouette first, anatomy second, readability third. Pure black only on white, lots of empty space, minimal poster composition. No floor scene, no fur texture, no room interior, no whiskers detail, no realism, no color. \n\n[ Midjourney: --ar 16:9 --profile skx15nm --stylize 0 --v 8 ]",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026349265_0at5kf_HEurmItbAAAmjU3.jpg",
+        "https://cms-assets.youmind.com/media/1775026349235_6bihxx_HEurmeYakAAW0EK.jpg",
+        "https://cms-assets.youmind.com/media/1775026349361_28rw41_HEurm6PaQAA_VUZ.jpg",
+        "https://cms-assets.youmind.com/media/1775026349758_vf2nyl_HEurnQXasAAouva.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026349265_0at5kf_HEurmItbAAAmjU3-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1775026349235_6bihxx_HEurmeYakAAW0EK-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1775026349361_28rw41_HEurm6PaQAA_VUZ-300x168.jpg",
+        "https://cms-assets.youmind.com/media/1775026349758_vf2nyl_HEurnQXasAAouva-300x300.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "一幅艺术性的单色排版插画，其中单词“{argument name=\"word\" default=\"CAT\"}”仅出现一次，并构成一只伸懒腰的家猫：前肢低伏，后躯微抬，尾巴向后延伸出优美的弧线。请勿重复单词，也不要添加任何其他文字。该单词必须被拉伸并塑造成流畅的猫科动物姿态，其中一部分构成头部和前肩，另一部分构成修长的弯曲脊椎，最后一部分延伸为尾巴。图像应呈现出优雅、灵动且极具猫科动物特征的质感。优先级顺序为：剪影第一，解剖结构第二，可读性第三。纯黑白配色，留白充足，极简海报构图。无地面场景，无毛发纹理，无室内环境，无胡须细节，无写实感，无色彩。\n\n[ Midjourney: --ar 16:9 --profile skx15nm --stylize 0 --v 8 ]",
+      "sourcePlatform": "twitter",
+      "searchIndex": "单色排版猫咪插画 这是一个在包括 nano banana pro 在内的多个模型中使用的详细提示词，旨在生成一幅艺术性的单色排版插画。插画中，“cat”这一单词被塑造成一只伸懒腰的家猫剪影，强调优雅的形态与极简的构图。 an artistic monochrome typographic illustration where the single word \"cat\" appears only once and becomes a stretching domestic cat, low in front with hindquarters slightly raised and the tail extending backward in a graceful arc. do not repeat the word and do not add any other text. the single word must be elongated and sculpted into a fluid feline posture, with one section forming the head and front shoulders, another forming the long curved spine, and the final section extending into the tail. the image should feel elegant, flexible, and unmistakably feline. prioritize silhouette first, anatomy second, readability third. pure black only on white, lots of empty space, minimal poster composition. no floor scene, no fur texture, no room interior, no whiskers detail, no realism, no color. \n\n[ midjourney: --ar 16:9 --profile skx15nm --stylize 0 --v 8 ] 一幅艺术性的单色排版插画，其中单词“{argument name=\"word\" default=\"cat\"}”仅出现一次，并构成一只伸懒腰的家猫：前肢低伏，后躯微抬，尾巴向后延伸出优美的弧线。请勿重复单词，也不要添加任何其他文字。该单词必须被拉伸并塑造成流畅的猫科动物姿态，其中一部分构成头部和前肩，另一部分构成修长的弯曲脊椎，最后一部分延伸为尾巴。图像应呈现出优雅、灵动且极具猫科动物特征的质感。优先级顺序为：剪影第一，解剖结构第二，可读性第三。纯黑白配色，留白充足，极简海报构图。无地面场景，无毛发纹理，无室内环境，无胡须细节，无写实感，无色彩。\n\n[ midjourney: --ar 16:9 --profile skx15nm --stylize 0 --v 8 ] umesh 13057",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13074,
+      "title": "Gemini Nano Banana Pro 杂志生活方式提示词",
+      "description": "这是一个为 Gemini Nano Banana Pro 设计的高度结构化 JSON 提示词，旨在生成一张杂志/生活方式摄影作品，画面主体为一名身着深色西装的男子站在私人飞机旁，强调高对比度、硬朗的自然光以及精致的氛围。",
+      "sourceLink": "https://x.com/pictsbyai/status/2038893556958429493",
+      "sourcePublishedAt": "2026-03-31T08:17:59.000Z",
+      "author": {
+        "name": "Picts by AI",
+        "link": "https://x.com/pictsbyai"
+      },
+      "content": "{\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial/lifestyle\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"multi-element layered\",\n\"focal_points\": [\n\"Subject's face and sunglasses in the right foreground\",\n\"Open door and cockpit of the private jet in the left midground\"\n],\n\"visual_hierarchy\": \"Eye starts at the subject's face, moves down the suit to the folio and watch, then tracks left along the lines of the private jet, finally sweeping up into the expansive blue sky.\",\n\"balance\": \"asymmetric - heavy subject on the right balanced by the bright, elongated form of the jet on the left\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"Deep Sky Blue\",\n\"hex\": \"#1A4B82\",\n\"percentage\": \"45%\",\n\"role\": \"background\"\n},\n{\n\"color\": \"Charcoal/Dark Brown\",\n\"hex\": \"#2A2826\",\n\"percentage\": \"25%\",\n\"role\": \"primary subject\"\n},\n{\n\"color\": \"Bright White\",\n\"hex\": \"#F4F6F8\",\n\"percentage\": \"15%\",\n\"role\": \"accent/jet\"\n},\n{\n\"color\": \"Concrete Gray\",\n\"hex\": \"#A3A5A6\",\n\"percentage\": \"15%\",\n\"role\": \"background/ground\"\n}\n],\n\"color_palette\": \"complementary\",\n\"temperature\": \"neutral\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural sunlight\",\n\"source_count\": \"single source\",\n\"direction\": \"front/top-right\",\n\"directionality\": \"highly directional\",\n\"quality\": \"hard light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"professional\",\n\"shadows\": {\n\"type\": \"harsh defined edges\",\n\"density\": \"deep black\",\n\"placement\": \"cast onto the tarmac to the left of the subject and under the jet\",\n\"length\": \"medium\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on the subject's face, right shoulder, and the curved fuselage of the jet\"\n},\n\"ambient_fill\": \"absent\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"deep\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"commercial/lifestyle\",\n\"influences\": [\n\"Luxury lifestyle photography\",\n\"Aviation editorial\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"Exclusive, wealthy, travel-ready, and polished with a commanding presence\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"{argument name=\"primary subject\" default=\"Man in a dark double-breasted suit with a white t-shirt and an overcoat draped over his shoulders, wearing sunglasses\"}\",\n\"positioning\": \"right\",\n\"scale\": \"medium\",\n\"interaction\": \"isolated\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"subtle\",\n\"eyes\": \"hidden by sunglasses\",\n\"eyebrows\": \"neutral behind glasses\",\n\"overall_emotion\": \"confident\",\n\"authenticity\"",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026357498_fwkob6_HEua2FoXsAAaZy4.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026357498_fwkob6_HEua2FoXsAAaZy4-300x311.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "{\n\"metadata\": {\n\"image_type\": \"摄影\",\n\"primary_purpose\": \"杂志/生活方式\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"多元素分层\",\n\"focal_points\": [\n\"右侧前景中主体的面部和太阳镜\",\n\"左侧中景中私人飞机的舱门和驾驶舱\"\n],\n\"visual_hierarchy\": \"视线从主体的面部开始，沿西装向下移动至文件夹和手表，随后向左沿着私人飞机的线条延伸，最后扫向广阔的蓝天。\",\n\"balance\": \"非对称平衡 - 右侧厚重的主体与左侧明亮且修长的飞机形态形成平衡\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"深天蓝色\",\n\"hex\": \"#1A4B82\",\n\"percentage\": \"45%\",\n\"role\": \"背景\"\n},\n{\n\"color\": \"炭灰色/深棕色\",\n\"hex\": \"#2A2826\",\n\"percentage\": \"25%\",\n\"role\": \"主要主体\"\n},\n{\n\"color\": \"亮白色\",\n\"hex\": \"#F4F6F8\",\n\"percentage\": \"15%\",\n\"role\": \"强调色/飞机\"\n},\n{\n\"color\": \"混凝土灰\",\n\"hex\": \"#A3A5A6\",\n\"percentage\": \"15%\",\n\"role\": \"背景/地面\"\n}\n],\n\"color_palette\": \"互补色\",\n\"temperature\": \"中性\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然阳光\",\n\"source_count\": \"单光源\",\n\"direction\": \"前侧/右上\",\n\"directionality\": \"强方向性\",\n\"quality\": \"硬光\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"专业\",\n\"shadows\": {\n\"type\": \"边缘清晰的硬阴影\",\n\"density\": \"深黑色\",\n\"placement\": \"投射在主体左侧的停机坪上及飞机下方\",\n\"length\": \"中等\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"在主体的面部、右肩以及飞机弯曲的机身上\"\n},\n\"ambient_fill\": \"无\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度清晰\",\n\"grain\": \"无\",\n\"depth_of_field\": \"深景深\",\n\"perspective\": \"正拍\"\n},\n\"artistic_elements\": {\n\"genre\": \"商业/生活方式\",\n\"influences\": [\n\"奢华生活方式摄影\",\n\"航空杂志摄影\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"独家、富有、旅行感，呈现出干练且极具气场的质感\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"{argument name=\\\"primary subject\\\" default=\\\"身着深色双排扣西装，内搭白色 T 恤，肩上披着大衣，佩戴太阳镜的男子\\\"}\",\n\"positioning\": \"右侧\",\n\"scale\": \"中等\",\n\"interaction\": \"独立\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"细微\",\n\"eyes\": \"被太阳镜遮挡\",\n\"eyebrows\": \"眼镜后方呈中性\",\n\"overall_emotion\": \"自信\",\n\"authenticity\": \"真实\"\n}\n}\n}",
+      "sourcePlatform": "twitter",
+      "searchIndex": "gemini nano banana pro 杂志生活方式提示词 这是一个为 gemini nano banana pro 设计的高度结构化 json 提示词，旨在生成一张杂志/生活方式摄影作品，画面主体为一名身着深色西装的男子站在私人飞机旁，强调高对比度、硬朗的自然光以及精致的氛围。 {\n\"metadata\": {\n\"image_type\": \"photograph\",\n\"primary_purpose\": \"editorial/lifestyle\"\n},\n\"composition\": {\n\"rule_applied\": \"rule of thirds\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"multi-element layered\",\n\"focal_points\": [\n\"subject's face and sunglasses in the right foreground\",\n\"open door and cockpit of the private jet in the left midground\"\n],\n\"visual_hierarchy\": \"eye starts at the subject's face, moves down the suit to the folio and watch, then tracks left along the lines of the private jet, finally sweeping up into the expansive blue sky.\",\n\"balance\": \"asymmetric - heavy subject on the right balanced by the bright, elongated form of the jet on the left\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"deep sky blue\",\n\"hex\": \"#1a4b82\",\n\"percentage\": \"45%\",\n\"role\": \"background\"\n},\n{\n\"color\": \"charcoal/dark brown\",\n\"hex\": \"#2a2826\",\n\"percentage\": \"25%\",\n\"role\": \"primary subject\"\n},\n{\n\"color\": \"bright white\",\n\"hex\": \"#f4f6f8\",\n\"percentage\": \"15%\",\n\"role\": \"accent/jet\"\n},\n{\n\"color\": \"concrete gray\",\n\"hex\": \"#a3a5a6\",\n\"percentage\": \"15%\",\n\"role\": \"background/ground\"\n}\n],\n\"color_palette\": \"complementary\",\n\"temperature\": \"neutral\",\n\"saturation\": \"moderate\",\n\"contrast\": \"high contrast\"\n},\n\"lighting\": {\n\"type\": \"natural sunlight\",\n\"source_count\": \"single source\",\n\"direction\": \"front/top-right\",\n\"directionality\": \"highly directional\",\n\"quality\": \"hard light\",\n\"intensity\": \"bright\",\n\"contrast_ratio\": \"high contrast (dramatic shadows)\",\n\"mood\": \"professional\",\n\"shadows\": {\n\"type\": \"harsh defined edges\",\n\"density\": \"deep black\",\n\"placement\": \"cast onto the tarmac to the left of the subject and under the jet\",\n\"length\": \"medium\"\n},\n\"highlights\": {\n\"treatment\": \"preserved\",\n\"placement\": \"on the subject's face, right shoulder, and the curved fuselage of the jet\"\n},\n\"ambient_fill\": \"absent\",\n\"light_temperature\": \"neutral\"\n},\n\"technical_specs\": {\n\"medium\": \"digital photography\",\n\"style\": \"realistic\",\n\"texture\": \"sharp\",\n\"sharpness\": \"tack sharp\",\n\"grain\": \"none\",\n\"depth_of_field\": \"deep\",\n\"perspective\": \"straight on\"\n},\n\"artistic_elements\": {\n\"genre\": \"commercial/lifestyle\",\n\"influences\": [\n\"luxury lifestyle photography\",\n\"aviation editorial\"\n],\n\"mood\": \"sophisticated\",\n\"atmosphere\": \"exclusive, wealthy, travel-ready, and polished with a commanding presence\",\n\"visual_style\": \"clean\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"none\",\n\"integration\": \"none\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"{argument name=\"primary subject\" default=\"man in a dark double-breasted suit with a white t-shirt and an overcoat draped over his shoulders, wearing sunglasses\"}\",\n\"positioning\": \"right\",\n\"scale\": \"medium\",\n\"interaction\": \"isolated\",\n\"facial_expression\": {\n\"mouth\": \"closed neutral\",\n\"smile_intensity\": \"subtle\",\n\"eyes\": \"hidden by sunglasses\",\n\"eyebrows\": \"neutral behind glasses\",\n\"overall_emotion\": \"confident\",\n\"authenticity\" {\n\"metadata\": {\n\"image_type\": \"摄影\",\n\"primary_purpose\": \"杂志/生活方式\"\n},\n\"composition\": {\n\"rule_applied\": \"三分法\",\n\"aspect_ratio\": \"3:4\",\n\"layout\": \"多元素分层\",\n\"focal_points\": [\n\"右侧前景中主体的面部和太阳镜\",\n\"左侧中景中私人飞机的舱门和驾驶舱\"\n],\n\"visual_hierarchy\": \"视线从主体的面部开始，沿西装向下移动至文件夹和手表，随后向左沿着私人飞机的线条延伸，最后扫向广阔的蓝天。\",\n\"balance\": \"非对称平衡 - 右侧厚重的主体与左侧明亮且修长的飞机形态形成平衡\"\n},\n\"color_profile\": {\n\"dominant_colors\": [\n{\n\"color\": \"深天蓝色\",\n\"hex\": \"#1a4b82\",\n\"percentage\": \"45%\",\n\"role\": \"背景\"\n},\n{\n\"color\": \"炭灰色/深棕色\",\n\"hex\": \"#2a2826\",\n\"percentage\": \"25%\",\n\"role\": \"主要主体\"\n},\n{\n\"color\": \"亮白色\",\n\"hex\": \"#f4f6f8\",\n\"percentage\": \"15%\",\n\"role\": \"强调色/飞机\"\n},\n{\n\"color\": \"混凝土灰\",\n\"hex\": \"#a3a5a6\",\n\"percentage\": \"15%\",\n\"role\": \"背景/地面\"\n}\n],\n\"color_palette\": \"互补色\",\n\"temperature\": \"中性\",\n\"saturation\": \"适中\",\n\"contrast\": \"高对比度\"\n},\n\"lighting\": {\n\"type\": \"自然阳光\",\n\"source_count\": \"单光源\",\n\"direction\": \"前侧/右上\",\n\"directionality\": \"强方向性\",\n\"quality\": \"硬光\",\n\"intensity\": \"明亮\",\n\"contrast_ratio\": \"高对比度（戏剧性阴影）\",\n\"mood\": \"专业\",\n\"shadows\": {\n\"type\": \"边缘清晰的硬阴影\",\n\"density\": \"深黑色\",\n\"placement\": \"投射在主体左侧的停机坪上及飞机下方\",\n\"length\": \"中等\"\n},\n\"highlights\": {\n\"treatment\": \"保留\",\n\"placement\": \"在主体的面部、右肩以及飞机弯曲的机身上\"\n},\n\"ambient_fill\": \"无\",\n\"light_temperature\": \"中性\"\n},\n\"technical_specs\": {\n\"medium\": \"数码摄影\",\n\"style\": \"写实\",\n\"texture\": \"锐利\",\n\"sharpness\": \"极度清晰\",\n\"grain\": \"无\",\n\"depth_of_field\": \"深景深\",\n\"perspective\": \"正拍\"\n},\n\"artistic_elements\": {\n\"genre\": \"商业/生活方式\",\n\"influences\": [\n\"奢华生活方式摄影\",\n\"航空杂志摄影\"\n],\n\"mood\": \"精致\",\n\"atmosphere\": \"独家、富有、旅行感，呈现出干练且极具气场的质感\",\n\"visual_style\": \"简洁\"\n},\n\"typography\": {\n\"present\": false,\n\"fonts\": [],\n\"placement\": \"无\",\n\"integration\": \"无\"\n},\n\"subject_analysis\": {\n\"primary_subject\": \"{argument name=\\\"primary subject\\\" default=\\\"身着深色双排扣西装，内搭白色 t 恤，肩上披着大衣，佩戴太阳镜的男子\\\"}\",\n\"positioning\": \"右侧\",\n\"scale\": \"中等\",\n\"interaction\": \"独立\",\n\"facial_expression\": {\n\"mouth\": \"闭合中性\",\n\"smile_intensity\": \"细微\",\n\"eyes\": \"被太阳镜遮挡\",\n\"eyebrows\": \"眼镜后方呈中性\",\n\"overall_emotion\": \"自信\",\n\"authenticity\": \"真实\"\n}\n}\n} picts by ai 13074",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13088,
+      "title": "女孩探索花园的电影感场景提示词",
+      "description": "这是一个用于通过 Nano Banana Pro 图像和 Kling 3.0 Omni 生成电影感视频序列的提示词，描述了一位戴着圆框眼镜、留着波波头的可爱女孩探索茂密花园的场景。",
+      "sourceLink": "https://x.com/KusoPhoto/status/2038889035851047055",
+      "sourcePublishedAt": "2026-03-31T08:00:01.000Z",
+      "author": {
+        "name": "空想写真家",
+        "link": "https://x.com/KusoPhoto"
+      },
+      "content": "黒いベルベットのワンピースに白い襟、白いタイツ、黒いエナメルシューズを身につけた、丸眼鏡とボブヘアの愛らしい少女が、緑豊かな美しい庭園を探索するシネマティックな映像。石畳を歩く足元から始まり、咲き誇る薔薇に触れて無邪気に微笑む姿や、アンティークな本を抱えて木漏れ日の中を駆け抜ける様子を滑らかなカメラワークで捉える。心地よい風に髪を揺らしながら悪戯っぽくカメラを見つめ、最後は振り返ってスカートの裾を美しく翻し、笑顔で手を振って遠ざかっていく。浅い被写界深度で背景の緑をぼかし、レンズフレアを交えた魔法のように幻想的で温かい雰囲気を表現する。",
+      "media": [],
+      "language": "ja",
+      "translatedContent": "一段电影感视频，画面中一位戴着圆框眼镜、留着波波头的可爱女孩，身穿带有白色领子的黑色天鹅绒连衣裙、白色连裤袜和黑色漆皮鞋，正在探索一座茂密而美丽的花园。镜头运用平滑的运镜手法，从她走在鹅卵石路上的双脚开始，展现她天真烂漫地微笑着触摸盛开的玫瑰，并拿着一本古董书穿过斑驳的阳光。她俏皮地看向镜头，微风拂动她的发丝，最后她转过身，优雅地翻动裙摆，微笑着挥手告别并走远。画面呈现出一种神奇、梦幻且温暖的氛围，背景中的绿色植被呈现出浅景深虚化效果，并融入了镜头光晕。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "女孩探索花园的电影感场景提示词 这是一个用于通过 nano banana pro 图像和 kling 3.0 omni 生成电影感视频序列的提示词，描述了一位戴着圆框眼镜、留着波波头的可爱女孩探索茂密花园的场景。 黒いベルベットのワンピースに白い襟、白いタイツ、黒いエナメルシューズを身につけた、丸眼鏡とボブヘアの愛らしい少女が、緑豊かな美しい庭園を探索するシネマティックな映像。石畳を歩く足元から始まり、咲き誇る薔薇に触れて無邪気に微笑む姿や、アンティークな本を抱えて木漏れ日の中を駆け抜ける様子を滑らかなカメラワークで捉える。心地よい風に髪を揺らしながら悪戯っぽくカメラを見つめ、最後は振り返ってスカートの裾を美しく翻し、笑顔で手を振って遠ざかっていく。浅い被写界深度で背景の緑をぼかし、レンズフレアを交えた魔法のように幻想的で温かい雰囲気を表現する。 一段电影感视频，画面中一位戴着圆框眼镜、留着波波头的可爱女孩，身穿带有白色领子的黑色天鹅绒连衣裙、白色连裤袜和黑色漆皮鞋，正在探索一座茂密而美丽的花园。镜头运用平滑的运镜手法，从她走在鹅卵石路上的双脚开始，展现她天真烂漫地微笑着触摸盛开的玫瑰，并拿着一本古董书穿过斑驳的阳光。她俏皮地看向镜头，微风拂动她的发丝，最后她转过身，优雅地翻动裙摆，微笑着挥手告别并走远。画面呈现出一种神奇、梦幻且温暖的氛围，背景中的绿色植被呈现出浅景深虚化效果，并融入了镜头光晕。 空想写真家 13088",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13056,
+      "title": "超现实双画框倒茶错觉",
+      "description": "这是一个为 Nano Banana 设计的超写实电影感提示词，采用双画框构图：上方画框中茶水从茶壶中倾泻而出，无缝流入下方画框的茶杯中，在夜间城市天际线的背景下营造出超现实的视觉错觉。",
+      "sourceLink": "https://x.com/AIwithkhan/status/2038871792958505082",
+      "sourcePublishedAt": "2026-03-31T06:51:30.000Z",
+      "author": {
+        "name": "Smiling Khan",
+        "link": "https://x.com/AIwithkhan"
+      },
+      "content": "Ultra-realistic cinematic two-frame composition. In the top golden vintage frame, an elegant stylish woman wearing a beige blazer, white shirt, and black sunglasses smiles while pouring tea from an ornate engraved copper teapot outward from the frame. The tea flows smoothly out of the frame into the lower frame. In the bottom golden frame, the same woman tilts her head back slightly with a joyful expression, holding a traditional Turkish tea glass as the tea splashes dramatically into it mid-air. Nighttime city skyline with warm glowing lights and water reflections in the background, shallow depth of field, dramatic lighting, high detail, surreal perspective illusion where the liquid connects both frames, cinematic photography, ultra realistic, 8k.",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026348999_ab0f8e_HEuHFubbwAA7TSI.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026348999_ab0f8e_HEuHFubbwAA7TSI-300x336.jpg"
+      ],
+      "language": "en",
+      "translatedContent": "超写实电影感双画框构图。在上方金色的复古画框中，一位优雅时尚的女性身穿 {argument name=\"clothing color\" default=\"米色\"} 西装外套、白色衬衫并佩戴黑色太阳镜，她微笑着将茶从华丽的雕花铜茶壶中向画框外倾倒。茶水顺畅地流出画框，进入下方画框。在下方金色画框中，同一位女性微微仰头，表情愉悦，手中拿着一个传统的土耳其茶杯，茶水在半空中戏剧性地溅入杯中。背景为带有暖色灯光和水面反射的夜间城市天际线，浅景深，戏剧性光影，高细节，液体连接两个画框的超现实透视错觉，电影摄影，超写实，8k。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "超现实双画框倒茶错觉 这是一个为 nano banana 设计的超写实电影感提示词，采用双画框构图：上方画框中茶水从茶壶中倾泻而出，无缝流入下方画框的茶杯中，在夜间城市天际线的背景下营造出超现实的视觉错觉。 ultra-realistic cinematic two-frame composition. in the top golden vintage frame, an elegant stylish woman wearing a beige blazer, white shirt, and black sunglasses smiles while pouring tea from an ornate engraved copper teapot outward from the frame. the tea flows smoothly out of the frame into the lower frame. in the bottom golden frame, the same woman tilts her head back slightly with a joyful expression, holding a traditional turkish tea glass as the tea splashes dramatically into it mid-air. nighttime city skyline with warm glowing lights and water reflections in the background, shallow depth of field, dramatic lighting, high detail, surreal perspective illusion where the liquid connects both frames, cinematic photography, ultra realistic, 8k. 超写实电影感双画框构图。在上方金色的复古画框中，一位优雅时尚的女性身穿 {argument name=\"clothing color\" default=\"米色\"} 西装外套、白色衬衫并佩戴黑色太阳镜，她微笑着将茶从华丽的雕花铜茶壶中向画框外倾倒。茶水顺畅地流出画框，进入下方画框。在下方金色画框中，同一位女性微微仰头，表情愉悦，手中拿着一个传统的土耳其茶杯，茶水在半空中戏剧性地溅入杯中。背景为带有暖色灯光和水面反射的夜间城市天际线，浅景深，戏剧性光影，高细节，液体连接两个画框的超现实透视错觉，电影摄影，超写实，8k。 smiling khan 13056",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    },
+    {
+      "id": 13084,
+      "title": "KNIGHT MECHA GIRL 手办生成提示词",
+      "description": "用于生成“KNIGHT MECHA GIRL Re : No.3 La Flamme Blanche” 1/7 比例手办图像的提示词，特别要求对背部及盾牌内侧进行细节刻画。",
+      "sourceLink": "https://x.com/munou_ac/status/2038858582436016502",
+      "sourcePublishedAt": "2026-03-31T05:59:00.000Z",
+      "author": {
+        "name": "てんねん",
+        "link": "https://x.com/munou_ac"
+      },
+      "content": "KNIGHT MECHA GIRL\nRe : No.3 La Flamme Blanche\n⠀\n1/7スケールフィギュア\n⠀\n背中もそうですがシールドの裏側が\nそれっぽく出ると嬉しいです。",
+      "media": [
+        "https://cms-assets.youmind.com/media/1775026361057_dlcbo2_HEt6PflaUAAUidz.jpg",
+        "https://cms-assets.youmind.com/media/1775026361063_icniu3_HEt6QH8b0AALskU.jpg",
+        "https://cms-assets.youmind.com/media/1775026361158_xvqm30_HEt6QxLbgAAmqGX.jpg",
+        "https://cms-assets.youmind.com/media/1775026361767_ix6j7r_HEt6RX-bEAAiaxc.jpg"
+      ],
+      "mediaThumbnails": [
+        "https://cms-assets.youmind.com/media/1775026361057_dlcbo2_HEt6PflaUAAUidz-300x398.jpg",
+        "https://cms-assets.youmind.com/media/1775026361063_icniu3_HEt6QH8b0AALskU-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1775026361158_xvqm30_HEt6QxLbgAAmqGX-300x447.jpg",
+        "https://cms-assets.youmind.com/media/1775026361767_ix6j7r_HEt6RX-bEAAiaxc-300x396.jpg"
+      ],
+      "language": "ja",
+      "translatedContent": "KNIGHT MECHA GIRL\nRe : No.3 La Flamme Blanche\n⠀\n1/7 比例手办\n⠀\n希望能真实呈现背部和盾牌内侧的细节。",
+      "sourcePlatform": "twitter",
+      "searchIndex": "knight mecha girl 手办生成提示词 用于生成“knight mecha girl re : no.3 la flamme blanche” 1/7 比例手办图像的提示词，特别要求对背部及盾牌内侧进行细节刻画。 knight mecha girl\nre : no.3 la flamme blanche\n⠀\n1/7スケールフィギュア\n⠀\n背中もそうですがシールドの裏側が\nそれっぽく出ると嬉しいです。 knight mecha girl\nre : no.3 la flamme blanche\n⠀\n1/7 比例手办\n⠀\n希望能真实呈现背部和盾牌内侧的细节。 てんねん 13084",
+      "likes": 0,
+      "resultsCount": 0,
+      "needReferenceImages": false,
+      "promptCategories": []
+    }
+  ],
+  "total": 12419,
+  "page": 16,
+  "limit": 18,
+  "totalPages": 690,
+  "hasMore": true
+}

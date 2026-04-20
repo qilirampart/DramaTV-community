@@ -1,0 +1,32 @@
+{
+  "rank": 6,
+  "id": 3438,
+  "title": "一项发明的复古专利文件",
+  "description": "一个旨在生成 19 世纪末美国复古专利文件图像的提示。它指定了精确的技术图纸、手写注释、陈旧的纸张纹理、锈斑、浮雕印章和蜡封等细节，非常适合历史或档案美学。",
+  "language": "en",
+  "authorName": "Alexandra Aisling",
+  "authorLink": "https://x.com/AllaAisling",
+  "featured": true,
+  "sourceLink": "https://x.com/AllaAisling/status/2004212035333365763",
+  "sourcePublishedAt": "2025-12-25T15:26:00.000Z",
+  "sourcePlatform": "twitter",
+  "resultsCount": 4,
+  "needReferenceImages": false,
+  "promptCategories": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "hasZhPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "promptZh": "prompt.zh.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg",
+      "02.jpg",
+      "03.jpg",
+      "04.jpg"
+    ],
+    "thumbs": []
+  }
+}

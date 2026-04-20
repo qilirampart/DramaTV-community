@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-19T17:16:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="youmind-import-mapping" name="YouMind Import Mapping">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="10" value="YouMind Import Mapping&#xa;Map current local research assets into DramaTV Prompt / Asset / Feed / Creator structures." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1700" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="20" value="Local source folders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1D4ED8;strokeColor=#1E3A8A;fontColor=#EFF6FF;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="350" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="docs/02_research/youmind-video-assets&#xa;video-oriented source data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="310" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" value="docs/02_research/youmind-image-assets&#xa;image-oriented source data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="310" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="Common file shapes&#xa;meta.json / summary.txt / prompt.zh.txt / prompt.en.txt / prompt.raw.txt&#xa;images/* / videos/* / api-pages/*.json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;fontColor=#1E3A8A;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="510" width="310" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="30" value="Import preprocessing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7C3AED;strokeColor=#5B21B6;fontColor=#F5F3FF;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="150" width="380" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="Parse one item&#xa;read title / prompt / translatedPrompt / tags / model / assets / sourceUrl / sourceItemId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#8B5CF6;fontColor=#4C1D95;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="320" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="Validity filtering&#xa;video must be playable&#xa;image must exist and be readable&#xa;at least one usable prompt must exist&#xa;skip items with missing prompt or broken media" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#C084FC;fontColor=#581C87;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="390" width="320" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="33" value="Normalization&#xa;modality = video | image&#xa;source_platform = youmind&#xa;source_campaign = seedance | nano-banana&#xa;content_hash / asset_checksum / import_batch_id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#C084FC;fontColor=#581C87;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="500" y="540" width="320" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="40" value="DramaTV target model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15803D;strokeColor=#166534;fontColor=#F0FDF4;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="150" width="440" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="41" value="PromptEntry&#xa;holds prompt body as primary content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="42" value="MediaAsset&#xa;image / video / preview / cover metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="43" value="PromptExampleLink&#xa;prompt to many example assets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="380" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="44" value="FeedItem&#xa;used for home / featured / topic exposure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="380" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="45" value="CreatorProfile / imported author&#xa;short term: attach to one platform import account&#xa;later: split by real source author if needed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFCCB;strokeColor=#84CC16;fontColor=#365314;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="520" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="46" value="ImportTask / AsyncTaskRecord&#xa;store batch, skip reason, success count, fail count" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCFBF1;strokeColor=#14B8A6;fontColor=#134E4A;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="660" width="390" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="50" value="Field mapping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D97706;strokeColor=#92400E;fontColor=#FFFBEB;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="150" width="320" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="51" value="prompt.zh.txt / prompt.en.txt / prompt.raw.txt&#xa;=> PromptEntry.prompt_zh / prompt_raw" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#78350F;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="250" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="52" value="summary / meta title / item name&#xa;=> PromptEntry.title / summary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#78350F;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="370" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="53" value="images/* or videos/*&#xa;=> MediaAsset + PromptExampleLink" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#78350F;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="490" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="54" value="campaign / model / api item id / source url&#xa;=> source_platform / source_campaign / source_item_id / model_name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#78350F;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="610" width="260" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="60" value="Suggested import strategy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#111827;strokeColor=#111827;fontColor=#F9FAFB;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="820" width="1250" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="61" value="1. Import PromptEntry + MediaAsset + PromptExampleLink first to build the prompt library.&#xa;2. Expose PromptEntry through FeedItem before forcing it into Video table.&#xa;3. Add PromptEntry -&gt; Video derived work relation later only when needed.&#xa;4. Always keep source_platform=youmind, source_campaign, and source_item_id for traceability.&#xa;5. Record all skipped items in ImportTask / AsyncTaskRecord, especially broken video, missing prompt, and damaged media." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#F9FAFB;fontSize=16;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="460" y="850" width="1190" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="100" value="parse" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#2563EB;fontColor=#1D4ED8;" edge="1" parent="1" source="21" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="101" value="parse" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#2563EB;fontColor=#1D4ED8;" edge="1" parent="1" source="22" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="102" value="provides files" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#2563EB;fontColor=#1D4ED8;" edge="1" parent="1" source="23" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="103" value="filter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#8B5CF6;fontColor=#5B21B6;" edge="1" parent="1" source="31" target="32">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="104" value="normalize" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#8B5CF6;fontColor=#5B21B6;" edge="1" parent="1" source="32" target="33">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="105" value="insert prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#16A34A;fontColor=#166534;" edge="1" parent="1" source="33" target="41">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="106" value="insert asset" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#16A34A;fontColor=#166534;" edge="1" parent="1" source="33" target="42">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="107" value="insert link" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#16A34A;fontColor=#166534;" edge="1" parent="1" source="33" target="43">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="108" value="expose" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#16A34A;fontColor=#166534;" edge="1" parent="1" source="41" target="44">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="109" value="attach author" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#65A30D;fontColor=#3F6212;" edge="1" parent="1" source="41" target="45">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="110" value="trace batch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#0F766E;fontColor=#134E4A;" edge="1" parent="1" source="33" target="46">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="111" value="maps to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#D97706;fontColor=#92400E;" edge="1" parent="1" source="23" target="51">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="112" value="maps to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#D97706;fontColor=#92400E;" edge="1" parent="1" source="23" target="52">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="113" value="maps to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#D97706;fontColor=#92400E;" edge="1" parent="1" source="23" target="53">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="114" value="maps to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=1;fontSize=12;strokeColor=#D97706;fontColor=#92400E;" edge="1" parent="1" source="31" target="54">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

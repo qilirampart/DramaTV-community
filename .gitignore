@@ -1,0 +1,68 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Node / Next.js
+node_modules/
+.next/
+.turbo/
+.npm/
+.pnpm-store/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local toolchains and runtime caches
+.tools/
+.drawio-assets/
+.playwright-mcp/
+logs/
+tmp/
+apps/server/logs/
+apps/server/tmp/
+
+# Local logs and debug artifacts
+/*.log
+/*.out.log
+/*.err.log
+/*.png
+/*.zip
+apps/web/*.log
+apps/server/*.log
+
+# External local archives
+/mindloop-_-cinematic-archive (1)/
+/apps/web/public/seedance-videos/
+/apps/web/public/nano-banana-images/
+/apps/web/public/prefill-videos/
+/apps/web/public/external-samples/
+/docs/02_研究/youmind-image-assets/
+/docs/02_研究/youmind-video-assets/
+/archive/legacy-react-vite-prototype/public/prefill-videos/
+/docs/98_外部参考/awesome-design-md/
+/playwright-*.md
+/reference-*-accessibility.md
+/reference-*-snapshot.md
