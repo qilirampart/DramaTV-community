@@ -1,5 +1,115 @@
 # MEMORY
 
+## 2026-05-21 admin resource governance should reuse moderation actions
+
+- For this repo, do not invent a second governance state machine just for the admin resource inventory. Reuse the existing moderation `offline / restore` actions so resource governance and public visibility stay on one shared backend contract.
+- The validated admin resource inventory should cover the real frontstage resource set in one place:
+  - `video_prompt`
+  - `image_prompt`
+  - `workflow`
+  - `post`
+  - `video`
+- If a resource is taken down from `/resources`, the expected behavior is immediate frontstage visibility change. If the admin page changes but the community side does not, debug the shared backend visibility mapping first, not the admin UI shell.
+- For prompt resources in `/resources`, surface the actual prompt body as a separate detail block instead of letting it blend into the summary. The summary can stay, but the body must be visibly labeled `提示词正文` so reviewers do not mistake it for a summary excerpt.
+- For prompt resources in `/resources`, do not source the body from `prompt_text` first. Prefer `prompt_text_raw -> prompt_text -> summary`, otherwise imported prompt inventories can collapse back to the same short text shown in summaries.
+
+## 2026-05-21 local startup ports are fixed
+
+- For this repo, the manual local recovery order is fixed:
+  - backend `18080`
+  - community web `3106`
+  - admin web `3206`
+  - cloud mirror `3107`
+- Do not start the community frontend with a bare `next dev` that may fall back to `3000` or `3001`. The standard local entry is `npm run dev:web`, and it must stay on `3106`.
+- Keep `npm run dev:admin` on `3206`, `scripts/start-server-18080.ps1` on `18080`, and `npm run start:web:cloud` on `3107` so the manual startup guide and the actual runtime ports do not drift.
+
+## 2026-04-30 comment threads capped at two visible levels
+
+- For this repo, comment UI should follow the short-video community pattern: one root comment level plus one nested reply level only.
+- Do not keep recursive comment trees in the shared frontend component. Even if the database stores deeper ancestry, the shared comment renderer should stop at two visible levels.
+- When a user replies to a second-level reply, flatten the stored/displayed parent back to the root comment and preserve the actual reply target separately.
+- The validated shape here is:
+  - database keeps `parent_id` pointing to the root for second-level items
+  - database keeps `reply_to_comment_id` for the concrete clicked reply target
+  - API returns `replyTarget`
+  - UI shows `回复 xxx` on second-level replies
+- When deleting a root comment thread, cascade not only by `parent_id` but also by `reply_to_comment_id`, otherwise flattened second-level replies can be missed.
+
+## 2026-04-30 comment notification semantics
+
+- In this repo, do not mix up `comment` and `reply` notification semantics.
+- The validated rule is:
+  - `comment` = someone commented on content I own
+  - `reply` = someone replied to a comment I authored
+- A content owner should not also receive `reply` just because the reply happened under their content if the replied comment belonged to another user.
+- Keep this rule real in the backend query layer instead of faking it in the bell UI. Tests should cover the two roles separately:
+  - content owner receives `comment`
+  - replied-comment author receives `reply`
+
+## 2026-04-29 split progress routing for parallel tracks
+
+- When community and admin work run in parallel, do not keep both detailed execution logs in `.codex/progress.md`.
+- The stable pattern for this repo is:
+  - `.codex/progress.md` = master index, cross-track snapshot, blockers, and milestone routing
+  - `.codex/progress-community.md` = detailed community-line progress
+  - `.codex/progress-admin.md` = detailed admin-line progress
+- Do not bulk-migrate old mixed history unless there is a concrete need. Keep old entries in the master doc as archive, and only route new detailed updates into the matching track file.
+
+## 2026-04-28 canvas copy idempotency scope
+
+- For `copy-to-canvas`, do not enforce idempotency on a global bare `idempotency_key` when the frontend key is stable per workflow, such as `workflow-copy-${workflowId}`.
+- In this repo, the safe contract is: scope existing-copy lookup and the unique constraint by at least `operator_id + source_workflow_id + idempotency_key`. Otherwise different users can be routed to the same copied canvas runtime and copy task.
+- The validated fix here was:
+  - backend lookup filtered on `operator_id` and `source_workflow_id`
+  - database unique index moved from global `idempotency_key` to `(operator_id, source_workflow_id, idempotency_key)`
+  - same-user repeat clicks stayed idempotent, while different users using the same frontend key no longer collided
+
+## 2026-04-27 home hero video mount discipline
+
+- For `/home` hero carousels, do not keep every slide mounted as a live `<video>` element just because the slide has a playable preview URL. Mount the active slide and, at most, the next slide that is intentionally being prewarmed; keep the rest as poster-only background layers.
+- When a hero slide has both `imageUrl` and `videoUrl`, preserve the image as the base layer and also pass it through `poster` so route re-entry does not need to re-extract a visible first frame from the video path.
+- The validated result in this repo was: `CommunityHomePage` hero mounted video count dropped from `3` to `2`, and a repeated `/home -> detail -> return` Playwright sweep fell from a string of repeated hero `seedance-videos/*.mp4` range requests to a single retained video request, while keeping the active-slide autoplay experience intact.
+
+## 2026-04-28 backend home-feed test contract
+
+- For this repo, `GET /api/feed/home` defaults to `channel=recommend` and first reads the curated `feed_items` pool, not the raw `videos` table.
+- The validated testing pattern is: if an integration test expects a freshly created video/workflow/prompt to appear in the home feed, it must also seed a matching active `feed_items` row with the correct `channel_code`, `target_type`, and `content_kind`.
+- The concrete pitfall already hit here was: inserting a published `video` alone did not make it show up in `/api/feed/home`; the item only appeared after also inserting `feed_items(channel_code='recommend', target_type='video', content_kind='workflow_work', status_code='active')`.
+
+## 2026-04-26 video prompt cover backfill rule
+
+- For `prompt_entries`, `coverUrl` only resolves when `cover_asset_id` points to an `image` media asset. Pointing `cover_asset_id` at the primary video asset will still leave `coverUrl/posterUrl` as `null`, even if `previewUrl/sourceUrl` are present.
+- The validated repair path for YouMind Seedance video prompts is: create a dedicated image cover asset, prefer the upstream `thumbnail` / `thumbnailSrc` direct URL, and only fall back to extracting a local frame with `ffmpeg` when no thumbnail exists.
+- When backfilling existing data, do not limit the sweep to the current frontend catalog subset. Query by the full Seedance source library so cloud/test databases with larger imported batches also get covers fixed in one pass.
+
+## 2026-04-25 card video warm-up discipline
+
+- On content-heavy grids like `/featured`, do not let every in-viewport video card auto-mount its `<video>` element on first paint. Keep hover preview behavior, but add a shared switch such as `loadOnViewport` so only the top priority cards prewarm in the viewport and the rest mount on hover/focus.
+- The validated pattern for this repo is: first-screen featured cards prewarm only the first 6 video cards, while later cards still support hover preview. This cut the cloud-mirror `/featured` first-screen mounted video count from 15 down to 6 without removing the card hover-play affordance.
+- For rotating hero carousels like `/home`, do not preload every slide equally. Keep the active slide at `preload="auto"`, warm only the next slide with `metadata`, and leave farther slides at `none` until they approach activation.
+- Verification should use live browser checks, not just code review: count mounted `video` elements and inspect real media requests on `http://127.0.0.1:3107/featured` and `http://127.0.0.1:3107/home`.
+
+## 2026-04-24 public page degrade strategy
+
+- On public community pages, do not let secondary prompt blocks block the first screen. Keep the main `homeFeed` as the hard dependency, but wrap secondary prompt queries with a short timeout plus empty-data fallback.
+- For pages like `/` and `/home`, if the main feed already contains enough real cards and hero material, remove the secondary prompt query from the route-level await entirely instead of only degrading it. Route-level “only wait for `homeFeed`” is stronger than “wait for both but one can timeout”.
+- For pages like `/featured`, where the supplemental inventory is useful but not required for first paint, split the load into two layers: server-render the main grid from `homeFeed`, then fetch the larger prompt inventory after hydration through a light same-origin route.
+- If a page hero or shelf originally depended on the secondary prompt API, add a fallback path from the main feed so a degraded prompt query does not bounce the UI back to old demo content.
+- Verification for this class of optimization should include both build-level checks and live route checks, for example `npx tsc`, `build:web`, and direct HTTP `200` checks on `/`, `/home`, `/featured`.
+
+## 2026-04-22 bug fix scope discipline
+
+- Do not stop at fixing the visible page symptom. First locate the real root cause, then explicitly ask whether the same cause can appear in other pages, shared components, mappers, API adapters, or common styles.
+- If the issue is systemic, prefer fixing it in the shared layer instead of patching one page at a time. Typical shared layers in this repo are API adapters, view-model mappers, `PageShell`, shared comment/card components, and global CSS.
+- After a local fix, run one extra sweep for the same pattern in neighboring code paths. Example: a broken avatar on `/me` can also mean the same relative media URL bug exists in topbar session data, creator cards, comment avatars, or other pages using the same contract.
+- Verification should include at least one direct fix check and one adjacent-path check, so the result is not "this page works" but "this class of bug has been contained."
+
+## 2026-04-28 route transition overlay discipline
+
+- Shared route-transition overlays must settle when the route leaves the origin page, not only when it exactly reaches the originally requested target. Auth middleware, login redirects, canonical URL rewrites, and other route guards can legitimately land on a different internal URL first.
+- For this repo, the stable pattern is: record both `originHref` and `pendingHref`, dismiss the overlay once `routeKey !== originHref`, preserve a short minimum transition duration for polish, and also keep a hard timeout fallback so a failed `router.push` cannot leave the app stuck behind the loading layer forever.
+- Verification should include both unauthenticated guarded-entry cases like `/login?redirectTo=...` and normal logged-in top-nav hops such as `/home -> /featured -> /discussions`.
+
 ## 2026-04-19 patch discipline
 
 - Avoid large `apply_patch` payloads. Split code changes by file and concern, keep each patch small, and verify after meaningful chunks to prevent repeated long-patch failures or encoding damage.
@@ -17,6 +127,18 @@
 - 结论：更新 `.codex/progress.md` 时遵守三条规则：一是只做小范围增量修改；二是优先用 `apply_patch` 而不是 shell 追加写入；三是写完后立刻复核 `CODEX:SNAPSHOT`、`CODEX:BOARD`、`CODEX:LOG` 三个锚点仍然存在，再确认日志仍是 append-only。
 - 证据：`2026-04-19` 这轮排查里，shell 方式向 `.codex/progress.md` 追加内容曾失败；同时该文件结构锚点依然可被准确检出，说明后续最稳妥的方式是围绕锚点做小补丁维护。
 - 适用范围：所有进度快照更新、看板状态调整、追加日志记录，以及后续任何需要修改大型 Markdown 状态文档的场景。
+
+### PowerShell 读中文文档时优先 `-NoProfile` 和显式 UTF-8，避免把环境噪音误判成文件损坏
+- 场景：本地 PowerShell profile 会因执行策略报错，普通 `Get-Content` 也可能把正常 UTF-8 中文显示成 mojibake。
+- 结论：读取中文文档、进度文档和规则文档时，优先使用 `login=false` 或 `powershell -NoProfile`，并设置 `[Console]::OutputEncoding = [System.Text.Encoding]::UTF8` 与 `Get-Content -Encoding UTF8`；是否真正损坏要看文件字节或 UTF-8 读取结果，不看默认终端显示。
+- 证据：`2026-04-20` `AGENTS.md` 在普通输出里显示乱码，但文件头字节为正常 UTF-8，说明问题是终端显示链路和 profile 噪音，不是文档内容损坏。
+- 适用范围：`AGENTS.md`、`.codex/progress.md`、`memory/MEMORY.md`、`docs/**/*.md`、任何中文路径下的 Markdown。
+
+### Draw.io MCP 调用必须串行，产图优先落 `.drawio` 文件再验证
+- 场景：Draw.io MCP 背后依赖同一个浏览器和图模型会话，并发调用 `list_layers`、`list_paged_model`、导入、导出等操作容易互相等待，最终表现为超时或会话假死。
+- 结论：不要用 `multi_tool_use.parallel` 包裹 Draw.io MCP 调用；大图优先直接生成或更新 `docs/03_架构/*.drawio` XML，再用单个 MCP 调用或 XML 解析做验证。
+- 证据：`2026-04-20` 排查 Draw.io MCP 超时后，改用项目 wrapper `scripts/drawio-mcp-stdio-wrapper.mjs` 并串行调用，`get_active_layer/list_paged_model` 类基础操作恢复可用。
+- 适用范围：架构脑图、页面联动图、Draw.io 导入导出、后续任何 MCP 画图任务。
 
 ## 2026-04-07 前端视觉改版补记
 
@@ -346,3 +468,226 @@
 - 结论：后续页面规划里应补一个“个人中心页”，至少包含个人信息、我的点赞、我的收藏；是否继续扩展“我的发布 / 我的草稿 / 我的关注”可以按阶段追加。
 - 证据：`2026-04-14` 用户明确提出“现在还需要补充一个个人中心页面，里面有一些个人信息和点赞和收藏的一些内容”。
 - 适用范围：产品分析文档、页面优先级排序、导航设计、后续前端与后端接口规划。
+### Playwright MCP reports `Transport closed`: kill stale MCP chains, then restart Codex so config reloads
+- Scenario: `mcp__playwright__browser_*` calls return `Transport closed` even after killing the visible `@playwright/mcp` process. This means the Codex session's MCP stdio transport is already closed, not merely that the target page or browser tab was closed.
+- Conclusion: Process cleanup can remove stale `cmd -> npx -> playwright-mcp -> node` chains, but it cannot revive the already-closed MCP transport handle inside the current Codex chat. Check command lines with `Get-CimInstance Win32_Process`, kill only the Playwright MCP chain, then reopen/resume Codex so the MCP manager reloads.
+- Preventive fix: configure Playwright MCP with `--isolated` in `C:\Users\psk13\.codex\config.toml` so it uses an in-memory browser profile instead of reusing stale `ms-playwright\mcp-chrome*` profile directories.
+- Evidence: On 2026-04-21, stale Playwright MCP process chains from 16:48 and 20:39 were killed and no active `SingletonLock` / `DevToolsActivePort` files were found, but the current chat still returned `Transport closed`. Updating config to `args = ['/c', 'npx', '-y', '@playwright/mcp@latest', '--isolated']` will only take effect after a new/resumed Codex session.
+
+## 2026-04-22 popover clipping check
+
+- If a button click changes `aria-expanded` and the accessibility snapshot can already see the `dialog/menu/popover`, but the page still looks like "nothing happened", check ancestor `overflow: hidden` and clipping before re-debugging the API or click handler.
+- The 2026-04-22 notification bell issue came from shared header clipping: `.topbar` defaulted to `overflow: hidden` while `NotificationBell` positioned its panel absolutely below the trigger. A scoped override on `.topbar.topbar-home { overflow: visible; }` fixed `/home`, `/featured`, and `/discussions` without needing a portal rewrite.
+
+## 2026-04-22 backend live verification discipline
+
+### 后端新增接口后，先验证“在线进程是否真是新版”，再怀疑 SQL 或业务代码
+- 场景：源码里已经加了新 controller / service / DTO，SQL 单独在 PostgreSQL 里也能跑通，但本地接口仍然返回 `500`。
+- 结论：这种情况先检查当前 `18080` 端口是不是还挂着旧的 Spring Boot 进程。新增后端接口后，不能只看 `compile` 通过，必须用提权方式重启 `scripts/start-server-dev-18080.ps1`，然后立刻验证 `/actuator/health` 和目标接口一次。
+- 证据：`2026-04-22` 的 `/api/me/notifications/recent` 起初返回 `500`，根日志真实异常是 `NoResourceFoundException: No static resource api/me/notifications/recent`，说明请求根本没命中新接口映射，而不是通知 SQL 出错。重启新版后端后，同一路径立即恢复为 `200`。
+- 适用范围：所有后端 controller、新增路由、响应 DTO 变更、评论/互动/个人中心接口联调。
+## 2026-04-23 API smoke encoding for Chinese content
+
+- When testing Chinese request bodies from Windows PowerShell, do not trust a plain object plus `ConvertTo-Json` path unless the received payload is inspected. In the comment moderation smoke, Chinese text was stored as `???`, which made keyword checks look broken even though the backend rule was correct.
+- For API smoke tests that must assert Chinese keywords, send an ASCII JSON body with `\uXXXX` escapes and `Content-Type: application/json; charset=utf-8`, then verify through the API response/list before judging the moderation result.
+
+## 2026-04-23 media asset OSS-readiness audit
+
+- Before discussing OSS migration readiness, do not infer from a few visible pages. First run `node scripts/audit-media-asset-keys.mjs` against the local Postgres container and check whether `media_assets.object_key` is still mixed with absolute URLs, root paths, or blanks.
+- If normalization is needed, preview with `node scripts/normalize-media-asset-keys.mjs` before applying `--apply`. The current safe auto-fix rules only cover two local legacy patterns: `local-public` root-path keys and `local_fs` absolute `/media/...` URLs.
+- A repository is materially closer to OSS/CDN cutover once business content stores `assetId` or stable `/media/{objectKey}` paths and the audit reports `legacy-style assets = 0`. Treat that audit result as the ground truth, not ad hoc UI inspection.
+
+## 2026-04-24 backend integration test isolation
+
+- For `apps/server` HTTP integration tests, do not depend on seed/demo content such as “any published video” when asserting counters or interaction deltas. Create the author and target content inside the test, then clean it through the shared `it-*` user cleanup path.
+- The concrete failure on `InteractionApiIntegrationTest` was a useful reminder: once the test switched to “self-created owner + self-created published video”, the suite stopped being polluted by local interaction history and became stable again.
+
+## 2026-04-24 local startup verification
+
+- Local startup scripts should not stop at “port is listening”. After backend or web starts, run the lightweight readiness check against real HTTP/TCP dependencies before treating the environment as usable.
+- The current validated entry is `node scripts/check-local-runtime-readiness.mjs`: backend scope checks `actuator + PostgreSQL + Redis + core APIs + auth`, and full scope adds frontend root, protected-route redirect, and authenticated `/me` rendering. `start-server-dev-18080.ps1` and `start-web-3100.ps1` now default to this post-start verification unless `-SkipReadinessCheck` is explicitly passed.
+- When the same `apps/web` workspace already has a live `next dev` instance (for example on `3106`), Next.js will refuse to launch a second `dev` server from that directory even on another port. Use `start-web-3100.ps1 -Mode start -Port <temp-port>` for alternate-port readiness verification instead of trying to run two `dev` instances side by side.
+
+## 2026-04-24 upload proxy over server action
+
+- For media uploads in `apps/web`, do not send large `File` objects through Next `server action` `FormData` when a stable raw-binary path exists. Even with `serverActions.bodySizeLimit`, larger video uploads can still fail at the Next multipart parsing layer with errors like `Unexpected end of form` before the request reaches the Spring backend.
+- Prefer a two-step same-origin proxy path instead: small JSON request to obtain the upload policy, then raw `PUT` binary upload through Next route handlers that add the backend `Authorization` header from the httpOnly community cookie. This avoids exposing the token to the browser and avoids fragile multipart parsing in the web tier.
+- When fixing one upload entry, sweep all sibling file-upload entries in the repo. On 2026-04-24 the same fix class was applied to publish prompt/workflow uploads, discussion media insertion, and `/me` avatar upload so the issue would not reappear on a neighboring page.
+
+## 2026-04-24 PowerShell deployment script encoding
+
+- For `.ps1` files that must run on Windows PowerShell 5, prefer ASCII-only source. Do not hardcode Chinese file names, Chinese section labels, or full-width punctuation directly in script source when a stable ASCII alternative exists.
+- When a script needs data from a Chinese-named file, auto-discover the file by ASCII content signatures first, or accept an explicit absolute path. This is safer than embedding the localized path in source code.
+- Use `Get-Content -Encoding UTF8` explicitly, but do not assume terminal rendering proves the file was parsed correctly. Verify by matching stable ASCII tokens such as hostnames, bucket names, ports, and IPv4 lines.
+- Remember the CRLF trap: regex patterns that anchor full lines should usually allow trailing whitespace, for example `^\s*...\s*$`, otherwise Windows line endings can break parsing.
+- If a PowerShell script needs to execute remote code over SSH, avoid fragile nested shell quoting. Prefer simple remote commands or a heredoc-based `python3 -` probe over stacked `bash -lc` quoting.
+
+## 2026-04-25 PowerShell JSON artifact encoding
+
+- On Windows PowerShell 5, redirecting Node JSON output with `>` can leave the artifact in a BOM-prefixed encoding that later breaks `JSON.parse(...)` reads from Node.
+- For JSON artifacts that need to be machine-read in follow-up steps, prefer letting Node write the file itself, or normalize the file to plain UTF-8 without BOM immediately after capture.
+
+## 2026-04-24 cloud connectivity verification order
+
+- When ops updates the test resource file for ECS/RDS/Redis, re-run the connectivity probe from ECS first. The authoritative question is whether `ECS -> RDS/Redis` is open, not whether the developer laptop can reach those endpoints.
+- For this project's current cloud setup, laptop DNS for private database and Redis endpoints can still resolve to `198.18.x.x` placeholders and fail TCP tests even after ops has correctly opened the ECS path. Do not treat local `Test-NetConnection` failures as proof that the cloud resources are still unusable.
+- The reliable ready state is: `scripts/check-test-env-connectivity.ps1` returns `OK` for the declared database port and Redis from inside ECS. Once that passes, backend deployment can continue even if the laptop still cannot direct-connect the private instances.
+
+## 2026-04-24 ECS deployment script pitfalls
+
+- In PowerShell, do not build SCP-style remote destinations as `"root@$script:ServerHost:$remotePath"`. The scope-qualified variable plus the following colon can collapse the host interpolation and make `pscp` treat the destination as a local path. Use `"root@$($script:ServerHost):$remotePath"` instead.
+- When generating `systemd` `EnvironmentFile` content from Windows PowerShell for a Linux server, prefer ASCII or UTF-8 without BOM. A BOM on the first line can make the first environment variable disappear on Linux. In this project it caused `DRAMATV_SERVER_PORT=18080` to be ignored and the service silently fell back to `8080`.
+- If `pscp` must upload artifacts from a repository under a Chinese local path, stage the binary into an ASCII temp directory first. The current validated approach is to copy the JAR into `%TEMP%\\dramatv-community-deploy\\dramatv-community-server.jar` before upload.
+
+## 2026-04-24 PostgreSQL cloud migration hardening
+
+- Do not treat `pg_dump --data-only --inserts --column-inserts` output as one physical line = one SQL statement. Prompt text and other long content can contain real newlines, so statement extraction must split on `;` outside SQL string literals.
+- The first data row of a dumped table can sit in the same statement chunk as pg_dump comment headers. When extracting rows from a statement chunk, search for `INSERT INTO public.<table>` anywhere in the chunk and trim from that anchor, instead of requiring the chunk to start with `INSERT`.
+- For this community schema, naive data-only replay fails because of real FK cycles:
+  - `users.avatar_asset_id -> media_assets.id`
+  - `media_assets.created_by -> users.id`
+  - `comments.parent_id/root_id -> comments.id`
+- The validated import strategy is a two-phase replay:
+  - import `users` without `avatar_asset_id`
+  - import `media_assets` and the rest of the dependent tables
+  - update `users.avatar_asset_id`
+  - import `comments` without `parent_id/root_id`
+  - update `comments.parent_id/root_id`
+- Keep cloud overwrites explicit. After a partial failed import, use an opt-in flag such as `-ForceOverwrite` before truncating and replaying business tables into the test cloud database.
+
+## 2026-04-25 YouMind API import username collision
+
+- When importing YouMind content through the real login/upload/publish API path, do not reuse the old legacy importer username prefix `youmind-*` for the temporary local-login author accounts.
+- The cloud database can already contain historical YouMind authors with `identity_provider = 'youmind'` and the same `username`. The simple password login flow only searches `identity_provider = 'local'`, so a reused username can miss on lookup and then fail on insert with a unique-key collision, surfacing as a `500`.
+- The validated workaround is to keep the visible author `displayName` unchanged but generate API-import login usernames under a separate prefix such as `ymimport-*`.
+
+## 2026-04-25 YouMind prompt category hierarchy
+
+- Keep the first split as content modality: `video_prompt` and `image_prompt`. Do not collapse image and video prompts into one generic prompt bucket.
+- The newly added 2026-04-24 image-prompt batches were extracted by category, so they carry a valid upper category:
+  - `gpt-image-2 / comic-storyboard`
+  - `nano-banana-pro / comic-storyboard`
+- The business grouping for both of the batches above is the same:
+  - 图片类
+  - 生图提示词
+  - upper category: `comic-storyboard`
+  - Chinese meaning: `漫画 / 故事版`
+- Older historical YouMind prompt libraries were direct pulls and currently do not have a trustworthy upper category. Until they are reclassified from source metadata, keep them only at the modality layer (`video_prompt` or `image_prompt`) instead of fabricating a larger category.
+- Future import rule: apply an upper category only when the source batch itself was category-aware during extraction; otherwise preserve the raw modality-only classification.
+
+## 2026-04-25 historical prompt metadata backfill
+
+- When earlier cloud-imported prompts are missing `sourcePlatform / sourceCampaign / sourceItemId / sourceUrl / modelName`, do not patch by title matching or manual page lookup.
+- The validated backfill path is: `state.json -> exact import key -> local research library metadata -> cloud DB update by prompt id`.
+- For this repo, [`scripts/backfill-youmind-prompt-source-metadata.mjs`](E:\点众\DramaTV社区搭建\scripts\backfill-youmind-prompt-source-metadata.mjs) is now the safe path for that job. It preserves category discipline while backfilling only trusted source metadata.
+## 2026-04-25 large featured inventory rendering
+
+- Once the cloud mirror starts showing hundreds of real prompt cards, `featured` becomes visibly heavy if it renders the full inventory in one pass, especially when many cards mount video previews together.
+- The validated mitigation for this repo is:
+  - keep the backend fetch large enough so the page can still eventually show everything
+  - but render the client grid progressively in chunks
+  - append more cards only as the user scrolls near the bottom
+- For the current implementation, [`FeaturedArchivePage.tsx`](E:\点众\DramaTV社区搭建\apps\web\src\features\featured\FeaturedArchivePage.tsx) uses an `IntersectionObserver` sentinel with an initial batch of `24` and a step size of `24`.
+- When browser-side category behavior differs between user Edge and MCP Chrome after a resume, check stale frontend session/cache state before assuming the import or classification failed. The verified pattern here was:
+  - backend data correct
+  - Edge already reflected the new inventory
+  - MCP Chrome needed a fresh reload or a new frontend instance
+
+## 2026-04-28 query-tab pages must use a single source of truth
+
+- For Next.js pages whose tabs or filters are encoded in the URL, do not keep a mirrored local tab state initialized from `useSearchParams()` and then sync it back with `router.replace(...)`.
+- The unstable pattern is:
+  - `const [activeTab, setActiveTab] = useState(parseTab(searchParams.get("tab")))`
+  - one effect for `URL -> state`
+  - another effect for `state -> router.replace(...)`
+- Under rapid clicks, old route writes can land late and overwrite newer user intent, causing self-bouncing URLs or loop-like tab switching.
+- The validated fix pattern in this repo is:
+  - parse the active tab directly from the current URL on each render
+  - tab click handlers build the next route and call `router.replace(...)` once
+  - if route canonicalization is needed, isolate it from normal user tab changes and serialize in-flight route writes
+- Verified pages that needed this fix class:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - `apps/web/src/features/me/PersonalCenterPage.tsx`
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+
+## 2026-04-30 notification SQL unions must align with the shared mapper
+
+- If a backend notification endpoint merges multiple SQL branches with `union all` and then maps every row through one shared row-mapper, every branch must expose the full same column set, even when some fields are semantically unused in that branch.
+- In this repo, `MeQueryService.loadInteractionNotifications(...)` and `loadCommentNotifications(...)` both feed `mapNotificationItem(...)`.
+- The validated failure mode was:
+  - `comment/reply` branches already returned `reply_to_actor_name`
+  - `like/favorite` branches did not
+  - once a user had both interaction notifications and comment notifications, `/api/me/notifications/recent` failed with `PSQLException: ResultSet 中找不到栏位名称 reply_to_actor_name`
+  - frontend bell then looked like “no new notification” even though reply rows were already in DB
+- The safe pattern here is:
+  - keep the shared mapper strict
+  - but force every union branch to select all required columns explicitly, using `null::text as reply_to_actor_name` or similar placeholders where needed
+  - add one integration test that mixes at least two notification categories in the same response, not separate single-category tests
+
+## 2026-05-03 auth/session shared-layer consistency
+
+- In this repo, do not let `proxy.ts` and `community-service.ts` read different API base URL env sources. If protected-route middleware and the main server-side API adapter disagree on backend base URL resolution, login/session behavior will diverge by environment.
+- The validated safe contract is:
+  - both shared layers resolve `DRAMATV_API_BASE_URL || NEXT_PUBLIC_DRAMATV_API_BASE_URL`
+  - invalid or revoked cookies are verified through `/api/auth/me`
+  - both `401` and `403/FORBIDDEN` mean “session invalid” for frontend route guards
+- Also do not rely only on `instanceof` for auth-error classification across Next.js server layers. Route handlers, proxy layers, and different build boundaries can surface the same logical error without preserving the original prototype chain.
+- The validated rule here is:
+  - keep `instanceof`
+  - also fall back to `error.name` plus a minimal structural shape such as `path`
+  - centralize `AUTH_REQUIRED` and `FORBIDDEN` classification in one shared helper
+- When touching auth/session behavior in this repo, run the local scripted regression instead of only hand-clicking:
+  - `node scripts/run-local-auth-session-regression.mjs`
+  - or `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-local-stability-suite.ps1 -SkipFrontendBuild -SkipBrowserSmoke -SkipBackendIntegration -SkipApiSmoke`
+
+## 2026-05-03 community auth must stay provider-ready
+
+- In this repo, do not treat the current local password login as the auth model itself. Treat it as one concrete provider implementation.
+- The validated compatibility shape is:
+  - backend exposes `GET /api/auth/providers`
+  - frontend login page reads provider config instead of hardcoding one permanent login mode
+  - request payload carries `loginType`
+  - current local provider uses `local_password`
+  - legacy `password` remains temporarily accepted for backward compatibility in tests/scripts
+- When company login is integrated later, prefer “add/switch provider while preserving cookie/session/guard contracts” over rewriting:
+  - `/login`
+  - `dramatv_access_token`
+  - `/api/auth/me`
+  - `requireCommunitySession(...)`
+  - `proxy.ts` invalid-session redirect semantics
+
+## 2026-05-03 publish moderation semantics for current phase
+
+- In this repo, the current validated community product rule is:
+  - publish now = visible now
+  - automatic moderation is reserved but not enabled
+  - manual moderation belongs to admin later
+  - report/abuse workflow belongs to admin later and can escalate via warning thresholds
+- Do not mix these three concepts in one field again:
+  - draft workflow state
+  - content visibility state
+  - moderation state
+- The safe contract for submit responses is:
+  - `draftStatus` describes the draft lifecycle, currently `draft|submitted`
+  - `contentStatus` describes visibility, currently published immediately
+  - legacy `publishStatus` may be kept temporarily only as a compatibility alias, not as the source of truth for new UI logic
+- For current-phase lifecycle reads:
+  - default moderation after normal publish should resolve to `not_applicable`
+  - do not surface `pending_review` as the default user-facing state unless moderation has actually been enabled
+
+## 2026-05-05 YouMind image prompt incremental sync discipline
+
+- For YouMind image prompt categories that already have an older local snapshot, do not append by page guesswork. The stable method is:
+  - refresh the full current category
+  - diff against the old snapshot by `id`
+  - keep a separate `new-only` library for the increment
+- For this repo's `gpt-image-2 / comic-storyboard` refresh, title-level dedup is not safe enough. Use `id` as the primary dedup key.
+- When source network quality is unstable, the validated fetch baseline is:
+  - longer request timeout
+  - bounded retries with small backoff
+  - preserve the full raw refresh output even if the handoff target is only the diff
+- Asset handoff should preserve classification fields explicitly in manifests and item metadata:
+  - `model`
+  - `campaign`
+  - `categories`
+  - source / author attribution

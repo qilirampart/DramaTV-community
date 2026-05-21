@@ -36,7 +36,7 @@ export function VideoCard({ video }: VideoCardProps) {
   const processHref =
     normalizeText(video.workflow?.processHref) ??
     (normalizeText(video.workflow?.id) ? `/workflows/${video.workflow?.id}#canvas-entry` : undefined);
-  const coverUrl = normalizeAssetUrl(video.coverUrl);
+  const coverUrl = normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl);
   const avatarUrl = normalizeAssetUrl(video.author.avatarUrl);
   const authorName = normalizeText(video.author.displayName) ?? "匿名创作者";
   const summary =

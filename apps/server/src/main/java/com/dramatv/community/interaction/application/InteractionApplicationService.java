@@ -1,10 +1,12 @@
 package com.dramatv.community.interaction.application;
 
+import com.dramatv.community.interaction.dto.request.CommentTargetSettingsRequest;
 import com.dramatv.community.interaction.dto.request.CreateCommentRequest;
 import com.dramatv.community.interaction.dto.request.FollowRequest;
 import com.dramatv.community.interaction.dto.request.TargetActionRequest;
 import com.dramatv.community.interaction.dto.response.ActionStateResponse;
 import com.dramatv.community.interaction.dto.response.CommentResponse;
+import com.dramatv.community.interaction.dto.response.CommentTargetSettingsResponse;
 import com.dramatv.community.interaction.persistence.InteractionJdbcPersistenceService;
 import com.dramatv.community.shared.response.CursorPageResponse;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,14 @@ public class InteractionApplicationService {
 
     public CommentResponse createComment(CreateCommentRequest request) {
         return jdbcPersistenceService.createComment(request);
+    }
+
+    public CommentTargetSettingsResponse updateCommentTargetSettings(CommentTargetSettingsRequest request) {
+        return jdbcPersistenceService.updateCommentTargetSettings(request);
+    }
+
+    public ActionStateResponse deleteComment(String commentId) {
+        return jdbcPersistenceService.deleteComment(commentId);
     }
 
     public ActionStateResponse like(TargetActionRequest request, boolean active) {

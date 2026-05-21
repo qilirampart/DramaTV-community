@@ -1,0 +1,43 @@
+{
+  "rank": 37,
+  "id": "2048121503367995753",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 87,
+  "title": "3D Cartoon Character Render",
+  "description": "Portrait & Photography Cases curated case: 3D Cartoon Character Render, source author Inshrah_ali_.",
+  "language": "",
+  "authorName": "Inshrah_ali_",
+  "authorLink": "https://x.com/Inshrah_ali_",
+  "sourceLink": "https://x.com/Inshrah_ali_/status/2048121503367995753",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case87/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case87/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

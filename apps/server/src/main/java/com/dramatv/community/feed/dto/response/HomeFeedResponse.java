@@ -6,14 +6,20 @@ public record HomeFeedResponse(
         List<FeedItemResponse> items,
         String nextCursor,
         boolean hasMore,
-        Sections sections
+        Sections sections,
+        HomeLayout layout
 ) {
     public record FeedItemResponse(
+            String contentKind,
+            String promptModality,
             String itemType,
             String targetId,
             String title,
             String summary,
             String coverUrl,
+            String posterUrl,
+            String previewUrl,
+            String sourceUrl,
             AuthorSummary author,
             WorkflowSummary workflow,
             ItemStats stats
@@ -42,6 +48,17 @@ public record HomeFeedResponse(
     public record Sections(
             List<WorkflowSpotlight> hotWorkflows,
             List<CreatorSpotlight> featuredCreators
+    ) {
+    }
+
+    public record HomeLayout(
+            List<HomeLayoutSlot> slots
+    ) {
+    }
+
+    public record HomeLayoutSlot(
+            String key,
+            List<FeedItemResponse> items
     ) {
     }
 

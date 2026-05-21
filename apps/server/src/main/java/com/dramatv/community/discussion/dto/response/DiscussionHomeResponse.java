@@ -19,6 +19,7 @@ public record DiscussionHomeResponse(
             String slug,
             String title,
             String excerpt,
+            String publishedAt,
             String channelSlug,
             String channelTitle,
             long likeCount,
@@ -26,8 +27,16 @@ public record DiscussionHomeResponse(
             long replyCount,
             String lastActivityAt,
             List<String> tagNames,
+            Author author,
             ViewerActions viewerActions,
             Binding binding
+    ) {
+    }
+
+    public record Author(
+            String id,
+            String displayName,
+            String avatarUrl
     ) {
     }
 

@@ -42,10 +42,10 @@ const demoAuthors = {
 export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
   {
     id: "workflow-preview-cinematic-action",
-    title: "动作类镜头统一出片工作流",
-    summary: "把角色镜头、动作节奏、封面帧和关联讨论都收进一套详情页展示里。",
-    scenarioText: "适合动作、打斗、追击和速度感比较强的视频模板。",
-    tagNames: ["动作", "镜头设计", "批量复用", "社区展示"],
+    title: "动作镜头标准工作流",
+    summary: "适合动作节奏、角色站位和镜头推进的工作流示例。",
+    scenarioText: "适合需要把结果页和方法页串起来展示的动作类社区资源。",
+    tagNames: ["动作", "镜头设计", "节奏控制", "工作流"],
     author: demoAuthors.rina,
     allowCopy: true,
     openUrl: "/canvas/runtime-demo-action",
@@ -57,13 +57,13 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
     relatedVideos: [
       {
         id: "prompt-preview-warehouse",
-        title: "仓库追击打斗切换",
+        title: "仓库动作追逐镜头预览",
         coverUrl: "/nano-banana-images/000014-13327/01.jpg",
         author: demoAuthors.studio
       },
       {
         id: "prompt-preview-bamboo",
-        title: "月下竹林双人对决",
+        title: "竹林双人打斗镜头预览",
         coverUrl: "/nano-banana-images/000011-13330/01.jpg",
         author: demoAuthors.rina
       }
@@ -71,10 +71,10 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
   },
   {
     id: "workflow-preview-cyber-brand",
-    title: "赛博品牌短片拼装工作流",
-    summary: "统一处理首页卡片、详情页视频、右侧操作区和推荐内容的排版逻辑。",
-    scenarioText: "适合赛博都市、品牌概念片和科技氛围视频。",
-    tagNames: ["赛博", "品牌", "短片", "统一模板"],
+    title: "赛博品牌感工作流",
+    summary: "用于未来氛围、城市夜景和品牌镜头的工作流示例。",
+    scenarioText: "适合赛博城市、夜景人物和视觉品牌类内容。",
+    tagNames: ["赛博", "品牌感", "城市夜景", "工作流"],
     author: demoAuthors.studio,
     allowCopy: true,
     openUrl: "/canvas/runtime-demo-cyber",
@@ -86,13 +86,13 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
     relatedVideos: [
       {
         id: "prompt-preview-cyber",
-        title: "雨夜赛博街区冲镜",
+        title: "赛博城市霓虹人物镜头预览",
         coverUrl: "/nano-banana-images/000028-13310/01.jpg",
         author: demoAuthors.studio
       },
       {
         id: "prompt-preview-mecha",
-        title: "机甲城市穿梭镜头",
+        title: "机甲城市战斗镜头预览",
         coverUrl: "/nano-banana-images/000018-13331/01.jpg",
         author: demoAuthors.studio
       }
@@ -100,10 +100,10 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
   },
   {
     id: "workflow-preview-stage-loop",
-    title: "角色舞台循环镜头工作流",
-    summary: "控制机位、角色动作和评论区相关内容的统一表达，适合角色展示类内容。",
-    scenarioText: "适合舞台、人物展示、演出片段和偶像感镜头。",
-    tagNames: ["舞台", "角色", "灯光", "循环"],
+    title: "舞台表演循环工作流",
+    summary: "用于舞台表演、角色亮相和节奏镜头的工作流示例。",
+    scenarioText: "适合舞台、角色展示和聚光灯场景。",
+    tagNames: ["舞台", "角色表演", "聚光灯", "工作流"],
     author: demoAuthors.rina,
     allowCopy: false,
     stats: {
@@ -114,13 +114,13 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
     relatedVideos: [
       {
         id: "prompt-preview-stage",
-        title: "二次元舞台灯光循环",
+        title: "舞台角色表演镜头预览",
         coverUrl: "/nano-banana-images/000013-13329/01.jpg",
         author: demoAuthors.rina
       },
       {
         id: "prompt-preview-moves",
-        title: "动作招式展示排练",
+        title: "动作招式拆解镜头预览",
         coverUrl: "/nano-banana-images/000024-13314/01.jpg",
         author: demoAuthors.rina
       }
@@ -128,10 +128,10 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
   },
   {
     id: "workflow-preview-xianxia-atmosphere",
-    title: "仙侠世界观建立镜头工作流",
-    summary: "强化大远景、人物出场和推荐内容的一致节奏，适合作为首页头图区内容。",
-    scenarioText: "适合仙侠、古风、世界观建立和开篇镜头。",
-    tagNames: ["仙侠", "远景", "世界观", "开篇"],
+    title: "仙侠氛围工作流",
+    summary: "适合环境氛围、人物气质和空间层次的工作流示例。",
+    scenarioText: "适合仙侠、环境镜头和情绪铺垫场景。",
+    tagNames: ["仙侠", "氛围", "环境层次", "工作流"],
     author: demoAuthors.rina,
     allowCopy: true,
     openUrl: "/canvas/runtime-demo-xianxia",
@@ -143,13 +143,13 @@ export const workflowPreviewDefinitions: WorkflowPreviewDefinition[] = [
     relatedVideos: [
       {
         id: "prompt-preview-xianxia",
-        title: "云海仙侠建立镜头",
+        title: "仙侠氛围镜头预览",
         coverUrl: "/nano-banana-images/000020-13326/01.jpg",
         author: demoAuthors.rina
       },
       {
         id: "prompt-preview-forest",
-        title: "林间轻功绕拍开场",
+        title: "林地氛围场景镜头预览",
         coverUrl: "/nano-banana-images/000026-13317/01.jpg",
         author: demoAuthors.studio
       }
@@ -177,26 +177,35 @@ export function getWorkflowPreviewCards() {
 }
 
 function buildWorkflowComments(definition: WorkflowPreviewDefinition): WorkflowDetailPageView["comments"] {
-  return [
-    {
-      id: `${definition.id}-comment-1`,
-      authorName: "节点整理员",
-      content: `${definition.title} 这种版式适合作为标准工作流详情页，右侧动作区清楚很多。`,
-      createdAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
-      likeCount: 19,
-      replyCount: 0,
-      viewerLiked: false
-    },
-    {
-      id: `${definition.id}-comment-2`,
-      authorName: "WorkflowLab",
-      content: "如果后续接画布，直接把查看工作流和复制动作挂在这一区就够用了。",
-      createdAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
-      likeCount: 14,
-      replyCount: 0,
-      viewerLiked: false
-    }
-  ];
+  return {
+    items: [
+      {
+        id: `${definition.id}-comment-1`,
+        authorId: `${definition.id}-comment-author-1`,
+        authorName: "节点整理员",
+        content: `${definition.title} 这种版式适合做标准工作流详情页，右侧动作区清晰很多。`,
+        createdAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+        likeCount: 19,
+        replyCount: 0,
+        viewerLiked: false,
+        viewerCanDelete: false,
+        replies: []
+      },
+      {
+        id: `${definition.id}-comment-2`,
+        authorId: `${definition.id}-comment-author-2`,
+        authorName: "WorkflowLab",
+        content: "如果后续接画布，直接把查看工作流和复制动作挂在这一区就够用了。",
+        createdAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
+        likeCount: 14,
+        replyCount: 0,
+        viewerLiked: false,
+        viewerCanDelete: false,
+        replies: []
+      }
+    ],
+    hasMore: false
+  };
 }
 
 export function buildWorkflowPreviewDetailView(id: string): WorkflowDetailPageView {
@@ -220,6 +229,10 @@ export function buildWorkflowPreviewDetailView(id: string): WorkflowDetailPageVi
       allowCopy: definition.allowCopy,
       allowFork: definition.allowCopy
     },
+    commentPolicy: {
+      commentingEnabled: false,
+      canManageComments: false
+    },
     canvasBinding: definition.openUrl
       ? {
           bindingType: "internal",
@@ -230,7 +243,7 @@ export function buildWorkflowPreviewDetailView(id: string): WorkflowDetailPageVi
     stats: {
       likeCount: definition.stats.likeCount,
       favoriteCount: definition.stats.favoriteCount,
-      commentCount: comments.length,
+      commentCount: comments.items.length,
       videoBindCount: definition.stats.videoBindCount
     },
     relatedVideos: definition.relatedVideos.map((video) => ({

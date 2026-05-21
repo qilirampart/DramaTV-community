@@ -1,11 +1,13 @@
 "use server";
 
 import {
-  appendCommunityRequestId,
   createComment,
+  createReport,
+  deleteComment,
   copyWorkflowToCanvas,
   getComments,
   getCreator,
+  getCreatorPosts,
   getCreatorVideos,
   getCreatorWorkflows,
   getPromptDetail,
@@ -14,19 +16,29 @@ import {
   getVideoDetail,
   getWorkflowDetail,
   getWorkflowRelatedVideos,
-  isCommunityBackendCommandError,
-  isCommunityBackendUnavailableError,
   setFavorite,
   setFollow,
-  setLike
+  setLike,
+  updateCommentTargetSettings
 } from "@/lib/api/community-service";
+import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import type { CreatorPageView, VideoDetailPageView, WorkflowDetailPageView } from "@/lib/contracts/view-models";
+import type { ApiReportReasonCode, ApiReportTargetType } from "@/lib/contracts/community-api";
 import {
   mapCreatorPageView,
+  mapComment,
   mapPromptDetailPageView,
   mapVideoDetailPageView,
   mapWorkflowDetailPageView
 } from "@/lib/mappers/community";
+
+type CommentUpdatePayload = {
+  comments: VideoDetailPageView["comments"]["items"] | WorkflowDetailPageView["comments"]["items"];
+  commentCount: number;
+  nextCursor?: string;
+  hasMore: boolean;
+  commentPolicy?: VideoDetailPageView["commentPolicy"] | WorkflowDetailPageView["commentPolicy"];
+};
 
 type ViewActionSuccess<TView> = {
   ok: true;
@@ -40,6 +52,11 @@ type ViewActionFailure = {
 };
 
 export type ViewActionResult<TView> = ViewActionSuccess<TView> | ViewActionFailure;
+export type CommentActionResult = {
+  ok: true;
+  patch: CommentUpdatePayload;
+  message: string;
+} | ViewActionFailure;
 
 export type WorkflowCopyActionResult =
   | {
@@ -52,41 +69,15 @@ export type WorkflowCopyActionResult =
       message: string;
     };
 
-function mapCommandErrorMessage(code: string | undefined, fallback: string) {
-  switch (code) {
-    case "FOLLOW_SELF_FORBIDDEN":
-      return "You cannot follow yourself.";
-    case "FOLLOW_TARGET_NOT_FOUND":
-      return "The creator to follow does not exist.";
-    case "COMMENT_CONTENT_INVALID":
-      return "Comment content is invalid.";
-    case "COMMENT_TARGET_NOT_FOUND":
-      return "The comment target does not exist.";
-    case "INTERACTION_TARGET_NOT_FOUND":
-      return "The interaction target does not exist.";
-    case "WORKFLOW_NOT_FOUND":
-      return "The workflow does not exist.";
-    case "WORKFLOW_ID_INVALID":
-      return "The workflow id is invalid.";
-    case "CANVAS_COPY_MODE_INVALID":
-      return "The canvas copy mode is invalid.";
-    case "CANVAS_COPY_FORBIDDEN":
-      return "This workflow cannot be copied to canvas.";
-    default:
-      return fallback;
-  }
-}
+export type ReportActionResult =
+  | {
+      ok: true;
+      message: string;
+    }
+  | ViewActionFailure;
 
 function toActionMessage(error: unknown, fallback: string) {
-  if (isCommunityBackendCommandError(error)) {
-    return appendCommunityRequestId(mapCommandErrorMessage(error.code, fallback), error);
-  }
-
-  if (isCommunityBackendUnavailableError(error)) {
-    return appendCommunityRequestId("The backend is currently unavailable.", error);
-  }
-
-  return appendCommunityRequestId(fallback, error);
+  return formatCommunityActionError(error, fallback);
 }
 
 async function loadVideoView(id: string): Promise<VideoDetailPageView | null> {
@@ -131,18 +122,168 @@ async function loadWorkflowView(id: string): Promise<WorkflowDetailPageView | nu
   return mapWorkflowDetailPageView({ ...detail, data: detail.data }, related, comments);
 }
 
+async function loadVideoCommentPatch(id: string): Promise<CommentUpdatePayload | null> {
+  const [detail, comments] = await Promise.all([
+    getVideoDetail(id),
+    getComments("video", id)
+  ]);
+
+  if (!detail.data) {
+    return null;
+  }
+
+  return {
+    comments: comments.data.items.map(mapComment),
+    commentCount: detail.data.stats.commentCount,
+    nextCursor: comments.data.nextCursor ?? undefined,
+    hasMore: comments.data.hasMore,
+    commentPolicy: detail.data.commentPolicy
+  };
+}
+
+async function loadPromptCommentPatch(id: string): Promise<CommentUpdatePayload | null> {
+  const [detail, comments] = await Promise.all([
+    getPromptDetail(id),
+    getComments("prompt", id)
+  ]);
+
+  if (!detail.data) {
+    return null;
+  }
+
+  return {
+    comments: comments.data.items.map(mapComment),
+    commentCount: detail.data.stats.commentCount,
+    nextCursor: comments.data.nextCursor ?? undefined,
+    hasMore: comments.data.hasMore,
+    commentPolicy: detail.data.commentPolicy
+  };
+}
+
+async function loadWorkflowCommentPatch(id: string): Promise<CommentUpdatePayload | null> {
+  const [detail, comments] = await Promise.all([
+    getWorkflowDetail(id),
+    getComments("workflow", id)
+  ]);
+
+  if (!detail.data) {
+    return null;
+  }
+
+  return {
+    comments: comments.data.items.map(mapComment),
+    commentCount: detail.data.stats.commentCount,
+    nextCursor: comments.data.nextCursor ?? undefined,
+    hasMore: comments.data.hasMore,
+    commentPolicy: detail.data.commentPolicy
+  };
+}
+
+export async function loadMoreVideoCommentsAction(input: {
+  videoId: string;
+  cursor: string;
+}): Promise<CommentActionResult> {
+  try {
+    const comments = await getComments("video", input.videoId, input.cursor);
+    return {
+      ok: true,
+      patch: {
+        comments: comments.data.items.map(mapComment),
+        commentCount: comments.data.items.length,
+        nextCursor: comments.data.nextCursor ?? undefined,
+        hasMore: comments.data.hasMore
+      },
+      message: "More comments loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more comments failed.")
+    };
+  }
+}
+
+export async function loadMorePromptCommentsAction(input: {
+  promptId: string;
+  cursor: string;
+}): Promise<CommentActionResult> {
+  try {
+    const comments = await getComments("prompt", input.promptId, input.cursor);
+    return {
+      ok: true,
+      patch: {
+        comments: comments.data.items.map(mapComment),
+        commentCount: comments.data.items.length,
+        nextCursor: comments.data.nextCursor ?? undefined,
+        hasMore: comments.data.hasMore
+      },
+      message: "More comments loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more comments failed.")
+    };
+  }
+}
+
+export async function loadMoreWorkflowCommentsAction(input: {
+  workflowId: string;
+  cursor: string;
+}): Promise<CommentActionResult> {
+  try {
+    const comments = await getComments("workflow", input.workflowId, input.cursor);
+    return {
+      ok: true,
+      patch: {
+        comments: comments.data.items.map(mapComment),
+        commentCount: comments.data.items.length,
+        nextCursor: comments.data.nextCursor ?? undefined,
+        hasMore: comments.data.hasMore
+      },
+      message: "More comments loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more comments failed.")
+    };
+  }
+}
+
+export async function submitReportAction(input: {
+  targetType: ApiReportTargetType;
+  targetId: string;
+  reasonCode: ApiReportReasonCode;
+  descriptionText?: string;
+}): Promise<ReportActionResult> {
+  try {
+    const result = await createReport(input);
+    return {
+      ok: true,
+      message: result.data.statusCode === "pending" ? "举报已提交。" : "举报已提交。"
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Submitting the report failed.")
+    };
+  }
+}
+
 async function loadCreatorView(id: string): Promise<CreatorPageView | null> {
-  const [profile, videos, workflows] = await Promise.all([
+  const [profile, videos, workflows, posts] = await Promise.all([
     getCreator(id),
     getCreatorVideos(id),
-    getCreatorWorkflows(id)
+    getCreatorWorkflows(id),
+    getCreatorPosts(id)
   ]);
 
   if (!profile.data) {
     return null;
   }
 
-  return mapCreatorPageView({ ...profile, data: profile.data }, videos, workflows);
+  return mapCreatorPageView({ ...profile, data: profile.data }, videos, workflows, posts);
 }
 
 function missingViewResult(message: string): ViewActionFailure {
@@ -152,26 +293,34 @@ function missingViewResult(message: string): ViewActionFailure {
   };
 }
 
+function commentPostedMessage(statusCode?: string) {
+  return statusCode === "hidden"
+    ? "评论已提交，但触发了安全检查，暂时不会公开展示。"
+    : "评论已发布。";
+}
+
 export async function submitVideoCommentAction(input: {
   videoId: string;
   content: string;
-}): Promise<ViewActionResult<VideoDetailPageView>> {
+  parentId?: string;
+}): Promise<CommentActionResult> {
   try {
-    await createComment({
+    const comment = await createComment({
       targetType: "video",
       targetId: input.videoId,
-      content: input.content
+      content: input.content,
+      parentId: input.parentId
     });
 
-    const view = await loadVideoView(input.videoId);
-    if (!view) {
+    const patch = await loadVideoCommentPatch(input.videoId);
+    if (!patch) {
       return missingViewResult("The video detail could not be refreshed after commenting.");
     }
 
     return {
       ok: true,
-      view,
-      message: "Comment posted."
+      patch,
+      message: commentPostedMessage(comment.data.statusCode)
     };
   } catch (error) {
     return {
@@ -272,7 +421,7 @@ export async function toggleVideoCommentLikeAction(input: {
   videoId: string;
   commentId: string;
   active: boolean;
-}): Promise<ViewActionResult<VideoDetailPageView>> {
+}): Promise<CommentActionResult> {
   try {
     await setLike({
       targetType: "comment",
@@ -280,14 +429,14 @@ export async function toggleVideoCommentLikeAction(input: {
       active: input.active
     });
 
-    const view = await loadVideoView(input.videoId);
-    if (!view) {
+    const patch = await loadVideoCommentPatch(input.videoId);
+    if (!patch) {
       return missingViewResult("The video detail could not be refreshed after updating comment like status.");
     }
 
     return {
       ok: true,
-      view,
+      patch,
       message: input.active ? "Comment liked." : "Comment like removed."
     };
   } catch (error) {
@@ -301,23 +450,25 @@ export async function toggleVideoCommentLikeAction(input: {
 export async function submitPromptCommentAction(input: {
   promptId: string;
   content: string;
-}): Promise<ViewActionResult<VideoDetailPageView>> {
+  parentId?: string;
+}): Promise<CommentActionResult> {
   try {
-    await createComment({
+    const comment = await createComment({
       targetType: "prompt",
       targetId: input.promptId,
-      content: input.content
+      content: input.content,
+      parentId: input.parentId
     });
 
-    const view = await loadPromptView(input.promptId);
-    if (!view) {
+    const patch = await loadPromptCommentPatch(input.promptId);
+    if (!patch) {
       return missingViewResult("The prompt detail could not be refreshed after commenting.");
     }
 
     return {
       ok: true,
-      view,
-      message: "Comment posted."
+      patch,
+      message: commentPostedMessage(comment.data.statusCode)
     };
   } catch (error) {
     return {
@@ -418,7 +569,7 @@ export async function togglePromptCommentLikeAction(input: {
   promptId: string;
   commentId: string;
   active: boolean;
-}): Promise<ViewActionResult<VideoDetailPageView>> {
+}): Promise<CommentActionResult> {
   try {
     await setLike({
       targetType: "comment",
@@ -426,14 +577,14 @@ export async function togglePromptCommentLikeAction(input: {
       active: input.active
     });
 
-    const view = await loadPromptView(input.promptId);
-    if (!view) {
+    const patch = await loadPromptCommentPatch(input.promptId);
+    if (!patch) {
       return missingViewResult("The prompt detail could not be refreshed after updating comment like status.");
     }
 
     return {
       ok: true,
-      view,
+      patch,
       message: input.active ? "Comment liked." : "Comment like removed."
     };
   } catch (error) {
@@ -447,23 +598,25 @@ export async function togglePromptCommentLikeAction(input: {
 export async function submitWorkflowCommentAction(input: {
   workflowId: string;
   content: string;
-}): Promise<ViewActionResult<WorkflowDetailPageView>> {
+  parentId?: string;
+}): Promise<CommentActionResult> {
   try {
-    await createComment({
+    const comment = await createComment({
       targetType: "workflow",
       targetId: input.workflowId,
-      content: input.content
+      content: input.content,
+      parentId: input.parentId
     });
 
-    const view = await loadWorkflowView(input.workflowId);
-    if (!view) {
+    const patch = await loadWorkflowCommentPatch(input.workflowId);
+    if (!patch) {
       return missingViewResult("The workflow detail could not be refreshed after commenting.");
     }
 
     return {
       ok: true,
-      view,
-      message: "Comment posted."
+      patch,
+      message: commentPostedMessage(comment.data.statusCode)
     };
   } catch (error) {
     return {
@@ -535,7 +688,7 @@ export async function toggleWorkflowCommentLikeAction(input: {
   workflowId: string;
   commentId: string;
   active: boolean;
-}): Promise<ViewActionResult<WorkflowDetailPageView>> {
+}): Promise<CommentActionResult> {
   try {
     await setLike({
       targetType: "comment",
@@ -543,20 +696,200 @@ export async function toggleWorkflowCommentLikeAction(input: {
       active: input.active
     });
 
-    const view = await loadWorkflowView(input.workflowId);
-    if (!view) {
+    const patch = await loadWorkflowCommentPatch(input.workflowId);
+    if (!patch) {
       return missingViewResult("The workflow detail could not be refreshed after updating comment like status.");
     }
 
     return {
       ok: true,
-      view,
+      patch,
       message: input.active ? "Comment liked." : "Comment like removed."
     };
   } catch (error) {
     return {
       ok: false,
       message: toActionMessage(error, "Updating comment like status failed.")
+    };
+  }
+}
+
+export async function deleteVideoCommentAction(input: {
+  videoId: string;
+  commentId: string;
+}): Promise<CommentActionResult> {
+  try {
+    await deleteComment(input.commentId);
+
+    const patch = await loadVideoCommentPatch(input.videoId);
+    if (!patch) {
+      return missingViewResult("The video detail could not be refreshed after deleting the comment.");
+    }
+
+    return {
+      ok: true,
+      patch,
+      message: "Comment deleted."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Deleting the comment failed.")
+    };
+  }
+}
+
+export async function deletePromptCommentAction(input: {
+  promptId: string;
+  commentId: string;
+}): Promise<CommentActionResult> {
+  try {
+    await deleteComment(input.commentId);
+
+    const patch = await loadPromptCommentPatch(input.promptId);
+    if (!patch) {
+      return missingViewResult("The prompt detail could not be refreshed after deleting the comment.");
+    }
+
+    return {
+      ok: true,
+      patch,
+      message: "Comment deleted."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Deleting the comment failed.")
+    };
+  }
+}
+
+export async function deleteWorkflowCommentAction(input: {
+  workflowId: string;
+  commentId: string;
+}): Promise<CommentActionResult> {
+  try {
+    await deleteComment(input.commentId);
+
+    const patch = await loadWorkflowCommentPatch(input.workflowId);
+    if (!patch) {
+      return missingViewResult("The workflow detail could not be refreshed after deleting the comment.");
+    }
+
+    return {
+      ok: true,
+      patch,
+      message: "Comment deleted."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Deleting the comment failed.")
+    };
+  }
+}
+
+export async function updateVideoCommentSettingsAction(input: {
+  videoId: string;
+  commentsEnabled: boolean;
+}): Promise<CommentActionResult> {
+  try {
+    const policy = await updateCommentTargetSettings({
+      targetType: "video",
+      targetId: input.videoId,
+      commentsEnabled: input.commentsEnabled
+    });
+
+    const patch = await loadVideoCommentPatch(input.videoId);
+    if (!patch) {
+      return missingViewResult("The video detail could not be refreshed after updating comment settings.");
+    }
+
+    return {
+      ok: true,
+      patch: {
+        ...patch,
+        commentPolicy: {
+          commentingEnabled: policy.data.commentsEnabled,
+          canManageComments: policy.data.canManageComments
+        }
+      },
+      message: input.commentsEnabled ? "Comments enabled." : "Comments closed."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Updating comment settings failed.")
+    };
+  }
+}
+
+export async function updatePromptCommentSettingsAction(input: {
+  promptId: string;
+  commentsEnabled: boolean;
+}): Promise<CommentActionResult> {
+  try {
+    const policy = await updateCommentTargetSettings({
+      targetType: "prompt",
+      targetId: input.promptId,
+      commentsEnabled: input.commentsEnabled
+    });
+
+    const patch = await loadPromptCommentPatch(input.promptId);
+    if (!patch) {
+      return missingViewResult("The prompt detail could not be refreshed after updating comment settings.");
+    }
+
+    return {
+      ok: true,
+      patch: {
+        ...patch,
+        commentPolicy: {
+          commentingEnabled: policy.data.commentsEnabled,
+          canManageComments: policy.data.canManageComments
+        }
+      },
+      message: input.commentsEnabled ? "Comments enabled." : "Comments closed."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Updating comment settings failed.")
+    };
+  }
+}
+
+export async function updateWorkflowCommentSettingsAction(input: {
+  workflowId: string;
+  commentsEnabled: boolean;
+}): Promise<CommentActionResult> {
+  try {
+    const policy = await updateCommentTargetSettings({
+      targetType: "workflow",
+      targetId: input.workflowId,
+      commentsEnabled: input.commentsEnabled
+    });
+
+    const patch = await loadWorkflowCommentPatch(input.workflowId);
+    if (!patch) {
+      return missingViewResult("The workflow detail could not be refreshed after updating comment settings.");
+    }
+
+    return {
+      ok: true,
+      patch: {
+        ...patch,
+        commentPolicy: {
+          commentingEnabled: policy.data.commentsEnabled,
+          canManageComments: policy.data.canManageComments
+        }
+      },
+      message: input.commentsEnabled ? "Comments enabled." : "Comments closed."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Updating comment settings failed.")
     };
   }
 }

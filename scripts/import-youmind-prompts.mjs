@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildNormalizedPromptTags, classifyPromptTaxonomy } from "./lib/prompt-taxonomy.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,6 +11,7 @@ const projectRoot = path.dirname(__dirname);
 const publicRoot = path.join(projectRoot, "apps", "web", "public");
 const seedanceCatalogPath = path.join(publicRoot, "seedance-data.json");
 const nanoBananaCatalogPath = path.join(publicRoot, "nano-banana-data.json");
+const seedanceCoverObjectPrefix = "seedance-covers";
 
 const DOCKER_CONTAINER = process.env.DRAMATV_POSTGRES_CONTAINER || "dramatv-postgres";
 const DB_NAME = process.env.DRAMATV_DB_NAME || "dramatv";
@@ -27,6 +29,15 @@ function cleanText(value, fallback = "") {
     .replace(/\\\\n/g, "\n")
     .replace(/\r\n/g, "\n")
     .trim();
+}
+
+function sanitizeImportedText(value, fallback = "", context = "imported text") {
+  const text = cleanText(value, fallback);
+  if (text.includes("\uFFFD")) {
+    throw new Error(`Replacement character detected in ${context}`);
+  }
+
+  return text;
 }
 
 function toSlug(value) {
@@ -83,6 +94,40 @@ function publicFilePath(publicUrl) {
   }
 
   return path.join(publicRoot, publicUrl.slice(1).replace(/\//g, path.sep));
+}
+
+function normalizeLocalPublicObjectKey(publicUrl) {
+  return cleanText(publicUrl).replace(/^\/+/, "");
+}
+
+function isDirectUrl(value) {
+  return /^https?:\/\//i.test(cleanText(value));
+}
+
+function resolveFileNameFromUrl(value, fallback) {
+  try {
+    const parsedUrl = new URL(value);
+    const fileName = path.basename(parsedUrl.pathname);
+    return fileName || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function resolveFfmpegCommand() {
+  const candidates = [
+    process.env.FFMPEG_PATH,
+    "C:\\ffmpeg\\ffmpeg-8.0.1-essentials_build\\bin\\ffmpeg.exe",
+    "ffmpeg",
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    if (candidate === "ffmpeg" || fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return "ffmpeg";
 }
 
 function getMimeType(filePath, fallback) {
@@ -156,29 +201,81 @@ function safeSize(filePath) {
   return fs.statSync(filePath).size;
 }
 
-function deriveVideoTags(title) {
-  const tags = ["视频提示", "Seedance 2.0", "短片"];
-  if (title.includes("战斗") || title.includes("动作")) tags.push("动作");
-  if (title.includes("电影") || title.includes("大片")) tags.push("电影感");
-  if (title.includes("MV") || title.includes("说唱")) tags.push("MV");
-  if (title.includes("浪漫") || title.includes("青春")) tags.push("情绪");
-  if (title.includes("赛车") || title.includes("跑车")) tags.push("速度感");
-  return tags.slice(0, 5);
+function ensureExtractedVideoCover(sourceItemId, videoPath) {
+  const coverObjectKey = `${seedanceCoverObjectPrefix}/${sourceItemId}.jpg`;
+  const coverPath = path.join(publicRoot, coverObjectKey.replace(/\//g, path.sep));
+
+  if (!fs.existsSync(coverPath)) {
+    fs.mkdirSync(path.dirname(coverPath), { recursive: true });
+    const ffmpeg = resolveFfmpegCommand();
+    const result = spawnSync(
+      ffmpeg,
+      ["-y", "-ss", "0.2", "-i", videoPath, "-frames:v", "1", "-q:v", "2", coverPath],
+      { stdio: "ignore" },
+    );
+
+    if (result.status !== 0 || !fs.existsSync(coverPath)) {
+      return null;
+    }
+  }
+
+  return {
+    objectKey: coverObjectKey,
+    filePath: coverPath,
+  };
 }
 
-function deriveImageTags(item) {
-  const tags = ["图片提示", "Nano Banana", item.needReferenceImages ? "参考图" : "免参考"];
-  const title = item.title ?? "";
-  if (title.includes("信息图")) tags.push("信息图");
-  if (title.includes("海报") || title.includes("标题")) tags.push("版式");
-  if (title.includes("肖像") || title.includes("人像")) tags.push("人像");
-  if (Number(item.imageCount) > 1) tags.push("多图");
-  return tags.slice(0, 5);
+function buildVideoPromptCoverAsset(item, sourceItemId, videoPath) {
+  const coverAssetId = uuidV5(`asset:youmind:seedance:${sourceItemId}:cover`);
+  const thumbnailUrl = cleanText(item.thumbnailSrc || item.thumbnailUrl);
+
+  if (isDirectUrl(thumbnailUrl)) {
+    return {
+      id: coverAssetId,
+      kind: "image",
+      storageProvider: "external-url",
+      bucketName: "remote-thumbnail",
+      objectKey: thumbnailUrl,
+      fileName: resolveFileNameFromUrl(thumbnailUrl, `${sourceItemId}.jpg`),
+      mimeType: "image/jpeg",
+      sizeBytes: null,
+      width: null,
+      height: null,
+      durationMs: null,
+    };
+  }
+
+  const extractedCover = ensureExtractedVideoCover(sourceItemId, videoPath);
+  if (!extractedCover) {
+    return null;
+  }
+
+  return {
+    id: coverAssetId,
+    kind: "image",
+    storageProvider: "local-public",
+    bucketName: "apps-web-public",
+    objectKey: extractedCover.objectKey,
+    fileName: path.basename(extractedCover.filePath),
+    mimeType: "image/jpeg",
+    sizeBytes: safeSize(extractedCover.filePath),
+    width: null,
+    height: null,
+    durationMs: null,
+  };
 }
 
 function buildAuthor(item) {
-  const displayName = cleanText(item.authorName, "YouMind Creator").slice(0, 64);
-  const externalKey = cleanText(item.authorLink) || `youmind-author:${displayName}`;
+  const displayName = sanitizeImportedText(
+    item.authorName,
+    "YouMind Creator",
+    `authorName for ${item.id ?? "unknown-item"}`
+  ).slice(0, 64);
+  const externalKey = sanitizeImportedText(
+    item.authorLink,
+    "",
+    `authorLink for ${item.id ?? "unknown-item"}`
+  ) || `youmind-author:${displayName}`;
   const suffix = crypto.createHash("sha1").update(externalKey).digest("hex").slice(0, 8);
   const id = uuidV5(`user:${externalKey}`);
   return {
@@ -202,35 +299,69 @@ function buildVideoPrompt(item, index) {
   const promptId = uuidV5(`prompt:youmind:seedance:${sourceItemId}`);
   const assetId = uuidV5(`asset:youmind:seedance:${sourceItemId}:video`);
   const publishedAt = parsePublishedAt(item.publishedAt);
-  const title = cleanText(item.title, "Seedance 视频提示词").slice(0, 160);
-  const promptText = cleanText(item.promptText, item.summary);
+  const title = sanitizeImportedText(
+    item.title,
+    "Seedance 视频提示词",
+    `title for ${item.id ?? sourceItemId}`
+  ).slice(0, 160);
+  const summary = sanitizeImportedText(item.summary, title, `summary for ${item.id ?? sourceItemId}`);
+  const promptText = sanitizeImportedText(
+    item.promptText,
+    item.summary,
+    `promptText for ${item.id ?? sourceItemId}`
+  );
+  const modelName = "Seedance 2.0";
+  const sourceCampaign = "youmind-seedance";
+  const tags = buildNormalizedPromptTags({
+    modality: "video",
+    title,
+    summary,
+    promptText,
+    modelName,
+    sourceCampaign
+  });
+  const videoTaxonomy = classifyPromptTaxonomy({
+    modality: "video",
+    title,
+    summary,
+    promptText,
+    modelName,
+    sourceCampaign
+  });
+  const coverAsset = buildVideoPromptCoverAsset(item, sourceItemId, videoPath);
 
   return {
     prompt: {
       id: promptId,
       author,
       title,
-      summary: cleanText(item.summary, title),
+      summary,
       modality: "video",
       promptText,
       promptTextZh: item.promptLanguage === "zh" ? promptText : null,
       promptTextEn: item.promptLanguage === "en" ? promptText : null,
       promptTextRaw: promptText,
-      modelName: "Seedance 2.0",
+      modelName,
       sourcePlatform: "youmind",
-      sourceCampaign: "youmind-seedance",
+      sourceCampaign,
       sourceItemId,
       sourceUrl: item.sourceLink,
       publishedAt,
-      tags: deriveVideoTags(title),
-      likeCount: Math.max(200, 2680 - index * 38),
-      favoriteCount: Math.max(80, 1120 - index * 16),
+      modelCategory: videoTaxonomy.modelCategory,
+      contentCategory: videoTaxonomy.contentCategory,
+      compositionCategory: videoTaxonomy.compositionCategory,
+      tags,
+      likeCount: 0,
+      favoriteCount: 0,
     },
+    coverAsset,
     assets: [
       {
         id: assetId,
         kind: "video",
-        objectKey: item.videoSrc,
+        storageProvider: "local-public",
+        bucketName: "apps-web-public",
+        objectKey: normalizeLocalPublicObjectKey(item.videoSrc),
         fileName: path.basename(videoPath),
         mimeType: "video/mp4",
         sizeBytes: safeSize(videoPath),
@@ -256,36 +387,74 @@ function buildImagePrompt(item, index) {
   const author = buildAuthor(item);
   const sourceItemId = String(item.id).replace(/^nano-banana-/, "");
   const promptId = uuidV5(`prompt:youmind:nano-banana:${sourceItemId}`);
-  const title = cleanText(item.title, "Nano Banana 图片提示词").slice(0, 160);
-  const promptTextZh = cleanText(item.translatedPromptText || item.promptText || item.rawPromptText);
-  const promptTextRaw = cleanText(item.rawPromptText || item.promptText || item.translatedPromptText);
+  const title = sanitizeImportedText(
+    item.title,
+    "Nano Banana 图片提示词",
+    `title for ${item.id ?? sourceItemId}`
+  ).slice(0, 160);
+  const promptTextZh = sanitizeImportedText(
+    item.translatedPromptText || item.promptText || item.rawPromptText,
+    "",
+    `translated prompt for ${item.id ?? sourceItemId}`
+  );
+  const promptTextRaw = sanitizeImportedText(
+    item.rawPromptText || item.promptText || item.translatedPromptText,
+    "",
+    `raw prompt for ${item.id ?? sourceItemId}`
+  );
   const promptText = promptTextZh || promptTextRaw;
+  const summary = sanitizeImportedText(
+    item.summary || item.description,
+    title,
+    `summary for ${item.id ?? sourceItemId}`
+  );
+  const modelName = "Nano Banana";
+  const sourceCampaign = "youmind-nano-banana";
+  const tags = buildNormalizedPromptTags({
+    modality: "image",
+    title,
+    summary,
+    promptText,
+    modelName,
+    sourceCampaign
+  });
+  const imageTaxonomy = classifyPromptTaxonomy({
+    modality: "image",
+    title,
+    summary,
+    promptText,
+    modelName,
+    sourceCampaign
+  });
 
   return {
     prompt: {
       id: promptId,
       author,
       title,
-      summary: cleanText(item.summary || item.description, title),
+      summary,
       modality: "image",
       promptText,
       promptTextZh: promptTextZh || null,
       promptTextEn: null,
       promptTextRaw: promptTextRaw || promptText,
-      modelName: "Nano Banana",
+      modelName,
       sourcePlatform: "youmind",
-      sourceCampaign: "youmind-nano-banana",
+      sourceCampaign,
       sourceItemId,
       sourceUrl: item.sourceLink || item.arenaLink,
       publishedAt: parsePublishedAt(item.publishedAt),
-      tags: deriveImageTags(item),
-      likeCount: Math.max(180, 1820 - index * 24),
-      favoriteCount: Math.max(60, 760 - index * 11),
+      modelCategory: imageTaxonomy.modelCategory,
+      contentCategory: imageTaxonomy.contentCategory,
+      compositionCategory: imageTaxonomy.compositionCategory,
+      tags,
+      likeCount: 0,
+      favoriteCount: 0,
     },
     assets: existingImages.map((entry) => ({
       id: uuidV5(`asset:youmind:nano-banana:${sourceItemId}:${entry.sortOrder}`),
       kind: "image",
-      objectKey: entry.url,
+      objectKey: normalizeLocalPublicObjectKey(entry.url),
       fileName: path.basename(entry.filePath),
       mimeType: getMimeType(entry.filePath, "image/jpeg"),
       sizeBytes: safeSize(entry.filePath),
@@ -371,8 +540,8 @@ insert into media_assets (
     ${sqlString(asset.kind)},
     'prompt',
     ${sqlString(promptId)}::uuid,
-    'local-public',
-    'apps-web-public',
+    ${sqlString(asset.storageProvider ?? "local-public")},
+    ${sqlString(asset.bucketName ?? "apps-web-public")},
     ${sqlString(asset.objectKey)},
     ${sqlString(asset.fileName)},
     ${sqlString(asset.mimeType)},
@@ -403,11 +572,12 @@ on conflict (id) do update set
 }
 
 function insertPromptSql(entry) {
-  const { prompt, primaryAssetId, assets } = entry;
+  const { prompt, coverAsset, primaryAssetId, assets } = entry;
   return `
 insert into prompt_entries (
     id, author_id, title, summary, modality, prompt_text, prompt_text_zh,
-    prompt_text_en, prompt_text_raw, model_name, source_platform, source_campaign,
+    prompt_text_en, prompt_text_raw, model_name, model_category, content_category, composition_category,
+    source_platform, source_campaign,
     source_item_id, source_url, visibility, publish_status, cover_asset_id,
     primary_example_asset_id, tag_names, example_count, like_count, favorite_count,
     published_at, created_at, updated_at
@@ -422,13 +592,16 @@ insert into prompt_entries (
     ${sqlString(prompt.promptTextEn)},
     ${sqlString(prompt.promptTextRaw)},
     ${sqlString(prompt.modelName)},
+    ${sqlString(prompt.modelCategory)},
+    ${sqlString(prompt.contentCategory)},
+    ${sqlString(prompt.compositionCategory)},
     ${sqlString(prompt.sourcePlatform)},
     ${sqlString(prompt.sourceCampaign)},
     ${sqlString(prompt.sourceItemId)},
     ${sqlString(prompt.sourceUrl)},
     'public',
     'published',
-    ${sqlString(primaryAssetId)}::uuid,
+    ${sqlString(coverAsset?.id ?? primaryAssetId)}::uuid,
     ${sqlString(primaryAssetId)}::uuid,
     ${sqlArray(prompt.tags)},
     ${assets.length},
@@ -448,6 +621,9 @@ on conflict (id) do update set
     prompt_text_en = excluded.prompt_text_en,
     prompt_text_raw = excluded.prompt_text_raw,
     model_name = excluded.model_name,
+    model_category = excluded.model_category,
+    content_category = excluded.content_category,
+    composition_category = excluded.composition_category,
     source_platform = excluded.source_platform,
     source_campaign = excluded.source_campaign,
     source_item_id = excluded.source_item_id,
@@ -481,13 +657,17 @@ on conflict (prompt_id, media_asset_id) do update set
 
 function insertFeedSql(prompt, index) {
   const rankScore = prompt.modality === "video" ? 9000 - index * 8 : 8200 - index * 8;
+  const contentKind = "prompt";
+  const targetType = "prompt";
   return `
 insert into feed_items (
-    id, channel_code, item_type, target_id, rank_score, status_code, published_at, created_at, updated_at
+    id, channel_code, content_kind, item_type, target_type, target_id, rank_score, status_code, published_at, created_at, updated_at
 ) values (
     ${sqlString(uuidV5(`feed:recommend:prompt:${prompt.id}`))}::uuid,
     'recommend',
-    'prompt',
+    ${sqlString(contentKind)},
+    ${sqlString(targetType)},
+    ${sqlString(targetType)},
     ${sqlString(prompt.id)}::uuid,
     ${rankScore},
     'active',
@@ -495,7 +675,9 @@ insert into feed_items (
     now(),
     now()
 )
-on conflict (channel_code, item_type, target_id) do update set
+on conflict (channel_code, target_type, target_id) do update set
+    content_kind = excluded.content_kind,
+    item_type = excluded.item_type,
     rank_score = excluded.rank_score,
     status_code = excluded.status_code,
     published_at = excluded.published_at,
@@ -511,6 +693,10 @@ function buildSql(entries) {
     if (!seenAuthors.has(author.id)) {
       statements.push(insertUserSql(author));
       seenAuthors.add(author.id);
+    }
+
+    if (entry.coverAsset) {
+      statements.push(insertAssetSql(entry.coverAsset, entry.prompt.id, author.id));
     }
 
     entry.assets.forEach((asset) => {

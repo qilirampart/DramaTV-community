@@ -2,10 +2,13 @@ import type {
   CanvasRuntimePageView,
   CommentView,
   CreatorPageView,
+  DiscussionComposerPageView,
+  DiscussionThreadCardView,
   DiscussionBindingView,
   DiscussionDetailPageView,
   DiscussionHubPageView,
   HomePageView,
+  PersonalCenterDraftItemView,
   PersonalCenterItemView,
   PersonalCenterPageView,
   PublishPageView,
@@ -17,6 +20,7 @@ import type {
 import type {
   ApiCanvasRuntime,
   ApiComment,
+  ApiCommentPage,
   ApiCreatorProfile,
   ApiCursorPage,
   ApiDiscussionHomeResponse,
@@ -24,26 +28,41 @@ import type {
   ApiEnvelope,
   ApiFeedHomeResponse,
   ApiMeHubResponse,
+  ApiMeDraftItem,
   ApiMeInteractionItem,
   ApiPromptDetail,
   ApiPromptSummary,
-  ApiPublishBootstrap,
+  ApiPostComposerBootstrap,
+  ApiPublishPageBootstrap,
   ApiVideoDetail,
   ApiVideoSummary,
   ApiWorkflowDetail,
   ApiWorkflowSummary
 } from "@/lib/contracts/community-api";
+import { normalizeAssetUrl } from "@/lib/presentation";
 
-function mapComment(comment: ApiComment): CommentView {
+export function mapComment(comment: ApiComment): CommentView {
   return {
     id: comment.id,
+    parentId: comment.parentId,
+    replyTarget: comment.replyTarget
+      ? {
+          commentId: comment.replyTarget.commentId,
+          authorId: comment.replyTarget.author.id,
+          authorName: comment.replyTarget.author.displayName,
+          authorAvatarUrl: normalizeAssetUrl(comment.replyTarget.author.avatarUrl)
+        }
+      : undefined,
+    authorId: comment.author.id,
     authorName: comment.author.displayName,
-    authorAvatarUrl: comment.author.avatarUrl,
+    authorAvatarUrl: normalizeAssetUrl(comment.author.avatarUrl),
     content: comment.content,
     createdAt: comment.createdAt,
     likeCount: comment.likeCount,
     replyCount: comment.replyCount,
-    viewerLiked: comment.viewerActions.liked
+    viewerLiked: comment.viewerActions.liked,
+    viewerCanDelete: comment.viewerActions.canDelete ?? false,
+    replies: comment.replies.map(mapComment)
   };
 }
 
@@ -58,6 +77,67 @@ function formatDateLabel(value?: string | null, fallback = "Pending time"): stri
   }
 
   return date.toLocaleDateString("zh-CN");
+}
+
+function formatDraftTypeLabel(value: ApiMeDraftItem["draftType"]): string {
+  switch (value) {
+    case "video":
+      return "视频草稿";
+    case "post":
+      return "帖子草稿";
+    case "workflow":
+      return "工作流草稿";
+    default:
+      return "草稿";
+  }
+}
+
+function formatDraftStepLabel(value?: string | null): string {
+  switch (value) {
+    case "compose":
+      return "编辑中";
+    case "submitted":
+    case "published":
+      return "已提交";
+    default:
+      return value?.trim() || "草稿";
+  }
+}
+
+function formatDraftStatusLabel(value?: string | null): string {
+  switch (value) {
+    case "draft":
+      return "草稿";
+    case "submitted":
+      return "已提交";
+    case "published":
+      return "已发布";
+    case "in_review":
+      return "待审核";
+    default:
+      return value?.trim() || "草稿";
+  }
+}
+
+function formatProcessingStatusLabel(value?: string | null): string | undefined {
+  switch (value) {
+    case "queued":
+      return "排队中";
+    case "processing":
+      return "处理中";
+    case "failed":
+      return "处理失败";
+    case "succeeded":
+      return "已处理";
+    case "not_requested":
+      return "未触发";
+    case "not_submitted":
+      return "未提交";
+    case "not_applicable":
+      return undefined;
+    default:
+      return value?.trim() || undefined;
+  }
 }
 
 function formatReplyCountLabel(value: number): string {
@@ -103,12 +183,18 @@ function mapVideoMiniCard(video: ApiVideoSummary): VideoMiniCardView {
     id: video.id,
     title: video.title,
     href: `/videos/${video.id}`,
-    coverUrl: video.coverUrl,
+    coverUrl: normalizeAssetUrl(video.coverUrl) ?? normalizeAssetUrl(video.posterUrl) ?? "",
+    posterUrl: normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl),
+    previewUrl: normalizeAssetUrl(video.previewUrl),
+    sourceUrl: normalizeAssetUrl(video.sourceUrl),
     durationMs: video.durationMs,
     summary: video.summary,
     likeCount: video.likeCount,
     playCount: video.playCount,
-    author: video.author,
+    author: {
+      ...video.author,
+      avatarUrl: normalizeAssetUrl(video.author.avatarUrl)
+    },
     workflow: video.workflow
   };
 }
@@ -118,11 +204,17 @@ function mapPromptMiniCard(prompt: ApiPromptSummary): VideoMiniCardView {
     id: prompt.id,
     title: prompt.title,
     href: `/prompts/${prompt.id}`,
-    coverUrl: prompt.coverUrl ?? "",
+    coverUrl: normalizeAssetUrl(prompt.coverUrl) ?? normalizeAssetUrl(prompt.posterUrl) ?? "",
+    posterUrl: normalizeAssetUrl(prompt.posterUrl) ?? normalizeAssetUrl(prompt.coverUrl),
+    previewUrl: normalizeAssetUrl(prompt.previewUrl),
+    sourceUrl: normalizeAssetUrl(prompt.sourceUrl),
     summary: prompt.summary,
     likeCount: prompt.stats.likeCount,
     playCount: prompt.stats.exampleCount,
-    author: prompt.author
+    author: {
+      ...prompt.author,
+      avatarUrl: normalizeAssetUrl(prompt.author.avatarUrl)
+    }
   };
 }
 
@@ -130,10 +222,13 @@ function mapWorkflowMiniCard(workflow: ApiWorkflowSummary): WorkflowMiniCardView
   return {
     id: workflow.id,
     title: workflow.title,
-    coverUrl: workflow.coverUrl,
+    coverUrl: normalizeAssetUrl(workflow.coverUrl),
     summary: workflow.summary,
     likeCount: workflow.likeCount,
-    author: workflow.author,
+    author: {
+      ...workflow.author,
+      avatarUrl: normalizeAssetUrl(workflow.author.avatarUrl)
+    },
     allowCopy: workflow.allowCopy,
     processHref: workflow.processHref
   };
@@ -145,7 +240,7 @@ function mapPersonalCenterItem(item: ApiMeInteractionItem): PersonalCenterItemVi
     targetId: item.targetId,
     title: item.title,
     summary: item.summary,
-    coverUrl: item.coverUrl,
+    coverUrl: normalizeAssetUrl(item.coverUrl),
     href: item.href,
     workflowTitle: item.workflowTitle,
     channelTitle: item.channelTitle,
@@ -153,9 +248,28 @@ function mapPersonalCenterItem(item: ApiMeInteractionItem): PersonalCenterItemVi
     author: {
       id: item.author.id,
       displayName: item.author.displayName,
-      avatarUrl: item.author.avatarUrl,
+      avatarUrl: normalizeAssetUrl(item.author.avatarUrl),
       href: `/creators/${item.author.id}`
     }
+  };
+}
+
+function mapPersonalCenterDraftItem(item: ApiMeDraftItem): PersonalCenterDraftItemView {
+  const effectiveDraftStatus = item.lifecycle?.draftStatus ?? item.statusCode;
+  return {
+    draftType: item.draftType,
+    draftId: item.draftId,
+    targetId: item.targetId,
+    title: item.title?.trim() || formatDraftTypeLabel(item.draftType),
+    summary: item.summary,
+    coverUrl: normalizeAssetUrl(item.coverUrl),
+    statusLabel: formatDraftStatusLabel(effectiveDraftStatus),
+    currentStepLabel: formatDraftStepLabel(item.currentStep),
+    processingStatusLabel: formatProcessingStatusLabel(item.lifecycle?.processingStatus),
+    processingMessage: item.lifecycle?.processingMessage?.trim() || undefined,
+    updatedAtLabel: formatDateLabel(item.updatedAt, "Recently saved"),
+    continueHref: item.continueHref,
+    editable: item.editable
   };
 }
 
@@ -171,9 +285,52 @@ export function mapHomePageView(
       };
 
   return {
-    feedItems: response.data.items,
+    feedItems: response.data.items.map((item) => ({
+      contentKind: item.contentKind,
+      promptModality: item.promptModality,
+      itemType: item.itemType,
+      targetId: item.targetId,
+      title: item.title,
+      summary: item.summary,
+      coverUrl: normalizeAssetUrl(item.coverUrl) ?? normalizeAssetUrl(item.posterUrl),
+      posterUrl: normalizeAssetUrl(item.posterUrl) ?? normalizeAssetUrl(item.coverUrl),
+      previewUrl: normalizeAssetUrl(item.previewUrl),
+      sourceUrl: normalizeAssetUrl(item.sourceUrl),
+      author: {
+        id: item.author.id,
+        displayName: item.author.displayName,
+        avatarUrl: normalizeAssetUrl(item.author.avatarUrl)
+      },
+      workflow: item.workflow,
+      stats: item.stats
+    })),
+    homeLayoutSlots: response.data.layout?.slots?.map((slot) => ({
+      key: slot.key,
+      items: slot.items.map((item) => ({
+        contentKind: item.contentKind,
+        promptModality: item.promptModality,
+        itemType: item.itemType,
+        targetId: item.targetId,
+        title: item.title,
+        summary: item.summary,
+        coverUrl: normalizeAssetUrl(item.coverUrl) ?? normalizeAssetUrl(item.posterUrl),
+        posterUrl: normalizeAssetUrl(item.posterUrl) ?? normalizeAssetUrl(item.coverUrl),
+        previewUrl: normalizeAssetUrl(item.previewUrl),
+        sourceUrl: normalizeAssetUrl(item.sourceUrl),
+        author: {
+          id: item.author.id,
+          displayName: item.author.displayName,
+          avatarUrl: normalizeAssetUrl(item.author.avatarUrl)
+        },
+        workflow: item.workflow,
+        stats: item.stats
+      }))
+    })),
     hotWorkflows: response.data.sections.hotWorkflows.map(mapWorkflowMiniCard),
-    featuredCreators: response.data.sections.featuredCreators,
+    featuredCreators: response.data.sections.featuredCreators.map((creator) => ({
+      ...creator,
+      avatarUrl: normalizeAssetUrl(creator.avatarUrl)
+    })),
     discussionChannels: discussionView.channels,
     discussionHighlights: discussionView.featuredThreads.slice(0, 3),
     nextCursor: response.data.nextCursor ?? undefined,
@@ -184,7 +341,7 @@ export function mapHomePageView(
 export function mapVideoDetailPageView(
   detail: ApiEnvelope<ApiVideoDetail>,
   related: ApiEnvelope<ApiVideoSummary[]>,
-  comments: ApiEnvelope<ApiComment[]>
+  comments: ApiEnvelope<ApiCommentPage>
 ): VideoDetailPageView {
   return {
     id: detail.data.id,
@@ -195,30 +352,32 @@ export function mapVideoDetailPageView(
     author: {
       id: detail.data.author.id,
       displayName: detail.data.author.displayName,
-      avatarUrl: detail.data.author.avatarUrl,
+      avatarUrl: normalizeAssetUrl(detail.data.author.avatarUrl),
       followed: detail.data.viewerActions.followedAuthor
     },
     workflow: detail.data.workflow,
+    commentPolicy: detail.data.commentPolicy,
     stats: detail.data.stats,
     viewerActions: {
       liked: detail.data.viewerActions.liked,
       favorited: detail.data.viewerActions.favorited
     },
     relatedVideos: related.data.map(mapVideoMiniCard),
-    comments: comments.data.map(mapComment)
+    comments: {
+      items: comments.data.items.map(mapComment),
+      nextCursor: comments.data.nextCursor ?? undefined,
+      hasMore: comments.data.hasMore
+    }
   };
 }
 
 export function mapPromptDetailPageView(
   detail: ApiEnvelope<ApiPromptDetail>,
   related: ApiEnvelope<ApiPromptSummary[]>,
-  comments?: ApiEnvelope<ApiComment[]>
+  comments?: ApiEnvelope<ApiCommentPage>
 ): VideoDetailPageView {
-  const primaryExample = detail.data.examples[0];
-  const previewExample =
-    detail.data.examples.find((item) => item.assetKind === "video") ??
-    detail.data.examples.find((item) => item.assetKind === "image") ??
-    primaryExample;
+  const primaryImageExample = detail.data.examples.find((item) => item.assetKind === "image");
+  const primaryVideoExample = detail.data.examples.find((item) => item.assetKind === "video");
 
   return {
     id: detail.data.id,
@@ -228,16 +387,19 @@ export function mapPromptDetailPageView(
     tags: detail.data.tagNames,
     media: {
       kind: detail.data.modality,
-      coverUrl: detail.data.coverUrl ?? primaryExample?.url,
-      posterUrl: detail.data.coverUrl ?? primaryExample?.url,
-      previewUrl: previewExample?.url,
-      sourceUrl: previewExample?.url,
-      durationMs: previewExample?.durationMs
+      coverUrl: normalizeAssetUrl(detail.data.coverUrl) ?? normalizeAssetUrl(detail.data.posterUrl) ?? normalizeAssetUrl(primaryImageExample?.url),
+      posterUrl: normalizeAssetUrl(detail.data.posterUrl) ?? normalizeAssetUrl(detail.data.coverUrl) ?? normalizeAssetUrl(primaryImageExample?.url),
+      previewUrl: normalizeAssetUrl(detail.data.previewUrl) ?? normalizeAssetUrl(primaryVideoExample?.url),
+      sourceUrl:
+        normalizeAssetUrl(detail.data.sourceUrl) ??
+        normalizeAssetUrl(detail.data.previewUrl) ??
+        normalizeAssetUrl(primaryVideoExample?.url),
+      durationMs: primaryVideoExample?.durationMs
     },
     author: {
       id: detail.data.author.id,
       displayName: detail.data.author.displayName,
-      avatarUrl: detail.data.author.avatarUrl,
+      avatarUrl: normalizeAssetUrl(detail.data.author.avatarUrl),
       followed: detail.data.viewerActions.followedAuthor
     },
     stats: {
@@ -246,46 +408,67 @@ export function mapPromptDetailPageView(
       favoriteCount: detail.data.stats.favoriteCount,
       commentCount: detail.data.stats.commentCount
     },
+    commentPolicy: detail.data.commentPolicy,
     viewerActions: {
       liked: detail.data.viewerActions.liked,
       favorited: detail.data.viewerActions.favorited
     },
     relatedVideos: related.data.map(mapPromptMiniCard),
-    comments: comments?.data.map(mapComment) ?? []
+    comments: {
+      items: comments?.data.items.map(mapComment) ?? [],
+      nextCursor: comments?.data.nextCursor ?? undefined,
+      hasMore: comments?.data.hasMore ?? false
+    }
   };
 }
 
 export function mapWorkflowDetailPageView(
   detail: ApiEnvelope<ApiWorkflowDetail>,
   related: ApiEnvelope<ApiVideoSummary[]>,
-  comments: ApiEnvelope<ApiComment[]>
+  comments: ApiEnvelope<ApiCommentPage>
 ): WorkflowDetailPageView {
   return {
     id: detail.data.id,
     title: detail.data.title,
     summary: detail.data.summary,
     scenarioText: detail.data.scenarioText,
+    coverUrl: normalizeAssetUrl(detail.data.coverUrl),
+    exampleMedia: detail.data.exampleMedia
+      ? {
+          assetKind: detail.data.exampleMedia.assetKind,
+          url: normalizeAssetUrl(detail.data.exampleMedia.url)
+        }
+      : undefined,
     tagNames: detail.data.tagNames,
-    author: detail.data.author,
+    author: {
+      ...detail.data.author,
+      avatarUrl: normalizeAssetUrl(detail.data.author.avatarUrl)
+    },
     permissions: detail.data.permissions,
+    commentPolicy: detail.data.commentPolicy,
     canvasBinding: detail.data.canvasBinding,
     stats: detail.data.stats,
     relatedVideos: related.data.map(mapVideoMiniCard),
     viewerActions: detail.data.viewerActions,
-    comments: comments.data.map(mapComment)
+    comments: {
+      items: comments.data.items.map(mapComment),
+      nextCursor: comments.data.nextCursor ?? undefined,
+      hasMore: comments.data.hasMore
+    }
   };
 }
 
 export function mapCreatorPageView(
   profile: ApiEnvelope<ApiCreatorProfile>,
   videos: ApiEnvelope<ApiCursorPage<ApiVideoSummary>>,
-  workflows: ApiEnvelope<ApiCursorPage<ApiWorkflowSummary>>
+  workflows: ApiEnvelope<ApiCursorPage<ApiWorkflowSummary>>,
+  posts: ApiEnvelope<ApiCursorPage<ApiDiscussionHomeResponse["featuredThreads"][number]>>
 ): CreatorPageView {
   return {
     profile: {
       id: profile.data.id,
       displayName: profile.data.displayName,
-      avatarUrl: profile.data.avatarUrl,
+      avatarUrl: normalizeAssetUrl(profile.data.avatarUrl),
       bio: profile.data.bio,
       headline: profile.data.headline,
       followed: profile.data.viewerActions.followed
@@ -293,8 +476,10 @@ export function mapCreatorPageView(
     stats: profile.data.stats,
     videos: videos.data.items.map(mapVideoMiniCard),
     workflows: workflows.data.items.map(mapWorkflowMiniCard),
+    posts: posts.data.items.map(mapDiscussionThreadCard),
     nextVideoCursor: videos.data.nextCursor ?? undefined,
-    nextWorkflowCursor: workflows.data.nextCursor ?? undefined
+    nextWorkflowCursor: workflows.data.nextCursor ?? undefined,
+    nextPostCursor: posts.data.nextCursor ?? undefined
   };
 }
 
@@ -302,19 +487,42 @@ export function mapPersonalCenterPageView(
   response: ApiEnvelope<ApiMeHubResponse>
 ): PersonalCenterPageView {
   return {
-    profile: response.data.profile,
+    profile: {
+      ...response.data.profile,
+      avatarUrl: normalizeAssetUrl(response.data.profile.avatarUrl)
+    },
+    publishedVideos: response.data.publishedContent.videos.map(mapVideoMiniCard),
+    publishedWorkflows: response.data.publishedContent.workflows.map(mapWorkflowMiniCard),
     likedItems: response.data.likedItems.map(mapPersonalCenterItem),
-    favoritedItems: response.data.favoritedItems.map(mapPersonalCenterItem)
+    favoritedItems: response.data.favoritedItems.map(mapPersonalCenterItem),
+    draftItems: response.data.draftItems.map(mapPersonalCenterDraftItem),
+    posts: mapDiscussionThreadCards(response.data.publishedContent.posts)
   };
 }
 
-export function mapPublishPageView(response: ApiEnvelope<ApiPublishBootstrap>): PublishPageView {
+export function mapPublishPageView(response: ApiEnvelope<ApiPublishPageBootstrap>): PublishPageView {
   return {
     currentUser: response.data.currentUser,
-    activeTab: "video",
     videoDraft: response.data.videoDraft,
     workflowDraft: response.data.workflowDraft,
-    postDraft: response.data.postDraft
+    availableWorkflows: response.data.availableWorkflows.map(mapWorkflowMiniCard)
+  };
+}
+
+export function mapDiscussionComposerPageView(
+  response: ApiEnvelope<ApiPostComposerBootstrap>
+): DiscussionComposerPageView {
+  return {
+    currentUser: response.data.currentUser,
+    postDraft: response.data.postDraft,
+    channels: response.data.channels.map((channel) => ({
+      slug: channel.slug,
+      title: channel.title,
+      description: channel.description,
+      href: `/discussions?channel=${encodeURIComponent(channel.slug)}`,
+      threadCount: channel.threadCount,
+      threadCountLabel: `${channel.threadCount.toLocaleString("zh-CN")} threads`
+    }))
   };
 }
 
@@ -336,30 +544,47 @@ export function mapDiscussionHubPageView(
       threadCount: channel.threadCount,
       threadCountLabel: `${channel.threadCount.toLocaleString("zh-CN")} threads`
     })),
-    featuredThreads: response.data.featuredThreads.map((thread) => ({
-      id: thread.id,
-      slug: thread.slug,
-      href: `/discussions/${thread.slug}`,
-      title: thread.title,
-      excerpt: thread.excerpt,
-      channelTitle: thread.channelTitle,
-      lastActivityLabel: formatDateLabel(thread.lastActivityAt, "No activity yet"),
-      likeCount: toSafeCount(thread.likeCount),
-      likeCountLabel: formatLikeCountLabel(toSafeCount(thread.likeCount)),
-      favoriteCount: toSafeCount(thread.favoriteCount),
-      favoriteCountLabel: formatFavoriteCountLabel(toSafeCount(thread.favoriteCount)),
-      replyCountLabel: formatReplyCountLabel(thread.replyCount),
-      viewerLiked: thread.viewerActions?.liked ?? false,
-      viewerFavorited: thread.viewerActions?.favorited ?? false,
-      tags: thread.tagNames,
-      binding: mapDiscussionBinding(thread.binding)
-    }))
+    featuredThreads: response.data.featuredThreads.map(mapDiscussionThreadCard)
   };
+}
+
+function mapDiscussionThreadCard(thread: ApiDiscussionHomeResponse["featuredThreads"][number]) {
+  return {
+    id: thread.id,
+    slug: thread.slug,
+    href: `/discussions/${thread.slug}`,
+    title: thread.title,
+    excerpt: thread.excerpt,
+    channelTitle: thread.channelTitle,
+    author: {
+      id: thread.author.id,
+      displayName: thread.author.displayName,
+      avatarUrl: normalizeAssetUrl(thread.author.avatarUrl),
+      href: `/creators/${thread.author.id}?from=%2Fdiscussions`
+    },
+    publishedAtLabel: formatDateLabel(thread.publishedAt, "Pending publish time"),
+    lastActivityLabel: formatDateLabel(thread.lastActivityAt, "No activity yet"),
+    likeCount: toSafeCount(thread.likeCount),
+    likeCountLabel: formatLikeCountLabel(toSafeCount(thread.likeCount)),
+    favoriteCount: toSafeCount(thread.favoriteCount),
+    favoriteCountLabel: formatFavoriteCountLabel(toSafeCount(thread.favoriteCount)),
+    replyCountLabel: formatReplyCountLabel(thread.replyCount),
+    viewerLiked: thread.viewerActions?.liked ?? false,
+    viewerFavorited: thread.viewerActions?.favorited ?? false,
+    tags: thread.tagNames,
+    binding: mapDiscussionBinding(thread.binding)
+  };
+}
+
+export function mapDiscussionThreadCards(
+  items: ApiDiscussionHomeResponse["featuredThreads"]
+): DiscussionThreadCardView[] {
+  return items.map(mapDiscussionThreadCard);
 }
 
 export function mapDiscussionDetailPageView(
   detail: ApiEnvelope<ApiDiscussionThreadDetail>,
-  comments: ApiEnvelope<ApiComment[]>
+  comments: ApiEnvelope<ApiCommentPage>
 ): DiscussionDetailPageView {
   return {
     id: detail.data.id,
@@ -375,7 +600,7 @@ export function mapDiscussionDetailPageView(
     author: {
       id: detail.data.author.id,
       displayName: detail.data.author.displayName,
-      avatarUrl: detail.data.author.avatarUrl,
+      avatarUrl: normalizeAssetUrl(detail.data.author.avatarUrl),
       href: `/creators/${detail.data.author.id}`
     },
     stats: detail.data.stats,
@@ -386,7 +611,13 @@ export function mapDiscussionDetailPageView(
     publishedAtLabel: formatDateLabel(detail.data.publishedAt, "Pending publish time"),
     lastActivityLabel: formatDateLabel(detail.data.lastActivityAt, "No activity yet"),
     tagNames: detail.data.tagNames,
+    commentPolicy: detail.data.commentPolicy,
     binding: mapDiscussionBinding(detail.data.binding),
-    comments: comments.data.map(mapComment)
+    relatedThreads: (detail.data.relatedThreads ?? []).map(mapDiscussionThreadCard),
+    comments: {
+      items: comments.data.items.map(mapComment),
+      nextCursor: comments.data.nextCursor ?? undefined,
+      hasMore: comments.data.hasMore
+    }
   };
 }

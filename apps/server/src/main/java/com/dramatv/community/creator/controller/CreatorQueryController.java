@@ -2,6 +2,7 @@ package com.dramatv.community.creator.controller;
 
 import com.dramatv.community.creator.application.CreatorQueryService;
 import com.dramatv.community.creator.dto.response.CreatorProfileResponse;
+import com.dramatv.community.discussion.dto.response.DiscussionHomeResponse;
 import com.dramatv.community.shared.response.ApiResponse;
 import com.dramatv.community.shared.response.CursorPageResponse;
 import com.dramatv.community.video.dto.response.VideoSummaryResponse;
@@ -48,5 +49,14 @@ public class CreatorQueryController {
             @RequestParam(defaultValue = "latest") String sort
     ) {
         return ApiResponse.ok(creatorQueryService.listWorkflows(id, cursor, sort));
+    }
+
+    @GetMapping("/{id}/posts")
+    public ApiResponse<CursorPageResponse<DiscussionHomeResponse.ThreadCard>> posts(
+            @PathVariable String id,
+            @RequestParam(required = false) String cursor,
+            @RequestParam(defaultValue = "latest") String sort
+    ) {
+        return ApiResponse.ok(creatorQueryService.listPosts(id, cursor, sort));
     }
 }

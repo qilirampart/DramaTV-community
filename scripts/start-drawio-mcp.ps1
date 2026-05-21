@@ -6,7 +6,7 @@ $errLog = Join-Path $projectRoot "drawio-mcp.err.log"
 $assetPath = Join-Path $projectRoot ".drawio-assets"
 $httpPort = 3000
 $nodePath = "C:\Program Files\nodejs\node.exe"
-$entryPath = "C:\Users\psk13\AppData\Local\npm-cache\_npx\a34dfef1e92abe10\node_modules\drawio-mcp-server\build\index.js"
+$wrapperPath = Join-Path $PSScriptRoot "drawio-mcp-stdio-wrapper.mjs"
 
 $listening = Get-NetTCPConnection -LocalPort $httpPort -State Listen -ErrorAction SilentlyContinue
 
@@ -21,7 +21,7 @@ if ($listening) {
 
 $process = Start-Process `
   -FilePath $nodePath `
-  -ArgumentList @($entryPath, "--transport", "http", "--editor", "--http-port", "$httpPort", "--asset-path", "$assetPath") `
+  -ArgumentList @($wrapperPath, "--transport", "http", "--editor", "--http-port", "$httpPort", "--asset-path", "$assetPath") `
   -WorkingDirectory $projectRoot `
   -RedirectStandardOutput $outLog `
   -RedirectStandardError $errLog `

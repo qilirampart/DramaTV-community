@@ -8,9 +8,9 @@
     <property name="MAX_HISTORY" value="14"/>
     <property name="TOTAL_SIZE_CAP" value="2GB"/>
     <property name="APP_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [requestId=%X{requestId:-none}] %logger{36} - %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [traceId=%X{traceId:-none}] [requestId=%X{requestId:-none}] [userId=%X{userId:-anonymous}] [biz=%X{bizContext:-none}] %logger{36} - %msg%n"/>
     <property name="ACCESS_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [requestId=%X{requestId:-none}] %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [traceId=%X{traceId:-none}] [requestId=%X{requestId:-none}] [userId=%X{userId:-anonymous}] [biz=%X{bizContext:-none}] %msg%n"/>
 
     <contextName>${APP_NAME}</contextName>
 

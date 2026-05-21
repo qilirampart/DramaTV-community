@@ -1,0 +1,50 @@
+{
+  "rank": 12,
+  "id": "2046190539213885806",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 12,
+  "title": "CCD Camera Flash Korean Idol",
+  "description": "Portrait & Photography Cases curated case: CCD Camera Flash Korean Idol, source author BubbleBrain.",
+  "language": "en",
+  "authorName": "BubbleBrain",
+  "authorLink": "https://x.com/BubbleBrain",
+  "sourceLink": "https://x.com/BubbleBrain/status/2046190539213885806",
+  "sourcePublishedAt": "Mon Apr 20 11:33:35 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 5364,
+  "likes": 190,
+  "retweetCount": 11,
+  "viewCount": 8884,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case12/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case12/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGWHOnPbMAE6u8n.jpg",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

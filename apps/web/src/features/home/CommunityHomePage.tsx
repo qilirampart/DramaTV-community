@@ -1,21 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState, useTransition, type MouseEvent as ReactMouseEvent } from "react";
+import { useCommunitySession } from "@/components/shared/CommunitySessionProvider";
 import { PageShell } from "@/components/shared/PageShell";
+import { useInteractiveVideoPreview } from "@/components/shared/useInteractiveVideoPreview";
+import { togglePromptLikeAction } from "@/features/community-interactions/actions";
 import type { ApiPromptSummary } from "@/lib/contracts/community-api";
 import type { HomePageView, WorkflowMiniCardView } from "@/lib/contracts/view-models";
+import { toIndexedContentCards, toResourceBadge } from "@/lib/content-index";
 import { homeDemoCatalog, type HomeDemoCard, type HomeHeroSlide } from "@/lib/prefill/home-resource-catalog";
-import { isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { formatEntityTypeBadge, isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
+import { mergeCardsPreferCatalogMedia } from "./home-card-merge";
 import styles from "./CommunityHomePage.module.css";
 
 type CommunityHomePageProps = {
-  prompts: ApiPromptSummary[];
+  heroPrompts?: ApiPromptSummary[];
+  prompts?: ApiPromptSummary[];
   view: HomePageView;
 };
 
 type HomeCard = HomeDemoCard & {
   badge: string;
+  likeTargetType?: "prompt";
+  viewerLiked?: boolean;
 };
 
 type NewsItem = {
@@ -96,7 +107,7 @@ function toDemoCardFromWorkflow(workflow: WorkflowMiniCardView): HomeCard {
       avatarUrl: workflow.author.avatarUrl
     },
     resourceType: "workflow",
-    badge: "workflow",
+    badge: formatEntityTypeBadge("workflow"),
     primaryMetric: workflow.likeCount ?? 0,
     secondaryMetric: workflow.likeCount ?? 0
   };
@@ -109,13 +120,18 @@ function toDemoCardFromPrompt(prompt: ApiPromptSummary): HomeCard {
     summary: normalizeText(prompt.summary) ?? "进入详情页继续查看提示词和示例内容。",
     href: `/prompts/${prompt.id}`,
     coverUrl: prompt.coverUrl,
+    posterUrl: prompt.posterUrl,
+    previewUrl: prompt.previewUrl,
+    sourceUrl: prompt.sourceUrl,
     author: {
       id: prompt.author.id,
       displayName: normalizeText(prompt.author.displayName) ?? "DramaTV Creator",
       avatarUrl: prompt.author.avatarUrl
     },
     resourceType: "prompt",
-    badge: "prompt",
+    badge: formatEntityTypeBadge("prompt"),
+    likeTargetType: "prompt",
+    viewerLiked: prompt.viewerActions?.liked ?? false,
     primaryMetric: prompt.stats.exampleCount,
     secondaryMetric: prompt.stats.likeCount
   };
@@ -131,9 +147,33 @@ function toHeroSlideFromPrompt(prompt: ApiPromptSummary, index: number): HomeHer
     subtitle: firstTag ? `${subtitleBase} · ${firstTag}` : subtitleBase,
     description: normalizeText(prompt.summary) ?? "当前首页头图已经切到真实导入内容，继续围绕提示词和工作流做社区分发。",
     href: `/prompts/${prompt.id}`,
-    imageUrl: prompt.coverUrl,
-    videoUrl: isVideoAssetUrl(prompt.coverUrl) ? prompt.coverUrl : undefined,
+    imageUrl: prompt.posterUrl ?? prompt.coverUrl,
+    videoUrl: prompt.previewUrl,
     resourceType: "prompt"
+  };
+}
+
+function toHeroSlideFromCard(card: HomeCard, index: number): HomeHeroSlide {
+  const subtitle =
+    card.resourceType === "workflow"
+      ? "鐪熷疄宸ヤ綔娴佸唴瀹?"
+      : card.badge || "鐪熷疄鎻愮ず璇嶅唴瀹?";
+
+  const description =
+    normalizeText(card.summary) ??
+    (card.resourceType === "workflow"
+      ? "褰撳墠棣栭〉澶村浘鍦ㄤ富 feed 鏁版嵁鍐呬紭鍏堜娇鐢ㄧ湡瀹炲伐浣滄祦鍐呭銆?"
+      : "褰撳墠棣栭〉澶村浘鍦ㄤ富 feed 鏁版嵁鍐呬紭鍏堜娇鐢ㄧ湡瀹炴彁绀鸿瘝鍐呭銆?");
+
+  return {
+    id: `hero-card-${card.id}`,
+    title: card.title || `鐪熷疄鍐呭 ${index + 1}`,
+    subtitle,
+    description,
+    href: card.href,
+    imageUrl: card.posterUrl ?? card.coverUrl,
+    videoUrl: card.previewUrl,
+    resourceType: card.resourceType
   };
 }
 
@@ -141,13 +181,31 @@ function getHeroMediaUrl(slide?: HomeHeroSlide) {
   return normalizeAssetUrl(slide?.videoUrl) ?? normalizeAssetUrl(slide?.imageUrl);
 }
 
-function getHeroSlidesFromPrompts(prompts: ApiPromptSummary[]) {
-  const videoPrompts = prompts.filter((prompt) => prompt.modality === "video" && isVideoAssetUrl(prompt.coverUrl));
-  const fallbackVideoPrompts = prompts.filter((prompt) => isVideoAssetUrl(prompt.coverUrl));
+function getHeroSlides(prompts: ApiPromptSummary[], indexedCards: HomeCard[]) {
+  const videoPrompts = prompts.filter((prompt) => prompt.modality === "video" && Boolean(normalizeAssetUrl(prompt.previewUrl)));
+  const fallbackVideoPrompts = prompts.filter((prompt) => Boolean(normalizeAssetUrl(prompt.previewUrl)));
   const preferredPrompts = videoPrompts.length >= 3 ? videoPrompts : fallbackVideoPrompts;
+  const preferredCards = indexedCards.filter((card) => Boolean(normalizeAssetUrl(card.previewUrl)));
+  const fallbackCards = indexedCards.filter((card) => Boolean(card.posterUrl ?? card.coverUrl));
+  const mergedSlides = [
+    ...preferredPrompts.map(toHeroSlideFromPrompt),
+    ...preferredCards.map(toHeroSlideFromCard),
+    ...fallbackCards.map(toHeroSlideFromCard)
+  ];
 
-  if (preferredPrompts.length > 0) {
-    return preferredPrompts.slice(0, 3).map(toHeroSlideFromPrompt);
+  if (mergedSlides.length > 0) {
+    const seen = new Set<string>();
+
+    return mergedSlides
+      .filter((slide) => {
+        if (seen.has(slide.href)) {
+          return false;
+        }
+
+        seen.add(slide.href);
+        return true;
+      })
+      .slice(0, 3);
   }
 
   return homeDemoCatalog.heroSlides.slice(0, 3);
@@ -156,7 +214,7 @@ function getHeroSlidesFromPrompts(prompts: ApiPromptSummary[]) {
 function asHomeCard(card: HomeDemoCard): HomeCard {
   return {
     ...card,
-    badge: card.resourceType === "workflow" ? "workflow" : "prompt"
+    badge: card.resourceType === "workflow" ? formatEntityTypeBadge("workflow") : formatEntityTypeBadge("prompt")
   };
 }
 
@@ -176,59 +234,265 @@ function normalizeCards(cards: HomeCard[], fallback: HomeDemoCard[], count: numb
     .slice(0, count);
 }
 
-function HomeArchiveCard({ card, variant = "landscape" }: { card: HomeCard; variant?: "landscape" | "square" }) {
-  const imageUrl = normalizeAssetUrl(card.coverUrl);
-  const isVideoMedia = isVideoAssetUrl(imageUrl);
-  const imageStyle = imageUrl && !isVideoMedia ? { backgroundImage: `url(${imageUrl})` } : undefined;
-  const authorName = normalizeText(card.author.displayName) ?? "DramaTV Creator";
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  async function handlePreviewStart() {
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-
-    try {
-      await video.play();
-    } catch {}
+function resolveCardPreviewUrl(card: HomeCard) {
+  const previewUrl = normalizeAssetUrl(card.previewUrl);
+  if (previewUrl) {
+    return previewUrl;
   }
 
-  function handlePreviewStop() {
-    const video = videoRef.current;
-    if (!video) {
+  const sourceUrl = normalizeAssetUrl(card.sourceUrl);
+  if (sourceUrl && isVideoAssetUrl(sourceUrl)) {
+    return sourceUrl;
+  }
+
+  return undefined;
+}
+
+function withResolvedVideoPreview(card: HomeCard): HomeCard {
+  const previewUrl = resolveCardPreviewUrl(card);
+  if (previewUrl === card.previewUrl) {
+    return card;
+  }
+
+  return {
+    ...card,
+    previewUrl
+  };
+}
+
+function hasPlayableVideo(card: HomeCard) {
+  return Boolean(resolveCardPreviewUrl(card));
+}
+
+function stableHash(input: string) {
+  let hash = 2166136261;
+
+  for (let index = 0; index < input.length; index += 1) {
+    hash ^= input.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return hash >>> 0;
+}
+
+function sortCardsBySeed(cards: HomeCard[], seed: string) {
+  return [...cards].sort((left, right) => {
+    const leftRank = stableHash(`${seed}:${left.id}`);
+    const rightRank = stableHash(`${seed}:${right.id}`);
+
+    if (leftRank !== rightRank) {
+      return leftRank - rightRank;
+    }
+
+    return left.id.localeCompare(right.id);
+  });
+}
+
+function takeUniqueCards(cards: HomeCard[], count: number, takenIds: Set<string>) {
+  const picked: HomeCard[] = [];
+
+  for (const card of cards) {
+    if (takenIds.has(card.id)) {
+      continue;
+    }
+
+    takenIds.add(card.id);
+    picked.push(card);
+
+    if (picked.length >= count) {
+      break;
+    }
+  }
+
+  return picked;
+}
+
+function pickSectionCards(pools: HomeCard[][], count: number, takenIds: Set<string>, seed: string) {
+  const orderedCards = pools
+    .flatMap((pool, poolIndex) =>
+      sortCardsBySeed(pool, `${seed}:${poolIndex}`).map((card) => ({
+        card,
+        poolIndex
+      }))
+    )
+    .sort((left, right) => {
+      if (left.poolIndex !== right.poolIndex) {
+        return left.poolIndex - right.poolIndex;
+      }
+
+      return left.card.id.localeCompare(right.card.id);
+    })
+    .map(({ card }) => card);
+
+  return takeUniqueCards(orderedCards, count, takenIds);
+}
+
+function slotItemsToHomeCards(items: HomePageView["feedItems"]): HomeCard[] {
+  return toIndexedContentCards(items)
+    .filter((item) => item.contentKind !== "post")
+    .map((item): HomeCard => ({
+      id: item.id,
+      title: item.title,
+      summary:
+        item.summary ??
+        (item.contentKind === "workflow_work"
+          ? item.workflowTitle ?? "进入详情页继续查看作品与关联工作流。"
+          : "进入详情页继续查看提示词和示例内容。"),
+      href: item.href,
+      coverUrl: item.coverUrl,
+      posterUrl: item.posterUrl,
+      previewUrl: item.previewUrl,
+      sourceUrl: item.sourceUrl,
+      author: item.author,
+      resourceType: item.contentKind === "workflow_work" ? "workflow" : "prompt",
+      badge: toResourceBadge(item.contentKind),
+      likeTargetType: item.contentKind === "prompt" ? "prompt" : undefined,
+      viewerLiked: false,
+      primaryMetric: item.primaryMetric,
+      secondaryMetric: item.secondaryMetric
+    }))
+    .map(withResolvedVideoPreview);
+}
+
+function findHomeLayoutSlot(view: HomePageView, slotKey: string) {
+  return view.homeLayoutSlots?.find((slot) => slot.key === slotKey)?.items ?? [];
+}
+
+function HomeArchiveCard({
+  card,
+  variant = "landscape",
+  backSource,
+  anchorId,
+  currentRoute
+}: {
+  card: HomeCard;
+  variant?: "landscape" | "square";
+  backSource: string;
+  anchorId: string;
+  currentRoute: string;
+}) {
+  const router = useRouter();
+  const { currentUser } = useCommunitySession();
+  const imageUrl = normalizeAssetUrl(card.posterUrl) ?? normalizeAssetUrl(card.coverUrl);
+  const previewUrl = normalizeAssetUrl(card.previewUrl);
+  const isVideoMedia = Boolean(previewUrl);
+  const authorName = normalizeText(card.author.displayName) ?? "DramaTV Creator";
+  const isPromptLikeCard = card.likeTargetType === "prompt";
+  const [liked, setLiked] = useState(card.viewerLiked ?? false);
+  const [likeCount, setLikeCount] = useState(card.secondaryMetric ?? card.primaryMetric);
+  const [pending, startTransition] = useTransition();
+  const {
+    handlePreviewImmediateStart,
+    handlePreviewStart,
+    handlePreviewStop,
+    isVideoReady,
+    mediaRef,
+    shouldLoadVideo,
+    videoRef
+  } =
+    useInteractiveVideoPreview({
+    enabled: isVideoMedia,
+    loadOnViewport: false,
+    unloadDelayMs: 1200,
+    previewGroup: "community-home-grid",
+    previewStartDelayMs: 160
+    });
+  const cardHref = appendBackSource(card.href, buildBackAnchorSource(backSource, anchorId));
+
+  useEffect(() => {
+    setLiked(card.viewerLiked ?? false);
+    setLikeCount(card.secondaryMetric ?? card.primaryMetric);
+  }, [card.id, card.primaryMetric, card.secondaryMetric, card.viewerLiked]);
+
+  function handleLikeClick(event: ReactMouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!isPromptLikeCard) {
       return;
     }
 
-    video.pause();
+    if (!currentUser) {
+      router.push(`/login?redirectTo=${encodeURIComponent(currentRoute)}`);
+      return;
+    }
 
-    try {
-      video.currentTime = 0;
-    } catch {}
+    const previousLiked = liked;
+    const previousLikeCount = likeCount;
+    const nextActive = !liked;
+
+    setLiked(nextActive);
+    setLikeCount((current) => Math.max(0, current + (nextActive ? 1 : -1)));
+
+    startTransition(async () => {
+      const result = await togglePromptLikeAction({
+        promptId: card.id,
+        active: nextActive
+      });
+
+      if (!result.ok) {
+        setLiked(previousLiked);
+        setLikeCount(previousLikeCount);
+        console.warn(`[community-home-card-like] ${result.message}`);
+        return;
+      }
+
+      setLiked(result.view.viewerActions.liked);
+      setLikeCount(result.view.stats.likeCount);
+      router.refresh();
+    });
   }
 
   return (
     <Link
       className={styles.archiveCard}
       data-variant={variant}
-      href={card.href}
+      href={cardHref}
+      id={anchorId}
       onBlur={handlePreviewStop}
-      onFocus={handlePreviewStart}
+      onFocus={handlePreviewImmediateStart}
       onMouseEnter={handlePreviewStart}
       onMouseLeave={handlePreviewStop}
     >
-      {isVideoMedia && imageUrl ? (
-        <video
-          ref={videoRef}
-          className={styles.archiveMediaVideo}
-          loop
-          muted
-          playsInline
-          preload="metadata"
+      {isVideoMedia && previewUrl ? (
+        <span className={styles.archiveMediaSlot} ref={mediaRef}>
+          {imageUrl ? (
+            <img
+              alt={card.title}
+              className={styles.archiveMediaImage}
+              decoding="async"
+              draggable={false}
+              loading="lazy"
+              sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
+              src={imageUrl}
+            />
+          ) : (
+            <span className={styles.archiveMedia} />
+          )}
+          {shouldLoadVideo ? (
+            <video
+              ref={videoRef}
+              className={`${styles.archiveMediaVideo} ${isVideoReady ? styles.archiveMediaVideoReady : ""}`}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              src={previewUrl}
+            />
+          ) : null}
+        </span>
+      ) : imageUrl ? (
+        <img
+          alt={card.title}
+          className={styles.archiveMediaImage}
+          decoding="async"
+          draggable={false}
+          loading="lazy"
+          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
           src={imageUrl}
         />
       ) : (
-        <span className={styles.archiveMedia} style={imageStyle} />
+        <span className={styles.archiveMedia} />
       )}
       <span className={styles.archiveShade} />
       <span className={styles.archiveBadge}>{card.badge}</span>
@@ -236,10 +500,24 @@ function HomeArchiveCard({ card, variant = "landscape" }: { card: HomeCard; vari
         <strong>{card.title}</strong>
         <span className={styles.archiveMeta}>
           <span>@{authorName}</span>
-          <span className={styles.archiveMetric}>
-            <HeartIcon />
-            {formatCompactNumber(card.secondaryMetric || card.primaryMetric)}
-          </span>
+          {isPromptLikeCard ? (
+            <button
+              aria-label={liked ? "取消点赞" : "点赞"}
+              aria-pressed={liked}
+              className={`${styles.archiveMetricButton}${liked ? ` ${styles.archiveMetricButtonActive}` : ""}`}
+              disabled={pending}
+              type="button"
+              onClick={handleLikeClick}
+            >
+              <HeartIcon />
+              {formatCompactNumber(likeCount)}
+            </button>
+          ) : (
+            <span className={styles.archiveMetric}>
+              <HeartIcon />
+              {formatCompactNumber(card.secondaryMetric ?? card.primaryMetric)}
+            </span>
+          )}
         </span>
       </span>
     </Link>
@@ -249,11 +527,17 @@ function HomeArchiveCard({ card, variant = "landscape" }: { card: HomeCard; vari
 function ContentShelf({
   title,
   items,
-  variant = "landscape"
+  variant = "landscape",
+  sectionKey,
+  backSource,
+  currentRoute
 }: {
   title: string;
   items: HomeCard[];
   variant?: "landscape" | "square";
+  sectionKey: string;
+  backSource: string;
+  currentRoute: string;
 }) {
   return (
     <section className={styles.shelf}>
@@ -262,8 +546,15 @@ function ContentShelf({
         <Link href="/featured">查看全部</Link>
       </div>
       <div className={styles.shelfGrid} data-variant={variant}>
-        {items.map((item) => (
-          <HomeArchiveCard card={item} key={`${title}-${item.id}`} variant={variant} />
+        {items.map((item, index) => (
+          <HomeArchiveCard
+            anchorId={createBackAnchorId("home-card", `${sectionKey}-${index}-${item.id}`)}
+            backSource={backSource}
+            card={item}
+            currentRoute={currentRoute}
+            key={`${title}-${item.id}`}
+            variant={variant}
+          />
         ))}
       </div>
     </section>
@@ -279,23 +570,202 @@ function heroToNewsItem(slide: HomeHeroSlide, index: number): NewsItem {
   };
 }
 
-export function CommunityHomePage({ prompts, view }: CommunityHomePageProps) {
+export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: CommunityHomePageProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [heroVideoReadyMap, setHeroVideoReadyMap] = useState<Record<string, boolean>>({});
   const heroVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const promptCards = prompts.map(toDemoCardFromPrompt);
-  const workflowCards = view.hotWorkflows.map(toDemoCardFromWorkflow);
-  const realPromptCards = normalizeCards(promptCards, [], Math.max(promptCards.length, 30));
-  const heroSlides = getHeroSlidesFromPrompts(prompts);
+  const indexedCards = useMemo(
+    () =>
+      toIndexedContentCards(view.feedItems)
+        .filter((item) => item.contentKind !== "post")
+        .map(
+          (item): HomeCard => ({
+      id: item.id,
+      title: item.title,
+      summary:
+        item.summary ??
+        (item.contentKind === "workflow_work"
+            ? item.workflowTitle ?? "进入详情页继续查看作品与关联工作流。"
+            : "进入详情页继续查看提示词和示例内容。"),
+      href: item.href,
+      coverUrl: item.coverUrl,
+      posterUrl: item.posterUrl,
+      previewUrl: item.previewUrl,
+      sourceUrl: item.sourceUrl,
+      author: item.author,
+      resourceType: item.contentKind === "workflow_work" ? "workflow" : "prompt",
+      badge: toResourceBadge(item.contentKind),
+      likeTargetType: item.contentKind === "prompt" ? "prompt" : undefined,
+      viewerLiked: false,
+      primaryMetric: item.primaryMetric,
+      secondaryMetric: item.secondaryMetric
+          })
+        ),
+    [view.feedItems]
+  );
+  const promptCards = useMemo(() => prompts.map(toDemoCardFromPrompt), [prompts]);
+  const workflowCards = useMemo(() => view.hotWorkflows.map(toDemoCardFromWorkflow).map(withResolvedVideoPreview), [view.hotWorkflows]);
+  const mergedPromptCards = useMemo(
+    () => mergeCardsPreferCatalogMedia(indexedCards, promptCards).map(withResolvedVideoPreview),
+    [indexedCards, promptCards]
+  );
+  const realPromptCards = useMemo(
+    () => normalizeCards(mergedPromptCards, [], Math.max(mergedPromptCards.length, 30)),
+    [mergedPromptCards]
+  );
+  const heroSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "home-hero")), [view]);
+  const recommendedPrimarySlotCards = useMemo(
+    () => slotItemsToHomeCards(findHomeLayoutSlot(view, "recommended-primary")),
+    [view]
+  );
+  const recommendedSecondarySlotCards = useMemo(
+    () => slotItemsToHomeCards(findHomeLayoutSlot(view, "recommended-secondary")),
+    [view]
+  );
+  const canvasSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "canvas")), [view]);
+  const commercialSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "commercial")), [view]);
+  const animationSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "animation")), [view]);
+  const narrativeSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "narrative")), [view]);
+  const mvSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "mv")), [view]);
+  const creativeSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "creative")), [view]);
+  const workflowCardsNormalized = useMemo(
+    () => normalizeCards(workflowCards, homeDemoCatalog.workflowSection, Math.max(workflowCards.length, 12)),
+    [workflowCards]
+  );
+  const homeShuffleSeed = useMemo(
+    () =>
+      [
+        "home",
+        heroPrompts.map((item) => item.id).join(","),
+        prompts.map((item) => item.id).join(","),
+        view.feedItems.map((item) => item.targetId).join(","),
+        view.hotWorkflows.map((item) => item.id).join(",")
+      ].join("|"),
+    [heroPrompts, prompts, view.feedItems, view.hotWorkflows]
+  );
+  const videoPromptCards = useMemo(
+    () => realPromptCards.filter((card) => card.resourceType === "prompt" && hasPlayableVideo(card)),
+    [realPromptCards]
+  );
+  const nonVideoPromptCards = useMemo(
+    () => realPromptCards.filter((card) => card.resourceType === "prompt" && !hasPlayableVideo(card)),
+    [realPromptCards]
+  );
+  const heroSlides = useMemo(() => {
+    const heroPromptSlides = getHeroSlides(heroPrompts.length > 0 ? heroPrompts : prompts, realPromptCards).filter(
+      (slide) => Boolean(normalizeAssetUrl(slide.videoUrl))
+    );
+    const heroSlotVideoSlides = heroSlotCards.filter(hasPlayableVideo).slice(0, 3).map(toHeroSlideFromCard);
+    const catalogVideoSlides = homeDemoCatalog.heroSlides.filter((slide) => Boolean(normalizeAssetUrl(slide.videoUrl)));
+    const mergedSlides = [...heroSlotVideoSlides, ...heroPromptSlides, ...catalogVideoSlides];
+    const seen = new Set<string>();
 
-  const recommended = realPromptCards.slice(0, 6);
-  const dramaTv = normalizeCards(workflowCards, homeDemoCatalog.workflowSection, 4);
-  const canvas = realPromptCards.slice(6, 10);
-  const commercial = realPromptCards.slice(10, 14);
-  const animation = realPromptCards.slice(14, 18);
-  const narrative = realPromptCards.slice(18, 22);
-  const mv = realPromptCards.slice(22, 26);
-  const creative = realPromptCards.slice(26, 30);
-  const newsItems = heroSlides.map(heroToNewsItem);
+    return mergedSlides
+      .filter((slide) => {
+        if (seen.has(slide.href)) {
+          return false;
+        }
+
+        seen.add(slide.href);
+        return true;
+      })
+      .slice(0, 3);
+  }, [heroPrompts, heroSlotCards, prompts, realPromptCards]);
+  const homeShelves = useMemo(() => {
+    const takenIds = new Set<string>();
+    const videoWorkflowCards = workflowCardsNormalized.filter(hasPlayableVideo);
+    const promptAndWorkflowPool = [...videoPromptCards, ...videoWorkflowCards];
+    const mixedPool = [...promptAndWorkflowPool, ...nonVideoPromptCards, ...workflowCardsNormalized];
+
+    return {
+      recommendedPrimary: pickSectionCards(
+        [recommendedPrimarySlotCards, promptAndWorkflowPool, mixedPool],
+        4,
+        takenIds,
+        `${homeShuffleSeed}:recommended-primary`
+      ),
+      recommendedSecondary: pickSectionCards(
+        [recommendedSecondarySlotCards, promptAndWorkflowPool, mixedPool],
+        4,
+        takenIds,
+        `${homeShuffleSeed}:recommended-secondary`
+      ),
+      featuredCanvas: pickSectionCards([canvasSlotCards, promptAndWorkflowPool, mixedPool], 4, takenIds, `${homeShuffleSeed}:featured-canvas`),
+      commercial: pickSectionCards([commercialSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:commercial`),
+      animation: pickSectionCards([animationSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:animation`),
+      narrative: pickSectionCards([narrativeSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:narrative`),
+      mv: pickSectionCards([mvSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:mv`),
+      creative: pickSectionCards([creativeSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:creative`)
+    };
+  }, [homeShuffleSeed, nonVideoPromptCards, videoPromptCards, workflowCardsNormalized]);
+  const recommended = homeShelves.recommendedPrimary;
+  const dramaTv = homeShelves.recommendedSecondary;
+  const canvas = homeShelves.featuredCanvas;
+  const commercial = homeShelves.commercial;
+  const animation = homeShelves.animation;
+  const narrative = homeShelves.narrative;
+  const mv = homeShelves.mv;
+  const creative = homeShelves.creative;
+  const newsItems = useMemo(() => heroSlides.map(heroToNewsItem), [heroSlides]);
+  const currentRoute = useMemo(() => buildCurrentRoute(pathname, searchParams), [pathname, searchParams]);
+  const canvasPlaceholderHref = "/canvas/d2a551f9-8cd4-4fb3-bd72-b90a830f91e3";
+
+  function setHeroVideoReady(slideId: string, ready: boolean) {
+    setHeroVideoReadyMap((current) => {
+      if ((current[slideId] ?? false) === ready) {
+        return current;
+      }
+
+      return {
+        ...current,
+        [slideId]: ready
+      };
+    });
+  }
+
+  useEffect(() => {
+    setHeroVideoReadyMap((current) => {
+      const nextEntries = heroSlides.map((slide) => [slide.id, current[slide.id] ?? false] as const);
+      const next = Object.fromEntries(nextEntries);
+      const currentKeys = Object.keys(current);
+      const nextKeys = Object.keys(next);
+
+      if (
+        currentKeys.length === nextKeys.length &&
+        nextKeys.every((key) => current[key] === next[key])
+      ) {
+        return current;
+      }
+
+      return next;
+    });
+  }, [heroSlides]);
+
+  useEffect(() => {
+    setHeroVideoReadyMap((current) => {
+      const next = Object.fromEntries(
+        heroSlides.map((slide, index) => {
+          const video = heroVideoRefs.current[index];
+          return [slide.id, Boolean(video && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA)] as const;
+        })
+      );
+      const currentKeys = Object.keys(current);
+      const nextKeys = Object.keys(next);
+
+      if (
+        currentKeys.length === nextKeys.length &&
+        nextKeys.every((key) => current[key] === next[key])
+      ) {
+        return current;
+      }
+
+      return next;
+    });
+  }, [activeSlide, heroSlides]);
+
+  useBackAnchorRestore([heroSlides.length, newsItems.length, recommended.length, dramaTv.length, canvas.length, commercial.length, animation.length, narrative.length, mv.length, creative.length]);
 
   function goToPreviousSlide() {
     setActiveSlide((value) => (value > 0 ? value - 1 : heroSlides.length - 1));
@@ -350,30 +820,42 @@ export function CommunityHomePage({ prompts, view }: CommunityHomePageProps) {
           <div className={styles.heroFrame}>
             {heroSlides.map((slide, index) => {
               const mediaUrl = getHeroMediaUrl(slide);
+              const posterUrl = normalizeAssetUrl(slide.imageUrl);
               const isVideoMedia = isVideoAssetUrl(mediaUrl);
               const isActive = index === activeSlide;
+              const shouldWarmVideo = heroSlides.length <= 1 || index === ((activeSlide + 1) % heroSlides.length);
+              const shouldRenderVideo = isVideoMedia && mediaUrl && (isActive || shouldWarmVideo);
 
               return (
                 <Link
                   aria-hidden={!isActive}
                   className={`${styles.heroMedia} ${isActive ? styles.heroMediaActive : ""}`}
-                  href={slide.href}
+                  href={appendBackSource(
+                    slide.href,
+                    buildBackAnchorSource(currentRoute, createBackAnchorId("home-hero", `${index}-${slide.id}`))
+                  )}
+                  id={createBackAnchorId("home-hero", `${index}-${slide.id}`)}
                   key={slide.id}
-                  style={mediaUrl && !isVideoMedia ? { backgroundImage: `url(${mediaUrl})` } : undefined}
+                  style={posterUrl ? { backgroundImage: `url(${posterUrl})` } : mediaUrl && !isVideoMedia ? { backgroundImage: `url(${mediaUrl})` } : undefined}
                   tabIndex={isActive ? undefined : -1}
                 >
-                  {isVideoMedia && mediaUrl ? (
+                  {shouldRenderVideo ? (
                     <video
                       ref={(element) => {
                         heroVideoRefs.current[index] = element;
                       }}
                       autoPlay={isActive}
-                      className={styles.heroVideo}
+                      className={`${styles.heroVideo} ${heroVideoReadyMap[slide.id] ? styles.heroVideoReady : ""}`}
                       loop
                       muted
+                      onCanPlay={() => setHeroVideoReady(slide.id, true)}
+                      onEmptied={() => setHeroVideoReady(slide.id, false)}
+                      onLoadedData={() => setHeroVideoReady(slide.id, true)}
                       playsInline
-                      preload={isActive ? "auto" : "metadata"}
+                      poster={posterUrl ?? undefined}
+                      preload={isActive ? "auto" : shouldWarmVideo ? "metadata" : "none"}
                       src={mediaUrl}
+                      style={{ opacity: heroVideoReadyMap[slide.id] ? 1 : 0 }}
                     />
                   ) : null}
                   <span className={styles.heroShade} />
@@ -393,7 +875,11 @@ export function CommunityHomePage({ prompts, view }: CommunityHomePageProps) {
             {newsItems.map((item, index) => (
               <Link
                 className={index === activeSlide ? styles.newsItemActive : styles.newsItem}
-                href={item.href}
+                href={appendBackSource(
+                  item.href,
+                  buildBackAnchorSource(currentRoute, createBackAnchorId("home-news", `${index}-${item.id}`))
+                )}
+                id={createBackAnchorId("home-news", `${index}-${item.id}`)}
                 key={item.id}
                 onMouseEnter={() => setActiveSlide(index)}
               >
@@ -418,7 +904,7 @@ export function CommunityHomePage({ prompts, view }: CommunityHomePageProps) {
 
         <section className={styles.inspiration}>
           <h2>灵感迸发</h2>
-          <Link className={styles.canvasCta} href="/featured">
+          <Link className={styles.canvasCta} href={canvasPlaceholderHref}>
             <span className={styles.canvasIcon}>
               <SparkIcon />
             </span>
@@ -430,14 +916,14 @@ export function CommunityHomePage({ prompts, view }: CommunityHomePageProps) {
         </section>
 
         <div className={styles.shelves}>
-          <ContentShelf items={recommended} title="为你推荐" variant="square" />
-          <ContentShelf items={dramaTv} title="为你推荐" />
-          <ContentShelf items={canvas} title="精选画布" />
-          <ContentShelf items={commercial} title="电视广告" />
-          <ContentShelf items={animation} title="动画" />
-          <ContentShelf items={narrative} title="叙事短片" />
-          <ContentShelf items={mv} title="MV" />
-          <ContentShelf items={creative} title="创意" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={recommended} sectionKey="recommended-primary" title="为你推荐" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={dramaTv} sectionKey="recommended-secondary" title="为你推荐" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={canvas} sectionKey="canvas" title="精选画布" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={commercial} sectionKey="commercial" title="电视广告" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={animation} sectionKey="animation" title="动画" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={narrative} sectionKey="narrative" title="叙事短片" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={mv} sectionKey="mv" title="MV" />
+          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={creative} sectionKey="creative" title="创意" />
         </div>
       </div>
     </PageShell>

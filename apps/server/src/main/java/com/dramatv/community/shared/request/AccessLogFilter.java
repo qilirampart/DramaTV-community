@@ -5,13 +5,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Component
@@ -20,6 +25,11 @@ public class AccessLogFilter extends OncePerRequestFilter {
 
     private static final Logger accessLog = LoggerFactory.getLogger("com.dramatv.community.access");
     private static final Set<String> SKIP_PATHS = Set.of("/actuator/health", "/actuator/info");
+    private final RequestClientIpResolver requestClientIpResolver;
+
+    public AccessLogFilter(RequestClientIpResolver requestClientIpResolver) {
+        this.requestClientIpResolver = requestClientIpResolver;
+    }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
@@ -38,28 +48,42 @@ public class AccessLogFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } finally {
             long durationMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime);
-            accessLog.info(
-                    "method={} path={} status={} durationMs={} remoteIp={}",
-                    request.getMethod(),
-                    request.getRequestURI(),
-                    response.getStatus(),
-                    durationMs,
-                    resolveRemoteIp(request)
-            );
+            List<String> restoredKeys = restoreBusinessContext(request);
+            try {
+                accessLog.info(
+                        "method={} path={} status={} durationMs={} remoteIp={}",
+                        request.getMethod(),
+                        request.getRequestURI(),
+                        response.getStatus(),
+                        durationMs,
+                        requestClientIpResolver.resolve(request)
+                );
+            } finally {
+                restoredKeys.forEach(MDC::remove);
+            }
         }
     }
 
-    private String resolveRemoteIp(HttpServletRequest request) {
-        String forwardedFor = request.getHeader("X-Forwarded-For");
-        if (forwardedFor == null || forwardedFor.isBlank()) {
-            return request.getRemoteAddr();
+    private List<String> restoreBusinessContext(HttpServletRequest request) {
+        Map<String, String> context = RequestBusinessContextInterceptor.getRequestContext(request);
+        if (context.isEmpty()) {
+            return List.of();
         }
 
-        int splitIndex = forwardedFor.indexOf(',');
-        if (splitIndex < 0) {
-            return forwardedFor.trim();
+        List<String> restoredKeys = new ArrayList<>();
+        context.forEach((key, value) -> {
+            if (StringUtils.hasText(key) && StringUtils.hasText(value)) {
+                MDC.put(key, value);
+                restoredKeys.add(key);
+            }
+        });
+
+        String bizContext = RequestBusinessContextInterceptor.getBizContext(request);
+        if (StringUtils.hasText(bizContext)) {
+            MDC.put("bizContext", bizContext);
+            restoredKeys.add("bizContext");
         }
 
-        return forwardedFor.substring(0, splitIndex).trim();
+        return restoredKeys;
     }
 }

@@ -1,5 +1,6 @@
 package com.dramatv.community.discussion.dto.response;
 
+import com.dramatv.community.discussion.dto.response.DiscussionHomeResponse.ThreadCard;
 import java.util.List;
 
 public record DiscussionThreadDetailResponse(
@@ -15,7 +16,9 @@ public record DiscussionThreadDetailResponse(
         String lastActivityAt,
         List<String> tagNames,
         ViewerActions viewerActions,
-        Binding binding
+        CommentPolicy commentPolicy,
+        Binding binding,
+        List<ThreadCard> relatedThreads
 ) {
     public record Channel(
             String slug,
@@ -40,6 +43,12 @@ public record DiscussionThreadDetailResponse(
     public record ViewerActions(
             boolean liked,
             boolean favorited
+    ) {
+    }
+
+    public record CommentPolicy(
+            boolean commentingEnabled,
+            boolean canManageComments
     ) {
     }
 

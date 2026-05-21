@@ -1,4 +1,10 @@
+import { stripDiscussionContentToPlainText } from "@/lib/discussion-content";
+
 const BLOCKED_ASSET_HOSTS = ["cdn.dramatv.local"];
+const COMMUNITY_API_BASE_URL =
+  process.env.NEXT_PUBLIC_DRAMATV_API_BASE_URL?.trim() ||
+  process.env.DRAMATV_API_BASE_URL?.trim() ||
+  "";
 const DISCUSSION_LABEL_OVERRIDES: Array<{
   pattern: RegExp;
   label: string;
@@ -56,7 +62,7 @@ export function normalizeText(value?: string | null): string | undefined {
     return undefined;
   }
 
-  return trimmed;
+  return decodeEscapedUnicodeText(trimmed);
 }
 
 export function normalizeAssetUrl(value?: string | null): string | undefined {
@@ -70,7 +76,12 @@ export function normalizeAssetUrl(value?: string | null): string | undefined {
     return undefined;
   }
 
-  return url;
+  const normalizedUrl = rewriteLocalDevelopmentAssetUrl(url);
+  if (normalizedUrl.startsWith("/media/") && COMMUNITY_API_BASE_URL) {
+    return `${COMMUNITY_API_BASE_URL.replace(/\/$/, "")}${normalizedUrl}`;
+  }
+
+  return normalizedUrl;
 }
 
 export function isVideoAssetUrl(value?: string | null): boolean {
@@ -85,6 +96,30 @@ export function isVideoAssetUrl(value?: string | null): boolean {
 
 function containsCjk(value: string): boolean {
   return /[\u3400-\u9fff]/.test(value);
+}
+
+function decodeEscapedUnicodeText(value: string): string {
+  if (!/\\[uU][0-9a-fA-F]{4}/.test(value)) {
+    return value;
+  }
+
+  return value.replace(/\\[uU]([0-9a-fA-F]{4})/g, (_, codePoint: string) =>
+    String.fromCharCode(Number.parseInt(codePoint, 16))
+  );
+}
+
+function rewriteLocalDevelopmentAssetUrl(url: string): string {
+  try {
+    const parsed = new URL(url);
+    if (!["127.0.0.1", "localhost"].includes(parsed.hostname)) {
+      return url;
+    }
+
+    const rewrittenPath = `${parsed.pathname}${parsed.search}${parsed.hash}`;
+    return rewrittenPath || url;
+  } catch {
+    return url;
+  }
 }
 
 function isAsciiHeavy(value: string): boolean {
@@ -161,7 +196,7 @@ export function formatDiscussionDisplayTitle(value?: string | null): string | un
 }
 
 export function formatDiscussionDisplayExcerpt(value?: string | null): string | undefined {
-  const excerpt = normalizeText(value);
+  const excerpt = normalizeText(stripDiscussionContentToPlainText(value ?? ""));
   if (!excerpt) {
     return undefined;
   }
@@ -245,5 +280,35 @@ export function formatRuntimeStatus(statusCode?: string | null): string {
       return "Archived";
     default:
       return normalizeText(statusCode) ?? "Unknown";
+  }
+}
+
+export function formatContentKindBadge(
+  contentKind: "prompt" | "workflow_work" | "post"
+): string {
+  switch (contentKind) {
+    case "prompt":
+      return "提示词";
+    case "post":
+      return "帖子";
+    case "workflow_work":
+    default:
+      return "工作流";
+  }
+}
+
+export function formatEntityTypeBadge(
+  itemType: "video" | "workflow" | "prompt" | "post"
+): string {
+  switch (itemType) {
+    case "workflow":
+      return "工作流";
+    case "prompt":
+      return "提示词";
+    case "post":
+      return "帖子";
+    case "video":
+    default:
+      return "作品";
   }
 }

@@ -1,0 +1,43 @@
+{
+  "rank": 121,
+  "id": "2047636636847231222",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 114,
+  "title": "E-commerce Main Image - Skincare Product Studio Shot",
+  "description": "Poster & Illustration Cases curated case: E-commerce Main Image - Skincare Product Studio Shot, source author Strength04_X.",
+  "language": "",
+  "authorName": "Strength04_X",
+  "authorLink": "https://x.com/Strength04_X",
+  "sourceLink": "https://x.com/Strength04_X/status/2047636636847231222",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case114/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case114/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

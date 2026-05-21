@@ -1,0 +1,844 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 34px 0 120px;
+  color: #ffffff;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 255, 255, 0.03), transparent 22%),
+    radial-gradient(circle at 86% 14%, rgba(255, 255, 255, 0.018), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 28%);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(1500px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.pageGrid {
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr) 336px;
+  gap: 40px;
+  align-items: start;
+}
+
+.mainColumn {
+  display: grid;
+  gap: 26px;
+  min-width: 0;
+}
+
+.sideRail {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 18px;
+  align-self: start;
+}
+
+.breadcrumb,
+.kickerRow,
+.tagRow,
+.metricsPanel,
+.metricButton,
+.metricButtonActive,
+.heroMeta,
+.heroAuthor,
+.heroFacts,
+.commentsHeader,
+.commentActions,
+.sideTagList {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb {
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.breadcrumb a {
+  color: inherit;
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.24);
+}
+
+.hero {
+  width: 100%;
+}
+
+.heroContent {
+  display: grid;
+  gap: 18px;
+  padding-right: 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kickerRow {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kicker,
+.channelPill,
+.sideLabel,
+.sectionEyebrow {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.channelPill {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.heroTitle {
+  max-width: 100%;
+  margin: 0;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: clamp(2.1rem, 3.1vw, 3.56rem);
+  line-height: 1.06;
+  letter-spacing: -0.06em;
+}
+
+.heroMeta {
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.heroAuthor,
+.sideAuthor {
+  gap: 14px;
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.82);
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.heroAuthor:hover,
+.sideAuthor:hover {
+  color: #ffffff;
+}
+
+.heroAuthorCopy,
+.sideAuthorCopy {
+  display: grid;
+  gap: 3px;
+}
+
+.heroAuthorCopy strong,
+.sideAuthorCopy strong {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.heroAuthorCopy span,
+.sideAuthorCopy span,
+.sideAuthorMeta,
+.sideCopy,
+.infoList span,
+.sideStatItem span,
+.relatedCopy span {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.heroAuthorCopy span,
+.sideAuthorCopy span,
+.infoList span,
+.sideStatItem span {
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.heroFacts {
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.heroFacts span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.heroSummary {
+  max-width: 820px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.98rem;
+  line-height: 1.82;
+}
+
+.authorAvatar,
+.commentAvatar {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.authorAvatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+}
+
+.avatarImage,
+.avatarFallback {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarImage {
+  background-position: center;
+  background-size: cover;
+}
+
+.avatarFallback {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.outlineRail {
+  position: sticky;
+  top: 108px;
+}
+
+.outlineCard,
+.sideCard {
+  display: grid;
+  gap: 16px;
+}
+
+.outlineList,
+.relatedList,
+.infoList {
+  display: grid;
+  gap: 12px;
+}
+
+.outlineItem {
+  position: relative;
+  padding-left: 16px;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  transition: color 180ms ease;
+}
+
+.outlineItem:hover {
+  color: #ffffff;
+}
+
+.outlineItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52rem;
+  width: 7px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.outlineItem[data-depth="2"] {
+  padding-left: 28px;
+  font-size: 0.84rem;
+}
+
+.outlineItem[data-depth="2"]::before {
+  left: 12px;
+}
+
+.outlineItem[data-depth="3"] {
+  padding-left: 40px;
+  font-size: 0.8rem;
+}
+
+.outlineItem[data-depth="3"]::before {
+  left: 24px;
+}
+
+.outlineFallback {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.articleCard {
+  width: 100%;
+  min-width: 0;
+}
+
+.articleIntro {
+  margin-bottom: 26px;
+}
+
+.tagRow,
+.sideTagList {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sectionHeaderCopy {
+  display: grid;
+  gap: 7px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: clamp(1.78rem, 2vw, 2.34rem);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+
+.markdown {
+  width: 100%;
+  max-width: none;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.04rem;
+  line-height: 1.92;
+}
+
+.metricsPanel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metricButton,
+.metricButtonActive {
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  width: 100%;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.024);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.metricButton svg,
+.metricButtonActive svg {
+  width: 17px;
+  height: 17px;
+}
+
+.metricButtonActive {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+.metricButton:hover,
+.metricButtonActive:hover {
+  transform: translateY(-1px);
+}
+
+.notice {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.noticeSuccess {
+  color: rgba(188, 245, 207, 0.9);
+}
+
+.noticeError {
+  color: rgba(255, 172, 172, 0.9);
+}
+
+.sideCard {
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.014), rgba(255, 255, 255, 0.004)),
+    rgba(10, 10, 10, 0.2);
+}
+
+.sideAuthorMeta {
+  margin: -4px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.sideCopy {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.74;
+}
+
+.sideStatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.sideStatItem {
+  display: grid;
+  gap: 5px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.sideStatItem strong,
+.infoList strong,
+.relatedCopy strong {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.sideStatItem strong {
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.infoList div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.infoList div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.infoList strong {
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.relatedItem {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  color: rgba(255, 255, 255, 0.82);
+  transition: transform 180ms ease;
+}
+
+.relatedItem:hover {
+  transform: translateY(-1px);
+}
+
+.relatedThumb {
+  aspect-ratio: 1.35 / 1;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015)),
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.06), transparent 40%),
+    #111318;
+}
+
+.relatedCopy {
+  display: grid;
+  gap: 6px;
+}
+
+.relatedCopy strong {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.relatedCopy span {
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.commentsSection {
+  display: grid;
+  gap: 24px;
+}
+
+.commentsHeader {
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.commentsHeader strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.84rem;
+}
+
+.commentsHeader h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: clamp(1.52rem, 1.95vw, 2rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.composer {
+  display: grid;
+  gap: 12px;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 0;
+  background: transparent;
+}
+
+.composer textarea {
+  min-height: 52px;
+  max-height: 52px;
+  resize: none;
+  padding: 15px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.016);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.94rem;
+  line-height: 1.45;
+  outline: none;
+}
+
+.composer textarea:focus {
+  border-color: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.024);
+}
+
+.composer textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.composerFooter {
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.composerFooter span {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.commentList {
+  display: grid;
+  gap: 0;
+  padding-top: 2px;
+}
+
+.commentItem {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.commentItem:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.commentAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 15px;
+}
+
+.commentBody {
+  display: grid;
+  gap: 10px;
+}
+
+.commentMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.commentMeta strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+}
+
+.commentMeta span,
+.commentActions span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.commentBody p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+  line-height: 1.76;
+}
+
+.commentActions {
+  gap: 16px;
+}
+
+.textButton,
+.textButtonActive {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.textButtonActive {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.commentEmpty {
+  margin: 0;
+  padding: 18px 4px 6px 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.9rem;
+  line-height: 1.72;
+}
+
+:global(:root[data-theme="light"]) .page {
+  color: #111111;
+}
+
+:global(:root[data-theme="light"]) .page::before {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(15, 23, 42, 0.04), transparent 24%),
+    radial-gradient(circle at 84% 14%, rgba(15, 23, 42, 0.03), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0));
+}
+
+:global(:root[data-theme="light"]) .breadcrumb,
+:global(:root[data-theme="light"]) .breadcrumb a,
+:global(:root[data-theme="light"]) .kicker,
+:global(:root[data-theme="light"]) .sideLabel,
+:global(:root[data-theme="light"]) .sectionEyebrow,
+:global(:root[data-theme="light"]) .heroAuthorCopy span,
+:global(:root[data-theme="light"]) .sideAuthorCopy span,
+:global(:root[data-theme="light"]) .sideAuthorMeta,
+:global(:root[data-theme="light"]) .heroFacts span,
+:global(:root[data-theme="light"]) .heroSummary,
+:global(:root[data-theme="light"]) .outlineItem,
+:global(:root[data-theme="light"]) .outlineFallback,
+:global(:root[data-theme="light"]) .infoList span,
+:global(:root[data-theme="light"]) .sideStatItem span,
+:global(:root[data-theme="light"]) .sideCopy,
+:global(:root[data-theme="light"]) .relatedCopy span,
+:global(:root[data-theme="light"]) .composerFooter span,
+:global(:root[data-theme="light"]) .commentMeta span,
+:global(:root[data-theme="light"]) .commentActions span,
+:global(:root[data-theme="light"]) .textButton,
+:global(:root[data-theme="light"]) .notice,
+:global(:root[data-theme="light"]) .commentEmpty {
+  color: rgba(17, 24, 39, 0.66);
+}
+
+:global(:root[data-theme="light"]) .heroTitle,
+:global(:root[data-theme="light"]) .heroAuthorCopy strong,
+:global(:root[data-theme="light"]) .sideAuthorCopy strong,
+:global(:root[data-theme="light"]) .sideStatItem strong,
+:global(:root[data-theme="light"]) .infoList strong,
+:global(:root[data-theme="light"]) .relatedCopy strong,
+:global(:root[data-theme="light"]) .sectionHeader h2,
+:global(:root[data-theme="light"]) .commentsHeader h2,
+:global(:root[data-theme="light"]) .commentMeta strong,
+:global(:root[data-theme="light"]) .metricButton,
+:global(:root[data-theme="light"]) .metricButtonActive {
+  color: #111111;
+}
+
+:global(:root[data-theme="light"]) .breadcrumbSeparator,
+:global(:root[data-theme="light"]) .outlineItem::before {
+  background: rgba(15, 23, 42, 0.22);
+  color: rgba(15, 23, 42, 0.22);
+}
+
+:global(:root[data-theme="light"]) .channelPill,
+:global(:root[data-theme="light"]) .metricButton,
+:global(:root[data-theme="light"]) .relatedThumb,
+:global(:root[data-theme="light"]) .authorAvatar,
+:global(:root[data-theme="light"]) .commentAvatar {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+:global(:root[data-theme="light"]) .sideCard {
+  border-color: rgba(15, 23, 42, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.74)),
+    rgba(255, 255, 255, 0.86);
+}
+
+:global(:root[data-theme="light"]) .articleIntro,
+:global(:root[data-theme="light"]) .heroContent,
+:global(:root[data-theme="light"]) .metricsPanel,
+:global(:root[data-theme="light"]) .composer,
+:global(:root[data-theme="light"]) .commentItem,
+:global(:root[data-theme="light"]) .infoList div,
+:global(:root[data-theme="light"]) .sideStatItem {
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+:global(:root[data-theme="light"]) .metricButtonActive {
+  border-color: rgba(15, 23, 42, 0.14);
+  background: rgba(15, 23, 42, 0.08);
+}
+
+:global(:root[data-theme="light"]) .commentsHeader strong {
+  background: rgba(15, 23, 42, 0.06);
+  color: rgba(17, 24, 39, 0.78);
+}
+
+:global(:root[data-theme="light"]) .avatarFallback {
+  color: #111111;
+}
+
+:global(:root[data-theme="light"]) .composer textarea {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  color: #111111;
+}
+
+:global(:root[data-theme="light"]) .composer textarea:focus {
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+:global(:root[data-theme="light"]) .composer textarea::placeholder {
+  color: rgba(17, 24, 39, 0.42);
+}
+
+:global(:root[data-theme="light"]) .commentBody p {
+  color: rgba(17, 24, 39, 0.88);
+}
+
+@media (max-width: 1180px) {
+  .shell {
+    width: min(1220px, calc(100vw - 36px));
+  }
+
+  .pageGrid {
+    grid-template-columns: 148px minmax(0, 1fr) 300px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 980px) {
+  .pageGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sideRail {
+    position: static;
+    order: 2;
+  }
+
+  .outlineRail {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 24px;
+  }
+
+  .shell {
+    width: calc(100vw - 22px);
+  }
+
+  .heroTitle {
+    font-size: clamp(1.84rem, 9vw, 2.8rem);
+  }
+
+  .heroMeta,
+  .commentsHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .metricsPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .sideCard {
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+
+  .relatedItem {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+}

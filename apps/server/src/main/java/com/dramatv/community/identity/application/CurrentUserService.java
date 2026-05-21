@@ -1,6 +1,7 @@
 package com.dramatv.community.identity.application;
 
 import com.dramatv.community.shared.error.ApiBusinessException;
+import com.dramatv.community.shared.media.MediaAssetUrlResolver;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -11,9 +12,14 @@ import org.springframework.stereotype.Service;
 public class CurrentUserService {
 
     private final JdbcTemplate jdbcTemplate;
+    private final MediaAssetUrlResolver mediaAssetUrlResolver;
 
-    public CurrentUserService(JdbcTemplate jdbcTemplate) {
+    public CurrentUserService(
+            JdbcTemplate jdbcTemplate,
+            MediaAssetUrlResolver mediaAssetUrlResolver
+    ) {
         this.jdbcTemplate = jdbcTemplate;
+        this.mediaAssetUrlResolver = mediaAssetUrlResolver;
     }
 
     public Optional<CurrentUser> findByAccessToken(String accessToken) {
@@ -24,7 +30,9 @@ public class CurrentUserService {
                     user_account.id,
                     user_account.username,
                     user_account.display_name,
-                    user_account.avatar_url,
+                    coalesce(avatar_asset.object_key, user_account.avatar_url) as avatar_url,
+                    avatar_asset.storage_provider as avatar_storage_provider,
+                    avatar_asset.bucket_name as avatar_bucket_name,
                     user_account.bio,
                     user_account.role_code,
                     user_account.identity_provider,
@@ -33,6 +41,7 @@ public class CurrentUserService {
                 from auth_sessions session
                 join users user_account on user_account.id = session.user_id
                 left join creator_profiles creator_profile on creator_profile.user_id = user_account.id
+                left join media_assets avatar_asset on avatar_asset.id = user_account.avatar_asset_id
                 where session.token_hash = ?
                   and session.status_code = 'active'
                   and session.expires_at > now()
@@ -54,7 +63,11 @@ public class CurrentUserService {
                             (UUID) resultSet.getObject("id"),
                             resultSet.getString("username"),
                             resultSet.getString("display_name"),
-                            resultSet.getString("avatar_url"),
+                            mediaAssetUrlResolver.resolve(
+                                    resultSet.getString("avatar_storage_provider"),
+                                    resultSet.getString("avatar_bucket_name"),
+                                    resultSet.getString("avatar_url")
+                            ),
                             resultSet.getString("bio"),
                             resultSet.getString("headline"),
                             resultSet.getString("role_code"),

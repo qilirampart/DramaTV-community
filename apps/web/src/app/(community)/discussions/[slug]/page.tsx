@@ -1,26 +1,34 @@
 import { CommunityBackendUnavailableState } from "@/components/shared/CommunityBackendUnavailableState";
 import { notFound } from "next/navigation";
 import { DiscussionDetailPage } from "@/features/discussions/DiscussionDetailPage";
+import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import {
   getComments,
   getDiscussionThread,
   isCommunityBackendUnavailableError
 } from "@/lib/api/community-service";
 import { mapDiscussionDetailPageView } from "@/lib/mappers/community";
+import { normalizeBackTarget, normalizeDynamicSegment } from "@/lib/routes/redirect-utils";
 
 type DiscussionDetailRouteProps = {
   params: Promise<{
     slug: string;
   }>;
+  searchParams?: Promise<{
+    from?: string;
+  }>;
 };
 
-export default async function DiscussionDetailRoute({ params }: DiscussionDetailRouteProps) {
+export default async function DiscussionDetailRoute({ params, searchParams }: DiscussionDetailRouteProps) {
   const { slug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const normalizedSlug = normalizeDynamicSegment(slug);
+  const backHref = normalizeBackTarget(resolvedSearchParams?.from, "/discussions");
   let detail: Awaited<ReturnType<typeof getDiscussionThread>>;
   let comments: Awaited<ReturnType<typeof getComments>>;
 
   try {
-    detail = await getDiscussionThread(slug);
+    detail = await getDiscussionThread(normalizedSlug);
     if (!detail.data) {
       notFound();
     }
@@ -32,7 +40,7 @@ export default async function DiscussionDetailRoute({ params }: DiscussionDetail
         <CommunityBackendUnavailableState
           title="Discussion thread unavailable"
           description="The discussion thread page could not load live detail data from the backend."
-          detail={error.message}
+          detail={formatCommunityActionError(error, "服务暂时不可用，请稍后重试。")}
           requestId={error.requestId}
         />
       );
@@ -42,5 +50,5 @@ export default async function DiscussionDetailRoute({ params }: DiscussionDetail
   }
 
   const view = mapDiscussionDetailPageView({ ...detail, data: detail.data }, comments);
-  return <DiscussionDetailPage view={view} />;
+  return <DiscussionDetailPage view={view} backHref={backHref} />;
 }

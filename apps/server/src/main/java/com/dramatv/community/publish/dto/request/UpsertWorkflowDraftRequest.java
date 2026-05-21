@@ -10,6 +10,7 @@ public record UpsertWorkflowDraftRequest(
         Boolean allowCopy,
         Boolean allowFork,
         String visibility,
-        String coverAssetId
+        String coverAssetId,
+        String exampleAssetId
 ) {
 }

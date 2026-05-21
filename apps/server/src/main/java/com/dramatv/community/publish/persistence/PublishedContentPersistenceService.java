@@ -1,13 +1,16 @@
 package com.dramatv.community.publish.persistence;
 
 import com.dramatv.community.shared.error.ApiBusinessException;
+import com.dramatv.community.shared.support.RichTextExcerptSupport;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.math.BigDecimal;
 import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.Types;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +18,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PublishedContentPersistenceService {
+
+    private static final String CATEGORY_VIDEO_PROMPT = "video_prompt";
+    private static final String CATEGORY_IMAGE_PROMPT = "image_prompt";
 
     private final JdbcTemplate jdbcTemplate;
     private final ObjectMapper objectMapper;
@@ -41,15 +47,38 @@ public class PublishedContentPersistenceService {
         String visibility = textOrFallback(payloadJson, "visibility", null, "public");
         boolean allowCopy = booleanOrDefault(payloadJson, "allowCopy", true);
         boolean allowFork = booleanOrDefault(payloadJson, "allowFork", false);
-        UUID coverAssetId = resolveReadyAssetId(nullableText(payloadJson, "coverAssetId"));
+        ReadyAsset coverAsset = resolveOptionalReadyAsset(
+                nullableText(payloadJson, "coverAssetId"),
+                "WORKFLOW_COVER_ASSET_INVALID",
+                "workflow cover asset is invalid or not ready"
+        );
+        if (coverAsset != null && !"image".equals(coverAsset.assetKind())) {
+            throw ApiBusinessException.badRequest("WORKFLOW_COVER_ASSET_KIND_INVALID", "workflow cover asset must be an image");
+        }
+
+        ReadyAsset exampleAsset = resolveRequiredReadyAsset(
+                nullableText(payloadJson, "exampleAssetId"),
+                "WORKFLOW_EXAMPLE_ASSET_REQUIRED",
+                "WORKFLOW_EXAMPLE_ASSET_INVALID",
+                "workflow example asset is invalid or not ready"
+        );
+        if (!"video".equals(exampleAsset.assetKind())) {
+            throw ApiBusinessException.badRequest(
+                    "WORKFLOW_EXAMPLE_ASSET_KIND_INVALID",
+                    "workflow example asset must be a video"
+            );
+        }
+
+        UUID coverAssetId = coverAsset == null ? null : coverAsset.id();
+        UUID exampleAssetId = exampleAsset.id();
 
         jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement("""
                     insert into workflows (
                         id, author_id, title, summary, scenario_text, tag_names, visibility,
-                        publish_status, allow_copy, allow_fork, cover_asset_id, published_at, created_at, updated_at
+                        publish_status, allow_copy, allow_fork, cover_asset_id, example_asset_id, published_at, created_at, updated_at
                     )
-                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null, now(), now())
+                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())
                     on conflict (id) do update
                     set title = excluded.title,
                         summary = excluded.summary,
@@ -60,6 +89,8 @@ public class PublishedContentPersistenceService {
                         allow_copy = excluded.allow_copy,
                         allow_fork = excluded.allow_fork,
                         cover_asset_id = excluded.cover_asset_id,
+                        example_asset_id = excluded.example_asset_id,
+                        published_at = excluded.published_at,
                         updated_at = now()
                     """);
             statement.setObject(1, workflowId);
@@ -69,10 +100,12 @@ public class PublishedContentPersistenceService {
             statement.setString(5, scenarioText);
             statement.setArray(6, createTextArray(connection.createArrayOf("text", tagNames.toArray(String[]::new))));
             statement.setString(7, visibility);
-            statement.setString(8, "in_review");
+            statement.setString(8, "published");
             statement.setBoolean(9, allowCopy);
             statement.setBoolean(10, allowFork);
             setNullableUuid(statement, 11, coverAssetId);
+            setNullableUuid(statement, 12, exampleAssetId);
+            statement.setObject(13, OffsetDateTime.now());
             return statement;
         });
 
@@ -87,24 +120,43 @@ public class PublishedContentPersistenceService {
             String titleDraft,
             String submitMode
     ) {
+        String categoryCode = nullableText(payloadJson, "categoryCode");
+        if (isPromptCategory(categoryCode)) {
+            upsertPromptForReview(videoId, authorId, payloadJson, titleDraft, submitMode, categoryCode);
+            return;
+        }
+
         UUID previousWorkflowId = findExistingVideoWorkflowId(videoId);
 
         String title = textOrFallback(payloadJson, "title", titleDraft, "Untitled video");
         String summary = nullableText(payloadJson, "summary");
-        String categoryCode = nullableText(payloadJson, "categoryCode");
         List<String> tagNames = stringList(payloadJson.get("tagNames"));
         String visibility = textOrFallback(payloadJson, "visibility", null, "public");
         UUID workflowId = resolveExistingWorkflowId(nullableText(payloadJson, "workflowId"));
-        UUID coverAssetId = resolveReadyAssetId(nullableText(payloadJson, "coverAssetId"));
-        String sourceAssetIdText = nullableText(payloadJson, "sourceAssetId");
-        UUID sourceAssetId = resolveReadyAssetId(sourceAssetIdText);
-        if (sourceAssetIdText == null) {
-            throw ApiBusinessException.badRequest("VIDEO_SOURCE_ASSET_REQUIRED", "video source asset is required");
+        ReadyAsset coverAsset = resolveOptionalReadyAsset(
+                nullableText(payloadJson, "coverAssetId"),
+                "VIDEO_COVER_ASSET_INVALID",
+                "video cover asset is invalid or not ready"
+        );
+        if (coverAsset != null && !"image".equals(coverAsset.assetKind())) {
+            throw ApiBusinessException.badRequest("VIDEO_COVER_ASSET_KIND_INVALID", "video cover asset must be an image");
         }
-        if (sourceAssetId == null) {
-            throw ApiBusinessException.badRequest("VIDEO_SOURCE_ASSET_INVALID", "video source asset is invalid or not ready");
+
+        ReadyAsset sourceAsset = resolveRequiredReadyAsset(
+                nullableText(payloadJson, "sourceAssetId"),
+                "VIDEO_SOURCE_ASSET_REQUIRED",
+                "VIDEO_SOURCE_ASSET_INVALID",
+                "video source asset is invalid or not ready"
+        );
+        if (!"video".equals(sourceAsset.assetKind())) {
+            throw ApiBusinessException.badRequest("VIDEO_SOURCE_ASSET_KIND_INVALID", "video source asset must be a video");
         }
-        Integer durationMs = sourceAssetId == null ? null : findAssetDurationMs(sourceAssetId);
+
+        UUID coverAssetId = coverAsset == null ? null : coverAsset.id();
+        UUID sourceAssetId = sourceAsset.id();
+        Integer durationMs = sourceAsset.durationMs();
+
+        OffsetDateTime now = OffsetDateTime.now();
 
         jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement("""
@@ -113,7 +165,7 @@ public class PublishedContentPersistenceService {
                         visibility, publish_status, cover_asset_id, source_asset_id, duration_ms,
                         published_at, created_at, updated_at
                     )
-                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null, now(), now())
+                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())
                     on conflict (id) do update
                     set workflow_id = excluded.workflow_id,
                         title = excluded.title,
@@ -125,6 +177,7 @@ public class PublishedContentPersistenceService {
                         cover_asset_id = excluded.cover_asset_id,
                         source_asset_id = excluded.source_asset_id,
                         duration_ms = excluded.duration_ms,
+                        published_at = excluded.published_at,
                         updated_at = now()
                     """);
             statement.setObject(1, videoId);
@@ -135,10 +188,11 @@ public class PublishedContentPersistenceService {
             statement.setString(6, categoryCode);
             statement.setArray(7, createTextArray(connection.createArrayOf("text", tagNames.toArray(String[]::new))));
             statement.setString(8, visibility);
-            statement.setString(9, "in_review");
+            statement.setString(9, "published");
             setNullableUuid(statement, 10, coverAssetId);
             setNullableUuid(statement, 11, sourceAssetId);
             setNullableInteger(statement, 12, durationMs);
+            statement.setObject(13, now);
             return statement;
         });
 
@@ -146,6 +200,129 @@ public class PublishedContentPersistenceService {
         syncCreatorProfileCounts(authorId);
         syncWorkflowVideoBindCount(previousWorkflowId);
         syncWorkflowVideoBindCount(workflowId);
+    }
+
+    private void upsertPromptForReview(
+            UUID promptId,
+            UUID authorId,
+            ObjectNode payloadJson,
+            String titleDraft,
+            String submitMode,
+            String categoryCode
+    ) {
+        String modality = promptModalityFromCategoryCode(categoryCode);
+        if (modality == null) {
+            throw ApiBusinessException.badRequest("PROMPT_MODALITY_INVALID", "prompt modality is invalid");
+        }
+
+        String title = textOrFallback(payloadJson, "title", titleDraft, "Untitled prompt");
+        String summary = nullableText(payloadJson, "summary");
+        String promptText = nullableText(payloadJson, "promptText");
+        if (promptText == null) {
+            throw ApiBusinessException.badRequest("PROMPT_TEXT_REQUIRED", "prompt text is required");
+        }
+        String promptTextZh = nullableText(payloadJson, "promptTextZh");
+        String promptTextEn = nullableText(payloadJson, "promptTextEn");
+        String promptTextRaw = textOrFallback(payloadJson, "promptTextRaw", promptText, promptText);
+        String modelName = nullableText(payloadJson, "modelName");
+        String modelCategory = nullableText(payloadJson, "modelCategory");
+        String contentCategory = nullableText(payloadJson, "contentCategory");
+        String compositionCategory = nullableText(payloadJson, "compositionCategory");
+        String sourcePlatform = nullableText(payloadJson, "sourcePlatform");
+        String sourceCampaign = nullableText(payloadJson, "sourceCampaign");
+        String sourceItemId = nullableText(payloadJson, "sourceItemId");
+        String sourceUrl = nullableText(payloadJson, "sourceUrl");
+
+        List<String> tagNames = stringList(payloadJson.get("tagNames"));
+        String visibility = textOrFallback(payloadJson, "visibility", null, "public");
+        ReadyAsset coverAsset = resolveOptionalReadyAsset(
+                nullableText(payloadJson, "coverAssetId"),
+                "PROMPT_COVER_ASSET_INVALID",
+                "prompt cover asset is invalid or not ready"
+        );
+        if (coverAsset != null && !"image".equals(coverAsset.assetKind())) {
+            throw ApiBusinessException.badRequest("PROMPT_COVER_ASSET_KIND_INVALID", "prompt cover asset must be an image");
+        }
+
+        ReadyAsset exampleAsset = resolveRequiredReadyAsset(
+                nullableText(payloadJson, "sourceAssetId"),
+                "PROMPT_EXAMPLE_ASSET_REQUIRED",
+                "PROMPT_EXAMPLE_ASSET_INVALID",
+                "prompt example asset is invalid or not ready"
+        );
+        if (!modality.equals(exampleAsset.assetKind())) {
+            throw ApiBusinessException.badRequest(
+                    "PROMPT_EXAMPLE_ASSET_KIND_INVALID",
+                    "prompt example asset kind does not match prompt modality"
+            );
+        }
+
+        OffsetDateTime publishedAt = parsePublishedAt(nullableText(payloadJson, "publishedAt"), OffsetDateTime.now());
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement statement = connection.prepareStatement("""
+                    insert into prompt_entries (
+                        id, author_id, title, summary, modality, prompt_text, prompt_text_zh, prompt_text_en, prompt_text_raw,
+                        model_name, model_category, content_category, composition_category,
+                        source_platform, source_campaign, source_item_id, source_url,
+                        visibility, publish_status, cover_asset_id, primary_example_asset_id, tag_names,
+                        example_count, published_at, created_at, updated_at
+                    )
+                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'published', ?, ?, ?, 1, ?, now(), now())
+                    on conflict (id) do update
+                    set title = excluded.title,
+                        summary = excluded.summary,
+                        modality = excluded.modality,
+                        prompt_text = excluded.prompt_text,
+                        prompt_text_zh = excluded.prompt_text_zh,
+                        prompt_text_en = excluded.prompt_text_en,
+                        prompt_text_raw = excluded.prompt_text_raw,
+                        model_name = excluded.model_name,
+                        model_category = excluded.model_category,
+                        content_category = excluded.content_category,
+                        composition_category = excluded.composition_category,
+                        source_platform = excluded.source_platform,
+                        source_campaign = excluded.source_campaign,
+                        source_item_id = excluded.source_item_id,
+                        source_url = excluded.source_url,
+                        visibility = excluded.visibility,
+                        publish_status = excluded.publish_status,
+                        cover_asset_id = excluded.cover_asset_id,
+                        primary_example_asset_id = excluded.primary_example_asset_id,
+                        tag_names = excluded.tag_names,
+                        example_count = excluded.example_count,
+                        published_at = excluded.published_at,
+                        updated_at = now()
+                    """);
+            statement.setObject(1, promptId);
+            statement.setObject(2, authorId);
+            statement.setString(3, title);
+            statement.setString(4, summary);
+            statement.setString(5, modality);
+            statement.setString(6, promptText);
+            statement.setString(7, promptTextZh);
+            statement.setString(8, promptTextEn);
+            statement.setString(9, promptTextRaw);
+            statement.setString(10, modelName);
+            statement.setString(11, modelCategory);
+            statement.setString(12, contentCategory);
+            statement.setString(13, compositionCategory);
+            statement.setString(14, sourcePlatform);
+            statement.setString(15, sourceCampaign);
+            statement.setString(16, sourceItemId);
+            statement.setString(17, sourceUrl);
+            statement.setString(18, visibility);
+            setNullableUuid(statement, 19, coverAsset == null ? null : coverAsset.id());
+            statement.setObject(20, exampleAsset.id());
+            statement.setArray(21, createTextArray(connection.createArrayOf("text", tagNames.toArray(String[]::new))));
+            statement.setObject(22, publishedAt);
+            return statement;
+        });
+
+        replacePromptExampleLinks(promptId, exampleAsset.id());
+        insertAuditRecord("prompt", promptId, authorId, submitMode);
+        syncCreatorProfileCounts(authorId);
+        syncPublishedPromptFeed(promptId, publishedAt);
     }
 
     public void upsertDiscussionThreadForPublish(
@@ -216,6 +393,9 @@ public class PublishedContentPersistenceService {
             statement.setObject(12, now);
             return statement;
         });
+
+        insertAuditRecord("post", threadId, authorId, submitMode);
+        syncPublishedPostFeed(threadId, now);
     }
 
     private void insertAuditRecord(
@@ -237,7 +417,7 @@ public class PublishedContentPersistenceService {
                 targetType,
                 targetId,
                 "publish_review",
-                "pending_review",
+                "not_required",
                 "creator",
                 operatorId,
                 detailJson.toString()
@@ -248,8 +428,13 @@ public class PublishedContentPersistenceService {
         jdbcTemplate.update("""
                 update creator_profiles
                 set video_count = (
-                        select count(*) from videos
-                        where author_id = ? and publish_status = 'published' and deleted_at is null
+                        (
+                            select count(*) from videos
+                            where author_id = ? and publish_status = 'published' and deleted_at is null
+                        ) + (
+                            select count(*) from prompt_entries
+                            where author_id = ? and publish_status = 'published' and deleted_at is null
+                        )
                     ),
                     workflow_count = (
                         select count(*) from workflows
@@ -258,6 +443,7 @@ public class PublishedContentPersistenceService {
                     updated_at = now()
                 where user_id = ?
                 """,
+                authorId,
                 authorId,
                 authorId,
                 authorId
@@ -323,6 +509,30 @@ public class PublishedContentPersistenceService {
                 where id = ?
                 """,
                 resultSet -> resultSet.next() ? (Integer) resultSet.getObject("duration_ms") : null,
+                assetId
+        );
+    }
+
+    private ReadyAsset loadReadyAsset(String candidate) {
+        UUID assetId = parseUuid(candidate);
+        if (assetId == null) {
+            return null;
+        }
+
+        return jdbcTemplate.query("""
+                select id, asset_kind, asset_role, duration_ms
+                from media_assets
+                where id = ?
+                  and status_code = 'ready'
+                """,
+                resultSet -> resultSet.next()
+                        ? new ReadyAsset(
+                                (UUID) resultSet.getObject("id"),
+                                resultSet.getString("asset_kind"),
+                                resultSet.getString("asset_role"),
+                                (Integer) resultSet.getObject("duration_ms")
+                        )
+                        : null,
                 assetId
         );
     }
@@ -404,11 +614,42 @@ public class PublishedContentPersistenceService {
     }
 
     private String buildExcerpt(String content) {
-        String normalized = content == null ? "" : content.trim().replaceAll("\\s+", " ");
-        if (normalized.length() <= 140) {
-            return normalized;
+        return RichTextExcerptSupport.toExcerpt(content, 140);
+    }
+
+    private ReadyAsset resolveRequiredReadyAsset(
+            String candidate,
+            String requiredErrorCode,
+            String invalidErrorCode,
+            String invalidMessage
+    ) {
+        if (candidate == null) {
+            throw ApiBusinessException.badRequest(requiredErrorCode, invalidMessage.replace(" is invalid or not ready", " is required"));
         }
-        return normalized.substring(0, 140) + "...";
+
+        ReadyAsset asset = loadReadyAsset(candidate);
+        if (asset == null) {
+            throw ApiBusinessException.badRequest(invalidErrorCode, invalidMessage);
+        }
+
+        return asset;
+    }
+
+    private ReadyAsset resolveOptionalReadyAsset(
+            String candidate,
+            String invalidErrorCode,
+            String invalidMessage
+    ) {
+        if (candidate == null) {
+            return null;
+        }
+
+        ReadyAsset asset = loadReadyAsset(candidate);
+        if (asset == null) {
+            throw ApiBusinessException.badRequest(invalidErrorCode, invalidMessage);
+        }
+
+        return asset;
     }
 
     private String nextDiscussionSlug(String title, UUID threadId) {
@@ -429,6 +670,83 @@ public class PublishedContentPersistenceService {
         return base + "-" + threadId.toString().substring(0, 8);
     }
 
+    private void syncPublishedPostFeed(UUID threadId, OffsetDateTime publishedAt) {
+        BigDecimal rankScore = BigDecimal.valueOf(publishedAt.toEpochSecond())
+                .movePointLeft(2)
+                .setScale(4);
+
+        upsertFeedItem("recommend", "post", "post", threadId, rankScore, publishedAt);
+        upsertFeedItem("hot", "post", "post", threadId, rankScore, publishedAt);
+    }
+
+    private void syncPublishedPromptFeed(UUID promptId, OffsetDateTime publishedAt) {
+        BigDecimal rankScore = BigDecimal.valueOf(publishedAt.toEpochSecond())
+                .movePointLeft(2)
+                .setScale(4);
+
+        upsertFeedItem("recommend", "prompt", "prompt", promptId, rankScore, publishedAt);
+        upsertFeedItem("hot", "prompt", "prompt", promptId, rankScore, publishedAt);
+    }
+
+    private void replacePromptExampleLinks(UUID promptId, UUID exampleAssetId) {
+        jdbcTemplate.update("""
+                delete from prompt_example_links
+                where prompt_id = ?
+                """,
+                promptId
+        );
+
+        jdbcTemplate.update("""
+                insert into prompt_example_links (
+                    id, prompt_id, media_asset_id, role_code, sort_order, created_at
+                )
+                values (?, ?, ?, 'example', 0, now())
+                """,
+                UUID.randomUUID(),
+                promptId,
+                exampleAssetId
+        );
+    }
+
+    private void upsertFeedItem(
+            String channelCode,
+            String contentKind,
+            String targetType,
+            UUID targetId,
+            BigDecimal rankScore,
+            OffsetDateTime publishedAt
+    ) {
+        jdbcTemplate.update("""
+                insert into feed_items (
+                    id, channel_code, content_kind, item_type, target_type, target_id, rank_score, status_code, published_at, created_at, updated_at
+                )
+                values (?, ?, ?, ?, ?, ?, ?, 'active', ?, now(), now())
+                on conflict (channel_code, target_type, target_id) do update
+                set content_kind = excluded.content_kind,
+                    item_type = excluded.item_type,
+                    rank_score = excluded.rank_score,
+                    status_code = 'active',
+                    published_at = excluded.published_at,
+                    updated_at = now()
+                """,
+                UUID.randomUUID(),
+                channelCode,
+                contentKind,
+                legacyItemType(targetType),
+                targetType,
+                targetId,
+                rankScore,
+                publishedAt
+        );
+    }
+
+    private String legacyItemType(String targetType) {
+        if (targetType == null || targetType.isBlank()) {
+            return "video";
+        }
+        return targetType;
+    }
+
     private String slugify(String title) {
         String normalized = title == null ? "" : title.trim().toLowerCase();
         normalized = normalized.replaceAll("[^a-z0-9\\u4e00-\\u9fa5]+", "-");
@@ -439,6 +757,20 @@ public class PublishedContentPersistenceService {
         }
 
         return normalized.length() > 96 ? normalized.substring(0, 96) : normalized;
+    }
+
+    private boolean isPromptCategory(String categoryCode) {
+        return CATEGORY_VIDEO_PROMPT.equals(categoryCode) || CATEGORY_IMAGE_PROMPT.equals(categoryCode);
+    }
+
+    private String promptModalityFromCategoryCode(String categoryCode) {
+        if (CATEGORY_VIDEO_PROMPT.equals(categoryCode)) {
+            return "video";
+        }
+        if (CATEGORY_IMAGE_PROMPT.equals(categoryCode)) {
+            return "image";
+        }
+        return null;
     }
 
     private UUID parseUuid(String candidate) {
@@ -472,6 +804,18 @@ public class PublishedContentPersistenceService {
             return fallback.trim();
         }
         return defaultValue;
+    }
+
+    private OffsetDateTime parsePublishedAt(String candidate, OffsetDateTime fallback) {
+        if (candidate == null || candidate.isBlank()) {
+            return fallback;
+        }
+
+        try {
+            return OffsetDateTime.parse(candidate.trim());
+        } catch (DateTimeParseException ex) {
+            return fallback;
+        }
     }
 
     private boolean booleanOrDefault(ObjectNode payload, String fieldName, boolean fallback) {
@@ -515,6 +859,14 @@ public class PublishedContentPersistenceService {
     private record BindingTarget(
             String targetType,
             UUID targetId
+    ) {
+    }
+
+    private record ReadyAsset(
+            UUID id,
+            String assetKind,
+            String assetRole,
+            Integer durationMs
     ) {
     }
 }

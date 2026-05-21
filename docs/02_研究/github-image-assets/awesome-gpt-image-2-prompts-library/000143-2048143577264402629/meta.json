@@ -1,0 +1,43 @@
+{
+  "rank": 143,
+  "id": "2048143577264402629",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 136,
+  "title": "16-Pose Dance Reference Sheet",
+  "description": "Poster & Illustration Cases curated case: 16-Pose Dance Reference Sheet, source author ExquisitMe.",
+  "language": "",
+  "authorName": "ExquisitMe",
+  "authorLink": "https://x.com/ExquisitMe",
+  "sourceLink": "https://x.com/ExquisitMe/status/2048143577264402629",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case136/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case136/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

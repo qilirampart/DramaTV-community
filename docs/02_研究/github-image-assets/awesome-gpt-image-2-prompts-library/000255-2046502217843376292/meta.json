@@ -1,0 +1,56 @@
+{
+  "rank": 255,
+  "id": "2046502217843376292",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "comparison-and-community",
+  "sectionTitle": "Comparison & Community Examples",
+  "caseNumber": 36,
+  "title": "Among Us Realistic Screenshot",
+  "description": "Comparison & Community Examples curated case: Among Us Realistic Screenshot, source author ReYYYYoking.",
+  "language": "ja",
+  "authorName": "ReYYYYoking",
+  "authorLink": "https://x.com/ReYYYYoking",
+  "sourceLink": "https://x.com/ReYYYYoking/status/2046502217843376292",
+  "sourcePublishedAt": "Tue Apr 21 08:12:05 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 460,
+  "likes": 4,
+  "retweetCount": 0,
+  "viewCount": 248,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/comparison_case36/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/comparison_case36/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaihK7aQAA19uT.jpg",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaikH2agAA-UH6.jpg",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

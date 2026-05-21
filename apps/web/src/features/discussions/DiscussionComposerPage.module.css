@@ -1,46 +1,95 @@
 .page {
   position: relative;
   left: 50%;
-  width: min(1388px, calc(100vw - 36px));
+  width: min(1280px, calc(100vw - 52px));
   transform: translateX(-50%);
   min-height: calc(100vh - 90px);
-  padding: 28px 0 96px;
+  padding: 22px 0 92px;
 }
 
 .shell {
   display: grid;
-  gap: 20px;
+  gap: 14px;
 }
 
-.topbar {
+.breadcrumbs {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.backLink {
-  color: rgba(255, 255, 255, 0.46);
-  font-size: 0.88rem;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.topbarActions {
+.breadcrumbLink {
+  color: rgba(255, 255, 255, 0.46);
+  transition: color 180ms ease;
+}
+
+.breadcrumbLink:hover {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.breadcrumbDivider,
+.breadcrumbCurrent {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 18px;
+  padding: 8px 0 14px;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 8px;
+  max-width: 700px;
+}
+
+.title {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.98);
+  font-family: "SF Pro Display", "PingFang SC", "Noto Sans SC", sans-serif;
+  font-size: clamp(2.55rem, 3.7vw, 3.35rem);
+  font-weight: 820;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.66;
+}
+
+.heroActions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
-  flex-wrap: wrap;
+  flex: 0 0 auto;
+  align-self: start;
+  padding-top: 10px;
 }
 
 .secondaryButton,
-.secondaryButtonActive,
 .primaryButton,
-.toolbarButton,
-.toolbarPreviewButton,
 .channelButton,
 .channelButtonActive,
-.toolbarUpload {
+.toolbarButton,
+.toolbarPreviewButton,
+.toolbarUpload,
+.tagChip,
+.tagChipActive,
+.topicButton,
+.topicButtonActive,
+.previewCloseButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -52,226 +101,360 @@
     border-color 180ms ease,
     background 180ms ease,
     color 180ms ease,
-    box-shadow 180ms ease;
+    box-shadow 180ms ease,
+    opacity 180ms ease;
 }
 
 .secondaryButton,
-.secondaryButtonActive,
 .primaryButton {
   min-height: 44px;
-  padding: 0 16px;
-  font-size: 0.82rem;
+  padding: 0 18px;
+  font-size: 0.8rem;
   font-weight: 800;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  border-radius: 13px;
 }
 
 .secondaryButton,
 .toolbarButton,
-.toolbarPreviewButton,
 .toolbarUpload,
-.channelButton {
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(255, 255, 255, 0.72);
+.channelButton,
+.tagChip,
+.topicButton,
+.previewCloseButton {
+  background: rgba(7, 10, 15, 0.88);
+  color: rgba(255, 255, 255, 0.74);
 }
 
-.secondaryButtonActive,
+.primaryButton,
 .channelButtonActive,
-.primaryButton {
-  background: #f7f7f3;
+.toolbarPreviewButton,
+.tagChipActive,
+.topicButtonActive {
+  background: #fafaf7;
   color: #111111;
 }
 
-.primaryButton {
-  box-shadow: 0 18px 40px rgba(255, 255, 255, 0.08);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.68fr);
-  gap: 12px;
-}
-
-.heroCopy,
-.heroMeta,
-.editorPanel,
-.sidePanel,
-.sideCard,
-.field,
-.channelList {
-  display: grid;
-}
-
-.heroCopy,
-.heroMeta,
-.editorPanel,
-.sideCard {
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.038);
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(11, 16, 24, 0.72), rgba(8, 12, 18, 0.8)),
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.02), transparent 36%);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-}
-
-.heroCopy {
-  gap: 12px;
-}
-
-.eyebrow {
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.72rem;
+.toolbarPreviewButton {
+  min-height: 38px;
+  padding: 0 14px;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
-}
-
-.title {
-  margin: 0;
-  font-family: "SF Pro Display", "PingFang SC", "Noto Sans SC", sans-serif;
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-  color: rgba(255, 255, 255, 0.98);
-}
-
-.subtitle {
-  margin: 0;
-  max-width: 42rem;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.94rem;
-  font-weight: 700;
-  line-height: 1.72;
-}
-
-.heroMeta {
-  gap: 14px;
-  align-content: start;
-}
-
-.metaCard {
-  display: grid;
-  gap: 4px;
-  padding: 13px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.012);
-}
-
-.metaCard strong {
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.8rem;
-}
-
-.metaCard span {
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.6;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 2.08fr) minmax(278px, 0.56fr);
-  gap: 12px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 2.12fr) minmax(288px, 0.68fr);
+  gap: 20px;
+  align-items: start;
 }
 
-.editorPanel,
+.editorColumn,
 .sidePanel {
+  display: grid;
   gap: 14px;
 }
 
-.editorPanel {
+.sectionBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.sectionCard,
+.sideCard {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  background: rgba(6, 9, 14, 0.96);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.sectionCard {
+  padding: 16px 18px 18px;
+}
+
+.sideCard {
+  padding: 16px;
+}
+
+.sectionHeading,
+.sideHeader {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.sidePanel {
-  padding-top: 2px;
-}
-
-.field {
-  gap: 10px;
-}
-
-.label {
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.8rem;
+.sectionTitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+}
+
+.sectionHint {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.sectionMeta,
+.sideLabel {
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 0.72rem;
+  font-weight: 800;
 }
 
 .titleInput,
-.sideInput,
+.tagInput,
 .editor {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(9, 12, 18, 0.96);
   color: rgba(255, 255, 255, 0.92);
   outline: none;
   transition:
     border-color 180ms ease,
-    background-color 180ms ease;
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .titleInput,
-.sideInput {
-  min-height: 58px;
-  padding: 0 18px;
-  border-radius: 16px;
-  font-size: 0.94rem;
+.tagInput {
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
 .editor {
-  flex: 1 1 auto;
-  min-height: clamp(680px, 72vh, 980px);
-  padding: 28px 32px;
-  border-radius: 20px;
+  min-height: clamp(420px, 50vh, 720px);
+  padding: 20px 22px 22px;
+  border-radius: 18px;
   resize: vertical;
-  font-size: 1.03rem;
-  font-weight: 660;
-  line-height: 1.92;
+  font-size: 0.96rem;
+  font-weight: 620;
+  line-height: 1.84;
   scrollbar-gutter: stable;
 }
 
 .titleInput::placeholder,
-.sideInput::placeholder,
+.tagInput::placeholder,
 .editor::placeholder {
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .titleInput:focus,
-.sideInput:focus,
+.tagInput:focus,
 .editor:focus {
   border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(11, 15, 21, 0.98);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.018);
+}
+
+.channelGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.channelButton,
+.channelButtonActive {
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 68px;
+  padding: 11px 13px;
+  text-align: left;
+  border-radius: 16px;
+}
+
+.channelIndicator {
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.channelButtonActive .channelIndicator {
+  background: currentColor;
+  box-shadow: inset 0 0 0 3px #fafaf7;
+}
+
+.channelCopy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.channelCopy strong {
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.channelCopy span {
+  color: inherit;
+  opacity: 0.58;
+  font-size: 0.67rem;
+  line-height: 1.42;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
+}
+
+.toolbarShell {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.toolbarMenuGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbarDropdown {
+  position: relative;
+}
+
+.toolbarMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toolbarMeta {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .toolbarButton,
 .toolbarPreviewButton,
 .toolbarUpload {
-  min-height: 40px;
-  padding: 0 14px;
-  font-size: 0.78rem;
+  min-height: 36px;
+  padding: 0 11px;
+  font-size: 0.74rem;
   font-weight: 800;
+  border-radius: 12px;
 }
 
 .toolbarPreviewButton {
   margin-left: auto;
-  background: #f7f7f3;
-  color: #111111;
-  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.06);
 }
 
+.toolbarButtonActive {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(14, 18, 26, 0.98);
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.toolbarDropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 30;
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(7, 10, 15, 0.99);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38);
+}
+
+.toolbarDropdownItem,
+.toolbarDropdownUpload {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.84);
+  text-align: left;
+  font-size: 0.76rem;
+  font-weight: 760;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.toolbarDropdownItem:hover,
+.toolbarDropdownUpload:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.toolbarDropdownDivider {
+  height: 1px;
+  margin: 6px 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toolbarDropdownUpload {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toolbarDropdownUpload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.editorFrame {
+  position: relative;
+  border-radius: 20px;
+}
+
+.editorFrameDrag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.dragOverlay {
+  position: absolute;
+  inset: 14px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(11, 14, 20, 0.8);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  font-weight: 780;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+
+.toolbarUpload,
 .toolbarUpload {
   position: relative;
   overflow: hidden;
@@ -285,27 +468,148 @@
   cursor: pointer;
 }
 
+.editorFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.editorStatusPills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.editorStatusPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(8, 11, 17, 0.72);
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.7rem;
+  font-weight: 780;
+}
+
+.tagRow,
+.topicList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tagChip,
+.tagChipActive,
+.topicButton,
+.topicButtonActive {
+  min-height: 32px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 780;
+}
+
+.currentChannelCard {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.036);
+  border-radius: 16px;
+  background: rgba(9, 12, 18, 0.92);
+}
+
+.currentChannelCard strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
+}
+
+.currentChannelCard p,
+.currentChannelCard span {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 0.76rem;
+  line-height: 1.66;
+}
+
+.ruleList {
+  display: grid;
+  gap: 9px;
+  margin: 12px 0 0;
+  padding-left: 1.05rem;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.74rem;
+  font-weight: 650;
+  line-height: 1.68;
+}
+
+.summaryList {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.summaryRow span {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.summaryRow strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.notice,
+.lockedText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.68;
+}
+
+.noticeSuccess {
+  color: rgba(189, 243, 205, 0.96);
+}
+
+.noticeError,
+.lockedText {
+  color: rgba(255, 181, 181, 0.96);
+}
+
 .previewOverlay {
   position: fixed;
   inset: 0;
   z-index: 90;
   display: grid;
   place-items: center;
-  padding: 42px;
-  background: rgba(2, 4, 8, 0.72);
+  padding: 34px;
+  background: rgba(3, 5, 9, 0.74);
   backdrop-filter: blur(18px);
 }
 
 .previewDialog {
   width: min(920px, 100%);
-  max-height: min(86vh, 920px);
+  max-height: min(88vh, 960px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 26px;
-  background:
-    linear-gradient(180deg, rgba(13, 18, 27, 0.98), rgba(7, 10, 15, 0.98)),
-    radial-gradient(circle at top left, rgba(242, 187, 103, 0.1), transparent 36%);
-  box-shadow: 0 36px 92px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  background: rgba(7, 10, 15, 0.985);
+  box-shadow: 0 36px 92px rgba(0, 0, 0, 0.54);
 }
 
 .previewHeader {
@@ -317,21 +621,18 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.previewCloseButton {
-  min-height: 38px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.78rem;
-  font-weight: 800;
+.previewBody {
+  max-height: calc(min(88vh, 960px) - 72px);
+  overflow: auto;
+  padding: 26px 30px 34px;
 }
 
-.previewBody {
-  max-height: calc(min(86vh, 920px) - 72px);
-  overflow: auto;
-  padding: 26px 32px 34px;
+.previewCloseButton {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .previewEmpty {
@@ -340,109 +641,132 @@
   line-height: 1.8;
 }
 
-.channelList {
+.contextMenu {
+  position: fixed;
+  z-index: 120;
+  min-width: 168px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(6, 9, 14, 0.98);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+}
+
+.contextMenuItem {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 760;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.contextMenuItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.contextMenuDivider {
+  height: 1px;
+  margin: 6px 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.linkOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 5, 9, 0.62);
+  backdrop-filter: blur(12px);
+}
+
+.linkDialog {
+  width: min(460px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(7, 10, 15, 0.99);
+  box-shadow: 0 30px 72px rgba(0, 0, 0, 0.5);
+}
+
+.linkDialogHeader {
+  padding: 18px 20px 12px;
+}
+
+.linkDialogHeader strong {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.92rem;
+  font-weight: 820;
+}
+
+.linkDialogBody {
+  display: grid;
+  gap: 14px;
+  padding: 0 20px 18px;
+}
+
+.linkField {
+  display: grid;
   gap: 8px;
 }
 
-.channelButton,
-.channelButtonActive {
-  align-items: start;
-  justify-content: start;
-  min-height: 62px;
-  padding: 12px 14px;
-  text-align: left;
-  border-color: rgba(255, 255, 255, 0.028);
-}
-
-.channelButton strong,
-.channelButtonActive strong {
-  display: block;
-  font-size: 0.88rem;
-}
-
-.channelButton span,
-.channelButtonActive span {
-  display: block;
-  margin-top: 4px;
-  color: rgba(255, 255, 255, 0.34);
+.linkField span {
+  color: rgba(255, 255, 255, 0.46);
   font-size: 0.74rem;
-  line-height: 1.6;
+  font-weight: 760;
 }
 
-.channelButtonActive span {
-  color: rgba(17, 17, 17, 0.48);
+.linkField input {
+  min-height: 48px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(10, 14, 20, 0.94);
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+  font-size: 0.88rem;
+  font-weight: 680;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.guidelines {
-  display: grid;
-  gap: 9px;
-  margin: 0;
-  padding-left: 1.1rem;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.82rem;
-  font-weight: 700;
-  line-height: 1.74;
+.linkField input:focus {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(12, 17, 24, 0.98);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.02);
 }
 
-.threadPreview {
-  display: grid;
-  gap: 10px;
-  padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.012);
-}
-
-.threadPreviewMeta {
+.linkDialogActions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  color: rgba(255, 255, 255, 0.32);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.threadPreview strong {
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.threadPreview p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 0.84rem;
-  line-height: 1.7;
-}
-
-.notice,
-.lockedText {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.84rem;
-  font-weight: 700;
-  line-height: 1.68;
-}
-
-.noticeSuccess {
-  color: rgba(184, 243, 201, 0.94);
-}
-
-.noticeError,
-.lockedText {
-  color: rgba(255, 176, 176, 0.94);
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 20px 20px;
 }
 
 .secondaryButton:hover,
-.secondaryButtonActive:hover,
 .primaryButton:hover,
-.toolbarButton:hover,
-.toolbarPreviewButton:hover,
 .channelButton:hover,
 .channelButtonActive:hover,
-.toolbarUpload:hover {
+.toolbarButton:hover,
+.toolbarPreviewButton:hover,
+.toolbarUpload:hover,
+.tagChip:hover,
+.tagChipActive:hover,
+.topicButton:hover,
+.topicButtonActive:hover,
+.previewCloseButton:hover {
   transform: translateY(-1px);
   border-color: rgba(255, 255, 255, 0.16);
 }
@@ -452,22 +776,213 @@
 }
 
 .secondaryButton:disabled,
-.secondaryButtonActive:disabled,
 .primaryButton:disabled,
-.toolbarButton:disabled,
-.toolbarPreviewButton:disabled,
 .channelButton:disabled,
 .channelButtonActive:disabled,
+.toolbarButton:disabled,
+.toolbarPreviewButton:disabled,
+.toolbarUpload:has(input:disabled),
+.tagChip:disabled,
+.tagChipActive:disabled,
+.topicButton:disabled,
+.topicButtonActive:disabled,
 .titleInput:disabled,
-.sideInput:disabled,
-.editor:disabled,
-.toolbarUpload:has(input:disabled) {
+.tagInput:disabled,
+.editor:disabled {
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: 0.56;
+}
+
+:global(:root[data-theme="light"]) .breadcrumbs,
+:global(:root[data-theme="light"]) .breadcrumbLink,
+:global(:root[data-theme="light"]) .breadcrumbDivider,
+:global(:root[data-theme="light"]) .breadcrumbCurrent,
+:global(:root[data-theme="light"]) .subtitle,
+:global(:root[data-theme="light"]) .sectionHint,
+:global(:root[data-theme="light"]) .sectionMeta,
+:global(:root[data-theme="light"]) .sideLabel,
+:global(:root[data-theme="light"]) .currentChannelCard p,
+:global(:root[data-theme="light"]) .currentChannelCard span,
+:global(:root[data-theme="light"]) .ruleList,
+:global(:root[data-theme="light"]) .summaryRow span,
+:global(:root[data-theme="light"]) .notice {
+  color: rgba(26, 26, 26, 0.62);
+}
+
+:global(:root[data-theme="light"]) .title,
+:global(:root[data-theme="light"]) .sectionTitle,
+:global(:root[data-theme="light"]) .currentChannelCard strong,
+:global(:root[data-theme="light"]) .summaryRow strong {
+  color: rgba(18, 18, 18, 0.96);
+}
+
+:global(:root[data-theme="light"]) .secondaryButton,
+:global(:root[data-theme="light"]) .toolbarButton,
+:global(:root[data-theme="light"]) .toolbarUpload,
+:global(:root[data-theme="light"]) .channelButton,
+:global(:root[data-theme="light"]) .tagChip,
+:global(:root[data-theme="light"]) .topicButton,
+:global(:root[data-theme="light"]) .previewCloseButton {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(20, 20, 20, 0.74);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+:global(:root[data-theme="light"]) .toolbarDropdownDivider,
+:global(:root[data-theme="light"]) .contextMenuDivider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global(:root[data-theme="light"]) .primaryButton,
+:global(:root[data-theme="light"]) .channelButtonActive,
+:global(:root[data-theme="light"]) .toolbarPreviewButton,
+:global(:root[data-theme="light"]) .tagChipActive,
+:global(:root[data-theme="light"]) .topicButtonActive {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: #111111;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+}
+
+:global(:root[data-theme="light"]) .toolbarButtonActive {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(247, 247, 244, 0.98);
+  color: rgba(18, 18, 18, 0.94);
+}
+
+:global(:root[data-theme="light"]) .sectionCard,
+:global(:root[data-theme="light"]) .sideCard {
+  border-color: rgba(0, 0, 0, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 248, 246, 0.96)),
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.02), transparent 34%);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.06);
+}
+
+:global(:root[data-theme="light"]) .titleInput,
+:global(:root[data-theme="light"]) .tagInput,
+:global(:root[data-theme="light"]) .editor {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  color: rgba(18, 18, 18, 0.94);
+}
+
+:global(:root[data-theme="light"]) .titleInput::placeholder,
+:global(:root[data-theme="light"]) .tagInput::placeholder,
+:global(:root[data-theme="light"]) .editor::placeholder {
+  color: rgba(26, 26, 26, 0.28);
+}
+
+:global(:root[data-theme="light"]) .titleInput:focus,
+:global(:root[data-theme="light"]) .tagInput:focus,
+:global(:root[data-theme="light"]) .editor:focus {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.018);
+}
+
+:global(:root[data-theme="light"]) .toolbarMeta,
+:global(:root[data-theme="light"]) .editorStatusPill,
+:global(:root[data-theme="light"]) .linkField span {
+  color: rgba(26, 26, 26, 0.54);
+}
+
+:global(:root[data-theme="light"]) .editorStatusPill {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+:global(:root[data-theme="light"]) .currentChannelCard {
+  border-color: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+:global(:root[data-theme="light"]) .noticeSuccess {
+  color: rgba(24, 106, 68, 0.9);
+}
+
+:global(:root[data-theme="light"]) .noticeError,
+:global(:root[data-theme="light"]) .lockedText {
+  color: rgba(163, 63, 44, 0.88);
+}
+
+:global(:root[data-theme="light"]) .previewOverlay {
+  background: rgba(241, 241, 238, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+:global(:root[data-theme="light"]) .previewDialog {
+  border-color: rgba(0, 0, 0, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 248, 246, 0.96)),
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.02), transparent 34%);
+  box-shadow: 0 30px 72px rgba(0, 0, 0, 0.12);
+}
+
+:global(:root[data-theme="light"]) .dragOverlay,
+:global(:root[data-theme="light"]) .contextMenu,
+:global(:root[data-theme="light"]) .linkDialog,
+:global(:root[data-theme="light"]) .toolbarDropdownMenu {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.12);
+}
+
+:global(:root[data-theme="light"]) .editorFrameDrag::after {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+:global(:root[data-theme="light"]) .dragOverlay {
+  color: rgba(18, 18, 18, 0.76);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+:global(:root[data-theme="light"]) .contextMenuItem {
+  color: rgba(18, 18, 18, 0.84);
+}
+
+:global(:root[data-theme="light"]) .toolbarDropdownItem,
+:global(:root[data-theme="light"]) .toolbarDropdownUpload {
+  color: rgba(18, 18, 18, 0.84);
+}
+
+:global(:root[data-theme="light"]) .toolbarDropdownItem:hover,
+:global(:root[data-theme="light"]) .toolbarDropdownUpload:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(18, 18, 18, 0.96);
+}
+
+:global(:root[data-theme="light"]) .contextMenuItem:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(18, 18, 18, 0.96);
+}
+
+:global(:root[data-theme="light"]) .linkDialogHeader strong {
+  color: rgba(18, 18, 18, 0.94);
+}
+
+:global(:root[data-theme="light"]) .linkField input {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  color: rgba(18, 18, 18, 0.94);
+}
+
+:global(:root[data-theme="light"]) .linkField input:focus {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.018);
+}
+
+:global(:root[data-theme="light"]) .previewHeader {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+:global(:root[data-theme="light"]) .previewEmpty {
+  color: rgba(18, 18, 18, 0.42);
 }
 
 @media (max-width: 1180px) {
-  .hero,
   .layout {
     grid-template-columns: 1fr;
   }
@@ -477,41 +992,78 @@
   }
 }
 
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2px 0 0;
+  }
+
+  .heroActions {
+    justify-content: flex-start;
+    padding-top: 0;
+    flex-wrap: wrap;
+  }
+
+  .channelGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .page {
-    padding: 28px 0 88px;
-  }
-
-  .shell {
-    width: calc(100vw - 20px);
-  }
-
-  .heroCopy,
-  .heroMeta,
-  .editorPanel,
-  .sideCard {
-    padding: 20px;
-    border-radius: 20px;
+    width: min(100vw - 18px, 100%);
+    padding: 18px 0 80px;
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
-  .topbarActions,
+  .sectionCard,
+  .sideCard {
+    padding: 16px;
+  }
+
+  .sectionBlock {
+    gap: 7px;
+  }
+
+  .channelGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .channelButton,
+  .channelButtonActive {
+    min-height: 68px;
+    padding: 12px;
+  }
+
+  .channelCopy strong {
+    font-size: 0.8rem;
+  }
+
+  .channelCopy span {
+    font-size: 0.68rem;
+  }
+
+  .heroActions,
   .toolbar {
     width: 100%;
   }
 
+  .toolbarMetaRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .secondaryButton,
-  .secondaryButtonActive,
   .primaryButton {
     flex: 1 1 0;
   }
 
   .editor {
-    min-height: 620px;
-    padding: 22px 18px;
+    min-height: 420px;
+    padding: 20px 18px 22px;
   }
 
   .previewOverlay {
@@ -520,11 +1072,11 @@
 
   .previewDialog {
     max-height: 90vh;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .previewBody {
-    max-height: calc(90vh - 66px);
+    max-height: calc(90vh - 68px);
     padding: 22px 18px 28px;
   }
 }

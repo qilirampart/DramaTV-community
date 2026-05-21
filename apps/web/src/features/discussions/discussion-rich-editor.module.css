@@ -1,0 +1,472 @@
+.root {
+  display: grid;
+  gap: 14px;
+}
+
+.toolbarShell {
+  display: grid;
+  gap: 10px;
+}
+
+.toolbarRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbarDropdown {
+  position: relative;
+}
+
+.toolbarButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(9, 12, 18, 0.96);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.76rem;
+  font-weight: 780;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.toolbarButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.toolbarButtonActive {
+  background: #fafaf7;
+  color: #111111;
+}
+
+.dropdownMenu,
+.dropdownPanel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 30;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(7, 10, 15, 0.99);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38);
+}
+
+.dropdownPanel {
+  min-width: 240px;
+  display: grid;
+  gap: 14px;
+}
+
+.dropdownItem,
+.uploadItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.84);
+  text-align: left;
+  font-size: 0.76rem;
+  font-weight: 760;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.dropdownItem:hover,
+.uploadItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.dropdownDivider {
+  height: 1px;
+  margin: 6px 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.uploadItem {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.uploadItem input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fieldLabel {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.74rem;
+  font-weight: 760;
+}
+
+.selectField {
+  min-height: 42px;
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(10, 14, 20, 0.94);
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+  font-size: 0.8rem;
+}
+
+.colorBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.colorTitle {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.74rem;
+  font-weight: 760;
+}
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.colorChip {
+  --chip-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(10, 14, 20, 0.94);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.74rem;
+  font-weight: 760;
+}
+
+.colorChipActive {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--chip-color);
+  flex: 0 0 auto;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.metaText {
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 0.69rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.editorFrame {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(9, 12, 18, 0.96);
+  overflow: hidden;
+}
+
+.editorFrameBusy {
+  pointer-events: none;
+}
+
+.uploadOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 8, 12, 0.72);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.84rem;
+  font-weight: 780;
+  letter-spacing: 0.01em;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(8, 11, 17, 0.72);
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.7rem;
+  font-weight: 780;
+}
+
+.proseMirror {
+  min-height: clamp(420px, 50vh, 720px);
+  padding: 22px 24px 24px;
+  outline: none;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1rem;
+  font-weight: 620;
+  line-height: 1.82;
+  white-space: pre-wrap;
+}
+
+.proseMirror :global(p.is-editor-empty:first-child::before) {
+  content: attr(data-placeholder);
+  color: rgba(255, 255, 255, 0.24);
+  float: left;
+  pointer-events: none;
+  height: 0;
+}
+
+.proseMirror :global(h1),
+.proseMirror :global(h2),
+.proseMirror :global(h3) {
+  margin: 1.2em 0 0.5em;
+  color: rgba(255, 255, 255, 0.98);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+}
+
+.proseMirror :global(h1) {
+  font-size: 2rem;
+}
+
+.proseMirror :global(h2) {
+  font-size: 1.55rem;
+}
+
+.proseMirror :global(h3) {
+  font-size: 1.2rem;
+}
+
+.proseMirror :global(p) {
+  margin: 0.72em 0;
+}
+
+.proseMirror :global(blockquote) {
+  margin: 1.1em 0;
+  padding: 16px 18px;
+  border-left: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.proseMirror :global(ul),
+.proseMirror :global(ol) {
+  margin: 0.9em 0;
+  padding-left: 1.4rem;
+}
+
+.proseMirror :global(li) {
+  margin: 0.32em 0;
+}
+
+.proseMirror :global(pre) {
+  margin: 1.1em 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(6, 9, 14, 0.88);
+  overflow: auto;
+}
+
+.proseMirror :global(code) {
+  font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+.proseMirror :global(hr) {
+  margin: 1.4em 0;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.proseMirror :global(a) {
+  color: #9bdcff;
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 220, 255, 0.38);
+}
+
+.proseMirror :global(img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.1em 0;
+  border-radius: 18px;
+}
+
+.proseMirror :global(.discussion-rich-video) {
+  display: grid;
+  gap: 10px;
+  margin: 1.1em 0;
+}
+
+.proseMirror :global(.discussion-rich-video-player) {
+  width: 100%;
+  max-height: 560px;
+  border-radius: 18px;
+  background: #05070a;
+}
+
+.proseMirror :global(.discussion-rich-video-caption) {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+:global(:root[data-theme="light"]) .toolbarButton {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  color: rgba(17, 17, 17, 0.78);
+}
+
+:global(:root[data-theme="light"]) .toolbarButtonActive {
+  background: #111111;
+  color: #ffffff;
+}
+
+:global(:root[data-theme="light"]) .dropdownMenu,
+:global(:root[data-theme="light"]) .dropdownPanel {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.12);
+}
+
+:global(:root[data-theme="light"]) .dropdownItem,
+:global(:root[data-theme="light"]) .uploadItem,
+:global(:root[data-theme="light"]) .fieldLabel,
+:global(:root[data-theme="light"]) .colorTitle {
+  color: rgba(17, 17, 17, 0.84);
+}
+
+:global(:root[data-theme="light"]) .dropdownItem:hover,
+:global(:root[data-theme="light"]) .uploadItem:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(17, 17, 17, 0.96);
+}
+
+:global(:root[data-theme="light"]) .dropdownDivider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global(:root[data-theme="light"]) .selectField,
+:global(:root[data-theme="light"]) .colorChip {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  color: rgba(17, 17, 17, 0.88);
+}
+
+:global(:root[data-theme="light"]) .metaText,
+:global(:root[data-theme="light"]) .statusPill {
+  color: rgba(17, 17, 17, 0.54);
+}
+
+:global(:root[data-theme="light"]) .statusPill {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+:global(:root[data-theme="light"]) .editorFrame {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+:global(:root[data-theme="light"]) .uploadOverlay {
+  background: rgba(242, 242, 238, 0.8);
+  color: rgba(17, 17, 17, 0.92);
+}
+
+:global(:root[data-theme="light"]) .proseMirror {
+  color: rgba(17, 17, 17, 0.94);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(p.is-editor-empty:first-child::before) {
+  color: rgba(17, 17, 17, 0.26);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(h1),
+:global(:root[data-theme="light"]) .proseMirror :global(h2),
+:global(:root[data-theme="light"]) .proseMirror :global(h3) {
+  color: rgba(17, 17, 17, 0.98);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(blockquote) {
+  border-left-color: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(pre) {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(245, 245, 242, 0.96);
+  color: rgba(17, 17, 17, 0.92);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(hr) {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(a) {
+  color: #111111;
+  text-decoration-color: rgba(0, 0, 0, 0.24);
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(.discussion-rich-video-player) {
+  background: #eef2f7;
+}
+
+:global(:root[data-theme="light"]) .proseMirror :global(.discussion-rich-video-caption) {
+  color: rgba(17, 17, 17, 0.56);
+}
+
+@media (max-width: 720px) {
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdownPanel {
+    min-width: 220px;
+  }
+
+  .proseMirror {
+    padding: 18px 18px 22px;
+  }
+}

@@ -8,10 +8,13 @@ public record WorkflowDetailResponse(
         String title,
         String summary,
         String scenarioText,
+        String coverUrl,
+        ExampleMedia exampleMedia,
         List<String> tagNames,
         Author author,
         Permissions permissions,
         CanvasBinding canvasBinding,
+        CommentPolicy commentPolicy,
         Stats stats,
         List<VideoSummaryResponse> relatedVideos,
         ViewerActions viewerActions
@@ -33,6 +36,18 @@ public record WorkflowDetailResponse(
             String bindingType,
             String openUrl,
             boolean canCopy
+    ) {
+    }
+
+    public record ExampleMedia(
+            String assetKind,
+            String url
+    ) {
+    }
+
+    public record CommentPolicy(
+            boolean commentingEnabled,
+            boolean canManageComments
     ) {
     }
 

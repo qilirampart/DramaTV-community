@@ -2,9 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const extractedRoot = path.join(root, "youmind-image-assets", "nano-banana-extracted");
-const outputDir = path.join(extractedRoot, "api-pages");
-
 const startPage = Number(process.argv[2] || 1);
 const endPage = Number(process.argv[3] || startPage);
 const limit = Number(process.argv[4] || 18);
@@ -12,9 +9,27 @@ const locale = process.argv[5] || "zh-CN";
 const model = process.argv[6] || "nano-banana-pro";
 const campaign = process.argv[7] || "nano-banana-pro-prompts";
 const filterMode = process.argv[8] || "imageCategories";
+const categories = typeof process.argv[9] === "string" ? process.argv[9].trim() : "";
+const requestTimeoutMs = Number(process.argv[11] || 30000);
+const requestRetries = Number(process.argv[12] || 4);
+const datasetSlug =
+  process.argv[10] ||
+  (model === "nano-banana-pro" && campaign === "nano-banana-pro-prompts" && !categories
+    ? "nano-banana-extracted"
+    : `${toSlug(model)}${categories ? `-${toSlug(categories)}` : ""}-extracted`);
+const extractedRoot = path.join(root, "youmind-image-assets", datasetSlug);
+const outputDir = path.join(extractedRoot, "api-pages");
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
+}
+
+function toSlug(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function safeText(value) {
@@ -23,6 +38,17 @@ function safeText(value) {
 
 function safeArray(value) {
   return Array.isArray(value) ? value.filter((item) => typeof item === "string" && item.trim()) : [];
+}
+
+function buildReferer() {
+  const localePrefix = locale && locale !== "en-US" ? `/${locale}` : "";
+  const url = new URL(`https://youmind.com${localePrefix}/${campaign}`);
+
+  if (categories) {
+    url.searchParams.set("categories", categories);
+  }
+
+  return url.toString();
 }
 
 function normalizePrompt(item, globalRank) {
@@ -34,6 +60,11 @@ function normalizePrompt(item, globalRank) {
   return {
     rank: globalRank,
     id: item.id,
+    model,
+    campaign,
+    filterMode,
+    locale,
+    categories,
     title: safeText(item.title),
     description: safeText(item.description),
     featured: Boolean(item.featured),
@@ -66,32 +97,63 @@ function normalizePrompt(item, globalRank) {
 }
 
 async function fetchPage(page) {
-  const response = await fetch("https://youmind.com/youhome-api/prompts", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      referer: "https://youmind.com/zh-CN/nano-banana-pro-prompts",
-      "user-agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
-      "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": "\"Windows\""
-    },
-    body: JSON.stringify({
-      model,
-      page,
-      limit,
-      locale,
-      campaign,
-      filterMode
-    })
-  });
+  const referer = buildReferer();
+  const requestBody = {
+    model,
+    page,
+    limit,
+    locale,
+    campaign,
+    filterMode
+  };
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch page ${page}: ${response.status} ${response.statusText}`);
+  if (categories) {
+    requestBody.categories = categories;
   }
 
-  return response.json();
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= requestRetries; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+
+    try {
+      const response = await fetch("https://youmind.com/youhome-api/prompts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          referer,
+          "user-agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\""
+        },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch page ${page}: ${response.status} ${response.statusText}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      lastError = error;
+      const shouldRetry = attempt < requestRetries;
+
+      if (!shouldRetry) {
+        break;
+      }
+
+      const backoffMs = attempt * 1500;
+      await new Promise((resolve) => setTimeout(resolve, backoffMs));
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw lastError || new Error(`Failed to fetch page ${page}`);
 }
 
 async function main() {
@@ -145,6 +207,8 @@ async function main() {
         model,
         campaign,
         filterMode,
+        categories,
+        datasetSlug,
         mergedPath,
         pageCount: pages.length,
         extractedCount: normalized.length,

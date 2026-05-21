@@ -11,10 +11,14 @@ import com.dramatv.community.canvas.dto.response.VisibleAssetsResponse;
 import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.identity.application.CurrentUserContext;
 import com.dramatv.community.identity.application.CurrentUserService;
+import com.dramatv.community.shared.media.JdbcMediaUrlResolver;
 import com.dramatv.community.shared.error.ApiBusinessException;
+import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,6 +27,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,20 +36,24 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CanvasApplicationService {
 
+    private static final Logger log = LoggerFactory.getLogger(CanvasApplicationService.class);
     private static final Set<String> SUPPORTED_COPY_MODES = Set.of("reference_then_async_clone");
 
     private final JdbcTemplate jdbcTemplate;
     private final ObjectMapper objectMapper;
     private final CurrentUserService currentUserService;
+    private final JdbcMediaUrlResolver jdbcMediaUrlResolver;
 
     public CanvasApplicationService(
             JdbcTemplate jdbcTemplate,
             ObjectMapper objectMapper,
-            CurrentUserService currentUserService
+            CurrentUserService currentUserService,
+            JdbcMediaUrlResolver jdbcMediaUrlResolver
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.objectMapper = objectMapper;
         this.currentUserService = currentUserService;
+        this.jdbcMediaUrlResolver = jdbcMediaUrlResolver;
     }
 
     public Optional<CanvasLinkResponse> findCanvasLink(String workflowId) {
@@ -108,8 +118,23 @@ public class CanvasApplicationService {
         CurrentUser currentUser = currentUserService.requireCurrentUser();
         ensureCreatorProfileExists(currentUser);
 
-        ExistingCopy existingCopy = loadExistingCopy(request.idempotencyKey());
+        ExistingCopy existingCopy = loadExistingCopy(request.idempotencyKey(), currentUser.id(), parsedWorkflowId);
         if (existingCopy != null) {
+            try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(copyContext(parsedWorkflowId, existingCopy.runtimeId(), existingCopy.copyTaskId()))) {
+                log.info(
+                        "canvas copy success: operatorId={} workflowId={} runtimeId={} copyTaskId={} targetSpaceId={} copyMode={} openAfterCopy={} statusCode={} lightSnapshotVersion={} visibleNodeCount={} idempotentReuse=true",
+                        currentUser.id(),
+                        parsedWorkflowId,
+                        existingCopy.runtimeId(),
+                        existingCopy.copyTaskId(),
+                        request.targetSpaceId(),
+                        request.copyMode(),
+                        request.openAfterCopy(),
+                        existingCopy.statusCode(),
+                        existingCopy.lightSnapshotVersion(),
+                        0
+                );
+            }
             return Optional.of(new CopyToCanvasResponse(
                     existingCopy.copyTaskId().toString(),
                     existingCopy.runtimeId().toString(),
@@ -227,6 +252,22 @@ public class CanvasApplicationService {
                 request.copyMode(),
                 writeJson(resultJson)
         );
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(copyContext(parsedWorkflowId, runtimeId, copyTaskId))) {
+            log.info(
+                    "canvas copy success: operatorId={} workflowId={} runtimeId={} copyTaskId={} targetSpaceId={} copyMode={} openAfterCopy={} statusCode={} lightSnapshotVersion={} visibleNodeCount={} idempotentReuse=false",
+                    currentUser.id(),
+                    parsedWorkflowId,
+                    runtimeId,
+                    copyTaskId,
+                    request.targetSpaceId(),
+                    request.copyMode(),
+                    request.openAfterCopy(),
+                    "runtime_ready",
+                    1,
+                    visibleNodeCount
+            );
+        }
 
         return Optional.of(new CopyToCanvasResponse(
                 copyTaskId.toString(),
@@ -385,6 +426,14 @@ public class CanvasApplicationService {
         }
     }
 
+    private Map<String, String> copyContext(UUID workflowId, UUID runtimeId, UUID copyTaskId) {
+        return Map.of(
+                "workflowId", workflowId.toString(),
+                "runtimeId", runtimeId.toString(),
+                "copyTaskId", copyTaskId.toString()
+        );
+    }
+
     private WorkflowSeed loadWorkflowSeed(UUID workflowId) {
         return jdbcTemplate.query("""
                 select
@@ -420,7 +469,7 @@ public class CanvasApplicationService {
         );
     }
 
-    private ExistingCopy loadExistingCopy(String idempotencyKey) {
+    private ExistingCopy loadExistingCopy(String idempotencyKey, UUID operatorId, UUID sourceWorkflowId) {
         if (idempotencyKey == null || idempotencyKey.isBlank()) {
             return null;
         }
@@ -435,6 +484,8 @@ public class CanvasApplicationService {
                 from canvas_copy_tasks task
                 join canvas_workflow_runtimes runtime on runtime.id = task.target_runtime_id
                 where task.idempotency_key = ?
+                  and task.operator_id = ?
+                  and task.source_workflow_id = ?
                 order by task.created_at desc
                 limit 1
                 """,
@@ -447,7 +498,9 @@ public class CanvasApplicationService {
                                 resultSet.getInt("light_snapshot_version")
                         )
                         : null,
-                idempotencyKey
+                idempotencyKey,
+                operatorId,
+                sourceWorkflowId
         );
     }
 
@@ -480,9 +533,11 @@ public class CanvasApplicationService {
     ) {
         List<AssetRow> assets = jdbcTemplate.query("""
                 select
-                    asset_role,
+                    asset.asset_role,
+                    media.storage_provider as asset_storage_provider,
+                    media.bucket_name as asset_bucket_name,
                     coalesce(media.object_key, asset.asset_url) as asset_url,
-                    status_code
+                    asset.status_code
                 from canvas_runtime_assets asset
                 left join media_assets media on media.id = asset.media_asset_id
                 where asset.runtime_id = ?
@@ -491,7 +546,7 @@ public class CanvasApplicationService {
                 """,
                 (resultSet, rowNum) -> new AssetRow(
                         resultSet.getString("asset_role"),
-                        resultSet.getString("asset_url"),
+                        jdbcMediaUrlResolver.resolve(resultSet, "asset_url"),
                         resultSet.getString("status_code")
                 ),
                 runtimeId,

@@ -1,0 +1,43 @@
+{
+  "rank": 278,
+  "id": "2046981757325475954",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "comparison-and-community",
+  "sectionTitle": "Comparison & Community Examples",
+  "caseNumber": 63,
+  "title": "Tushan Yaya Fantasy Glamour Portrait",
+  "description": "Comparison & Community Examples curated case: Tushan Yaya Fantasy Glamour Portrait, source author sdjn_wgc.",
+  "language": "",
+  "authorName": "sdjn_wgc",
+  "authorLink": "https://x.com/sdjn_wgc",
+  "sourceLink": "https://x.com/sdjn_wgc/status/2046981757325475954",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/case_case107/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "images/case_case107/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

@@ -223,7 +223,7 @@
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+  gap: 28px 30px;
 }
 
 .galleryCard {
@@ -233,55 +233,51 @@
 .galleryMedia {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 0.66;
+  min-height: 190px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(144deg, rgba(98, 98, 104, 0.24), rgba(10, 10, 11, 0.9));
   background-position: center;
   background-size: cover;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.galleryMediaPrompt {
-  background:
-    radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.2), transparent 20%),
-    linear-gradient(135deg, rgba(138, 138, 138, 0.4), rgba(18, 18, 18, 0.92));
+.galleryCover {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  filter: saturate(0.92) contrast(1.02) brightness(0.88);
 }
 
-.galleryMediaWork {
-  background:
-    linear-gradient(180deg, rgba(255, 236, 214, 0.14), transparent 34%),
-    linear-gradient(135deg, rgba(100, 78, 60, 0.44), rgba(16, 16, 16, 0.92));
-}
-
-.galleryMediaWorkflow {
-  background:
-    linear-gradient(135deg, rgba(110, 76, 44, 0.52), rgba(15, 15, 15, 0.92)),
-    radial-gradient(circle at 72% 24%, rgba(255, 223, 178, 0.18), transparent 24%);
-}
-
+.galleryMediaPrompt,
+.galleryMediaWork,
+.galleryMediaWorkflow,
 .galleryMediaDiscussion,
 .galleryMediaFavorite {
   background:
-    linear-gradient(135deg, rgba(72, 72, 74, 0.4), rgba(16, 16, 16, 0.92)),
-    radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.06), transparent 20%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(144deg, rgba(98, 98, 104, 0.24), rgba(10, 10, 11, 0.9));
 }
 
 .galleryCard:hover .galleryMedia {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 26px 54px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 30px 64px rgba(0, 0, 0, 0.34);
 }
 
 .galleryShade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.14) 32%, rgba(0, 0, 0, 0.82) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.16), transparent 48%);
+    linear-gradient(180deg, rgba(6, 6, 7, 0.04), rgba(6, 6, 7, 0.14) 32%, rgba(4, 4, 5, 0.84) 100%),
+    linear-gradient(0deg, rgba(6, 6, 7, 0.18), transparent 48%);
 }
 
 .galleryBadge {
@@ -293,6 +289,7 @@
   align-items: center;
   min-height: 24px;
   padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 7px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.67rem;
@@ -300,21 +297,13 @@
   letter-spacing: 0.11em;
 }
 
-.galleryBadgePrompt {
-  background: rgba(184, 184, 184, 0.28);
-}
-
-.galleryBadgeWork {
-  background: rgba(214, 214, 214, 0.18);
-}
-
-.galleryBadgeWorkflow {
-  background: rgba(98, 70, 44, 0.78);
-}
-
+.galleryBadgePrompt,
+.galleryBadgeWork,
+.galleryBadgeWorkflow,
 .galleryBadgeDiscussion,
 .galleryBadgeFavorite {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(18, 18, 21, 0.78);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .galleryFooter {
@@ -324,7 +313,7 @@
   left: 18px;
   z-index: 1;
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .galleryTextBlock {
@@ -337,9 +326,10 @@
   margin: 0;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.98);
-  font-size: 1rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.14;
+  letter-spacing: -0.05em;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -348,9 +338,9 @@
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.64);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.84rem;
+  line-height: 1.64;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -401,9 +391,9 @@
 
 .galleryAuthorName {
   overflow: hidden;
-  max-width: 8rem;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.8rem;
+  max-width: 10rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.84rem;
   font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -420,17 +410,240 @@
 .galleryMetric {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.76rem;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .galleryMetric svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
+}
+
+.draftGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.draftCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr);
+  overflow: hidden;
+  min-height: 176px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+  background-color 180ms ease;
+}
+
+.draftLink {
+  display: contents;
+}
+
+.draftCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.draftCardDisabled {
+  cursor: default;
+}
+
+.draftCardDisabled:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.075);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.draftMedia {
+  position: relative;
+  min-height: 176px;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.16), transparent 22%),
+    linear-gradient(145deg, rgba(84, 84, 86, 0.62), rgba(15, 15, 16, 0.96));
+  background-position: center;
+  background-size: cover;
+}
+
+.draftCardPost .draftMedia {
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.12), transparent 22%),
+    linear-gradient(135deg, rgba(54, 61, 58, 0.7), rgba(14, 14, 15, 0.96));
+}
+
+.draftCardWorkflow .draftMedia {
+  background:
+    radial-gradient(circle at 70% 22%, rgba(255, 226, 178, 0.18), transparent 24%),
+    linear-gradient(135deg, rgba(96, 72, 48, 0.74), rgba(14, 14, 15, 0.96));
+}
+
+.draftMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent 35%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52), transparent 68%);
+}
+
+.draftMedia span {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 0 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.draftContent {
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  min-width: 0;
+  padding: 22px 24px 58px;
+}
+
+.draftMetaRow,
+.draftFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.draftMetaRow {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.privateBadge {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.draftContent h3 {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 1.1rem;
+  font-weight: 760;
+  line-height: 1.24;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.draftContent p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.86rem;
+  line-height: 1.62;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.draftFooter {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.draftFooter strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+}
+
+.draftStatusStack {
+  display: grid;
+  gap: 8px;
+}
+
+.draftStatusChip {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.draftStatusMessage {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.78rem;
+  line-height: 1.56;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.draftDeleteButton {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.draftDeleteButton:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.draftDeleteButton:disabled {
+  cursor: wait;
+  opacity: 0.58;
 }
 
 .emptyState {
@@ -455,9 +668,280 @@
   line-height: 1.7;
 }
 
+.pageNotice {
+  position: fixed;
+  right: 34px;
+  bottom: 34px;
+  z-index: 60;
+  max-width: min(360px, calc(100vw - 40px));
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(20, 20, 21, 0.86);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.55;
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(18px);
+}
+
+.pageNoticeError {
+  border-color: rgba(255, 146, 122, 0.32);
+  color: rgba(255, 214, 204, 0.96);
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.08), transparent 34%),
+    rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(18px);
+}
+
+.profileModal {
+  width: min(620px, 100%);
+  max-height: min(760px, calc(100vh - 56px));
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(38, 38, 39, 0.96), rgba(14, 14, 15, 0.98)),
+    rgba(18, 18, 19, 0.98);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 30px 18px;
+}
+
+.modalEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 1.55rem;
+  font-weight: 780;
+  letter-spacing: -0.04em;
+}
+
+.modalCloseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.profileForm {
+  display: grid;
+  gap: 18px;
+  padding: 0 30px 30px;
+}
+
+.avatarEditRow {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.modalAvatarPreview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 112px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 24% 22%, rgba(255, 255, 255, 0.15), transparent 24%),
+    linear-gradient(145deg, rgba(92, 92, 94, 0.9), rgba(16, 16, 17, 0.98));
+  background-position: center;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.avatarCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.avatarCopy strong {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.98rem;
+}
+
+.avatarCopy span {
+  max-width: 22rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.avatarUploadButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 34px;
+  margin-top: 4px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: rgba(12, 12, 13, 0.95);
+  font-size: 0.78rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.avatarUploadButton input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profileField {
+  display: grid;
+  gap: 9px;
+}
+
+.profileField span {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.profileField input,
+.profileField textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.94);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 650;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.profileField input {
+  height: 48px;
+  padding: 0 15px;
+}
+
+.profileField textarea {
+  min-height: 126px;
+  resize: vertical;
+  padding: 14px 15px;
+  line-height: 1.65;
+}
+
+.profileField input:focus,
+.profileField textarea:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.formNotice {
+  padding: 12px 14px;
+  border: 1px solid rgba(150, 228, 184, 0.22);
+  border-radius: 16px;
+  background: rgba(150, 228, 184, 0.08);
+  color: rgba(214, 255, 231, 0.92);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.formNoticeError {
+  border-color: rgba(255, 146, 122, 0.3);
+  background: rgba(255, 146, 122, 0.08);
+  color: rgba(255, 219, 211, 0.95);
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.modalGhostButton,
+.modalPrimaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  min-height: 42px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.modalGhostButton {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.modalPrimaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.94);
+  color: rgba(13, 13, 14, 0.96);
+}
+
+.modalGhostButton:disabled,
+.modalPrimaryButton:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
 @media (max-width: 1200px) {
   .galleryGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .draftGrid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -478,7 +962,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 980px) {
   .page {
     padding-top: 18px;
   }
@@ -529,6 +1013,17 @@
   }
 
   .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .galleryMedia {
+    min-height: 176px;
+  }
+}
+
+@media (max-width: 720px) {
+  .galleryGrid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -536,4 +1031,171 @@
   .galleryMedia {
     aspect-ratio: 1 / 0.64;
   }
+
+  .draftCard {
+    grid-template-columns: 1fr;
+  }
+
+  .draftMedia {
+    min-height: 156px;
+  }
+
+  .draftMetaRow,
+  .draftFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .modalOverlay {
+    align-items: end;
+    padding: 14px;
+  }
+
+  .profileModal {
+    max-height: calc(100vh - 28px);
+    border-radius: 26px;
+  }
+
+  .modalHeader {
+    padding: 24px 22px 16px;
+  }
+
+  .profileForm {
+    padding: 0 22px 24px;
+  }
+
+  .avatarEditRow {
+    grid-template-columns: 1fr;
+  }
+
+  .modalFooter {
+    flex-direction: column-reverse;
+  }
+
+  .modalGhostButton,
+  .modalPrimaryButton {
+    width: 100%;
+  }
+}
+
+:global(:root[data-theme="light"]) .backLink {
+  color: rgba(46, 36, 24, 0.68);
+}
+
+:global(:root[data-theme="light"]) .title {
+  color: rgba(28, 22, 15, 0.94);
+}
+
+:global(:root[data-theme="light"]) .headline {
+  color: rgba(92, 72, 47, 0.72);
+}
+
+:global(:root[data-theme="light"]) .bio {
+  color: rgba(58, 43, 25, 0.82);
+}
+
+:global(:root[data-theme="light"]) .statBlock strong {
+  color: rgba(30, 24, 17, 0.94);
+}
+
+:global(:root[data-theme="light"]) .statBlock span {
+  color: rgba(102, 79, 51, 0.66);
+}
+
+:global(:root[data-theme="light"]) .editButton,
+:global(:root[data-theme="light"]) .iconButton {
+  border-color: rgba(162, 132, 92, 0.18);
+  background: rgba(255, 251, 244, 0.9);
+  color: rgba(37, 28, 18, 0.86);
+  box-shadow: 0 12px 28px rgba(179, 148, 104, 0.12);
+}
+
+:global(:root[data-theme="light"]) .editButton:hover,
+:global(:root[data-theme="light"]) .iconButton:hover {
+  border-color: rgba(162, 132, 92, 0.28);
+  background: rgba(255, 248, 238, 0.98);
+}
+
+:global(:root[data-theme="light"]) .tabSection {
+  border-bottom-color: rgba(174, 145, 106, 0.16);
+}
+
+:global(:root[data-theme="light"]) .tab {
+  color: rgba(114, 89, 58, 0.52);
+}
+
+:global(:root[data-theme="light"]) .tabActive {
+  color: rgba(34, 26, 16, 0.92);
+}
+
+:global(:root[data-theme="light"]) .tabActive::after {
+  background: rgba(62, 45, 24, 0.88);
+}
+
+:global(:root[data-theme="light"]) .emptyState {
+  border-color: rgba(174, 145, 106, 0.14);
+  background: rgba(255, 250, 242, 0.76);
+}
+
+:global(:root[data-theme="light"]) .emptyState strong {
+  color: rgba(31, 25, 18, 0.92);
+}
+
+:global(:root[data-theme="light"]) .emptyState p {
+  color: rgba(92, 72, 47, 0.74);
+}
+
+:global(:root[data-theme="light"]) .draftCard {
+  border-color: rgba(174, 145, 106, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255, 252, 247, 0.94), rgba(251, 245, 236, 0.82)),
+    rgba(255, 250, 242, 0.86);
+  box-shadow: 0 20px 48px rgba(196, 166, 125, 0.18);
+}
+
+:global(:root[data-theme="light"]) .draftCard:hover {
+  border-color: rgba(174, 145, 106, 0.24);
+  background-color: rgba(255, 248, 238, 0.96);
+}
+
+:global(:root[data-theme="light"]) .draftCardDisabled:hover {
+  border-color: rgba(174, 145, 106, 0.14);
+  background-color: rgba(255, 250, 242, 0.86);
+}
+
+:global(:root[data-theme="light"]) .draftMetaRow {
+  color: rgba(123, 96, 62, 0.68);
+}
+
+:global(:root[data-theme="light"]) .privateBadge {
+  background: rgba(187, 157, 113, 0.14);
+  color: rgba(90, 68, 42, 0.84);
+}
+
+:global(:root[data-theme="light"]) .draftContent h3 {
+  color: rgba(31, 24, 17, 0.94);
+}
+
+:global(:root[data-theme="light"]) .draftContent p {
+  color: rgba(88, 68, 44, 0.78);
+}
+
+:global(:root[data-theme="light"]) .draftFooter {
+  color: rgba(116, 90, 58, 0.72);
+}
+
+:global(:root[data-theme="light"]) .draftFooter strong {
+  color: rgba(40, 30, 18, 0.88);
+}
+
+:global(:root[data-theme="light"]) .draftDeleteButton {
+  border-color: rgba(174, 145, 106, 0.16);
+  background: rgba(255, 249, 241, 0.92);
+  color: rgba(77, 58, 35, 0.82);
+}
+
+:global(:root[data-theme="light"]) .draftDeleteButton:hover:not(:disabled) {
+  border-color: rgba(174, 145, 106, 0.28);
+  background: rgba(255, 243, 228, 0.98);
+  color: rgba(42, 31, 18, 0.92);
 }

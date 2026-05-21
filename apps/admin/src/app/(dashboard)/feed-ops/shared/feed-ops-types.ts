@@ -1,0 +1,60 @@
+export type FeedOpsPageData = {
+  summary: {
+    pageKey: string;
+    statusCode: string;
+    updatedAt?: string | null;
+    updatedByDisplayName?: string | null;
+    publishedAt?: string | null;
+    configuredItemCount: number;
+    candidateItemCount: number;
+  };
+  slots: Array<{
+    key: string;
+    title: string;
+    description: string;
+    maxItems: number;
+    allowedTargetTypes: string[];
+    items: Array<{
+      targetType: string;
+      targetId: string;
+      contentKind: string;
+      itemTypeLabel: string;
+      targetSlug?: string | null;
+      title: string;
+      authorId?: string | null;
+      authorDisplayName: string;
+      authorAvatarUrl?: string | null;
+      promptModality?: string | null;
+      channelSlug?: string | null;
+      channelTitle?: string | null;
+      summaryText?: string | null;
+      publishedAt?: string | null;
+      coverUrl?: string | null;
+      posterUrl?: string | null;
+      previewUrl?: string | null;
+      sourceUrl?: string | null;
+      available: boolean;
+    }>;
+  }>;
+  candidatePool: Array<{
+    targetType: string;
+    targetId: string;
+    contentKind: string;
+    itemTypeLabel: string;
+    targetSlug?: string | null;
+    title: string;
+    authorId?: string | null;
+    authorDisplayName: string;
+    authorAvatarUrl?: string | null;
+    promptModality?: string | null;
+    channelSlug?: string | null;
+    channelTitle?: string | null;
+    summaryText?: string | null;
+    publishedAt?: string | null;
+    coverUrl?: string | null;
+    posterUrl?: string | null;
+    previewUrl?: string | null;
+    sourceUrl?: string | null;
+    available: boolean;
+  }>;
+};

@@ -52,7 +52,14 @@ public class UploadController {
     ) {
         try {
             return ResponseEntity.ok(
-                    ApiResponse.ok(uploadApplicationService.uploadBinary(assetId, contentType, request.getInputStream()))
+                    ApiResponse.ok(
+                            uploadApplicationService.uploadBinary(
+                                    assetId,
+                                    contentType,
+                                    request.getContentLengthLong(),
+                                    request.getInputStream()
+                            )
+                    )
             );
         } catch (IOException ex) {
             throw ApiBusinessException.internalError("UPLOAD_STREAM_READ_FAILED", "upload stream could not be read");

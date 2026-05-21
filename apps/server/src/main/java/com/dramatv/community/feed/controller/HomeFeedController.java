@@ -1,5 +1,6 @@
 package com.dramatv.community.feed.controller;
 
+import com.dramatv.community.feed.dto.response.FeaturedArchiveResponse;
 import com.dramatv.community.feed.application.HomeFeedQueryService;
 import com.dramatv.community.feed.dto.response.HomeFeedResponse;
 import com.dramatv.community.shared.response.ApiResponse;
@@ -25,5 +26,10 @@ public class HomeFeedController {
             @RequestParam(defaultValue = "recommend") String channel
     ) {
         return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadHomeFeed(cursor, channel)));
+    }
+
+    @GetMapping("/featured")
+    public ResponseEntity<ApiResponse<FeaturedArchiveResponse>> featured() {
+        return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadFeaturedArchive()));
     }
 }

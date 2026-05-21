@@ -55,6 +55,11 @@ function buildEntry(item) {
   return {
     rank: item.rank,
     id: item.id,
+    model: safeText(item.model),
+    campaign: safeText(item.campaign),
+    filterMode: safeText(item.filterMode),
+    locale: safeText(item.locale),
+    categories: safeText(item.categories),
     title: safeText(item.title),
     description: safeText(item.description),
     language: safeText(item.language),
@@ -137,6 +142,11 @@ function main() {
         {
           rank: entry.rank,
           id: entry.id,
+          model: entry.model,
+          campaign: entry.campaign,
+          filterMode: entry.filterMode,
+          locale: entry.locale,
+          categories: entry.categories,
           title: entry.title,
           description: entry.description,
           language: entry.language,
@@ -170,6 +180,9 @@ function main() {
     return {
       rank: entry.rank,
       id: entry.id,
+      model: entry.model,
+      campaign: entry.campaign,
+      categories: entry.categories,
       title: entry.title,
       folder: folderName,
       sourceLink: entry.sourceLink,

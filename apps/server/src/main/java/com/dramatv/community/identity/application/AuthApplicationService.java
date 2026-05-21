@@ -1,11 +1,19 @@
 package com.dramatv.community.identity.application;
 
 import com.dramatv.community.identity.dto.request.LoginRequest;
+import com.dramatv.community.identity.dto.response.AuthProviderConfigResponse;
 import com.dramatv.community.identity.dto.response.AuthSessionResponse;
 import com.dramatv.community.identity.dto.response.LoginResponse;
 import com.dramatv.community.shared.error.ApiBusinessException;
+import com.dramatv.community.shared.request.MdcBusinessContextScope;
+import com.dramatv.community.shared.request.RequestClientIpResolver;
+import com.dramatv.community.shared.security.ActionRateLimiter;
 import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,33 +23,51 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AuthApplicationService {
 
+    private static final Logger log = LoggerFactory.getLogger(AuthApplicationService.class);
     private static final long SESSION_EXPIRES_IN_SECONDS = 7200;
     private static final String LOCAL_IDENTITY_PROVIDER = "local";
+    private static final String LOCAL_PASSWORD_LOGIN_TYPE = "local_password";
     private static final String DEFAULT_LOCAL_PASSWORD = "dramatv-local-dev";
 
     private final JdbcTemplate jdbcTemplate;
     private final PasswordEncoder passwordEncoder;
     private final CurrentUserService currentUserService;
+    private final CommunityAuthProperties communityAuthProperties;
+    private final RequestClientIpResolver requestClientIpResolver;
+    private final ActionRateLimiter actionRateLimiter;
 
     public AuthApplicationService(
             JdbcTemplate jdbcTemplate,
             PasswordEncoder passwordEncoder,
-            CurrentUserService currentUserService
+            CurrentUserService currentUserService,
+            CommunityAuthProperties communityAuthProperties,
+            RequestClientIpResolver requestClientIpResolver,
+            ActionRateLimiter actionRateLimiter
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.passwordEncoder = passwordEncoder;
         this.currentUserService = currentUserService;
+        this.communityAuthProperties = communityAuthProperties;
+        this.requestClientIpResolver = requestClientIpResolver;
+        this.actionRateLimiter = actionRateLimiter;
     }
 
     @Transactional
     public LoginResponse login(LoginRequest request) {
-        if (!"password".equalsIgnoreCase(request.loginType())) {
+        if (!LOCAL_PASSWORD_LOGIN_TYPE.equalsIgnoreCase(request.loginType())
+                && !"password".equalsIgnoreCase(request.loginType())) {
             throw ApiBusinessException.badRequest("AUTH_LOGIN_TYPE_UNSUPPORTED", "login type is unsupported");
         }
+        if (!communityAuthProperties.getProvider().isLocalPasswordEnabled()) {
+            throw ApiBusinessException.badRequest("AUTH_LOGIN_TYPE_DISABLED", "login type is disabled");
+        }
 
-        LocalUser user = findLocalUser(request.username());
+        String normalizedUsername = request.username().trim();
+        actionRateLimiter.checkLogin(requestClientIpResolver.currentOrFallback(), normalizedUsername);
+
+        LocalUser user = findLocalUser(normalizedUsername);
         if (user == null) {
-            user = createLocalDeveloperUser(request.username(), request.password());
+            user = createLocalDeveloperUser(normalizedUsername, request.password());
         }
         if (user.passwordHash() == null || user.passwordHash().isBlank()) {
             user = initializeLocalDeveloperPassword(user, request.password());
@@ -68,10 +94,34 @@ public class AuthApplicationService {
 
         jdbcTemplate.update("update users set last_login_at = now(), updated_at = now() where id = ?", user.id());
 
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(sessionContext(user.id()))) {
+            log.info(
+                    "auth login success: userId={} username={} roleCode={} sessionExpiresInSeconds={}",
+                    user.id(),
+                    user.username(),
+                    user.roleCode(),
+                    SESSION_EXPIRES_IN_SECONDS
+            );
+        }
+
         return new LoginResponse(
                 accessToken,
                 SESSION_EXPIRES_IN_SECONDS,
                 new LoginResponse.AuthUser(user.id().toString(), user.displayName(), user.roleCode())
+        );
+    }
+
+    public AuthProviderConfigResponse getProviderConfig() {
+        CommunityAuthProperties.Provider provider = communityAuthProperties.getProvider();
+        return new AuthProviderConfigResponse(
+                provider.getPrimary(),
+                List.of(new AuthProviderConfigResponse.LoginProvider(
+                        LOCAL_PASSWORD_LOGIN_TYPE,
+                        provider.getLocalPasswordDisplayName(),
+                        provider.getLocalPasswordDescription(),
+                        provider.isLocalPasswordEnabled(),
+                        "password"
+                ))
         );
     }
 
@@ -90,6 +140,18 @@ public class AuthApplicationService {
                 """,
                 AuthTokenSupport.sha256(token)
         );
+
+        CurrentUser currentUser = CurrentUserContext.currentOrNull();
+        if (currentUser != null) {
+            try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(sessionContext(currentUser.id()))) {
+                log.info(
+                        "auth logout success: userId={} username={} roleCode={}",
+                        currentUser.id(),
+                        currentUser.username(),
+                        currentUser.roleCode()
+                );
+            }
+        }
     }
 
     public AuthSessionResponse currentUser() {
@@ -191,6 +253,13 @@ public class AuthApplicationService {
 
         String token = authorizationHeader.substring("Bearer ".length()).trim();
         return token.isEmpty() ? null : token;
+    }
+
+    private Map<String, String> sessionContext(UUID userId) {
+        return Map.of(
+                "targetType", "session",
+                "targetId", userId.toString()
+        );
     }
 
     private record LocalUser(

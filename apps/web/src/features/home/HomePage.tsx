@@ -1,19 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { PageShell } from "@/components/shared/PageShell";
+import { useInteractiveVideoPreview } from "@/components/shared/useInteractiveVideoPreview";
 import type { ApiPromptSummary } from "@/lib/contracts/community-api";
 import type { CreatorMiniCardView, HomePageView, WorkflowMiniCardView } from "@/lib/contracts/view-models";
+import { toIndexedContentCards, toResourceBadge } from "@/lib/content-index";
 import { homeDemoCatalog, type HomeDemoCard } from "@/lib/prefill/home-resource-catalog";
-import { isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
+import { mergeCardsPreferCatalogMedia } from "./home-card-merge";
 import styles from "./HomePage.module.css";
 
 type HomePageProps = {
   isAuthenticated: boolean;
-  prompts: ApiPromptSummary[];
+  prompts?: ApiPromptSummary[];
   view: HomePageView;
 };
+
+type HomeArchiveCardData = HomeDemoCard & {
+  badge?: string;
+  metricLabel?: string;
+};
+
+type ThemeMode = "dark" | "light";
 
 function resolveActionHref(isAuthenticated: boolean, href: string) {
   return isAuthenticated ? href : `/login?redirectTo=${encodeURIComponent(href)}`;
@@ -21,6 +34,7 @@ function resolveActionHref(isAuthenticated: boolean, href: string) {
 
 const REFERENCE_HERO_VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4";
+const LIGHT_REFERENCE_HERO_VIDEO_URL = "/seedance-videos/20-0c6f4edee69d507da861299696d2e3fe.mp4";
 
 const REFERENCE_HERO_AVATARS = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB8aBDF6bhj14S9ohL_d848Wvlx-vOqzXAUWOWrp-oPh4Bnw7U22XGX32B4IF3OqElRFqsSZ7qdbO1QfxF3VIu7Qkd_pu_jjEKewJ6_0grqiBfJ1iyQyhbPL5vviMO3LQ1piq_rJ_cWE0OHy1IhrJeCbmLOWv2IqDs7uW2ViGR4gL01_7aB-e3fXrptzQsSdlxNJminrMoWJs0NhaezAPI7gqXew8Zh6fFcleTntHxudRo1pKM3vH5EtktFTQDsp8kFzbbwSoRLmy7_",
@@ -93,78 +107,112 @@ function formatCompactNumber(value: number) {
   return value.toLocaleString("zh-CN");
 }
 
-function getBadgeLabel(type: HomeDemoCard["resourceType"]) {
-  return type === "workflow" ? "WORKFLOW" : "PROMPT";
+function getBadgeLabel(card: HomeArchiveCardData) {
+  return card.badge ?? (card.resourceType === "workflow" ? formatEntityTypeBadge("workflow") : formatEntityTypeBadge("prompt"));
 }
 
-function getHeroMediaStyle(card: HomeDemoCard) {
-  const imageUrl = normalizeAssetUrl(card.coverUrl);
-  return imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined;
-}
+function formatCardMetric(card: HomeArchiveCardData) {
+  if (card.metricLabel) {
+    return card.metricLabel;
+  }
 
-function formatCardMetric(card: HomeDemoCard) {
   return `${formatCompactNumber(card.primaryMetric)}${card.resourceType === "workflow" ? "热度" : "浏览"}`;
 }
 
-function ArchiveCard({ card, isAuthenticated }: { card: HomeDemoCard; isAuthenticated: boolean }) {
+function readThemeMode(): ThemeMode {
+  if (typeof document === "undefined") {
+    return "dark";
+  }
+
+  return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
+
+function ArchiveCard({
+  card,
+  isAuthenticated,
+  backSource,
+  anchorId
+}: {
+  card: HomeArchiveCardData;
+  isAuthenticated: boolean;
+  backSource: string;
+  anchorId: string;
+}) {
   const authorName = normalizeText(card.author.displayName) ?? "DramaTV Creator";
   const authorAvatarUrl = normalizeAssetUrl(card.author.avatarUrl);
-  const mediaUrl = normalizeAssetUrl(card.coverUrl);
-  const isVideoMedia = isVideoAssetUrl(mediaUrl);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  async function handlePreviewStart() {
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-
-    try {
-      await video.play();
-    } catch {}
-  }
-
-  function handlePreviewStop() {
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-
-    video.pause();
-
-    try {
-      video.currentTime = 0;
-    } catch {}
-  }
+  const imageUrl = normalizeAssetUrl(card.posterUrl) ?? normalizeAssetUrl(card.coverUrl);
+  const previewUrl = normalizeAssetUrl(card.previewUrl);
+  const isVideoMedia = Boolean(previewUrl);
+  const {
+    handlePreviewImmediateStart,
+    handlePreviewStart,
+    handlePreviewStop,
+    isVideoReady,
+    mediaRef,
+    shouldLoadVideo,
+    videoRef
+  } =
+    useInteractiveVideoPreview({
+    enabled: isVideoMedia,
+    loadOnViewport: false,
+    unloadDelayMs: 1200,
+    previewGroup: "landing-home-grid",
+    previewStartDelayMs: 160
+    });
 
   return (
     <Link
       className={styles.archiveCard}
-      href={resolveActionHref(isAuthenticated, card.href)}
+      href={resolveActionHref(isAuthenticated, appendBackSource(card.href, buildBackAnchorSource(backSource, anchorId)))}
+      id={anchorId}
       onBlur={handlePreviewStop}
-      onFocus={handlePreviewStart}
+      onFocus={handlePreviewImmediateStart}
       onMouseEnter={handlePreviewStart}
       onMouseLeave={handlePreviewStop}
     >
-      {isVideoMedia && mediaUrl ? (
-        <video
-          ref={videoRef}
-          className={`${styles.archiveCardMedia}${styles.archiveCardMediaVideo}`}
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          src={mediaUrl}
+      {isVideoMedia && previewUrl ? (
+        <span className={styles.archiveCardMediaSlot} ref={mediaRef}>
+          {imageUrl ? (
+            <img
+              alt={card.title}
+              className={`${styles.archiveCardMediaImage} ${styles.archiveCardMediaHasImage}`}
+              decoding="async"
+              draggable={false}
+              loading="lazy"
+              sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
+              src={imageUrl}
+            />
+          ) : (
+            <span className={styles.archiveCardMedia} />
+          )}
+          {shouldLoadVideo ? (
+            <video
+              ref={videoRef}
+              className={`${styles.archiveCardMediaVideo} ${isVideoReady ? styles.archiveCardMediaVideoReady : ""}`}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              src={previewUrl}
+            />
+          ) : null}
+        </span>
+      ) : imageUrl ? (
+        <img
+          alt={card.title}
+          className={`${styles.archiveCardMediaImage} ${styles.archiveCardMediaHasImage}`}
+          decoding="async"
+          draggable={false}
+          loading="lazy"
+          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
+          src={imageUrl}
         />
       ) : (
-        <span
-          className={`${styles.archiveCardMedia}${card.coverUrl ? ` ${styles.archiveCardMediaHasImage}` : ""}`}
-          style={mediaUrl ? { backgroundImage: `url(${mediaUrl})` } : undefined}
-        />
+        <span className={styles.archiveCardMedia} />
       )}
       <span className={styles.archiveCardShade} />
       <span className={styles.archiveCardHeader}>
-        <span className={styles.archiveCardBadge}>{getBadgeLabel(card.resourceType)}</span>
+        <span className={styles.archiveCardBadge}>{getBadgeLabel(card)}</span>
       </span>
       <span className={styles.archiveCardFooter}>
         <strong className={styles.archiveCardTitle}>{card.title}</strong>
@@ -193,6 +241,9 @@ function toPromptArchiveCard(prompt: ApiPromptSummary): HomeDemoCard {
     summary: normalizeText(prompt.summary) ?? "进入详情页继续查看提示词和示例内容。",
     href: `/prompts/${prompt.id}`,
     coverUrl: prompt.coverUrl,
+    posterUrl: prompt.posterUrl,
+    previewUrl: prompt.previewUrl,
+    sourceUrl: prompt.sourceUrl,
     author: {
       id: prompt.author.id,
       displayName: normalizeText(prompt.author.displayName) ?? "DramaTV Creator",
@@ -222,35 +273,115 @@ function toWorkflowArchiveCard(workflow: WorkflowMiniCardView): HomeDemoCard {
   };
 }
 
-export function HomePage({ view, prompts, isAuthenticated }: HomePageProps) {
+export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [themeMode, setThemeMode] = useState<ThemeMode>("dark");
+  const [isHeroVideoReady, setIsHeroVideoReady] = useState(false);
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
+  const heroVideoUrl = themeMode === "light" ? LIGHT_REFERENCE_HERO_VIDEO_URL : REFERENCE_HERO_VIDEO_URL;
+  const heroVideoClassName =
+    themeMode === "light"
+      ? `${styles.heroVideo} ${styles.heroVideoLight}`
+      : `${styles.heroVideo} ${styles.heroVideoDark}`;
   const featuredCreators = useMemo(
     () => (view.featuredCreators.length > 0 ? view.featuredCreators.slice(0, 3) : homeDemoCatalog.creators.slice(0, 3)),
     [view.featuredCreators]
   );
 
-  const archiveCards = useMemo<HomeDemoCard[]>(() => {
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    setThemeMode(readThemeMode());
+    const observer = new MutationObserver(() => setThemeMode(readThemeMode()));
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"]
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    setIsHeroVideoReady(false);
+  }, [heroVideoUrl]);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) {
+      return;
+    }
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsHeroVideoReady(true);
+    }
+  }, [heroVideoUrl]);
+
+  const handleHeroVideoRef = useCallback((node: HTMLVideoElement | null) => {
+    heroVideoRef.current = node;
+    if (node && node.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsHeroVideoReady((current) => current || true);
+    }
+  }, []);
+
+  const archiveCards = useMemo<HomeArchiveCardData[]>(() => {
+    const indexedCards = toIndexedContentCards(view.feedItems)
+      .filter((item) => item.contentKind !== "post")
+      .map((item) => ({
+      id: item.id,
+      title: item.title,
+      summary:
+        item.summary ??
+        (item.contentKind === "workflow_work"
+            ? item.workflowTitle ?? "进入详情页继续查看作品与关联工作流。"
+            : "进入详情页继续查看提示词和示例内容。"),
+      href: item.href,
+      coverUrl: item.coverUrl,
+      posterUrl: item.posterUrl,
+      previewUrl: item.previewUrl,
+      sourceUrl: item.sourceUrl,
+      author: item.author,
+      resourceType: item.contentKind === "workflow_work" ? ("workflow" as const) : ("prompt" as const),
+      primaryMetric: item.primaryMetric,
+      secondaryMetric: item.secondaryMetric,
+      badge: toResourceBadge(item.contentKind)
+    }));
     const promptCards = prompts.map(toPromptArchiveCard);
     const workflows =
       view.hotWorkflows.length > 0 ? view.hotWorkflows.map(toWorkflowArchiveCard) : homeDemoCatalog.workflowSection;
+    const primaryCards = mergeCardsPreferCatalogMedia(indexedCards, promptCards);
 
-    return [
-      promptCards[0],
-      promptCards[1],
+    const orderedCards = [
+      primaryCards[0],
+      primaryCards[1],
       workflows[1],
       workflows[0],
-      promptCards[2],
-      promptCards[3],
+      primaryCards[2],
+      primaryCards[3],
       workflows[3],
-      promptCards[4],
+      primaryCards[4],
       workflows[2],
-      promptCards[5],
-      promptCards[6],
-      promptCards[7]
+      primaryCards[5],
+      primaryCards[6],
+      primaryCards[7]
     ].filter((card): card is HomeDemoCard => Boolean(card));
-  }, [prompts]);
 
-  const heroCard = archiveCards[0];
-  const heroVideoUrl = REFERENCE_HERO_VIDEO_URL;
+    const seen = new Set<string>();
+    return orderedCards.filter((card) => {
+      if (seen.has(card.id)) {
+        return false;
+      }
+
+      seen.add(card.id);
+      return true;
+    });
+  }, [prompts, view.feedItems, view.hotWorkflows]);
+  const currentRoute = useMemo(() => buildCurrentRoute(pathname, searchParams), [pathname, searchParams]);
+
+  useBackAnchorRestore([archiveCards.length]);
+
   const featuredArchiveHref = resolveActionHref(isAuthenticated, "/featured");
   const meHref = resolveActionHref(isAuthenticated, "/me");
   const unlockHref = isAuthenticated ? "/home" : "/login?redirectTo=%2Fhome";
@@ -264,13 +395,23 @@ export function HomePage({ view, prompts, isAuthenticated }: HomePageProps) {
     >
       <div className={styles.page}>
         <section className={styles.hero}>
-          <span
-            className={`${styles.heroMedia}${heroCard?.coverUrl ? ` ${styles.heroMediaHasImage}` : ""}`}
-            style={heroCard ? getHeroMediaStyle(heroCard) : undefined}
-          />
+          <span className={styles.heroMedia} />
           {heroVideoUrl ? (
-            <video autoPlay className={styles.heroVideo} loop muted playsInline preload="metadata">
-              <source src={heroVideoUrl} type="video/mp4" />
+            <video
+              autoPlay
+              className={`${heroVideoClassName} ${isHeroVideoReady ? styles.heroVideoReady : ""}`}
+              key={themeMode}
+              loop
+              muted
+              ref={handleHeroVideoRef}
+              onCanPlay={() => setIsHeroVideoReady(true)}
+              onEmptied={() => setIsHeroVideoReady(false)}
+              onLoadedData={() => setIsHeroVideoReady(true)}
+              playsInline
+              preload="metadata"
+              src={heroVideoUrl}
+              style={{ opacity: isHeroVideoReady ? (themeMode === "light" ? 1 : 0.68) : 0 }}
+            >
             </video>
           ) : null}
           <span className={styles.heroShade} />
@@ -305,7 +446,7 @@ export function HomePage({ view, prompts, isAuthenticated }: HomePageProps) {
               </p>
 
               <div className={styles.searchPanel}>
-                <span className={styles.searchHint}>Brand naming / AI tools / Video workflow</span>
+                <span className={styles.searchHint}>工作流 / 视频提示词 / 图片提示词</span>
                 <Link className={styles.searchButton} href={featuredArchiveHref}>
                   浏览档案
                 </Link>
@@ -328,8 +469,14 @@ export function HomePage({ view, prompts, isAuthenticated }: HomePageProps) {
             </div>
 
             <div className={styles.archiveGrid}>
-              {archiveCards.map((card) => (
-                <ArchiveCard card={card} isAuthenticated={isAuthenticated} key={card.id} />
+              {archiveCards.map((card, index) => (
+                <ArchiveCard
+                  anchorId={createBackAnchorId("landing-card", `${index}-${card.id}`)}
+                  backSource={currentRoute}
+                  card={card}
+                  isAuthenticated={isAuthenticated}
+                  key={card.id}
+                />
               ))}
             </div>
 

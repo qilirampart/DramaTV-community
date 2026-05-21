@@ -2,26 +2,29 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { type ChangeEvent, useMemo, useRef, useState, useTransition } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { PageShell } from "@/components/shared/PageShell";
+import { uploadAssetFromClient } from "@/lib/api/upload-client";
+import { stripDiscussionContentToPlainText } from "@/lib/discussion-content";
 import type { ApiPostDraftUpdateInput } from "@/lib/contracts/community-api";
 import type {
+  DiscussionComposerPageView,
   DiscussionChannelView,
-  PostDraftView,
-  PublishPageView
+  PostDraftView
 } from "@/lib/contracts/view-models";
 import {
   savePostDraftAction,
   submitPostDraftAction,
-  uploadAssetAction,
   type PublishDraftActionResult
 } from "@/features/publish/actions";
 import { DiscussionMarkdown } from "./discussion-markdown";
+import { DiscussionRichEditor } from "./discussion-rich-editor";
 import styles from "./DiscussionComposerPage.module.css";
 
 type DiscussionComposerPageProps = {
-  view: PublishPageView;
+  view: DiscussionComposerPageView;
   channels: DiscussionChannelView[];
+  initialChannelSlug?: string;
 };
 
 type NoticeTone = "neutral" | "success" | "error";
@@ -39,58 +42,59 @@ type PostFormState = {
 };
 
 const TEXT = {
-  back: "\u2190 \u8fd4\u56de\u8d85\u80fd\u793e\u533a",
-  preview: "\u9884\u89c8",
-  edit: "\u8fd4\u56de\u7f16\u8f91",
-  save: "\u4fdd\u5b58\u8349\u7a3f",
-  submit: "\u53d1\u5e03\u5e16\u5b50",
-  processing: "\u5904\u7406\u4e2d...",
-  title: "\u53d1\u8d77\u4e00\u7bc7\u50cf\u6837\u7684\u8ba8\u8bba\u5e16",
-  subtitle:
-    "\u8fd9\u91cc\u4e0d\u53d1\u4f5c\u54c1\u6863\u6848\uff0c\u800c\u662f\u53d1\u5e03\u95ee\u9898\u3001\u590d\u76d8\u3001\u65b9\u6cd5\u8bba\u548c\u793e\u533a\u8ba8\u8bba\u3002\u652f\u6301 Markdown \u7f16\u5199\uff0c\u56fe\u7247\u548c\u89c6\u9891\u53ef\u4ee5\u76f4\u63a5\u63d2\u5165\u6b63\u6587\u3002",
-  currentChannel: "\u5f53\u524d\u677f\u5757",
-  format: "\u7f16\u8f91\u683c\u5f0f",
-  formatValue: "Markdown + \u5a92\u4f53\u63d2\u5165",
-  draftStatus: "\u8349\u7a3f\u72b6\u6001",
-  draftLocked: "\u5df2\u9501\u5b9a",
-  draftEditable: "\u53ef\u7ee7\u7eed\u7f16\u8f91",
-  postTitle: "\u5e16\u5b50\u6807\u9898",
-  postTitlePlaceholder:
-    "\u4f8b\u5982\uff1a\u53d1\u5e16\u540e\u5de5\u4f5c\u6d41\u7ed1\u5b9a\u5e94\u8be5\u5982\u4f55\u8bbe\u8ba1\uff1f",
-  heading: "\u6807\u9898",
-  quote: "\u5f15\u7528",
-  list: "\u5217\u8868",
-  code: "\u4ee3\u7801\u5757",
-  image: "\u63d2\u56fe",
-  video: "\u63d2\u89c6\u9891",
-  livePreview: "\u5b9e\u65f6\u9884\u89c8",
-  previewEmpty: "\u6b63\u6587\u8fd8\u6ca1\u6709\u5185\u5bb9\uff0c\u5148\u5728\u5de6\u4fa7\u5199\u70b9\u4e1c\u897f\u3002",
-  chooseChannel: "\u677f\u5757\u9009\u62e9",
-  chooseChannelFallback: "\u9009\u62e9\u4e00\u4e2a\u677f\u5757",
-  tags: "\u6807\u7b7e",
-  tagsPlaceholder: "\u4f8b\u5982\uff1a\u5de5\u4f5c\u6d41\u8bbe\u8ba1, \u793e\u533a\u673a\u5236, \u590d\u76d8",
-  guide: "\u53d1\u5e16\u5efa\u8bae",
-  guideOne: "\u5148\u5199\u7ed3\u8bba\uff0c\u518d\u5199\u8fc7\u7a0b\uff0c\u522b\u4eba\u66f4\u5bb9\u6613\u53c2\u4e0e\u8ba8\u8bba\u3002",
-  guideTwo: "\u5982\u679c\u6709\u56fe\u6216\u89c6\u9891\uff0c\u63d2\u8fdb\u6b63\u6587\uff0c\u4e0d\u8981\u53ea\u5199\u201c\u89c1\u9644\u4ef6\u201d\u3002",
-  guideThree: "\u6807\u9898\u5c3d\u91cf\u5177\u4f53\uff0c\u907f\u514d\u201c\u6c42\u52a9\u201d\u201c\u6709\u95ee\u9898\u201d\u8fd9\u79cd\u6cdb\u6807\u9898\u3002",
-  guideFour: "Markdown \u9002\u5408\u6c89\u6dc0\u65b9\u6cd5\u8bba\uff0c\u540e\u9762\u4e5f\u65b9\u4fbf\u7ee7\u7eed\u5f15\u7528\u548c\u6574\u7406\u3002",
-  listPreview: "\u5217\u8868\u9884\u89c8",
-  unselectedChannel: "\u672a\u9009\u677f\u5757",
-  draftLockedText: "\u5f53\u524d\u5e16\u5b50\u8349\u7a3f\u5df2\u4e0d\u518d\u53ef\u7f16\u8f91\u3002",
-  summaryFallback: "\u8fd9\u91cc\u4f1a\u63d0\u53d6\u6b63\u6587\u6458\u8981\uff0c\u4f5c\u4e3a\u5217\u8868\u9875\u91cc\u7684\u9884\u89c8\u6587\u6848\u3002",
-  titleFallback: "\u8fd9\u91cc\u4f1a\u663e\u793a\u4f60\u7684\u5e16\u5b50\u6807\u9898",
-  saving: "\u6b63\u5728\u4fdd\u5b58\u5e16\u5b50\u8349\u7a3f...",
-  publishing: "\u6b63\u5728\u53d1\u5e03\u5e16\u5b50...",
-  imageTypeError: "\u8bf7\u9009\u62e9\u56fe\u7247\u6587\u4ef6\u3002",
-  videoTypeError: "\u8bf7\u9009\u62e9\u89c6\u9891\u6587\u4ef6\u3002",
-  imageUploadingPrefix: "\u6b63\u5728\u4e0a\u4f20\u56fe\u7247\uff1a",
-  videoUploadingPrefix: "\u6b63\u5728\u4e0a\u4f20\u89c6\u9891\uff1a",
-  imageInserted: "\u56fe\u7247\u5df2\u63d2\u5165\u6b63\u6587\u3002",
-  videoInserted: "\u89c6\u9891\u5df2\u63d2\u5165\u6b63\u6587\u3002",
-  imageUploadFailed: "\u56fe\u7247\u4e0a\u4f20\u5931\u8d25\u3002",
-  videoUploadFailed: "\u89c6\u9891\u4e0a\u4f20\u5931\u8d25\u3002",
-  previewFocus: "Preview Focus",
-  splitView: "Split View"
+  breadcrumbRoot: "社区",
+  breadcrumbCurrent: "发布帖子",
+  save: "保存草稿",
+  submit: "发布帖子",
+  processing: "处理中...",
+  title: "发起一篇值得讨论的帖子",
+  subtitle: "分享你的创作经验、方法与思考，帮助更多创作者成长。",
+  titleLabel: "帖子标题",
+  titlePlaceholder: "给帖子起一个清晰、有吸引力的标题吧（建议 5-80 字）",
+  titleHint: "标题越具体，越容易被别人理解并参与讨论。",
+  channelLabel: "发布频道",
+  editorLabel: "编辑内容",
+  editorHint: "现在是所见即所得编辑，标题、字号、颜色、图片和视频都会直接在正文里呈现。",
+  editorPlaceholder:
+    "在这里写下你的想法吧...\n\n建议包含以下内容，让你的帖子更有价值：\n\n- 背景与目标：你想要解决什么问题，达成什么效果？\n- 方法与步骤：你具体做了哪些尝试，使用了哪些工具或模型？\n- 结果与效果：效果如何？有哪些值得注意的细节？\n- 问题与思考：遇到了哪些问题？有哪些思考或改进方向？\n- 总结与建议：你的总结、经验或建议是什么？",
+  tagsLabel: "话题标签",
+  tagsHint: "添加合适的话题，帮助更多人发现你的内容。",
+  tagsPlaceholder: "例如：AI视频，工作流，社区讨论，剪辑，提示词",
+  sideChannelLabel: "发布频道",
+  sideRulesLabel: "社区规范",
+  sideTopicsLabel: "推荐话题",
+  sideSummaryLabel: "发布摘要",
+  preview: "预览",
+  backToEdit: "返回编辑",
+  draftLockedText: "当前帖子草稿已提交，不能继续编辑。",
+  channelFallback: "未选择频道",
+  summaryEmptyTitle: "未填写",
+  summaryFilledTitle: "已填写",
+  summaryNoTag: "0 个",
+  summaryReadingFallback: "1 分钟内",
+  previewEmpty: "正文还没有内容，先在编辑区写点东西。",
+  saving: "正在保存帖子草稿...",
+  publishing: "正在发布帖子...",
+  imageUploadingPrefix: "正在上传图片：",
+  videoUploadingPrefix: "正在上传视频：",
+  imageInserted: "图片已插入正文。",
+  videoInserted: "视频已插入正文。",
+  imageUploadFailed: "图片上传失败。",
+  videoUploadFailed: "视频上传失败。",
+  summaryTitleStatus: "标题状态",
+  summaryChannel: "发布频道",
+  summaryTags: "话题标签",
+  summaryReading: "预计阅读时长",
+  summaryMedia: "插入媒体",
+  summaryPending: "未填写",
+  rules: [
+    "尊重他人，友善讨论。",
+    "内容真实，禁止虚假传播与引战。",
+    "禁止广告、引流与恶意推广。",
+    "图片和视频请尽量服务于正文表达。",
+    "优先使用和内容真实相关的话题标签。"
+  ],
+  quickTopics: ["AI视频", "工作流", "社区讨论", "剪辑", "提示词", "创作复盘"]
 } as const;
 
 function textOrEmpty(value?: string) {
@@ -107,13 +111,25 @@ function toTagArray(value: string) {
     .split(/[，,\n]/)
     .map((item) => item.trim())
     .filter(Boolean)
-    .slice(0, 6);
+    .slice(0, 8);
 }
 
-function toPostFormState(draft: PostDraftView, channels: DiscussionChannelView[]): PostFormState {
+function mergeTags(currentValue: string, tag: string) {
+  const currentTags = toTagArray(currentValue);
+  if (currentTags.includes(tag)) {
+    return currentTags.filter((item) => item !== tag).join(", ");
+  }
+  return [...currentTags, tag].slice(0, 8).join(", ");
+}
+
+function toPostFormState(
+  draft: PostDraftView,
+  channels: DiscussionChannelView[],
+  initialChannelSlug?: string
+): PostFormState {
   return {
     title: textOrEmpty(draft.title),
-    channelSlug: textOrEmpty(draft.channelSlug) || textOrEmpty(channels[0]?.slug),
+    channelSlug: textOrEmpty(draft.channelSlug) || textOrEmpty(initialChannelSlug) || textOrEmpty(channels[0]?.slug),
     tagNames: draft.tagNames.join(", "),
     content: textOrEmpty(draft.content)
   };
@@ -131,61 +147,36 @@ function noticeClassName(tone: NoticeTone) {
   return styles.notice;
 }
 
-function createMediaMarkup(kind: "image" | "video", url: string, name: string) {
-  if (kind === "image") {
-    return `\n![${name}](${url})\n`;
+function computeReadingLabel(value: string) {
+  const plainText = stripDiscussionContentToPlainText(value);
+
+  if (!plainText) {
+    return TEXT.summaryReadingFallback;
   }
 
-  return `\n[${"\u89c6\u9891\uff1a"}${name}](${url})\n`;
+  const minutes = Math.max(1, Math.ceil(plainText.length / 360));
+  return `${minutes} 分钟`;
 }
 
-function insertAtCursor(
-  currentValue: string,
-  selectionStart: number | null,
-  selectionEnd: number | null,
-  snippet: string
-) {
-  const start = selectionStart ?? currentValue.length;
-  const end = selectionEnd ?? currentValue.length;
-  return `${currentValue.slice(0, start)}${snippet}${currentValue.slice(end)}`;
+function countMediaSnippets(value: string) {
+  const imageCount = (value.match(/<img\b[^>]*>/gi) ?? []).length + (value.match(/!\[[^\]]*]\(([^)]+)\)/g) ?? []).length;
+  const videoCount =
+    (value.match(/<figure\b[^>]*discussion-rich-video[^>]*>/gi) ?? []).length +
+    (value.match(/\[视频：[^\]]+]\(([^)]+)\)/g) ?? []).length;
+  return imageCount + videoCount;
 }
 
-function MarkdownIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-      <path d="M3.8 4.5h12.4a1.3 1.3 0 0 1 1.3 1.3v8.4a1.3 1.3 0 0 1-1.3 1.3H3.8a1.3 1.3 0 0 1-1.3-1.3V5.8a1.3 1.3 0 0 1 1.3-1.3Z" stroke="currentColor" strokeWidth="1.4" />
-      <path d="m5.9 12.7.1-4.4 1.9 2.3 1.9-2.3.1 4.4M13 12.7V8.3m0 4.4 1.8-2.2 1.8 2.2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.3" />
-    </svg>
-  );
+function countCharacters(value: string) {
+  return stripDiscussionContentToPlainText(value).replace(/\s+/g, "").length;
 }
 
-function ImageIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-      <rect width="12.5" height="10" x="3.75" y="5" rx="1.6" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="8" cy="8.2" r="1.2" fill="currentColor" />
-      <path d="m5.9 13.1 2.6-2.5 1.9 1.7 1.8-2.2 2 3" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.3" />
-    </svg>
-  );
-}
+function countLines(value: string) {
+  const plainText = stripDiscussionContentToPlainText(value);
+  if (!plainText.trim()) {
+    return 0;
+  }
 
-function VideoIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-      <rect width="11.5" height="9" x="3.25" y="5.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-      <path d="m9 8 3 2-3 2V8Z" fill="currentColor" />
-      <path d="m14.8 8.2 2-.9v5.4l-2-.9" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.3" />
-    </svg>
-  );
-}
-
-function PreviewIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-      <path d="M2.7 10s2.6-4.3 7.3-4.3 7.3 4.3 7.3 4.3-2.6 4.3-7.3 4.3S2.7 10 2.7 10Z" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="10" cy="10" r="2.1" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  );
+  return plainText.replace(/\r\n/g, "\n").split("\n").length;
 }
 
 function SaveIcon() {
@@ -206,11 +197,19 @@ function PublishIcon() {
   );
 }
 
-export function DiscussionComposerPage({ view, channels }: DiscussionComposerPageProps) {
+function PreviewIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
+      <path d="M2.7 10s2.6-4.3 7.3-4.3 7.3 4.3 7.3 4.3-2.6 4.3-7.3 4.3S2.7 10 2.7 10Z" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="10" cy="10" r="2.1" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
+  );
+}
+
+export function DiscussionComposerPage({ view, channels, initialChannelSlug }: DiscussionComposerPageProps) {
   const router = useRouter();
-  const editorRef = useRef<HTMLTextAreaElement | null>(null);
   const [postDraft, setPostDraft] = useState(view.postDraft);
-  const [form, setForm] = useState(() => toPostFormState(view.postDraft, channels));
+  const [form, setForm] = useState(() => toPostFormState(view.postDraft, channels, initialChannelSlug));
   const [previewMode, setPreviewMode] = useState(false);
   const [notice, setNotice] = useState<ComposerNotice | null>(null);
   const [uploadPending, setUploadPending] = useState(false);
@@ -221,18 +220,26 @@ export function DiscussionComposerPage({ view, channels }: DiscussionComposerPag
     channels[0];
 
   const busy = pending || uploadPending;
-  const locked = postDraft.statusCode !== "draft";
+  const locked = !postDraft.lifecycle.editable;
+  const tags = useMemo(() => toTagArray(form.tagNames), [form.tagNames]);
+  const quickTopics = useMemo<string[]>(() => {
+    const merged = [...TEXT.quickTopics] as string[];
+    if (currentChannel?.title && !merged.includes(currentChannel.title)) {
+      merged.unshift(currentChannel.title);
+    }
+    return merged.slice(0, 8);
+  }, [currentChannel?.title]);
 
   const previewSummary = useMemo(() => {
-    const excerpt = form.content
-      .replace(/!\[[^\]]*]\(([^)]+)\)/g, "")
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-      .replace(/[#>*`\-]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-
+    const excerpt = stripDiscussionContentToPlainText(form.content);
     return excerpt.length > 120 ? `${excerpt.slice(0, 120)}...` : excerpt;
   }, [form.content]);
+
+  const titleLength = form.title.trim().length;
+  const readingLabel = useMemo(() => computeReadingLabel(form.content), [form.content]);
+  const mediaCount = useMemo(() => countMediaSnippets(form.content), [form.content]);
+  const characterCount = useMemo(() => countCharacters(form.content), [form.content]);
+  const lineCount = useMemo(() => countLines(form.content), [form.content]);
 
   function buildPayload(): ApiPostDraftUpdateInput {
     return {
@@ -253,7 +260,7 @@ export function DiscussionComposerPage({ view, channels }: DiscussionComposerPag
     }
 
     setPostDraft(result.draft);
-    setForm(toPostFormState(result.draft, channels));
+    setForm(toPostFormState(result.draft, channels, initialChannelSlug));
     setNotice({
       tone: "success",
       text: result.message
@@ -295,230 +302,205 @@ export function DiscussionComposerPage({ view, channels }: DiscussionComposerPag
   }
 
   async function uploadMedia(file: File, kind: "image" | "video") {
-    const formData = new FormData();
-    formData.set("kind", kind);
-    formData.set("file", file);
-    return uploadAssetAction(formData);
+    return uploadAssetFromClient({
+      kind,
+      assetRole: "attachment",
+      file
+    });
   }
 
-  async function handleMediaInsert(
-    event: ChangeEvent<HTMLInputElement>,
-    kind: "image" | "video"
-  ) {
-    const input = event.currentTarget;
-    const file = input.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    const expectedPrefix = kind === "image" ? "image/" : "video/";
-    if (!file.type.startsWith(expectedPrefix)) {
-      setNotice({
-        tone: "error",
-        text: kind === "image" ? TEXT.imageTypeError : TEXT.videoTypeError
-      });
-      input.value = "";
-      return;
-    }
-
-    setUploadPending(true);
+  async function handleImageUpload(file: File) {
     setNotice({
       tone: "neutral",
-      text:
-        kind === "image"
-          ? `${TEXT.imageUploadingPrefix}${file.name}`
-          : `${TEXT.videoUploadingPrefix}${file.name}`
+      text: `${TEXT.imageUploadingPrefix}${file.name}`
     });
 
     try {
-      const uploadResponse = await uploadMedia(file, kind);
-      if (!uploadResponse.ok) {
-        throw new Error(uploadResponse.message);
-      }
-
-      insertSnippet(createMediaMarkup(kind, uploadResponse.asset.publicUrl, file.name));
+      const uploadResponse = await uploadMedia(file, "image");
+      const url = uploadResponse.mediaPath || uploadResponse.publicUrl;
       setNotice({
         tone: "success",
-        text: kind === "image" ? TEXT.imageInserted : TEXT.videoInserted
+        text: TEXT.imageInserted
       });
+      return {
+        url,
+        alt: file.name
+      };
     } catch (error) {
+      const message = error instanceof Error ? error.message : TEXT.imageUploadFailed;
       setNotice({
         tone: "error",
-        text:
-          error instanceof Error
-            ? error.message
-            : kind === "image"
-              ? TEXT.imageUploadFailed
-              : TEXT.videoUploadFailed
+        text: message
       });
-    } finally {
-      setUploadPending(false);
-      input.value = "";
+      throw error;
     }
   }
 
-  function insertSnippet(snippet: string) {
-    const selectionStart = editorRef.current?.selectionStart ?? null;
-    const selectionEnd = editorRef.current?.selectionEnd ?? null;
-
-    setForm((current) => ({
-      ...current,
-      content: insertAtCursor(current.content, selectionStart, selectionEnd, snippet)
-    }));
-
-    window.requestAnimationFrame(() => {
-      if (!editorRef.current) {
-        return;
-      }
-
-      const nextCursor = (selectionStart ?? editorRef.current.value.length) + snippet.length;
-      editorRef.current.focus();
-      editorRef.current.setSelectionRange(nextCursor, nextCursor);
+  async function handleVideoUpload(file: File) {
+    setNotice({
+      tone: "neutral",
+      text: `${TEXT.videoUploadingPrefix}${file.name}`
     });
+
+    try {
+      const uploadResponse = await uploadMedia(file, "video");
+      const url = uploadResponse.mediaPath || uploadResponse.publicUrl;
+      setNotice({
+        tone: "success",
+        text: TEXT.videoInserted
+      });
+      return {
+        url,
+        title: file.name
+      };
+    } catch (error) {
+      const message = error instanceof Error ? error.message : TEXT.videoUploadFailed;
+      setNotice({
+        tone: "error",
+        text: message
+      });
+      throw error;
+    }
   }
 
   return (
     <PageShell variant="home" topNavActive="community">
       <main className={styles.page}>
         <div className={styles.shell}>
-          <div className={styles.topbar}>
-            <Link className={styles.backLink} href="/discussions">
-              {TEXT.back}
+          <div className={styles.breadcrumbs}>
+            <Link className={styles.breadcrumbLink} href="/discussions">
+              {TEXT.breadcrumbRoot}
             </Link>
-
-            <div className={styles.topbarActions}>
-              <button className={styles.secondaryButton} disabled={busy || locked} type="button" onClick={handleSaveDraft}>
-                <SaveIcon />
-                {TEXT.save}
-              </button>
-              <button className={styles.primaryButton} disabled={busy || locked} type="button" onClick={handleSubmit}>
-                <PublishIcon />
-                {busy ? TEXT.processing : TEXT.submit}
-              </button>
-            </div>
+            <span className={styles.breadcrumbDivider}>›</span>
+            <span className={styles.breadcrumbCurrent}>{TEXT.breadcrumbCurrent}</span>
           </div>
 
-          <section className={styles.hero}>
-            <div className={styles.heroCopy}>
-              <span className={styles.eyebrow}>DISCUSSION COMPOSER</span>
-              <h1 className={styles.title}>{TEXT.title}</h1>
-              <p className={styles.subtitle}>{TEXT.subtitle}</p>
-            </div>
-
-            <div className={styles.heroMeta}>
-              <div className={styles.metaCard}>
-                <strong>{TEXT.currentChannel}</strong>
-                <span>{currentChannel?.title ?? TEXT.chooseChannelFallback}</span>
-              </div>
-              <div className={styles.metaCard}>
-                <strong>{TEXT.format}</strong>
-                <span>{TEXT.formatValue}</span>
-              </div>
-              <div className={styles.metaCard}>
-                <strong>{TEXT.draftStatus}</strong>
-                <span>{locked ? TEXT.draftLocked : TEXT.draftEditable}</span>
-              </div>
-            </div>
-          </section>
-
           <div className={styles.layout}>
-            <section className={styles.editorPanel}>
-              <label className={styles.field}>
-                <span className={styles.label}>{TEXT.postTitle}</span>
-                <input
-                  className={styles.titleInput}
-                  disabled={busy || locked}
-                  placeholder={TEXT.postTitlePlaceholder}
-                  value={form.title}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      title: event.target.value
-                    }))
-                  }
-                />
-              </label>
-
-              <div className={styles.toolbar}>
-                <button className={styles.toolbarButton} disabled={busy || locked} type="button" onClick={() => insertSnippet("\n## 小标题\n")}>
-                  <MarkdownIcon />
-                  {TEXT.heading}
-                </button>
-                <button className={styles.toolbarButton} disabled={busy || locked} type="button" onClick={() => insertSnippet("\n> 这里写引用或总结\n")}>
-                  {TEXT.quote}
-                </button>
-                <button className={styles.toolbarButton} disabled={busy || locked} type="button" onClick={() => insertSnippet("\n- 要点一\n- 要点二\n")}>
-                  {TEXT.list}
-                </button>
-                <button className={styles.toolbarButton} disabled={busy || locked} type="button" onClick={() => insertSnippet("\n```\n代码或配置\n```\n")}>
-                  {TEXT.code}
-                </button>
-                <label className={styles.toolbarUpload}>
-                  <input accept="image/*" disabled={busy || locked} type="file" onChange={(event) => handleMediaInsert(event, "image")} />
-                  <ImageIcon />
-                  {TEXT.image}
-                </label>
-                <label className={styles.toolbarUpload}>
-                  <input accept="video/*" disabled={busy || locked} type="file" onChange={(event) => handleMediaInsert(event, "video")} />
-                  <VideoIcon />
-                  {TEXT.video}
-                </label>
-                <button
-                  className={styles.toolbarPreviewButton}
-                  disabled={busy}
-                  type="button"
-                  onClick={() => setPreviewMode(true)}
-                >
-                  <PreviewIcon />
-                  {TEXT.preview}
-                </button>
-              </div>
-
-              <textarea
-                ref={editorRef}
-                className={styles.editor}
-                disabled={busy || locked}
-                placeholder={"# \u4f60\u60f3\u8ba8\u8bba\u4ec0\u4e48\uff1f\n\n\u5148\u4ea4\u4ee3\u80cc\u666f\uff0c\u518d\u629b\u51fa\u95ee\u9898\uff0c\u6700\u540e\u9644\u4e0a\u4f60\u7684\u7ed3\u8bba\u6216\u5f85\u9a8c\u8bc1\u65b9\u6848\u3002"}
-                value={form.content}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    content: event.target.value
-                  }))
-                }
-              />
-            </section>
-
-            <aside className={styles.sidePanel}>
-              <div className={styles.sideCard}>
-                <span className={styles.label}>{TEXT.chooseChannel}</span>
-                <div className={styles.channelList}>
-                  {channels.map((channel) => (
-                    <button
-                      className={form.channelSlug === channel.slug ? styles.channelButtonActive : styles.channelButton}
-                      disabled={busy || locked}
-                      key={channel.slug}
-                      type="button"
-                      onClick={() =>
-                        setForm((current) => ({
-                          ...current,
-                          channelSlug: channel.slug
-                        }))
-                      }
-                    >
-                      <strong>{channel.title}</strong>
-                      <span>{channel.description}</span>
-                    </button>
-                  ))}
+            <section className={styles.editorColumn}>
+              <section className={styles.hero}>
+                <div className={styles.heroCopy}>
+                  <h1 className={styles.title}>{TEXT.title}</h1>
+                  <p className={styles.subtitle}>{TEXT.subtitle}</p>
                 </div>
-              </div>
 
-              <div className={styles.sideCard}>
-                <label className={styles.field}>
-                  <span className={styles.label}>{TEXT.tags}</span>
+                <div className={styles.heroActions}>
+                  <button className={styles.secondaryButton} disabled={busy || locked} type="button" onClick={handleSaveDraft}>
+                    <SaveIcon />
+                    {TEXT.save}
+                  </button>
+                  <button className={styles.primaryButton} disabled={busy || locked} type="button" onClick={handleSubmit}>
+                    <PublishIcon />
+                    {busy ? TEXT.processing : TEXT.submit}
+                  </button>
+                </div>
+              </section>
+
+              <section className={styles.sectionBlock}>
+                <div className={styles.sectionHeading}>
+                  <div>
+                    <h2 className={styles.sectionTitle}>{TEXT.titleLabel}</h2>
+                    <p className={styles.sectionHint}>{TEXT.titleHint}</p>
+                  </div>
+                  <span className={styles.sectionMeta}>{titleLength}/80</span>
+                </div>
+                <article className={styles.sectionCard}>
                   <input
-                    className={styles.sideInput}
+                    className={styles.titleInput}
+                    disabled={busy || locked}
+                    placeholder={TEXT.titlePlaceholder}
+                    value={form.title}
+                    onChange={(event) =>
+                      setForm((current) => ({
+                        ...current,
+                        title: event.target.value
+                      }))
+                    }
+                  />
+                </article>
+              </section>
+
+              <section className={styles.sectionBlock}>
+                <div className={styles.sectionHeading}>
+                  <div>
+                    <h2 className={styles.sectionTitle}>{TEXT.channelLabel}</h2>
+                  </div>
+                </div>
+                <article className={styles.sectionCard}>
+                  <div className={styles.channelGrid}>
+                    {channels.map((channel) => {
+                      const active = form.channelSlug === channel.slug;
+                      return (
+                        <button
+                          className={active ? styles.channelButtonActive : styles.channelButton}
+                          disabled={busy || locked}
+                          key={channel.slug}
+                          type="button"
+                          onClick={() =>
+                            setForm((current) => ({
+                              ...current,
+                              channelSlug: channel.slug
+                            }))
+                          }
+                        >
+                          <span className={styles.channelIndicator} />
+                          <div className={styles.channelCopy}>
+                            <strong>{channel.title}</strong>
+                            <span>{channel.description}</span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </article>
+              </section>
+
+              <section className={styles.sectionBlock}>
+                <div className={styles.sectionHeading}>
+                  <div>
+                    <h2 className={styles.sectionTitle}>{TEXT.editorLabel}</h2>
+                    <p className={styles.sectionHint}>{TEXT.editorHint}</p>
+                  </div>
+                  <button
+                    className={styles.toolbarPreviewButton}
+                    disabled={busy}
+                    type="button"
+                    onClick={() => setPreviewMode(true)}
+                  >
+                    <PreviewIcon />
+                    {TEXT.preview}
+                  </button>
+                </div>
+
+                <article className={styles.sectionCard}>
+                  <DiscussionRichEditor
+                    disabled={busy || locked}
+                    placeholder={TEXT.editorPlaceholder}
+                    value={form.content}
+                    onBusyChange={setUploadPending}
+                    onChange={(content) =>
+                      setForm((current) => ({
+                        ...current,
+                        content
+                      }))
+                    }
+                    onImageUpload={handleImageUpload}
+                    onVideoUpload={handleVideoUpload}
+                  />
+                </article>
+              </section>
+
+              <section className={styles.sectionBlock}>
+                <div className={styles.sectionHeading}>
+                  <div>
+                    <h2 className={styles.sectionTitle}>{TEXT.tagsLabel}</h2>
+                    <p className={styles.sectionHint}>{TEXT.tagsHint}</p>
+                  </div>
+                  <span className={styles.sectionMeta}>已选 {tags.length}/8</span>
+                </div>
+
+                <article className={styles.sectionCard}>
+                  <input
+                    className={styles.tagInput}
                     disabled={busy || locked}
                     placeholder={TEXT.tagsPlaceholder}
                     value={form.tagNames}
@@ -529,30 +511,109 @@ export function DiscussionComposerPage({ view, channels }: DiscussionComposerPag
                       }))
                     }
                   />
-                </label>
-              </div>
 
-              <div className={styles.sideCard}>
-                <span className={styles.label}>{TEXT.guide}</span>
-                <ul className={styles.guidelines}>
-                  <li>{TEXT.guideOne}</li>
-                  <li>{TEXT.guideTwo}</li>
-                  <li>{TEXT.guideThree}</li>
-                  <li>{TEXT.guideFour}</li>
-                </ul>
-              </div>
-
-              <div className={styles.sideCard}>
-                <span className={styles.label}>{TEXT.listPreview}</span>
-                <article className={styles.threadPreview}>
-                  <div className={styles.threadPreviewMeta}>
-                    <span>{currentChannel?.title ?? TEXT.unselectedChannel}</span>
-                    <span>{toTagArray(form.tagNames).length} tags</span>
+                  <div className={styles.tagRow}>
+                    {quickTopics.map((topic) => {
+                      const active = tags.includes(topic);
+                      return (
+                        <button
+                          className={active ? styles.tagChipActive : styles.tagChip}
+                          disabled={busy || locked}
+                          key={topic}
+                          type="button"
+                          onClick={() =>
+                            setForm((current) => ({
+                              ...current,
+                              tagNames: mergeTags(current.tagNames, topic)
+                            }))
+                          }
+                        >
+                          {topic}
+                        </button>
+                      );
+                    })}
                   </div>
-                  <strong>{form.title.trim() || TEXT.titleFallback}</strong>
-                  <p>{previewSummary || TEXT.summaryFallback}</p>
                 </article>
-              </div>
+              </section>
+            </section>
+
+            <aside className={styles.sidePanel}>
+              <article className={styles.sideCard}>
+                <div className={styles.sideHeader}>
+                  <span className={styles.sideLabel}>{TEXT.sideChannelLabel}</span>
+                </div>
+                <div className={styles.currentChannelCard}>
+                  <strong>{currentChannel?.title ?? TEXT.channelFallback}</strong>
+                  <p>{currentChannel?.description ?? "选择一个频道，让帖子进入正确的讨论语境。"}</p>
+                  <span>{currentChannel?.threadCountLabel ?? "频道数据加载中"}</span>
+                </div>
+              </article>
+
+              <article className={styles.sideCard}>
+                <div className={styles.sideHeader}>
+                  <span className={styles.sideLabel}>{TEXT.sideRulesLabel}</span>
+                </div>
+                <ul className={styles.ruleList}>
+                  {TEXT.rules.map((rule) => (
+                    <li key={rule}>{rule}</li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className={styles.sideCard}>
+                <div className={styles.sideHeader}>
+                  <span className={styles.sideLabel}>{TEXT.sideTopicsLabel}</span>
+                </div>
+                <div className={styles.topicList}>
+                  {quickTopics.map((topic) => {
+                    const active = tags.includes(topic);
+                    return (
+                      <button
+                        className={active ? styles.topicButtonActive : styles.topicButton}
+                        disabled={busy || locked}
+                        key={`side-${topic}`}
+                        type="button"
+                        onClick={() =>
+                          setForm((current) => ({
+                            ...current,
+                            tagNames: mergeTags(current.tagNames, topic)
+                          }))
+                        }
+                      >
+                        #{topic}
+                      </button>
+                    );
+                  })}
+                </div>
+              </article>
+
+              <article className={styles.sideCard}>
+                <div className={styles.sideHeader}>
+                  <span className={styles.sideLabel}>{TEXT.sideSummaryLabel}</span>
+                </div>
+                <div className={styles.summaryList}>
+                  <div className={styles.summaryRow}>
+                    <span>{TEXT.summaryTitleStatus}</span>
+                    <strong>{titleLength > 0 ? TEXT.summaryFilledTitle : TEXT.summaryEmptyTitle}</strong>
+                  </div>
+                  <div className={styles.summaryRow}>
+                    <span>{TEXT.summaryChannel}</span>
+                    <strong>{currentChannel?.title ?? TEXT.channelFallback}</strong>
+                  </div>
+                  <div className={styles.summaryRow}>
+                    <span>{TEXT.summaryTags}</span>
+                    <strong>{tags.length > 0 ? `${tags.length} 个` : TEXT.summaryNoTag}</strong>
+                  </div>
+                  <div className={styles.summaryRow}>
+                    <span>{TEXT.summaryReading}</span>
+                    <strong>{readingLabel}</strong>
+                  </div>
+                  <div className={styles.summaryRow}>
+                    <span>{TEXT.summaryMedia}</span>
+                    <strong>{mediaCount > 0 ? `${mediaCount} 个` : TEXT.summaryPending}</strong>
+                  </div>
+                </div>
+              </article>
 
               {notice ? <p className={noticeClassName(notice.tone)}>{notice.text}</p> : null}
               {locked ? <p className={styles.lockedText}>{TEXT.draftLockedText}</p> : null}
@@ -560,13 +621,14 @@ export function DiscussionComposerPage({ view, channels }: DiscussionComposerPag
           </div>
         </div>
       </main>
+
       {previewMode ? (
-        <div className={styles.previewOverlay} role="dialog" aria-modal="true" aria-label={TEXT.preview}>
+        <div aria-label={TEXT.preview} aria-modal="true" className={styles.previewOverlay} role="dialog">
           <div className={styles.previewDialog}>
             <div className={styles.previewHeader}>
-              <span className={styles.label}>{TEXT.preview}</span>
+              <span className={styles.sideLabel}>{TEXT.preview}</span>
               <button className={styles.previewCloseButton} type="button" onClick={() => setPreviewMode(false)}>
-                {TEXT.edit}
+                {TEXT.backToEdit}
               </button>
             </div>
             <div className={styles.previewBody}>

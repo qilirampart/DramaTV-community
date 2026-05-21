@@ -8,10 +8,22 @@ public record PromptSummaryResponse(
         String summary,
         String modality,
         String coverUrl,
+        String posterUrl,
+        String previewUrl,
+        String sourceUrl,
+        Taxonomy taxonomy,
         AuthorSummary author,
         List<String> tagNames,
-        Stats stats
+        Stats stats,
+        ViewerActions viewerActions
 ) {
+    public record Taxonomy(
+            String modelCategory,
+            String contentCategory,
+            String compositionCategory
+    ) {
+    }
+
     public record AuthorSummary(
             String id,
             String displayName,
@@ -23,6 +35,11 @@ public record PromptSummaryResponse(
             long likeCount,
             long favoriteCount,
             long exampleCount
+    ) {
+    }
+
+    public record ViewerActions(
+            boolean liked
     ) {
     }
 }

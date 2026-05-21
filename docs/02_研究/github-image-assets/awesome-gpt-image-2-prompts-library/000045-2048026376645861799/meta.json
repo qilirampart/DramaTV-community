@@ -1,0 +1,43 @@
+{
+  "rank": 45,
+  "id": "2048026376645861799",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 95,
+  "title": "Lavender AI Girl in Memory Space",
+  "description": "Portrait & Photography Cases curated case: Lavender AI Girl in Memory Space, source author libearal.",
+  "language": "",
+  "authorName": "libearal",
+  "authorLink": "https://x.com/libearal",
+  "sourceLink": "https://x.com/libearal/status/2048026376645861799",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case95/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case95/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

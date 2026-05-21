@@ -1,0 +1,116 @@
+name: CI Minimal
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  web-quality:
+    name: Web Typecheck And Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install web dependencies
+        run: npm ci
+        working-directory: apps/web
+
+      - name: Web typecheck
+        run: npm run typecheck:web
+
+      - name: Web build
+        run: npm run build:web
+
+  admin-quality:
+    name: Admin Typecheck And Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/admin/package-lock.json
+
+      - name: Install admin dependencies
+        run: npm ci
+        working-directory: apps/admin
+
+      - name: Admin typecheck
+        run: npm run typecheck:admin
+
+      - name: Admin build
+        run: npm run build:admin
+
+  backend-core:
+    name: Backend Core Integration
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: dramatv
+          POSTGRES_USER: dramatv
+          POSTGRES_PASSWORD: dramatv
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U dramatv -d dramatv"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DRAMATV_DB_URL: jdbc:postgresql://127.0.0.1:5432/dramatv
+      DRAMATV_DB_USERNAME: dramatv
+      DRAMATV_DB_PASSWORD: dramatv
+      DRAMATV_REDIS_HOST: 127.0.0.1
+      DRAMATV_REDIS_PORT: 6379
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+
+      - name: Run backend core integration suite
+        run: >
+          mvn -f apps/server/pom.xml
+          -Dtest=AuthMeApiIntegrationTest,DraftApiIntegrationTest,InteractionApiIntegrationTest,CommentApiIntegrationTest,PublishBootstrapApiIntegrationTest,PublishPipelineIntegrationTest
+          test

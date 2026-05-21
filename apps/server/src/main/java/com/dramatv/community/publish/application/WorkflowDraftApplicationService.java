@@ -7,36 +7,62 @@ import com.dramatv.community.publish.dto.response.WorkflowDraftSubmitResponse;
 import com.dramatv.community.publish.persistence.PersistedPublishDraft;
 import com.dramatv.community.publish.persistence.PublishDraftPersistenceService;
 import com.dramatv.community.publish.persistence.PublishDraftType;
+import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class WorkflowDraftApplicationService {
 
+    private static final Logger log = LoggerFactory.getLogger(WorkflowDraftApplicationService.class);
+    private static final String DRAFT_STEP_SUBMITTED = "submitted";
+    private static final String DRAFT_STATUS_SUBMITTED = "submitted";
+    private static final String CONTENT_STATUS_PUBLISHED = "published";
+
     private final PublishDraftPersistenceService persistenceService;
+    private final PublishDraftLifecycleQueryService lifecycleQueryService;
     private final ObjectMapper objectMapper;
 
     public WorkflowDraftApplicationService(
             PublishDraftPersistenceService persistenceService,
+            PublishDraftLifecycleQueryService lifecycleQueryService,
             ObjectMapper objectMapper
     ) {
         this.persistenceService = persistenceService;
+        this.lifecycleQueryService = lifecycleQueryService;
         this.objectMapper = objectMapper;
     }
 
     public WorkflowDraftResponse createDraft() {
-        return toResponse(persistenceService.createOrReuse(
+        PersistedPublishDraft draft = persistenceService.createOrReuse(
                 PublishDraftType.WORKFLOW,
                 defaultPayload(),
                 null,
                 "compose"
-        ));
+        );
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(draftContext(draft.id()))) {
+            log.info(
+                    "workflow draft create-or-reuse success: authorId={} draftId={} statusCode={} currentStep={} autosaveVersion={}",
+                    draft.authorId(),
+                    draft.id(),
+                    draft.statusCode(),
+                    draft.currentStep(),
+                    draft.autosaveVersion()
+            );
+        }
+
+        return toResponse(draft);
     }
 
     public Optional<WorkflowDraftResponse> findDraft(String draftId) {
@@ -46,36 +72,119 @@ public class WorkflowDraftApplicationService {
     }
 
     public Optional<WorkflowDraftResponse> updateDraft(String draftId, UpsertWorkflowDraftRequest request) {
-        return parseUuid(draftId)
-                .flatMap(uuid -> persistenceService.find(uuid, PublishDraftType.WORKFLOW)
-                        .flatMap(existing -> persistenceService.save(
-                                uuid,
-                                PublishDraftType.WORKFLOW,
-                                mergePayload(existing.payloadJson(), request),
-                                pick(request.title(), existing.titleDraft()),
-                                "compose",
-                                "draft"
-                        )))
-                .map(this::toResponse);
+        Optional<UUID> parsedDraftId = parseUuid(draftId);
+        if (parsedDraftId.isEmpty()) {
+            log.warn("workflow draft update rejected: invalid draftId={}", draftId);
+            return Optional.empty();
+        }
+
+        UUID resolvedDraftId = parsedDraftId.get();
+        Optional<PersistedPublishDraft> existingOptional = persistenceService.find(resolvedDraftId, PublishDraftType.WORKFLOW);
+        if (existingOptional.isEmpty()) {
+            log.warn("workflow draft update rejected: draft not found, draftId={}", resolvedDraftId);
+            return Optional.empty();
+        }
+
+        PersistedPublishDraft existing = existingOptional.get();
+        Optional<PersistedPublishDraft> savedOptional = persistenceService.save(
+                resolvedDraftId,
+                PublishDraftType.WORKFLOW,
+                mergePayload(existing.payloadJson(), request),
+                pick(request.title(), existing.titleDraft()),
+                "compose",
+                "draft"
+        );
+        if (savedOptional.isEmpty()) {
+            log.warn("workflow draft update rejected: draft not found after lookup, draftId={}", resolvedDraftId);
+            return Optional.empty();
+        }
+
+        PersistedPublishDraft savedDraft = savedOptional.get();
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(draftContext(savedDraft.id()))) {
+            log.info(
+                    "workflow draft update success: authorId={} draftId={} statusCode={} currentStep={} autosaveVersion={}",
+                    savedDraft.authorId(),
+                    savedDraft.id(),
+                    savedDraft.statusCode(),
+                    savedDraft.currentStep(),
+                    savedDraft.autosaveVersion()
+            );
+        }
+
+        return Optional.of(toResponse(savedDraft));
+    }
+
+    public boolean deleteDraft(String draftId) {
+        Optional<UUID> parsedDraftId = parseUuid(draftId);
+        if (parsedDraftId.isEmpty()) {
+            log.warn("workflow draft delete rejected: invalid draftId={}", draftId);
+            return false;
+        }
+
+        UUID resolvedDraftId = parsedDraftId.get();
+        boolean deleted = persistenceService.delete(resolvedDraftId, PublishDraftType.WORKFLOW);
+        if (!deleted) {
+            log.warn("workflow draft delete rejected: draft not found, draftId={}", resolvedDraftId);
+            return false;
+        }
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(draftContext(resolvedDraftId))) {
+            log.info("workflow draft delete success: draftId={}", resolvedDraftId);
+        }
+        return true;
     }
 
     public Optional<WorkflowDraftSubmitResponse> submitDraft(String draftId, SubmitDraftRequest request) {
-        return parseUuid(draftId)
-                .flatMap(uuid -> persistenceService.find(uuid, PublishDraftType.WORKFLOW)
-                        .flatMap(existing -> persistenceService.submitWorkflowDraft(
-                                uuid,
-                                existing.payloadJson(),
-                                existing.titleDraft(),
-                                "review",
-                                "in_review",
-                                request.submitMode()
-                        )))
-                .map(saved -> new WorkflowDraftSubmitResponse(
-                        saved.targetId().toString(),
-                        saved.statusCode(),
-                        List.of("workflow-validate-task-" + saved.id(), "audit-task-" + saved.id()),
+        Optional<UUID> parsedDraftId = parseUuid(draftId);
+        if (parsedDraftId.isEmpty()) {
+            log.warn("workflow draft submit rejected: invalid draftId={}", draftId);
+            return Optional.empty();
+        }
+
+        UUID resolvedDraftId = parsedDraftId.get();
+        Optional<PersistedPublishDraft> existingOptional = persistenceService.find(resolvedDraftId, PublishDraftType.WORKFLOW);
+        if (existingOptional.isEmpty()) {
+            log.warn("workflow draft submit rejected: draft not found, draftId={}", resolvedDraftId);
+            return Optional.empty();
+        }
+
+        PersistedPublishDraft existing = existingOptional.get();
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(submitContext(existing))) {
+            Optional<PersistedPublishDraft> submittedOptional = persistenceService.submitWorkflowDraft(
+                    resolvedDraftId,
+                    existing.payloadJson(),
+                    existing.titleDraft(),
+                    DRAFT_STEP_SUBMITTED,
+                    DRAFT_STATUS_SUBMITTED,
+                    request.submitMode()
+            );
+            if (submittedOptional.isEmpty()) {
+                log.warn("workflow draft submit rejected: draft not found after lookup, draftId={}", resolvedDraftId);
+                return Optional.empty();
+            }
+
+            PersistedPublishDraft savedDraft = submittedOptional.get();
+            try (MdcBusinessContextScope successContext = MdcBusinessContextScope.open(submitContext(savedDraft))) {
+                log.info(
+                        "publish draft submit success: draftType=workflow authorId={} draftId={} targetType=workflow targetId={} submitMode={} taskCount=0 draftStatus={} contentStatus={}",
+                        savedDraft.authorId(),
+                        savedDraft.id(),
+                        savedDraft.targetId(),
+                        request.submitMode(),
+                        savedDraft.statusCode(),
+                        CONTENT_STATUS_PUBLISHED
+                );
+                return Optional.of(new WorkflowDraftSubmitResponse(
+                        savedDraft.targetId().toString(),
+                        savedDraft.statusCode(),
+                        CONTENT_STATUS_PUBLISHED,
+                        savedDraft.statusCode(),
+                        lifecycleQueryService.resolve(savedDraft),
+                        List.of(),
                         request.submitMode()
                 ));
+            }
+        }
     }
 
     private String pick(String candidate, String fallback) {
@@ -100,6 +209,7 @@ public class WorkflowDraftApplicationService {
         payload.put("allowFork", false);
         payload.put("visibility", "public");
         payload.putNull("coverAssetId");
+        payload.putNull("exampleAssetId");
         return payload;
     }
 
@@ -132,6 +242,9 @@ public class WorkflowDraftApplicationService {
         if (request.coverAssetId() != null) {
             putNullableText(payload, "coverAssetId", request.coverAssetId());
         }
+        if (request.exampleAssetId() != null) {
+            putNullableText(payload, "exampleAssetId", request.exampleAssetId());
+        }
 
         return payload;
     }
@@ -159,7 +272,9 @@ public class WorkflowDraftApplicationService {
                 booleanOrDefault(payload, "allowFork", false),
                 textOrDefault(payload, "visibility", "public"),
                 nullableText(payload, "coverAssetId"),
-                draft.statusCode()
+                nullableText(payload, "exampleAssetId"),
+                draft.statusCode(),
+                lifecycleQueryService.resolve(draft)
         );
     }
 
@@ -170,6 +285,20 @@ public class WorkflowDraftApplicationService {
         }
 
         return node.asText();
+    }
+
+    private Map<String, String> submitContext(PersistedPublishDraft draft) {
+        LinkedHashMap<String, String> context = new LinkedHashMap<>();
+        context.put("draftId", draft.id().toString());
+        context.put("targetType", "workflow");
+        if (draft.targetId() != null) {
+            context.put("targetId", draft.targetId().toString());
+        }
+        return context;
+    }
+
+    private Map<String, String> draftContext(UUID draftId) {
+        return Map.of("draftId", draftId.toString());
     }
 
     private boolean booleanOrDefault(ObjectNode payload, String fieldName, boolean fallback) {

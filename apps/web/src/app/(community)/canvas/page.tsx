@@ -1,5 +1,6 @@
 import { CommunityBackendUnavailableState } from "@/components/shared/CommunityBackendUnavailableState";
 import { CommunityFeaturePendingState } from "@/components/shared/CommunityFeaturePendingState";
+import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import {
   copyWorkflowToCanvas,
   getHomeFeed,
@@ -10,6 +11,10 @@ import { redirect } from "next/navigation";
 
 function resolveCanvasEntryWorkflowId(items: Awaited<ReturnType<typeof getHomeFeed>>["data"]["items"]) {
   for (const item of items) {
+    if (item.contentKind === "workflow_work" && item.workflow?.id) {
+      return item.workflow.id;
+    }
+
     if (item.itemType === "workflow") {
       return item.targetId;
     }
@@ -53,7 +58,7 @@ export default async function CanvasEntryRoute() {
       <CommunityBackendUnavailableState
         title="Canvas entry unavailable"
         description="The shared canvas entry could not load live data from the backend."
-        detail={error instanceof Error ? error.message : "Unknown canvas entry error."}
+        detail={formatCommunityActionError(error, "服务暂时不可用，请稍后重试。")}
       />
     );
   }

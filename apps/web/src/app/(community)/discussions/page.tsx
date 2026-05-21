@@ -1,8 +1,8 @@
 import { CommunityBackendUnavailableState } from "@/components/shared/CommunityBackendUnavailableState";
 import { DiscussionsPage } from "@/features/discussions/DiscussionsPage";
+import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import {
   getDiscussionHome,
-  getDiscussionThread,
   isCommunityBackendUnavailableError
 } from "@/lib/api/community-service";
 import { mapDiscussionHubPageView } from "@/lib/mappers/community";
@@ -30,19 +30,6 @@ function normalizeChannelParam(value?: string | string[]) {
   return normalized.length > 0 ? normalized : undefined;
 }
 
-function formatDateLabel(value?: string) {
-  if (!value) {
-    return "近期更新";
-  }
-
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return "近期更新";
-  }
-
-  return date.toLocaleDateString("zh-CN");
-}
-
 export default async function DiscussionsRoute({ searchParams }: DiscussionsRouteProps) {
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const requestedChannelSlug = normalizeChannelParam(resolvedSearchParams?.channel);
@@ -50,37 +37,14 @@ export default async function DiscussionsRoute({ searchParams }: DiscussionsRout
   try {
     const home = await getDiscussionHome(requestedChannelSlug);
     const view = mapDiscussionHubPageView(home);
-    const authorMeta = (
-      await Promise.all(
-        view.featuredThreads.map(async (thread) => {
-          const detail = await getDiscussionThread(thread.slug);
-
-          if (!detail.data) {
-            return null;
-          }
-
-          return {
-            slug: thread.slug,
-            author: {
-              id: detail.data.author.id,
-              displayName: detail.data.author.displayName,
-              avatarUrl: detail.data.author.avatarUrl,
-              href: `/creators/${detail.data.author.id}`
-            },
-            publishedAtLabel: formatDateLabel(detail.data.publishedAt)
-          };
-        })
-      )
-    ).filter((item): item is NonNullable<typeof item> => Boolean(item));
-
-    return <DiscussionsPage authorMeta={authorMeta} view={view} requestedChannelSlug={requestedChannelSlug} />;
+    return <DiscussionsPage view={view} requestedChannelSlug={requestedChannelSlug} />;
   } catch (error) {
     if (isCommunityBackendUnavailableError(error)) {
       return (
         <CommunityBackendUnavailableState
           title="Discussion hub unavailable"
           description="The discussion page could not load live threads from the backend."
-          detail={error.message}
+          detail={formatCommunityActionError(error, "服务暂时不可用，请稍后重试。")}
           requestId={error.requestId}
         />
       );

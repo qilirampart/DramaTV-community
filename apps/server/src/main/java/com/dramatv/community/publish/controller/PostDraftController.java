@@ -9,6 +9,7 @@ import com.dramatv.community.shared.response.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,16 @@ public class PostDraftController {
                 .map(response -> ResponseEntity.ok(ApiResponse.ok(response)))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(ApiResponse.failure("POST_DRAFT_NOT_FOUND", "post draft not found")));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse<Void>> deleteDraft(@PathVariable String id) {
+        if (postDraftApplicationService.deleteDraft(id)) {
+            return ResponseEntity.ok(ApiResponse.ok(null));
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ApiResponse.failure("POST_DRAFT_NOT_FOUND", "post draft not found"));
     }
 
     @PostMapping("/{id}/submit")

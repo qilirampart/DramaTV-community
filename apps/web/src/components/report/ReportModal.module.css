@@ -1,0 +1,145 @@
+.reportModalBackdrop,
+.report-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(12px);
+}
+
+.reportModal,
+.report-modal {
+  width: min(560px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(18, 18, 20, 0.98);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.42);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.reportModalHeader,
+.report-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 24px 18px;
+}
+
+.reportModalHeader h2,
+.report-modal-header h2 {
+  margin: 6px 0 0;
+  font-size: 1.28rem;
+  font-weight: 800;
+}
+
+.reportModalEyebrow,
+.report-modal-eyebrow {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reportModalClose,
+.report-modal-close {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.reportModalBody,
+.report-modal-body {
+  display: grid;
+  gap: 16px;
+  padding: 0 24px 24px;
+}
+
+.reportModalField,
+.report-modal-field {
+  display: grid;
+  gap: 10px;
+}
+
+.reportModalField span,
+.report-modal-field span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.reportModalField select,
+.reportModalField textarea,
+.report-modal-field select,
+.report-modal-field textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.94);
+  outline: none;
+}
+
+.reportModalField select,
+.report-modal-field select {
+  min-height: 46px;
+  padding: 0 14px;
+}
+
+.reportModalField textarea,
+.report-modal-field textarea {
+  min-height: 118px;
+  padding: 14px;
+  resize: vertical;
+}
+
+.reportModalFooter,
+.report-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 24px 24px;
+}
+
+.reportModalSecondary,
+.reportModalPrimary,
+.report-modal-secondary,
+.report-modal-primary {
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.reportModalSecondary,
+.report-modal-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.reportModalPrimary,
+.report-modal-primary {
+  border: none;
+  background: #f5f2ed;
+  color: #111111;
+}
+
+.reportModalPrimary:disabled,
+.reportModalSecondary:disabled,
+.report-modal-primary:disabled,
+.report-modal-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

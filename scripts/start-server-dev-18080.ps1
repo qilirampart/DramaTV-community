@@ -1,10 +1,12 @@
 param(
   [int]$Port = 18080,
-  [int]$StartupTimeoutSec = 60
+  [int]$StartupTimeoutSec = 60,
+  [switch]$SkipReadinessCheck
 )
 
 $workspace = Split-Path -Parent $PSScriptRoot
 $runner = Join-Path $workspace 'scripts\run-server-local-db.ps1'
+$readinessScript = Join-Path $workspace 'scripts\check-local-runtime-readiness.mjs'
 $out = Join-Path $workspace "server-dev-$Port.out.log"
 $err = Join-Path $workspace "server-dev-$Port.err.log"
 
@@ -53,6 +55,10 @@ if (!(Test-Path $runner)) {
   throw "Development runner not found: $runner"
 }
 
+if (!(Test-Path $readinessScript)) {
+  throw "Readiness script not found: $readinessScript"
+}
+
 $existing = Get-ListeningProcessId -TargetPort $Port
 if ($null -ne $existing) {
   Write-Output "Stopping existing process on port $Port (PID $existing)..."
@@ -93,6 +99,19 @@ while ((Get-Date) -lt $deadline) {
   if (Test-HttpReady -Url $healthUrl) {
     $started = Get-ListeningProcessId -TargetPort $Port
     $listeningPidLabel = if ($null -ne $started) { $started } else { 'unknown' }
+
+    if (!$SkipReadinessCheck) {
+      $readinessOutput = Join-Path $workspace "artifacts\runtime-readiness\latest\backend-start-$Port.json"
+      & node $readinessScript `
+        --scope backend `
+        --backend-base-url "http://127.0.0.1:$Port" `
+        --output $readinessOutput
+      if ($LASTEXITCODE -ne 0) {
+        throw "Backend started on port $Port but readiness check failed. See $readinessOutput"
+      }
+      Write-Output "Readiness: $readinessOutput"
+    }
+
     Write-Output "DramaTV dev server started on http://127.0.0.1:$Port (listening PID $listeningPidLabel, launcher PID $($process.Id))"
     Write-Output "Health: $healthUrl"
     Write-Output "Logs: $out"

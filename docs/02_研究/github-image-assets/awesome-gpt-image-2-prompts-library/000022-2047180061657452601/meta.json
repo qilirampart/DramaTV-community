@@ -1,0 +1,43 @@
+{
+  "rank": 22,
+  "id": "2047180061657452601",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 22,
+  "title": "CALMING GREEN TEA Film Kit displayed frontally, the open box shows soft sage-...",
+  "description": "Portrait & Photography Cases curated case: CALMING GREEN TEA Film Kit displayed frontally, the open box shows soft sage-..., source author ZaraIrahh.",
+  "language": "",
+  "authorName": "ZaraIrahh",
+  "authorLink": "https://x.com/ZaraIrahh",
+  "sourceLink": "https://x.com/ZaraIrahh/status/2047180061657452601",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case78/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "images/portrait_case78/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

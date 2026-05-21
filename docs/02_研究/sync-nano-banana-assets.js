@@ -15,7 +15,12 @@ const libraryRoot = path.join(
 );
 const manifestFile = path.join(libraryRoot, "library-manifest.json");
 
-const MAX_ITEMS = 30;
+function readMaxItems() {
+  const raw = Number(process.env.YOUMIND_SYNC_MAX_ITEMS ?? "");
+  return Number.isFinite(raw) && raw > 0 ? raw : Number.POSITIVE_INFINITY;
+}
+
+const MAX_ITEMS = readMaxItems();
 
 function ensureDir(target) {
   fs.mkdirSync(target, { recursive: true });
@@ -31,11 +36,7 @@ function repairText(value) {
     return text;
   }
 
-  if (/[\u4e00-\u9fff]/.test(text)) {
-    return text;
-  }
-
-  if (!/[åæçéèêöüÄÖÜä]/.test(text)) {
+  if (!/(Ã.|â.|ï¼|ï½|ðŸ)/.test(text)) {
     return text;
   }
 
@@ -60,7 +61,23 @@ function formatDate(isoString) {
 }
 
 function readText(filePath) {
-  return repairText(fs.readFileSync(filePath, "utf8"));
+  const buffer = fs.readFileSync(filePath);
+  const utf8Text = repairText(buffer.toString("utf8"));
+  if (!utf8Text.includes("\uFFFD")) {
+    return utf8Text;
+  }
+
+  const latin1Text = cleanText(buffer.toString("latin1"));
+  if (!latin1Text.includes("\uFFFD")) {
+    return latin1Text;
+  }
+
+  const text = utf8Text;
+  if (text.includes("\uFFFD")) {
+    throw new Error(`Replacement character detected in ${filePath}`);
+  }
+
+  return text;
 }
 
 function sortImageFiles(imageDir) {

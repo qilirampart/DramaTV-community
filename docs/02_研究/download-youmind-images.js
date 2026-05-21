@@ -5,21 +5,39 @@ const root = process.cwd();
 const inputPath = process.argv[2]
   ? path.resolve(root, process.argv[2])
   : path.resolve(root, "youmind-image-assets", "nano-banana-extracted", "nano-banana-items.all.json");
-const outputDir = path.resolve(root, "youmind-image-assets", "nano-banana-extracted", "images");
-const downloadThumbnails = (process.argv[3] || "").toLowerCase() === "thumbs";
+const argOutputDirOrMode = process.argv[3] || "";
+const argMode = process.argv[4] || "";
+const outputDir =
+  argOutputDirOrMode && argOutputDirOrMode.toLowerCase() !== "thumbs"
+    ? path.resolve(root, argOutputDirOrMode)
+    : path.join(path.dirname(inputPath), "images");
+const downloadThumbnails =
+  argOutputDirOrMode.toLowerCase() === "thumbs" || argMode.toLowerCase() === "thumbs";
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
 
-function buildHeaders(url) {
+function buildPageReferer(item) {
+  const locale = typeof item?.locale === "string" && item.locale.trim() ? item.locale.trim() : "zh-CN";
+  const campaign = typeof item?.campaign === "string" && item.campaign.trim() ? item.campaign.trim() : "";
+  const categories = typeof item?.categories === "string" && item.categories.trim() ? item.categories.trim() : "";
+  const localePrefix = locale && locale !== "en-US" ? `/${locale}` : "";
+  const url = new URL(`https://youmind.com${localePrefix}/${campaign || ""}`.replace(/\/$/, ""));
+
+  if (categories) {
+    url.searchParams.set("categories", categories);
+  }
+
+  return url.toString();
+}
+
+function buildHeaders(url, refererUrl) {
   return {
     "user-agent":
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
     accept: "*/*",
-    referer: url.includes("cms-assets.youmind.com")
-      ? "https://youmind.com/zh-CN/nano-banana-pro-prompts"
-      : "https://youmind.com/"
+    referer: refererUrl || "https://youmind.com/"
   };
 }
 
@@ -33,9 +51,9 @@ function getExtensionFromUrl(url) {
   }
 }
 
-async function downloadFile(url, targetPath) {
+async function downloadFile(url, targetPath, refererUrl) {
   const response = await fetch(url, {
-    headers: buildHeaders(url)
+    headers: buildHeaders(url, refererUrl)
   });
 
   if (!response.ok) {
@@ -47,7 +65,7 @@ async function downloadFile(url, targetPath) {
   return buffer.length;
 }
 
-async function downloadAssetGroup(urls, targetDir, prefix) {
+async function downloadAssetGroup(urls, targetDir, prefix, refererUrl) {
   ensureDir(targetDir);
   const results = [];
 
@@ -69,7 +87,7 @@ async function downloadAssetGroup(urls, targetDir, prefix) {
     }
 
     try {
-      const size = await downloadFile(url, targetPath);
+      const size = await downloadFile(url, targetPath, refererUrl);
       results.push({
         url,
         fileName,
@@ -100,6 +118,7 @@ async function main() {
   for (const item of items) {
     const media = Array.isArray(item.media) ? item.media : [];
     const thumbs = Array.isArray(item.mediaThumbnails) ? item.mediaThumbnails : [];
+    const refererUrl = buildPageReferer(item);
 
     if (media.length === 0) {
       results.push({
@@ -116,8 +135,9 @@ async function main() {
     const imagesDir = path.join(itemDir, "images");
     const thumbsDir = path.join(itemDir, "thumbs");
 
-    const imageResults = await downloadAssetGroup(media, imagesDir, "");
-    const thumbnailResults = downloadThumbnails && thumbs.length > 0 ? await downloadAssetGroup(thumbs, thumbsDir, "") : [];
+    const imageResults = await downloadAssetGroup(media, imagesDir, "", refererUrl);
+    const thumbnailResults =
+      downloadThumbnails && thumbs.length > 0 ? await downloadAssetGroup(thumbs, thumbsDir, "", refererUrl) : [];
 
     item.localMediaFiles = imageResults.filter((entry) => !entry.failed).map((entry) => entry.targetPath);
     item.localThumbnailFiles = thumbnailResults.filter((entry) => !entry.failed).map((entry) => entry.targetPath);

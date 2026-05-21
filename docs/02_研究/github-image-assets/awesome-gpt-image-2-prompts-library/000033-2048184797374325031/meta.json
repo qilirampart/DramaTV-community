@@ -1,0 +1,43 @@
+{
+  "rank": 33,
+  "id": "2048184797374325031",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 83,
+  "title": "Damaged Vintage Mother and Child Photo",
+  "description": "Portrait & Photography Cases curated case: Damaged Vintage Mother and Child Photo, source author gdb.",
+  "language": "",
+  "authorName": "gdb",
+  "authorLink": "https://x.com/gdb",
+  "sourceLink": "https://x.com/gdb/status/2048184797374325031",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case83/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case83/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

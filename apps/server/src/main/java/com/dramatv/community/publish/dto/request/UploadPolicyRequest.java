@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Positive;
 public record UploadPolicyRequest(
         @NotBlank String fileName,
         @NotBlank String mimeType,
-        @Positive long sizeBytes
+        @Positive long sizeBytes,
+        String assetRole
 ) {
 }

@@ -1,0 +1,43 @@
+{
+  "rank": 157,
+  "id": "2048086378383384773",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 150,
+  "title": "Luxury Miniature Dubai City Model",
+  "description": "Poster & Illustration Cases curated case: Luxury Miniature Dubai City Model, source author silentempiredev.",
+  "language": "",
+  "authorName": "silentempiredev",
+  "authorLink": "https://x.com/silentempiredev",
+  "sourceLink": "https://x.com/silentempiredev/status/2048086378383384773",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case150/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case150/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

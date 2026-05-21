@@ -19,6 +19,17 @@ export type ApiAuthSession = {
   };
 };
 
+export type ApiAuthProviderConfig = {
+  primaryProvider: string;
+  loginProviders: Array<{
+    code: string;
+    displayName: string;
+    description?: string;
+    enabled: boolean;
+    formType: "password";
+  }>;
+};
+
 export type ApiCursorPage<T> = {
   items: T[];
   nextCursor: string | null;
@@ -27,7 +38,17 @@ export type ApiCursorPage<T> = {
 
 export type ApiComment = {
   id: string;
+  parentId?: string;
+  replyTarget?: {
+    commentId: string;
+    author: {
+      id: string;
+      displayName: string;
+      avatarUrl?: string;
+    };
+  };
   author: {
+    id: string;
     displayName: string;
     avatarUrl?: string;
   };
@@ -35,14 +56,37 @@ export type ApiComment = {
   createdAt: string;
   likeCount: number;
   replyCount: number;
+  statusCode?: string;
   viewerActions: {
     liked: boolean;
+    canDelete?: boolean;
   };
+  replies: ApiComment[];
+};
+
+export type ApiCommentPage = {
+  items: ApiComment[];
+  nextCursor: string | null;
+  hasMore: boolean;
+};
+
+export type ApiCommentPolicy = {
+  commentingEnabled: boolean;
+  canManageComments: boolean;
 };
 
 export type ApiInteractionAction = "like" | "favorite" | "follow";
 export type ApiCommentTargetType = "video" | "workflow" | "prompt" | "post";
 export type ApiDiscussionBindingTargetType = "video" | "workflow";
+export type ApiReportTargetType = "video" | "workflow" | "prompt" | "post";
+export type ApiReportReasonCode =
+  | "pornographic"
+  | "political"
+  | "spam"
+  | "abuse"
+  | "copyright"
+  | "misleading"
+  | "other";
 
 export type ApiInteractionTargetType = "video" | "workflow" | "prompt" | "comment" | "post";
 
@@ -52,10 +96,28 @@ export type ApiInteractionState = {
   active: boolean;
 };
 
+export type ApiReportCreateInput = {
+  targetType: ApiReportTargetType;
+  targetId: string;
+  reasonCode: ApiReportReasonCode;
+  descriptionText?: string;
+};
+
+export type ApiReportResponse = {
+  reportId: string;
+  targetType: ApiReportTargetType;
+  targetId: string;
+  reasonCode: ApiReportReasonCode;
+  statusCode: string;
+};
+
 export type ApiVideoSummary = {
   id: string;
   title: string;
   coverUrl: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
   durationMs?: number;
   summary?: string;
   likeCount?: number;
@@ -89,11 +151,16 @@ export type ApiWorkflowSummary = {
 
 export type ApiFeedHomeResponse = {
   items: Array<{
-    itemType: "video" | "workflow" | "prompt";
+    contentKind: "prompt" | "workflow_work" | "post";
+    promptModality?: "image" | "video";
+    itemType: "video" | "workflow" | "prompt" | "post";
     targetId: string;
     title: string;
     summary?: string;
-    coverUrl: string;
+    coverUrl?: string;
+    posterUrl?: string;
+    previewUrl?: string;
+    sourceUrl?: string;
     author: {
       id: string;
       displayName: string;
@@ -119,6 +186,69 @@ export type ApiFeedHomeResponse = {
       headline?: string;
     }>;
   };
+  layout?: {
+    slots: Array<{
+      key: string;
+      items: Array<{
+        contentKind: "prompt" | "workflow_work" | "post";
+        promptModality?: "image" | "video";
+        itemType: "video" | "workflow" | "prompt" | "post";
+        targetId: string;
+        title: string;
+        summary?: string;
+        coverUrl?: string;
+        posterUrl?: string;
+        previewUrl?: string;
+        sourceUrl?: string;
+        author: {
+          id: string;
+          displayName: string;
+          avatarUrl?: string;
+        };
+        workflow?: {
+          id: string;
+          title: string;
+        };
+        stats?: {
+          playCount?: number;
+          likeCount?: number;
+        };
+      }>;
+    }>;
+  };
+};
+
+export type ApiFeaturedArchiveResponse = {
+  slots: Array<{
+    key: string;
+    items: Array<{
+      contentKind: "prompt" | "workflow_work" | "post";
+      promptModality?: "image" | "video";
+      itemType: "video" | "workflow" | "prompt" | "post";
+      targetId: string;
+      title: string;
+      summary?: string;
+      coverUrl?: string;
+      posterUrl?: string;
+      previewUrl?: string;
+      sourceUrl?: string;
+      author: {
+        id: string;
+        displayName: string;
+        avatarUrl?: string;
+      };
+      workflow?: {
+        id: string;
+        title: string;
+      };
+      stats?: {
+        playCount?: number;
+        likeCount?: number;
+      };
+      targetSlug?: string;
+      channelSlug?: string;
+    }>;
+  }>;
 };
 
 export type ApiVideoDetail = {
@@ -143,6 +273,7 @@ export type ApiVideoDetail = {
     title: string;
     allowCopy: boolean;
   };
+  commentPolicy: ApiCommentPolicy;
   stats: {
     playCount: number;
     likeCount: number;
@@ -162,6 +293,14 @@ export type ApiPromptSummary = {
   summary?: string;
   modality: "image" | "video";
   coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
+  taxonomy: {
+    modelCategory?: string;
+    contentCategory?: string;
+    compositionCategory?: string;
+  };
   author: {
     id: string;
     displayName: string;
@@ -172,6 +311,9 @@ export type ApiPromptSummary = {
     likeCount: number;
     favoriteCount: number;
     exampleCount: number;
+  };
+  viewerActions?: {
+    liked: boolean;
   };
 };
 
@@ -184,6 +326,11 @@ export type ApiPromptDetail = {
   promptTextZh?: string;
   promptTextEn?: string;
   promptTextRaw?: string;
+  taxonomy: {
+    modelCategory?: string;
+    contentCategory?: string;
+    compositionCategory?: string;
+  };
   source: {
     sourcePlatform?: string;
     sourceCampaign?: string;
@@ -197,6 +344,9 @@ export type ApiPromptDetail = {
     avatarUrl?: string;
   };
   coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
   tagNames: string[];
   examples: Array<{
     id: string;
@@ -207,6 +357,7 @@ export type ApiPromptDetail = {
     height?: number;
     durationMs?: number;
   }>;
+  commentPolicy: ApiCommentPolicy;
   stats: {
     likeCount: number;
     favoriteCount: number;
@@ -225,6 +376,11 @@ export type ApiWorkflowDetail = {
   title: string;
   summary?: string;
   scenarioText?: string;
+  coverUrl?: string;
+  exampleMedia?: {
+    assetKind: "video" | "image";
+    url?: string;
+  };
   tagNames: string[];
   author: {
     id: string;
@@ -235,6 +391,7 @@ export type ApiWorkflowDetail = {
     allowCopy: boolean;
     allowFork: boolean;
   };
+  commentPolicy: ApiCommentPolicy;
   canvasBinding?: {
     bindingType: "internal" | "external";
     openUrl?: string;
@@ -262,6 +419,7 @@ export type ApiCreatorProfile = {
     videoCount: number;
     workflowCount: number;
     followerCount: number;
+    likeReceivedCount: number;
   };
   viewerActions: {
     followed: boolean;
@@ -280,14 +438,55 @@ export type ApiMeHubResponse = {
       videoCount: number;
       workflowCount: number;
       followerCount: number;
+      likeReceivedCount: number;
     };
   };
   likedItems: ApiMeInteractionItem[];
   favoritedItems: ApiMeInteractionItem[];
+  draftItems: ApiMeDraftItem[];
+  publishedContent: {
+    videos: ApiVideoSummary[];
+    workflows: ApiWorkflowSummary[];
+    posts: ApiDiscussionHomeResponse["featuredThreads"];
+  };
 };
 
+export type ApiRecentNotificationsResponse = {
+  items: ApiRecentNotificationItem[];
+};
+
+export type ApiRecentNotificationItem = {
+  id: string;
+  actionType: "like" | "favorite" | "comment" | "reply";
+  actedAt: string;
+  excerpt?: string;
+  replyToActorName?: string;
+  commentId?: string;
+  actor: {
+    id: string;
+    displayName: string;
+    avatarUrl?: string;
+  };
+  target: {
+    id: string;
+    type: "video" | "workflow" | "prompt" | "post";
+    title: string;
+    href: string;
+  };
+};
+
+export type ApiMeProfileUpdateInput = {
+  displayName: string;
+  bio?: string;
+  headline?: string;
+  avatarAssetId?: string;
+  avatarUrl?: string;
+};
+
+export type ApiMeProfile = ApiMeHubResponse["profile"];
+
 export type ApiMeInteractionItem = {
-  itemType: "video" | "workflow" | "post";
+  itemType: "video" | "workflow" | "prompt" | "post";
   targetId: string;
   title: string;
   summary?: string;
@@ -303,6 +502,21 @@ export type ApiMeInteractionItem = {
   };
 };
 
+export type ApiMeDraftItem = {
+  draftType: "video" | "workflow" | "post";
+  draftId: string;
+  targetId?: string;
+  title?: string;
+  summary?: string;
+  coverUrl?: string;
+  statusCode: string;
+  currentStep: string;
+  lifecycle: ApiDraftLifecycle;
+  updatedAt?: string;
+  continueHref?: string;
+  editable: boolean;
+};
+
 export type ApiDiscussionHomeResponse = {
   channels: Array<{
     slug: string;
@@ -315,6 +529,7 @@ export type ApiDiscussionHomeResponse = {
     slug: string;
     title: string;
     excerpt?: string;
+    publishedAt?: string;
     channelSlug: string;
     channelTitle: string;
     likeCount: number;
@@ -322,6 +537,11 @@ export type ApiDiscussionHomeResponse = {
     replyCount: number;
     lastActivityAt?: string;
     tagNames: string[];
+    author: {
+      id: string;
+      displayName: string;
+      avatarUrl?: string;
+    };
     viewerActions: {
       liked: boolean;
       favorited: boolean;
@@ -361,31 +581,84 @@ export type ApiDiscussionThreadDetail = {
     liked: boolean;
     favorited: boolean;
   };
+  commentPolicy: ApiCommentPolicy;
   binding?: {
     targetType: ApiDiscussionBindingTargetType;
     targetId: string;
     targetTitle?: string;
   } | null;
+  relatedThreads: ApiDiscussionHomeResponse["featuredThreads"];
 };
 
-export type ApiPublishBootstrap = {
+export type ApiPublishCurrentUser = {
   currentUser: {
     id: string;
     displayName: string;
     roleCode: string;
   };
+};
+
+export type ApiDraftLifecycle = {
+  draftStatus: "draft" | "submitted";
+  moderationStatus: string;
+  moderationMessage?: string;
+  processingStatus: string;
+  processingMessage?: string;
+  mediaTask?: ApiMediaTaskSummary;
+  editable: boolean;
+  submittedAt?: string;
+};
+
+export type ApiMediaTaskSummary = {
+  taskId: string;
+  taskType: string;
+  targetType: string;
+  targetId: string;
+  statusCode: string;
+  retryCount: number;
+  maxRetryCount: number;
+  errorMessage?: string;
+  submittedAt?: string;
+  startedAt?: string;
+  finishedAt?: string;
+  retryable: boolean;
+};
+
+export type ApiMediaTask = {
+  taskId: string;
+  taskType: string;
+  targetType: string;
+  targetId: string;
+  queueName: string;
+  priorityLevel: number;
+  statusCode: string;
+  retryCount: number;
+  maxRetryCount: number;
+  errorMessage?: string;
+  submittedAt?: string;
+  startedAt?: string;
+  finishedAt?: string;
+  retryable: boolean;
+};
+
+export type ApiPublishPageBootstrap = ApiPublishCurrentUser & {
   videoDraft: {
     draftId: string;
     targetId?: string;
     title?: string;
     summary?: string;
     categoryCode?: string;
+    promptText?: string;
+    modelCategory?: string;
+    contentCategory?: string;
+    compositionCategory?: string;
     tagNames: string[];
     workflowId?: string;
     visibility: "public" | "link" | "private";
     coverAssetId?: string;
     sourceAssetId?: string;
     statusCode: string;
+    lifecycle: ApiDraftLifecycle;
   };
   workflowDraft: {
     draftId: string;
@@ -398,8 +671,14 @@ export type ApiPublishBootstrap = {
     allowFork: boolean;
     visibility: "public" | "link" | "private";
     coverAssetId?: string;
+    exampleAssetId?: string;
     statusCode: string;
+    lifecycle: ApiDraftLifecycle;
   };
+  availableWorkflows: ApiWorkflowSummary[];
+};
+
+export type ApiPostComposerBootstrap = ApiPublishCurrentUser & {
   postDraft: {
     draftId: string;
     targetId?: string;
@@ -408,16 +687,21 @@ export type ApiPublishBootstrap = {
     content?: string;
     tagNames: string[];
     statusCode: string;
+    lifecycle: ApiDraftLifecycle;
   };
+  channels: ApiDiscussionHomeResponse["channels"];
 };
 
-export type ApiVideoDraft = ApiPublishBootstrap["videoDraft"];
-export type ApiWorkflowDraft = ApiPublishBootstrap["workflowDraft"];
-export type ApiPostDraft = ApiPublishBootstrap["postDraft"];
+export type ApiVideoDraft = ApiPublishPageBootstrap["videoDraft"];
+export type ApiWorkflowDraft = ApiPublishPageBootstrap["workflowDraft"];
+export type ApiPostDraft = ApiPostComposerBootstrap["postDraft"];
 export type ApiUploadAssetKind = "video" | "image";
+export type ApiUploadAssetRole = "source" | "cover" | "preview" | "poster" | "avatar" | "attachment";
 
 export type ApiUploadPolicy = {
   assetId: string;
+  assetKind: ApiUploadAssetKind;
+  assetRole: ApiUploadAssetRole;
   uploadUrl: string;
   headers: Record<string, string>;
   expiresAt: string;
@@ -425,7 +709,10 @@ export type ApiUploadPolicy = {
 
 export type ApiUploadedAsset = {
   assetId: string;
+  assetKind: ApiUploadAssetKind;
+  assetRole: ApiUploadAssetRole;
   statusCode: string;
+  mediaPath: string;
   publicUrl: string;
   sizeBytes: number;
 };
@@ -434,6 +721,13 @@ export type ApiVideoDraftUpdateInput = {
   title?: string;
   summary?: string;
   categoryCode?: string;
+  promptText?: string;
+  modelName?: string;
+  modelCategory?: string;
+  contentCategory?: string;
+  compositionCategory?: string;
+  sourcePlatform?: string;
+  sourceCampaign?: string;
   tagNames: string[];
   workflowId?: string;
   visibility: "public" | "link" | "private";
@@ -450,6 +744,7 @@ export type ApiWorkflowDraftUpdateInput = {
   allowFork: boolean;
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
+  exampleAssetId?: string;
 };
 
 export type ApiPostDraftUpdateInput = {
@@ -462,7 +757,10 @@ export type ApiPostDraftUpdateInput = {
 export type ApiDraftSubmitResult = {
   targetId: string;
   slug?: string;
+  draftStatus: string;
+  contentStatus: string;
   publishStatus: string;
+  lifecycle: ApiDraftLifecycle;
   taskIds: string[];
   submitMode: string;
 };

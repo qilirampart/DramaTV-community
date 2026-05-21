@@ -1,0 +1,50 @@
+{
+  "rank": 74,
+  "id": "2046509734954741780",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 40,
+  "title": "Fictional Anime Movie Poster",
+  "description": "Poster & Illustration Cases curated case: Fictional Anime Movie Poster, source author seiiiiiiiiiiru.",
+  "language": "ja",
+  "authorName": "seiiiiiiiiiiru",
+  "authorLink": "https://x.com/seiiiiiiiiiiru",
+  "sourceLink": "https://x.com/seiiiiiiiiiiru/status/2046509734954741780",
+  "sourcePublishedAt": "Tue Apr 21 08:41:57 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 20385,
+  "likes": 98,
+  "retweetCount": 9,
+  "viewCount": 6559,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case40/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case40/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGao-GgakAAooqf.jpg",
+      "width": 1054,
+      "height": 1492
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

@@ -4,6 +4,8 @@ public record WorkflowSummaryResponse(
         String id,
         String title,
         String coverUrl,
+        String summary,
+        Long likeCount,
         boolean allowCopy,
         AuthorSummary author
 ) {

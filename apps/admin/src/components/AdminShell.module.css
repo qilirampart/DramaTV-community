@@ -1,0 +1,373 @@
+.shell {
+  display: grid;
+  grid-template-columns: 196px minmax(0, 1fr);
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--admin-bg);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  padding: 22px 12px 16px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  background: var(--admin-sidebar);
+  border-right: 1px solid var(--admin-line);
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px 8px;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--admin-radius-sm);
+  background: #111827;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.brandText {
+  display: grid;
+  gap: 2px;
+}
+
+.brandTitle {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brandSub {
+  color: var(--admin-ink-soft);
+  font-size: 0.8rem;
+}
+
+.nav {
+  display: grid;
+  gap: 12px;
+}
+
+.navGroup,
+.navSection {
+  display: grid;
+  gap: 4px;
+}
+
+.navGroupTitle,
+.navItemNote {
+  display: none;
+}
+
+.navGroupItems {
+  display: grid;
+  gap: 3px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: var(--admin-radius-md);
+  color: var(--admin-ink-soft);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.navItem:hover {
+  color: var(--admin-ink);
+  border-color: var(--admin-line);
+  background: var(--admin-bg-strong);
+}
+
+.navItemActive {
+  color: var(--admin-ink);
+  border-color: var(--admin-line);
+  background: #f4f6f9;
+}
+
+.navIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.navIcon svg,
+.searchIcon svg,
+.accountChevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.navItemLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 10px 10px 0;
+  color: var(--admin-muted);
+  font-size: 0.76rem;
+}
+
+.workspace {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  height: 100vh;
+  padding: 18px 22px 30px;
+  overflow: hidden;
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-bottom: 12px;
+  background: linear-gradient(180deg, rgba(247, 248, 250, 0.98) 0%, rgba(247, 248, 250, 0.94) 82%, rgba(247, 248, 250, 0.82) 100%);
+}
+
+.searchShell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(430px, 100%);
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--admin-line);
+  border-radius: var(--admin-radius-md);
+  background: var(--admin-paper);
+}
+
+.searchIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--admin-muted);
+}
+
+.searchInput {
+  flex: 1;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--admin-ink);
+  font-size: 0.84rem;
+}
+
+.searchInput::placeholder {
+  color: var(--admin-muted);
+}
+
+.searchShortcut {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 7px;
+  border: 1px solid var(--admin-line);
+  border-radius: 6px;
+  color: var(--admin-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.topbarSide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.environmentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 11px;
+  border: 1px solid var(--admin-line);
+  border-radius: var(--admin-radius-md);
+  background: var(--admin-paper);
+  color: var(--admin-ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.environmentDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #171717;
+}
+
+.iconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--admin-line);
+  border-radius: var(--admin-radius-md);
+  background: var(--admin-paper);
+  color: var(--admin-ink-soft);
+}
+
+.iconBadge {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #171717;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.accountBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 4px 0 4px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #9aa0ab;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.accountText {
+  display: grid;
+  gap: 2px;
+}
+
+.accountText strong {
+  font-size: 0.86rem;
+  line-height: 1.1;
+}
+
+.accountText span {
+  color: var(--admin-muted);
+  font-size: 0.72rem;
+}
+
+.accountChevron {
+  display: inline-flex;
+  align-items: center;
+  color: var(--admin-muted);
+}
+
+.logoutButton {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--admin-line);
+  border-radius: var(--admin-radius-md);
+  background: var(--admin-paper);
+  color: var(--admin-ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.logoutButton:hover,
+.iconButton:hover {
+  border-color: var(--admin-line-strong);
+  color: var(--admin-ink);
+  background: var(--admin-paper-soft);
+}
+
+.workspaceContent {
+  min-width: 0;
+  min-height: 0;
+  padding-top: 16px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 1180px) {
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .sidebar {
+    height: auto;
+    max-height: min(42vh, 420px);
+    border-right: 0;
+    border-bottom: 1px solid var(--admin-line);
+  }
+
+  .workspace {
+    height: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .workspace {
+    padding: 18px 16px 28px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchShell {
+    width: 100%;
+  }
+
+  .topbarSide {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 720px) {
+  .accountText,
+  .searchShortcut {
+    display: none;
+  }
+
+  .topbarSide {
+    justify-content: space-between;
+  }
+}

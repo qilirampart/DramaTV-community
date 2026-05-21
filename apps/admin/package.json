@@ -1,0 +1,23 @@
+{
+  "name": "dramatv-community-admin",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --port 3206",
+    "build": "next build",
+    "start": "next start --port 3206",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node ../../scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --output ../../artifacts/admin-smoke/latest/summary.json"
+  },
+  "dependencies": {
+    "next": "16.2.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3"
+  }
+}

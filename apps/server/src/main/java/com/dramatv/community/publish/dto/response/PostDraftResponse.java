@@ -11,6 +11,7 @@ public record PostDraftResponse(
         List<String> tagNames,
         String bindingTargetType,
         String bindingTargetId,
-        String statusCode
+        String statusCode,
+        DraftLifecycleResponse lifecycle
 ) {
 }

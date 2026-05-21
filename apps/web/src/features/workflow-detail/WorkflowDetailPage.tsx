@@ -2,27 +2,61 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { CommentThread } from "@/components/comments/CommentThread";
+import { ReportModal } from "@/components/report/ReportModal";
+import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
 import {
+  type CommentActionResult,
   copyWorkflowToCanvasAction,
+  deleteWorkflowCommentAction,
+  loadMoreWorkflowCommentsAction,
+  submitReportAction,
   submitWorkflowCommentAction,
   toggleWorkflowCommentLikeAction,
   toggleWorkflowFavoriteAction,
-  toggleWorkflowLikeAction
+  toggleWorkflowLikeAction,
+  updateWorkflowCommentSettingsAction
 } from "@/features/community-interactions/actions";
 import type { WorkflowDetailPageView } from "@/lib/contracts/view-models";
 import { normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
 import styles from "./WorkflowDetailPage.module.css";
 
 type WorkflowDetailPageProps = {
   view: WorkflowDetailPageView;
+  backHref?: string;
 };
 
 type ActionNotice = {
   tone: "neutral" | "success" | "error";
   text: string;
 };
+
+function applyCommentPatch(
+  view: WorkflowDetailPageView,
+  result: CommentActionResult,
+  mode: "replace" | "append" = "replace"
+): WorkflowDetailPageView {
+  if (!result.ok) {
+    return view;
+  }
+
+  return {
+    ...view,
+    commentPolicy: result.patch.commentPolicy ?? view.commentPolicy,
+    stats: {
+      ...view.stats,
+      commentCount: mode === "replace" ? result.patch.commentCount : view.stats.commentCount
+    },
+    comments: {
+      items: mode === "append" ? [...view.comments.items, ...result.patch.comments] : result.patch.comments,
+      nextCursor: result.patch.nextCursor,
+      hasMore: result.patch.hasMore
+    }
+  };
+}
 
 function HeartIcon() {
   return (
@@ -56,6 +90,21 @@ function CommentIcon() {
       <path
         d="M4.2 4.8h11.6c.7 0 1.2.5 1.2 1.2V13c0 .7-.5 1.2-1.2 1.2H9.2L5.3 17v-2.8H4.2c-.7 0-1.2-.5-1.2-1.2V6c0-.7.5-1.2 1.2-1.2Z"
         stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.45"
+      />
+    </svg>
+  );
+}
+
+function ReportIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
+      <path d="M5.2 16.4V3.6" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+      <path
+        d="M6.4 4.2h7.1l-1.8 3.1 1.8 3.1H6.4"
+        stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.45"
       />
@@ -161,6 +210,7 @@ function buildWorkflowArchiveText(
   workflowTitle: string,
   summary?: string,
   scenarioText?: string,
+  hasExamplePreview?: boolean,
   canOpen?: boolean,
   allowCopy?: boolean
 ) {
@@ -168,7 +218,9 @@ function buildWorkflowArchiveText(
     ? allowCopy
       ? "当前状态：支持继续查看工作流，后续接入复制到画布。"
       : "当前状态：当前可查看工作流详情，复制能力暂未开放。"
-    : "当前状态：工作流入口待接入，当前先保留统一详情排版。";
+    : hasExamplePreview
+      ? "当前状态：工作流说明与成果视频已可展示，画布入口后续接入。"
+      : "当前状态：工作流入口待接入，当前先保留统一详情排版。";
 
   return [
     `工作流名称：${workflowTitle}`,
@@ -180,36 +232,87 @@ function buildWorkflowArchiveText(
     .join("\n\n");
 }
 
-export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
+export function WorkflowDetailPage({ view, backHref = "/featured" }: WorkflowDetailPageProps) {
   const router = useRouter();
   const [currentView, setCurrentView] = useState(view);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
   const [commentPending, setCommentPending] = useState(false);
   const [commentLikePendingId, setCommentLikePendingId] = useState<string | null>(null);
+  const [commentManagementPendingId, setCommentManagementPendingId] = useState<string | null>(null);
+  const [commentPolicyPending, setCommentPolicyPending] = useState(false);
+  const [commentLoadMorePending, setCommentLoadMorePending] = useState(false);
   const [commentNotice, setCommentNotice] = useState<ActionNotice | null>(null);
-  const [commentDraft, setCommentDraft] = useState("");
+  const [reportOpen, setReportOpen] = useState(false);
+  const [reportPending, setReportPending] = useState(false);
+  const [reportNotice, setReportNotice] = useState<ActionNotice | null>(null);
+  const [isStageVideoReady, setIsStageVideoReady] = useState(false);
+  const stageVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    setCurrentView(view);
+  }, [view]);
 
   const authorId = normalizeText(currentView.author.id);
   const authorName = normalizeText(currentView.author.displayName) ?? "DramaTV Creator";
   const authorAvatarUrl = normalizeAssetUrl(currentView.author.avatarUrl);
-  const authorHref = authorId ? `/creators/${authorId}` : undefined;
+  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, backHref) : undefined;
   const openUrl = normalizeText(currentView.canvasBinding?.openUrl);
   const summary =
     normalizeText(currentView.summary) ?? "这个工作流详情页会承接方法说明、画布入口和复制链路。";
   const scenarioText =
     normalizeText(currentView.scenarioText) ?? "适用于需要把结果页和方法页串起来展示的社区资源。";
   const detailTags = currentView.tagNames.slice(0, 4);
-  const coverUrl = normalizeAssetUrl(currentView.relatedVideos[0]?.coverUrl);
+  const demoVideoUrl =
+    currentView.exampleMedia?.assetKind === "video" ? normalizeAssetUrl(currentView.exampleMedia.url) : undefined;
+  const coverUrl =
+    normalizeAssetUrl(currentView.coverUrl) ??
+    (currentView.exampleMedia?.assetKind === "image" ? normalizeAssetUrl(currentView.exampleMedia.url) : undefined) ??
+    normalizeAssetUrl(currentView.relatedVideos[0]?.coverUrl);
   const relatedVideos = currentView.relatedVideos.slice(0, 2);
   const workflowPanelText = buildWorkflowArchiveText(
     currentView.title,
     summary,
     scenarioText,
+    Boolean(demoVideoUrl),
     Boolean(openUrl),
     currentView.permissions.allowCopy
   );
   const isReadonlyPreview = currentView.isReadonlyPreview ?? false;
+
+  useEffect(() => {
+    setIsStageVideoReady(false);
+  }, [currentView.id, demoVideoUrl]);
+
+  useEffect(() => {
+    const video = stageVideoRef.current;
+    if (!video) {
+      return;
+    }
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsStageVideoReady(true);
+    }
+  }, [currentView.id, demoVideoUrl]);
+
+  useEffect(() => {
+    if (reportNotice?.tone !== "success") {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setReportNotice(null);
+    }, 2200);
+
+    return () => window.clearTimeout(timer);
+  }, [reportNotice]);
+
+  const handleStageVideoRef = useCallback((node: HTMLVideoElement | null) => {
+    stageVideoRef.current = node;
+    if (node && node.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsStageVideoReady((current) => current || true);
+    }
+  }, []);
 
   async function runInteraction(
     pendingKey: string,
@@ -281,7 +384,7 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
     }
   }
 
-  async function handleCommentSubmit(content: string) {
+  async function handleCommentSubmit(input: { content: string; parentId?: string }) {
     if (isReadonlyPreview) {
       setCommentNotice({
         tone: "error",
@@ -299,11 +402,12 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
     try {
       const result = await submitWorkflowCommentAction({
         workflowId: currentView.id,
-        content
+        content: input.content,
+        parentId: input.parentId
       });
 
       if (result.ok) {
-        setCurrentView(result.view);
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
         setCommentNotice({
           tone: "success",
           text: result.message
@@ -344,7 +448,7 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
       });
 
       if (result.ok) {
-        setCurrentView(result.view);
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
         setCommentNotice({
           tone: "success",
           text: result.message
@@ -361,15 +465,149 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
     }
   }
 
-  async function handleComposerSubmit() {
-    const normalized = commentDraft.trim();
-    if (!normalized) {
+  async function handleCommentDelete(commentId: string) {
+    if (isReadonlyPreview) {
+      setCommentNotice({
+        tone: "error",
+        text: "当前是预览态工作流，评论管理暂不写入真实后端。"
+      });
       return;
     }
 
-    const success = await handleCommentSubmit(normalized);
-    if (success) {
-      setCommentDraft("");
+    setCommentManagementPendingId(commentId);
+    setCommentNotice({
+      tone: "neutral",
+      text: "正在删除评论..."
+    });
+
+    try {
+      const result = await deleteWorkflowCommentAction({
+        workflowId: currentView.id,
+        commentId
+      });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentManagementPendingId(null);
+    }
+  }
+
+  async function handleCommentPolicyToggle(nextEnabled: boolean) {
+    if (isReadonlyPreview) {
+      setCommentNotice({
+        tone: "error",
+        text: "当前是预览态工作流，评论区设置暂不写入真实后端。"
+      });
+      return;
+    }
+
+    setCommentPolicyPending(true);
+    setCommentNotice({
+      tone: "neutral",
+      text: nextEnabled ? "正在开启评论区..." : "正在关闭评论区..."
+    });
+
+    try {
+      const result = await updateWorkflowCommentSettingsAction({
+        workflowId: currentView.id,
+        commentsEnabled: nextEnabled
+      });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentPolicyPending(false);
+    }
+  }
+
+  async function handleLoadMoreComments() {
+    const cursor = currentView.comments.nextCursor;
+    if (!cursor) {
+      return;
+    }
+
+    setCommentLoadMorePending(true);
+    setCommentNotice({
+      tone: "neutral",
+      text: "正在加载更多评论..."
+    });
+
+    try {
+      const result = await loadMoreWorkflowCommentsAction({
+        workflowId: currentView.id,
+        cursor
+      });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "append"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentLoadMorePending(false);
+    }
+  }
+
+  async function handleReportSubmit(input: {
+    targetType: "video" | "workflow" | "prompt" | "post";
+    targetId: string;
+    reasonCode: "pornographic" | "political" | "spam" | "abuse" | "copyright" | "misleading" | "other";
+    descriptionText?: string;
+  }) {
+    setReportPending(true);
+    setReportNotice({
+      tone: "neutral",
+      text: "正在提交举报..."
+    });
+
+    try {
+      const result = await submitReportAction(input);
+      if (result.ok) {
+        setReportNotice({
+          tone: "success",
+          text: "举报已提交。"
+        });
+        setReportOpen(false);
+        return;
+      }
+
+      setReportNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setReportPending(false);
     }
   }
 
@@ -377,9 +615,9 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
     <PageShell variant="home" topNavActive="featured">
       <div className={styles.page}>
         <section className={styles.heroSection} id="canvas-entry">
-          <Link className={styles.backLink} href="/featured">
+          <ContextBackLink className={styles.backLink} href={backHref}>
             ← 返回列表
-          </Link>
+          </ContextBackLink>
 
           <div className={styles.heroGrid}>
             <div className={styles.stageColumn}>
@@ -390,9 +628,27 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
                 />
                 <div className={styles.stageShade} />
 
-                {!coverUrl ? (
+                {demoVideoUrl ? (
+                  <video
+                    autoPlay
+                    className={`${styles.stageVideo} ${isStageVideoReady ? styles.stageVideoReady : ""}`}
+                    controls
+                    loop
+                    muted
+                    ref={handleStageVideoRef}
+                    onCanPlay={() => setIsStageVideoReady(true)}
+                    onEmptied={() => setIsStageVideoReady(false)}
+                    onLoadedData={() => setIsStageVideoReady(true)}
+                    playsInline
+                    poster={coverUrl}
+                    src={demoVideoUrl}
+                    style={{ opacity: isStageVideoReady ? 1 : 0 }}
+                  />
+                ) : null}
+
+                {!coverUrl && !demoVideoUrl ? (
                   <div className={styles.stagePlaceholder}>
-                    <span className={styles.stagePlaceholderLabel}>WORKFLOW PREVIEW</span>
+                    <span className={styles.stagePlaceholderLabel}>工作流预览</span>
                     <strong>当前工作流暂无独立视频预览</strong>
                     <span>先保留和视频详情页一致的展示区域，后续再接真实预览素材。</span>
                   </div>
@@ -427,7 +683,7 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
 
             <div className={styles.contentColumn}>
               <div className={styles.metaRow}>
-                <span className={styles.typeBadge}>WORKFLOW</span>
+                <span className={styles.typeBadge}>工作流方法</span>
                 {detailTags.map((tag) => (
                   <span className={styles.keywordTag} key={tag}>
                     #{tag}
@@ -497,11 +753,17 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
                   <CommentIcon />
                   <span>评论 {formatCount(currentView.stats.commentCount)}</span>
                 </Link>
+
+                <button className={styles.metricButton} type="button" onClick={() => setReportOpen(true)}>
+                  <ReportIcon />
+                  <span>举报</span>
+                </button>
               </div>
 
               {interactionNotice ? (
                 <p className={noticeClassName(interactionNotice)}>{interactionNotice.text}</p>
               ) : null}
+              {reportNotice ? <p className={noticeClassName(reportNotice)}>{reportNotice.text}</p> : null}
               {isReadonlyPreview ? (
                 <p className={styles.notice}>当前页面是工作流样式预览页，点赞、收藏、评论和复制入口均不写入真实后端。</p>
               ) : null}
@@ -517,92 +779,36 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
                   <CommentIcon />
                   <h2>评论区</h2>
                 </div>
-                <span className={styles.commentsCount}>{currentView.comments.length} 条评论</span>
+                <span className={styles.commentsCount}>{formatCount(currentView.stats.commentCount)} 条评论</span>
               </div>
 
-              <p className={styles.demoHint}>这里继续保留最小评论闭环，后续再接更完整的讨论区结构。</p>
-
-              <div className={styles.commentComposer}>
-                <textarea
-                  className={styles.commentTextarea}
-                  disabled={isReadonlyPreview || commentPending}
-                  placeholder="加入讨论，补充这个工作流的适用题材、节点重点或复用建议..."
-                  value={commentDraft}
-                  onChange={(event) => setCommentDraft(event.target.value)}
-                />
-
-                <div className={styles.composerFooter}>
-                  <div className={styles.composerTools}>
-                    <button className={styles.composerTool} disabled type="button" aria-label="图片上传预留">
-                      <ImageIcon />
-                    </button>
-                    <button className={styles.composerTool} disabled type="button" aria-label="节点引用预留">
-                      <LayersIcon />
-                    </button>
-                  </div>
-
-                  <button
-                    className={styles.composerSubmit}
-                    disabled={isReadonlyPreview || commentPending || commentDraft.trim().length === 0}
-                    type="button"
-                    onClick={handleComposerSubmit}
-                  >
-                    {isReadonlyPreview ? "预览态" : commentPending ? "发布中" : "发表评论"}
-                  </button>
-                </div>
-
-                {commentNotice ? (
-                  <p className={`${noticeClassName(commentNotice)} ${styles.commentNotice}`}>{commentNotice.text}</p>
-                ) : null}
-              </div>
-
-              {currentView.comments.length > 0 ? (
-                <div className={styles.commentList}>
-                  {currentView.comments.map((comment) => {
-                    const likePending = commentLikePendingId === comment.id;
-
-                    return (
-                      <article className={styles.commentItem} key={comment.id}>
-                        <span className={styles.commentAvatar}>
-                          {comment.authorAvatarUrl ? (
-                            <span
-                              className={styles.commentAvatarImage}
-                              style={{ backgroundImage: `url(${comment.authorAvatarUrl})` }}
-                            />
-                          ) : (
-                            <span className={styles.commentAvatarFallback}>{getAvatarFallback(comment.authorName)}</span>
-                          )}
-                        </span>
-
-                        <div className={styles.commentBody}>
-                          <div className={styles.commentMeta}>
-                            <strong>{comment.authorName}</strong>
-                            <span>{formatCommentDate(comment.createdAt)}</span>
-                          </div>
-
-                          <p className={styles.commentContent}>{comment.content}</p>
-
-                          <div className={styles.commentActions}>
-                            <button
-                              className={styles.commentAction}
-                              disabled={isReadonlyPreview || likePending}
-                              type="button"
-                              onClick={() => handleCommentLike(comment.id, !comment.viewerLiked)}
-                            >
-                              点赞 {comment.likeCount}
-                            </button>
-                            <span className={styles.commentActionStatic}>回复 {comment.replyCount}</span>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className={styles.emptyComments}>
-                  当前还没有流程备注，后续这里会继续承接真实评论数据。
-                </div>
-              )}
+              <CommentThread
+                comments={currentView.comments}
+                emptyText="当前还没有流程备注，后续这里会继续承接真实评论数据。"
+                helperText="这里继续保留最小评论闭环，后续再接更完整的讨论区结构。"
+                hideHeader
+                variant="workflow"
+                disabled={isReadonlyPreview}
+                composer={{
+                  placeholder: "加入讨论，补充这个工作流的适用题材、节点重点或复用建议...",
+                  submitLabel: "发表评论",
+                  notice: commentNotice,
+                  pending: commentPending,
+                  disabled: isReadonlyPreview,
+                  onSubmit: handleCommentSubmit
+                }}
+                commentActionPendingId={commentLikePendingId}
+                commentManagementPendingId={commentManagementPendingId}
+                onToggleLike={handleCommentLike}
+                onDeleteComment={handleCommentDelete}
+                commentPolicy={currentView.commentPolicy}
+                policyPending={commentPolicyPending}
+                onToggleCommenting={handleCommentPolicyToggle}
+                loadMore={{
+                  pending: commentLoadMorePending,
+                  onLoadMore: handleLoadMoreComments
+                }}
+              />
             </div>
 
             <aside className={styles.recommendRail}>
@@ -617,7 +823,11 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
                     const relatedAuthor = normalizeText(video.author.displayName) ?? "DramaTV";
 
                     return (
-                      <Link className={styles.recommendCard} href={`/videos/${video.id}`} key={video.id}>
+                      <Link
+                        className={styles.recommendCard}
+                        href={appendBackSource(`/videos/${video.id}`, backHref)}
+                        key={video.id}
+                      >
                         <span
                           className={styles.recommendCardMedia}
                           style={relatedCover ? { backgroundImage: `url(${relatedCover})` } : undefined}
@@ -677,6 +887,16 @@ export function WorkflowDetailPage({ view }: WorkflowDetailPageProps) {
             </aside>
           </div>
         </section>
+
+        <ReportModal
+          open={reportOpen}
+          submitting={reportPending}
+          title="举报工作流"
+          targetId={currentView.id}
+          targetType="workflow"
+          onClose={() => setReportOpen(false)}
+          onSubmit={handleReportSubmit}
+        />
       </div>
     </PageShell>
   );

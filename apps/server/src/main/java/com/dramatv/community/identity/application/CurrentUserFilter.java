@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import org.slf4j.MDC;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,6 +20,7 @@ public class CurrentUserFilter extends OncePerRequestFilter {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER_PREFIX = "Bearer ";
+    private static final String USER_ID_MDC_KEY = "userId";
 
     private final CurrentUserService currentUserService;
 
@@ -38,6 +40,7 @@ public class CurrentUserFilter extends OncePerRequestFilter {
             if (token != null) {
                 currentUserService.findByAccessToken(token).ifPresent(user -> {
                     CurrentUserContext.set(user);
+                    MDC.put(USER_ID_MDC_KEY, user.id().toString());
                     SecurityContextHolder.getContext().setAuthentication(
                             new UsernamePasswordAuthenticationToken(user, null, List.of())
                     );
@@ -45,6 +48,7 @@ public class CurrentUserFilter extends OncePerRequestFilter {
             }
             filterChain.doFilter(request, response);
         } finally {
+            MDC.remove(USER_ID_MDC_KEY);
             SecurityContextHolder.clearContext();
             CurrentUserContext.clear();
         }

@@ -10,6 +10,9 @@ export type HomeDemoCard = {
   summary: string;
   href: string;
   coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
   author: {
     id: string;
     displayName: string;
@@ -139,6 +142,7 @@ export const homeDemoCatalog: HomeDemoCatalog = {
       description: "首页角标、点击去向和详情页动作全部以 WORKFLOW / PROMPT 两种资源为准。",
       href: `/workflows/${workflowPreviewDefinitions[1].id}`,
       imageUrl: workflowPreviewDefinitions[1].relatedVideos[0]?.coverUrl,
+      videoUrl: promptPreviewDefinitions[1].previewUrl,
       resourceType: "workflow"
     },
     {
@@ -148,6 +152,7 @@ export const homeDemoCatalog: HomeDemoCatalog = {
       description: "首页长内容流里保留发布和进入讨论区的入口，继续围绕社区闭环做。",
       href: "/publish",
       imageUrl: promptPreviewDefinitions[1].coverUrl,
+      videoUrl: promptPreviewDefinitions[2].previewUrl,
       resourceType: "prompt"
     }
   ],
@@ -172,6 +177,12 @@ export function mergeHomePageWithDemo(view: HomePageView): HomePageView {
             title: "提示词和工作流在首页怎么分层展示",
             excerpt: "把资源类型收敛到两种之后，首页卡片和详情页动作的映射会稳定很多。",
             channelTitle: "首页复刻讨论",
+            author: {
+              id: "11111111-1111-1111-1111-111111111111",
+              displayName: "Rina Flux",
+              href: "/creators/11111111-1111-1111-1111-111111111111"
+            },
+            publishedAtLabel: "今天更新",
             lastActivityLabel: "今天更新",
             likeCount: 26,
             likeCountLabel: "26 likes",
@@ -189,6 +200,12 @@ export function mergeHomePageWithDemo(view: HomePageView): HomePageView {
             title: "详情页右侧动作区统一之后，推荐区和评论区怎么对齐",
             excerpt: "工作流详情和提示词详情都遵循同一套骨架，只替换右侧动作内容。",
             channelTitle: "详情页复刻讨论",
+            author: {
+              id: "33333333-3333-3333-3333-333333333333",
+              displayName: "Follow Studio",
+              href: "/creators/33333333-3333-3333-3333-333333333333"
+            },
+            publishedAtLabel: "2 小时前",
             lastActivityLabel: "2 小时前",
             likeCount: 19,
             likeCountLabel: "19 likes",

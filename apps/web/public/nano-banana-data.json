@@ -3,7 +3,7 @@
     "totalLibraryItems": 3282,
     "renderedItems": 30,
     "sourceLibrary": "nano-banana-library-p001-p190",
-    "lastSyncedAt": "2026-04-14T12:29:49.005Z"
+    "lastSyncedAt": "2026-04-22T06:05:27.638Z"
   },
   "items": [
     {
@@ -108,7 +108,7 @@
       ],
       "promptLabel": "提示词（中文翻译）",
       "promptText": "生成一张水彩风格的德国地图，并在地图上用圆珠笔标出所有联邦州。",
-      "rawPromptText": "Erzeuge eine Karte von Deutschland im Wasserfarben-Stil, auf der alle Bundesl�nder mit Kugelschreiber benannt sind.",
+      "rawPromptText": "Erzeuge eine Karte von Deutschland im Wasserfarben-Stil, auf der alle Bundesländer mit Kugelschreiber benannt sind.",
       "translatedPromptText": "生成一张水彩风格的德国地图，并在地图上用圆珠笔标出所有联邦州。"
     },
     {

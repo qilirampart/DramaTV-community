@@ -1,0 +1,43 @@
+{
+  "rank": 30,
+  "id": "2047862141894681076",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 30,
+  "title": "Realistic Candid Bedroom Recording Portrait",
+  "description": "Portrait & Photography Cases curated case: Realistic Candid Bedroom Recording Portrait, source author ChillaiKalan__.",
+  "language": "",
+  "authorName": "ChillaiKalan__",
+  "authorLink": "https://x.com/ChillaiKalan__",
+  "sourceLink": "https://x.com/ChillaiKalan__/status/2047862141894681076",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case30/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case30/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

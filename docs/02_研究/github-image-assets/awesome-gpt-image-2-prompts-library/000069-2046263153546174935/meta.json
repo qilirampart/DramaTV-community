@@ -1,0 +1,68 @@
+{
+  "rank": 69,
+  "id": "2046263153546174935",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 34,
+  "title": "Character Relationship Map Poster",
+  "description": "Poster & Illustration Cases curated case: Character Relationship Map Poster, source author MrLarus.",
+  "language": "zh",
+  "authorName": "MrLarus",
+  "authorLink": "https://x.com/MrLarus",
+  "sourceLink": "https://x.com/MrLarus/status/2046263153546174935",
+  "sourcePublishedAt": "Mon Apr 20 16:22:08 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 2646,
+  "likes": 2,
+  "retweetCount": 0,
+  "viewCount": 800,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case34/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case34/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXHhQcbAAAFcYA.jpg",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXHhP8WsAAMvWm.jpg",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXHifHbUAAgLZO.jpg",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXHjggWgAAAGAG.jpg",
+      "width": 1122,
+      "height": 1402
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

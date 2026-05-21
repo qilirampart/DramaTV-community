@@ -2,21 +2,19 @@
 
 import { revalidatePath } from "next/cache";
 import {
-  appendCommunityRequestId,
-  createUploadPolicy,
+  getMediaTask,
+  retryMediaTask,
   submitPostDraft,
   submitVideoDraft,
   submitWorkflowDraft,
   updatePostDraft,
   updateVideoDraft,
-  updateWorkflowDraft,
-  uploadBinaryAsset
+  updateWorkflowDraft
 } from "@/lib/api/community-service";
+import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import type {
   ApiDraftSubmitResult,
   ApiPostDraftUpdateInput,
-  ApiUploadAssetKind,
-  ApiUploadedAsset,
   ApiVideoDraftUpdateInput,
   ApiWorkflowDraftUpdateInput
 } from "@/lib/contracts/community-api";
@@ -25,6 +23,14 @@ import type { PostDraftView, VideoDraftView, WorkflowDraftView } from "@/lib/con
 type PublishActionFailure = {
   ok: false;
   message: string;
+};
+
+type MediaTaskActionFailure = PublishActionFailure;
+
+type MediaTaskActionSuccess = {
+  ok: true;
+  message: string;
+  task: Awaited<ReturnType<typeof getMediaTask>>["data"];
 };
 
 type PublishActionSuccess<TDraft> = {
@@ -39,64 +45,42 @@ export type PublishDraftActionResult<TDraft> =
   | PublishActionFailure
   | PublishActionSuccess<TDraft>;
 
-type UploadAssetActionSuccess = {
-  ok: true;
-  asset: ApiUploadedAsset;
-};
-
-type UploadAssetActionFailure = {
-  ok: false;
-  message: string;
-};
-
-export type UploadAssetActionResult = UploadAssetActionSuccess | UploadAssetActionFailure;
+export type MediaTaskActionResult = MediaTaskActionFailure | MediaTaskActionSuccess;
 
 function fail(message: string, error: unknown): PublishActionFailure {
   return {
     ok: false,
-    message: appendCommunityRequestId(message, error)
+    message: formatCommunityActionError(error, message)
   };
 }
 
-export async function uploadAssetAction(formData: FormData): Promise<UploadAssetActionResult> {
-  const kind = formData.get("kind");
-  const fileValue = formData.get("file");
-
-  if ((kind !== "image" && kind !== "video") || !(fileValue instanceof File)) {
-    return {
-      ok: false,
-      message: "Upload payload is invalid."
-    };
-  }
-
+export async function getMediaTaskAction(taskId: string): Promise<MediaTaskActionResult> {
   try {
-    const policy = await createUploadPolicy({
-      kind: kind as ApiUploadAssetKind,
-      fileName: fileValue.name,
-      mimeType: fileValue.type || "application/octet-stream",
-      sizeBytes: fileValue.size
-    });
-    const uploaded = await uploadBinaryAsset({
-      policy: policy.data,
-      file: fileValue,
-      mimeType: fileValue.type
-    });
-
+    const response = await getMediaTask(taskId);
     return {
       ok: true,
-      asset: uploaded.data
+      task: response.data,
+      message: "媒体任务状态已刷新。"
     };
   } catch (error) {
-    return {
-      ok: false,
-      message: appendCommunityRequestId(
-        kind === "image" ? "Image upload failed." : "Video upload failed.",
-        error
-      )
-    };
+    return fail("读取媒体任务状态失败。", error);
   }
 }
 
+export async function retryMediaTaskAction(taskId: string): Promise<MediaTaskActionResult> {
+  try {
+    const response = await retryMediaTask(taskId);
+    revalidatePath("/publish");
+
+    return {
+      ok: true,
+      task: response.data,
+      message: "已重新加入媒体处理队列。"
+    };
+  } catch (error) {
+    return fail("重试媒体任务失败。", error);
+  }
+}
 export async function saveVideoDraftAction(input: {
   draftId: string;
   payload: ApiVideoDraftUpdateInput;
@@ -108,10 +92,10 @@ export async function saveVideoDraftAction(input: {
     return {
       ok: true,
       draft: response.data,
-      message: "Video draft saved."
+      message: "发布草稿已保存。"
     };
   } catch (error) {
-    return fail("Saving the video draft failed.", error);
+    return fail("保存发布草稿失败。", error);
   }
 }
 
@@ -126,10 +110,10 @@ export async function saveWorkflowDraftAction(input: {
     return {
       ok: true,
       draft: response.data,
-      message: "Workflow draft saved."
+      message: "工作流草稿已保存。"
     };
   } catch (error) {
-    return fail("Saving the workflow draft failed.", error);
+    return fail("保存工作流草稿失败。", error);
   }
 }
 
@@ -145,10 +129,10 @@ export async function savePostDraftAction(input: {
     return {
       ok: true,
       draft: response.data,
-      message: "Post draft saved."
+      message: "帖子草稿已保存。"
     };
   } catch (error) {
-    return fail("Saving the post draft failed.", error);
+    return fail("保存帖子草稿失败。", error);
   }
 }
 
@@ -162,19 +146,38 @@ export async function submitVideoDraftAction(input: {
     const draft: VideoDraftView = {
       ...savedDraft.data,
       targetId: submitResult.data.targetId,
-      statusCode: submitResult.data.publishStatus
+      statusCode: submitResult.data.draftStatus,
+      lifecycle: submitResult.data.lifecycle
     };
+    const isPromptDraft =
+      draft.categoryCode === "video_prompt" || draft.categoryCode === "image_prompt";
+    const detailHref = isPromptDraft
+      ? `/prompts/${submitResult.data.targetId}`
+      : `/videos/${submitResult.data.targetId}`;
+    const href = draft.categoryCode === "image_prompt"
+      ? "/featured?filter=image_prompt&sort=latest"
+      : draft.categoryCode === "video_prompt"
+        ? "/featured?filter=video_prompt&sort=latest"
+        : detailHref;
 
     revalidatePath("/publish");
+    revalidatePath("/");
+    revalidatePath("/home");
+    revalidatePath("/featured");
+    revalidatePath("/me");
+    revalidatePath(detailHref);
 
     return {
       ok: true,
       draft,
       submitResult: submitResult.data,
-      message: `Video submitted. Target ID: ${submitResult.data.targetId}.`
+      href,
+      message: isPromptDraft
+        ? `提示词内容已发布，可前往 ${href} 查看。`
+        : `视频内容已发布，可前往 ${href} 查看。`
     };
   } catch (error) {
-    return fail("Submitting the video draft failed.", error);
+    return fail("提交发布内容失败。", error);
   }
 }
 
@@ -188,19 +191,28 @@ export async function submitWorkflowDraftAction(input: {
     const draft: WorkflowDraftView = {
       ...savedDraft.data,
       targetId: submitResult.data.targetId,
-      statusCode: submitResult.data.publishStatus
+      statusCode: submitResult.data.draftStatus,
+      lifecycle: submitResult.data.lifecycle
     };
+    const detailHref = `/workflows/${submitResult.data.targetId}`;
+    const href = "/featured?filter=workflow&sort=latest";
 
     revalidatePath("/publish");
+    revalidatePath("/");
+    revalidatePath("/home");
+    revalidatePath("/featured");
+    revalidatePath("/me");
+    revalidatePath(detailHref);
 
     return {
       ok: true,
       draft,
       submitResult: submitResult.data,
-      message: `Workflow submitted. Target ID: ${submitResult.data.targetId}.`
+      href,
+      message: `工作流内容已发布，可前往 ${href} 查看。`
     };
   } catch (error) {
-    return fail("Submitting the workflow draft failed.", error);
+    return fail("提交工作流内容失败。", error);
   }
 }
 
@@ -214,23 +226,34 @@ export async function submitPostDraftAction(input: {
     const draft: PostDraftView = {
       ...savedDraft.data,
       targetId: submitResult.data.targetId,
-      statusCode: submitResult.data.publishStatus
+      statusCode: submitResult.data.draftStatus,
+      lifecycle: submitResult.data.lifecycle
     };
 
     revalidatePath("/publish");
     revalidatePath("/discussions/new");
     revalidatePath("/discussions");
+    revalidatePath("/me");
+
+    const discussionHref = draft.channelSlug?.trim()
+      ? `/discussions?channel=${encodeURIComponent(draft.channelSlug.trim())}`
+      : "/discussions";
+    const detailHref = submitResult.data.slug
+      ? `/discussions/${submitResult.data.slug}`
+      : undefined;
+
+    if (detailHref) {
+      revalidatePath(detailHref);
+    }
 
     return {
       ok: true,
       draft,
       submitResult: submitResult.data,
-      href: submitResult.data.slug ? `/discussions/${submitResult.data.slug}` : undefined,
-      message: submitResult.data.slug
-        ? `Post submitted. Open thread: /discussions/${submitResult.data.slug}`
-        : `Post submitted. Thread ID: ${submitResult.data.targetId}.`
+      href: discussionHref,
+      message: "帖子已发布，可前往社区列表查看。"
     };
   } catch (error) {
-    return fail("Submitting the post draft failed.", error);
+    return fail("发布帖子失败。", error);
   }
 }

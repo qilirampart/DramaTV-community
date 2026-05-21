@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { copyText } from "@/lib/browser/copy-text";
 import styles from "./SeedanceReplicaPage.module.css";
 import { COMMUNITY_INTERNAL_ROUTES } from "@/lib/routes/community-routes";
 
@@ -337,7 +338,7 @@ export function SeedanceReplicaPage({
 
   async function handleCopy(text: string, message: string) {
     try {
-      await navigator.clipboard.writeText(text);
+      await copyText(text);
       pushToast(message);
     } catch {
       pushToast("复制失败，请检查浏览器剪贴板权限。");

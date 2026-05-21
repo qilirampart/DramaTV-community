@@ -1,0 +1,50 @@
+{
+  "rank": 80,
+  "id": "2046523198116889064",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 48,
+  "title": "Silicon Valley 2026 Promo Poster",
+  "description": "Poster & Illustration Cases curated case: Silicon Valley 2026 Promo Poster, source author carsonyungos.",
+  "language": "en",
+  "authorName": "carsonyungos",
+  "authorLink": "https://x.com/carsonyungos",
+  "sourceLink": "https://x.com/carsonyungos/status/2046523198116889064",
+  "sourcePublishedAt": "Tue Apr 21 09:35:27 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 6,
+  "likes": 1,
+  "retweetCount": 1,
+  "viewCount": 70,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case48/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case48/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGa1gocaAAAqVzg.jpg",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

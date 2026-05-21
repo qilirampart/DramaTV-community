@@ -13,6 +13,8 @@ public record WorkflowDraftResponse(
         boolean allowFork,
         String visibility,
         String coverAssetId,
-        String statusCode
+        String exampleAssetId,
+        String statusCode,
+        DraftLifecycleResponse lifecycle
 ) {
 }

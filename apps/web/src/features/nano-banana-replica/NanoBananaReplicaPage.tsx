@@ -1,6 +1,7 @@
 "use client";
 
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { copyText } from "@/lib/browser/copy-text";
 import styles from "./NanoBananaReplicaPage.module.css";
 
 type ToastState = {
@@ -305,7 +306,7 @@ export function NanoBananaReplicaPage({
 
   async function handleCopy(text: string, message: string) {
     try {
-      await navigator.clipboard.writeText(text);
+      await copyText(text);
       pushToast(message);
     } catch {
       pushToast("复制失败，请手动复制。");

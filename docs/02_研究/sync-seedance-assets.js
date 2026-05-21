@@ -10,9 +10,15 @@ const publicDataFile = path.join(publicRoot, "seedance-data.json");
 const videoLibraryRoot = path.join(__dirname, "youmind-video-assets");
 const extractedVideosDir = path.join(videoLibraryRoot, "youmind-seedance-extracted", "videos");
 
-const MAX_ITEMS = 30;
 const LIBRARY_DIR_PATTERN = /^youmind-seedance-library(?:-p\d{3}-p\d{3})?$/;
 const DEFAULT_WINDOWS_FFPROBE = "C:\\ffmpeg\\ffmpeg-8.0.1-essentials_build\\bin\\ffprobe.exe";
+
+function readMaxItems() {
+  const raw = Number(process.env.YOUMIND_SYNC_MAX_ITEMS ?? "");
+  return Number.isFinite(raw) && raw > 0 ? raw : Number.POSITIVE_INFINITY;
+}
+
+const MAX_ITEMS = readMaxItems();
 
 function ensureDir(target) {
   fs.mkdirSync(target, { recursive: true });

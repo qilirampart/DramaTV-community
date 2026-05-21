@@ -1,19 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
 import { toggleCreatorFollowAction } from "@/features/community-interactions/actions";
+import { copyText } from "@/lib/browser/copy-text";
 import type {
   CreatorPageView,
+  DiscussionThreadCardView,
   VideoMiniCardView,
   WorkflowMiniCardView
 } from "@/lib/contracts/view-models";
-import { normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { formatContentKindBadge, formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
 import styles from "./CreatorPage.module.css";
 
 type CreatorPageProps = {
   view: CreatorPageView;
+  backHref?: string;
 };
 
 type ActionNotice = {
@@ -21,7 +28,7 @@ type ActionNotice = {
   text: string;
 };
 
-type CreatorTab = "published" | "liked" | "saved";
+type CreatorTab = "published" | "posts";
 
 type ArchiveCardView = {
   id: string;
@@ -63,19 +70,20 @@ function noticeClassName(tone: ActionNotice["tone"]) {
   return styles.notice;
 }
 
-function toArchiveCard(video: VideoMiniCardView): ArchiveCardView {
-  const workflowTitle = normalizeText(video.workflow?.title);
-  const workflowId = normalizeText(video.workflow?.id);
+function toArchiveCard(video: VideoMiniCardView): ArchiveCardView | null {
+  if (normalizeText(video.workflow?.id)) {
+    return null;
+  }
 
   return {
     id: video.id,
     href: `/videos/${video.id}`,
-    kind: workflowId ? "workflow" : "prompt",
+    kind: "prompt",
     title: normalizeText(video.title) ?? "未命名提示词作品",
     summary:
       normalizeText(video.summary) ??
-      (workflowTitle ? `关联工作流 · ${workflowTitle}` : "提示词资源，后续可继续进入详情页查看内容。"),
-    coverUrl: normalizeAssetUrl(video.coverUrl),
+      "提示词资源，后续可继续进入详情页查看内容。",
+    coverUrl: normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl),
     likeCount: video.likeCount ?? 0,
     authorName: normalizeText(video.author.displayName) ?? "DramaTV Creator",
     authorAvatarUrl: normalizeAssetUrl(video.author.avatarUrl)
@@ -139,14 +147,15 @@ function HeartIcon() {
   );
 }
 
-function ArchiveCard({ item }: { item: ArchiveCardView }) {
-  const cardStyle = item.coverUrl ? { backgroundImage: `url(${item.coverUrl})` } : undefined;
-
+function ArchiveCard({ item, backSource, anchorId }: { item: ArchiveCardView; backSource: string; anchorId: string }) {
   return (
-    <Link className={styles.archiveCard} href={item.href}>
-      <div className={styles.archiveMedia} style={cardStyle}>
+    <Link className={styles.archiveCard} href={appendBackSource(item.href, buildBackAnchorSource(backSource, anchorId))} id={anchorId}>
+      <div className={styles.archiveMedia}>
+        {item.coverUrl ? <div className={styles.archiveCover} style={{ backgroundImage: `url(${item.coverUrl})` }} /> : null}
         <div className={styles.archiveShade} />
-        <span className={styles.archiveBadge}>{item.kind === "workflow" ? "WORKFLOW" : "PROMPT"}</span>
+        <span className={styles.archiveBadge}>
+          {item.kind === "workflow" ? formatEntityTypeBadge("workflow") : formatContentKindBadge("prompt")}
+        </span>
 
         <div className={styles.archiveFooter}>
           <h3 className={styles.archiveTitle}>{item.title}</h3>
@@ -179,6 +188,34 @@ function ArchiveCard({ item }: { item: ArchiveCardView }) {
   );
 }
 
+function PostCard({ item, backSource, anchorId }: { item: DiscussionThreadCardView; backSource: string; anchorId: string }) {
+  return (
+    <Link className={styles.postCard} href={appendBackSource(item.href, buildBackAnchorSource(backSource, anchorId))} id={anchorId}>
+      <div className={styles.postCardTop}>
+        <span>{item.channelTitle}</span>
+        <span>{item.lastActivityLabel}</span>
+      </div>
+
+      <h3>{normalizeText(item.title) ?? "未命名帖子"}</h3>
+      <p>{normalizeText(item.excerpt) ?? "这位创作者发布的社区讨论内容。"}</p>
+
+      <div className={styles.postMetaRow}>
+        <span>{item.likeCountLabel}</span>
+        <span>{item.favoriteCountLabel}</span>
+        <span>{item.replyCountLabel}</span>
+      </div>
+
+      {item.tags.length > 0 ? (
+        <div className={styles.postTags}>
+          {item.tags.slice(0, 4).map((tag) => (
+            <span key={`${item.id}-${tag}`}>{tag}</span>
+          ))}
+        </div>
+      ) : null}
+    </Link>
+  );
+}
+
 function EmptyTabState({
   title,
   description
@@ -194,11 +231,17 @@ function EmptyTabState({
   );
 }
 
-export function CreatorPage({ view }: CreatorPageProps) {
+export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
-  const [activeTab, setActiveTab] = useState<CreatorTab>("published");
   const [pending, setPending] = useState(false);
   const [notice, setNotice] = useState<ActionNotice | null>(null);
+
+  useEffect(() => {
+    setCurrentView(view);
+  }, [view]);
 
   const displayName = normalizeText(currentView.profile.displayName) ?? "DramaTV Creator";
   const headline = normalizeText(currentView.profile.headline);
@@ -207,16 +250,46 @@ export function CreatorPage({ view }: CreatorPageProps) {
   const secondaryCopy = headline && bio && bio !== headline ? bio : undefined;
 
   const archiveItems = [
-    ...currentView.videos.map(toArchiveCard),
+    ...currentView.videos.map(toArchiveCard).filter((item): item is ArchiveCardView => Boolean(item)),
     ...currentView.workflows.map(toArchiveCardFromWorkflow)
   ];
+  const activeTab = parseCreatorTab(searchParams.get("tab"));
+  const currentRoute = useMemo(() => {
+    const nextParams = new URLSearchParams(searchParams.toString());
+    if (activeTab === "published") {
+      nextParams.delete("tab");
+    } else {
+      nextParams.set("tab", activeTab);
+    }
+
+    return buildCurrentRoute(pathname, nextParams);
+  }, [activeTab, pathname, searchParams]);
 
   const coverFallbackUrl = archiveItems.find((item) => item.coverUrl)?.coverUrl;
   const backdropUrl = coverFallbackUrl ?? normalizeAssetUrl(currentView.profile.avatarUrl);
 
-  const totalLikes = archiveItems.reduce((sum, item) => sum + item.likeCount, 0);
-  const publishedCount = currentView.stats.videoCount + currentView.stats.workflowCount;
+  const publishedCount = archiveItems.length;
+  const postCount = currentView.posts.length;
   const avatarUrl = normalizeAssetUrl(currentView.profile.avatarUrl) ?? coverFallbackUrl;
+
+  useBackAnchorRestore([activeTab, archiveItems.length, currentView.posts.length]);
+
+  function handleTabChange(nextTab: CreatorTab) {
+    const nextParams = new URLSearchParams(searchParams.toString());
+    if (nextTab === "published") {
+      nextParams.delete("tab");
+    } else {
+      nextParams.set("tab", nextTab);
+    }
+
+    const nextRoute = buildCurrentRoute(pathname, nextParams);
+    const currentSearch = searchParams.toString();
+    const currentRouteFromUrl = buildCurrentRoute(pathname, currentSearch);
+
+    if (nextRoute !== currentRouteFromUrl) {
+      router.replace(nextRoute, { scroll: false });
+    }
+  }
 
   async function handleFollowToggle() {
     setPending(true);
@@ -251,7 +324,7 @@ export function CreatorPage({ view }: CreatorPageProps) {
 
   async function handleShare() {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await copyText(window.location.href);
       setNotice({
         tone: "success",
         text: "创作者主页链接已复制。"
@@ -274,6 +347,12 @@ export function CreatorPage({ view }: CreatorPageProps) {
           />
           <div className={styles.backdropGlow} />
           <div className={styles.backdropNoise} />
+        </div>
+
+        <div className={styles.backRow}>
+          <ContextBackLink className={styles.backLink} href={backHref}>
+            ← 返回上一页
+          </ContextBackLink>
         </div>
 
         <section className={styles.hero}>
@@ -306,12 +385,16 @@ export function CreatorPage({ view }: CreatorPageProps) {
                 <span>关注者</span>
               </div>
               <div className={styles.statBlock}>
-                <strong>{formatCompactNumber(totalLikes)}</strong>
+                <strong>{formatCompactNumber(currentView.stats.likeReceivedCount)}</strong>
                 <span>获赞</span>
               </div>
               <div className={styles.statBlock}>
                 <strong>{formatCompactNumber(publishedCount)}</strong>
-                <span>发布</span>
+                <span>作品</span>
+              </div>
+              <div className={styles.statBlock}>
+                <strong>{formatCompactNumber(postCount)}</strong>
+                <span>帖子</span>
               </div>
             </div>
           </div>
@@ -346,23 +429,16 @@ export function CreatorPage({ view }: CreatorPageProps) {
             <button
               className={activeTab === "published" ? styles.tabActive : styles.tab}
               type="button"
-              onClick={() => setActiveTab("published")}
+              onClick={() => handleTabChange("published")}
             >
-              发布档案
+              作品
             </button>
             <button
-              className={activeTab === "liked" ? styles.tabActive : styles.tab}
+              className={activeTab === "posts" ? styles.tabActive : styles.tab}
               type="button"
-              onClick={() => setActiveTab("liked")}
+              onClick={() => handleTabChange("posts")}
             >
-              赞过
-            </button>
-            <button
-              className={activeTab === "saved" ? styles.tabActive : styles.tab}
-              type="button"
-              onClick={() => setActiveTab("saved")}
-            >
-              我的收藏
+              帖子
             </button>
           </div>
         </section>
@@ -372,7 +448,12 @@ export function CreatorPage({ view }: CreatorPageProps) {
             archiveItems.length > 0 ? (
               <div className={styles.archiveGrid}>
                 {archiveItems.map((item) => (
-                  <ArchiveCard key={`${item.kind}-${item.id}`} item={item} />
+                  <ArchiveCard
+                    anchorId={createBackAnchorId("creator-work", item.id)}
+                    key={`${item.kind}-${item.id}`}
+                    item={item}
+                    backSource={currentRoute}
+                  />
                 ))}
               </div>
             ) : (
@@ -383,21 +464,30 @@ export function CreatorPage({ view }: CreatorPageProps) {
             )
           ) : null}
 
-          {activeTab === "liked" ? (
-            <EmptyTabState
-              title="赞过内容"
-              description="前端占位，后续接入创作者赞过资源列表。"
-            />
-          ) : null}
-
-          {activeTab === "saved" ? (
-            <EmptyTabState
-              title="我的收藏"
-              description="前端占位，后续接入创作者收藏资源列表。"
-            />
+          {activeTab === "posts" ? (
+            currentView.posts.length > 0 ? (
+              <div className={styles.postGrid}>
+                {currentView.posts.map((item) => (
+                  <PostCard
+                    anchorId={createBackAnchorId("creator-post", item.id)}
+                    key={item.id}
+                    item={item}
+                    backSource={currentRoute}
+                  />
+                ))}
+              </div>
+            ) : (
+              <EmptyTabState
+                title="还没有发布帖子"
+                description="这位创作者暂时还没有公开讨论帖，后续发布的帖子会沉淀在这里。"
+              />
+            )
           ) : null}
         </section>
       </div>
     </PageShell>
   );
+}
+function parseCreatorTab(value: string | null): CreatorTab {
+  return value === "posts" ? "posts" : "published";
 }

@@ -15,4 +15,6 @@ public interface PublishDraftRepository extends JpaRepository<PublishDraftEntity
             String draftType,
             String statusCode
     );
+
+    void deleteByIdAndDraftTypeAndAuthorId(UUID id, String draftType, UUID authorId);
 }

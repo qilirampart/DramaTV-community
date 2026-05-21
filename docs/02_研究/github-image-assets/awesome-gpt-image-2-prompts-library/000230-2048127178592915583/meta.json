@@ -1,0 +1,43 @@
+{
+  "rank": 230,
+  "id": "2048127178592915583",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "ui-and-social-media-mockup",
+  "sectionTitle": "UI & Social Media Mockup Cases",
+  "caseNumber": 107,
+  "title": "Anime Band Finale at Budokan",
+  "description": "UI & Social Media Mockup Cases curated case: Anime Band Finale at Budokan, source author SDAI1807097011.",
+  "language": "",
+  "authorName": "SDAI1807097011",
+  "authorLink": "https://x.com/SDAI1807097011",
+  "sourceLink": "https://x.com/SDAI1807097011/status/2048127178592915583",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/ui_case107/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/ui_case107/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

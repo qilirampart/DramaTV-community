@@ -11,14 +11,26 @@ public record PromptDetailResponse(
         String promptTextZh,
         String promptTextEn,
         String promptTextRaw,
+        Taxonomy taxonomy,
         Source source,
         Author author,
         String coverUrl,
+        String posterUrl,
+        String previewUrl,
+        String sourceUrl,
         List<String> tagNames,
         List<ExampleAsset> examples,
+        CommentPolicy commentPolicy,
         Stats stats,
         ViewerActions viewerActions
 ) {
+    public record Taxonomy(
+            String modelCategory,
+            String contentCategory,
+            String compositionCategory
+    ) {
+    }
+
     public record Source(
             String sourcePlatform,
             String sourceCampaign,
@@ -43,6 +55,12 @@ public record PromptDetailResponse(
             Integer width,
             Integer height,
             Integer durationMs
+    ) {
+    }
+
+    public record CommentPolicy(
+            boolean commentingEnabled,
+            boolean canManageComments
     ) {
     }
 

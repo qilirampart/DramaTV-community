@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { PageShell } from "@/components/shared/PageShell";
-import type { DiscussionHubPageView } from "@/lib/contracts/view-models";
+import type { DiscussionHubPageView, DiscussionThreadCardView } from "@/lib/contracts/view-models";
 import {
   formatDiscussionDisplayExcerpt,
   formatDiscussionDisplayTag,
@@ -8,31 +11,20 @@ import {
   normalizeAssetUrl,
   normalizeText
 } from "@/lib/presentation";
-
-type DiscussionAuthorMeta = {
-  slug: string;
-  author: {
-    id: string;
-    displayName: string;
-    avatarUrl?: string;
-    href: string;
-  };
-  publishedAtLabel: string;
-};
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
 
 type DiscussionsPageProps = {
   view: DiscussionHubPageView;
   requestedChannelSlug?: string;
-  authorMeta: DiscussionAuthorMeta[];
 };
 
 type SidebarCategory = {
   id: string;
   label: string;
-  href?: string;
+  href: string;
   description: string;
   active: boolean;
-  placeholder?: boolean;
 };
 
 type TrendingTopic = {
@@ -51,47 +43,13 @@ type ContributorCard = {
   badge: string;
 };
 
-function FlashIcon() {
-  return (
-    <svg aria-hidden="true" className="discussion-replica-topic-icon-svg" fill="none" viewBox="0 0 24 24">
-      <path
-        d="M13.5 3.5 6.8 13.1h4L10.5 20.5l6.7-9.6h-4.1L13.5 3.5Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
+type DiscussionThreadStreamProps = {
+  currentRoute: string;
+  threads: DiscussionThreadCardView[];
+  className: string;
+};
 
-function BubbleIcon() {
-  return (
-    <svg aria-hidden="true" className="discussion-replica-topic-icon-svg" fill="none" viewBox="0 0 24 24">
-      <path
-        d="M6.5 7.5a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-2.2l-3.5 2.6v-2.6H9.5a3 3 0 0 1-3-3v-4Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
-
-function UserIcon() {
-  return (
-    <svg aria-hidden="true" className="discussion-replica-topic-icon-svg" fill="none" viewBox="0 0 24 24">
-      <circle cx="12" cy="8.5" r="3.2" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M6.4 18.4A6.6 6.6 0 0 1 12 15.4a6.6 6.6 0 0 1 5.6 3"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
+const PINNED_THREAD_LABEL = "置顶讨论";
 
 function getAvatarFallback(name?: string) {
   return normalizeText(name)?.charAt(0).toUpperCase() ?? "D";
@@ -104,22 +62,22 @@ function formatCount(value: number) {
 function formatTopicLabel(value?: string) {
   const display = formatDiscussionDisplayTag(value) ?? formatDiscussionDisplayTitle(value) ?? normalizeText(value);
   if (!display) {
-    return "讨论精选";
+    return "\u7075\u611f\u5171\u521b";
   }
 
-  return display.length > 8 ? `${display.slice(0, 8)}…` : display;
+  return display.length > 8 ? `${display.slice(0, 8)}\u2026` : display;
 }
 
 function buildSidebarCategories(
   channels: DiscussionHubPageView["channels"],
   requestedChannelSlug?: string
 ): SidebarCategory[] {
-  const primaryCategories = [
+  return [
     {
       id: "all",
-      label: "全部",
+      label: "\u5168\u90e8",
       href: "/discussions",
-      description: "查看全部讨论",
+      description: "\u6d4f\u89c8\u5168\u90e8\u8ba8\u8bba",
       active: !requestedChannelSlug
     },
     ...channels.map((channel) => ({
@@ -130,25 +88,6 @@ function buildSidebarCategories(
       active: channel.slug === requestedChannelSlug
     }))
   ];
-
-  const placeholderCategories: SidebarCategory[] = [
-    {
-      id: "official-placeholder",
-      label: "官方动态",
-      description: "前端占位，后续补齐频道数据",
-      active: false,
-      placeholder: true
-    },
-    {
-      id: "chat-placeholder",
-      label: "闲聊广场",
-      description: "前端占位，后续补齐频道数据",
-      active: false,
-      placeholder: true
-    }
-  ];
-
-  return [...primaryCategories, ...placeholderCategories].slice(0, 6);
 }
 
 function buildTrendingTopics(view: DiscussionHubPageView): TrendingTopic[] {
@@ -178,7 +117,7 @@ function buildTrendingTopics(view: DiscussionHubPageView): TrendingTopic[] {
     .map(([tag, count]) => ({
       id: `trend-${tag}`,
       label: `# ${tag}`,
-      metaLabel: `${count} 个可见讨论命中`
+      metaLabel: `${count} \u6761\u8ba8\u8bba`
     }));
 
   if (dynamicTopics.length > 0) {
@@ -188,13 +127,13 @@ function buildTrendingTopics(view: DiscussionHubPageView): TrendingTopic[] {
   return [
     {
       id: "empty-topics",
-      label: "# 热门话题待累积",
-      metaLabel: "真实讨论数据积累后，这里再展示实际热度"
+      label: "# \u7b49\u4f60\u6765\u5b9a\u4e49",
+      metaLabel: "\u9996\u6279\u9ad8\u8d28\u91cf\u8ba8\u8bba\u4f1a\u6c89\u6dc0\u5230\u8fd9\u91cc"
     }
   ];
 }
 
-function buildContributors(authorMeta: DiscussionAuthorMeta[], threadCount: number): ContributorCard[] {
+function buildContributors(threads: DiscussionHubPageView["featuredThreads"], threadCount: number): ContributorCard[] {
   const aggregate = new Map<
     string,
     {
@@ -207,19 +146,19 @@ function buildContributors(authorMeta: DiscussionAuthorMeta[], threadCount: numb
     }
   >();
 
-  for (const item of authorMeta ?? []) {
-    const current = aggregate.get(item.author.id);
+  for (const thread of threads) {
+    const current = aggregate.get(thread.author.id);
     if (current) {
       current.count += 1;
       continue;
     }
 
-    aggregate.set(item.author.id, {
-      id: item.author.id,
-      name: item.author.displayName,
-      role: "讨论作者",
-      avatarUrl: item.author.avatarUrl,
-      href: item.author.href,
+    aggregate.set(thread.author.id, {
+      id: thread.author.id,
+      name: thread.author.displayName,
+      role: "\u8ba8\u8bba\u53d1\u8d77\u8005",
+      avatarUrl: thread.author.avatarUrl,
+      href: thread.author.href,
       count: 1
     });
   }
@@ -230,7 +169,7 @@ function buildContributors(authorMeta: DiscussionAuthorMeta[], threadCount: numb
     .map((item) => ({
       id: item.id,
       name: item.name,
-      role: item.role,
+      role: `${item.count} \u6761\u8ba8\u8bba`,
       avatarUrl: item.avatarUrl,
       href: item.href,
       avatarFallback: getAvatarFallback(item.name),
@@ -244,50 +183,123 @@ function buildContributors(authorMeta: DiscussionAuthorMeta[], threadCount: numb
   return [
     {
       id: "placeholder-1",
-      name: "Community Pilot",
-      role: `${threadCount} 条讨论已接入`,
-      avatarFallback: "C",
+      name: "\u793e\u533a\u5148\u884c\u8005",
+      role: `${threadCount} \u6761\u8ba8\u8bba\u6b63\u5728\u642d\u5efa\u4e2d`,
+      avatarFallback: "\u793e",
       badge: "1"
     },
     {
       id: "placeholder-2",
       name: "Prompt Scout",
-      role: "作者数据占位中",
+      role: "\u7b49\u5f85\u7b2c\u4e00\u6279\u7ecf\u9a8c\u6c89\u6dc0",
       avatarFallback: "P",
       badge: "1"
     },
     {
       id: "placeholder-3",
       name: "Workflow Archivist",
-      role: "等待作者接口补齐",
+      role: "\u7b49\u5f85\u7b2c\u4e00\u6279\u65b9\u6cd5\u6574\u7406",
       avatarFallback: "W",
       badge: "1"
     }
   ];
 }
 
-function resolveThreadIcon(index: number) {
-  if (index % 3 === 0) {
-    return <FlashIcon />;
-  }
+function DiscussionThreadStream({ threads, className, currentRoute }: DiscussionThreadStreamProps) {
+  return (
+    <section className={className}>
+      {threads.length > 0 ? (
+        threads.map((thread, index) => {
+          const threadAuthorAvatarUrl = normalizeAssetUrl(thread.author.avatarUrl);
+          const excerpt =
+            formatDiscussionDisplayExcerpt(thread.excerpt) ??
+            "\u56f4\u7ed5\u521b\u4f5c\u65b9\u6cd5\u3001\u63d0\u793a\u8bcd\u62c6\u89e3\u4e0e\u5b9e\u6218\u7ecf\u9a8c\u5c55\u5f00\u66f4\u5b8c\u6574\u7684\u8ba8\u8bba\u3002";
+          const bindingLabel = thread.binding?.label ?? "\u72ec\u7acb\u5e16\u5b50";
+          const anchorId = createBackAnchorId("discussion-thread", thread.id);
 
-  if (index % 3 === 1) {
-    return <BubbleIcon />;
-  }
+          return (
+            <article className="discussion-replica-thread-card" id={anchorId} key={`${className}-${thread.id}`}>
+              <Link
+                aria-label={formatDiscussionDisplayTitle(thread.title) ?? thread.title}
+                className="discussion-replica-thread-overlay"
+                href={appendBackSource(thread.href, buildBackAnchorSource(currentRoute, anchorId))}
+              />
 
-  return <UserIcon />;
+              <div className="discussion-replica-thread-body">
+                <div className="discussion-replica-thread-head">
+                  <span className="discussion-replica-thread-chip">{thread.channelTitle}</span>
+                  {index === 0 ? <span className="discussion-replica-thread-pin">{PINNED_THREAD_LABEL}</span> : null}
+                  <span className="discussion-replica-thread-time">{thread.publishedAtLabel}</span>
+                </div>
+
+                <h2 className="discussion-replica-thread-title">
+                  {formatDiscussionDisplayTitle(thread.title) ?? thread.title}
+                </h2>
+                <p className="discussion-replica-thread-excerpt">{excerpt}</p>
+
+                {thread.tags.length > 0 ? (
+                  <div className="discussion-replica-thread-tags">
+                    {thread.tags.map((tag) => (
+                      <span className="discussion-replica-thread-tag" key={`${thread.id}-${tag}`}>
+                        #{formatDiscussionDisplayTag(tag) ?? tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="discussion-replica-thread-side">
+                <div className="discussion-replica-thread-author">
+                  <span className="discussion-replica-thread-author-avatar">
+                    {threadAuthorAvatarUrl ? (
+                      <span
+                        className="discussion-replica-thread-author-avatar-image"
+                        style={{ backgroundImage: `url(${threadAuthorAvatarUrl})` }}
+                      />
+                    ) : (
+                      <span className="discussion-replica-thread-author-avatar-fallback">
+                        {getAvatarFallback(thread.author.displayName)}
+                      </span>
+                    )}
+                  </span>
+
+                  <div className="discussion-replica-thread-author-copy">
+                    <strong>{thread.author.displayName}</strong>
+                    <span>{bindingLabel}</span>
+                  </div>
+                </div>
+
+                <div className="discussion-replica-thread-stats">
+                  <span>{thread.replyCountLabel}</span>
+                  <span>{thread.likeCountLabel}</span>
+                  <span>{thread.favoriteCountLabel}</span>
+                </div>
+              </div>
+            </article>
+          );
+        })
+      ) : (
+        <div className="discussion-replica-empty">
+          {"\u8fd8\u6ca1\u6709\u8ba8\u8bba\u5185\u5bb9\uff0c\u7b2c\u4e00\u6279\u53d1\u8d77\u7684\u5e16\u5b50\u4f1a\u5c55\u793a\u5728\u8fd9\u91cc\u3002"}
+        </div>
+      )}
+    </section>
+  );
 }
 
-function resolveAuthorMeta(authorMeta: DiscussionAuthorMeta[], slug: string) {
-  return authorMeta.find((item) => item.slug === slug);
-}
-
-export function DiscussionsPage({ view, requestedChannelSlug, authorMeta }: DiscussionsPageProps) {
+export function DiscussionsPage({ view, requestedChannelSlug }: DiscussionsPageProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const visibleThreadCount = view.featuredThreads.length;
   const categories = buildSidebarCategories(view.channels, requestedChannelSlug);
-  const featuredTopics = view.featuredThreads.slice(0, 3);
   const trendingTopics = buildTrendingTopics(view);
-  const contributors = buildContributors(authorMeta, visibleThreadCount);
+  const contributors = buildContributors(view.featuredThreads, visibleThreadCount);
+  const currentRoute = buildCurrentRoute(pathname, searchParams);
+  const composerHref = requestedChannelSlug
+    ? `/discussions/new?channel=${encodeURIComponent(requestedChannelSlug)}`
+    : "/discussions/new";
+
+  useBackAnchorRestore([view.featuredThreads.length, contributors.length]);
 
   return (
     <PageShell showHomeFloatingDock topNavActive="community" variant="home">
@@ -295,161 +307,67 @@ export function DiscussionsPage({ view, requestedChannelSlug, authorMeta }: Disc
         <div className="discussion-replica-layout">
           <aside className="discussion-replica-sidebar">
             <div className="discussion-replica-sidebar-block">
-              <span className="discussion-replica-caption">板块分类</span>
+              <span className="discussion-replica-caption">{"\u8bdd\u9898\u680f\u76ee"}</span>
               <nav className="discussion-replica-category-list">
-                {categories.map((category) =>
-                  category.href ? (
-                    <Link
-                      className={`discussion-replica-category-link${
-                        category.active ? " discussion-replica-category-link-active" : ""
-                      }`}
-                      href={category.href}
-                      key={category.id}
-                      title={category.description}
-                    >
-                      <span>{category.label}</span>
-                    </Link>
-                  ) : (
-                    <span
-                      aria-disabled="true"
-                      className="discussion-replica-category-link discussion-replica-category-link-placeholder"
-                      key={category.id}
-                      title={category.description}
-                    >
-                      <span>{category.label}</span>
-                    </span>
-                  )
-                )}
+                {categories.map((category) => (
+                  <Link
+                    className={`discussion-replica-category-link${
+                      category.active ? " discussion-replica-category-link-active" : ""
+                    }`}
+                    href={category.href}
+                    key={category.id}
+                    title={category.description}
+                  >
+                    <span>{category.label}</span>
+                  </Link>
+                ))}
               </nav>
             </div>
 
             <section className="discussion-replica-rules-card">
-              <h3>社区准则</h3>
-              <p>先把讨论区的视觉壳子复刻出来。当前这一版以前端展示对齐为主，后续再继续补齐频道、作者和发帖能力。</p>
+              <h3>{"\u793e\u533a\u8ba8\u8bba\u89c4\u5219"}</h3>
+              <p>
+                {
+                  "\u56f4\u7ed5\u63d0\u793a\u8bcd\u3001\u5de5\u4f5c\u6d41\u3001\u753b\u9762\u62c6\u89e3\u548c\u521b\u4f5c\u7ecf\u9a8c\u5c55\u5f00\u8ba8\u8bba\uff0c\u95ee\u9898\u5c3d\u91cf\u5177\u4f53\uff0c\u8868\u8fbe\u5c3d\u91cf\u514b\u5236\uff0c\u8ba9\u771f\u6b63\u6709\u4ef7\u503c\u7684\u65b9\u6cd5\u6c89\u6dc0\u4e0b\u6765\u3002"
+                }
+              </p>
               <div className="discussion-replica-divider" />
               <div className="discussion-replica-rule-stats">
                 <div>
-                  <span>频道数</span>
+                  <span>{"\u680f\u76ee\u6570"}</span>
                   <strong>{formatCount(view.channels.length)}</strong>
                 </div>
                 <div>
-                  <span>可见话题</span>
+                  <span>{"\u8ba8\u8bba\u6570"}</span>
                   <strong>{formatCount(visibleThreadCount)}</strong>
                 </div>
               </div>
             </section>
           </aside>
 
-          <main className="discussion-replica-main">
-            <header className="discussion-replica-hero">
-              <div>
-                <h1>超能社区</h1>
-                <p>与全球 50,000+ 创作者交流灵感</p>
-              </div>
-              <Link className="discussion-replica-cta" href="/discussions/new">
-                发起讨论
-              </Link>
-            </header>
+          <div className="discussion-replica-content-shell">
+            <main className="discussion-replica-main">
+              <header className="discussion-replica-hero">
+                <div>
+                  <h1>{"\u8d85\u80fd\u793e\u533a"}</h1>
+                  <p>
+                    {
+                      "\u56f4\u7ed5\u521b\u4f5c\u65b9\u6cd5\u3001\u63d0\u793a\u8bcd\u62c6\u89e3\u3001\u5de5\u4f5c\u6d41\u5b9e\u6218\u53d1\u8d77\u8ba8\u8bba\u3002"
+                    }
+                  </p>
+                </div>
+                <Link className="discussion-replica-cta" href={composerHref}>
+                  {"\u53d1\u8d77\u8ba8\u8bba"}
+                </Link>
+              </header>
+            </main>
 
-            <section className="discussion-replica-topic-grid">
-              {featuredTopics.length > 0 ? (
-                featuredTopics.map((thread, index) => (
-                  <Link className="discussion-replica-topic-card" href={thread.href} key={thread.id}>
-                    <div className="discussion-replica-topic-card-head">
-                      <span className="discussion-replica-topic-icon">{resolveThreadIcon(index)}</span>
-                      <span className="discussion-replica-topic-kind">{thread.channelTitle}</span>
-                    </div>
-                    <strong className="discussion-replica-topic-title">
-                      {formatDiscussionDisplayTitle(thread.title) ?? thread.title}
-                    </strong>
-                    <span className="discussion-replica-topic-meta">{thread.replyCountLabel}</span>
-                  </Link>
-                ))
-              ) : (
-                <div className="discussion-replica-empty">讨论区还没有可展示的话题卡片。</div>
-              )}
-            </section>
-
-            <section className="discussion-replica-thread-stream">
-              {view.featuredThreads.length > 0 ? (
-                view.featuredThreads.map((thread, index) => {
-                  const meta = resolveAuthorMeta(authorMeta, thread.slug);
-                  const threadAuthorAvatarUrl = normalizeAssetUrl(meta?.author.avatarUrl);
-
-                  return (
-                    <article className="discussion-replica-thread-card" key={thread.id}>
-                      <Link
-                        aria-label={formatDiscussionDisplayTitle(thread.title) ?? thread.title}
-                        className="discussion-replica-thread-overlay"
-                        href={thread.href}
-                      />
-
-                      <div className="discussion-replica-thread-body">
-                        <div className="discussion-replica-thread-head">
-                          <span className="discussion-replica-thread-chip">{thread.channelTitle}</span>
-                          {index === 0 ? <span className="discussion-replica-thread-pin">置顶视觉位</span> : null}
-                          <span className="discussion-replica-thread-time">
-                            {meta?.publishedAtLabel ?? thread.lastActivityLabel}
-                          </span>
-                        </div>
-
-                        <h2 className="discussion-replica-thread-title">
-                          {formatDiscussionDisplayTitle(thread.title) ?? thread.title}
-                        </h2>
-                        <p className="discussion-replica-thread-excerpt">
-                          {formatDiscussionDisplayExcerpt(thread.excerpt) ??
-                            "帖子摘要暂未补齐，后续会在接口对接时继续完善。"}
-                        </p>
-
-                        {thread.tags.length > 0 ? (
-                          <div className="discussion-replica-thread-tags">
-                            {thread.tags.map((tag) => (
-                              <span className="discussion-replica-thread-tag" key={`${thread.id}-${tag}`}>
-                                #{formatDiscussionDisplayTag(tag) ?? tag}
-                              </span>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-
-                      <div className="discussion-replica-thread-side">
-                        <div className="discussion-replica-thread-author">
-                          <span className="discussion-replica-thread-author-avatar">
-                            {threadAuthorAvatarUrl ? (
-                              <span
-                                className="discussion-replica-thread-author-avatar-image"
-                                style={{ backgroundImage: `url(${threadAuthorAvatarUrl})` }}
-                              />
-                            ) : (
-                              <span className="discussion-replica-thread-author-avatar-fallback">
-                                {getAvatarFallback(meta?.author.displayName)}
-                              </span>
-                            )}
-                          </span>
-                          <div className="discussion-replica-thread-author-copy">
-                            <strong>{meta?.author.displayName ?? "讨论作者"}</strong>
-                            <span>{thread.binding ? "已绑定内容对象" : "独立话题"}</span>
-                          </div>
-                        </div>
-
-                        <div className="discussion-replica-thread-stats">
-                          <span>{thread.replyCountLabel}</span>
-                          <span>{thread.likeCountLabel}</span>
-                          <span>{thread.favoriteCountLabel}</span>
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })
-              ) : (
-                <div className="discussion-replica-empty">当前筛选条件下没有可展示的讨论。</div>
-              )}
-            </section>
-          </main>
+            <DiscussionThreadStream className="discussion-replica-thread-stream" currentRoute={currentRoute} threads={view.featuredThreads} />
+          </div>
 
           <aside className="discussion-replica-rail">
             <section className="discussion-replica-rail-block">
-              <span className="discussion-replica-caption">热门话题</span>
+              <span className="discussion-replica-caption">{"\u70ed\u95e8\u8bdd\u9898"}</span>
               <div className="discussion-replica-trend-list">
                 {trendingTopics.map((topic) => (
                   <div className="discussion-replica-trend-row" key={topic.id}>
@@ -463,7 +381,7 @@ export function DiscussionsPage({ view, requestedChannelSlug, authorMeta }: Disc
             </section>
 
             <section className="discussion-replica-rail-block">
-              <span className="discussion-replica-caption">活跃贡献者</span>
+              <span className="discussion-replica-caption">{"\u6d3b\u8dc3\u8d21\u732e\u8005"}</span>
               <div className="discussion-replica-contributor-list">
                 {contributors.map((contributor) => {
                   const contributorAvatarUrl = normalizeAssetUrl(contributor.avatarUrl);
@@ -490,7 +408,15 @@ export function DiscussionsPage({ view, requestedChannelSlug, authorMeta }: Disc
                   );
 
                   return contributor.href ? (
-                    <Link className="discussion-replica-contributor-row" href={contributor.href} key={contributor.id}>
+                    <Link
+                      className="discussion-replica-contributor-row"
+                      href={appendBackSource(
+                        contributor.href,
+                        buildBackAnchorSource(currentRoute, createBackAnchorId("discussion-contributor", contributor.id))
+                      )}
+                      id={createBackAnchorId("discussion-contributor", contributor.id)}
+                      key={contributor.id}
+                    >
                       {content}
                     </Link>
                   ) : (

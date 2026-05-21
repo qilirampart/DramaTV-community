@@ -1,0 +1,43 @@
+{
+  "rank": 233,
+  "id": "2048089673621516547",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "ui-and-social-media-mockup",
+  "sectionTitle": "UI & Social Media Mockup Cases",
+  "caseNumber": 110,
+  "title": "Anime Friends Eating Soba",
+  "description": "UI & Social Media Mockup Cases curated case: Anime Friends Eating Soba, source author AIMAG31G.",
+  "language": "",
+  "authorName": "AIMAG31G",
+  "authorLink": "https://x.com/AIMAG31G",
+  "sourceLink": "https://x.com/AIMAG31G/status/2048089673621516547",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/ui_case110/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/ui_case110/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

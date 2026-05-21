@@ -26,9 +26,11 @@ public class PromptQueryController {
     @GetMapping
     public ApiResponse<List<PromptSummaryResponse>> list(
             @RequestParam(defaultValue = "all") String modality,
-            @RequestParam(defaultValue = "latest") String sort
+            @RequestParam(defaultValue = "latest") String sort,
+            @RequestParam(required = false) Integer limit,
+            @RequestParam(required = false) Integer offset
     ) {
-        return ApiResponse.ok(promptQueryService.listPublished(modality, sort));
+        return ApiResponse.ok(promptQueryService.listPublished(modality, sort, limit, offset));
     }
 
     @GetMapping("/{id}")

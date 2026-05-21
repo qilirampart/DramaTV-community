@@ -1,0 +1,56 @@
+{
+  "rank": 254,
+  "id": "2046510831832006970",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "comparison-and-community",
+  "sectionTitle": "Comparison & Community Examples",
+  "caseNumber": 35,
+  "title": "Sam Altman Bear Selfie",
+  "description": "Comparison & Community Examples curated case: Sam Altman Bear Selfie, source author JustinGorya.",
+  "language": "en",
+  "authorName": "JustinGorya",
+  "authorLink": "https://x.com/JustinGorya",
+  "sourceLink": "https://x.com/JustinGorya/status/2046510831832006970",
+  "sourcePublishedAt": "Tue Apr 21 08:46:19 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 211,
+  "likes": 4,
+  "retweetCount": 0,
+  "viewCount": 173,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/comparison_case35/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/comparison_case35/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaqvhiXoAA3SBQ.jpg",
+      "width": 1402,
+      "height": 1122
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaqvhXWYAA4Ufe.jpg",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

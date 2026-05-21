@@ -4,7 +4,13 @@ public record VideoSummaryResponse(
         String id,
         String title,
         String coverUrl,
+        String posterUrl,
+        String previewUrl,
+        String sourceUrl,
         Long durationMs,
+        String summary,
+        Long likeCount,
+        Long playCount,
         AuthorSummary author,
         WorkflowSummary workflow
 ) {

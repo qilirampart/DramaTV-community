@@ -1,0 +1,43 @@
+{
+  "rank": 125,
+  "id": "2047555836252151831",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 118,
+  "title": "E-commerce Main Image - Luxury Perfume Ad on Marble Vanity",
+  "description": "Poster & Illustration Cases curated case: E-commerce Main Image - Luxury Perfume Ad on Marble Vanity, source author MiguelMaestroIA.",
+  "language": "",
+  "authorName": "MiguelMaestroIA",
+  "authorLink": "https://x.com/MiguelMaestroIA",
+  "sourceLink": "https://x.com/MiguelMaestroIA/status/2047555836252151831",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case118/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case118/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

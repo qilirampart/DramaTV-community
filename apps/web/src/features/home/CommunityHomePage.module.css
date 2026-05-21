@@ -67,6 +67,12 @@
   height: 100%;
   object-fit: cover;
   background: linear-gradient(180deg, #101313, #030303);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.heroVideoReady {
+  opacity: 1;
 }
 
 .heroShade {
@@ -344,6 +350,8 @@
     transform 180ms ease,
     border-color 180ms ease,
     opacity 180ms ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 280px 158px;
 }
 
 .archiveCard:hover {
@@ -359,11 +367,17 @@
   aspect-ratio: 1;
 }
 
+.archiveMediaSlot,
 .archiveMedia,
+.archiveMediaImage,
 .archiveMediaVideo,
 .archiveShade {
   position: absolute;
   inset: 0;
+}
+
+.archiveMediaSlot {
+  display: block;
 }
 
 .archiveMedia {
@@ -376,7 +390,9 @@
   transition: transform 500ms ease;
 }
 
+.archiveMediaImage,
 .archiveMediaVideo {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -384,6 +400,18 @@
   transition: transform 500ms ease;
 }
 
+.archiveMediaVideo {
+  opacity: 0;
+  transition:
+    transform 500ms ease,
+    opacity 180ms ease;
+}
+
+.archiveMediaVideoReady {
+  opacity: 1;
+}
+
+.archiveCard:hover .archiveMediaImage,
 .archiveCard:hover .archiveMedia,
 .archiveCard:hover .archiveMediaVideo {
   transform: scale(1.055);
@@ -447,9 +475,145 @@
   gap: 4px;
 }
 
+.archiveMetricButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: color 140ms ease, transform 140ms ease;
+}
+
+.archiveMetricButton:hover:not(:disabled) {
+  color: rgba(255, 255, 255, 0.92);
+  transform: translateY(-1px);
+}
+
+.archiveMetricButton:disabled {
+  cursor: wait;
+}
+
+.archiveMetricButtonActive {
+  color: #ff5c6c;
+}
+
 .archiveMetric svg {
   width: 12px;
   height: 12px;
+}
+
+.archiveMetricButton svg {
+  width: 12px;
+  height: 12px;
+}
+
+:global(:root[data-theme="light"]) .page {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .heroFrame {
+  border-color: rgba(121, 93, 63, 0.08);
+  background: #111315;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.18);
+}
+
+:global(:root[data-theme="light"]) .archiveCard {
+  border-color: rgba(121, 93, 63, 0.1);
+  background: #f7efe5;
+  box-shadow: 0 22px 48px rgba(129, 98, 67, 0.12);
+}
+
+:global(:root[data-theme="light"]) .heroMedia,
+:global(:root[data-theme="light"]) .archiveMedia {
+  background:
+    radial-gradient(circle at 48% 28%, rgba(123, 155, 170, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(12, 15, 18, 0.08), rgba(12, 15, 18, 0.12));
+}
+
+:global(:root[data-theme="light"]) .heroVideo,
+:global(:root[data-theme="light"]) .archiveMediaImage,
+:global(:root[data-theme="light"]) .archiveMediaVideo {
+  background: linear-gradient(180deg, #f4efe8, #ece3d7);
+  filter: saturate(1.02) brightness(1) contrast(1);
+}
+
+:global(:root[data-theme="light"]) .heroShade,
+:global(:root[data-theme="light"]) .archiveShade {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(15, 23, 42, 0.06) 44%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 20%, transparent 80%, rgba(0, 0, 0, 0.08));
+}
+
+:global(:root[data-theme="light"]) .heroArrow {
+  background: rgba(255, 255, 255, 0.8);
+  color: #483422;
+}
+
+:global(:root[data-theme="light"]) .newsItem,
+:global(:root[data-theme="light"]) .newsItemActive {
+  border-top-color: rgba(121, 93, 63, 0.12);
+}
+
+:global(:root[data-theme="light"]) .newsItem span,
+:global(:root[data-theme="light"]) .newsItemActive span,
+:global(:root[data-theme="light"]) .inspiration h2,
+:global(:root[data-theme="light"]) .shelfHeader a,
+:global(:root[data-theme="light"]) .archiveBadge {
+  color: rgba(89, 67, 42, 0.6);
+}
+
+:global(:root[data-theme="light"]) .newsItem strong,
+:global(:root[data-theme="light"]) .newsItemActive strong,
+:global(:root[data-theme="light"]) .shelfHeader h3 {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .dot {
+  background: rgba(121, 93, 63, 0.16);
+}
+
+:global(:root[data-theme="light"]) .dotActive {
+  background: rgba(185, 137, 73, 0.9);
+}
+
+:global(:root[data-theme="light"]) .canvasCta {
+  border-color: rgba(166, 126, 85, 0.14);
+  background:
+    linear-gradient(135deg, rgba(243, 220, 191, 0.82), rgba(220, 236, 231, 0.78), rgba(255, 245, 237, 0.9)),
+    rgba(255, 255, 255, 0.82);
+  color: #24170e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 24px 54px rgba(129, 98, 67, 0.14);
+}
+
+:global(:root[data-theme="light"]) .canvasIcon,
+:global(:root[data-theme="light"]) .archiveBadge,
+:global(:root[data-theme="light"]) .archiveCardAuthorAvatar {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+:global(:root[data-theme="light"]) .archiveBadge {
+  background: rgba(10, 13, 20, 0.34);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+:global(:root[data-theme="light"]) .shelfHeader a:hover {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .archiveBody strong,
+:global(:root[data-theme="light"]) .archiveMeta,
+:global(:root[data-theme="light"]) .archiveMetric,
+:global(:root[data-theme="light"]) .archiveMetricButton {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.46);
+}
+
+:global(:root[data-theme="light"]) .archiveMetricButtonActive {
+  color: #e5485a;
 }
 
 @media (max-width: 1120px) {

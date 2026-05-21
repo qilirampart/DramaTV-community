@@ -1,0 +1,50 @@
+{
+  "rank": 88,
+  "id": "2046267707881029934",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 55,
+  "title": "Chili Pork Cooking Flowchart",
+  "description": "Poster & Illustration Cases curated case: Chili Pork Cooking Flowchart, source author Kurt_Rousey466.",
+  "language": "zh",
+  "authorName": "Kurt_Rousey466",
+  "authorLink": "https://x.com/Kurt_Rousey466",
+  "sourceLink": "https://x.com/Kurt_Rousey466/status/2046267707881029934",
+  "sourcePublishedAt": "Mon Apr 20 16:40:14 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 8,
+  "likes": 0,
+  "retweetCount": 0,
+  "viewCount": 236,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case55/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case55/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXNeVCaAAQ7dMa.jpg",
+      "width": 1086,
+      "height": 1448
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

@@ -20,28 +20,53 @@
 }
 
 .toolbar,
-.leadGrid,
-.masonry,
+.secondarySection,
+.inventoryHint,
+.contentSection,
+.contentGrid,
 .emptyState {
   position: relative;
   z-index: 1;
-  width: min(1232px, calc(100vw - 112px));
+  width: min(
+    calc(1232px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)),
+    calc(
+      100vw - 112px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)
+    )
+  );
   margin: 0 auto;
 }
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(620px, 1.32fr) minmax(360px, 0.9fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr) auto;
   gap: 16px;
   align-items: center;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
+}
+
+.secondarySection {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.filterWrap {
+  min-width: 0;
+}
+
+.inventoryHint {
+  margin: -10px auto 18px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .filterGroup,
 .sortGroup {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   min-width: 0;
   min-height: 48px;
   padding: 4px;
@@ -53,15 +78,19 @@
 
 .filterGroup {
   width: 100%;
-  justify-content: space-between;
-  gap: 4px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filterGroup::-webkit-scrollbar {
+  display: none;
 }
 
 .filterChip,
 .filterChipActive,
 .sortChip,
 .sortChipActive {
-  flex-shrink: 0;
   border: 0;
   border-radius: 10px;
   padding: 9px 16px;
@@ -80,14 +109,31 @@
 
 .filterChip,
 .filterChipActive {
+  display: inline-flex;
   flex: 1 1 0;
   min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-align: center;
 }
 
 .filterChip:hover,
 .sortChip:hover {
   color: rgba(255, 255, 255, 0.84);
+}
+
+.filterChipLabel {
+  white-space: nowrap;
+}
+
+.filterChipCount {
+  flex-shrink: 0;
+  color: inherit;
+  font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 10px;
+  letter-spacing: 0;
+  opacity: 0.72;
 }
 
 .filterChipActive,
@@ -103,8 +149,6 @@
   align-items: center;
   min-width: 0;
   width: 100%;
-  max-width: 704px;
-  justify-self: center;
   min-height: 48px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 14px;
@@ -142,35 +186,141 @@
   height: 100%;
 }
 
-.leadGrid {
+.contentGrid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
   align-items: start;
 }
 
-.masonry {
+.contentSection {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
-  align-items: start;
+  gap: 18px;
 }
 
-.masonryColumn {
-  display: grid;
-  gap: 14px;
-  align-content: start;
+.secondaryGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.018));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.secondaryGroup::-webkit-scrollbar {
+  display: none;
+}
+
+.secondaryPromptGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 4px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.018));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.secondaryPromptGroup::-webkit-scrollbar {
+  display: none;
+}
+
+.secondaryFacetGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: fit-content;
+}
+
+.secondaryDivider {
+  flex: 0 0 auto;
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+}
+
+.secondaryChip,
+.secondaryChipActive {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.48);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.secondaryChip:hover {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.secondaryChipActive {
+  background: rgba(255, 255, 255, 0.94);
+  color: #0a0a0a;
+  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.12);
+}
+
+.secondaryChipLabel {
+  white-space: nowrap;
+}
+
+.secondaryChipCount {
+  flex-shrink: 0;
+  color: inherit;
+  font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 10px;
+  letter-spacing: 0;
+  opacity: 0.72;
+}
+
+.loadMoreSentinel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.loadMoreText {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .card {
   position: relative;
   display: block;
   overflow: hidden;
-  min-height: 194px;
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  background: #111111;
+  background: #0d0f12;
   text-decoration: none;
   isolation: isolate;
   transition:
@@ -185,52 +335,57 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
 }
 
-.cardHero {
-  grid-column: span 6;
-  min-height: 252px;
-}
-
-.cardTall {
-  grid-column: span 3;
-  min-height: 298px;
-}
-
-.cardCompact {
-  grid-column: span 3;
-  min-height: 164px;
-}
-
-.cardWide {
-  grid-column: span 3;
-  min-height: 164px;
-}
-
+.cardMediaSlot,
 .cardMedia,
+.cardMediaImage,
 .cardMediaVideo,
 .cardShade {
   position: absolute;
   inset: 0;
 }
 
+.cardMediaSlot {
+  display: block;
+}
+
 .cardMedia {
+  background:
+    radial-gradient(circle at 28% 24%, rgba(113, 154, 166, 0.36), transparent 22%),
+    radial-gradient(circle at 70% 16%, rgba(86, 113, 148, 0.22), transparent 26%),
+    linear-gradient(135deg, #1a1e24, #0a0b0e 78%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   transform: scale(1.02);
 }
 
+.cardMediaImage,
 .cardMediaVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.02);
+}
+
+.cardMediaImage {
+  display: block;
   background: linear-gradient(180deg, #161616, #060606);
+}
+
+.cardMediaVideo {
+  opacity: 0;
+  background: linear-gradient(180deg, #161616, #060606);
+  transition: opacity 180ms ease;
+}
+
+.cardMediaVideoReady {
+  opacity: 1;
 }
 
 .cardShade {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.08) 32%, rgba(0, 0, 0, 0.78) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.24) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.08) 34%, rgba(0, 0, 0, 0.82) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.22) 100%);
 }
 
 .cardBadge {
@@ -238,13 +393,13 @@
   top: 12px;
   left: 12px;
   z-index: 1;
-  padding: 4px 7px;
+  padding: 4px 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.92);
   font-size: 8px;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
 }
 
 .cardFooter {
@@ -262,9 +417,9 @@
   display: -webkit-box;
   overflow: hidden;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
   text-shadow: 0 6px 22px rgba(0, 0, 0, 0.42);
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -286,8 +441,8 @@
 
 .cardAvatar {
   display: inline-flex;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
@@ -313,7 +468,7 @@
 .cardAuthorName {
   overflow: hidden;
   color: rgba(255, 255, 255, 0.76);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -329,7 +484,40 @@
   font-weight: 700;
 }
 
+.cardMetricButton {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 140ms ease, transform 140ms ease;
+}
+
+.cardMetricButton:hover:not(:disabled) {
+  color: rgba(255, 255, 255, 0.88);
+  transform: translateY(-1px);
+}
+
+.cardMetricButton:disabled {
+  cursor: wait;
+}
+
+.cardMetricButtonActive {
+  color: #ff5c6c;
+}
+
 .cardMetric svg {
+  width: 11px;
+  height: 11px;
+}
+
+.cardMetricButton svg {
   width: 11px;
   height: 11px;
 }
@@ -356,26 +544,152 @@
   font-size: 13px;
 }
 
+:global(:root[data-theme="light"]) .page {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .page::before {
+  background:
+    linear-gradient(180deg, rgba(121, 93, 63, 0.008), rgba(121, 93, 63, 0.002) 10%, rgba(121, 93, 63, 0) 22%),
+    radial-gradient(circle at 50% -12%, rgba(230, 205, 176, 0.08), transparent 22%);
+}
+
+:global(:root[data-theme="light"]) .inventoryHint {
+  color: rgba(92, 67, 44, 0.54);
+}
+
+:global(:root[data-theme="light"]) .loadMoreText {
+  color: rgba(92, 67, 44, 0.54);
+}
+
+:global(:root[data-theme="light"]) .filterGroup,
+:global(:root[data-theme="light"]) .secondaryGroup,
+:global(:root[data-theme="light"]) .secondaryPromptGroup,
+:global(:root[data-theme="light"]) .sortGroup,
+:global(:root[data-theme="light"]) .searchField,
+:global(:root[data-theme="light"]) .emptyState {
+  border-color: rgba(121, 93, 63, 0.1);
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(248, 241, 232, 0.98));
+  box-shadow: 0 16px 36px rgba(129, 98, 67, 0.1);
+}
+
+:global(:root[data-theme="light"]) .filterChip,
+:global(:root[data-theme="light"]) .secondaryChip,
+:global(:root[data-theme="light"]) .sortChip,
+:global(:root[data-theme="light"]) .searchField input::placeholder,
+:global(:root[data-theme="light"]) .searchIcon,
+:global(:root[data-theme="light"]) .emptyState p {
+  color: rgba(89, 67, 42, 0.54);
+}
+
+:global(:root[data-theme="light"]) .filterChip:hover,
+:global(:root[data-theme="light"]) .secondaryChip:hover,
+:global(:root[data-theme="light"]) .sortChip:hover,
+:global(:root[data-theme="light"]) .searchField input,
+:global(:root[data-theme="light"]) .emptyState strong {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .filterChipActive,
+:global(:root[data-theme="light"]) .secondaryChipActive,
+:global(:root[data-theme="light"]) .sortChipActive {
+  background: #ffffff;
+  color: #24170e;
+  box-shadow: 0 10px 22px rgba(129, 98, 67, 0.12);
+}
+
+:global(:root[data-theme="light"]) .secondaryDivider {
+  background: linear-gradient(180deg, rgba(121, 93, 63, 0.08), rgba(121, 93, 63, 0.2), rgba(121, 93, 63, 0.08));
+}
+
+:global(:root[data-theme="light"]) .card {
+  border-color: rgba(121, 93, 63, 0.1);
+  background: #f7efe4;
+  box-shadow: 0 20px 40px rgba(129, 98, 67, 0.12);
+}
+
+:global(:root[data-theme="light"]) .card:hover {
+  border-color: rgba(121, 93, 63, 0.18);
+  box-shadow: 0 22px 44px rgba(129, 98, 67, 0.14);
+}
+
+:global(:root[data-theme="light"]) .cardMediaVideo {
+  background: linear-gradient(180deg, #f4efe8, #ece3d7);
+  filter: none;
+}
+
+:global(:root[data-theme="light"]) .cardMediaImage {
+  background: linear-gradient(180deg, #f4efe8, #ece3d7);
+  filter: none;
+}
+
+:global(:root[data-theme="light"]) .cardMedia {
+  filter: none;
+}
+
+:global(:root[data-theme="light"]) .cardShade {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(15, 23, 42, 0.08) 44%, rgba(0, 0, 0, 0.68) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+:global(:root[data-theme="light"]) .cardBadge,
+:global(:root[data-theme="light"]) .cardAvatar {
+  background: rgba(10, 13, 20, 0.36);
+}
+
+:global(:root[data-theme="light"]) .cardBadge,
+:global(:root[data-theme="light"]) .cardAuthorName,
+:global(:root[data-theme="light"]) .cardMetric,
+:global(:root[data-theme="light"]) .cardMetricButton {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.52);
+}
+
+:global(:root[data-theme="light"]) .cardMetricButtonActive {
+  color: #e5485a;
+}
+
+:global(:root[data-theme="light"]) .cardTitle,
+:global(:root[data-theme="light"]) .cardAvatarFallback {
+  color: #ffffff;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.58);
+}
+
 @media (max-width: 1120px) {
   .toolbar,
-  .leadGrid,
-  .masonry,
+  .secondarySection,
+  .contentSection,
+  .contentGrid,
   .emptyState {
-    width: min(1120px, calc(100vw - 48px));
+    width: min(
+      calc(1120px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)),
+      calc(
+        100vw - 48px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)
+      )
+    );
   }
 
   .toolbar {
     grid-template-columns: 1fr;
   }
 
-  .filterGroup {
+  .secondarySection {
+    justify-content: flex-start;
+  }
+
+  .filterGroup,
+  .secondaryPromptGroup,
+  .sortGroup {
     width: auto;
     justify-content: flex-start;
     overflow-x: auto;
     scrollbar-width: none;
   }
 
-  .filterGroup::-webkit-scrollbar {
+  .filterGroup::-webkit-scrollbar,
+  .secondaryPromptGroup::-webkit-scrollbar,
+  .sortGroup::-webkit-scrollbar {
     display: none;
   }
 }
@@ -386,29 +700,18 @@
   }
 
   .toolbar,
-  .leadGrid,
-  .masonry,
+  .secondarySection,
+  .contentSection,
+  .contentGrid,
   .emptyState {
-    width: calc(100vw - 36px);
+    width: calc(
+      100vw - 36px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)
+    );
   }
 
-  .leadGrid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .masonry {
+  .contentGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cardHero {
-    grid-column: span 6;
-    min-height: 236px;
-  }
-
-  .cardTall,
-  .cardWide,
-  .cardCompact {
-    grid-column: span 3;
+    gap: 14px;
   }
 }
 
@@ -422,10 +725,13 @@
   }
 
   .toolbar,
-  .leadGrid,
-  .masonry,
+  .secondarySection,
+  .contentSection,
+  .contentGrid,
   .emptyState {
-    width: calc(100vw - 24px);
+    width: calc(
+      100vw - 24px - var(--home-floating-dock-left-reserve, 0px) - var(--home-floating-dock-right-reserve, 0px)
+    );
   }
 
   .toolbar {
@@ -438,37 +744,12 @@
     justify-self: stretch;
   }
 
-  .filterGroup,
-  .sortGroup {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .filterGroup::-webkit-scrollbar,
-  .sortGroup::-webkit-scrollbar {
-    display: none;
-  }
-
-  .leadGrid,
-  .masonry {
+  .contentGrid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .masonry {
-    gap: 10px;
+  .card {
+    aspect-ratio: 16 / 9;
   }
-
-  .masonryColumn {
-    gap: 10px;
-  }
-
-  .cardHero,
-  .cardTall,
-  .cardWide,
-  .cardCompact {
-    grid-column: span 1;
-    min-height: 210px;
-  }
-
 }

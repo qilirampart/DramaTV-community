@@ -1,0 +1,50 @@
+{
+  "rank": 67,
+  "id": "2046413660147314714",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 32,
+  "title": "Science Encyclopedia Vertical Poster",
+  "description": "Poster & Illustration Cases curated case: Science Encyclopedia Vertical Poster, source author pfanis.",
+  "language": "en",
+  "authorName": "pfanis",
+  "authorLink": "https://x.com/pfanis",
+  "sourceLink": "https://x.com/pfanis/status/2046413660147314714",
+  "sourcePublishedAt": "Tue Apr 21 02:20:11 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 1626,
+  "likes": 1,
+  "retweetCount": 1,
+  "viewCount": 244,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case32/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case32/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGZSJzFbEAAc0IO.jpg",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

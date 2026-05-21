@@ -1,215 +1,171 @@
-<mxfile host="app.diagrams.net" modified="2026-04-10T15:10:00.000+08:00" agent="Codex" version="24.7.17" type="device">
-  <diagram id="dramatv-community-linkage-map" name="DramaTV社区关键联动链路图">
-    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3600" pageHeight="2200" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2026-04-20T23:20:00.000+08:00" agent="Codex" version="24.7.17" type="device">
+  <diagram id="dramatv-community-key-linkage-20260420" name="DramaTV社区关键联动链路图">
+    <mxGraphModel dx="1900" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3800" pageHeight="2300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <mxCell id="2" value="DramaTV 社区关键联动链路图&#xa;把 Prompt / Workflow / Video / Discussion / Creator / Publish 串成可落地闭环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#1e293b;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="40" width="520" height="90" as="geometry" />
+        <mxCell id="title" value="DramaTV 社区关键联动链路图&#xa;从用户路径到后端接口、数据存储、云迁移和上线支撑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#1e293b;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="560" height="90" as="geometry" />
         </mxCell>
 
-        <mxCell id="3" value="主生产链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#60a5fa;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="170" width="140" height="44" as="geometry" />
+        <mxCell id="lane1" value="浏览发现链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#60a5fa;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="4" value="消费回流链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#4ade80;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="470" width="140" height="44" as="geometry" />
+        <mxCell id="l1a" value="首页 /home&#xa;推荐视频、工作流、提示词、讨论入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1">
+          <mxGeometry x="280" y="190" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="5" value="讨论反哺链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="770" width="140" height="44" as="geometry" />
+        <mxCell id="l1b" value="精选 /featured&#xa;图片提示词、视频提示词、工作流入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1">
+          <mxGeometry x="600" y="190" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="6" value="支撑约束层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#ec4899;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1070" width="140" height="44" as="geometry" />
+        <mxCell id="l1c" value="详情页&#xa;/videos/{id}&#xa;/prompts/{id}&#xa;/workflows/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fbff;strokeColor=#bfdbfe;" vertex="1" parent="1">
+          <mxGeometry x="920" y="190" width="240" height="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="10" value="提示词库列表&#xa;图片 / 视频 Prompt&#xa;筛选 / 排序 / 收藏 / 复制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1">
-          <mxGeometry x="240" y="210" width="220" height="100" as="geometry" />
+        <mxCell id="l1d" value="作者页 /creators/{id}&#xa;作品 + 工作流 + 作者资料" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="190" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="11" value="提示词详情&#xa;示例结果 / 适用模型 / 标签&#xa;关联工作流 / 关联讨论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1">
-          <mxGeometry x="520" y="210" width="220" height="100" as="geometry" />
+        <mxCell id="l1e" value="后端读接口&#xa;GET /api/feed/home&#xa;GET /api/prompts&#xa;GET /api/videos/{id}&#xa;GET /api/workflows/{id}&#xa;GET /api/creators/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="170" width="280" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="12" value="工作流详情&#xa;说明 / 版本 / 作者 / 关联作品&#xa;复制权限 / 打开画布入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
-          <mxGeometry x="800" y="210" width="220" height="100" as="geometry" />
+        <mxCell id="l1f" value="数据库读取&#xa;feed_items&#xa;videos / workflows&#xa;prompt_entries&#xa;creator_profiles / users&#xa;media_assets 引用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#a5f3fc;" vertex="1" parent="1">
+          <mxGeometry x="1940" y="175" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="13" value="复制到画布&#xa;目标空间 / 复制任务 / 状态查询&#xa;失败重试 / 权限校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
-          <mxGeometry x="1080" y="210" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="14" value="Canvas Runtime&#xa;轻量预览 / 节点快照 / 执行结果&#xa;后续生成素材或视频" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
-          <mxGeometry x="1360" y="210" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="15" value="作品发布页&#xa;上传视频 / 绑定 workflowId / promptIds&#xa;标签 / 分区 / 可见性 / 草稿保存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;" vertex="1" parent="1">
-          <mxGeometry x="1640" y="210" width="240" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="16" value="审核与发布&#xa;草稿 → 待审 → 已发布 / 驳回&#xa;审核结果回流创作者" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1">
-          <mxGeometry x="1940" y="210" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="17" value="首页 Feed / 热门 / 最新&#xa;分发视频、工作流、提示词入口&#xa;专题位 / 榜单位 / 创作入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1">
-          <mxGeometry x="2220" y="210" width="240" height="100" as="geometry" />
+        <mxCell id="l1g" value="上线增强点&#xa;Feed 缓存&#xa;搜索索引&#xa;CDN 缓存&#xa;真实热度排序&#xa;运营精选配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="2300" y="175" width="250" height="120" as="geometry" />
         </mxCell>
 
-        <mxCell id="20" value="视频详情页&#xa;播放 / 简介 / 标签 / 分享&#xa;查看来源工作流 / 来源 Prompt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff1f2;strokeColor=#fda4af;" vertex="1" parent="1">
-          <mxGeometry x="2220" y="510" width="240" height="100" as="geometry" />
+        <mxCell id="lane2" value="发布生产链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#4ade80;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="21" value="互动层&#xa;评论 / 回复 / 点赞 / 收藏 / 关注&#xa;触发通知与热度累积" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#fecaca;" vertex="1" parent="1">
-          <mxGeometry x="1920" y="510" width="240" height="100" as="geometry" />
+        <mxCell id="l2a" value="登录后进入发布&#xa;/publish&#xa;视频 / 工作流草稿&#xa;/discussions/new&#xa;Markdown 帖子草稿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="280" y="480" width="240" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="22" value="作者主页&#xa;作者资料 / 作品 / 工作流入口&#xa;关注后继续追更" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
-          <mxGeometry x="1620" y="510" width="240" height="100" as="geometry" />
+        <mxCell id="l2b" value="上传策略&#xa;POST /api/uploads/video-policy&#xa;POST /api/uploads/image-policy&#xa;PUT /api/uploads/assets/{id}/binary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7fee7;strokeColor=#bbf7d0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="490" width="280" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="23" value="继续发现&#xa;回到更多作品 / 工作流 / Prompt&#xa;形成内容消费闭环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1">
-          <mxGeometry x="1320" y="510" width="240" height="100" as="geometry" />
+        <mxCell id="l2c" value="草稿保存&#xa;POST /api/video-drafts&#xa;PUT /api/video-drafts/{id}&#xa;POST /api/post-drafts&#xa;PUT /api/post-drafts/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="475" width="280" height="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="30" value="讨论区首页&#xa;频道 / 热帖 / 最新&#xa;AI 视频经验 / Prompt 经验 / 新闻" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1">
-          <mxGeometry x="240" y="810" width="220" height="100" as="geometry" />
+        <mxCell id="l2d" value="提交发布&#xa;视频：当前本地直发 published&#xa;帖子：当前本地直发 published&#xa;工作流：仍走 in_review 占位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="485" width="280" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="31" value="帖子详情&#xa;正文 / 回复 / 收藏 / 点赞&#xa;作者观点与案例拆解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1">
-          <mxGeometry x="520" y="810" width="220" height="100" as="geometry" />
+        <mxCell id="l2e" value="写入内容库&#xa;videos / discussion_threads / workflows&#xa;publish_drafts 保留草稿状态&#xa;feed_items 用于首页分发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="485" width="280" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="32" value="绑定对象&#xa;可绑定 videoId / workflowId / promptId&#xa;让经验贴直接指向内容对象" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
-          <mxGeometry x="800" y="810" width="240" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="33" value="反向导流&#xa;讨论贴 → 视频详情 / 工作流详情 / Prompt 详情&#xa;内容对象页也展示相关讨论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
-          <mxGeometry x="1100" y="810" width="260" height="100" as="geometry" />
+        <mxCell id="l2f" value="上线必须补齐&#xa;OSS 预签名直传&#xa;视频转码 / 封面抽帧 / preview 生成&#xa;审核队列 / 后台处理&#xa;发布失败重试和状态查询" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="2120" y="475" width="320" height="130" as="geometry" />
         </mxCell>
 
-        <mxCell id="40" value="通知中心&#xa;评论通知 / 关注通知 / 审核结果&#xa;复制完成 / 失败提醒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
-          <mxGeometry x="1520" y="810" width="220" height="100" as="geometry" />
+        <mxCell id="lane3" value="互动讨论链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="840" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="41" value="创作者工作台&#xa;草稿管理 / 已发布 / 驳回重提&#xa;作品、工作流、讨论统一入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;" vertex="1" parent="1">
-          <mxGeometry x="1800" y="810" width="240" height="100" as="geometry" />
+        <mxCell id="l3a" value="内容详情页&#xa;视频 / 工作流 / 提示词 / 帖子&#xa;展示点赞、收藏、评论状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1">
+          <mxGeometry x="280" y="805" width="250" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="42" value="数据反馈 / 运营推荐&#xa;播放量 / 完播 / 收藏 / 复制量 / 讨论热度&#xa;回流 Feed 排序与专题推荐" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#a5f3fc;" vertex="1" parent="1">
-          <mxGeometry x="2100" y="810" width="260" height="100" as="geometry" />
+        <mxCell id="l3b" value="互动写接口&#xa;POST/DELETE /api/interactions/like&#xa;POST/DELETE /api/interactions/favorite&#xa;POST/DELETE /api/interactions/follow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
+          <mxGeometry x="620" y="795" width="310" height="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="50" value="状态与权限&#xa;游客 / 登录用户 / 创作者 / 运营&#xa;public / link / private / team&#xa;复制权限 / 评论权限 / 发布权限" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1">
-          <mxGeometry x="240" y="1110" width="260" height="120" as="geometry" />
+        <mxCell id="l3c" value="评论接口&#xa;GET /api/comments&#xa;POST /api/comments&#xa;目标支持 video / workflow / prompt / post" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="805" width="280" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="51" value="媒体与资源&#xa;cover / poster / preview / source 分层&#xa;上传校验 / 转码回调 / 预览生成 / CDN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1">
-          <mxGeometry x="620" y="1110" width="260" height="120" as="geometry" />
+        <mxCell id="l3d" value="讨论广场&#xa;/discussions&#xa;/discussions/{slug}&#xa;帖子可绑定 video / workflow&#xa;后续可扩展 prompt 绑定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="795" width="280" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="52" value="关系与版本&#xa;promptIds / workflowId / sourceVideoId&#xa;workflowVersion / 派生链 / 更新记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1">
-          <mxGeometry x="1000" y="1110" width="260" height="120" as="geometry" />
+        <mxCell id="l3e" value="数据表&#xa;comments&#xa;interaction_actions&#xa;follow_relations&#xa;discussion_threads&#xa;统计字段回写到目标表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="800" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="53" value="治理与风控&#xa;审核状态 / 举报 / 敏感词 / 上传限制&#xa;评论风控 / 资源下架 / 审核日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1">
-          <mxGeometry x="1380" y="1110" width="260" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="54" value="当前脑图相对参考 PDF 新增重点&#xa;不只画页面，还补了对象关系、状态流转、消息回流、数据反馈、资源分层&#xa;后续可以按链路继续拆接口和表结构" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
-          <mxGeometry x="1760" y="1110" width="360" height="120" as="geometry" />
+        <mxCell id="l3f" value="上线增强点&#xa;评论审核 / 敏感词 / 反垃圾&#xa;通知中心&#xa;互动限流&#xa;举报处理后台&#xa;统计异步聚合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="2150" y="800" width="270" height="120" as="geometry" />
         </mxCell>
 
-        <mxCell id="200" value="发现灵感" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;fontColor=#1d4ed8;" edge="1" parent="1" source="10" target="11">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="lane4" value="画布联动链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#8b5cf6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1160" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="201" value="看方法" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="11" target="12">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l4a" value="入口&#xa;页面浮动画布入口&#xa;工作流详情复制入口&#xa;/canvas/{runtimeId} 占位页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1125" width="260" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="202" value="复制实践" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="12" target="13">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l4b" value="当前后端能力&#xa;GET /api/workflows/{id}/canvas-link&#xa;POST /api/workflows/{id}/copy-to-canvas&#xa;GET /api/canvas-runtimes/{id}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#faf5ff;strokeColor=#ddd6fe;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1125" width="320" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="203" value="运行生成" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="13" target="14">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l4c" value="当前状态&#xa;可创建 runtime_ready 占位&#xa;可展示 light_snapshot_json&#xa;可查 copy_task 状态&#xa;但没有真实画布侧复制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1125" width="280" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="204" value="回填成果" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;fontColor=#475569;" edge="1" parent="1" source="14" target="15">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l4d" value="后续对接公司画布&#xa;统一登录态 / 用户空间&#xa;真实 workflow copy API&#xa;运行结果回流社区&#xa;runtime 资产写回 media_assets&#xa;派生链路记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f5ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="1115" width="300" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="205" value="进入审核" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#ec4899;fontColor=#be185d;" edge="1" parent="1" source="15" target="16">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="206" value="进入分发" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="16" target="17">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l4e" value="相关数据表&#xa;canvas_bindings&#xa;canvas_workflow_runtimes&#xa;canvas_runtime_assets&#xa;canvas_copy_tasks&#xa;async_task_records" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
+          <mxGeometry x="1840" y="1120" width="270" height="120" as="geometry" />
         </mxCell>
 
-        <mxCell id="210" value="点击进入" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="17" target="20">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="lane5" value="数据迁移链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#38bdf8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1490" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="211" value="互动" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f87171;fontColor=#991b1b;" edge="1" parent="1" source="20" target="21">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l5a" value="当前本地内容池&#xa;YouMind 图片提示词&#xa;YouMind 视频提示词&#xa;本地可播放视频资产&#xa;工作流 seed / 占位数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1450" width="260" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="212" value="进入作者" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;fontColor=#475569;" edge="1" parent="1" source="21" target="22">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l5b" value="迁移到对象存储&#xa;source video&#xa;preview video&#xa;cover / poster image&#xa;prompt examples&#xa;canvas visible assets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#a5f3fc;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1450" width="260" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="213" value="继续发现" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="22" target="23">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l5c" value="数据库回写&#xa;media_assets.object_key&#xa;media_assets.storage_provider&#xa;prompt_entries.primary_example_asset_id&#xa;videos.source_asset_id / cover_asset_id&#xa;feed_items target 引用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1435" width="330" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="214" value="回到首页 / 相关对象" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="23" target="10">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="930" y="420" />
-              <mxPoint x="930" y="260" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="l5d" value="上线访问形态&#xa;前端只拿 CDN URL / 受控 URL&#xa;后端不暴露内部存储签名策略&#xa;大文件不进源码仓库&#xa;数据库只保存元数据和引用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="1450" width="310" height="130" as="geometry" />
         </mxCell>
 
-        <mxCell id="220" value="看社区话题" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="30" target="31">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="lane6" value="上线支撑链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1810" width="150" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="221" value="绑定对象" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="31" target="32">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l6a" value="可观测性已开始建设&#xa;X-Request-Id 前后端透传&#xa;ApiResponse 包含 requestId&#xa;应用日志 / 错误日志 / 访问日志分文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1775" width="310" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="222" value="导流回详情" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="32" target="33">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l6b" value="还需生产化&#xa;HTTPS / 域名 / 网关&#xa;部署脚本 / CI/CD&#xa;环境变量和密钥管理&#xa;数据库备份&#xa;对象存储生命周期&#xa;告警和监控面板" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="1765" width="320" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="223" value="相关讨论" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="33" target="20">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1670" y="860" />
-              <mxPoint x="1670" y="560" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="l6c" value="审核后台独立建设&#xa;内容审核队列&#xa;举报处理&#xa;评论风控&#xa;上下架和精选配置&#xa;操作审计和 RBAC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="1775" width="290" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="224" value="在详情页可看相关讨论" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="12" target="33">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="225" value="Prompt 经验回流" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="11" target="31">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="l6d" value="最终上线闭环&#xa;云数据库 + Redis&#xa;OSS + CDN&#xa;Spring Boot API&#xa;Next.js 前端&#xa;Python Worker / Queue&#xa;后台管理系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1775" width="300" height="120" as="geometry" />
         </mxCell>
 
-        <mxCell id="230" value="评论 / 审核 / 复制结果" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="21" target="40">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="231" value="处理后续动作" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;fontColor=#475569;" edge="1" parent="1" source="40" target="41">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="232" value="继续编辑 / 再发布" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;fontColor=#475569;" edge="1" parent="1" source="41" target="15">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1920" y="710" />
-              <mxPoint x="1920" y="410" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="233" value="曝光 / 完播 / 收藏 / 复制 / 热议" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="20" target="42">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="234" value="排序推荐回流" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="42" target="17">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="2350" y="710" />
-              <mxPoint x="2350" y="360" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="235" value="复制量 / 运行成功率" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="13" target="42">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="e1" value="进入" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;fontColor=#1d4ed8;" edge="1" parent="1" source="lane1" target="l1a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="发现资源" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;fontColor=#1d4ed8;" edge="1" parent="1" source="l1a" target="l1b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="点击详情" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;fontColor=#1d4ed8;" edge="1" parent="1" source="l1b" target="l1c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="继续看作者" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;fontColor=#475569;" edge="1" parent="1" source="l1c" target="l1d"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="读接口" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="l1d" target="l1e"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="查库" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="l1e" target="l1f"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="上线增强" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l1f" target="l1g"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="240" value="权限影响入口显隐与能力可用性" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#ec4899;fontColor=#9d174d;" edge="1" parent="1" source="50" target="12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="241" value="上传、预览、封面、转码回调" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#ec4899;fontColor=#9d174d;" edge="1" parent="1" source="51" target="15">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="242" value="对象关系影响详情页联动" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#ec4899;fontColor=#9d174d;" edge="1" parent="1" source="52" target="20">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="243" value="审核、举报、下架影响内容可见性" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#ec4899;fontColor=#9d174d;" edge="1" parent="1" source="53" target="16">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="244" value="讨论风控" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#ec4899;fontColor=#9d174d;" edge="1" parent="1" source="53" target="31">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="e20" value="创作入口" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="lane2" target="l2a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" value="上传媒体" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="l2a" target="l2b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" value="保存内容" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="l2b" target="l2c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" value="提交" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="l2c" target="l2d"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e24" value="发布入库" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;fontColor=#166534;" edge="1" parent="1" source="l2d" target="l2e"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e25" value="生产化补齐" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l2e" target="l2f"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e30" value="用户互动" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="lane3" target="l3a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e31" value="写关系" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="l3a" target="l3b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e32" value="发评论" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="l3b" target="l3c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e33" value="讨论沉淀" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="l3c" target="l3d"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e34" value="统计回写" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;fontColor=#92400e;" edge="1" parent="1" source="l3d" target="l3e"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e35" value="治理增强" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l3e" target="l3f"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e40" value="进入画布" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="lane4" target="l4a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e41" value="调用接口" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="l4a" target="l4b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e42" value="当前占位" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="l4b" target="l4c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e43" value="真实对接" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="l4c" target="l4d"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e44" value="数据支撑" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;fontColor=#6d28d9;" edge="1" parent="1" source="l4d" target="l4e"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e50" value="本地内容" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="lane5" target="l5a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e51" value="上传 OSS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="l5a" target="l5b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e52" value="回写引用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="l5b" target="l5c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e53" value="线上访问" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;fontColor=#0c4a6e;" edge="1" parent="1" source="l5c" target="l5d"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e60" value="排障基础" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="lane6" target="l6a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e61" value="生产运维" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l6a" target="l6b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e62" value="治理后台" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l6b" target="l6c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e63" value="可上线形态" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="l6c" target="l6d"><mxGeometry relative="1" as="geometry" /></mxCell>
       </root>
     </mxGraphModel>
   </diagram>

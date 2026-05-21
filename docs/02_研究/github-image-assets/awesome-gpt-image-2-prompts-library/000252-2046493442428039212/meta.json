@@ -1,0 +1,68 @@
+{
+  "rank": 252,
+  "id": "2046493442428039212",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "comparison-and-community",
+  "sectionTitle": "Comparison & Community Examples",
+  "caseNumber": 33,
+  "title": "Multi-Concept Battle Poster Set",
+  "description": "Comparison & Community Examples curated case: Multi-Concept Battle Poster Set, source author joshesye.",
+  "language": "zh",
+  "authorName": "joshesye",
+  "authorLink": "https://x.com/joshesye",
+  "sourceLink": "https://x.com/joshesye/status/2046493442428039212",
+  "sourcePublishedAt": "Tue Apr 21 07:37:13 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 17643,
+  "likes": 35,
+  "retweetCount": 7,
+  "viewCount": 4236,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/comparison_case33/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/comparison_case33/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaa7B2a0AAkDM9.jpg",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaa69va4AAAy2l.jpg",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaa69waUAEAjqG.jpg",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGaa69ua0AA3GbV.jpg",
+      "width": 934,
+      "height": 1685
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

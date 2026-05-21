@@ -1,0 +1,43 @@
+{
+  "rank": 217,
+  "id": "2047232198382964969",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "ui-and-social-media-mockup",
+  "sectionTitle": "UI & Social Media Mockup Cases",
+  "caseNumber": 94,
+  "title": "Cozy Anime ASMR Ear Massage Girl",
+  "description": "UI & Social Media Mockup Cases curated case: Cozy Anime ASMR Ear Massage Girl, source author Shion_yamabuki.",
+  "language": "",
+  "authorName": "Shion_yamabuki",
+  "authorLink": "https://x.com/Shion_yamabuki",
+  "sourceLink": "https://x.com/Shion_yamabuki/status/2047232198382964969",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/ui_case94/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/ui_case94/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

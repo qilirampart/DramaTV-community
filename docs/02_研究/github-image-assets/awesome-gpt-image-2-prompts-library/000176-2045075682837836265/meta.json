@@ -1,0 +1,43 @@
+{
+  "rank": 176,
+  "id": "2045075682837836265",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "character-design",
+  "sectionTitle": "Character Design Cases",
+  "caseNumber": 2,
+  "title": "Persona5 Character Reference Card",
+  "description": "Character Design Cases curated case: Persona5 Character Reference Card, source author iamrednightS.",
+  "language": "",
+  "authorName": "iamrednightS",
+  "authorLink": "https://x.com/iamrednightS",
+  "sourceLink": "https://x.com/iamrednightS/status/2045075682837836265",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/character_case2/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/character_case2/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

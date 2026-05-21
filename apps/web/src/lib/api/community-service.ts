@@ -1,25 +1,38 @@
 ﻿import type {
   ApiComment,
+  ApiCommentPage,
   ApiCommentTargetType,
+  ApiAuthProviderConfig,
   ApiAuthSession,
   ApiCopyToCanvasResult,
   ApiCreatorProfile,
   ApiCursorPage,
+  ApiDraftLifecycle,
   ApiDiscussionHomeResponse,
   ApiDiscussionThreadDetail,
   ApiDraftSubmitResult,
   ApiCanvasRuntime,
   ApiEnvelope,
+  ApiFeaturedArchiveResponse,
   ApiFeedHomeResponse,
   ApiInteractionState,
   ApiInteractionTargetType,
   ApiMeHubResponse,
+  ApiMediaTask,
+  ApiMediaTaskSummary,
+  ApiMeProfile,
+  ApiMeProfileUpdateInput,
+  ApiPostComposerBootstrap,
+  ApiRecentNotificationsResponse,
   ApiPostDraft,
   ApiPostDraftUpdateInput,
   ApiPromptDetail,
   ApiPromptSummary,
-  ApiPublishBootstrap,
+  ApiPublishPageBootstrap,
+  ApiReportCreateInput,
+  ApiReportResponse,
   ApiUploadAssetKind,
+  ApiUploadAssetRole,
   ApiUploadPolicy,
   ApiUploadedAsset,
   ApiVideoDetail,
@@ -31,6 +44,7 @@
   ApiWorkflowDraftUpdateInput,
   ApiWorkflowSummary
 } from "@/lib/contracts/community-api";
+import { normalizeAssetUrl } from "@/lib/presentation";
 import { cookies } from "next/headers";
 
 type BackendEnvelope<T> = {
@@ -48,18 +62,30 @@ type BackendCursorPage<T> = {
 
 type BackendComment = {
   id: string;
+  parentId?: string;
+  replyTarget?: {
+    commentId: string;
+    author: {
+      id: string;
+      displayName: string;
+      avatarUrl?: string;
+    };
+  };
   author: {
     id: string;
     displayName: string;
     avatarUrl?: string;
   };
   content: string;
+  statusCode?: string;
   createdAt: string;
   replyCount: number;
   likeCount: number;
   viewerActions?: {
     liked: boolean;
+    canDelete?: boolean;
   };
+  replies?: BackendComment[];
 };
 
 type BackendCanvasRuntime = {
@@ -141,6 +167,7 @@ type BackendDiscussionHomeResponse = {
     slug: string;
     title: string;
     excerpt?: string;
+    publishedAt?: string;
     channelSlug: string;
     channelTitle: string;
     likeCount: number;
@@ -148,6 +175,11 @@ type BackendDiscussionHomeResponse = {
     replyCount: number;
     lastActivityAt?: string;
     tagNames?: string[];
+    author: {
+      id: string;
+      displayName: string;
+      avatarUrl?: string;
+    };
     viewerActions?: {
       liked: boolean;
       favorited: boolean;
@@ -183,7 +215,12 @@ type BackendDiscussionThreadDetail = {
     liked: boolean;
     favorited: boolean;
   };
+  commentPolicy?: {
+    commentingEnabled: boolean;
+    canManageComments: boolean;
+  };
   binding?: BackendDiscussionBinding | null;
+  relatedThreads?: BackendDiscussionHomeResponse["featuredThreads"];
 };
 
 type BackendMeHubResponse = {
@@ -198,6 +235,7 @@ type BackendMeHubResponse = {
       videoCount: number;
       workflowCount: number;
       followerCount: number;
+      likeReceivedCount: number;
     };
   };
   likedItems: Array<{
@@ -232,7 +270,153 @@ type BackendMeHubResponse = {
       avatarUrl?: string;
     };
   }>;
+  draftItems: Array<{
+    draftType: "video" | "workflow" | "post";
+    draftId: string;
+    targetId?: string;
+    title?: string;
+    summary?: string;
+    coverUrl?: string;
+    statusCode: string;
+    currentStep: string;
+    lifecycle: ApiDraftLifecycle;
+    updatedAt?: string;
+    continueHref?: string;
+    editable: boolean;
+  }>;
+  publishedContent: {
+    videos: ApiVideoSummary[];
+    workflows: ApiWorkflowSummary[];
+    posts: BackendDiscussionHomeResponse["featuredThreads"];
+  };
 };
+
+type BackendRecentNotificationsResponse = {
+  items: Array<{
+    id: string;
+    actionType: "like" | "favorite" | "comment" | "reply";
+    actedAt: string;
+    excerpt?: string;
+    replyToActorName?: string;
+    commentId?: string;
+    actor: {
+      id: string;
+      displayName: string;
+      avatarUrl?: string;
+    };
+    target: {
+      id: string;
+      type: "video" | "workflow" | "prompt" | "post";
+      title: string;
+      href: string;
+    };
+  }>;
+};
+
+const HIDDEN_TAG_NAMES = new Set(["youmind"]);
+
+function normalizeTagNames(tagNames?: string[] | null): string[] {
+  return [
+    ...new Set(
+      (tagNames ?? [])
+        .map((tag) => (typeof tag === "string" ? tag.trim() : ""))
+        .filter((tag) => tag && !HIDDEN_TAG_NAMES.has(tag.toLowerCase()))
+    )
+  ];
+}
+
+function normalizePromptSummary(prompt: ApiPromptSummary): ApiPromptSummary {
+  return {
+    ...prompt,
+    taxonomy: {
+      modelCategory: prompt.taxonomy?.modelCategory,
+      contentCategory: prompt.taxonomy?.contentCategory,
+      compositionCategory: prompt.taxonomy?.compositionCategory
+    },
+    tagNames: normalizeTagNames(prompt.tagNames),
+    viewerActions: {
+      liked: prompt.viewerActions?.liked ?? false
+    }
+  };
+}
+
+function normalizePromptDetail(prompt: ApiPromptDetail): ApiPromptDetail {
+  return {
+    ...prompt,
+    taxonomy: {
+      modelCategory: prompt.taxonomy?.modelCategory,
+      contentCategory: prompt.taxonomy?.contentCategory,
+      compositionCategory: prompt.taxonomy?.compositionCategory
+    },
+    tagNames: normalizeTagNames(prompt.tagNames)
+  };
+}
+
+function normalizeWorkflowDetail(workflow: ApiWorkflowDetail): ApiWorkflowDetail {
+  return {
+    ...workflow,
+    tagNames: normalizeTagNames(workflow.tagNames)
+  };
+}
+
+function normalizeDiscussionThreadCard(thread: BackendDiscussionHomeResponse["featuredThreads"][number]) {
+  return {
+    ...thread,
+    likeCount: thread.likeCount ?? 0,
+    tagNames: normalizeTagNames(thread.tagNames),
+    favoriteCount: thread.favoriteCount ?? 0,
+    author: {
+      id: thread.author.id,
+      displayName: thread.author.displayName,
+      avatarUrl: normalizeAssetUrl(thread.author.avatarUrl)
+    },
+    viewerActions: {
+      liked: thread.viewerActions?.liked ?? false,
+      favorited: thread.viewerActions?.favorited ?? false
+    }
+  };
+}
+
+function normalizeDraftLifecycle(
+  lifecycle?: ApiDraftLifecycle | null,
+  fallbackStatusCode?: string | null
+): ApiDraftLifecycle {
+  const normalizedStatus = fallbackStatusCode?.trim();
+  const fallbackDraftStatus = normalizedStatus === "draft" ? "draft" : "submitted";
+  return {
+    draftStatus: lifecycle?.draftStatus === "submitted" ? "submitted" : fallbackDraftStatus,
+    moderationStatus: lifecycle?.moderationStatus?.trim() || "not_submitted",
+    moderationMessage: lifecycle?.moderationMessage?.trim() || undefined,
+    processingStatus: lifecycle?.processingStatus?.trim() || "not_applicable",
+    processingMessage: lifecycle?.processingMessage?.trim() || undefined,
+    mediaTask: normalizeMediaTaskSummary(lifecycle?.mediaTask),
+    editable: lifecycle?.editable ?? fallbackDraftStatus === "draft",
+    submittedAt: lifecycle?.submittedAt
+  };
+}
+
+function normalizeMediaTaskSummary(
+  mediaTask?: ApiMediaTaskSummary | BackendMediaTaskSummary | null
+): ApiMediaTaskSummary | undefined {
+  if (!mediaTask?.taskId?.trim()) {
+    return undefined;
+  }
+
+  return {
+    taskId: mediaTask.taskId,
+    taskType: mediaTask.taskType,
+    targetType: mediaTask.targetType,
+    targetId: mediaTask.targetId,
+    statusCode: mediaTask.statusCode,
+    retryCount: mediaTask.retryCount ?? 0,
+    maxRetryCount: mediaTask.maxRetryCount ?? 0,
+    errorMessage: mediaTask.errorMessage?.trim() || undefined,
+    submittedAt: mediaTask.submittedAt,
+    startedAt: mediaTask.startedAt,
+    finishedAt: mediaTask.finishedAt,
+    retryable: mediaTask.retryable ?? false
+  };
+}
 
 type BackendVideoDraft = {
   draftId: string;
@@ -240,12 +424,17 @@ type BackendVideoDraft = {
   title?: string;
   summary?: string;
   categoryCode?: string;
+  promptText?: string;
+  modelCategory?: string;
+  contentCategory?: string;
+  compositionCategory?: string;
   tagNames?: string[];
   workflowId?: string;
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
   sourceAssetId?: string;
   statusCode: string;
+  lifecycle: ApiDraftLifecycle;
 };
 
 type BackendWorkflowDraft = {
@@ -259,7 +448,9 @@ type BackendWorkflowDraft = {
   allowFork: boolean;
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
+  exampleAssetId?: string;
   statusCode: string;
+  lifecycle: ApiDraftLifecycle;
 };
 
 type BackendPostDraft = {
@@ -272,18 +463,25 @@ type BackendPostDraft = {
   bindingTargetType?: "video" | "workflow";
   bindingTargetId?: string;
   statusCode: string;
+  lifecycle: ApiDraftLifecycle;
 };
 
 type BackendVideoDraftSubmit = {
   videoId: string;
+  draftStatus: string;
+  contentStatus: string;
   publishStatus: string;
+  lifecycle: ApiDraftLifecycle;
   taskIds: string[];
   submitMode: string;
 };
 
 type BackendWorkflowDraftSubmit = {
   workflowId: string;
+  draftStatus: string;
+  contentStatus: string;
   publishStatus: string;
+  lifecycle: ApiDraftLifecycle;
   taskIds: string[];
   submitMode: string;
 };
@@ -291,13 +489,18 @@ type BackendWorkflowDraftSubmit = {
 type BackendPostDraftSubmit = {
   targetId: string;
   slug?: string;
+  draftStatus: string;
+  contentStatus: string;
   publishStatus: string;
+  lifecycle: ApiDraftLifecycle;
   taskIds: string[];
   submitMode: string;
 };
 
 type BackendUploadPolicy = {
   assetId: string;
+  assetKind: ApiUploadAssetKind;
+  assetRole: ApiUploadAssetRole;
   uploadUrl: string;
   headers?: Record<string, string>;
   expiresAt: string;
@@ -305,15 +508,45 @@ type BackendUploadPolicy = {
 
 type BackendUploadedAsset = {
   assetId: string;
+  assetKind: ApiUploadAssetKind;
+  assetRole: ApiUploadAssetRole;
   statusCode: string;
+  mediaPath: string;
   publicUrl: string;
   sizeBytes: number;
+};
+
+type BackendMediaTaskSummary = {
+  taskId: string;
+  taskType: string;
+  targetType: string;
+  targetId: string;
+  statusCode: string;
+  retryCount: number;
+  maxRetryCount: number;
+  errorMessage?: string;
+  submittedAt?: string;
+  startedAt?: string;
+  finishedAt?: string;
+  retryable: boolean;
+};
+
+type BackendMediaTask = BackendMediaTaskSummary & {
+  queueName: string;
+  priorityLevel: number;
 };
 
 export type CommunityDataMode = "real";
 
 type RequestBackendOptions = {
   treat404AsNull?: boolean;
+  includeAuth?: boolean;
+  timeoutMs?: number;
+};
+
+export type PublicReadOptions = {
+  includeAuth?: boolean;
+  timeoutMs?: number;
 };
 
 type LoginPayload = {
@@ -338,6 +571,17 @@ type BackendAuthSession = {
     bio?: string;
     headline?: string;
   };
+};
+
+type BackendAuthProviderConfig = {
+  primaryProvider: string;
+  loginProviders: Array<{
+    code: string;
+    displayName: string;
+    description?: string;
+    enabled: boolean;
+    formType: "password";
+  }>;
 };
 
 const REQUEST_ID_HEADER_NAME = "X-Request-Id";
@@ -393,29 +637,48 @@ export function getConfiguredApiBaseUrl(): string | null {
 export function isCommunityBackendUnavailableError(
   error: unknown
 ): error is CommunityBackendUnavailableError {
-  return error instanceof CommunityBackendUnavailableError;
+  return (
+    error instanceof CommunityBackendUnavailableError ||
+    (error instanceof Error &&
+      error.name === "CommunityBackendUnavailableError" &&
+      typeof (error as { path?: unknown }).path === "string")
+  );
 }
 
 export function isCommunityBackendCommandError(
   error: unknown
 ): error is CommunityBackendCommandError {
-  return error instanceof CommunityBackendCommandError;
+  return (
+    error instanceof CommunityBackendCommandError ||
+    (error instanceof Error &&
+      error.name === "CommunityBackendCommandError" &&
+      typeof (error as { path?: unknown }).path === "string")
+  );
+}
+
+function readCommunityErrorMeta(error: unknown): {
+  status?: number;
+  code?: string;
+  requestId?: string;
+} | null {
+  if (!isCommunityBackendUnavailableError(error) && !isCommunityBackendCommandError(error)) {
+    return null;
+  }
+
+  return {
+    status: typeof error.status === "number" ? error.status : undefined,
+    code: typeof error.code === "string" ? error.code : undefined,
+    requestId: typeof error.requestId === "string" ? error.requestId : undefined
+  };
 }
 
 export function isCommunityAuthRequiredError(error: unknown): boolean {
-  if (error instanceof CommunityBackendUnavailableError || error instanceof CommunityBackendCommandError) {
-    return error.status === 401 || error.code === "AUTH_REQUIRED";
-  }
-
-  return false;
+  const meta = readCommunityErrorMeta(error);
+  return meta?.status === 401 || meta?.status === 403 || meta?.code === "AUTH_REQUIRED" || meta?.code === "FORBIDDEN";
 }
 
 export function getCommunityErrorRequestId(error: unknown): string | undefined {
-  if (error instanceof CommunityBackendUnavailableError || error instanceof CommunityBackendCommandError) {
-    return error.requestId;
-  }
-
-  return undefined;
+  return readCommunityErrorMeta(error)?.requestId;
 }
 
 export function appendCommunityRequestId(message: string, error: unknown): string {
@@ -442,6 +705,28 @@ function createRequestId() {
   }
 
   return `web-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function createRequestTimeoutController(timeoutMs?: number) {
+  if (typeof timeoutMs !== "number" || !Number.isFinite(timeoutMs) || timeoutMs <= 0) {
+    return null;
+  }
+
+  const controller = new AbortController();
+  const handle = globalThis.setTimeout(() => {
+    controller.abort();
+  }, timeoutMs);
+
+  return {
+    signal: controller.signal,
+    cleanup() {
+      globalThis.clearTimeout(handle);
+    }
+  };
+}
+
+function isAbortRequestError(error: unknown): error is Error {
+  return error instanceof Error && error.name === "AbortError";
 }
 
 function createBackendHeaders(headersInit: HeadersInit | undefined, requestId: string) {
@@ -503,7 +788,19 @@ async function parseBackendFailure(
 function mapBackendComment(comment: BackendComment): ApiComment {
   return {
     id: comment.id,
+    parentId: comment.parentId,
+    replyTarget: comment.replyTarget
+      ? {
+          commentId: comment.replyTarget.commentId,
+          author: {
+            id: comment.replyTarget.author.id,
+            displayName: comment.replyTarget.author.displayName,
+            avatarUrl: comment.replyTarget.author.avatarUrl
+          }
+        }
+      : undefined,
     author: {
+      id: comment.author.id,
       displayName: comment.author.displayName,
       avatarUrl: comment.author.avatarUrl
     },
@@ -511,21 +808,24 @@ function mapBackendComment(comment: BackendComment): ApiComment {
     createdAt: comment.createdAt,
     likeCount: comment.likeCount,
     replyCount: comment.replyCount,
+    statusCode: comment.statusCode,
     viewerActions: {
-      liked: comment.viewerActions?.liked ?? false
-    }
+      liked: comment.viewerActions?.liked ?? false,
+      canDelete: comment.viewerActions?.canDelete ?? false
+    },
+    replies: (comment.replies ?? []).map(mapBackendComment)
   };
 }
 
 async function requestBackend<T>(
   path: string,
   init?: RequestInit,
-  options?: { treat404AsNull?: false }
+  options?: RequestBackendOptions & { treat404AsNull?: false }
 ): Promise<BackendEnvelope<T>>;
 async function requestBackend<T>(
   path: string,
   init: RequestInit | undefined,
-  options: { treat404AsNull: true }
+  options: RequestBackendOptions & { treat404AsNull: true }
 ): Promise<BackendEnvelope<T> | null>;
 async function requestBackend<T>(
   path: string,
@@ -534,15 +834,19 @@ async function requestBackend<T>(
 ): Promise<BackendEnvelope<T> | null> {
   assertRealModeBackend(path);
   const requestId = createRequestId();
+  const timeoutController = createRequestTimeoutController(options?.timeoutMs);
 
   try {
     const headers = createBackendHeaders(init?.headers, requestId);
-    await applyAuthorizationHeader(headers);
+    if (options?.includeAuth !== false) {
+      await applyAuthorizationHeader(headers);
+    }
 
     const response = await fetch(absoluteUrl(path), {
       ...init,
       headers,
-      cache: "no-store"
+      cache: "no-store",
+      signal: timeoutController?.signal
     });
 
     if (response.status === 404 && options?.treat404AsNull) {
@@ -564,12 +868,24 @@ async function requestBackend<T>(
       throw error;
     }
 
+    if (isAbortRequestError(error)) {
+      throw new CommunityBackendUnavailableError(
+        `Community backend request timed out for ${path}.`,
+        path,
+        undefined,
+        requestId,
+        "REQUEST_TIMEOUT"
+      );
+    }
+
     throw new CommunityBackendUnavailableError(
       `Community backend is unavailable for ${path}.`,
       path,
       undefined,
       requestId
     );
+  } finally {
+    timeoutController?.cleanup();
   }
 }
 
@@ -631,13 +947,14 @@ function ok<T>(data: T, requestId = "backend-adapter"): ApiEnvelope<T> {
 }
 
 export async function loginCommunity(input: {
+  loginType?: string;
   username: string;
   password: string;
 }): Promise<ApiEnvelope<LoginPayload>> {
   const backend = await requestBackendCommand<LoginPayload>("/api/auth/login", {
     method: "POST",
     body: JSON.stringify({
-      loginType: "password",
+      loginType: input.loginType?.trim() || "local_password",
       username: input.username,
       password: input.password
     })
@@ -674,37 +991,49 @@ export async function getCurrentAuthSession(): Promise<ApiEnvelope<ApiAuthSessio
   }
 
   const backend = await requestBackend<BackendAuthSession>("/api/auth/me");
+  return ok(
+    {
+      ...backend.data,
+      avatarUrl: normalizeAssetUrl(backend.data.avatarUrl)
+    },
+    backend.requestId
+  );
+}
+
+export async function getAuthProviderConfig(
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiAuthProviderConfig>> {
+  const backend = await requestBackend<BackendAuthProviderConfig>("/api/auth/providers", undefined, options);
   return ok(backend.data, backend.requestId);
 }
 
-export async function getHomeFeed(): Promise<ApiEnvelope<ApiFeedHomeResponse>> {
-  const backend = await requestBackend<ApiFeedHomeResponse>("/api/feed/home");
+export async function getHomeFeed(options?: PublicReadOptions): Promise<ApiEnvelope<ApiFeedHomeResponse>> {
+  const backend = await requestBackend<ApiFeedHomeResponse>("/api/feed/home", undefined, options);
+  return ok(backend.data, backend.requestId);
+}
+
+export async function getFeaturedArchiveLayout(
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiFeaturedArchiveResponse>> {
+  const backend = await requestBackend<ApiFeaturedArchiveResponse>("/api/feed/featured", undefined, options);
   return ok(backend.data, backend.requestId);
 }
 
 export async function getDiscussionHome(
-  channelSlug?: string
+  channelSlug?: string,
+  options?: PublicReadOptions
 ): Promise<ApiEnvelope<ApiDiscussionHomeResponse>> {
   const normalizedChannelSlug = channelSlug?.trim();
   const path =
     normalizedChannelSlug && normalizedChannelSlug.length > 0
       ? `/api/discussions/home?channel=${encodeURIComponent(normalizedChannelSlug)}`
       : "/api/discussions/home";
-  const backend = await requestBackend<BackendDiscussionHomeResponse>(path);
+  const backend = await requestBackend<BackendDiscussionHomeResponse>(path, undefined, options);
 
   return ok(
     {
       channels: backend.data.channels,
-      featuredThreads: backend.data.featuredThreads.map((thread) => ({
-        ...thread,
-        likeCount: thread.likeCount ?? 0,
-        tagNames: thread.tagNames ?? [],
-        favoriteCount: thread.favoriteCount ?? 0,
-        viewerActions: {
-          liked: thread.viewerActions?.liked ?? false,
-          favorited: thread.viewerActions?.favorited ?? false
-        }
-      }))
+      featuredThreads: backend.data.featuredThreads.map(normalizeDiscussionThreadCard)
     },
     backend.requestId
   );
@@ -728,7 +1057,8 @@ export async function getDiscussionThread(
   return ok(
     {
       ...backend.data,
-      tagNames: backend.data.tagNames ?? [],
+      tagNames: normalizeTagNames(backend.data.tagNames),
+      relatedThreads: (backend.data.relatedThreads ?? []).map(normalizeDiscussionThreadCard),
       stats: {
         likeCount: backend.data.stats?.likeCount ?? 0,
         favoriteCount: backend.data.stats?.favoriteCount ?? 0,
@@ -737,6 +1067,10 @@ export async function getDiscussionThread(
       viewerActions: {
         liked: backend.data.viewerActions?.liked ?? false,
         favorited: backend.data.viewerActions?.favorited ?? false
+      },
+      commentPolicy: backend.data.commentPolicy ?? {
+        commentingEnabled: true,
+        canManageComments: false
       }
     },
     backend.requestId
@@ -763,14 +1097,64 @@ export async function getRelatedVideos(id: string): Promise<ApiEnvelope<ApiVideo
 export async function getPrompts(input?: {
   modality?: "all" | "image" | "video";
   sort?: "latest" | "hot";
-}): Promise<ApiEnvelope<ApiPromptSummary[]>> {
+  limit?: number;
+  offset?: number;
+},
+options?: PublicReadOptions): Promise<ApiEnvelope<ApiPromptSummary[]>> {
   const modality = input?.modality ?? "all";
   const sort = input?.sort ?? "latest";
+  const limitQuery =
+    typeof input?.limit === "number" && Number.isFinite(input.limit) && input.limit > 0
+      ? `&limit=${encodeURIComponent(String(Math.trunc(input.limit)))}`
+      : "";
+  const offsetQuery =
+    typeof input?.offset === "number" && Number.isFinite(input.offset) && input.offset >= 0
+      ? `&offset=${encodeURIComponent(String(Math.trunc(input.offset)))}`
+      : "";
   const backend = await requestBackend<ApiPromptSummary[]>(
-    `/api/prompts?modality=${encodeURIComponent(modality)}&sort=${encodeURIComponent(sort)}`
+    `/api/prompts?modality=${encodeURIComponent(modality)}&sort=${encodeURIComponent(sort)}${limitQuery}${offsetQuery}`,
+    undefined,
+    options
   );
 
-  return ok(backend.data, backend.requestId);
+  return ok(backend.data.map(normalizePromptSummary), backend.requestId);
+}
+
+export async function getAllPrompts(
+  input?: {
+    modality?: "all" | "image" | "video";
+    sort?: "latest" | "hot";
+    pageSize?: number;
+  },
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiPromptSummary[]>> {
+  const modality = input?.modality ?? "all";
+  const sort = input?.sort ?? "latest";
+  const pageSize =
+    typeof input?.pageSize === "number" && Number.isFinite(input.pageSize) && input.pageSize > 0
+      ? Math.min(Math.trunc(input.pageSize), 1000)
+      : 1000;
+  const items: ApiPromptSummary[] = [];
+  let requestId = "backend-adapter";
+  let offset = 0;
+
+  for (let pageIndex = 0; pageIndex < 200; pageIndex += 1) {
+    const page = await getPrompts({ modality, sort, limit: pageSize, offset }, options);
+
+    if (pageIndex === 0) {
+      requestId = page.requestId;
+    }
+
+    items.push(...page.data);
+
+    if (page.data.length < pageSize) {
+      return ok(items, requestId);
+    }
+
+    offset += page.data.length;
+  }
+
+  throw new Error(`[community-service] prompt pagination exceeded safety window for modality=${modality}`);
 }
 
 export async function getPromptDetail(id: string): Promise<ApiEnvelope<ApiPromptDetail | null>> {
@@ -782,12 +1166,12 @@ export async function getPromptDetail(id: string): Promise<ApiEnvelope<ApiPrompt
     return ok(null);
   }
 
-  return ok(backend.data, backend.requestId);
+  return ok(normalizePromptDetail(backend.data), backend.requestId);
 }
 
 export async function getRelatedPrompts(id: string): Promise<ApiEnvelope<ApiPromptSummary[]>> {
   const backend = await requestBackend<ApiPromptSummary[]>(`/api/prompts/${id}/related`);
-  return ok(backend.data, backend.requestId);
+  return ok(backend.data.map(normalizePromptSummary), backend.requestId);
 }
 
 export async function getWorkflowDetail(id: string): Promise<ApiEnvelope<ApiWorkflowDetail | null>> {
@@ -799,7 +1183,7 @@ export async function getWorkflowDetail(id: string): Promise<ApiEnvelope<ApiWork
     return ok(null);
   }
 
-  return ok(backend.data, backend.requestId);
+  return ok(normalizeWorkflowDetail(backend.data), backend.requestId);
 }
 
 export async function getWorkflowRelatedVideos(id: string): Promise<ApiEnvelope<ApiVideoSummary[]>> {
@@ -829,20 +1213,84 @@ export async function getCreatorWorkflows(id: string): Promise<ApiEnvelope<ApiCu
   return ok(backend.data, backend.requestId);
 }
 
+export async function getCreatorPosts(id: string): Promise<ApiEnvelope<ApiCursorPage<ApiDiscussionHomeResponse["featuredThreads"][number]>>> {
+  const backend = await requestBackend<BackendCursorPage<BackendDiscussionHomeResponse["featuredThreads"][number]>>(
+    `/api/creators/${id}/posts`
+  );
+
+  return ok(
+    {
+      ...backend.data,
+      items: backend.data.items.map(normalizeDiscussionThreadCard)
+    },
+    backend.requestId
+  );
+}
+
 export async function getMeHub(): Promise<ApiEnvelope<ApiMeHubResponse>> {
   const backend = await requestBackend<BackendMeHubResponse>("/api/me/hub");
+  return ok(
+    {
+      ...backend.data,
+      draftItems: backend.data.draftItems ?? [],
+      publishedContent: {
+        videos: backend.data.publishedContent?.videos ?? [],
+        workflows: backend.data.publishedContent?.workflows ?? [],
+        posts: (backend.data.publishedContent?.posts ?? []).map(normalizeDiscussionThreadCard)
+      }
+    },
+    backend.requestId
+  );
+}
+
+export async function getRecentNotifications(): Promise<ApiEnvelope<ApiRecentNotificationsResponse>> {
+  const backend = await requestBackend<BackendRecentNotificationsResponse>("/api/me/notifications/recent");
+  return ok(
+      {
+        items: (backend.data.items ?? []).map((item) => ({
+          ...item,
+          replyToActorName: item.replyToActorName ?? undefined,
+          commentId: item.commentId ?? undefined,
+          actor: {
+            ...item.actor,
+            avatarUrl: normalizeAssetUrl(item.actor.avatarUrl)
+          }
+      }))
+    },
+    backend.requestId
+  );
+}
+
+export async function updateMeProfile(
+  input: ApiMeProfileUpdateInput
+): Promise<ApiEnvelope<ApiMeProfile>> {
+  const backend = await requestBackendCommand<ApiMeProfile>("/api/me/profile", {
+    method: "PUT",
+    body: JSON.stringify(input)
+  });
+
   return ok(backend.data, backend.requestId);
 }
 
 export async function getComments(
   targetType: ApiCommentTargetType,
-  targetId: string
-): Promise<ApiEnvelope<ApiComment[]>> {
+  targetId: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCommentPage>> {
   const backend = await requestBackend<BackendCursorPage<BackendComment>>(
-    `/api/comments?targetType=${encodeURIComponent(targetType)}&targetId=${encodeURIComponent(targetId)}`
+    `/api/comments?targetType=${encodeURIComponent(targetType)}&targetId=${encodeURIComponent(targetId)}${
+      cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""
+    }`
   );
 
-  return ok(backend.data.items.map(mapBackendComment), backend.requestId);
+  return ok(
+    {
+      items: backend.data.items.map(mapBackendComment),
+      nextCursor: backend.data.nextCursor ?? null,
+      hasMore: backend.data.hasMore
+    },
+    backend.requestId
+  );
 }
 
 export async function createComment(input: {
@@ -857,6 +1305,56 @@ export async function createComment(input: {
   });
 
   return ok(mapBackendComment(backend.data), backend.requestId);
+}
+
+export async function createReport(input: ApiReportCreateInput): Promise<ApiEnvelope<ApiReportResponse>> {
+  const backend = await requestBackendCommand<{
+    reportId: string;
+    targetType: ApiReportCreateInput["targetType"];
+    targetId: string;
+    reasonCode: ApiReportCreateInput["reasonCode"];
+    statusCode: string;
+  }>("/api/reports", {
+    method: "POST",
+    body: JSON.stringify(input)
+  });
+
+  return ok(
+    {
+      reportId: backend.data.reportId,
+      targetType: backend.data.targetType,
+      targetId: backend.data.targetId,
+      reasonCode: backend.data.reasonCode,
+      statusCode: backend.data.statusCode
+    },
+    backend.requestId
+  );
+}
+
+export async function updateCommentTargetSettings(input: {
+  targetType: ApiCommentTargetType;
+  targetId: string;
+  commentsEnabled: boolean;
+}) {
+  const backend = await requestBackendCommand<{
+    targetType: ApiCommentTargetType;
+    targetId: string;
+    commentsEnabled: boolean;
+    canManageComments: boolean;
+  }>("/api/comments/target-settings", {
+    method: "PUT",
+    body: JSON.stringify(input)
+  });
+
+  return ok(backend.data, backend.requestId);
+}
+
+export async function deleteComment(commentId: string) {
+  const backend = await requestBackendCommand<ApiInteractionState>(`/api/comments/${encodeURIComponent(commentId)}`, {
+    method: "DELETE"
+  });
+
+  return ok(backend.data, backend.requestId);
 }
 
 export async function setLike(input: {
@@ -911,6 +1409,7 @@ export async function setFollow(input: {
 
 export async function createUploadPolicy(input: {
   kind: ApiUploadAssetKind;
+  assetRole?: ApiUploadAssetRole;
   fileName: string;
   mimeType: string;
   sizeBytes: number;
@@ -922,7 +1421,8 @@ export async function createUploadPolicy(input: {
       body: JSON.stringify({
         fileName: input.fileName,
         mimeType: input.mimeType,
-        sizeBytes: input.sizeBytes
+        sizeBytes: input.sizeBytes,
+        assetRole: input.assetRole
       })
     }
   );
@@ -930,6 +1430,8 @@ export async function createUploadPolicy(input: {
   return ok(
     {
       assetId: backend.data.assetId,
+      assetKind: backend.data.assetKind,
+      assetRole: backend.data.assetRole,
       uploadUrl: backend.data.uploadUrl,
       headers: backend.data.headers ?? {},
       expiresAt: backend.data.expiresAt
@@ -955,7 +1457,10 @@ export async function uploadBinaryAsset(input: {
   return ok(
     {
       assetId: backend.data.assetId,
+      assetKind: backend.data.assetKind,
+      assetRole: backend.data.assetRole,
       statusCode: backend.data.statusCode,
+      mediaPath: backend.data.mediaPath,
       publicUrl: backend.data.publicUrl,
       sizeBytes: backend.data.sizeBytes
     },
@@ -963,67 +1468,157 @@ export async function uploadBinaryAsset(input: {
   );
 }
 
-export async function getPublishBootstrap(): Promise<ApiEnvelope<ApiPublishBootstrap>> {
-  const currentUser = await requestBackend<{
-    id: string;
-    displayName: string;
-    avatarUrl?: string;
-    roleCode: string;
-    creatorProfile?: {
-      bio?: string;
-      headline?: string;
-    };
-  }>("/api/auth/me");
-  const [videoDraft, workflowDraft, postDraft] = await Promise.all([
-    requestBackend<BackendVideoDraft>("/api/video-drafts", { method: "POST" }),
-    requestBackend<BackendWorkflowDraft>("/api/workflow-drafts", { method: "POST" }),
-    requestBackend<BackendPostDraft>("/api/post-drafts", { method: "POST" })
-  ]);
+export async function getMediaTask(taskId: string): Promise<ApiEnvelope<ApiMediaTask>> {
+  const backend = await requestBackend<BackendMediaTask>(`/api/media-tasks/${encodeURIComponent(taskId)}`);
 
   return ok(
     {
-      currentUser: {
-        id: currentUser.data.id,
-        displayName: currentUser.data.displayName,
-        roleCode: currentUser.data.roleCode
-      },
+      taskId: backend.data.taskId,
+      taskType: backend.data.taskType,
+      targetType: backend.data.targetType,
+      targetId: backend.data.targetId,
+      queueName: backend.data.queueName,
+      priorityLevel: backend.data.priorityLevel,
+      statusCode: backend.data.statusCode,
+      retryCount: backend.data.retryCount ?? 0,
+      maxRetryCount: backend.data.maxRetryCount ?? 0,
+      errorMessage: backend.data.errorMessage?.trim() || undefined,
+      submittedAt: backend.data.submittedAt,
+      startedAt: backend.data.startedAt,
+      finishedAt: backend.data.finishedAt,
+      retryable: backend.data.retryable ?? false
+    },
+    backend.requestId
+  );
+}
+
+export async function retryMediaTask(taskId: string): Promise<ApiEnvelope<ApiMediaTask>> {
+  const backend = await requestBackendCommand<BackendMediaTask>(`/api/media-tasks/${encodeURIComponent(taskId)}/retry`, {
+    method: "POST"
+  });
+
+  return ok(
+    {
+      taskId: backend.data.taskId,
+      taskType: backend.data.taskType,
+      targetType: backend.data.targetType,
+      targetId: backend.data.targetId,
+      queueName: backend.data.queueName,
+      priorityLevel: backend.data.priorityLevel,
+      statusCode: backend.data.statusCode,
+      retryCount: backend.data.retryCount ?? 0,
+      maxRetryCount: backend.data.maxRetryCount ?? 0,
+      errorMessage: backend.data.errorMessage?.trim() || undefined,
+      submittedAt: backend.data.submittedAt,
+      startedAt: backend.data.startedAt,
+      finishedAt: backend.data.finishedAt,
+      retryable: backend.data.retryable ?? false
+    },
+    backend.requestId
+  );
+}
+
+export async function getPublishPageBootstrap(input?: {
+  videoDraftId?: string;
+  workflowDraftId?: string;
+}): Promise<ApiEnvelope<ApiPublishPageBootstrap>> {
+  const params = new URLSearchParams();
+  if (input?.videoDraftId) {
+    params.set("videoDraftId", input.videoDraftId);
+  }
+  if (input?.workflowDraftId) {
+    params.set("workflowDraftId", input.workflowDraftId);
+  }
+  const path = params.size > 0 ? `/api/publish/bootstrap?${params.toString()}` : "/api/publish/bootstrap";
+  const backend = await requestBackend<{
+    currentUser: {
+      id: string;
+      displayName: string;
+      roleCode: string;
+    };
+    videoDraft: BackendVideoDraft;
+    workflowDraft: BackendWorkflowDraft;
+    availableWorkflows: ApiWorkflowSummary[];
+  }>(path);
+
+  return ok(
+    {
+      currentUser: backend.data.currentUser,
       videoDraft: {
-        draftId: videoDraft.data.draftId,
-        targetId: videoDraft.data.targetId,
-        title: videoDraft.data.title,
-        summary: videoDraft.data.summary,
-        categoryCode: videoDraft.data.categoryCode,
-        tagNames: videoDraft.data.tagNames ?? [],
-        workflowId: videoDraft.data.workflowId,
-        visibility: videoDraft.data.visibility,
-        coverAssetId: videoDraft.data.coverAssetId,
-        sourceAssetId: videoDraft.data.sourceAssetId,
-        statusCode: videoDraft.data.statusCode
+        draftId: backend.data.videoDraft.draftId,
+        targetId: backend.data.videoDraft.targetId,
+        title: backend.data.videoDraft.title,
+        summary: backend.data.videoDraft.summary,
+        categoryCode: backend.data.videoDraft.categoryCode,
+        promptText: backend.data.videoDraft.promptText,
+        modelCategory: backend.data.videoDraft.modelCategory,
+        contentCategory: backend.data.videoDraft.contentCategory,
+        compositionCategory: backend.data.videoDraft.compositionCategory,
+        tagNames: normalizeTagNames(backend.data.videoDraft.tagNames),
+        workflowId: backend.data.videoDraft.workflowId,
+        visibility: backend.data.videoDraft.visibility,
+        coverAssetId: backend.data.videoDraft.coverAssetId,
+        sourceAssetId: backend.data.videoDraft.sourceAssetId,
+        statusCode: backend.data.videoDraft.statusCode,
+        lifecycle: normalizeDraftLifecycle(backend.data.videoDraft.lifecycle, backend.data.videoDraft.statusCode)
       },
       workflowDraft: {
-        draftId: workflowDraft.data.draftId,
-        targetId: workflowDraft.data.targetId,
-        title: workflowDraft.data.title,
-        summary: workflowDraft.data.summary,
-        scenarioText: workflowDraft.data.scenarioText,
-        tagNames: workflowDraft.data.tagNames ?? [],
-        allowCopy: workflowDraft.data.allowCopy,
-        allowFork: workflowDraft.data.allowFork,
-        visibility: workflowDraft.data.visibility,
-        coverAssetId: workflowDraft.data.coverAssetId,
-        statusCode: workflowDraft.data.statusCode
+        draftId: backend.data.workflowDraft.draftId,
+        targetId: backend.data.workflowDraft.targetId,
+        title: backend.data.workflowDraft.title,
+        summary: backend.data.workflowDraft.summary,
+        scenarioText: backend.data.workflowDraft.scenarioText,
+        tagNames: normalizeTagNames(backend.data.workflowDraft.tagNames),
+        allowCopy: backend.data.workflowDraft.allowCopy,
+        allowFork: backend.data.workflowDraft.allowFork,
+        visibility: backend.data.workflowDraft.visibility,
+        coverAssetId: backend.data.workflowDraft.coverAssetId,
+        exampleAssetId: backend.data.workflowDraft.exampleAssetId,
+        statusCode: backend.data.workflowDraft.statusCode,
+        lifecycle: normalizeDraftLifecycle(backend.data.workflowDraft.lifecycle, backend.data.workflowDraft.statusCode)
       },
-      postDraft: {
-        draftId: postDraft.data.draftId,
-        targetId: postDraft.data.targetId,
-        title: postDraft.data.title,
-        channelSlug: postDraft.data.channelSlug,
-        content: postDraft.data.content,
-        tagNames: postDraft.data.tagNames ?? [],
-        statusCode: postDraft.data.statusCode
-      }
+      availableWorkflows: backend.data.availableWorkflows
     },
-    currentUser.requestId
+    backend.requestId
+  );
+}
+
+export async function getPostComposerBootstrap(input?: {
+  postDraftId?: string;
+}): Promise<ApiEnvelope<ApiPostComposerBootstrap>> {
+  const params = new URLSearchParams();
+  if (input?.postDraftId) {
+    params.set("postDraftId", input.postDraftId);
+  }
+  const path = params.size > 0
+    ? `/api/discussions/composer-bootstrap?${params.toString()}`
+    : "/api/discussions/composer-bootstrap";
+  const backend = await requestBackend<{
+    currentUser: {
+      id: string;
+      displayName: string;
+      roleCode: string;
+    };
+    postDraft: BackendPostDraft;
+    channels: ApiDiscussionHomeResponse["channels"];
+  }>(path);
+
+  return ok(
+    {
+      currentUser: backend.data.currentUser,
+      postDraft: {
+        draftId: backend.data.postDraft.draftId,
+        targetId: backend.data.postDraft.targetId,
+        title: backend.data.postDraft.title,
+        channelSlug: backend.data.postDraft.channelSlug,
+        content: backend.data.postDraft.content,
+        tagNames: normalizeTagNames(backend.data.postDraft.tagNames),
+        statusCode: backend.data.postDraft.statusCode,
+        lifecycle: normalizeDraftLifecycle(backend.data.postDraft.lifecycle, backend.data.postDraft.statusCode)
+      },
+      channels: backend.data.channels
+    },
+    backend.requestId
   );
 }
 
@@ -1043,15 +1638,28 @@ export async function updateVideoDraft(
       title: backend.data.title,
       summary: backend.data.summary,
       categoryCode: backend.data.categoryCode,
-      tagNames: backend.data.tagNames ?? [],
+      promptText: backend.data.promptText,
+      modelCategory: backend.data.modelCategory,
+      contentCategory: backend.data.contentCategory,
+      compositionCategory: backend.data.compositionCategory,
+      tagNames: normalizeTagNames(backend.data.tagNames),
       workflowId: backend.data.workflowId,
       visibility: backend.data.visibility,
       coverAssetId: backend.data.coverAssetId,
       sourceAssetId: backend.data.sourceAssetId,
-      statusCode: backend.data.statusCode
+      statusCode: backend.data.statusCode,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.statusCode)
     },
     backend.requestId
   );
+}
+
+export async function deleteVideoDraft(draftId: string): Promise<ApiEnvelope<null>> {
+  const backend = await requestBackendCommand<null>(`/api/video-drafts/${draftId}`, {
+    method: "DELETE"
+  });
+
+  return ok(null, backend.requestId);
 }
 
 export async function updateWorkflowDraft(
@@ -1070,15 +1678,25 @@ export async function updateWorkflowDraft(
       title: backend.data.title,
       summary: backend.data.summary,
       scenarioText: backend.data.scenarioText,
-      tagNames: backend.data.tagNames ?? [],
+      tagNames: normalizeTagNames(backend.data.tagNames),
       allowCopy: backend.data.allowCopy,
       allowFork: backend.data.allowFork,
       visibility: backend.data.visibility,
       coverAssetId: backend.data.coverAssetId,
-      statusCode: backend.data.statusCode
+      exampleAssetId: backend.data.exampleAssetId,
+      statusCode: backend.data.statusCode,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.statusCode)
     },
     backend.requestId
   );
+}
+
+export async function deleteWorkflowDraft(draftId: string): Promise<ApiEnvelope<null>> {
+  const backend = await requestBackendCommand<null>(`/api/workflow-drafts/${draftId}`, {
+    method: "DELETE"
+  });
+
+  return ok(null, backend.requestId);
 }
 
 export async function updatePostDraft(
@@ -1097,11 +1715,20 @@ export async function updatePostDraft(
       title: backend.data.title,
       channelSlug: backend.data.channelSlug,
       content: backend.data.content,
-      tagNames: backend.data.tagNames ?? [],
-      statusCode: backend.data.statusCode
+      tagNames: normalizeTagNames(backend.data.tagNames),
+      statusCode: backend.data.statusCode,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.statusCode)
     },
     backend.requestId
   );
+}
+
+export async function deletePostDraft(draftId: string): Promise<ApiEnvelope<null>> {
+  const backend = await requestBackendCommand<null>(`/api/post-drafts/${draftId}`, {
+    method: "DELETE"
+  });
+
+  return ok(null, backend.requestId);
 }
 
 export async function submitVideoDraft(
@@ -1116,7 +1743,10 @@ export async function submitVideoDraft(
   return ok(
     {
       targetId: backend.data.videoId,
+      draftStatus: backend.data.draftStatus,
+      contentStatus: backend.data.contentStatus,
       publishStatus: backend.data.publishStatus,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.draftStatus ?? backend.data.publishStatus),
       taskIds: backend.data.taskIds,
       submitMode: backend.data.submitMode
     },
@@ -1136,7 +1766,10 @@ export async function submitWorkflowDraft(
   return ok(
     {
       targetId: backend.data.workflowId,
+      draftStatus: backend.data.draftStatus,
+      contentStatus: backend.data.contentStatus,
       publishStatus: backend.data.publishStatus,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.draftStatus ?? backend.data.publishStatus),
       taskIds: backend.data.taskIds,
       submitMode: backend.data.submitMode
     },
@@ -1157,7 +1790,10 @@ export async function submitPostDraft(
     {
       targetId: backend.data.targetId,
       slug: backend.data.slug,
+      draftStatus: backend.data.draftStatus,
+      contentStatus: backend.data.contentStatus,
       publishStatus: backend.data.publishStatus,
+      lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.draftStatus ?? backend.data.publishStatus),
       taskIds: backend.data.taskIds,
       submitMode: backend.data.submitMode
     },

@@ -2,6 +2,7 @@ package com.dramatv.community.identity.controller;
 
 import com.dramatv.community.identity.application.AuthApplicationService;
 import com.dramatv.community.identity.dto.request.LoginRequest;
+import com.dramatv.community.identity.dto.response.AuthProviderConfigResponse;
 import com.dramatv.community.identity.dto.response.AuthSessionResponse;
 import com.dramatv.community.identity.dto.response.LoginResponse;
 import com.dramatv.community.shared.response.ApiResponse;
@@ -28,6 +29,11 @@ public class AuthController {
     @PostMapping("/login")
     public ApiResponse<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
         return ApiResponse.ok(authApplicationService.login(request));
+    }
+
+    @GetMapping("/providers")
+    public ApiResponse<AuthProviderConfigResponse> providers() {
+        return ApiResponse.ok(authApplicationService.getProviderConfig());
     }
 
     @PostMapping("/logout")

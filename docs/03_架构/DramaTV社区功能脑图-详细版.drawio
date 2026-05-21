@@ -1,77 +1,160 @@
-<mxfile host="app.diagrams.net" modified="2026-04-10T11:55:00.000+08:00" agent="Codex" version="24.7.17" type="device">
-  <diagram id="dramatv-community-mindmap-detailed" name="DramaTV社区功能脑图-详细版">
-    <mxGraphModel dx="1600" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2600" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2026-04-20T23:10:00.000+08:00" agent="Codex" version="24.7.17" type="device">
+  <diagram id="dramatv-community-planning-mindmap-20260420" name="DramaTV社区功能脑图-详细规划版">
+    <mxGraphModel dx="1800" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3600" pageHeight="2600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" value="DramaTV 社区功能脑图 详细版&#xa;内容对象 + 页面模块 + 小功能 + 联动关系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;fontColor=#ffffff;strokeColor=#1d4ed8;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1160" width="300" height="90" as="geometry" />
+
+        <mxCell id="root" value="DramaTV 社区上线规划脑图&#xa;当前节点：基础功能闭环已完成&#xa;目标：从本地 PGC 原型推进到可上线社区产品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#1e293b;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1160" width="330" height="110" as="geometry" />
         </mxCell>
 
-        <mxCell id="10" value="内容对象体系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#60a5fa;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="40" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="11" value="一级对象&#xa;图片提示词&#xa;视频提示词&#xa;视频作品&#xa;工作流&#xa;讨论帖子&#xa;创作者" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1"><mxGeometry x="700" y="0" width="240" height="130" as="geometry" /></mxCell>
-        <mxCell id="12" value="核心字段&#xa;标题 / 摘要 / 标签 / 模型&#xa;示例结果 / 作者 / 状态&#xa;promptIds / workflowId / 版本&#xa;绑定对象 / 最新活跃时间" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fbff;strokeColor=#bfdbfe;" vertex="1" parent="1"><mxGeometry x="1020" y="20" width="360" height="110" as="geometry" /></mxCell>
+        <mxCell id="b1" value="1. 项目定位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#60a5fa;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="80" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b1a" value="不是普通短视频站&#xa;不是单纯官网&#xa;是 AI 视频生成社区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;" vertex="1" parent="1">
+          <mxGeometry x="860" y="40" width="260" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="b1b" value="核心差异&#xa;展示结果：视频 / 图片&#xa;展示方法：提示词 / 工作流&#xa;沉淀讨论：帖子 / 评论 / 经验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fbff;strokeColor=#bfdbfe;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="30" width="320" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="b1c" value="阶段判断&#xa;PGC 冷启动阶段&#xa;先做社区闭环&#xa;再增强画布联动和 UGC 机制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="35" width="300" height="102" as="geometry" />
+        </mxCell>
 
-        <mxCell id="20" value="首页与发现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#4ade80;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="310" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="21" value="页面模块&#xa;首页 Feed&#xa;热门工作流&#xa;提示词库入口&#xa;讨论热点入口&#xa;创作者入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1"><mxGeometry x="700" y="260" width="240" height="130" as="geometry" /></mxCell>
-        <mxCell id="22" value="小功能&#xa;推荐 / 最新 / 热门&#xa;标签筛选 / 模型筛选 / 搜索入口&#xa;发布入口 / 专题位 / 运营位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7fee7;strokeColor=#bbf7d0;" vertex="1" parent="1"><mxGeometry x="1020" y="280" width="360" height="110" as="geometry" /></mxCell>
+        <mxCell id="b2" value="2. 已完成基础闭环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#4ade80;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="360" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b2a" value="正式工程已切换&#xa;前端：apps/web，Next.js + React + TypeScript&#xa;后端：apps/server，Spring Boot&#xa;旧 Vite 原型已归档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="860" y="260" width="340" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="b2b" value="页面闭环已具备&#xa;/ 首页入口&#xa;/home 内容首页&#xa;/featured 精选资源库&#xa;/discussions 讨论广场&#xa;/publish 发布中心&#xa;/videos / workflows / prompts 详情&#xa;/creators 作者页 /me 个人中心&#xa;/canvas 画布占位入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7fee7;strokeColor=#bbf7d0;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="230" width="360" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="b2c" value="后端接口已落地&#xa;登录 / 会话 / 个人中心&#xa;首页 Feed / 内容详情 / 作者聚合&#xa;提示词库 / 讨论 / 评论&#xa;点赞 / 收藏 / 关注&#xa;视频发布 / 帖子发布 / 工作流草稿&#xa;上传策略 / 本地媒体写入&#xa;画布复制与 runtime 占位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="225" width="360" height="178" as="geometry" />
+        </mxCell>
+        <mxCell id="b2d" value="已验证可用的用户链路&#xa;游客浏览首页&#xa;受限点击触发登录&#xa;登录后访问详情 / 发布 / 画布&#xa;发布帖子后进入讨论详情&#xa;发布视频后进入视频详情&#xa;互动数据从 0 开始真实写入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#86efac;" vertex="1" parent="1">
+          <mxGeometry x="2180" y="245" width="340" height="142" as="geometry" />
+        </mxCell>
 
-        <mxCell id="30" value="提示词库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="580" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="31" value="页面模块&#xa;图片提示词列表页&#xa;视频提示词列表页&#xa;提示词详情页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1"><mxGeometry x="700" y="540" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="32" value="小功能&#xa;排序 / 筛选 / 标签 / 模型&#xa;复制提示词 / 下载文本 / 收藏&#xa;查看示例结果 / 进入关联工作流 / 进入讨论贴" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1"><mxGeometry x="1020" y="530" width="360" height="120" as="geometry" /></mxCell>
+        <mxCell id="b3" value="3. 当前数据现状" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="690" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b3a" value="数据库已落地 PostgreSQL&#xa;users / creator_profiles&#xa;videos / workflows / feed_items&#xa;prompt_entries / prompt_example_links&#xa;discussion_threads / comments&#xa;interaction_actions / follow_relations&#xa;publish_drafts / audit_records / report_tickets&#xa;canvas_* / async_task_records" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#fcd34d;" vertex="1" parent="1">
+          <mxGeometry x="860" y="590" width="360" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="b3b" value="本地数据来源&#xa;YouMind 图片提示词已导入 prompt_entries&#xa;YouMind 视频提示词已导入 prompt_entries&#xa;可播放视频资产来自本地 youmind-video-assets&#xa;工作流仍以本地种子 / 占位数据为主" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#fdba74;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="610" width="360" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="b3c" value="媒体存储现状&#xa;当前 provider = local_fs&#xa;文件落在 tmp/media&#xa;数据库只保存 object_key / metadata&#xa;上线后大文件必须迁移到 OSS / S3 / MinIO + CDN&#xa;源码仓库不长期保存大视频" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="600" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="b3d" value="数据库适合保存&#xa;用户 / 作者资料&#xa;内容元数据 / 状态 / 权限&#xa;提示词正文 / 标签 / 关系&#xa;评论 / 点赞 / 收藏 / 关注&#xa;发布草稿 / 审核记录 / 任务记录&#xa;媒体文件只保存引用，不保存二进制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffef2;strokeColor=#fcd34d;" vertex="1" parent="1">
+          <mxGeometry x="2180" y="600" width="340" height="152" as="geometry" />
+        </mxCell>
 
-        <mxCell id="40" value="作品社区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#f87171;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="850" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="41" value="页面模块&#xa;视频卡片&#xa;视频详情页&#xa;相关推荐 / 继续观看" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff1f2;strokeColor=#fda4af;" vertex="1" parent="1"><mxGeometry x="700" y="810" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="42" value="小功能&#xa;播放 / 简介 / 标签 / 分享&#xa;点赞 / 收藏 / 关注作者 / 评论&#xa;查看关联工作流 / 查看来源提示词 / 进入作者主页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#fecaca;" vertex="1" parent="1"><mxGeometry x="1020" y="800" width="360" height="120" as="geometry" /></mxCell>
+        <mxCell id="b4" value="4. 当前明确缺口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#f87171;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1040" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b4a" value="审核机制未完整上线&#xa;已有 audit_records / report_tickets 表&#xa;已有 internal audit callback 接口位&#xa;但没有后台管理系统&#xa;当前视频和帖子为本地直发&#xa;后续审核归入独立后台管理系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff1f2;strokeColor=#fda4af;" vertex="1" parent="1">
+          <mxGeometry x="860" y="940" width="360" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="b4b" value="媒体处理仍是简化版&#xa;没有正式转码队列&#xa;没有封面抽帧流水线&#xa;没有 preview/source 多规格产物&#xa;没有病毒扫描 / 内容安全扫描&#xa;当前适合本地演示，不适合直接公网承压" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#fecaca;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="940" width="360" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="b4c" value="画布联动仍是产品位&#xa;copy-to-canvas 可创建 runtime 占位&#xa;可展示 light snapshot&#xa;但未接公司真实画布账号 / 空间 / 工作流复制 API&#xa;登录未来也要以画布产品登录为主" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff1f2;strokeColor=#fda4af;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="950" width="360" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="b4d" value="推荐搜索仍待增强&#xa;当前主要是数据库查询和本地排序&#xa;缺少搜索引擎 / 索引更新&#xa;缺少运营配置后台&#xa;缺少冷启动内容池管理&#xa;缺少真实热度、完播、复制率等推荐信号" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#fecaca;" vertex="1" parent="1">
+          <mxGeometry x="2180" y="940" width="340" height="148" as="geometry" />
+        </mxCell>
 
-        <mxCell id="50" value="工作流与画布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#8b5cf6;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="1120" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="51" value="页面模块&#xa;工作流详情页&#xa;复制到画布&#xa;Canvas Runtime 页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1"><mxGeometry x="700" y="1080" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="52" value="小功能&#xa;关联视频 / 来源提示词 / 作者 / 版本&#xa;复制权限 / 目标空间 / 状态查询 / 打开 runtime&#xa;后续增强：派生链 / 轻量节点预览 / 执行状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#faf5ff;strokeColor=#ddd6fe;" vertex="1" parent="1"><mxGeometry x="1020" y="1070" width="360" height="130" as="geometry" /></mxCell>
+        <mxCell id="b5" value="5. 云迁移规划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#8b5cf6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1380" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b5a" value="必须迁移到云的内容&#xa;视频源文件 source&#xa;视频预览 preview&#xa;封面 poster / cover&#xa;图片示例资产&#xa;用户上传附件&#xa;画布 runtime 可见资产" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1290" width="320" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="b5b" value="继续放数据库的内容&#xa;用户账号映射和会话&#xa;内容标题 / 摘要 / 标签 / 状态&#xa;提示词正文和版本&#xa;媒体 metadata 与对象存储 key&#xa;评论互动关系&#xa;审核和任务状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#faf5ff;strokeColor=#ddd6fe;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1290" width="320" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="b5c" value="建议上线形态&#xa;前端：Next.js 部署到 Web 服务 / Vercel 类平台 / 自建 Node&#xa;后端：Spring Boot 容器化部署&#xa;数据库：云 PostgreSQL&#xa;缓存：云 Redis&#xa;媒体：OSS / S3 / MinIO + CDN&#xa;入口：Nginx / 网关 + HTTPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="1275" width="360" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="b5d" value="迁移顺序建议&#xa;1. 固化线上库表和种子数据&#xa;2. 上传链路切 OSS 预签名&#xa;3. 迁移 YouMind 媒体资产到 OSS&#xa;4. 将 object_key 批量回写数据库&#xa;5. 接 CDN 域名和缓存策略&#xa;6. 再接审核后台和 Worker 队列" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f5ff;strokeColor=#c4b5fd;" vertex="1" parent="1">
+          <mxGeometry x="2100" y="1275" width="360" height="168" as="geometry" />
+        </mxCell>
 
-        <mxCell id="60" value="讨论区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#38bdf8;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="1390" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="61" value="页面模块&#xa;讨论首页&#xa;帖子详情页&#xa;频道 / 分区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1"><mxGeometry x="700" y="1350" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="62" value="小功能&#xa;发帖 / 回复 / 点赞 / 收藏&#xa;绑定视频 / 绑定工作流 / 绑定提示词&#xa;内容分区：AI 视频经验 / Prompt 经验 / 工作流教程 / AI 新闻 / 案例拆解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#a5f3fc;" vertex="1" parent="1"><mxGeometry x="1020" y="1340" width="360" height="130" as="geometry" /></mxCell>
+        <mxCell id="b6" value="6. 下一阶段优先级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#38bdf8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1730" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b6a" value="P0 上线前必须补齐&#xa;生产登录对接画布账号体系&#xa;OSS 上传与媒体访问鉴权&#xa;基础审核后台或审核队列&#xa;发布后内容分发规则&#xa;错误码 / requestId / 日志追踪闭环&#xa;最小运维部署文档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1640" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="b6b" value="P1 体验增强&#xa;搜索与筛选体验&#xa;个人中心内容管理&#xa;草稿列表 / 编辑 / 删除&#xa;通知中心&#xa;作者页内容聚合优化&#xa;运营精选 / 榜单配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#a5f3fc;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="1650" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="b6c" value="P2 深化能力&#xa;真实复制到画布&#xa;工作流派生链&#xa;画布运行结果回流社区&#xa;AI 生成任务中心&#xa;高级推荐 / 搜索索引&#xa;多角色运营后台" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#7dd3fc;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="1650" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="b6d" value="暂不抢主线&#xa;复杂交易体系&#xa;复杂 UGC 治理模型&#xa;重度微服务拆分&#xa;复杂推荐系统&#xa;完整画布 runtime 编辑器&#xa;这些等 PGC 闭环稳定后再推进" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="2090" y="1650" width="340" height="130" as="geometry" />
+        </mxCell>
 
-        <mxCell id="70" value="创作者与发布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#94a3b8;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="1660" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="71" value="页面模块&#xa;作者主页&#xa;发布页&#xa;视频发布流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="700" y="1620" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="72" value="小功能&#xa;作者资料 / 作品流 / 关注 / 讨论入口&#xa;上传视频 / 绑定工作流 / 绑定提示词 / 标签 / 分区 / 可见性 / 草稿保存&#xa;状态流转：草稿 → 审核 → 发布 → Feed → 详情页互动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="1020" y="1600" width="360" height="140" as="geometry" /></mxCell>
+        <mxCell id="b7" value="7. 汇报结论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="2100" width="210" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="b7a" value="现在已经不是纯 UI demo&#xa;已具备真实前后端、数据库、登录、发布、互动、详情、讨论和画布入口闭环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="860" y="2040" width="380" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="b7b" value="距离上线的主要差距&#xa;不是页面数量&#xa;而是生产级基础设施：审核、云存储、媒体处理、账号对接、运维监控、搜索推荐" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="2040" width="400" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="b7c" value="下一步建议&#xa;先把本地真实数据迁移为云端 PGC 内容池&#xa;再接画布登录和 OSS 上传&#xa;最后补审核后台和运营配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="1840" y="2040" width="380" height="98" as="geometry" />
+        </mxCell>
 
-        <mxCell id="80" value="互动与治理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#ec4899;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="1930" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="81" value="互动能力&#xa;对象评论区&#xa;点赞 / 收藏 / 关注" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#f9a8d4;" vertex="1" parent="1"><mxGeometry x="700" y="1890" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="82" value="治理能力&#xa;内容举报 / 评论审核 / 上传校验&#xa;敏感词 / 可见性控制&#xa;交互状态必须标注 前端占位 / 已接接口 / 已可用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef7ff;strokeColor=#fbcfe8;" vertex="1" parent="1"><mxGeometry x="1020" y="1880" width="360" height="110" as="geometry" /></mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;" edge="1" parent="1" source="root" target="b1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;" edge="1" parent="1" source="root" target="b2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;" edge="1" parent="1" source="root" target="b3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f87171;" edge="1" parent="1" source="root" target="b4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;" edge="1" parent="1" source="root" target="b5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;" edge="1" parent="1" source="root" target="b6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;" edge="1" parent="1" source="root" target="b7"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="90" value="关键联动关系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#64748b;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="420" y="2190" width="190" height="50" as="geometry" /></mxCell>
-        <mxCell id="91" value="内容链路&#xa;Prompt → Workflow → Video&#xa;Video / Workflow / Prompt → Discussion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" vertex="1" parent="1"><mxGeometry x="700" y="2150" width="240" height="100" as="geometry" /></mxCell>
-        <mxCell id="92" value="业务链路&#xa;发布 → 审核 → 首页 Feed → 详情页 → 评论互动 → 作者主页&#xa;Workflow → Copy To Canvas → Runtime → 后续派生作品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="1020" y="2140" width="360" height="110" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#93c5fd;" edge="1" parent="1" source="b1" target="b1a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#bfdbfe;" edge="1" parent="1" source="b1a" target="b1b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b1b" target="b1c"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="200" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#60a5fa;" edge="1" parent="1" source="2" target="10"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="201" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4ade80;" edge="1" parent="1" source="2" target="20"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="202" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f59e0b;" edge="1" parent="1" source="2" target="30"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="203" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f87171;" edge="1" parent="1" source="2" target="40"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="204" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8b5cf6;" edge="1" parent="1" source="2" target="50"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="205" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#38bdf8;" edge="1" parent="1" source="2" target="60"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="206" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;" edge="1" parent="1" source="2" target="70"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="207" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#ec4899;" edge="1" parent="1" source="2" target="80"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="208" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;" edge="1" parent="1" source="2" target="90"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#86efac;" edge="1" parent="1" source="b2" target="b2a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#bbf7d0;" edge="1" parent="1" source="b2a" target="b2b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b2b" target="b2c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#86efac;" edge="1" parent="1" source="b2c" target="b2d"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="210" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#93c5fd;" edge="1" parent="1" source="10" target="11"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="211" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#bfdbfe;" edge="1" parent="1" source="11" target="12"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="220" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#86efac;" edge="1" parent="1" source="20" target="21"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="221" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#bbf7d0;" edge="1" parent="1" source="21" target="22"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="230" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fcd34d;" edge="1" parent="1" source="30" target="31"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="231" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fdba74;" edge="1" parent="1" source="31" target="32"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="240" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fda4af;" edge="1" parent="1" source="40" target="41"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="241" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fecaca;" edge="1" parent="1" source="41" target="42"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="250" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#c4b5fd;" edge="1" parent="1" source="50" target="51"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="251" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#ddd6fe;" edge="1" parent="1" source="51" target="52"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="260" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7dd3fc;" edge="1" parent="1" source="60" target="61"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="261" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#a5f3fc;" edge="1" parent="1" source="61" target="62"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="270" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="70" target="71"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="271" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="71" target="72"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="280" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f9a8d4;" edge="1" parent="1" source="80" target="81"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="281" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fbcfe8;" edge="1" parent="1" source="81" target="82"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="290" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;" edge="1" parent="1" source="90" target="91"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="291" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="91" target="92"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fcd34d;" edge="1" parent="1" source="b3" target="b3a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fdba74;" edge="1" parent="1" source="b3a" target="b3b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b3b" target="b3c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fcd34d;" edge="1" parent="1" source="b3c" target="b3d"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e40" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fda4af;" edge="1" parent="1" source="b4" target="b4a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e41" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fecaca;" edge="1" parent="1" source="b4a" target="b4b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e42" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fda4af;" edge="1" parent="1" source="b4b" target="b4c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e43" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fecaca;" edge="1" parent="1" source="b4c" target="b4d"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e50" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#c4b5fd;" edge="1" parent="1" source="b5" target="b5a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e51" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#ddd6fe;" edge="1" parent="1" source="b5a" target="b5b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e52" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b5b" target="b5c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e53" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#c4b5fd;" edge="1" parent="1" source="b5c" target="b5d"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e60" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7dd3fc;" edge="1" parent="1" source="b6" target="b6a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e61" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#a5f3fc;" edge="1" parent="1" source="b6a" target="b6b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e62" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7dd3fc;" edge="1" parent="1" source="b6b" target="b6c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e63" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b6c" target="b6d"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e70" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;" edge="1" parent="1" source="b7" target="b7a"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e71" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1" source="b7a" target="b7b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e72" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;" edge="1" parent="1" source="b7b" target="b7c"><mxGeometry relative="1" as="geometry" /></mxCell>
       </root>
     </mxGraphModel>
   </diagram>

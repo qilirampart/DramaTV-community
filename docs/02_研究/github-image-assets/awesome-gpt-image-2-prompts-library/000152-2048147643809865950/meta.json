@@ -1,0 +1,43 @@
+{
+  "rank": 152,
+  "id": "2048147643809865950",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 145,
+  "title": "Neon Nike Lumina Ad Poster",
+  "description": "Poster & Illustration Cases curated case: Neon Nike Lumina Ad Poster, source author AlwaveNazca.",
+  "language": "",
+  "authorName": "AlwaveNazca",
+  "authorLink": "https://x.com/AlwaveNazca",
+  "sourceLink": "https://x.com/AlwaveNazca/status/2048147643809865950",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case145/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case145/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

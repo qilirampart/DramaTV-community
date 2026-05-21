@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { Tag } from "@/components/shared/Tag";
 import type { DiscussionThreadCardView } from "@/lib/contracts/view-models";
+import { formatDiscussionDisplayExcerpt, formatDiscussionDisplayTitle } from "@/lib/presentation";
 import {
   toggleDiscussionThreadFavoriteQuickAction,
   toggleDiscussionThreadLikeQuickAction
@@ -32,6 +33,8 @@ export function DiscussionThreadQuickFavoriteCard({
   thread,
   variant
 }: DiscussionThreadQuickFavoriteCardProps) {
+  const displayTitle = formatDiscussionDisplayTitle(thread.title) ?? thread.title;
+  const displayExcerpt = formatDiscussionDisplayExcerpt(thread.excerpt);
   const router = useRouter();
   const [liked, setLiked] = useState(thread.viewerLiked ?? false);
   const [likeCount, setLikeCount] = useState(safeCount(thread.likeCount));
@@ -100,10 +103,10 @@ export function DiscussionThreadQuickFavoriteCard({
       <article className="discussion-mini-card discussion-mini-card-shell">
         <Link className="discussion-mini-card-link" href={thread.href}>
           <div className="discussion-card-meta">
-            <strong>{thread.title}</strong>
+            <strong>{displayTitle}</strong>
             <span className="meta-pill">{thread.channelTitle}</span>
           </div>
-          <p>{thread.lastActivityLabel}</p>
+          <p>{displayExcerpt ?? thread.lastActivityLabel}</p>
           <div className="hero-chip-row">
             <span className="meta-pill">{likeCount.toLocaleString("zh-CN")} likes</span>
             <span className="meta-pill">{favoriteCount.toLocaleString("zh-CN")} favorites</span>
@@ -139,8 +142,8 @@ export function DiscussionThreadQuickFavoriteCard({
     <article className="discussion-thread-row discussion-thread-row-shell">
       <div className="discussion-thread-copy">
         <Link className="discussion-thread-primary-link" href={thread.href}>
-          <strong>{thread.title}</strong>
-          {thread.excerpt ? <p className="card-copy">{thread.excerpt}</p> : null}
+          <strong>{displayTitle}</strong>
+          {displayExcerpt ? <p className="card-copy">{displayExcerpt}</p> : null}
         </Link>
         <div className="discussion-thread-meta-row">
           <span>{thread.channelTitle}</span>

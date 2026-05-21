@@ -1,0 +1,43 @@
+{
+  "rank": 23,
+  "id": "2047179916161212542",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 23,
+  "title": "Ultra-realistic product photography of a rich strawberry soft-serve ice cream...",
+  "description": "Portrait & Photography Cases curated case: Ultra-realistic product photography of a rich strawberry soft-serve ice cream..., source author ZaraIrahh.",
+  "language": "",
+  "authorName": "ZaraIrahh",
+  "authorLink": "https://x.com/ZaraIrahh",
+  "sourceLink": "https://x.com/ZaraIrahh/status/2047179916161212542",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case79/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "images/portrait_case79/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

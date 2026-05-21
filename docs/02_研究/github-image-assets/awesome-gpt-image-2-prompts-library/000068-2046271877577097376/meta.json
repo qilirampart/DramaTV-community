@@ -1,0 +1,50 @@
+{
+  "rank": 68,
+  "id": "2046271877577097376",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 33,
+  "title": "Journey to the West Chinese Comic",
+  "description": "Poster & Illustration Cases curated case: Journey to the West Chinese Comic, source author overseas58.",
+  "language": "zh",
+  "authorName": "overseas58",
+  "authorLink": "https://x.com/overseas58",
+  "sourceLink": "https://x.com/overseas58/status/2046271877577097376",
+  "sourcePublishedAt": "Mon Apr 20 16:56:48 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 89,
+  "likes": 0,
+  "retweetCount": 0,
+  "viewCount": 278,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case33/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case33/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGXRKyKacAAdYwl.jpg",
+      "width": 1402,
+      "height": 1122
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

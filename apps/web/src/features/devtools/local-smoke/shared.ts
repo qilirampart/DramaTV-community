@@ -7,7 +7,7 @@ import {
   getWorkflowDetail
 } from "@/lib/api/community-service";
 import type {
-  ApiComment,
+  ApiCommentPage,
   ApiCreatorProfile,
   ApiVideoDetail,
   ApiWorkflowDetail
@@ -83,8 +83,8 @@ function makeCheck(label: string, current: string, expected: string, ok: boolean
   };
 }
 
-function buildVideoChecks(detail: ApiVideoDetail, comments: ApiComment[]): LocalSmokeCheckView[] {
-  const baselineRoot = comments.find((comment) => comment.id === LOCAL_SMOKE_FIXTURES.videoRootCommentId);
+function buildVideoChecks(detail: ApiVideoDetail, comments: ApiCommentPage): LocalSmokeCheckView[] {
+  const baselineRoot = comments.items.find((comment) => comment.id === LOCAL_SMOKE_FIXTURES.videoRootCommentId);
 
   return [
     makeCheck("总评论数", countText(detail.stats.commentCount), "2", detail.stats.commentCount === 2),
@@ -92,7 +92,7 @@ function buildVideoChecks(detail: ApiVideoDetail, comments: ApiComment[]): Local
     makeCheck("收藏数", countText(detail.stats.favoriteCount), "0", detail.stats.favoriteCount === 0),
     makeCheck("当前用户已点赞", boolText(detail.viewerActions.liked), "否", !detail.viewerActions.liked),
     makeCheck("当前用户已收藏", boolText(detail.viewerActions.favorited), "否", !detail.viewerActions.favorited),
-    makeCheck("根评论条数", countText(comments.length), "1", comments.length === 1),
+    makeCheck("根评论条数", countText(comments.items.length), "1", comments.items.length === 1),
     makeCheck(
       "基线根评论 ID",
       baselineRoot?.id ?? "缺失",
@@ -104,8 +104,8 @@ function buildVideoChecks(detail: ApiVideoDetail, comments: ApiComment[]): Local
   ];
 }
 
-function buildWorkflowChecks(detail: ApiWorkflowDetail, comments: ApiComment[]): LocalSmokeCheckView[] {
-  const baselineRoot = comments.find((comment) => comment.id === LOCAL_SMOKE_FIXTURES.workflowRootCommentId);
+function buildWorkflowChecks(detail: ApiWorkflowDetail, comments: ApiCommentPage): LocalSmokeCheckView[] {
+  const baselineRoot = comments.items.find((comment) => comment.id === LOCAL_SMOKE_FIXTURES.workflowRootCommentId);
 
   return [
     makeCheck("总评论数", countText(detail.stats.commentCount), "1", detail.stats.commentCount === 1),
@@ -113,7 +113,7 @@ function buildWorkflowChecks(detail: ApiWorkflowDetail, comments: ApiComment[]):
     makeCheck("收藏数", countText(detail.stats.favoriteCount), "0", detail.stats.favoriteCount === 0),
     makeCheck("当前用户已点赞", boolText(detail.viewerActions.liked), "否", !detail.viewerActions.liked),
     makeCheck("当前用户已收藏", boolText(detail.viewerActions.favorited), "否", !detail.viewerActions.favorited),
-    makeCheck("根评论条数", countText(comments.length), "1", comments.length === 1),
+    makeCheck("根评论条数", countText(comments.items.length), "1", comments.items.length === 1),
     makeCheck(
       "基线评论 ID",
       baselineRoot?.id ?? "缺失",

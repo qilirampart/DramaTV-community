@@ -247,11 +247,18 @@ export function buildImportedPromptVideoDetailView(id: string): VideoDetailPageV
       favoriteCount: definition.stats.favoriteCount,
       commentCount: 0
     },
+    commentPolicy: {
+      commentingEnabled: false,
+      canManageComments: false
+    },
     viewerActions: {
       liked: false,
       favorited: false
     },
     relatedVideos: buildRelatedCards(definition),
-    comments: []
+    comments: {
+      items: [],
+      hasMore: false
+    }
   };
 }

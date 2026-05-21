@@ -21,6 +21,7 @@ spring:
     redis:
       host: ${DRAMATV_REDIS_HOST:127.0.0.1}
       port: ${DRAMATV_REDIS_PORT:6379}
+      password: ${DRAMATV_REDIS_PASSWORD:}
 
 server:
   port: ${DRAMATV_SERVER_PORT:8080}
@@ -32,10 +33,69 @@ management:
         include: health,info
 
 dramatv:
+  community-auth:
+    provider:
+      primary: ${DRAMATV_COMMUNITY_AUTH_PRIMARY:local_password}
+      local-password-enabled: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_ENABLED:true}
+      local-password-display-name: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_DISPLAY_NAME:开发环境账号登录}
+      local-password-description: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_DESCRIPTION:当前用于本地联调，后续会切换到公司统一登录。}
+  admin-auth:
+    allow-local-bootstrap: ${DRAMATV_ADMIN_AUTH_ALLOW_LOCAL_BOOTSTRAP:true}
+    bootstrap-password: ${DRAMATV_ADMIN_AUTH_BOOTSTRAP_PASSWORD:dramatv-admin-demo}
+  action-rate-limit:
+    enabled: ${DRAMATV_ACTION_RATE_LIMIT_ENABLED:true}
+    login:
+      window-seconds: ${DRAMATV_ACTION_RATE_LIMIT_LOGIN_WINDOW_SECONDS:60}
+      max-attempts: ${DRAMATV_ACTION_RATE_LIMIT_LOGIN_MAX_ATTEMPTS:6}
+    report:
+      window-seconds: ${DRAMATV_ACTION_RATE_LIMIT_REPORT_WINDOW_SECONDS:60}
+      max-attempts: ${DRAMATV_ACTION_RATE_LIMIT_REPORT_MAX_ATTEMPTS:5}
+    upload-policy:
+      window-seconds: ${DRAMATV_ACTION_RATE_LIMIT_UPLOAD_POLICY_WINDOW_SECONDS:60}
+      max-attempts: ${DRAMATV_ACTION_RATE_LIMIT_UPLOAD_POLICY_MAX_ATTEMPTS:20}
+    upload-binary:
+      window-seconds: ${DRAMATV_ACTION_RATE_LIMIT_UPLOAD_BINARY_WINDOW_SECONDS:60}
+      max-attempts: ${DRAMATV_ACTION_RATE_LIMIT_UPLOAD_BINARY_MAX_ATTEMPTS:20}
+  comment-moderation:
+    enabled: ${DRAMATV_COMMENT_MODERATION_ENABLED:true}
+    max-length: ${DRAMATV_COMMENT_MODERATION_MAX_LENGTH:500}
+    burst-window-seconds: ${DRAMATV_COMMENT_MODERATION_BURST_WINDOW_SECONDS:60}
+    burst-max-comments: ${DRAMATV_COMMENT_MODERATION_BURST_MAX_COMMENTS:6}
+    duplicate-window-minutes: ${DRAMATV_COMMENT_MODERATION_DUPLICATE_WINDOW_MINUTES:10}
+    duplicate-max-copies: ${DRAMATV_COMMENT_MODERATION_DUPLICATE_MAX_COPIES:1}
   logging:
     dir: ${DRAMATV_LOG_DIR:logs/server}
   media:
     local-dir: ${DRAMATV_MEDIA_LOCAL_DIR:tmp/media}
+    serve-locally: ${DRAMATV_MEDIA_SERVE_LOCALLY:true}
+    storage-provider: ${DRAMATV_MEDIA_STORAGE_PROVIDER:local_fs}
+    bucket-name: ${DRAMATV_MEDIA_BUCKET_NAME:dramatv-local-media}
+    key-prefix: ${DRAMATV_MEDIA_KEY_PREFIX:community/local}
+    public-base-url: ${DRAMATV_MEDIA_PUBLIC_BASE_URL:}
+    public-base-path: ${DRAMATV_MEDIA_PUBLIC_BASE_PATH:/media}
+    upload:
+      max-video-size-bytes: ${DRAMATV_MEDIA_UPLOAD_MAX_VIDEO_SIZE_BYTES:314572800}
+      max-image-size-bytes: ${DRAMATV_MEDIA_UPLOAD_MAX_IMAGE_SIZE_BYTES:20971520}
+    processing:
+      worker-enabled: ${DRAMATV_MEDIA_PROCESSING_WORKER_ENABLED:true}
+      worker-delay-ms: ${DRAMATV_MEDIA_PROCESSING_WORKER_DELAY_MS:2000}
+      batch-size: ${DRAMATV_MEDIA_PROCESSING_BATCH_SIZE:2}
+      compression-threshold-bytes: ${DRAMATV_MEDIA_PROCESSING_COMPRESSION_THRESHOLD_BYTES:20971520}
+      preview-target-max-bytes: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_TARGET_MAX_BYTES:16777216}
+      preview-max-height: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MAX_HEIGHT:720}
+      preview-audio-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_AUDIO_BITRATE_KBPS:96}
+      preview-min-video-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MIN_VIDEO_BITRATE_KBPS:500}
+      preview-max-video-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MAX_VIDEO_BITRATE_KBPS:2600}
+      ffmpeg-path: ${DRAMATV_MEDIA_PROCESSING_FFMPEG_PATH:}
+      ffprobe-path: ${DRAMATV_MEDIA_PROCESSING_FFPROBE_PATH:}
+    oss:
+      endpoint: ${DRAMATV_MEDIA_OSS_ENDPOINT:}
+      region: ${DRAMATV_MEDIA_OSS_REGION:}
+      auth-mode: ${DRAMATV_MEDIA_OSS_AUTH_MODE:auto}
+      role-name: ${DRAMATV_MEDIA_OSS_ROLE_NAME:}
+      role-discovery-url: ${DRAMATV_MEDIA_OSS_ROLE_DISCOVERY_URL:http://100.100.100.200/latest/meta-data/ram/security-credentials/}
+      access-key: ${DRAMATV_MEDIA_OSS_ACCESS_KEY:}
+      secret-key: ${DRAMATV_MEDIA_OSS_SECRET_KEY:}
 
 logging:
   level:

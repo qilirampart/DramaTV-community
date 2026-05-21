@@ -27,6 +27,14 @@ public class ApiBusinessException extends RuntimeException {
         return new ApiBusinessException(HttpStatus.CONFLICT, code, safeMessage);
     }
 
+    public static ApiBusinessException tooManyRequests(String code, String safeMessage) {
+        return new ApiBusinessException(HttpStatus.TOO_MANY_REQUESTS, code, safeMessage);
+    }
+
+    public static ApiBusinessException notFound(String code, String safeMessage) {
+        return new ApiBusinessException(HttpStatus.NOT_FOUND, code, safeMessage);
+    }
+
     public static ApiBusinessException internalError(String code, String safeMessage) {
         return new ApiBusinessException(HttpStatus.INTERNAL_SERVER_ERROR, code, safeMessage);
     }

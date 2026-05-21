@@ -2,9 +2,11 @@ package com.dramatv.community.publish.persistence;
 
 import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.identity.application.CurrentUserService;
+import com.dramatv.community.shared.error.ApiBusinessException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,8 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PublishDraftPersistenceService {
 
+    private static final String DRAFT_STATUS_DRAFT = "draft";
+
     private final PublishDraftRepository publishDraftRepository;
     private final PublishedContentPersistenceService publishedContentPersistenceService;
+    private final PublishAsyncTaskPersistenceService publishAsyncTaskPersistenceService;
     private final JdbcTemplate jdbcTemplate;
     private final ObjectMapper objectMapper;
     private final CurrentUserService currentUserService;
@@ -23,12 +28,14 @@ public class PublishDraftPersistenceService {
     public PublishDraftPersistenceService(
             PublishDraftRepository publishDraftRepository,
             PublishedContentPersistenceService publishedContentPersistenceService,
+            PublishAsyncTaskPersistenceService publishAsyncTaskPersistenceService,
             JdbcTemplate jdbcTemplate,
             ObjectMapper objectMapper,
             CurrentUserService currentUserService
     ) {
         this.publishDraftRepository = publishDraftRepository;
         this.publishedContentPersistenceService = publishedContentPersistenceService;
+        this.publishAsyncTaskPersistenceService = publishAsyncTaskPersistenceService;
         this.jdbcTemplate = jdbcTemplate;
         this.objectMapper = objectMapper;
         this.currentUserService = currentUserService;
@@ -47,8 +54,9 @@ public class PublishDraftPersistenceService {
                 .findTopByAuthorIdAndDraftTypeAndStatusCodeOrderByUpdatedAtDesc(
                         currentUser.id(),
                         draftType.code(),
-                        "draft"
+                        DRAFT_STATUS_DRAFT
                 )
+                .filter(this::isEditable)
                 .map(this::toRecord)
                 .orElseGet(() -> toRecord(publishDraftRepository.save(newEntity(
                         draftType,
@@ -78,6 +86,7 @@ public class PublishDraftPersistenceService {
 
         return publishDraftRepository.findByIdAndDraftTypeAndAuthorId(draftId, draftType.code(), currentUser.id())
                 .map(entity -> {
+                    ensureEditable(entity, "DRAFT_ALREADY_SUBMITTED", "draft has already been submitted");
                     entity.setPayloadJson(payloadJson.deepCopy());
                     entity.setTitleDraft(titleDraft);
                     entity.setCurrentStep(currentStep);
@@ -85,6 +94,24 @@ public class PublishDraftPersistenceService {
                     entity.setAutosaveVersion(entity.getAutosaveVersion() + 1);
                     return toRecord(publishDraftRepository.save(entity));
                 });
+    }
+
+    public boolean delete(UUID draftId, PublishDraftType draftType) {
+        CurrentUser currentUser = currentUserService.requireCurrentUser();
+
+        Optional<PublishDraftEntity> existing = publishDraftRepository.findByIdAndDraftTypeAndAuthorId(
+                draftId,
+                draftType.code(),
+                currentUser.id()
+        );
+
+        if (existing.isEmpty()) {
+            return false;
+        }
+
+        ensureEditable(existing.get(), "DRAFT_ALREADY_SUBMITTED", "draft has already been submitted");
+        publishDraftRepository.delete(existing.get());
+        return true;
     }
 
     public Optional<PersistedPublishDraft> submit(
@@ -99,6 +126,7 @@ public class PublishDraftPersistenceService {
 
         return publishDraftRepository.findByIdAndDraftTypeAndAuthorId(draftId, draftType.code(), currentUser.id())
                 .map(entity -> {
+                    ensureEditable(entity, "DRAFT_ALREADY_SUBMITTED", "draft has already been submitted");
                     entity.setTargetId(entity.getTargetId() == null ? UUID.randomUUID() : entity.getTargetId());
                     entity.setPayloadJson(payloadJson.deepCopy());
                     entity.setTitleDraft(titleDraft);
@@ -111,7 +139,7 @@ public class PublishDraftPersistenceService {
     }
 
     @Transactional
-    public Optional<PersistedPublishDraft> submitVideoDraft(
+    public Optional<SubmittedPublishDraft> submitVideoDraft(
             UUID draftId,
             ObjectNode payloadJson,
             String titleDraft,
@@ -123,6 +151,7 @@ public class PublishDraftPersistenceService {
 
         return publishDraftRepository.findByIdAndDraftTypeAndAuthorId(draftId, PublishDraftType.VIDEO.code(), currentUser.id())
                 .map(entity -> {
+                    ensureEditable(entity, "VIDEO_DRAFT_ALREADY_SUBMITTED", "video draft has already been submitted");
                     entity.setTargetId(entity.getTargetId() == null ? UUID.randomUUID() : entity.getTargetId());
                     entity.setPayloadJson(payloadJson.deepCopy());
                     entity.setTitleDraft(titleDraft);
@@ -140,7 +169,11 @@ public class PublishDraftPersistenceService {
                             submitMode
                     );
 
-                    return toRecord(savedEntity);
+                    PersistedPublishDraft savedDraft = toRecord(savedEntity);
+                    return new SubmittedPublishDraft(
+                            savedDraft,
+                            createVideoSubmitTasks(savedDraft, payloadJson, submitMode)
+                    );
                 });
     }
 
@@ -157,6 +190,7 @@ public class PublishDraftPersistenceService {
 
         return publishDraftRepository.findByIdAndDraftTypeAndAuthorId(draftId, PublishDraftType.WORKFLOW.code(), currentUser.id())
                 .map(entity -> {
+                    ensureEditable(entity, "WORKFLOW_DRAFT_ALREADY_SUBMITTED", "workflow draft has already been submitted");
                     entity.setTargetId(entity.getTargetId() == null ? UUID.randomUUID() : entity.getTargetId());
                     entity.setPayloadJson(payloadJson.deepCopy());
                     entity.setTitleDraft(titleDraft);
@@ -191,6 +225,7 @@ public class PublishDraftPersistenceService {
 
         return publishDraftRepository.findByIdAndDraftTypeAndAuthorId(draftId, PublishDraftType.POST.code(), currentUser.id())
                 .map(entity -> {
+                    ensureEditable(entity, "POST_DRAFT_ALREADY_SUBMITTED", "post draft has already been submitted");
                     entity.setTargetId(entity.getTargetId() == null ? UUID.randomUUID() : entity.getTargetId());
                     entity.setPayloadJson(payloadJson.deepCopy());
                     entity.setTitleDraft(titleDraft);
@@ -225,9 +260,23 @@ public class PublishDraftPersistenceService {
         entity.setTitleDraft(titleDraft);
         entity.setPayloadJson(payloadJson.deepCopy());
         entity.setCurrentStep(currentStep);
-        entity.setStatusCode("draft");
+        entity.setStatusCode(DRAFT_STATUS_DRAFT);
         entity.setAutosaveVersion(1);
         return entity;
+    }
+
+    private boolean isEditable(PublishDraftEntity entity) {
+        if (entity == null) {
+            return false;
+        }
+        return entity.getSubmittedAt() == null && DRAFT_STATUS_DRAFT.equalsIgnoreCase(entity.getStatusCode());
+    }
+
+    private void ensureEditable(PublishDraftEntity entity, String code, String message) {
+        if (isEditable(entity)) {
+            return;
+        }
+        throw ApiBusinessException.conflict(code, message);
     }
 
     private PersistedPublishDraft toRecord(PublishDraftEntity entity) {
@@ -263,5 +312,34 @@ public class PublishDraftPersistenceService {
                 user.headline(),
                 "normal"
         );
+    }
+
+    private List<String> createVideoSubmitTasks(
+            PersistedPublishDraft savedDraft,
+            ObjectNode payloadJson,
+            String submitMode
+    ) {
+        String categoryCode = nullableText(payloadJson, "categoryCode");
+        if ("image_prompt".equals(categoryCode)) {
+            return List.of();
+        }
+        if ("video_prompt".equals(categoryCode)) {
+            return publishAsyncTaskPersistenceService.createVideoPromptSubmitTasks(savedDraft, submitMode);
+        }
+        return publishAsyncTaskPersistenceService.createVideoSubmitTasks(savedDraft, submitMode);
+    }
+
+    private String nullableText(ObjectNode payloadJson, String fieldName) {
+        if (payloadJson == null) {
+            return null;
+        }
+
+        var node = payloadJson.get(fieldName);
+        if (node == null || node.isNull()) {
+            return null;
+        }
+
+        String value = node.asText().trim();
+        return value.isEmpty() ? null : value;
     }
 }

@@ -1,0 +1,43 @@
+{
+  "rank": 105,
+  "id": "2047886964037398989",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 73,
+  "title": "Avant-Garde Basketball Sculpture Sports Fashion Ad",
+  "description": "Poster & Illustration Cases curated case: Avant-Garde Basketball Sculpture Sports Fashion Ad, source author AIwithkhan.",
+  "language": "",
+  "authorName": "AIwithkhan",
+  "authorLink": "https://x.com/AIwithkhan",
+  "sourceLink": "https://x.com/AIwithkhan/status/2047886964037398989",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case73/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case73/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

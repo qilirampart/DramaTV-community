@@ -5,6 +5,7 @@ Formal Next.js App Router frontend for the DramaTV community project.
 ## Scope
 
 - `apps/web` is the formal frontend mainline for current development.
+- Local default port is `3106`.
 - The archived root `React + Vite` prototype is reference-only and no longer part of active delivery.
 - Current development and acceptance run against real Spring Boot APIs by default.
 
@@ -29,3 +30,5 @@ Behavior:
 Copy `apps/web/.env.example` to `.env.local`, then adjust the backend address if needed.
 
 If local port `8080` is occupied by an older prototype or another service, prefer using the backend on `18080`.
+
+The root command `npm run dev:web` is the standard local entry and now binds to `http://127.0.0.1:3106`.

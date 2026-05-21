@@ -1,5 +1,6 @@
 package com.dramatv.community.feed.application;
 
+import com.dramatv.community.feed.dto.response.FeaturedArchiveResponse;
 import com.dramatv.community.feed.dto.response.HomeFeedResponse;
 import com.dramatv.community.shared.error.ApiBusinessException;
 import com.dramatv.community.shared.persistence.CommunityCatalogJdbcQueryService;
@@ -23,5 +24,9 @@ public class HomeFeedQueryService {
         }
 
         return jdbcQueryService.loadHomeFeed(channel);
+    }
+
+    public FeaturedArchiveResponse loadFeaturedArchive() {
+        return jdbcQueryService.loadFeaturedArchive();
     }
 }

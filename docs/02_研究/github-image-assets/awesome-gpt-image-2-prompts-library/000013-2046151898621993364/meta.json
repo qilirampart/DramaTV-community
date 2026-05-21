@@ -1,0 +1,50 @@
+{
+  "rank": 13,
+  "id": "2046151898621993364",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 13,
+  "title": "Korean Idol 3x3 Collage Portrait",
+  "description": "Portrait & Photography Cases curated case: Korean Idol 3x3 Collage Portrait, source author BubbleBrain.",
+  "language": "en",
+  "authorName": "BubbleBrain",
+  "authorLink": "https://x.com/BubbleBrain",
+  "sourceLink": "https://x.com/BubbleBrain/status/2046151898621993364",
+  "sourcePublishedAt": "Mon Apr 20 09:00:02 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 5364,
+  "likes": 406,
+  "retweetCount": 43,
+  "viewCount": 27502,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case13/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case13/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGVkD6bbMAA_sZD.jpg",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

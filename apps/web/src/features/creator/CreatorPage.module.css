@@ -5,6 +5,24 @@
   padding: 34px 0 84px;
 }
 
+.backRow {
+  margin-bottom: 22px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: color 180ms ease;
+}
+
+.backLink:hover {
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .backdrop,
 .backdropImage,
 .backdropGlow,
@@ -330,7 +348,7 @@
 
 .archiveGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px 30px;
 }
 
@@ -345,8 +363,8 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
   background:
-    linear-gradient(135deg, rgba(112, 87, 56, 0.24), rgba(12, 12, 13, 0.84)),
-    linear-gradient(180deg, rgba(18, 18, 20, 0.68), rgba(7, 7, 8, 0.96));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(144deg, rgba(98, 98, 104, 0.24), rgba(10, 10, 11, 0.9));
   background-position: center;
   background-size: cover;
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
@@ -354,6 +372,14 @@
     transform 220ms ease,
     border-color 220ms ease,
     box-shadow 220ms ease;
+}
+
+.archiveCover {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  filter: saturate(0.92) contrast(1.02) brightness(0.88);
 }
 
 .archiveCard:hover .archiveMedia {
@@ -379,9 +405,10 @@
   align-items: center;
   min-height: 24px;
   padding: 0 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  background: rgba(72, 54, 41, 0.82);
-  color: rgba(255, 242, 231, 0.92);
+  background: rgba(18, 18, 21, 0.78);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -400,9 +427,9 @@
 .archiveTitle {
   margin: 0;
   color: rgba(255, 255, 255, 0.98);
-  font-size: 1.5rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  line-height: 1.06;
+  line-height: 1.14;
   letter-spacing: -0.05em;
 }
 
@@ -475,6 +502,93 @@
   height: 15px;
 }
 
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.postCard {
+  display: grid;
+  gap: 18px;
+  min-height: 220px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018));
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.postCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.postCardTop,
+.postMetaRow,
+.postTags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.postCardTop {
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.postCard h3 {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1.16rem;
+  font-weight: 720;
+  line-height: 1.24;
+  letter-spacing: -0.04em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.postCard p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.92rem;
+  line-height: 1.72;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.postMetaRow {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.postTags span {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
 .emptyState {
   display: grid;
   gap: 10px;
@@ -517,6 +631,15 @@
   .notice {
     max-width: none;
     text-align: left;
+  }
+
+  .archiveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .archiveMedia {
+    min-height: 176px;
   }
 }
 
@@ -575,6 +698,11 @@
   .archiveGrid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .postGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .archiveMedia {

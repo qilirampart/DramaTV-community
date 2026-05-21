@@ -1,0 +1,43 @@
+{
+  "rank": 41,
+  "id": "2048046253842559183",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "portrait-and-photography",
+  "sectionTitle": "Portrait & Photography Cases",
+  "caseNumber": 91,
+  "title": "Dreamy Oriental female portrait prompt",
+  "description": "Portrait & Photography Cases curated case: Dreamy Oriental female portrait prompt, source author liyue_ai.",
+  "language": "",
+  "authorName": "liyue_ai",
+  "authorLink": "https://x.com/liyue_ai",
+  "sourceLink": "https://x.com/liyue_ai/status/2048046253842559183",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/portrait_case91/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/portrait_case91/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

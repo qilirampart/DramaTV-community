@@ -1,0 +1,50 @@
+{
+  "rank": 83,
+  "id": "2046528889124728993",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 51,
+  "title": "Pilates Studio Ad Poster",
+  "description": "Poster & Illustration Cases curated case: Pilates Studio Ad Poster, source author ck_igarashi.",
+  "language": "ja",
+  "authorName": "ck_igarashi",
+  "authorLink": "https://x.com/ck_igarashi",
+  "sourceLink": "https://x.com/ck_igarashi/status/2046528889124728993",
+  "sourcePublishedAt": "Tue Apr 21 09:58:04 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 41,
+  "likes": 0,
+  "retweetCount": 0,
+  "viewCount": 91,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case51/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case51/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGa68yAawAA1aEE.jpg",
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

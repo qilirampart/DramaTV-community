@@ -1,0 +1,50 @@
+{
+  "rank": 199,
+  "id": "2046519658166317160",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "ui-and-social-media-mockup",
+  "sectionTitle": "UI & Social Media Mockup Cases",
+  "caseNumber": 35,
+  "title": "Japanese Gacha Game Screen",
+  "description": "UI & Social Media Mockup Cases curated case: Japanese Gacha Game Screen, source author the_wheel_2024.",
+  "language": "ja",
+  "authorName": "the_wheel_2024",
+  "authorLink": "https://x.com/the_wheel_2024",
+  "sourceLink": "https://x.com/the_wheel_2024/status/2046519658166317160",
+  "sourcePublishedAt": "Tue Apr 21 09:21:23 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 323,
+  "likes": 0,
+  "retweetCount": 0,
+  "viewCount": 117,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/ui_case35/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/ui_case35/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGayF3iagAARTZ1.jpg",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "rank": 198,
+  "id": "2046437230127034774",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "ui-and-social-media-mockup",
+  "sectionTitle": "UI & Social Media Mockup Cases",
+  "caseNumber": 34,
+  "title": "Don Quijote Promo Pop Poster",
+  "description": "UI & Social Media Mockup Cases curated case: Don Quijote Promo Pop Poster, source author loglogrog.",
+  "language": "ja",
+  "authorName": "loglogrog",
+  "authorLink": "https://x.com/loglogrog",
+  "sourceLink": "https://x.com/loglogrog/status/2046437230127034774",
+  "sourcePublishedAt": "Tue Apr 21 03:53:51 +0000 2026",
+  "sourcePlatform": "twitter",
+  "followers": 2291,
+  "likes": 3,
+  "retweetCount": 0,
+  "viewCount": 351,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/ui_case34/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/ui_case34/output.jpg"
+  ],
+  "sourceMedia": [
+    {
+      "type": "photo",
+      "url": "https://pbs.twimg.com/media/HGZnLqbboAAGFRB.jpg",
+      "width": 1086,
+      "height": 1448
+    }
+  ],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

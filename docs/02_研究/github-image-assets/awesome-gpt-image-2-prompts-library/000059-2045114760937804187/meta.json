@@ -1,0 +1,43 @@
+{
+  "rank": 59,
+  "id": "2045114760937804187",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 9,
+  "title": "Super Famicom Poster Style",
+  "description": "Poster & Illustration Cases curated case: Super Famicom Poster Style, source author lilimliliychan.",
+  "language": "",
+  "authorName": "lilimliliychan",
+  "authorLink": "https://x.com/lilimliliychan",
+  "sourceLink": "https://x.com/lilimliliychan/status/2045114760937804187",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case9/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case9/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}

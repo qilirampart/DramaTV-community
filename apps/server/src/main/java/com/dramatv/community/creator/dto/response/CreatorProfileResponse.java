@@ -12,7 +12,8 @@ public record CreatorProfileResponse(
     public record Stats(
             int videoCount,
             int workflowCount,
-            long followerCount
+            long followerCount,
+            long likeReceivedCount
     ) {
     }
 

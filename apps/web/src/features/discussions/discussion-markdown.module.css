@@ -4,58 +4,77 @@
   color: rgba(255, 255, 255, 0.84);
 }
 
-.heading {
-  margin: 0;
+.root :global(.ProseMirror) {
+  outline: none;
+  color: inherit;
+  white-space: pre-wrap;
+}
+
+.root :global(.ProseMirror > *:first-child) {
+  margin-top: 0;
+}
+
+.root :global(.ProseMirror > *:last-child) {
+  margin-bottom: 0;
+}
+
+.root :global(h1),
+.root :global(h2),
+.root :global(h3) {
+  margin: 1.2em 0 0.5em;
   color: rgba(255, 255, 255, 0.96);
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
   letter-spacing: -0.03em;
+  line-height: 1.18;
 }
 
-.h1 {
+.root :global(h1) {
   font-size: 1.8rem;
 }
 
-.h2 {
+.root :global(h2) {
   font-size: 1.36rem;
 }
 
-.h3 {
+.root :global(h3) {
   font-size: 1.08rem;
 }
 
-.paragraph,
-.blockquote p {
-  margin: 0;
+.root :global(p),
+.root :global(blockquote p) {
+  margin: 0.72em 0;
   line-height: 1.82;
 }
 
-.blockquote {
+.root :global(blockquote) {
   display: grid;
   gap: 8px;
-  margin: 0;
+  margin: 1.1em 0;
   padding: 16px 18px;
   border-left: 3px solid rgba(242, 187, 103, 0.64);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.04);
 }
 
-.list {
+.root :global(ul),
+.root :global(ol) {
   display: grid;
   gap: 8px;
-  margin: 0;
+  margin: 0.9em 0;
   padding-left: 1.2rem;
   line-height: 1.78;
 }
 
-.divider {
+.root :global(hr) {
   width: 100%;
   height: 1px;
+  margin: 1.4em 0;
   border: none;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.pre {
-  margin: 0;
+.root :global(pre) {
+  margin: 1.1em 0;
   overflow: auto;
   padding: 16px 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -63,31 +82,80 @@
   background: rgba(6, 9, 14, 0.88);
 }
 
-.pre code,
-.root code {
+.root :global(code) {
   font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
 }
 
-.root a {
+.root :global(a) {
   color: #9bdcff;
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 220, 255, 0.36);
 }
 
-.media {
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.media img,
-.video {
+.root :global(img) {
   display: block;
   width: 100%;
   height: auto;
+  margin: 1.1em 0;
+  border-radius: 18px;
 }
 
-.video {
+.root :global(.discussion-rich-video) {
+  display: grid;
+  gap: 10px;
+  margin: 1.1em 0;
+}
+
+.root :global(.discussion-rich-video-player) {
+  display: block;
+  width: 100%;
   max-height: 560px;
+  border-radius: 18px;
   background: #05070a;
+}
+
+.root :global(.discussion-rich-video-caption) {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+:global(:root[data-theme="light"]) .root {
+  color: rgba(17, 24, 39, 0.88);
+}
+
+:global(:root[data-theme="light"]) .root :global(h1),
+:global(:root[data-theme="light"]) .root :global(h2),
+:global(:root[data-theme="light"]) .root :global(h3) {
+  color: #111827;
+}
+
+:global(:root[data-theme="light"]) .root :global(blockquote) {
+  border-left-color: rgba(15, 23, 42, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(31, 41, 55, 0.88);
+}
+
+:global(:root[data-theme="light"]) .root :global(hr) {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+:global(:root[data-theme="light"]) .root :global(pre) {
+  border-color: rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  color: #111827;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+}
+
+:global(:root[data-theme="light"]) .root :global(a) {
+  color: #111827;
+  text-decoration-color: rgba(15, 23, 42, 0.28);
+}
+
+:global(:root[data-theme="light"]) .root :global(.discussion-rich-video-player) {
+  background: #eef2f7;
+}
+
+:global(:root[data-theme="light"]) .root :global(.discussion-rich-video-caption) {
+  color: rgba(17, 17, 17, 0.56);
 }

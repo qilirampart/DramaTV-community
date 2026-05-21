@@ -10,6 +10,7 @@ public record VideoDetailResponse(
         Media media,
         Author author,
         Workflow workflow,
+        CommentPolicy commentPolicy,
         Stats stats,
         ViewerActions viewerActions
 ) {
@@ -33,6 +34,12 @@ public record VideoDetailResponse(
             String id,
             String title,
             boolean allowCopy
+    ) {
+    }
+
+    public record CommentPolicy(
+            boolean commentingEnabled,
+            boolean canManageComments
     ) {
     }
 

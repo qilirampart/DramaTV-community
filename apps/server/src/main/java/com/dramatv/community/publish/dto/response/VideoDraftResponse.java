@@ -8,11 +8,16 @@ public record VideoDraftResponse(
         String title,
         String summary,
         String categoryCode,
+        String promptText,
+        String modelCategory,
+        String contentCategory,
+        String compositionCategory,
         List<String> tagNames,
         String workflowId,
         String visibility,
         String coverAssetId,
         String sourceAssetId,
-        String statusCode
+        String statusCode,
+        DraftLifecycleResponse lifecycle
 ) {
 }

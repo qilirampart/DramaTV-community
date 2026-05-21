@@ -1,34 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { CommentThread } from "@/components/comments/CommentThread";
+import { ReportModal } from "@/components/report/ReportModal";
+import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
+import { useInteractiveVideoPreview } from "@/components/shared/useInteractiveVideoPreview";
 import {
+  type CommentActionResult,
+  deletePromptCommentAction,
+  deleteVideoCommentAction,
+  loadMorePromptCommentsAction,
+  loadMoreVideoCommentsAction,
   submitPromptCommentAction,
   submitVideoCommentAction,
+  submitReportAction,
   togglePromptAuthorFollowAction,
   togglePromptCommentLikeAction,
   togglePromptFavoriteAction,
   togglePromptLikeAction,
+  updatePromptCommentSettingsAction,
+  updateVideoCommentSettingsAction,
   toggleVideoAuthorFollowAction,
   toggleVideoCommentLikeAction,
   toggleVideoFavoriteAction,
   toggleVideoLikeAction
 } from "@/features/community-interactions/actions";
+import { copyText } from "@/lib/browser/copy-text";
 import type { VideoDetailPageView } from "@/lib/contracts/view-models";
 import { promptPreviewVideoId } from "@/lib/prefill/prompt-detail-demo";
 import { resolvePrefillVideoForDetail } from "@/lib/prefill/prefill-videos";
 import { isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { appendBackSource } from "@/lib/routes/redirect-utils";
 import styles from "./VideoDetailPage.module.css";
 
 type VideoDetailPageProps = {
   view: VideoDetailPageView;
+  backHref?: string;
 };
 
 type ActionNotice = {
   tone: "neutral" | "success" | "error";
   text: string;
 };
+
+function applyCommentPatch(
+  view: VideoDetailPageView,
+  result: CommentActionResult,
+  mode: "replace" | "append" = "replace"
+): VideoDetailPageView {
+  if (!result.ok) {
+    return view;
+  }
+
+  return {
+    ...view,
+    commentPolicy: result.patch.commentPolicy ?? view.commentPolicy,
+    stats: {
+      ...view.stats,
+      commentCount: mode === "replace" ? result.patch.commentCount : view.stats.commentCount
+    },
+    comments: {
+      items: mode === "append" ? [...view.comments.items, ...result.patch.comments] : result.patch.comments,
+      nextCursor: result.patch.nextCursor,
+      hasMore: result.patch.hasMore
+    }
+  };
+}
 
 function HeartIcon() {
   return (
@@ -62,6 +101,21 @@ function CommentIcon() {
       <path
         d="M4.2 4.8h11.6c.7 0 1.2.5 1.2 1.2V13c0 .7-.5 1.2-1.2 1.2H9.2L5.3 17v-2.8H4.2c-.7 0-1.2-.5-1.2-1.2V6c0-.7.5-1.2 1.2-1.2Z"
         stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.45"
+      />
+    </svg>
+  );
+}
+
+function ReportIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.2 16.4V3.6" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+      <path
+        d="M6.4 4.2h7.1l-1.8 3.1 1.8 3.1H6.4"
+        stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.45"
       />
@@ -215,22 +269,118 @@ function formatRelativeTime(value: string) {
   return `${Math.max(1, Math.round(deltaMs / day))}天前`;
 }
 
+function RelatedVideoCard({
+  href,
+  title,
+  authorName,
+  coverUrl,
+  posterUrl,
+  previewUrl,
+  sourceUrl
+}: {
+  href: string;
+  title: string;
+  authorName: string;
+  coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
+}) {
+  const imageUrl = [normalizeAssetUrl(posterUrl), normalizeAssetUrl(coverUrl)].find(
+    (value): value is string => Boolean(value) && !isVideoAssetUrl(value)
+  );
+  const previewMediaUrl = normalizeAssetUrl(previewUrl) ?? normalizeAssetUrl(sourceUrl);
+  const hasPreviewVideo = Boolean(previewMediaUrl);
+  const {
+    handlePreviewImmediateStart,
+    handlePreviewStart,
+    handlePreviewStop,
+    isVideoReady,
+    mediaRef,
+    shouldLoadVideo,
+    videoRef
+  } =
+    useInteractiveVideoPreview({
+    enabled: hasPreviewVideo,
+    loadOnViewport: false,
+    unloadDelayMs: 1200,
+    previewGroup: "video-detail-related",
+    previewStartDelayMs: 160
+    });
 
-export function VideoDetailPage({ view }: VideoDetailPageProps) {
+  return (
+    <Link
+      className={styles.recommendCard}
+      href={href}
+      onBlur={handlePreviewStop}
+      onFocus={handlePreviewImmediateStart}
+      onMouseEnter={handlePreviewStart}
+      onMouseLeave={handlePreviewStop}
+    >
+      {hasPreviewVideo && previewMediaUrl ? (
+        <span className={styles.recommendCardMediaSlot} ref={mediaRef}>
+          <span
+            className={styles.recommendCardMedia}
+            style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
+          />
+          {shouldLoadVideo ? (
+            <video
+              ref={videoRef}
+              className={`${styles.recommendCardMediaVideo} ${isVideoReady ? styles.recommendCardMediaVideoReady : ""}`}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              src={previewMediaUrl}
+            />
+          ) : null}
+        </span>
+      ) : (
+        <span
+          className={styles.recommendCardMedia}
+          style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
+        />
+      )}
+      <span className={styles.recommendCardShade} />
+      <span className={styles.recommendCardCopy}>
+        <strong>{title}</strong>
+        <span>{authorName}</span>
+      </span>
+    </Link>
+  );
+}
+
+
+export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPageProps) {
   const [currentView, setCurrentView] = useState(view);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
   const [commentPending, setCommentPending] = useState(false);
   const [commentLikePendingId, setCommentLikePendingId] = useState<string | null>(null);
+  const [commentManagementPendingId, setCommentManagementPendingId] = useState<string | null>(null);
+  const [commentPolicyPending, setCommentPolicyPending] = useState(false);
+  const [commentLoadMorePending, setCommentLoadMorePending] = useState(false);
   const [commentNotice, setCommentNotice] = useState<ActionNotice | null>(null);
+  const [reportOpen, setReportOpen] = useState(false);
+  const [reportPending, setReportPending] = useState(false);
+  const [reportNotice, setReportNotice] = useState<ActionNotice | null>(null);
   const [commentDraft, setCommentDraft] = useState("");
-  const [showPlayback, setShowPlayback] = useState(false);
+  const [hasPlaybackStarted, setHasPlaybackStarted] = useState(false);
+  const [isPlaybackActive, setIsPlaybackActive] = useState(false);
+  const [isMediaVideoReady, setIsMediaVideoReady] = useState(false);
+  const mediaVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    setCurrentView(view);
+  }, [view]);
 
   const coverUrl =
     normalizeAssetUrl(currentView.media.coverUrl) ?? normalizeAssetUrl(currentView.media.posterUrl);
   const actualPlaybackUrl =
-    normalizeAssetUrl(currentView.media.sourceUrl) ?? normalizeAssetUrl(currentView.media.previewUrl);
-  const coverIsVideo = isVideoAssetUrl(coverUrl);
+    normalizeAssetUrl(currentView.media.previewUrl) ?? normalizeAssetUrl(currentView.media.sourceUrl);
+  const posterImageUrl = [coverUrl, normalizeAssetUrl(currentView.media.posterUrl)].find(
+    (value): value is string => Boolean(value) && !isVideoAssetUrl(value)
+  );
   const fallbackPrefillVideo = actualPlaybackUrl ? null : resolvePrefillVideoForDetail(currentView);
   const playbackUrl = actualPlaybackUrl ?? fallbackPrefillVideo?.src;
   const isImagePrompt = currentView.media.kind === "image";
@@ -238,7 +388,7 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
   const authorId = normalizeText(currentView.author.id);
   const authorName = normalizeText(currentView.author.displayName) ?? "匿名创作者";
   const authorAvatarUrl = normalizeAssetUrl(currentView.author.avatarUrl);
-  const authorHref = authorId ? `/creators/${authorId}` : undefined;
+  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, backHref) : undefined;
   const workflowId = normalizeText(currentView.workflow?.id);
   const workflowHref = workflowId ? `/workflows/${workflowId}#canvas-entry` : undefined;
   const workflowTitle = normalizeText(currentView.workflow?.title) ?? "未公开工作流";
@@ -247,15 +397,15 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
   const isPromptResource = resourceMode === "prompt";
   const isPromptPreviewDemo = currentView.id === promptPreviewVideoId;
   const isReadonlyPromptDetail = isPromptResource && (!authorId || isPromptPreviewDemo);
-  const primaryBadge = isPromptResource ? "PROMPT" : "WORKFLOW";
+  const primaryBadge = isPromptResource ? "提示词" : "作品";
   const resourceText = isPromptResource
     ? normalizeText(currentView.promptText) ??
       buildPromptLikeText(currentView, summary, normalizeText(currentView.workflow?.title))
     : buildWorkflowArchiveText(workflowTitle, summary, currentView.workflow?.allowCopy);
   const detailTags = currentView.tags.slice(0, 4);
   const renderedComments = currentView.comments;
-  const isCommentEmpty = currentView.comments.length === 0;
-  const recommendationVideos = currentView.relatedVideos.slice(0, 2);
+  const isCommentEmpty = currentView.comments.items.length === 0;
+  const recommendationVideos = currentView.relatedVideos.slice(0, isPromptResource ? 4 : 2);
   const summaryText = isPromptResource
     ? summary ?? "这条提示词详情页会承接画面描述、镜头语言和可复制内容。"
     : summary ?? "这条作品暂时还没有补充简介。后续会在这里对齐参考页里的作品描述。";
@@ -267,8 +417,8 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
   const communityTitle = isPromptResource ? "提示词讨论" : "讨论区";
   const communityCountLabel = isPromptResource ? "条讨论" : "条评论";
   const emptyHintText = isPromptResource
-    ? "当前提示词还没有真实讨论，首条互动会直接写入真实后端数据。"
-    : "当前视频还没有真实评论，首条互动会直接写入真实后端数据。";
+    ? "还没有人参与讨论，快来发表你的想法吧。"
+    : "还没有人发表评论，快来聊聊你的看法吧。";
   const composerPlaceholder = isPromptResource
     ? "补充这个提示词的适用题材、镜头语言、调参建议或替换关键词..."
     : "加入讨论，分享你的见解...";
@@ -277,7 +427,65 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
     ? "当前是前端样式预览页，复制提示词可用，其余互动先不接真实后端。"
     : isReadonlyPromptDetail
       ? "当前提示词详情来自本地导入数据，支持浏览与复制，互动能力暂不写入后端。"
-    : null;
+      : null;
+
+  useEffect(() => {
+    setHasPlaybackStarted(false);
+    setIsPlaybackActive(false);
+    setIsMediaVideoReady(false);
+  }, [currentView.id, playbackUrl, isImagePrompt]);
+
+  useEffect(() => {
+    const video = mediaVideoRef.current;
+    if (!video) {
+      return;
+    }
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsMediaVideoReady(true);
+    }
+  }, [currentView.id, playbackUrl, isImagePrompt]);
+
+  useEffect(() => {
+    if (reportNotice?.tone !== "success") {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setReportNotice(null);
+    }, 2200);
+
+    return () => window.clearTimeout(timer);
+  }, [reportNotice]);
+
+  const handleMediaVideoRef = useCallback((node: HTMLVideoElement | null) => {
+    mediaVideoRef.current = node;
+    if (node && node.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setIsMediaVideoReady((current) => current || true);
+    }
+  }, []);
+
+  function handlePlaybackToggle() {
+    if (!playbackUrl || isImagePrompt) {
+      return;
+    }
+
+    const videoElement = mediaVideoRef.current;
+
+    if (!videoElement) {
+      return;
+    }
+
+    if (videoElement.paused) {
+      setHasPlaybackStarted(true);
+      setIsPlaybackActive(true);
+      void videoElement.play().catch(() => {});
+      return;
+    }
+
+    videoElement.pause();
+    setIsPlaybackActive(false);
+  }
 
   async function runInteraction(
     pendingKey: string,
@@ -310,7 +518,7 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
     }
   }
 
-  async function handleCommentSubmit(content: string) {
+  async function handleCommentSubmit(input: { content: string; parentId?: string }) {
     setCommentPending(true);
     setCommentNotice({
       tone: "neutral",
@@ -321,15 +529,17 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
       const result = isPromptResource
         ? await submitPromptCommentAction({
             promptId: currentView.id,
-            content
+            content: input.content,
+            parentId: input.parentId
           })
         : await submitVideoCommentAction({
             videoId: currentView.id,
-            content
+            content: input.content,
+            parentId: input.parentId
           });
 
       if (result.ok) {
-        setCurrentView(result.view);
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
         setCommentNotice({
           tone: "success",
           text: result.message
@@ -372,7 +582,7 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
           });
 
       if (result.ok) {
-        setCurrentView(result.view);
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
         setCommentNotice({
           tone: "success",
           text: result.message
@@ -389,13 +599,166 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
     }
   }
 
+  async function handleCommentDelete(commentId: string) {
+    if (isReadonlyPromptDetail) {
+      return;
+    }
+
+    setCommentManagementPendingId(commentId);
+    setCommentNotice({
+      tone: "neutral",
+      text: "正在删除评论..."
+    });
+
+    try {
+      const result = isPromptResource
+        ? await deletePromptCommentAction({
+            promptId: currentView.id,
+            commentId
+          })
+        : await deleteVideoCommentAction({
+            videoId: currentView.id,
+            commentId
+          });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentManagementPendingId(null);
+    }
+  }
+
+  async function handleCommentPolicyToggle(nextEnabled: boolean) {
+    if (isReadonlyPromptDetail) {
+      return;
+    }
+
+    setCommentPolicyPending(true);
+    setCommentNotice({
+      tone: "neutral",
+      text: nextEnabled ? "正在开启评论区..." : "正在关闭评论区..."
+    });
+
+    try {
+      const result = isPromptResource
+        ? await updatePromptCommentSettingsAction({
+            promptId: currentView.id,
+            commentsEnabled: nextEnabled
+          })
+        : await updateVideoCommentSettingsAction({
+            videoId: currentView.id,
+            commentsEnabled: nextEnabled
+          });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "replace"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentPolicyPending(false);
+    }
+  }
+
+  async function handleLoadMoreComments() {
+    const cursor = currentView.comments.nextCursor;
+    if (!cursor) {
+      return;
+    }
+
+    setCommentLoadMorePending(true);
+    setCommentNotice({
+      tone: "neutral",
+      text: isPromptResource ? "正在加载更多讨论..." : "正在加载更多评论..."
+    });
+
+    try {
+      const result = isPromptResource
+        ? await loadMorePromptCommentsAction({
+            promptId: currentView.id,
+            cursor
+          })
+        : await loadMoreVideoCommentsAction({
+            videoId: currentView.id,
+            cursor
+          });
+
+      if (result.ok) {
+        setCurrentView((current) => applyCommentPatch(current, result, "append"));
+        setCommentNotice({
+          tone: "success",
+          text: result.message
+        });
+        return;
+      }
+
+      setCommentNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setCommentLoadMorePending(false);
+    }
+  }
+
+  async function handleReportSubmit(input: {
+    targetType: "video" | "workflow" | "prompt" | "post";
+    targetId: string;
+    reasonCode: "pornographic" | "political" | "spam" | "abuse" | "copyright" | "misleading" | "other";
+    descriptionText?: string;
+  }) {
+    setReportPending(true);
+    setReportNotice({
+      tone: "neutral",
+      text: "正在提交举报..."
+    });
+
+    try {
+      const result = await submitReportAction(input);
+      if (result.ok) {
+        setReportNotice({
+          tone: "success",
+          text: "举报已提交。"
+        });
+        setReportOpen(false);
+        return;
+      }
+
+      setReportNotice({
+        tone: "error",
+        text: result.message
+      });
+    } finally {
+      setReportPending(false);
+    }
+  }
+
   async function handleCopyPrompt() {
     if (!isPromptResource) {
       return;
     }
 
     try {
-      await navigator.clipboard.writeText(resourceText);
+      await copyText(resourceText);
       setInteractionNotice({
         tone: "success",
         text: "提示词已复制。"
@@ -418,7 +781,9 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
       return;
     }
 
-    const success = await handleCommentSubmit(normalized);
+    const success = await handleCommentSubmit({
+      content: normalized
+    });
     if (success) {
       setCommentDraft("");
     }
@@ -428,46 +793,39 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
     <PageShell variant="home" topNavActive="featured">
       <div className={styles.page}>
         <section className={styles.heroSection}>
-          <Link className={styles.backLink} href="/featured">
+          <ContextBackLink className={styles.backLink} href={backHref}>
             ← 返回列表
-          </Link>
+          </ContextBackLink>
 
           <div className={styles.heroGrid}>
             <div className={styles.mediaColumn}>
               <div className={styles.mediaFrame}>
-                {showPlayback && playbackUrl ? (
+                <div
+                  className={styles.mediaPoster}
+                  style={posterImageUrl ? { backgroundImage: `url(${posterImageUrl})` } : undefined}
+                />
+                {playbackUrl ? (
                   <video
-                    autoPlay
-                    className={styles.mediaVideo}
-                    controls
+                    ref={handleMediaVideoRef}
+                    className={`${styles.mediaVideo} ${isMediaVideoReady ? styles.mediaVideoReady : ""}`}
+                    controls={hasPlaybackStarted}
+                    onCanPlay={() => setIsMediaVideoReady(true)}
+                    onEnded={() => setIsPlaybackActive(false)}
+                    onEmptied={() => setIsMediaVideoReady(false)}
+                    onLoadedData={() => setIsMediaVideoReady(true)}
+                    onPause={() => setIsPlaybackActive(false)}
+                    onPlay={() => setIsPlaybackActive(true)}
                     playsInline
-                    poster={coverUrl}
+                    poster={posterImageUrl}
                     preload="metadata"
                     src={playbackUrl}
+                    style={{ opacity: isMediaVideoReady ? 1 : 0 }}
                   />
-                ) : coverUrl && !coverIsVideo ? (
-                  <div
-                    className={styles.mediaPoster}
-                    style={coverUrl ? { backgroundImage: `url(${coverUrl})` } : undefined}
-                  />
-                ) : playbackUrl ? (
-                  <video
-                    autoPlay
-                    className={styles.mediaAmbient}
-                    loop
-                    muted
-                    playsInline
-                    poster={coverUrl}
-                    preload="metadata"
-                    src={playbackUrl}
-                  />
-                ) : (
-                  <div className={styles.mediaPoster} />
-                )}
+                ) : null}
 
                 {playbackUrl && !isImagePrompt ? (
-                  <button className={styles.mediaToggle} type="button" onClick={() => setShowPlayback((value) => !value)}>
-                    {showPlayback ? "收起视频" : "播放视频"}
+                  <button className={styles.mediaToggle} type="button" onClick={handlePlaybackToggle}>
+                    {isPlaybackActive ? "暂停播放" : "开始播放"}
                   </button>
                 ) : null}
               </div>
@@ -628,11 +986,17 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
                   <CommentIcon />
                   <span>{isPromptResource ? `讨论 ${formatCount(currentView.stats.commentCount)}` : `评论 ${formatCount(currentView.stats.commentCount)}`}</span>
                 </Link>
+
+                <button className={styles.metricButton} type="button" onClick={() => setReportOpen(true)}>
+                  <ReportIcon />
+                  <span>举报</span>
+                </button>
               </div>
 
               {interactionNotice ? (
                 <p className={noticeClassName(interactionNotice)}>{interactionNotice.text}</p>
               ) : null}
+              {reportNotice ? <p className={noticeClassName(reportNotice)}>{reportNotice.text}</p> : null}
               {previewNoticeText ? <p className={styles.previewNotice}>{previewNoticeText}</p> : null}
             </div>
           </div>
@@ -646,9 +1010,40 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
                   <CommentIcon />
                   <h2>{communityTitle}</h2>
                 </div>
-                <span className={styles.commentsCount}>{renderedComments.length} {communityCountLabel}</span>
+                <span className={styles.commentsCount}>
+                  {formatCount(currentView.stats.commentCount)} {communityCountLabel}
+                </span>
               </div>
 
+              <CommentThread
+                comments={renderedComments}
+                emptyText={emptyHintText}
+                hideHeader
+                variant="video"
+                disabled={isReadonlyPromptDetail}
+                composer={{
+                  placeholder: composerPlaceholder,
+                  submitLabel: isPromptResource ? "发布讨论" : "发表评论",
+                  notice: commentNotice,
+                  pending: commentPending,
+                  disabled: isReadonlyPromptDetail,
+                  onSubmit: handleCommentSubmit
+                }}
+                commentActionPendingId={commentLikePendingId}
+                commentManagementPendingId={commentManagementPendingId}
+                onToggleLike={handleCommentLike}
+                onDeleteComment={handleCommentDelete}
+                commentPolicy={currentView.commentPolicy}
+                policyPending={commentPolicyPending}
+                onToggleCommenting={handleCommentPolicyToggle}
+                loadMore={{
+                  pending: commentLoadMorePending,
+                  onLoadMore: handleLoadMoreComments
+                }}
+              />
+
+              {false ? (
+                <>
               {isCommentEmpty ? <p className={styles.demoHint}>{emptyHintText}</p> : null}
 
               <div className={styles.commentComposer}>
@@ -681,13 +1076,13 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
                 </div>
 
                 {commentNotice ? (
-                  <p className={`${noticeClassName(commentNotice)} ${styles.commentNotice}`}>{commentNotice.text}</p>
+                  <p className={`${noticeClassName(commentNotice!)} ${styles.commentNotice}`}>{commentNotice!.text}</p>
                 ) : null}
               </div>
 
               <div className={styles.commentList}>
-                {renderedComments.length > 0 ? (
-                  renderedComments.map((comment) => {
+                {renderedComments.items.length > 0 ? (
+                  renderedComments.items.map((comment) => {
                     const likePending = commentLikePendingId === comment.id;
 
                     return (
@@ -733,44 +1128,31 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
                   </div>
                 )}
               </div>
+                </>
+              ) : null}
             </div>
 
             <aside className={styles.recommendRail} id="video-related-work">
               <div className={styles.recommendHeader}>
-                <span className={styles.secondaryLabel}>{sideSectionLabel}</span>
+                <span className={`${styles.commentsCount} ${styles.recommendHeaderLabel}`}>{sideSectionLabel}</span>
               </div>
 
               <div className={styles.recommendGrid}>
                 {recommendationVideos.length > 0 ? (
                   recommendationVideos.map((video) => {
-                    const relatedCover = normalizeAssetUrl(video.coverUrl);
-                    const relatedCoverIsVideo = isVideoAssetUrl(relatedCover);
                     const relatedAuthor = normalizeText(video.author.displayName) ?? "DramaTV";
 
                     return (
-                      <Link className={styles.recommendCard} href={video.href ?? `/videos/${video.id}`} key={video.id}>
-                        {relatedCoverIsVideo && relatedCover ? (
-                          <video
-                            autoPlay
-                            className={styles.recommendCardMediaVideo}
-                            loop
-                            muted
-                            playsInline
-                            preload="metadata"
-                            src={relatedCover}
-                          />
-                        ) : (
-                          <span
-                            className={styles.recommendCardMedia}
-                            style={relatedCover ? { backgroundImage: `url(${relatedCover})` } : undefined}
-                          />
-                        )}
-                        <span className={styles.recommendCardShade} />
-                        <span className={styles.recommendCardCopy}>
-                          <strong>{video.title}</strong>
-                          <span>{relatedAuthor}</span>
-                        </span>
-                      </Link>
+                      <RelatedVideoCard
+                        authorName={relatedAuthor}
+                        coverUrl={video.coverUrl}
+                        href={appendBackSource(video.href ?? `/videos/${video.id}`, backHref)}
+                        key={video.id}
+                        posterUrl={video.posterUrl}
+                        previewUrl={video.previewUrl}
+                        sourceUrl={video.sourceUrl}
+                        title={video.title}
+                      />
                     );
                   })
                 ) : (
@@ -778,28 +1160,7 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
                 )}
               </div>
 
-              {isPromptResource ? (
-                <article className={styles.processCard}>
-                  <div className={styles.secondaryHeader}>
-                    <span className={styles.secondaryLabel}>提示词操作</span>
-                    <span className={styles.secondaryPill}>{isReadonlyPromptDetail ? "只读展示" : "可直接复制"}</span>
-                  </div>
-                  <strong className={styles.secondaryTitle}>复制后继续按题材和镜头去微调</strong>
-                  <p className={styles.secondaryCopy}>
-                    先保留主体、镜头、光影和氛围描述，再按角色设定、服装、动作或风格化程度继续扩写。
-                  </p>
-                  <div className={styles.secondaryActionGroup}>
-                    <button className={styles.secondaryPrimaryAction} type="button" onClick={handleCopyPrompt}>
-                      一键复制提示词
-                    </button>
-                    {authorHref ? (
-                      <Link className={styles.secondaryAction} href={authorHref}>
-                        查看作者主页
-                      </Link>
-                    ) : null}
-                  </div>
-                </article>
-              ) : workflowHref ? (
+              {!isPromptResource && workflowHref ? (
                 <article className={styles.processCard}>
                   <div className={styles.secondaryHeader}>
                     <span className={styles.secondaryLabel}>工作流入口</span>
@@ -817,6 +1178,16 @@ export function VideoDetailPage({ view }: VideoDetailPageProps) {
             </aside>
           </div>
         </section>
+
+        <ReportModal
+          open={reportOpen}
+          submitting={reportPending}
+          title={isPromptResource ? "举报提示词" : "举报视频"}
+          targetId={currentView.id}
+          targetType={isPromptResource ? "prompt" : "video"}
+          onClose={() => setReportOpen(false)}
+          onSubmit={handleReportSubmit}
+        />
       </div>
     </PageShell>
   );

@@ -1,6 +1,8 @@
 package com.dramatv.community.shared.error;
 
 import com.dramatv.community.shared.request.RequestIdContext;
+import com.dramatv.community.shared.request.RequestBusinessContextInterceptor;
+import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.dramatv.community.shared.response.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
@@ -100,6 +104,44 @@ public class ApiExceptionHandler {
         return respond(HttpStatus.BAD_REQUEST, code, message, request, ex, false);
     }
 
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNoResourceFound(
+            NoResourceFoundException ex,
+            HttpServletRequest request
+    ) {
+        return respond(HttpStatus.NOT_FOUND, "RESOURCE_NOT_FOUND", "resource not found", request, ex, false);
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<ApiResponse<Void>> handleResponseStatus(
+            ResponseStatusException ex,
+            HttpServletRequest request
+    ) {
+        HttpStatus status = HttpStatus.resolve(ex.getStatusCode().value());
+        if (status == null) {
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+
+        String code = switch (status) {
+            case NOT_FOUND -> "RESOURCE_NOT_FOUND";
+            case REQUESTED_RANGE_NOT_SATISFIABLE -> "MEDIA_RANGE_NOT_SATISFIABLE";
+            case BAD_GATEWAY -> "MEDIA_PROXY_FAILED";
+            default -> status.name();
+        };
+
+        String message = ex.getReason();
+        if (message == null || message.isBlank()) {
+            message = switch (status) {
+                case NOT_FOUND -> "resource not found";
+                case REQUESTED_RANGE_NOT_SATISFIABLE -> "requested media range is invalid";
+                case BAD_GATEWAY -> "media proxy failed";
+                default -> humanizeCode(code);
+            };
+        }
+
+        return respond(status, code, message, request, ex, status.is5xxServerError());
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleUnhandled(
             Exception ex,
@@ -124,28 +166,30 @@ public class ApiExceptionHandler {
             boolean errorLog
     ) {
         String requestId = RequestIdContext.currentOrFallback();
-
-        if (errorLog) {
-            log.error(
-                    "api_error status={} code={} requestId={} method={} path={} message={}",
-                    status.value(),
-                    code,
-                    requestId,
-                    request.getMethod(),
-                    request.getRequestURI(),
-                    ex.getMessage(),
-                    ex
-            );
-        } else {
-            log.warn(
-                    "api_error status={} code={} requestId={} method={} path={} message={}",
-                    status.value(),
-                    code,
-                    requestId,
-                    request.getMethod(),
-                    request.getRequestURI(),
-                    ex.getMessage()
-            );
+        try (MdcBusinessContextScope ignored =
+                     MdcBusinessContextScope.open(RequestBusinessContextInterceptor.getRequestContext(request))) {
+            if (errorLog) {
+                log.error(
+                        "api_error status={} code={} requestId={} method={} path={} message={}",
+                        status.value(),
+                        code,
+                        requestId,
+                        request.getMethod(),
+                        request.getRequestURI(),
+                        ex.getMessage(),
+                        ex
+                );
+            } else {
+                log.warn(
+                        "api_error status={} code={} requestId={} method={} path={} message={}",
+                        status.value(),
+                        code,
+                        requestId,
+                        request.getMethod(),
+                        request.getRequestURI(),
+                        ex.getMessage()
+                );
+            }
         }
 
         return ResponseEntity.status(status).body(ApiResponse.failure(code, message));

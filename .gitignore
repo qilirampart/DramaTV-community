@@ -13,6 +13,7 @@ Thumbs.db
 # Node / Next.js
 node_modules/
 .next/
+.next-*/
 .turbo/
 .npm/
 .pnpm-store/
@@ -39,6 +40,7 @@ __pycache__/
 .tools/
 .drawio-assets/
 .playwright-mcp/
+.logs/
 logs/
 tmp/
 apps/server/logs/
@@ -52,6 +54,14 @@ apps/server/tmp/
 /*.zip
 apps/web/*.log
 apps/server/*.log
+/.codex/*.log
+/.codex/*.out.log
+/.codex/*.err.log
+/.codex/*.html
+/archive/workspace-artifacts/
+/artifacts/
+/apps/web/.next-*/
+/apps/admin/.next-*/
 
 # External local archives
 /mindloop-_-cinematic-archive (1)/

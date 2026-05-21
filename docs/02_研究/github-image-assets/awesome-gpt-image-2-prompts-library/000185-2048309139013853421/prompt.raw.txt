@@ -1,0 +1,2 @@
+{argument name="series" default="White Cat Project"}
+{argument name="character" default="Eleanor"}

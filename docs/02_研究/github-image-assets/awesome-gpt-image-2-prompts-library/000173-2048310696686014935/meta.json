@@ -1,0 +1,43 @@
+{
+  "rank": 173,
+  "id": "2048310696686014935",
+  "sourceRepo": "EvoLinkAI/awesome-gpt-image-2-prompts",
+  "repoUrl": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+  "readmeUrl": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/README.md",
+  "model": "gpt-image-2",
+  "campaign": "awesome-gpt-image-2-prompts",
+  "filterMode": "github-curated-cases",
+  "locale": "",
+  "categories": "poster-and-illustration",
+  "sectionTitle": "Poster & Illustration Cases",
+  "caseNumber": 166,
+  "title": "Japanese Chinese Food Delivery Flyer",
+  "description": "Poster & Illustration Cases curated case: Japanese Chinese Food Delivery Flyer, source author xc5_.",
+  "language": "",
+  "authorName": "xc5_",
+  "authorLink": "https://x.com/xc5_",
+  "sourceLink": "https://x.com/xc5_/status/2048310696686014935",
+  "sourcePublishedAt": "",
+  "sourcePlatform": "twitter",
+  "followers": null,
+  "likes": null,
+  "retweetCount": null,
+  "viewCount": null,
+  "media": [
+    "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-prompts/refs/heads/main/images/poster_case166/output.jpg"
+  ],
+  "mediaRelativePaths": [
+    "./images/poster_case166/output.jpg"
+  ],
+  "sourceMedia": [],
+  "grade": "A",
+  "hasRawPrompt": true,
+  "files": {
+    "promptRaw": "prompt.raw.txt",
+    "summary": "summary.txt",
+    "source": "source.txt",
+    "images": [
+      "01.jpg"
+    ]
+  }
+}
