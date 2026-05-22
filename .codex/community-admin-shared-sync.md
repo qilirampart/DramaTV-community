@@ -79,24 +79,25 @@
 
 ### 当前现状
 
-- 本地已经整理出 `main / pre / test / dev` 四条稳定分支
-- 这四条本地分支当前都对齐到同一个基线提交
+- 当前项目正式分支策略已收口为 `main + dev` 双分支
+- `main` 作为稳定主分支与对外默认分支
+- `dev` 作为日常开发、联调与集成分支
+- 历史上整理过的 `pre / test` 分支暂时仍存在，但从现在开始视为历史遗留分支，不再作为后续标准流转的一部分
 - GitHub 远端默认分支已经切到 `main`
 - `main` 现在是对外默认分支和发布锚点，不再只是临时工作分支
 
 ### 目标分支方案
 
 - `main`：生产主干，稳定可发布
-- `pre`：预发验证分支
-- `test`：测试环境联调分支
 - `dev`：日常开发集成分支
+- 不再长期维护 `pre / test` 两条稳定环境分支
+- 测试、联调、验收通过 `dev` 上的代码版本与具体 release 记录完成，不再依赖额外 Git 稳定分支
 
 ### 推荐流转
 
 - 日常开发：`feature/*` -> `dev`
-- 联调提测：`dev` -> `test`
-- 预发验证：`test` -> `pre`
-- 最终发布：`pre` -> `main`
+- 日常小修复：`fix/*` -> `dev`
+- 稳定发布：`dev` -> `main`
 - 紧急修复：从 `main` 或当前发布分支切 `hotfix/*`，修完再回灌
 
 ### 共享规则
@@ -104,7 +105,9 @@
 - 前台和后台的共享改动不拆成两个 Git 仓库处理
 - 影响双方的改动先记共享台账，再各自补单线进度
 - 发布记录要能追到分支、commit 和回滚点
-- 分支名优先用 `main / pre / test / dev` 这套现代命名，不再强制叫 `master`
+- 当前长期稳定分支只保留 `main / dev`
+- `pre / test` 如果后续确认无保留价值，可单独安排清理；在正式清理前，它们仅代表历史阶段，不代表当前流程
+- 分支名优先用 `main / dev` 这套轻量命名，不再强制叫 `master`
 
 ## 3. 当前共享链路总览
 
@@ -1180,7 +1183,7 @@
   - 当前如果直接按 `http://<公网IP>:3206` 验收，还需要云机安全组和本地防火墙放通 `3206`
   - 首条真实 admin 云发布完成后，还需要把实际 release 记录追加到 `ops/releases/test-env-release-ledger.md`
 
-### 2026-05-21 GitHub 仓库默认分支切到 main
+### 2026-05-22 Git 分支策略收口为 dev / main 双分支
 
 - 状态：`verified`
 - 影响范围：
@@ -1188,17 +1191,17 @@
   - 管理后台：间接影响。后台和前台共用同一仓库，默认分支切换会影响后续联调和发布口径。
   - 后端：间接影响。`apps/server` 仍复用同一仓库与同一套分支流转。
 - 当前真实口径：
-  - GitHub 仓库 `qilirampart/DramaTV-community` 的 default branch 已从 `dev` 切到 `main`
-  - `origin` 的 `HEAD branch` 已更新为 `main`
-  - 本地 `main / pre / test / dev` 仍停留在同一个快照提交 `6391feb43efcf46d4eb07f272094c27504f4db7c`
-  - 当前本地 checkout 仍是 `dev`，但远端默认入口已经不是 `dev`
+  - GitHub 仓库 `qilirampart/DramaTV-community` 的 default branch 已切到 `main`
+  - 当前正式工作流收口为 `feature/* -> dev -> main`
+  - `dev` 负责日常开发、联调和集成，`main` 负责稳定发布与对外基线
+  - `pre / test` 保留为历史分支，不再承接新的标准提测/预发流程
 - 验证状态：
   - `git remote show origin` 已确认 `HEAD branch: main`
-  - `git branch -vv` 已确认四个本地分支都对齐到同一个提交
+  - `git branch -a` 已确认当前仍存在 `main / dev / pre / test`，其中后两者将按历史分支处理
   - GitHub Settings 页面已显示 `Default branch changed to main`
 - 风险 / 未对齐点：
-  - 本地当前工作分支仍是 `dev`，后续如果要把日常默认开发分支也切到 `main`，需要再单独调整本地 checkout 和跟踪关系
-  - 这次只改了默认分支入口，没有额外重写 release 目录或回滚结构
+  - 这次先完成策略收口和文档统一，还没有执行本地/远端 `pre / test` 删除
+  - 如果后续确认要清理历史分支，需要单独执行一次分支清理并补一条回收记录
 
 ### 2026-05-21 云端前后台部署形态策略
 
@@ -1373,3 +1376,44 @@
   - “后台拿真实资源数据”这条共享链路原本就是通的
   - 本轮修复的是“后台浏览器访问真实资源”的云端公开链路
   - 后续只要保持后台同源代理口径，社区公网根入口短时异常也不会直接拖垮后台审核预览
+
+### 2026-05-22 历史四分支推进记录归档
+
+- 状态：`historical`
+- 影响范围：
+  - 社区前台：仅保留历史上下文，说明这批共享改动曾按旧四分支流程推进过。
+  - 管理后台：仅保留历史上下文，说明后台治理页相关改动曾进入过 `test`。
+  - 后端：仅保留历史上下文，说明共享后端改动曾随旧流程一起推进。
+- 当前真实口径：
+  - 这条记录描述的是双分支策略收口前已经发生过的一次旧流程推进：
+    - `feature/admin-reliability-and-governance-20260522`
+    - `-> dev`
+    - `-> test`
+  - 对应历史分支头一度为：
+    - `origin/dev = 6f3ae91`
+    - `origin/test = 2caed28`
+    - `origin/pre = 6391feb`
+  - 这段信息只用于解释历史推进痕迹，不再代表当前项目推荐流转。
+- 当前已确认的最低验证条件：
+  - 本地 `apps/admin -> npm run build` 已通过
+  - 本地后端定向集成测试已通过：
+    - `AdminMediaTaskApiIntegrationTest`
+    - `AdminUserGovernanceApiIntegrationTest`
+  - 本地后台运行态复验已通过：
+    - `/comments`
+    - `/moderation`
+    - `/reports`
+    - `/feed-ops/home`
+    - `/media-tasks`
+    - `/audit-logs`
+  - 云端共享链路已分别补过功能级验证：
+    - 后台创建账号 -> 社区本地密码登录
+    - 后台真实媒体预览同源代理
+- 当前还没做的事：
+  - 旧流程下原本还没执行 `test -> pre`
+  - 但当前项目已经改为 `dev / main` 双分支，所以这条旧推进链不再继续补完
+- 当前结论：
+  - 这条记录保留的是“我们曾经真实走过旧四分支流程”的历史事实
+  - 从当前策略开始，后续统一按 `feature/* -> dev -> main` 执行，不再继续补 `test / pre` 口径
+- 建议的下一步：
+  - 如果确认不再需要保留历史环境分支，可在后续单独执行 `pre / test` 本地与远端清理

@@ -3,7 +3,7 @@
 
 - 2026-04-29 起，进度记录正式拆分为三层：`.codex/progress.md` 只保留总索引、跨线状态、全局阻塞和关键里程碑；社区主线详细记录改写到 `.codex/progress-community.md`；后台管理线详细记录改写到 `.codex/progress-admin.md`。历史混合日志继续保留在本文件归档，不做整段迁移，避免大文档再次被重写弄乱。
 - 2026-04-29 进度记录已支持前后台并行推进：社区主线继续以 `apps/web + apps/server` 为准，后台管理线继续以 `apps/admin + apps/server` 为准；两条线分账记录，避免一边开发另一边“看起来像停滞”。
-- 2026-05-21 已把仓库级 Git 版本管理约定写入 `.codex/community-admin-shared-sync.md`：当前仓库是 `apps/web + apps/admin + apps/server` 的单一 Git 仓库，目标分支方案固定为 `main / pre / test / dev`，后续前后台共享改动都按这套分支和共享台账一起管理。
+- 2026-05-22 已把仓库级 Git 版本管理约定从四分支收口为双分支：当前仓库仍是 `apps/web + apps/admin + apps/server` 的单一 Git 仓库，但正式稳定分支只保留 `main / dev`；后续按 `feature/* -> dev -> main` 流转，`pre / test` 仅按历史分支看待，不再作为标准流程的一部分。
 - 2026-05-21 已补充项目级回滚口径：`git` 负责代码历史和源代码回滚，`release` 负责云端运行时快照和回滚；release 备份只在重大更新、稳定里程碑和云端发版前后做，不把每个小改动都做成一次 release。
 - 2026-05-21 已补后台资源治理页 `/resources`，把前台真实资源（视频提示词、图片提示词、工作流、帖子、视频作品）纳入后台列表、详情和下线/恢复治理；列表和详情已接真实后端，资源治理动作复用既有 `offline / restore` 口径，执行后应立即影响前台公开可见性。更细的实现与回归记录已写入 `.codex/progress-admin.md`。
 - 2026-05-21 已继续细化后台资源治理页的详情展示，把提示词正文从摘要里拆开，提示词资源现在能在右侧详情直接看到真实 prompt body；展示层细化记录已写入 `.codex/progress-admin.md`。
