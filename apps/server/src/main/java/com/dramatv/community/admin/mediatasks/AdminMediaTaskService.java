@@ -32,7 +32,9 @@ public class AdminMediaTaskService {
     private static final Logger log = LoggerFactory.getLogger(AdminMediaTaskService.class);
     private static final String[] MANAGE_ROLES = {"admin", "operator", "moderator"};
     private static final String VIDEO_MEDIA_PROCESS = "video_media_process";
-    private static final int DEFAULT_LIMIT = 100;
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 15;
+    private static final int MAX_PAGE_SIZE = 100;
     private static final int CALLBACK_LOG_LIMIT = 8;
 
     private static final String BASE_TASK_ROWS_CTE = """
@@ -82,18 +84,21 @@ public class AdminMediaTaskService {
             """;
 
     private static final String FILTERED_TASK_ROWS_CTE = BASE_TASK_ROWS_CTE + """
-            select *
-            from task_rows task
-            where (
-                    cast(? as varchar) is null
-                    or task.id::text ilike ?
-                    or task.target_title ilike ?
-                    or task.target_summary ilike ?
-                    or coalesce(task.target_author_display_name, '') ilike ?
-                    or coalesce(task.error_message, '') ilike ?
-                )
-              and (cast(? as varchar) is null or task.status_code = cast(? as varchar))
-              and (cast(? as varchar) is null or task.target_type = cast(? as varchar))
+            ,
+            filtered_task_rows as (
+                select *
+                from task_rows task
+                where (
+                        cast(? as varchar) is null
+                        or task.id::text ilike ?
+                        or task.target_title ilike ?
+                        or task.target_summary ilike ?
+                        or coalesce(task.target_author_display_name, '') ilike ?
+                        or coalesce(task.error_message, '') ilike ?
+                    )
+                  and (cast(? as varchar) is null or task.status_code = cast(? as varchar))
+                  and (cast(? as varchar) is null or task.target_type = cast(? as varchar))
+            )
             """;
 
     private static final String SUMMARY_SQL = BASE_TASK_ROWS_CTE + """
@@ -117,6 +122,8 @@ public class AdminMediaTaskService {
             """;
 
     private static final String LIST_SQL = FILTERED_TASK_ROWS_CTE + """
+            select *
+            from filtered_task_rows task
             order by
                 case
                     when task.status_code = 'failed' then 0
@@ -127,6 +134,11 @@ public class AdminMediaTaskService {
                 task.created_at desc,
                 task.id desc
             limit ?
+            offset ?
+            """;
+
+    private static final String COUNT_SQL = FILTERED_TASK_ROWS_CTE + """
+            select count(*) from filtered_task_rows task
             """;
 
     private static final String DETAIL_SQL = BASE_TASK_ROWS_CTE + """
@@ -172,13 +184,15 @@ public class AdminMediaTaskService {
         this.sensitivePayloadSanitizer = sensitivePayloadSanitizer;
     }
 
-    public AdminMediaTaskListResponse listTasks(String query, String status, String targetType) {
+    public AdminMediaTaskListResponse listTasks(String query, String status, String targetType, Integer page, Integer pageSize) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
         String normalizedQuery = normalizeQuery(query);
         String likeQuery = normalizedQuery == null ? null : "%" + normalizedQuery + "%";
         String normalizedStatus = normalizeStatus(status);
         String normalizedTargetType = normalizeTargetType(targetType);
+        int safePage = normalizePage(page);
+        int safePageSize = normalizePageSize(pageSize);
 
         AdminMediaTaskListResponse.Summary summary = jdbcTemplate.queryForObject(
                 SUMMARY_SQL,
@@ -200,6 +214,23 @@ public class AdminMediaTaskService {
                 normalizedTargetType,
                 normalizedTargetType
         );
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                normalizedStatus,
+                normalizedStatus,
+                normalizedTargetType,
+                normalizedTargetType
+        );
+        int totalPages = totalItems == 0 ? 1 : (int) Math.ceil((double) totalItems / safePageSize);
+        int effectivePage = Math.min(safePage, totalPages);
+        int offset = (effectivePage - 1) * safePageSize;
 
         List<AdminMediaTaskListResponse.Item> items = jdbcTemplate.query(
                 LIST_SQL,
@@ -214,13 +245,36 @@ public class AdminMediaTaskService {
                 normalizedStatus,
                 normalizedTargetType,
                 normalizedTargetType,
-                DEFAULT_LIMIT
+                safePageSize,
+                offset
         );
 
         return new AdminMediaTaskListResponse(
                 summary == null ? new AdminMediaTaskListResponse.Summary(0, 0, 0, 0, 0) : summary,
+                new AdminMediaTaskListResponse.Pagination(
+                        effectivePage,
+                        safePageSize,
+                        totalItems,
+                        totalPages,
+                        effectivePage > 1,
+                        effectivePage < totalPages
+                ),
                 items
         );
+    }
+
+    private int normalizePage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PAGE_SIZE;
+        }
+        return Math.min(pageSize, MAX_PAGE_SIZE);
     }
 
     public AdminMediaTaskDetailResponse getTask(String taskIdText) {

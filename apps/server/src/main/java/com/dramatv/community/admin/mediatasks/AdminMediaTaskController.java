@@ -25,9 +25,11 @@ public class AdminMediaTaskController {
     public ApiResponse<AdminMediaTaskListResponse> listTasks(
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String status,
-            @RequestParam(required = false) String targetType
+            @RequestParam(required = false) String targetType,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
-        return ApiResponse.ok(adminMediaTaskService.listTasks(q, status, targetType));
+        return ApiResponse.ok(adminMediaTaskService.listTasks(q, status, targetType, page, pageSize));
     }
 
     @GetMapping("/{taskId}")

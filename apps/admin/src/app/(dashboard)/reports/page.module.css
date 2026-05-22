@@ -34,7 +34,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 390px;
+  grid-template-columns: minmax(0, 1.52fr) minmax(320px, 25vw);
   gap: 14px;
   align-items: start;
 }
@@ -46,7 +46,7 @@
 
 .metricsGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
 }
 
@@ -123,7 +123,7 @@
 
 .filterGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px 16px;
   align-items: end;
 }
@@ -568,6 +568,7 @@
 .drawer {
   position: sticky;
   top: 14px;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -644,6 +645,8 @@
   color: var(--admin-ink-soft);
   font-size: 0.84rem;
   line-height: 1.5;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .evidenceGrid {
@@ -968,6 +971,7 @@
   gap: 10px;
   color: var(--admin-muted);
   font-size: 0.74rem;
+  flex-wrap: wrap;
 }
 
 .metaStats {
@@ -1089,15 +1093,7 @@
 
 @media (max-width: 1520px) {
   .layout {
-    grid-template-columns: minmax(0, 1fr) 352px;
-  }
-
-  .metricsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .filterGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.68fr) minmax(300px, 24vw);
   }
 
   .infoGrid {
@@ -1109,13 +1105,14 @@
   }
 }
 
-@media (max-width: 1260px) {
+@media (max-width: 1380px) {
   .layout {
     grid-template-columns: 1fr;
   }
 
   .drawer {
     position: static;
+    min-width: 0;
   }
 
   .drawerBody {
@@ -1133,10 +1130,7 @@
     align-items: flex-start;
   }
 
-  .metricsGrid {
-    grid-template-columns: 1fr;
-  }
-
+  .metricsGrid,
   .filterGrid {
     grid-template-columns: 1fr;
   }

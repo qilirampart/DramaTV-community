@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class AdminUserQueryService {
 
     private static final int DEFAULT_PAGE = 1;
-    private static final int DEFAULT_PAGE_SIZE = 20;
+    private static final int DEFAULT_PAGE_SIZE = 15;
     private static final int MAX_PAGE_SIZE = 100;
 
     private final JdbcTemplate jdbcTemplate;

@@ -5,6 +5,7 @@ const ADMIN_MEDIA_BASE_URL =
 const WEB_MEDIA_BASE_URL =
   process.env.NEXT_PUBLIC_DRAMATV_WEB_BASE_URL?.trim() || "http://127.0.0.1:3106";
 const WEB_STATIC_MEDIA_PREFIXES = ["/seedance-videos/", "/nano-banana-images/"];
+const ADMIN_SAME_ORIGIN_PROXY_PREFIX = "/__admin_proxy__";
 
 type FeedOpsMediaItem = FeedOpsPageData["candidatePool"][number];
 
@@ -15,19 +16,19 @@ export function resolveFeedOpsMediaUrl(input?: string | null) {
   }
 
   if (/^(https?:|data:|blob:)/i.test(value)) {
-    return rewriteLocalWebStaticUrl(value);
+    return rewriteAbsoluteMediaUrl(value);
   }
 
   const normalizedPath = value.startsWith("/") ? value : `/${value.replace(/^\/+/, "")}`;
   if (isWebStaticMediaPath(normalizedPath)) {
-    return `${WEB_MEDIA_BASE_URL}${normalizedPath}`;
+    return toAdminProxyUrl(normalizedPath);
   }
 
   if (normalizedPath.startsWith("/")) {
-    return `${ADMIN_MEDIA_BASE_URL}${normalizedPath}`;
+    return toAdminProxyUrl(normalizedPath);
   }
 
-  return `${ADMIN_MEDIA_BASE_URL}/${value.replace(/^\/+/, "")}`;
+  return toAdminProxyUrl(`/${value.replace(/^\/+/, "")}`);
 }
 
 export function getFeedOpsMediaSources(item: Pick<FeedOpsMediaItem, "coverUrl" | "posterUrl" | "previewUrl" | "sourceUrl" | "promptModality">) {
@@ -51,21 +52,38 @@ function isWebStaticMediaPath(value: string) {
   return WEB_STATIC_MEDIA_PREFIXES.some((prefix) => value.startsWith(prefix));
 }
 
-function rewriteLocalWebStaticUrl(value: string) {
+function rewriteAbsoluteMediaUrl(value: string) {
   try {
     const url = new URL(value);
+    if (isWebStaticMediaPath(url.pathname)) {
+      return toAdminProxyUrl(`${url.pathname}${url.search}${url.hash}`);
+    }
+
+    if (isSameOriginMediaPath(url.pathname, url.hostname)) {
+      return toAdminProxyUrl(`${url.pathname}${url.search}${url.hash}`);
+    }
+
     if (!isLocalDevelopmentHost(url.hostname)) {
       return value;
     }
 
-    if (!isWebStaticMediaPath(url.pathname)) {
-      return value;
+    if (url.origin === WEB_MEDIA_BASE_URL || url.origin === ADMIN_MEDIA_BASE_URL) {
+      return toAdminProxyUrl(`${url.pathname}${url.search}${url.hash}`);
     }
 
-    return `${WEB_MEDIA_BASE_URL}${url.pathname}${url.search}${url.hash}`;
+    return value;
   } catch {
     return value;
   }
+}
+
+function isSameOriginMediaPath(pathname: string, hostname: string) {
+  return pathname.startsWith("/media/") && !isLocalDevelopmentHost(hostname);
+}
+
+function toAdminProxyUrl(pathWithQuery: string) {
+  const normalized = pathWithQuery.startsWith("/") ? pathWithQuery : `/${pathWithQuery}`;
+  return `${ADMIN_SAME_ORIGIN_PROXY_PREFIX}${normalized}`;
 }
 
 function isLocalDevelopmentHost(hostname: string) {

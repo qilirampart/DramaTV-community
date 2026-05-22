@@ -9,6 +9,7 @@ type MediaTaskReturnState = {
   q?: string | null;
   status?: string | null;
   targetType?: string | null;
+  page?: string | null;
 };
 
 function appendSearchParam(searchParams: URLSearchParams, key: string, value?: string | null) {
@@ -30,6 +31,7 @@ function resolveReturnPathWithFilters(
   appendSearchParam(searchParams, "q", state?.q);
   appendSearchParam(searchParams, "status", state?.status);
   appendSearchParam(searchParams, "targetType", state?.targetType);
+  appendSearchParam(searchParams, "page", state?.page);
   if (message?.value?.trim()) {
     searchParams.set(message.key, message.value.trim());
   }
@@ -55,7 +57,8 @@ export async function retryMediaTaskAction(formData: FormData) {
     taskId: String(formData.get("taskId") ?? "").trim(),
     q: String(formData.get("q") ?? "").trim(),
     status: String(formData.get("status") ?? "").trim(),
-    targetType: String(formData.get("targetType") ?? "").trim()
+    targetType: String(formData.get("targetType") ?? "").trim(),
+    page: String(formData.get("page") ?? "").trim()
   };
   const taskId = state.taskId;
 

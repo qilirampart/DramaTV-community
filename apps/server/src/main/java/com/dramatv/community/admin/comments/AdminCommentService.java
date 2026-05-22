@@ -26,7 +26,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class AdminCommentService {
 
     private static final Logger log = LoggerFactory.getLogger(AdminCommentService.class);
-    private static final int DEFAULT_LIMIT = 80;
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 15;
+    private static final int MAX_PAGE_SIZE = 100;
     private static final String[] MANAGE_ROLES = {"admin", "moderator"};
     private static final String FILTERED_COMMENT_ROWS_CTE = """
             with report_stats as (
@@ -141,6 +143,11 @@ public class AdminCommentService {
                 created_at desc,
                 id desc
             limit ?
+            offset ?
+            """;
+
+    private static final String COUNT_SQL = FILTERED_COMMENT_ROWS_CTE + """
+            select count(*) from comment_rows
             """;
 
     private final JdbcTemplate jdbcTemplate;
@@ -167,13 +174,34 @@ public class AdminCommentService {
             String query,
             String status,
             String targetType,
-            Boolean reportedOnly
+            Boolean reportedOnly,
+            Integer page,
+            Integer pageSize
     ) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
         String normalizedQuery = normalizeQuery(query);
         String likeQuery = normalizedQuery == null ? null : "%" + normalizedQuery + "%";
         FilterSpec filters = normalizeFilters(status, targetType, reportedOnly);
+        int safePage = normalizePage(page);
+        int safePageSize = normalizePageSize(pageSize);
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                filters.targetType(),
+                filters.targetType(),
+                filters.statusCode(),
+                filters.statusCode(),
+                filters.reportedOnly()
+        );
+        int totalPages = totalItems == 0 ? 1 : (int) Math.ceil((double) totalItems / safePageSize);
+        int effectivePage = Math.min(safePage, totalPages);
+        int offset = (effectivePage - 1) * safePageSize;
 
         AdminCommentListResponse.Summary summary = jdbcTemplate.queryForObject(
                 SUMMARY_SQL,
@@ -197,6 +225,14 @@ public class AdminCommentService {
 
         return new AdminCommentListResponse(
                 summary == null ? new AdminCommentListResponse.Summary(0, 0, 0, 0) : summary,
+                new AdminCommentListResponse.Pagination(
+                        effectivePage,
+                        safePageSize,
+                        totalItems,
+                        totalPages,
+                        effectivePage > 1,
+                        effectivePage < totalPages
+                ),
                 jdbcTemplate.query(
                         ITEMS_SQL,
                         (resultSet, rowNum) -> mapItem(resultSet),
@@ -210,9 +246,24 @@ public class AdminCommentService {
                         filters.statusCode(),
                         filters.statusCode(),
                         filters.reportedOnly(),
-                        DEFAULT_LIMIT
+                        safePageSize,
+                        offset
                 )
         );
+    }
+
+    private int normalizePage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PAGE_SIZE;
+        }
+        return Math.min(pageSize, MAX_PAGE_SIZE);
     }
 
     @Transactional

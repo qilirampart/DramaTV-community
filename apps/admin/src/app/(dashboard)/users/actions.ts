@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { AdminBackendError, resetAdminUserPassword, updateAdminUserGovernance } from "@/lib/admin-service";
-import type { ResetPasswordActionState } from "./types";
+import { createAdminUser, AdminBackendError, resetAdminUserPassword, updateAdminUserGovernance } from "@/lib/admin-service";
+import type { CreateUserActionState, ResetPasswordActionState } from "./types";
 
 function appendSearchParam(searchParams: URLSearchParams, key: string, value?: string | null) {
   const normalized = value?.trim();
@@ -111,6 +111,69 @@ export async function resetUserPasswordAction(
       temporaryPassword: null,
       passwordActionLabel: null,
       userId
+    };
+  }
+}
+
+export async function createUserAction(
+  _previousState: CreateUserActionState,
+  formData: FormData
+): Promise<CreateUserActionState> {
+  const username = String(formData.get("username") ?? "").trim();
+  const displayName = String(formData.get("displayName") ?? "").trim();
+  const roleCode = String(formData.get("roleCode") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const phone = String(formData.get("phone") ?? "").trim();
+
+  if (!username || !displayName || !roleCode) {
+    return {
+      status: "error",
+      message: "创建账号参数不完整。",
+      requestId: null,
+      createdUserId: null,
+      temporaryPassword: null,
+      passwordMode: null,
+      createdUsername: null,
+      createdDisplayName: null
+    };
+  }
+
+  try {
+    const password = String(formData.get("password") ?? "").trim();
+    const response = await createAdminUser({
+      username,
+      displayName,
+      roleCode,
+      email: email || undefined,
+      phone: phone || undefined,
+      password: password || undefined
+    });
+
+    revalidatePath("/users");
+    return {
+      status: "success",
+      message: password ? "账号已创建，已按填写内容设置初始密码。" : "账号已创建，未填写密码时已落到默认密码。",
+      requestId: response.requestId,
+      createdUserId: response.data.userId,
+      temporaryPassword: response.data.temporaryPassword,
+      passwordMode: password ? "custom" : "default",
+      createdUsername: response.data.username,
+      createdDisplayName: response.data.displayName
+    };
+  } catch (error) {
+    const message =
+      error instanceof AdminBackendError
+        ? `${error.message}${error.requestId ? `（requestId: ${error.requestId}）` : ""}`
+        : "创建账号失败，请稍后重试。";
+    return {
+      status: "error",
+      message,
+      requestId: error instanceof AdminBackendError ? error.requestId ?? null : null,
+      createdUserId: null,
+      temporaryPassword: null,
+      passwordMode: null,
+      createdUsername: null,
+      createdDisplayName: null
     };
   }
 }

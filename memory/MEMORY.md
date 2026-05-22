@@ -1,5 +1,13 @@
 # MEMORY
 
+## 2026-05-21 git history and release rollback are both needed
+
+- For this repo, `git` and `release` solve different problems and both are necessary:
+  - `git` keeps code history, branches, and source-level rollback.
+  - `release` keeps runtime snapshots for cloud/test recovery and rollback.
+- Do not treat release snapshots as a replacement for git history, and do not use git history as the only runtime recovery path.
+- Release snapshots should be created mainly for major updates, stable milestones, or cloud rollout checkpoints. Do not make a release backup for every tiny tweak.
+
 ## 2026-05-21 admin resource governance should reuse moderation actions
 
 - For this repo, do not invent a second governance state machine just for the admin resource inventory. Reuse the existing moderation `offline / restore` actions so resource governance and public visibility stay on one shared backend contract.

@@ -25,7 +25,7 @@ public class AdminResourceController {
             @RequestParam(value = "targetType", required = false) String targetType,
             @RequestParam(value = "status", required = false) String status,
             @RequestParam(value = "page", defaultValue = "1") Integer page,
-            @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize
+            @RequestParam(value = "pageSize", defaultValue = "15") Integer pageSize
     ) {
         return ApiResponse.ok(adminResourceQueryService.listResources(q, targetType, status, page, pageSize));
     }

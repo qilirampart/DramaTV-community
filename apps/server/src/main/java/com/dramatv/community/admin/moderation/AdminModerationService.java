@@ -32,7 +32,9 @@ public class AdminModerationService {
 
     private static final Logger log = LoggerFactory.getLogger(AdminModerationService.class);
     private static final String[] MANAGE_ROLES = {"admin", "moderator"};
-    private static final int DEFAULT_LIMIT = 80;
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 15;
+    private static final int MAX_PAGE_SIZE = 100;
 
     private static final String FILTERED_ROWS_CTE = """
             with moderation_rows as (
@@ -243,6 +245,11 @@ public class AdminModerationService {
                 submitted_at desc,
                 target_id desc
             limit ?
+            offset ?
+            """;
+
+    private static final String COUNT_SQL = FILTERED_ROWS_CTE + """
+            select count(*) from moderation_rows
             """;
 
     private static final String DETAIL_SQL = FILTERED_ROWS_CTE + """
@@ -320,13 +327,33 @@ public class AdminModerationService {
         this.objectMapper = objectMapper;
     }
 
-    public AdminModerationListResponse listItems(String query, String targetType, String status) {
+    public AdminModerationListResponse listItems(String query, String targetType, String status, Integer page, Integer pageSize) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
         String normalizedQuery = normalizeQuery(query);
         String likeQuery = normalizedQuery == null ? null : "%" + normalizedQuery + "%";
         String normalizedTargetType = normalizeTargetType(targetType);
         String normalizedStatus = normalizeStatus(status);
+        int safePage = normalizePage(page);
+        int safePageSize = normalizePageSize(pageSize);
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                normalizedTargetType,
+                normalizedTargetType,
+                normalizedTargetType,
+                normalizedTargetType,
+                normalizedTargetType,
+                normalizedStatus,
+                normalizedStatus
+        );
+        int totalPages = totalItems == 0 ? 1 : (int) Math.ceil((double) totalItems / safePageSize);
+        int effectivePage = Math.min(safePage, totalPages);
+        int offset = (effectivePage - 1) * safePageSize;
 
         AdminModerationListResponse.Summary summary = jdbcTemplate.queryForObject(
                 SUMMARY_SQL,
@@ -363,13 +390,36 @@ public class AdminModerationService {
                 normalizedTargetType,
                 normalizedStatus,
                 normalizedStatus,
-                DEFAULT_LIMIT
+                safePageSize,
+                offset
         );
 
         return new AdminModerationListResponse(
                 summary == null ? new AdminModerationListResponse.Summary(0, 0, 0, 0) : summary,
+                new AdminModerationListResponse.Pagination(
+                        effectivePage,
+                        safePageSize,
+                        totalItems,
+                        totalPages,
+                        effectivePage > 1,
+                        effectivePage < totalPages
+                ),
                 items
         );
+    }
+
+    private int normalizePage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PAGE_SIZE;
+        }
+        return Math.min(pageSize, MAX_PAGE_SIZE);
     }
 
     public AdminModerationItemDetailResponse getItem(String targetType, String targetId) {
