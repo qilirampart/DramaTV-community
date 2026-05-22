@@ -79,9 +79,10 @@
 
 ### 当前现状
 
-- 本地当前只有 `main`
-- 目前还没有整理出 `pre / test / dev` 这些稳定分支
-- `main` 现在是实际工作分支，不是严格意义上的发布主干
+- 本地已经整理出 `main / pre / test / dev` 四条稳定分支
+- 这四条本地分支当前都对齐到同一个基线提交
+- GitHub 远端默认分支已经切到 `main`
+- `main` 现在是对外默认分支和发布锚点，不再只是临时工作分支
 
 ### 目标分支方案
 
@@ -1178,3 +1179,197 @@
   - 当前还没有把 `admin-community.xxx.com` 这一类正式独立域名配置进脚本；如果后续启用正式域名，只需要替换公开入口参数，不应重造 release 目录和 rollback 结构
   - 当前如果直接按 `http://<公网IP>:3206` 验收，还需要云机安全组和本地防火墙放通 `3206`
   - 首条真实 admin 云发布完成后，还需要把实际 release 记录追加到 `ops/releases/test-env-release-ledger.md`
+
+### 2026-05-21 GitHub 仓库默认分支切到 main
+
+- 状态：`verified`
+- 影响范围：
+  - 前台社区：间接影响。后续对外同步、拉取和仓库入口默认都会按 `main` 作为基线。
+  - 管理后台：间接影响。后台和前台共用同一仓库，默认分支切换会影响后续联调和发布口径。
+  - 后端：间接影响。`apps/server` 仍复用同一仓库与同一套分支流转。
+- 当前真实口径：
+  - GitHub 仓库 `qilirampart/DramaTV-community` 的 default branch 已从 `dev` 切到 `main`
+  - `origin` 的 `HEAD branch` 已更新为 `main`
+  - 本地 `main / pre / test / dev` 仍停留在同一个快照提交 `6391feb43efcf46d4eb07f272094c27504f4db7c`
+  - 当前本地 checkout 仍是 `dev`，但远端默认入口已经不是 `dev`
+- 验证状态：
+  - `git remote show origin` 已确认 `HEAD branch: main`
+  - `git branch -vv` 已确认四个本地分支都对齐到同一个提交
+  - GitHub Settings 页面已显示 `Default branch changed to main`
+- 风险 / 未对齐点：
+  - 本地当前工作分支仍是 `dev`，后续如果要把日常默认开发分支也切到 `main`，需要再单独调整本地 checkout 和跟踪关系
+  - 这次只改了默认分支入口，没有额外重写 release 目录或回滚结构
+
+### 2026-05-21 云端前后台部署形态策略
+
+- 状态：`verified`
+- 影响范围：
+  - 社区前台：直接影响。后续前台云发布继续保持独立前端运行时和独立 release，不和后台混成同一个 Next 运行进程。
+  - 管理后台：直接影响。后台云发布继续保持独立前端运行时和独立 release，但共享同一个社区后端与业务数据。
+  - 后端：直接影响。`apps/server` 继续作为前后台共享后端，不额外拆第二套后台专用社区业务后端。
+- 当前真实口径：
+  - 本地也不是“前后台共一个运行进程”，而是：
+    - 社区前台 `3106`
+    - 管理后台 `3206`
+    - 共享后端 `18080`
+    - 云镜像前台 `3107`
+  - 云端推荐长期保持的形态是：
+    - 同一 Git 仓库
+    - 同一批次 commit/source
+    - 共享 `apps/server`
+    - `apps/web` 与 `apps/admin` 分别独立运行
+    - `web / admin / server` 各自保留独立 release 与回滚点
+  - “前后台互通”依赖的不是共一个前端进程，而是：
+    - 共用同一套数据库、OSS、审核与编排数据
+    - 前后台构建自同一个仓库快照
+    - 共享链路变化持续写入本台账
+- 不采用“云端前后台共一个前端进程”的原因：
+  - 前台和后台无法独立回滚，任何一边的发布事故都更容易拖到另一边
+  - Next 构建产物、缓存、静态资源和路由更容易互相污染
+  - 后台发布会直接增加前台在线流量风险，不利于测试环境逐步收口到生产规范
+  - 后续做独立 smoke、灰度、性能排障和单边热修都会更困难
+- 验证状态：
+  - 本地端口分工已固定写入 `docs/04_实施设计/本地手动启动操作指南-2026-05-21.md`
+  - 当前后台测试环境云发布口径已明确为“独立端口、独立 release、共享后端”
+- 风险 / 未对齐点：
+  - 后续如果要进一步强化“同批次互通”，应该补的是统一 release label、统一发布记录和同批次验收，不是把前后台前端进程合并
+  - 如果未来要上正式独立域名，仍按“前台一个入口、后台一个入口、共享后端”的思路扩展，不回退到共进程方案
+
+### 2026-05-22 管理后台布局收口版已发到测试云环境
+
+- 状态：`verified`
+- 影响范围：
+  - 社区前台：间接影响。后台治理页的视觉比例和操作空间更稳定后，云端联调时不再容易因为浏览器宽度差异误判为“发布未生效”或“云端样式错版”。
+  - 管理后台：直接影响。`users / comments / moderation / reports / resources / media-tasks / audit-logs` 这批共享治理页已同步到测试云环境的新 release。
+  - 后端：无接口契约变更，本轮只改后台前端布局与展示层响应式策略。
+- 当前真实口径：
+  - 本轮云发布命令：`npm run deploy:test:admin`
+  - 远端 active release：`20260522-113320`
+  - 远端路径：`/opt/dramatv-community-admin/releases/20260522-113320`
+  - 公网入口：`http://8.141.20.130:3206`
+  - 当前服务：`dramatv-community-admin` `active (running)`
+- 本轮云上发布验证：
+  - 公网 `public` smoke：`13 passed / 0 failed`
+  - 云机内 `full` smoke：`25 passed / 0 failed`
+  - 验证产物：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-113320-public-summary.json`
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-113320-internal-summary.json`
+- 这轮共享结论：
+  - 之前“本地 Edge 看着正常、云端或 Chrome 看着拥挤”并不是云端后台和本地后台跑了不同代码版本，而是后台布局对有效视口宽度太敏感。
+  - 这次已把共享治理页统一改成更稳的响应式策略，再验云端时应该优先按“同一页面在不同浏览器的有效宽度是否还会进入挤压带”来判断，而不是再先怀疑“云端没发上去”。
+
+### 2026-05-22 用户管理创建账号链路补齐
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：间接影响。后台现在可以直接创建本地账号，这类账号后续可直接走社区 `/api/auth/login` 的本地密码登录链路。
+  - 管理后台：直接影响。`/users` 已新增真实“创建账号”弹窗与提交链路。
+  - 后端：直接影响。新增 `POST /api/admin/users`，写入真实用户、密码和审计日志。
+- 当前真实口径：
+  - 创建的是本地账号，不是画布侧外部账号。
+  - 创建成功后后端会返回初始密码，当前由后台创建弹窗直接展示。
+  - 支持创建时直接填写初始密码。
+  - 如果密码留空，则统一回退到默认密码 `dramatv-local-dev`。
+  - 新账号默认 `status=active`
+  - 新账号默认走 `identity_provider=local`
+  - 新账号会同步补 `creator_profiles`
+- 权限边界：
+  - `admin / operator` 可创建账号
+  - `moderator` 只读，不可创建
+  - `operator` 不可创建 `admin`
+  - 只有 `admin` 可创建管理员账号
+- 验证状态：
+  - 已补后端集成测试：
+    - `operatorCanCreateCreatorUserWithDefaultPasswordWhenPasswordBlank`
+    - `operatorCanCreateCreatorUserWithExplicitPassword`
+    - `operatorCannotCreateAdminUser`
+  - 已做本地运行态真接口验证：
+    - 后台 `admin-chief / dramatv-admin-demo` 登录成功
+    - 空密码创建账号后，返回 `dramatv-local-dev` 且社区本地登录成功
+    - 自定义密码创建账号后，返回自定义密码且社区本地登录成功
+- 风险 / 未对齐点：
+  - 这轮还没同步到测试云环境，目前先是本地真实可用
+  - 当前创建表单只覆盖最小字段：`username / displayName / role / email / phone / password`
+  - 如果后续需要“批量建号 / 初始化头像 / 强制首登改密”，应作为下一条共享能力继续补，不要直接改坏当前最小闭环
+
+### 2026-05-22 用户管理创建账号链路已同步到测试云环境
+
+- 状态：`verified-cloud`
+- 影响范围：
+  - 社区前台：直接影响。后台新建的本地账号已经在测试云环境可通过社区 `/api/auth/login` 真实登录，不再只是本地演示链路。
+  - 管理后台：直接影响。`/users` 的创建账号弹窗已发到测试云环境，对应公网入口 `http://8.141.20.130:3206`。
+  - 后端：直接影响。共享后端 `POST /api/admin/users` 已在测试云环境切到包含“自定义密码优先、留空回退默认密码”的版本。
+- 当前真实口径：
+  - 创建的仍是社区本地账号，不是外部画布账号。
+  - 最小创建字段仍是：`username / displayName / roleCode / email / phone / password`
+  - 若 `password` 留空，则回退默认密码 `dramatv-local-dev`
+  - 若 `password` 有值，则直接作为初始密码落库
+  - 新账号仍默认：
+    - `identity_provider=local`
+    - `status=active`
+    - 自动补 `creator_profiles`
+- 本轮云端发布口径：
+  - 共享后端 active release：`/opt/dramatv-community-server/releases/20260522-123003`
+  - 管理后台 active release：`/opt/dramatv-community-admin/releases/20260522-123432`
+  - 服务状态：
+    - `dramatv-community-server` = `active`
+    - `dramatv-community-admin` = `active`
+- 本轮验证状态：
+  - 后台公网 smoke：`artifacts/runtime-readiness/test/admin-deploy-20260522-123432-public-summary.json`
+    - 结果：`13 passed / 0 failed`
+  - 后台云机内 smoke：`artifacts/runtime-readiness/test/admin-deploy-20260522-123432-internal-summary.json`
+    - 结果：`25 passed / 0 failed`
+  - 云机内功能级真验收已补：
+    - 管理员 `admin-chief / dramatv-admin-demo` 可通过 `http://127.0.0.1:18080/api/admin/auth/login` 登录
+    - 空密码创建账号 `cloudsync_blank_20260522124137` 后，返回 `dramatv-local-dev`，并可通过社区 `http://127.0.0.1:18080/api/auth/login` 登录成功
+    - 自定义密码创建账号 `cloudsync_custom_20260522124137` 后，返回 `CloudSync!20260522124137`，并可通过社区 `http://127.0.0.1:18080/api/auth/login` 登录成功
+- 重要说明：
+  - 本轮 backend deploy summary `artifacts/runtime-readiness/test/backend-deploy-20260522-123003-summary.json` 仍显示对公网社区入口 `http://8.141.20.130` 的一组 `fetch failed`
+  - 这条失败不是“创建账号能力没同步上云”，而是当前脚本尾部跑的是社区公网 readiness，和本次后台账号创建能力不是同一条验收链路
+  - 因此本条共享能力是否生效，应以后端 active release + 后台 smoke + 云机内功能级真验收三者同时成立为准
+- 当前结论：
+  - “后台创建本地账号 -> 社区本地密码登录”这条共享链路已经在测试云环境真实打通
+  - 之前 `verified-local` 的本地状态已被这次 `verified-cloud` 覆盖
+
+### 2026-05-22 后台真实媒体预览改为同源代理链路
+
+- 状态：`verified-cloud`
+- 影响范围：
+  - 社区前台：间接影响。前台资源数据本身没有改，但后台不再依赖社区公网 `/media` 是否稳定来展示这些真实资源。
+  - 管理后台：直接影响。`moderation / resources / feed-ops` 这类读取真实图片视频的页面，浏览器侧资源访问已切到后台同源代理。
+  - 后端：无新的业务接口契约变更，仍复用现有 `/media/**`、前台静态资源路径和共享数据口径。
+- 当前真实口径：
+  - 后台审核接口和资源接口一直都已返回真实媒体字段：
+    - `coverUrl`
+    - `posterUrl`
+    - `previewUrl`
+    - `sourceUrl`
+  - 之前云上问题不是“接口没对上真实资源”，而是后台前端把这些相对路径拼成了社区公网根入口：
+    - `http://8.141.20.130/media/...`
+  - 该公网路径在浏览器运行态里统一返回 `502 Bad Gateway`，导致后台看起来像“拿不到真实资源”
+- 本轮修复策略：
+  - 后台浏览器侧不再直接拼社区公网根域名
+  - 改成统一输出同源代理路径：
+    - `/__admin_proxy__/media/...`
+    - `/__admin_proxy__/seedance-videos/...`
+    - `/__admin_proxy__/nano-banana-images/...`
+  - 后台 Next 运行时通过 rewrites 再转发到：
+    - `127.0.0.1:18080`
+    - 社区前台静态资源入口
+- 本轮云端发布口径：
+  - 管理后台 active release：`/opt/dramatv-community-admin/releases/20260522-130604`
+  - 服务状态：`dramatv-community-admin = active`
+- 本轮验证状态：
+  - 后台 smoke：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-130604-public-summary.json`
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-130604-internal-summary.json`
+  - 浏览器运行态已验证：
+    - 审核页旧请求 `http://8.141.20.130/media/...` 之前是 `502`
+    - 新请求已切到 `http://8.141.20.130:3206/__admin_proxy__/media/...`
+    - 新请求当前返回 `200 OK`
+  - 云机内网核实：
+    - `http://127.0.0.1:18080/media/...` 本身一直可用，说明问题确实是公网访问链路而不是共享后端资源缺失
+- 当前结论：
+  - “后台拿真实资源数据”这条共享链路原本就是通的
+  - 本轮修复的是“后台浏览器访问真实资源”的云端公开链路
+  - 后续只要保持后台同源代理口径，社区公网根入口短时异常也不会直接拖垮后台审核预览
