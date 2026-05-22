@@ -16,6 +16,7 @@ type ReportReturnState = {
   status?: string | null;
   targetType?: string | null;
   reason?: string | null;
+  page?: string | null;
 };
 
 function appendSearchParam(searchParams: URLSearchParams, key: string, value?: string | null) {
@@ -32,6 +33,7 @@ function resolveReturnPath(state?: ReportReturnState) {
   appendSearchParam(searchParams, "status", state?.status);
   appendSearchParam(searchParams, "targetType", state?.targetType);
   appendSearchParam(searchParams, "reason", state?.reason);
+  appendSearchParam(searchParams, "page", state?.page);
 
   const query = searchParams.toString();
   return query ? `/reports?${query}` : "/reports";
@@ -63,7 +65,8 @@ function readActionInput(formData: FormData) {
     q: String(formData.get("q") ?? "").trim(),
     status: String(formData.get("status") ?? "").trim(),
     targetType: String(formData.get("targetType") ?? "").trim(),
-    reason: String(formData.get("reason") ?? "").trim()
+    reason: String(formData.get("reason") ?? "").trim(),
+    page: String(formData.get("page") ?? "").trim()
   };
 }
 

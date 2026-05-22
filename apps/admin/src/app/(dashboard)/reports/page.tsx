@@ -18,6 +18,8 @@ import ReportsMediaPreview from "./ReportsMediaPreview";
 import ReportsTableInteractive from "./ReportsTableInteractive";
 import styles from "./page.module.css";
 
+const PAGE_SIZE = 15;
+
 type Metric = {
   label: string;
   value: string;
@@ -94,6 +96,14 @@ type PageData = {
   defaultSelectedId: string | null;
   totalCountLabel: string;
   emptyMessage: string | null;
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
 };
 
 type ReportFilters = {
@@ -101,6 +111,7 @@ type ReportFilters = {
   status: string;
   targetType: string;
   reason: string;
+  page: number;
 };
 
 const ZERO_METRICS: readonly Metric[] = [
@@ -327,17 +338,24 @@ function normalizeFilterValue(value: string | null | undefined) {
   return value?.trim() || "";
 }
 
+function normalizePageValue(value: string | null | undefined) {
+  const parsed = Number.parseInt(value?.trim() || "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
 function readFilters(searchParams?: {
   q?: string;
   status?: string;
   targetType?: string;
   reason?: string;
+  page?: string;
 }): ReportFilters {
   return {
     q: normalizeFilterValue(searchParams?.q),
     status: normalizeFilterValue(searchParams?.status),
     targetType: normalizeFilterValue(searchParams?.targetType),
-    reason: normalizeFilterValue(searchParams?.reason)
+    reason: normalizeFilterValue(searchParams?.reason),
+    page: normalizePageValue(searchParams?.page)
   };
 }
 
@@ -349,6 +367,7 @@ function buildReportsHref(
   filters: ReportFilters,
   options?: {
     selected?: string | null;
+    page?: number | null;
   }
 ) {
   const searchParams = new URLSearchParams();
@@ -368,9 +387,29 @@ function buildReportsHref(
   if (filters.reason) {
     searchParams.set("reason", filters.reason);
   }
+  const nextPage = typeof options?.page === "number" && options.page > 0 ? options.page : filters.page;
+  if (nextPage > 1) {
+    searchParams.set("page", String(nextPage));
+  }
 
   const query = searchParams.toString();
   return query ? `/reports?${query}` : "/reports";
+}
+
+function buildPaginationPages(currentPage: number, totalPages: number) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  if (currentPage <= 4) {
+    return [1, 2, 3, 4, 5, "...", totalPages] as const;
+  }
+
+  if (currentPage >= totalPages - 3) {
+    return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages] as const;
+  }
+
+  return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages] as const;
 }
 
 function buildMetrics(summary: AdminReportListData["summary"]): readonly Metric[] {
@@ -404,7 +443,14 @@ function buildMetrics(summary: AdminReportListData["summary"]): readonly Metric[
 
 async function loadPageData(filters: ReportFilters): Promise<PageData> {
   try {
-    const response = await listAdminReports(filters);
+    const response = await listAdminReports({
+      q: filters.q || undefined,
+      status: filters.status || undefined,
+      targetType: filters.targetType || undefined,
+      reason: filters.reason || undefined,
+      page: filters.page,
+      pageSize: PAGE_SIZE
+    });
     const rows = response.data.items.map(mapRow);
     const selected = rows.find((row) => row.statusTone === "pending") ?? rows[0] ?? null;
     const filtered = hasActiveFilters(filters);
@@ -419,8 +465,9 @@ async function loadPageData(filters: ReportFilters): Promise<PageData> {
         metrics: buildMetrics(response.data.summary),
         rows,
         defaultSelectedId: null,
-        totalCountLabel: "共 0 条",
-        emptyMessage: filtered ? "当前筛选条件下没有匹配的举报工单。" : "当前还没有可展示的举报工单。"
+        totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 0 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+        emptyMessage: filtered ? "当前筛选条件下没有匹配的举报工单。" : "当前还没有可展示的举报工单。",
+        pagination: response.data.pagination
       };
     }
 
@@ -431,8 +478,9 @@ async function loadPageData(filters: ReportFilters): Promise<PageData> {
       metrics: buildMetrics(response.data.summary),
       rows,
       defaultSelectedId: selected?.id ?? null,
-      totalCountLabel: `共 ${formatMetricValue(response.data.items.length)} 条`,
-      emptyMessage: null
+      totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 ${formatMetricValue(rows.length)} 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+      emptyMessage: null,
+      pagination: response.data.pagination
     };
   } catch (error) {
     const requestId =
@@ -447,8 +495,16 @@ async function loadPageData(filters: ReportFilters): Promise<PageData> {
       metrics: ZERO_METRICS,
       rows: [],
       defaultSelectedId: null,
-      totalCountLabel: "共 0 条",
-      emptyMessage: "当前无法读取举报工单，请稍后重试。"
+      totalCountLabel: "第 1 页，当前返回 0 条，共匹配 0 条",
+      emptyMessage: "当前无法读取举报工单，请稍后重试。",
+      pagination: {
+        page: filters.page,
+        pageSize: PAGE_SIZE,
+        totalItems: 0,
+        totalPages: 1,
+        hasPrevious: false,
+        hasNext: false
+      }
     };
   }
 }
@@ -604,6 +660,7 @@ export default async function ReportsPage({
     status?: string;
     targetType?: string;
     reason?: string;
+    page?: string;
   }>;
 }) {
   await requireAdminAccess(["admin", "moderator"], "/reports");
@@ -629,6 +686,7 @@ export default async function ReportsPage({
   const canHideComment = canAct && Boolean(selectedDetail?.canHideComment);
   const closeActionLabel =
     selectedDetail?.statusTone === "closed" ? "已归档" : canArchive ? "归档关闭" : "标记已处理";
+  const paginationPages = buildPaginationPages(pageData.pagination.page, pageData.pagination.totalPages);
 
   return (
     <section className={styles.page}>
@@ -665,6 +723,7 @@ export default async function ReportsPage({
 
           <section className={styles.filterCard}>
             <form action="/reports" className={styles.filterForm} method="get">
+              <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
                   <span className={styles.selectLabel}>搜索关键词</span>
@@ -802,7 +861,58 @@ export default async function ReportsPage({
 
                 <footer className={styles.tableFooter}>
                   <span className={styles.count}>{pageData.totalCountLabel}</span>
+                  <span className={styles.pageSizeButton}>每页 {pageData.pagination.pageSize} 条</span>
                 </footer>
+                <div className={styles.paginationArea}>
+                  {pageData.pagination.totalPages > 1 ? (
+                    <nav aria-label="举报分页" className={styles.pagination}>
+                      <Link
+                        aria-disabled={!pageData.pagination.hasPrevious}
+                        className={styles.pageButton}
+                        href={buildReportsHref(filters, {
+                          selected: selectedRow?.id ?? null,
+                          page: Math.max(1, pageData.pagination.page - 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasPrevious ? undefined : -1}
+                      >
+                        上一页
+                      </Link>
+                      {paginationPages.map((page, index) =>
+                        page === "..." ? (
+                          <span key={`ellipsis-${pageData.pagination.page}-${index}`} className={styles.pageEllipsis}>
+                            ...
+                          </span>
+                        ) : (
+                          <Link
+                            key={page}
+                            aria-current={page === pageData.pagination.page ? "page" : undefined}
+                            className={`${styles.pageButton} ${page === pageData.pagination.page ? styles.pageButtonActive : ""}`}
+                            href={buildReportsHref(filters, {
+                              selected: selectedRow?.id ?? null,
+                              page
+                            })}
+                            scroll={false}
+                          >
+                            {page}
+                          </Link>
+                        )
+                      )}
+                      <Link
+                        aria-disabled={!pageData.pagination.hasNext}
+                        className={styles.pageButton}
+                        href={buildReportsHref(filters, {
+                          selected: selectedRow?.id ?? null,
+                          page: Math.min(pageData.pagination.totalPages, pageData.pagination.page + 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasNext ? undefined : -1}
+                      >
+                        下一页
+                      </Link>
+                    </nav>
+                  ) : null}
+                </div>
               </>
             ) : (
               <div className={styles.emptyState}>
@@ -956,6 +1066,7 @@ export default async function ReportsPage({
                   <input name="status" type="hidden" value={filters.status} />
                   <input name="targetType" type="hidden" value={filters.targetType} />
                   <input name="reason" type="hidden" value={filters.reason} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.primaryAction} disabled={!canMarkProcessing} type="submit">
                     标记处理中
                   </button>
@@ -967,6 +1078,7 @@ export default async function ReportsPage({
                   <input name="status" type="hidden" value={filters.status} />
                   <input name="targetType" type="hidden" value={filters.targetType} />
                   <input name="reason" type="hidden" value={filters.reason} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.secondaryAction} disabled={!canResolve && !canArchive} type="submit">
                     {closeActionLabel}
                   </button>
@@ -979,6 +1091,7 @@ export default async function ReportsPage({
                     <input name="status" type="hidden" value={filters.status} />
                     <input name="targetType" type="hidden" value={filters.targetType} />
                     <input name="reason" type="hidden" value={filters.reason} />
+                    <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                     <button className={styles.secondaryAction} disabled={!canOfflineTarget} type="submit">
                       联动下线内容
                     </button>
@@ -992,6 +1105,7 @@ export default async function ReportsPage({
                     <input name="status" type="hidden" value={filters.status} />
                     <input name="targetType" type="hidden" value={filters.targetType} />
                     <input name="reason" type="hidden" value={filters.reason} />
+                    <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                     <button className={styles.secondaryAction} disabled={!canHideComment} type="submit">
                       隐藏评论
                     </button>

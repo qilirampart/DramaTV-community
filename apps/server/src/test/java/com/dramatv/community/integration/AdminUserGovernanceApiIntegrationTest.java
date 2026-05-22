@@ -33,7 +33,7 @@ class AdminUserGovernanceApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(listBody.at("/data/items").isArray()).isTrue();
         assertThat(listBody.at("/data/items/0/id").asText()).isNotBlank();
         assertThat(listBody.at("/data/pagination/page").asInt()).isEqualTo(1);
-        assertThat(listBody.at("/data/pagination/pageSize").asInt()).isEqualTo(20);
+        assertThat(listBody.at("/data/pagination/pageSize").asInt()).isEqualTo(15);
     }
 
     @Test
@@ -150,6 +150,100 @@ class AdminUserGovernanceApiIntegrationTest extends ApiIntegrationTestSupport {
                 .andExpect(status().isForbidden());
 
         assertThat(countAuditLogs("update_user_governance", target.userId())).isEqualTo(1);
+    }
+
+    @Test
+    void operatorCanCreateCreatorUserWithDefaultPasswordWhenPasswordBlank() throws Exception {
+        LoginSession operator = loginAsRandomUser("admin-users-create-operator");
+        promoteToRole(operator.userId(), "operator");
+
+        String username = "ops-created-user-" + System.currentTimeMillis();
+
+        MvcResult createResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/admin/users")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                          "username": "%s",
+                                          "displayName": "运营新建账号",
+                                          "roleCode": "creator",
+                                          "email": "%s@example.com",
+                                          "password": "   "
+                                        }
+                                        """.formatted(username, username)),
+                        operator.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode createBody = readBody(createResult);
+        String createdUserId = createBody.at("/data/userId").asText();
+        String temporaryPassword = createBody.at("/data/temporaryPassword").asText();
+
+        assertThat(createBody.path("code").asText()).isEqualTo("OK");
+        assertThat(createBody.at("/data/username").asText()).isEqualTo(username);
+        assertThat(createBody.at("/data/roleCode").asText()).isEqualTo("creator");
+        assertThat(createBody.at("/data/statusCode").asText()).isEqualTo("active");
+        assertThat(temporaryPassword).isEqualTo(DEFAULT_PASSWORD);
+        assertThat(userRole(createdUserId)).isEqualTo("creator");
+        assertThat(userStatus(createdUserId)).isEqualTo("active");
+        assertThat(userIdentityProvider(createdUserId)).isEqualTo("local");
+        assertThat(countAuditLogs("create_user", createdUserId)).isEqualTo(1);
+
+        LoginSession relogin = login(username, temporaryPassword, "local_password");
+        assertThat(relogin.userId()).isEqualTo(createdUserId);
+    }
+
+    @Test
+    void operatorCanCreateCreatorUserWithExplicitPassword() throws Exception {
+        LoginSession operator = loginAsRandomUser("admin-users-create-custom-password");
+        promoteToRole(operator.userId(), "operator");
+
+        String username = "ops-created-custom-" + System.currentTimeMillis();
+        String customPassword = "DramaTV@2026";
+
+        MvcResult createResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/admin/users")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                          "username": "%s",
+                                          "displayName": "自定义密码账号",
+                                          "roleCode": "creator",
+                                          "password": "%s"
+                                        }
+                                        """.formatted(username, customPassword)),
+                        operator.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode createBody = readBody(createResult);
+        String createdUserId = createBody.at("/data/userId").asText();
+
+        assertThat(createBody.path("code").asText()).isEqualTo("OK");
+        assertThat(createBody.at("/data/temporaryPassword").asText()).isEqualTo(customPassword);
+        assertThat(userIdentityProvider(createdUserId)).isEqualTo("local");
+
+        LoginSession relogin = login(username, customPassword, "local_password");
+        assertThat(relogin.userId()).isEqualTo(createdUserId);
+    }
+
+    @Test
+    void operatorCannotCreateAdminUser() throws Exception {
+        LoginSession operator = loginAsRandomUser("admin-users-create-admin-forbidden");
+        promoteToRole(operator.userId(), "operator");
+
+        mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/admin/users")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                          "username": "operator-tries-admin",
+                                          "displayName": "不能创建管理员",
+                                          "roleCode": "admin"
+                                        }
+                                        """),
+                        operator.accessToken()))
+                .andExpect(status().isForbidden());
     }
 
     @Test

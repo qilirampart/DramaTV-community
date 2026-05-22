@@ -97,3 +97,14 @@ export type ResetPasswordActionState = {
   passwordActionLabel: string | null;
   userId: string | null;
 };
+
+export type CreateUserActionState = {
+  status: "idle" | "success" | "error";
+  message: string | null;
+  requestId: string | null;
+  createdUserId: string | null;
+  temporaryPassword: string | null;
+  passwordMode: "custom" | "default" | null;
+  createdUsername: string | null;
+  createdDisplayName: string | null;
+};

@@ -30,7 +30,9 @@ public class AdminReportService {
 
     private static final Logger log = LoggerFactory.getLogger(AdminReportService.class);
     private static final String[] MANAGE_ROLES = {"admin", "moderator"};
-    private static final int DEFAULT_LIMIT = 80;
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 15;
+    private static final int MAX_PAGE_SIZE = 100;
 
     private static final String FILTERED_ROWS_CTE = """
             with report_rows as (
@@ -157,6 +159,11 @@ public class AdminReportService {
                 created_at desc,
                 id desc
             limit ?
+            offset ?
+            """;
+
+    private static final String COUNT_SQL = FILTERED_ROWS_CTE + """
+            select count(*) from report_rows
             """;
 
     private static final String DETAIL_SQL = FILTERED_ROWS_CTE + """
@@ -274,7 +281,7 @@ public class AdminReportService {
         this.jdbcMediaUrlResolver = jdbcMediaUrlResolver;
     }
 
-    public AdminReportListResponse listReports(String query, String status, String targetType, String reason) {
+    public AdminReportListResponse listReports(String query, String status, String targetType, String reason, Integer page, Integer pageSize) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
         String normalizedQuery = normalizeQuery(query);
@@ -282,6 +289,26 @@ public class AdminReportService {
         String normalizedStatus = normalizeStatus(status);
         String normalizedTargetType = normalizeTargetType(targetType);
         String normalizedReason = normalizeReason(reason);
+        int safePage = normalizePage(page);
+        int safePageSize = normalizePageSize(pageSize);
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                normalizedStatus,
+                normalizedStatus,
+                normalizedTargetType,
+                normalizedTargetType,
+                normalizedReason,
+                normalizedReason
+        );
+        int totalPages = totalItems == 0 ? 1 : (int) Math.ceil((double) totalItems / safePageSize);
+        int effectivePage = Math.min(safePage, totalPages);
+        int offset = (effectivePage - 1) * safePageSize;
 
         AdminReportListResponse.Summary summary = jdbcTemplate.queryForObject(
                 SUMMARY_SQL,
@@ -318,13 +345,36 @@ public class AdminReportService {
                 normalizedTargetType,
                 normalizedReason,
                 normalizedReason,
-                DEFAULT_LIMIT
+                safePageSize,
+                offset
         );
 
         return new AdminReportListResponse(
                 summary == null ? new AdminReportListResponse.Summary(0, 0, 0, 0) : summary,
+                new AdminReportListResponse.Pagination(
+                        effectivePage,
+                        safePageSize,
+                        totalItems,
+                        totalPages,
+                        effectivePage > 1,
+                        effectivePage < totalPages
+                ),
                 items
         );
+    }
+
+    private int normalizePage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PAGE_SIZE;
+        }
+        return Math.min(pageSize, MAX_PAGE_SIZE);
     }
 
     public AdminReportDetailResponse getReport(String reportId) {

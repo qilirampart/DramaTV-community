@@ -24,9 +24,11 @@ public class AdminAuditLogController {
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String module,
             @RequestParam(required = false) String result,
-            @RequestParam(required = false) String risk
+            @RequestParam(required = false) String risk,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
-        return ApiResponse.ok(adminAuditLogService.listLogs(q, module, result, risk));
+        return ApiResponse.ok(adminAuditLogService.listLogs(q, module, result, risk, page, pageSize));
     }
 
     @GetMapping("/{logId}")

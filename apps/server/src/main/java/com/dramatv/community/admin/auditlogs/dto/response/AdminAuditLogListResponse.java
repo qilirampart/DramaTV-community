@@ -4,6 +4,7 @@ import java.util.List;
 
 public record AdminAuditLogListResponse(
         Summary summary,
+        Pagination pagination,
         List<Item> items
 ) {
 
@@ -12,6 +13,16 @@ public record AdminAuditLogListResponse(
             long sensitiveLogs,
             long reviewLogs,
             long publishLogs
+    ) {
+    }
+
+    public record Pagination(
+            int page,
+            int pageSize,
+            long totalItems,
+            int totalPages,
+            boolean hasPrevious,
+            boolean hasNext
     ) {
     }
 

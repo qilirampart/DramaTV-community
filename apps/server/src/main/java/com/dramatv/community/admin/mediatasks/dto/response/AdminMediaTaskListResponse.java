@@ -4,6 +4,7 @@ import java.util.List;
 
 public record AdminMediaTaskListResponse(
         Summary summary,
+        Pagination pagination,
         List<Item> items
 ) {
     public record Summary(
@@ -12,6 +13,16 @@ public record AdminMediaTaskListResponse(
             long retryableTasks,
             long todayTasks,
             long processingTasks
+    ) {
+    }
+
+    public record Pagination(
+            int page,
+            int pageSize,
+            long totalItems,
+            int totalPages,
+            boolean hasPrevious,
+            boolean hasNext
     ) {
     }
 

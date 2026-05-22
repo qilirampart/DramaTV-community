@@ -31,9 +31,11 @@ public class AdminCommentController {
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String targetType,
-            @RequestParam(required = false) Boolean reportedOnly
+            @RequestParam(required = false) Boolean reportedOnly,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
-        return ApiResponse.ok(adminCommentService.listComments(q, status, targetType, reportedOnly));
+        return ApiResponse.ok(adminCommentService.listComments(q, status, targetType, reportedOnly, page, pageSize));
     }
 
     @PostMapping("/{commentId}/hide")

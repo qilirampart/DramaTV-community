@@ -28,9 +28,11 @@ public class AdminReportController {
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String targetType,
-            @RequestParam(required = false) String reason
+            @RequestParam(required = false) String reason,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
-        return ApiResponse.ok(adminReportService.listReports(q, status, targetType, reason));
+        return ApiResponse.ok(adminReportService.listReports(q, status, targetType, reason, page, pageSize));
     }
 
     @GetMapping("/{reportId}")
