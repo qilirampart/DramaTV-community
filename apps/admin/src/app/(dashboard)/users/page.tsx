@@ -3,7 +3,7 @@ import { AdminBackendError, getAdminUser, listAdminUsers } from "@/lib/admin-ser
 import UsersPageClient from "./UsersPageClient";
 import type { DetailContentItem, DisplayRole, DisplayStatus, DisplaySource, DisplayUser, PageData, UserDetailData } from "./types";
 
-const USERS_PAGE_SIZE = 20;
+const USERS_PAGE_SIZE = 15;
 
 function roleFromCode(code: string): DisplayRole {
   if (code === "creator") {
@@ -294,7 +294,7 @@ export default async function UsersPage({
     page?: string;
   }>;
 }) {
-  await requireAdminAccess(["admin", "operator", "moderator"], "/users");
+  const session = await requireAdminAccess(["admin", "operator", "moderator"], "/users");
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const searchQuery = normalizeFilterValue(resolvedSearchParams?.q);
   const page = normalizePageValue(resolvedSearchParams?.page);
@@ -303,6 +303,8 @@ export default async function UsersPage({
   return (
     <UsersPageClient
       data={data}
+      canManageUsers={session.role === "admin" || session.role === "operator"}
+      canAssignAdminRole={session.role === "admin"}
       errorMessage={resolvedSearchParams?.error?.trim() || null}
       successMessage={resolvedSearchParams?.success?.trim() || null}
     />

@@ -5,6 +5,7 @@ import java.util.List;
 
 public record AdminCommentListResponse(
         Summary summary,
+        Pagination pagination,
         List<Item> items
 ) {
     public record Summary(
@@ -12,6 +13,16 @@ public record AdminCommentListResponse(
             long reportedComments,
             long hiddenComments,
             long closedTargets
+    ) {
+    }
+
+    public record Pagination(
+            int page,
+            int pageSize,
+            long totalItems,
+            int totalPages,
+            boolean hasPrevious,
+            boolean hasNext
     ) {
     }
 

@@ -16,6 +16,7 @@ type ModerationReturnState = {
   q?: string | null;
   filterTargetType?: string | null;
   status?: string | null;
+  page?: string | null;
 };
 
 function appendSearchParam(searchParams: URLSearchParams, key: string, value?: string | null) {
@@ -32,6 +33,7 @@ function resolveReturnPath(state?: ModerationReturnState) {
   appendSearchParam(searchParams, "q", state?.q);
   appendSearchParam(searchParams, "targetType", state?.filterTargetType);
   appendSearchParam(searchParams, "status", state?.status);
+  appendSearchParam(searchParams, "page", state?.page);
 
   const query = searchParams.toString();
   return query ? `/moderation?${query}` : "/moderation";
@@ -56,7 +58,8 @@ function readActionInput(formData: FormData) {
     note: String(formData.get("note") ?? "").trim(),
     q: String(formData.get("q") ?? "").trim(),
     filterTargetType: String(formData.get("filterTargetType") ?? "").trim(),
-    status: String(formData.get("status") ?? "").trim()
+    status: String(formData.get("status") ?? "").trim(),
+    page: String(formData.get("page") ?? "").trim()
   };
 }
 

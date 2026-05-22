@@ -13,7 +13,7 @@ import ModerationMediaPreview from "../moderation/ModerationMediaPreview";
 import ModerationTableInteractive from "../moderation/ModerationTableInteractive";
 import styles from "../moderation/page.module.css";
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 15;
 
 type Metric = {
   label: string;
@@ -743,7 +743,7 @@ export default async function ResourcesPage({
 
       <div className={styles.layout}>
         <div className={styles.mainColumn}>
-          <section className={styles.metricsGrid} style={{ gridTemplateColumns: "repeat(5, minmax(0, 1fr))" }}>
+          <section className={styles.metricsGrid}>
             {pageData.metrics.map((metric) => (
               <article key={metric.label} className={styles.metricCard}>
                 <div className={styles.metricHead}>

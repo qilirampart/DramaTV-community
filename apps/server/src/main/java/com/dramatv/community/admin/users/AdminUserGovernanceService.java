@@ -2,7 +2,9 @@ package com.dramatv.community.admin.users;
 
 import com.dramatv.community.admin.auditlogs.AdminAuditLogService;
 import com.dramatv.community.admin.auth.AdminAccessService;
+import com.dramatv.community.admin.users.dto.request.AdminUserCreateRequest;
 import com.dramatv.community.admin.users.dto.request.AdminUserGovernanceUpdateRequest;
+import com.dramatv.community.admin.users.dto.response.AdminUserCreateResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserDetailResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserGovernanceUpdateResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserPasswordGovernanceResponse;
@@ -37,6 +39,7 @@ public class AdminUserGovernanceService {
     private static final Set<String> ALLOWED_ROLE_CODES = Set.of("creator", "admin", "operator", "moderator");
     private static final Set<String> ALLOWED_STATUS_CODES = Set.of("active", "pending", "disabled");
     private static final String LOCAL_IDENTITY_PROVIDER = "local";
+    private static final String DEFAULT_CREATED_USER_PASSWORD = "dramatv-local-dev";
     private static final String PASSWORD_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
     private static final SecureRandom PASSWORD_RANDOM = new SecureRandom();
 
@@ -201,6 +204,121 @@ public class AdminUserGovernanceService {
         this.adminAccessService = adminAccessService;
         this.adminAuditLogService = adminAuditLogService;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Transactional
+    public AdminUserCreateResponse createUser(AdminUserCreateRequest request) {
+        CurrentUser operator = adminAccessService.requireAnyRole(MANAGE_ROLES);
+
+        String normalizedUsername = normalizeUsername(request.username());
+        String normalizedDisplayName = normalizeDisplayName(request.displayName());
+        String normalizedRoleCode = normalizeRoleCode(request.roleCode());
+        String normalizedEmail = normalizeOptionalEmail(request.email());
+        String normalizedPhone = normalizeOptionalPhone(request.phone());
+
+        if (!ALLOWED_ROLE_CODES.contains(normalizedRoleCode)) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_ROLE_INVALID", "unsupported admin user role");
+        }
+
+        if ("admin".equals(normalizedRoleCode) && !"admin".equals(normalizeRoleCode(operator.roleCode()))) {
+            throw ApiBusinessException.forbidden("ADMIN_USER_ASSIGN_ADMIN_FORBIDDEN", "only admin can assign admin role");
+        }
+
+        if (usernameExists(normalizedUsername)) {
+            throw ApiBusinessException.conflict("ADMIN_USER_USERNAME_CONFLICT", "username already exists");
+        }
+        if (normalizedEmail != null && emailExists(normalizedEmail)) {
+            throw ApiBusinessException.conflict("ADMIN_USER_EMAIL_CONFLICT", "email already exists");
+        }
+        if (normalizedPhone != null && phoneExists(normalizedPhone)) {
+            throw ApiBusinessException.conflict("ADMIN_USER_PHONE_CONFLICT", "phone already exists");
+        }
+
+        UUID userId = UUID.randomUUID();
+        String initialPassword = resolveCreatePassword(request.password());
+        String passwordHash = passwordEncoder.encode(initialPassword);
+
+        jdbcTemplate.update("""
+                insert into users (
+                    id,
+                    username,
+                    display_name,
+                    password_hash,
+                    identity_provider,
+                    external_subject,
+                    email,
+                    phone,
+                    role_code,
+                    status_code,
+                    created_at,
+                    updated_at
+                )
+                values (?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', now(), now())
+                """,
+                userId,
+                normalizedUsername,
+                normalizedDisplayName,
+                passwordHash,
+                LOCAL_IDENTITY_PROVIDER,
+                normalizedUsername,
+                normalizedEmail,
+                normalizedPhone,
+                normalizedRoleCode
+        );
+
+        jdbcTemplate.update("""
+                insert into creator_profiles (
+                    id, user_id, headline, featured_status, created_at, updated_at
+                )
+                values (?, ?, ?, 'normal', now(), now())
+                """,
+                UUID.randomUUID(),
+                userId,
+                buildCreatorHeadline(normalizedRoleCode)
+        );
+
+        log.info(
+                "admin user create success: operatorId={} createdUserId={} username={} roleCode={}",
+                operator.id(),
+                userId,
+                normalizedUsername,
+                normalizedRoleCode
+        );
+
+        List<String> metadataParts = new ArrayList<>();
+        metadataParts.add("username=" + normalizedUsername);
+        metadataParts.add("displayName=" + normalizedDisplayName);
+        metadataParts.add("roleCode=" + normalizedRoleCode);
+        metadataParts.add("email=" + nullableMetadata(normalizedEmail));
+        metadataParts.add("phone=" + nullableMetadata(normalizedPhone));
+        metadataParts.add("passwordMode=" + (DEFAULT_CREATED_USER_PASSWORD.equals(initialPassword) ? "default" : "custom"));
+
+        adminAuditLogService.recordSuccessfulOperation(
+                operator,
+                "users",
+                "账号治理",
+                "create_user",
+                "创建账号",
+                "user",
+                userId.toString(),
+                normalizedDisplayName,
+                "admin".equals(normalizedRoleCode) ? "sensitive" : "normal",
+                "已创建本地账号并设置初始密码",
+                "/api/admin/users",
+                "POST",
+                String.join(", ", metadataParts)
+        );
+
+        return new AdminUserCreateResponse(
+                userId.toString(),
+                normalizedUsername,
+                normalizedDisplayName,
+                normalizedRoleCode,
+                "active",
+                initialPassword,
+                adminAccessService.isAdminRole(normalizedRoleCode),
+                true
+        );
     }
 
     public AdminUserDetailResponse getUserDetail(String userIdText) {
@@ -594,12 +712,130 @@ public class AdminUserGovernanceService {
         return roleCode == null ? "" : roleCode.trim().toLowerCase(Locale.ROOT);
     }
 
+    private String normalizeUsername(String username) {
+        String normalized = username == null ? "" : username.trim().toLowerCase(Locale.ROOT);
+        if (normalized.isEmpty()) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_USERNAME_REQUIRED", "username is required");
+        }
+        if (!normalized.matches("[a-z0-9][a-z0-9._-]{2,63}")) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_USERNAME_INVALID", "username format is invalid");
+        }
+        return normalized;
+    }
+
+    private String normalizeDisplayName(String displayName) {
+        String normalized = displayName == null ? "" : displayName.trim();
+        if (normalized.isEmpty()) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_DISPLAY_NAME_REQUIRED", "display name is required");
+        }
+        if (normalized.length() > 64) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_DISPLAY_NAME_INVALID", "display name is invalid");
+        }
+        return normalized;
+    }
+
     private String normalizeStatusCode(String statusCode) {
         return statusCode == null ? "" : statusCode.trim().toLowerCase(Locale.ROOT);
     }
 
     private String normalizeIdentityProvider(String identityProvider) {
         return identityProvider == null ? "" : identityProvider.trim().toLowerCase(Locale.ROOT);
+    }
+
+    private String normalizeOptionalEmail(String email) {
+        if (email == null) {
+            return null;
+        }
+
+        String normalized = email.trim().toLowerCase(Locale.ROOT);
+        if (normalized.isEmpty()) {
+            return null;
+        }
+        if (normalized.length() > 128 || !normalized.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_EMAIL_INVALID", "email format is invalid");
+        }
+        return normalized;
+    }
+
+    private String normalizeOptionalPhone(String phone) {
+        if (phone == null) {
+            return null;
+        }
+
+        String normalized = phone.trim();
+        if (normalized.isEmpty()) {
+            return null;
+        }
+        if (normalized.length() > 32 || !normalized.matches("^[0-9+\\-()\\s]{6,32}$")) {
+            throw ApiBusinessException.badRequest("ADMIN_USER_PHONE_INVALID", "phone format is invalid");
+        }
+        return normalized;
+    }
+
+    private boolean usernameExists(String username) {
+        return Boolean.TRUE.equals(jdbcTemplate.queryForObject(
+                """
+                select exists(
+                    select 1
+                    from users
+                    where lower(username) = ?
+                      and deleted_at is null
+                )
+                """,
+                Boolean.class,
+                username
+        ));
+    }
+
+    private boolean emailExists(String email) {
+        return Boolean.TRUE.equals(jdbcTemplate.queryForObject(
+                """
+                select exists(
+                    select 1
+                    from users
+                    where lower(email) = ?
+                      and deleted_at is null
+                )
+                """,
+                Boolean.class,
+                email
+        ));
+    }
+
+    private boolean phoneExists(String phone) {
+        return Boolean.TRUE.equals(jdbcTemplate.queryForObject(
+                """
+                select exists(
+                    select 1
+                    from users
+                    where phone = ?
+                      and deleted_at is null
+                )
+                """,
+                Boolean.class,
+                phone
+        ));
+    }
+
+    private String buildCreatorHeadline(String roleCode) {
+        return switch (roleCode) {
+            case "admin" -> "系统管理员";
+            case "operator" -> "社区运营";
+            case "moderator" -> "内容审核";
+            default -> "社区创作者";
+        };
+    }
+
+    private String resolveCreatePassword(String password) {
+        if (password == null) {
+            return DEFAULT_CREATED_USER_PASSWORD;
+        }
+
+        String normalized = password.trim();
+        if (normalized.isEmpty()) {
+            return DEFAULT_CREATED_USER_PASSWORD;
+        }
+        return normalized;
     }
 
     private String buildMetadata(UserDetailRow existing, String nextRoleCode, String nextStatusCode) {

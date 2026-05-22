@@ -76,6 +76,10 @@ class AdminMediaTaskApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(listBody.at("/data/summary/totalTasks").asInt()).isEqualTo(2);
         assertThat(listBody.at("/data/summary/failedTasks").asInt()).isEqualTo(1);
         assertThat(listBody.at("/data/summary/retryableTasks").asInt()).isEqualTo(1);
+        assertThat(listBody.at("/data/pagination/page").asInt()).isEqualTo(1);
+        assertThat(listBody.at("/data/pagination/pageSize").asInt()).isEqualTo(15);
+        assertThat(listBody.at("/data/pagination/totalItems").asInt()).isEqualTo(2);
+        assertThat(listBody.at("/data/pagination/totalPages").asInt()).isEqualTo(1);
         assertThat(listBody.at("/data/items").size()).isEqualTo(2);
         assertThat(listBody.at("/data/items/0/taskId").asText()).isEqualTo(failedTaskId);
         assertThat(listBody.at("/data/items/1/taskId").asText()).isEqualTo(processingTaskId);

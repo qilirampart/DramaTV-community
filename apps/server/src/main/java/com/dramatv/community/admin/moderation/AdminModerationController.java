@@ -27,9 +27,11 @@ public class AdminModerationController {
     public ApiResponse<AdminModerationListResponse> listItems(
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String targetType,
-            @RequestParam(required = false) String status
+            @RequestParam(required = false) String status,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
-        return ApiResponse.ok(adminModerationService.listItems(q, targetType, status));
+        return ApiResponse.ok(adminModerationService.listItems(q, targetType, status, page, pageSize));
     }
 
     @GetMapping("/{targetType}/{targetId}")

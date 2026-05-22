@@ -1830,9 +1830,183 @@
 - 本地脚本级验证已通过：
   - `node --check scripts/smoke-admin-routes.mjs`
   - `PowerShell Parser::ParseFile(scripts/deploy-test-admin.ps1)` 语法检查
-- 运行态验证已通过：
+  - 运行态验证已通过：
   - 公网 `public` smoke：`http://8.141.20.130:3206`，结果 `13 passed / 0 failed`
   - 云机内 `full` smoke：`127.0.0.1:3206 + 127.0.0.1:18080`，结果 `25 passed / 0 failed`
   - 验证产物：
     - `artifacts/runtime-readiness/test/manual-admin-public-smoke-summary.json`
     - `artifacts/runtime-readiness/test/manual-admin-internal-smoke-summary.json`
+
+### 2026-05-22 管理后台布局收口版已同步到测试云环境
+
+- 本轮已把后台这批高频治理页的布局收口版同步到测试云环境，重点不是新增业务功能，而是统一修正中宽屏和跨浏览器下的比例挤压问题：
+  - `users`
+  - `comments`
+  - `moderation`
+  - `reports`
+  - `resources`
+  - `media-tasks`
+  - `audit-logs`
+- 这轮云同步的核心改动包括：
+  - 外层工作区横向留白收窄
+  - “左列表 + 右详情”页面改成更弹性的双栏宽度
+  - 右侧详情在更早断点下切单列，不再等到极窄宽度才折叠
+  - 指标卡和筛选区改成自适应列，减少 `Chrome / Edge / 不同缩放` 下的中间挤压带
+  - 右侧详情中的长 ID / 长文本补了收缩与换行保护
+- 本轮发布已执行：
+  - `npm run deploy:test:admin`
+- 本轮发布结果：
+  - 远端 release：`/opt/dramatv-community-admin/releases/20260522-113320`
+  - 当前 active release：`20260522-113320`
+  - 服务：`dramatv-community-admin` 已保持 `active (running)`
+  - 公网入口：`http://8.141.20.130:3206`
+- 本轮自动验证已通过：
+  - 发布前：`verify:quick`
+  - 发布后公网 `public` smoke：`13 passed / 0 failed`
+  - 发布后云机内 `full` smoke：`25 passed / 0 failed`
+  - 产物：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-113320-public-summary.json`
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-113320-internal-summary.json`
+- 注意：
+  - 发布脚本提示本次是从 dirty workspace 发布，这是因为当前工作区还带着进度文档和本轮布局收口改动，属于预期内发布，不是脚本异常。
+
+### 2026-05-22 users 创建账号真功能落地
+
+- 本轮已把 `/users` 补成真实可用的“创建账号”链路，不再只是看列表、改状态、重置密码：
+  - 后端新增 `POST /api/admin/users`
+  - 前端用户管理页新增“创建账号”按钮与弹窗表单
+  - 创建成功后会直接返回初始密码，可立刻用于本地账号登录
+- 这轮不是只补 UI 壳，是真链路：
+  - 新账号会真实写入 `users`
+  - 同步补 `creator_profiles`
+  - 统一走本地账号口径：`identity_provider=local`
+  - 支持创建时直接填写密码；如果留空，则回落到默认密码 `dramatv-local-dev`
+  - 初始密码会真实写入 `password_hash`
+  - 同步记一条 `create_user` 审计日志
+- 当前权限边界也一起收口了：
+  - `admin / operator` 可创建账号
+  - `moderator` 仍可看用户页，但不能执行创建、治理保存、重置密码
+  - `operator` 不能创建 `admin`
+  - 只有 `admin` 可在创建弹窗里选择 `管理员`
+- 本轮验证已通过：
+  - `apps/server -> AdminUserGovernanceApiIntegrationTest`，结果 `9 passed / 0 failed`
+  - `apps/admin -> npx.cmd tsc --noEmit -p tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+  - 运行态真接口回归：
+    - `POST /api/admin/users` 留空密码时返回 `dramatv-local-dev`
+    - `POST /api/admin/users` 传 `DramaTV@2026` 时返回该自定义密码
+    - 两种账号都已实测能通过社区 `/api/auth/login` 登录成功
+- 当前做到哪一步：
+  - 用户管理页已经从“治理已有账号”扩展到“可真实创建后台/社区本地账号”，且创建密码策略已从单一随机临时密码收口到“自定义优先、留空默认”
+- 下次先做什么：
+  - 如果你确认交互形态可以，再把这条能力同步到云测试环境
+
+### 2026-05-22 users 创建账号已同步到测试云环境
+
+- 本轮已把上一条本地完成的“创建账号”能力正式同步到测试云环境，前后端与共享后端都已切到新 release：
+  - backend：`/opt/dramatv-community-server/releases/20260522-123003`
+  - admin：`/opt/dramatv-community-admin/releases/20260522-123432`
+  - 云端服务状态：
+    - `dramatv-community-server` = `active`
+    - `dramatv-community-admin` = `active`
+- 本轮云端发布结果需要分开看：
+  - 后台前端发布成功，发布后 `public smoke` 与 `internal smoke` 都通过
+  - 后端共享服务也已成功切到新 jar 并重启成功
+  - 但 `scripts/deploy-test-backend.ps1` 的收尾 `check-test-runtime-readiness.mjs` 仍对公网社区入口 `http://8.141.20.130` 返回一组 `fetch failed`
+  - 这条失败不是“创建账号能力未生效”，而是当前社区公网入口 readiness 本身与本次后台账号功能无关
+- 本轮已补云机内网真验收，不再只依赖部署脚本：
+  - `POST http://127.0.0.1:18080/api/admin/auth/login`
+  - `POST http://127.0.0.1:18080/api/admin/users`
+  - `POST http://127.0.0.1:18080/api/auth/login`
+  - 实测结果：
+    - 空密码创建账号 `cloudsync_blank_20260522124137` 时，后端返回默认密码 `dramatv-local-dev`，随后社区本地密码登录成功
+    - 自定义密码创建账号 `cloudsync_custom_20260522124137` 时，后端返回自定义密码 `CloudSync!20260522124137`，随后社区本地密码登录成功
+- 本轮云端自动验证证据：
+  - 后台公网 smoke：`artifacts/runtime-readiness/test/admin-deploy-20260522-123432-public-summary.json`
+  - 后台云机内 smoke：`artifacts/runtime-readiness/test/admin-deploy-20260522-123432-internal-summary.json`
+  - 后端 deploy summary：`artifacts/runtime-readiness/test/backend-deploy-20260522-123003-summary.json`
+- 当前做到哪一步：
+  - `/users` 的“创建账号 + 默认密码回退 + 自定义密码 + 社区本地登录”这条链路已经在测试云环境真实可用
+  - 当前剩余的不是这条能力本身，而是后续是否要继续补批量建号、首登改密等增强项
+- 下次先做什么：
+  - 优先让你直接在测试云环境手动验一轮创建账号交互
+  - 再决定是否继续扩展创建表单字段或密码治理策略
+
+### 2026-05-22 云端审核/资源页真实媒体访问链路修复
+
+- 本轮处理的不是“审核接口没返回真实资源”，而是“云上后台浏览器拿到真实资源路径后，请求走错了公网入口”：
+  - 云机内网 `http://127.0.0.1:18080/media/...` 实测 `200`
+  - 云端后台 `/api/admin/moderation/items` 也已返回真实 `coverUrl / posterUrl / previewUrl / sourceUrl`
+  - 但后台浏览器之前把这些相对路径直接拼成 `http://8.141.20.130/media/...`
+  - 该公网路径在浏览器运行态里统一返回 `502 Bad Gateway`
+- 本轮根因已定位清楚：
+  - 问题不在审核数据本身
+  - 问题在后台前端媒体 URL 解析策略过度依赖社区公网入口
+  - 只要社区公网 `/media` 链路不稳定，后台审核页、资源治理页、运营编排页里的真实图片/视频预览就会一起失效
+- 本轮修复方式：
+  - `apps/admin` 媒体 URL 统一改走后台同源代理前缀：`/__admin_proxy__/...`
+  - `apps/admin/next.config.ts` 新增 rewrites：
+    - `__admin_proxy__/media/* -> http://127.0.0.1:18080/media/*`
+    - `__admin_proxy__/seedance-videos/* -> 社区前台静态资源入口`
+    - `__admin_proxy__/nano-banana-images/* -> 社区前台静态资源入口`
+  - `feed-ops-media.ts` 不再把相对媒体路径直接拼到社区公网根域名，而是统一收口到后台同源代理
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+  - 测试云环境后台新 release：`/opt/dramatv-community-admin/releases/20260522-130604`
+  - 发布后 smoke：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-130604-public-summary.json`
+    - `artifacts/runtime-readiness/test/admin-deploy-20260522-130604-internal-summary.json`
+  - 浏览器运行态复验：
+    - 审核页媒体请求已从旧的 `http://8.141.20.130/media/...`
+    - 切换为 `http://8.141.20.130:3206/__admin_proxy__/media/...`
+    - 这些真实媒体请求当前已返回 `200 OK`
+- 当前做到哪一步：
+  - 云上后台“审核 / 资源 / 编排”这类依赖真实媒体资源的页面，已经不再被社区公网 `80` 口媒体链路卡死
+  - 当前剩余风险主要转到：如果后续正式上独立后台域名，仍要保留这套同源代理口径，不要再回退到直接拼公网根域名
+- 下次先做什么：
+  - 优先让你手动复验审核页与资源治理页的图片/视频预览
+  - 如果还有单页残留异常，再按页面补专项回归，不重开旧的公网媒体直连方案
+
+### 2026-05-22 后台多页读取异常恢复
+
+- 本轮处理的是一组看起来像“评论治理 / 内容审核 / 举报中心 / 首页运营 / 媒体任务 / 操作日志都读不到数据”的后台故障。
+- 实际排查结果分成两层，不是单一原因：
+  - 第一层是本地 `18080` 后端运行态一度不是最新代码，导致多页在新前端分页契约下读到旧响应结构时直接掉进错误态。
+  - 第二层是 `media-tasks` 后端本身还有一个真实 SQL bug，和旧运行态问题叠在一起。
+- 本轮真实根因已确认：
+  - `comments / moderation / reports / audit-logs` 这几类接口在源码里已经补了 `pagination`，但旧运行态还在回旧结构，前端按新契约读取时会报错。
+  - `media-tasks` 的 `AdminMediaTaskService` 里 `COUNT_SQL` 基于错误的 CTE 拼接，运行时会打出后端 `500`。
+  - `feed-ops/home` 这轮接口本身没有坏，直连已能正常返回 `slots=9 / candidatePool=75`。
+- 本轮修复动作：
+  - 停掉旧的 `18080` Java 进程，重新用当前 `apps/server` 代码打包并拉起后端。
+  - 修正 `apps/server/src/main/java/com/dramatv/community/admin/mediatasks/AdminMediaTaskService.java`：
+    - 把过滤条件从错误的裸 `select * from task_rows ...` 拼接改成 `filtered_task_rows` CTE
+    - `LIST_SQL` 显式从 `filtered_task_rows` 读取
+    - `COUNT_SQL` 改为 `select count(*) from filtered_task_rows`
+  - 补回归保护：
+    - `apps/server/src/test/java/com/dramatv/community/integration/AdminMediaTaskApiIntegrationTest.java`
+    - 新增分页字段断言，避免后续再出现“列表能回、分页为空或 500”这类隐性回退
+- 本轮验证已通过：
+  - `apps/server -> AdminMediaTaskApiIntegrationTest`，结果 `3 passed / 0 failed`
+  - `http://127.0.0.1:18080/actuator/health` 返回 `UP`
+  - 真接口直连复验：
+    - `/api/admin/comments?page=1&pageSize=15`
+    - `/api/admin/moderation/items?page=1&pageSize=15`
+    - `/api/admin/reports?page=1&pageSize=15`
+    - `/api/admin/media-tasks?page=1&pageSize=15`
+    - `/api/admin/audit-logs?page=1&pageSize=15`
+    - `/api/admin/feed-ops/home`
+  - 浏览器运行态复验：
+    - `/comments`
+    - `/moderation`
+    - `/reports`
+    - `/feed-ops/home`
+    - `/media-tasks`
+    - `/audit-logs`
+    - 上述页面当前都不再出现“当前无法读取 / 读取异常 / 请稍后重试”错误态
+- 当前做到哪一步：
+  - 这批后台“读不到数据”的页面已恢复到真实可读状态，不是靠 fallback 顶住。
+  - 当前本地 `18080 + 3206` 已恢复可验收。
+- 下次先做什么：
+  - 如果你手动验收还有个别页残留异常，优先先分清是“运行态没切过去”还是“单接口真 bug”，继续按这次顺序排查，不再先怀疑前端页面壳子。

@@ -126,12 +126,31 @@ type BackendAdminUserDetailResponse = {
   }>;
 };
 
+type BackendAdminUserCreateResponse = {
+  userId: string;
+  username: string;
+  displayName: string;
+  roleCode: string;
+  statusCode: string;
+  temporaryPassword: string;
+  adminRole: boolean;
+  canLogin: boolean;
+};
+
 type BackendAdminCommentListResponse = {
   summary: {
     todayComments: number;
     reportedComments: number;
     hiddenComments: number;
     closedTargets: number;
+  };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
   };
   items: Array<{
     id: string;
@@ -162,6 +181,14 @@ type BackendAdminModerationListResponse = {
     highRiskItems: number;
     processedToday: number;
     offlineItems: number;
+  };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
   };
   items: Array<{
     targetType: string;
@@ -300,6 +327,14 @@ type BackendAdminReportListResponse = {
     newToday: number;
     resolvedTickets: number;
   };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
   items: Array<{
     id: string;
     targetType: string;
@@ -435,6 +470,14 @@ type BackendAdminMediaTaskListResponse = {
     todayTasks: number;
     processingTasks: number;
   };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
   items: Array<{
     taskId: string;
     taskType: string;
@@ -504,6 +547,14 @@ type BackendAdminAuditLogListResponse = {
     sensitiveLogs: number;
     reviewLogs: number;
     publishLogs: number;
+  };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
   };
   items: Array<{
     id: string;
@@ -659,6 +710,8 @@ type AdminCommentListQuery = {
   status?: string;
   targetType?: string;
   reportedOnly?: boolean | string;
+  page?: number;
+  pageSize?: number;
 };
 
 type AdminUserGovernanceUpdateData = {
@@ -678,6 +731,8 @@ type AdminUserPasswordResetData = {
   sessionsRevoked: boolean;
 };
 
+type AdminUserCreateData = BackendAdminUserCreateResponse;
+
 type AdminCommentTargetSettingsData = {
   targetType: string;
   targetId: string;
@@ -696,6 +751,8 @@ type AdminModerationListQuery = {
   q?: string;
   targetType?: string;
   status?: string;
+  page?: number;
+  pageSize?: number;
 };
 
 type AdminResourceListQuery = {
@@ -717,6 +774,8 @@ type AdminReportListQuery = {
   status?: string;
   targetType?: string;
   reason?: string;
+  page?: number;
+  pageSize?: number;
 };
 
 type AdminTaxonomyUpdateInput = {
@@ -768,6 +827,8 @@ type AdminMediaTaskListQuery = {
   q?: string;
   status?: string;
   targetType?: string;
+  page?: number;
+  pageSize?: number;
 };
 
 type AdminAuditLogListQuery = {
@@ -775,6 +836,8 @@ type AdminAuditLogListQuery = {
   module?: string;
   result?: string;
   risk?: string;
+  page?: number;
+  pageSize?: number;
 };
 
 const REQUEST_ID_HEADER_NAME = "X-Request-Id";
@@ -1015,6 +1078,33 @@ export async function getAdminUser(userId: string) {
   return ok(backend.data, backend.requestId);
 }
 
+export async function createAdminUser(input: {
+  username: string;
+  displayName: string;
+  roleCode: string;
+  email?: string;
+  phone?: string;
+  password?: string;
+}) {
+  const path = "/api/admin/users";
+  const backend = await requestAdminBackend<AdminUserCreateData>(path, {
+    method: "POST",
+    body: JSON.stringify({
+      username: input.username,
+      displayName: input.displayName,
+      roleCode: input.roleCode,
+      email: input.email?.trim() || undefined,
+      phone: input.phone?.trim() || undefined,
+      password: input.password?.trim() || undefined
+    })
+  });
+  if (!backend) {
+    throw new AdminBackendError("Admin user create response is empty.", path);
+  }
+
+  return ok(backend.data, backend.requestId);
+}
+
 export async function updateAdminUserGovernance(input: {
   userId: string;
   roleCode: string;
@@ -1070,6 +1160,16 @@ export async function listAdminComments(query?: AdminCommentListQuery | string) 
   const reportedOnly = typeof query === "string" ? null : query?.reportedOnly;
   if (reportedOnly === true || reportedOnly === "true") {
     searchParams.set("reportedOnly", "true");
+  }
+
+  const page = typeof query === "string" ? undefined : query?.page;
+  if (typeof page === "number" && Number.isFinite(page) && page > 0) {
+    searchParams.set("page", String(Math.floor(page)));
+  }
+
+  const pageSize = typeof query === "string" ? undefined : query?.pageSize;
+  if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(pageSize)));
   }
 
   const path = searchParams.size > 0 ? `/api/admin/comments?${searchParams.toString()}` : "/api/admin/comments";
@@ -1155,6 +1255,16 @@ export async function listAdminModerationItems(query?: AdminModerationListQuery 
   const normalizedStatus = typeof query === "string" ? "" : query?.status?.trim();
   if (normalizedStatus) {
     searchParams.set("status", normalizedStatus);
+  }
+
+  const page = typeof query === "string" ? undefined : query?.page;
+  if (typeof page === "number" && Number.isFinite(page) && page > 0) {
+    searchParams.set("page", String(Math.floor(page)));
+  }
+
+  const pageSize = typeof query === "string" ? undefined : query?.pageSize;
+  if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(pageSize)));
   }
 
   const path = searchParams.size > 0 ? `/api/admin/moderation/items?${searchParams.toString()}` : "/api/admin/moderation/items";
@@ -1245,6 +1355,16 @@ export async function listAdminReports(query?: AdminReportListQuery) {
   const normalizedReason = query?.reason?.trim();
   if (normalizedReason) {
     searchParams.set("reason", normalizedReason);
+  }
+
+  const page = query?.page;
+  if (typeof page === "number" && Number.isFinite(page) && page > 0) {
+    searchParams.set("page", String(Math.floor(page)));
+  }
+
+  const pageSize = query?.pageSize;
+  if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(pageSize)));
   }
 
   const path = searchParams.size > 0 ? `/api/admin/reports?${searchParams.toString()}` : "/api/admin/reports";
@@ -1426,6 +1546,16 @@ export async function listAdminMediaTasks(query?: AdminMediaTaskListQuery | stri
     searchParams.set("targetType", normalizedTargetType);
   }
 
+  const page = typeof query === "string" ? undefined : query?.page;
+  if (typeof page === "number" && Number.isFinite(page) && page > 0) {
+    searchParams.set("page", String(Math.floor(page)));
+  }
+
+  const pageSize = typeof query === "string" ? undefined : query?.pageSize;
+  if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(pageSize)));
+  }
+
   const path = searchParams.size > 0 ? `/api/admin/media-tasks?${searchParams.toString()}` : "/api/admin/media-tasks";
   const backend = await requestAdminBackend<BackendAdminMediaTaskListResponse>(path);
   if (!backend) {
@@ -1480,6 +1610,16 @@ export async function listAdminAuditLogs(query?: AdminAuditLogListQuery | string
   const normalizedRisk = typeof query === "string" ? "" : query?.risk?.trim();
   if (normalizedRisk) {
     searchParams.set("risk", normalizedRisk);
+  }
+
+  const page = typeof query === "string" ? undefined : query?.page;
+  if (typeof page === "number" && Number.isFinite(page) && page > 0) {
+    searchParams.set("page", String(Math.floor(page)));
+  }
+
+  const pageSize = typeof query === "string" ? undefined : query?.pageSize;
+  if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(pageSize)));
   }
 
   const path = searchParams.size > 0 ? `/api/admin/audit-logs?${searchParams.toString()}` : "/api/admin/audit-logs";

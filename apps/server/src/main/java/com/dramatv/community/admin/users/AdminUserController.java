@@ -1,6 +1,8 @@
 package com.dramatv.community.admin.users;
 
+import com.dramatv.community.admin.users.dto.request.AdminUserCreateRequest;
 import com.dramatv.community.admin.users.dto.request.AdminUserGovernanceUpdateRequest;
+import com.dramatv.community.admin.users.dto.response.AdminUserCreateResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserDetailResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserGovernanceUpdateResponse;
 import com.dramatv.community.admin.users.dto.response.AdminUserListResponse;
@@ -35,9 +37,16 @@ public class AdminUserController {
     public ApiResponse<AdminUserListResponse> listUsers(
             @RequestParam(required = false) String q,
             @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "20") Integer pageSize
+            @RequestParam(defaultValue = "15") Integer pageSize
     ) {
         return ApiResponse.ok(adminUserQueryService.listUsers(q, page, pageSize));
+    }
+
+    @PostMapping
+    public ApiResponse<AdminUserCreateResponse> createUser(
+            @Valid @RequestBody AdminUserCreateRequest request
+    ) {
+        return ApiResponse.ok(adminUserGovernanceService.createUser(request));
     }
 
     @GetMapping("/{userId}")

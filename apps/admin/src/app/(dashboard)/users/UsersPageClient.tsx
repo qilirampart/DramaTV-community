@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import {
+  createUserAction,
   resetUserPasswordAction,
   updateUserGovernanceAction
 } from "./actions";
 import styles from "./page.module.css";
-import type { DetailContentItem, DisplayRole, DisplayStatus, DisplayUser, PageData, ResetPasswordActionState } from "./types";
+import type { CreateUserActionState, DetailContentItem, DisplayRole, DisplayStatus, DisplayUser, PageData, ResetPasswordActionState } from "./types";
 
 const initialResetPasswordActionState: ResetPasswordActionState = {
   status: "idle",
@@ -16,6 +17,17 @@ const initialResetPasswordActionState: ResetPasswordActionState = {
   temporaryPassword: null,
   passwordActionLabel: null,
   userId: null
+};
+
+const initialCreateUserActionState: CreateUserActionState = {
+  status: "idle",
+  message: null,
+  requestId: null,
+  createdUserId: null,
+  temporaryPassword: null,
+  passwordMode: null,
+  createdUsername: null,
+  createdDisplayName: null
 };
 
 const GOVERNANCE_ROLE_OPTIONS = [
@@ -127,6 +139,8 @@ function publishStatusLabel(statusCode: string) {
 
 type Props = {
   data: PageData;
+  canManageUsers: boolean;
+  canAssignAdminRole: boolean;
   errorMessage?: string | null;
   successMessage?: string | null;
 };
@@ -195,10 +209,130 @@ function RecentContentList({ items, compact = false }: RecentContentListProps) {
   );
 }
 
-export default function UsersPageClient({ data, errorMessage, successMessage }: Props) {
+type CreateUserModalProps = {
+  canAssignAdminRole: boolean;
+  onClose: (options?: { refresh?: boolean }) => void;
+};
+
+function CreateUserModal({ canAssignAdminRole, onClose }: CreateUserModalProps) {
+  const [createUserState, createUserFormAction, createUserPending] = useActionState(
+    createUserAction,
+    initialCreateUserActionState
+  );
+  const createCompleted = createUserState.status === "success";
+
+  function handleClose() {
+    onClose({ refresh: createCompleted });
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [createCompleted]);
+
+  return (
+    <div className={styles.recentModalScrim} onClick={handleClose}>
+      <section
+        aria-labelledby="create-user-title"
+        aria-modal="true"
+        className={styles.createUserModal}
+        role="dialog"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className={styles.recentModalHeader}>
+          <div className={styles.recentModalTitle}>
+            <h2 id="create-user-title">创建账号</h2>
+            <p>创建本地账号，可直接设置初始密码；留空时默认使用 dramatv-local-dev。</p>
+          </div>
+          <button
+            aria-label="关闭创建账号弹窗"
+            className={styles.closeButton}
+            type="button"
+            onClick={handleClose}
+          >
+            ×
+          </button>
+        </header>
+        <form action={createUserFormAction} className={styles.createUserForm}>
+          <div className={styles.createUserGrid}>
+            <label className={styles.formField}>
+              <span>用户名</span>
+              <input className={styles.searchInput} name="username" placeholder="如 creator-demo-01" required type="text" />
+            </label>
+            <label className={styles.formField}>
+              <span>显示名</span>
+              <input className={styles.searchInput} name="displayName" placeholder="如 创作者演示账号" required type="text" />
+            </label>
+            <label className={styles.formField}>
+              <span>角色</span>
+              <select className={styles.formSelect} defaultValue="creator" name="roleCode">
+                {GOVERNANCE_ROLE_OPTIONS.filter((option) => option.value !== "admin" || canAssignAdminRole).map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className={styles.formField}>
+              <span>邮箱</span>
+              <input className={styles.searchInput} name="email" placeholder="可选" type="email" />
+            </label>
+            <label className={styles.formField}>
+              <span>手机号</span>
+              <input className={styles.searchInput} name="phone" placeholder="可选" type="text" />
+            </label>
+            <label className={styles.formField}>
+              <span>初始密码</span>
+              <input className={styles.searchInput} name="password" placeholder="可选，不填则使用默认密码" type="text" />
+            </label>
+          </div>
+
+          {createUserState.status === "success" ? (
+            <div className={styles.passwordResultSuccess}>
+              <strong>账号创建成功</strong>
+              <span>{createUserState.message}</span>
+              <span>{createUserState.passwordMode === "custom" ? "初始密码（自定义）" : "初始密码（默认）"}</span>
+              <code>{createUserState.temporaryPassword}</code>
+              <span>
+                {createUserState.createdDisplayName} / {createUserState.createdUsername}
+              </span>
+            </div>
+          ) : null}
+
+          {createUserState.status === "error" && createUserState.message ? (
+            <div className={styles.passwordResultError}>
+              <strong>创建账号失败</strong>
+              <span>{createUserState.message}</span>
+            </div>
+          ) : null}
+
+          <div className={styles.formActions}>
+            <button className={styles.secondaryAction} type="button" onClick={handleClose}>
+              {createCompleted ? "完成" : "取消"}
+            </button>
+            {!createCompleted ? (
+              <button className={styles.primaryAction} disabled={createUserPending} type="submit">
+                {createUserPending ? "创建中..." : "确认创建"}
+              </button>
+            ) : null}
+          </div>
+        </form>
+      </section>
+    </div>
+  );
+}
+
+export default function UsersPageClient({ data, canManageUsers, canAssignAdminRole, errorMessage, successMessage }: Props) {
   const router = useRouter();
   const [isDetailVisible, setIsDetailVisible] = useState(true);
   const [isRecentModalOpen, setIsRecentModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [statusDraft, setStatusDraft] = useState(data.selectedDetail?.statusCode ?? "active");
   const [roleDraft, setRoleDraft] = useState(data.selectedDetail?.roleCode ?? "creator");
   const [resetPasswordState, resetPasswordFormAction, resetPasswordPending] = useActionState(
@@ -237,13 +371,13 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
   }, [data.selectedDetail?.id, data.selectedDetail?.roleCode, data.selectedDetail?.statusCode]);
 
   useEffect(() => {
-    if (!isRecentModalOpen) {
+    if (!isRecentModalOpen && !isCreateModalOpen) {
       return;
     }
 
     const previousOverflow = document.body.style.overflow;
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && isRecentModalOpen) {
         setIsRecentModalOpen(false);
       }
     };
@@ -255,7 +389,14 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isRecentModalOpen]);
+  }, [isRecentModalOpen, isCreateModalOpen]);
+
+  function handleCloseCreateModal(options?: { refresh?: boolean }) {
+    setIsCreateModalOpen(false);
+    if (options?.refresh) {
+      router.refresh();
+    }
+  }
 
   const activePasswordResult =
     selectedDetail && resetPasswordState.userId === selectedDetail.id ? resetPasswordState : initialResetPasswordActionState;
@@ -264,8 +405,15 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
     <section className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerMain}>
-          <h1 className={styles.title}>用户管理</h1>
-          <p className={styles.subtitle}>管理社区账号、状态与后台权限</p>
+          <div>
+            <h1 className={styles.title}>用户管理</h1>
+            <p className={styles.subtitle}>管理社区账号、状态与后台权限</p>
+          </div>
+          {canManageUsers ? (
+            <button className={styles.primaryAction} type="button" onClick={() => setIsCreateModalOpen(true)}>
+              创建账号
+            </button>
+          ) : null}
         </div>
       </header>
 
@@ -588,6 +736,7 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
                         id="user-governance-status"
                         name="statusCode"
                         className={styles.formSelect}
+                        disabled={!canManageUsers || data.isFallback}
                         value={statusDraft}
                         onChange={(event) => setStatusDraft(event.target.value)}
                       >
@@ -606,6 +755,7 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
                         id="user-governance-role"
                         name="roleCode"
                         className={styles.formSelect}
+                        disabled={!canManageUsers || data.isFallback}
                         value={roleDraft}
                         onChange={(event) => setRoleDraft(event.target.value)}
                       >
@@ -634,7 +784,7 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
                     </div>
 
                     <div className={styles.formActions}>
-                      <button className={styles.primaryAction} disabled={data.isFallback} type="submit">
+                      <button className={styles.primaryAction} disabled={data.isFallback || !canManageUsers} type="submit">
                         保存账号治理
                       </button>
                     </div>
@@ -652,7 +802,12 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
                           <input name="userId" type="hidden" value={selectedDetail.id} />
                           <button
                             className={styles.secondaryAction}
-                            disabled={data.isFallback || resetPasswordPending || (!selectedDetail.canInitializePassword && !selectedDetail.canResetPassword)}
+                            disabled={
+                              data.isFallback ||
+                              resetPasswordPending ||
+                              !canManageUsers ||
+                              (!selectedDetail.canInitializePassword && !selectedDetail.canResetPassword)
+                            }
                             type="submit"
                           >
                             {resetPasswordPending ? "处理中..." : selectedDetail.passwordActionLabel}
@@ -770,6 +925,8 @@ export default function UsersPageClient({ data, errorMessage, successMessage }: 
           </section>
         </div>
       ) : null}
+
+      {isCreateModalOpen ? <CreateUserModal canAssignAdminRole={canAssignAdminRole} onClose={handleCloseCreateModal} /> : null}
     </section>
   );
 }

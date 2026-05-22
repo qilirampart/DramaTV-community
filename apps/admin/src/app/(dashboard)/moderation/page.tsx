@@ -18,6 +18,8 @@ import ModerationMediaPreview from "./ModerationMediaPreview";
 import ModerationTableInteractive from "./ModerationTableInteractive";
 import styles from "./page.module.css";
 
+const PAGE_SIZE = 15;
+
 type Metric = {
   label: string;
   value: string;
@@ -86,6 +88,7 @@ type ModerationFilters = {
   q: string;
   targetType: string;
   status: string;
+  page: number;
 };
 
 type PageData = {
@@ -97,6 +100,14 @@ type PageData = {
   defaultSelectedKey: string | null;
   totalCountLabel: string;
   emptyMessage: string | null;
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
 };
 
 const ZERO_METRICS: readonly Metric[] = [
@@ -148,6 +159,11 @@ function formatMetricValue(value: number) {
 
 function normalizeFilterValue(value: string | null | undefined) {
   return value?.trim() || "";
+}
+
+function normalizePageValue(value: string | null | undefined) {
+  const parsed = Number.parseInt(value?.trim() || "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
 function rowKey(targetType: string, targetId: string) {
@@ -339,11 +355,13 @@ function readFilters(searchParams?: {
   q?: string;
   targetType?: string;
   status?: string;
+  page?: string;
 }) {
   return {
     q: normalizeFilterValue(searchParams?.q),
     targetType: normalizeFilterValue(searchParams?.targetType),
-    status: normalizeFilterValue(searchParams?.status)
+    status: normalizeFilterValue(searchParams?.status),
+    page: normalizePageValue(searchParams?.page)
   };
 }
 
@@ -357,6 +375,7 @@ function buildModerationHref(
     selectedType?: string | null;
     selectedId?: string | null;
     error?: string | null;
+    page?: number | null;
   }
 ) {
   const searchParams = new URLSearchParams();
@@ -373,11 +392,31 @@ function buildModerationHref(
   if (filters.status) {
     searchParams.set("status", filters.status);
   }
+  const nextPage = typeof options?.page === "number" && options.page > 0 ? options.page : filters.page;
+  if (nextPage > 1) {
+    searchParams.set("page", String(nextPage));
+  }
   if (options?.error?.trim()) {
     searchParams.set("error", options.error.trim());
   }
   const query = searchParams.toString();
   return query ? `/moderation?${query}` : "/moderation";
+}
+
+function buildPaginationPages(currentPage: number, totalPages: number) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  if (currentPage <= 4) {
+    return [1, 2, 3, 4, 5, "...", totalPages] as const;
+  }
+
+  if (currentPage >= totalPages - 3) {
+    return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages] as const;
+  }
+
+  return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages] as const;
 }
 
 function buildMetrics(summary: AdminModerationListData["summary"]): readonly Metric[] {
@@ -411,7 +450,13 @@ function buildMetrics(summary: AdminModerationListData["summary"]): readonly Met
 
 async function loadPageData(filters: ModerationFilters): Promise<PageData> {
   try {
-    const response = await listAdminModerationItems(filters);
+    const response = await listAdminModerationItems({
+      q: filters.q || undefined,
+      targetType: filters.targetType || undefined,
+      status: filters.status || undefined,
+      page: filters.page,
+      pageSize: PAGE_SIZE
+    });
     const rows = response.data.items.map(mapRow);
     const selected = rows.find((row) => row.statusTone === "pending") ?? rows[0] ?? null;
 
@@ -425,8 +470,9 @@ async function loadPageData(filters: ModerationFilters): Promise<PageData> {
         metrics: buildMetrics(response.data.summary),
         rows,
         defaultSelectedKey: null,
-        totalCountLabel: "共 0 条",
-        emptyMessage: hasActiveFilters(filters) ? "当前筛选条件下没有匹配的审核项。" : "当前还没有可展示的审核项。"
+        totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 0 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+        emptyMessage: hasActiveFilters(filters) ? "当前筛选条件下没有匹配的审核项。" : "当前还没有可展示的审核项。",
+        pagination: response.data.pagination
       };
     }
 
@@ -437,8 +483,9 @@ async function loadPageData(filters: ModerationFilters): Promise<PageData> {
       metrics: buildMetrics(response.data.summary),
       rows,
       defaultSelectedKey: selected?.id ?? null,
-      totalCountLabel: `共 ${formatMetricValue(rows.length)} 条`,
-      emptyMessage: null
+      totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 ${formatMetricValue(rows.length)} 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+      emptyMessage: null,
+      pagination: response.data.pagination
     };
   } catch (error) {
     const requestId =
@@ -453,8 +500,16 @@ async function loadPageData(filters: ModerationFilters): Promise<PageData> {
       metrics: ZERO_METRICS,
       rows: [],
       defaultSelectedKey: null,
-      totalCountLabel: "共 0 条",
-      emptyMessage: "当前无法读取审核项，请稍后重试。"
+      totalCountLabel: "第 1 页，当前返回 0 条，共匹配 0 条",
+      emptyMessage: "当前无法读取审核项，请稍后重试。",
+      pagination: {
+        page: filters.page,
+        pageSize: PAGE_SIZE,
+        totalItems: 0,
+        totalPages: 1,
+        hasPrevious: false,
+        hasNext: false
+      }
     };
   }
 }
@@ -605,6 +660,7 @@ export default async function ModerationPage({
     q?: string;
     targetType?: string;
     status?: string;
+    page?: string;
   }>;
 }) {
   await requireAdminAccess(["admin", "moderator"], "/moderation");
@@ -634,6 +690,7 @@ export default async function ModerationPage({
   const canReject = canAct && !isReviewExempt && selectedDetail?.statusTone !== "rejected";
   const canOffline = canAct && !isReviewExempt && selectedDetail?.statusTone !== "offline";
   const canRestore = canAct && selectedDetail?.statusTone === "offline";
+  const paginationPages = buildPaginationPages(pageData.pagination.page, pageData.pagination.totalPages);
 
   return (
     <section className={styles.page}>
@@ -670,6 +727,7 @@ export default async function ModerationPage({
 
           <section className={styles.filterCard}>
             <form action="/moderation" className={styles.filterForm} method="get">
+              <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
                   <span className={styles.selectLabel}>搜索关键词</span>
@@ -824,8 +882,61 @@ export default async function ModerationPage({
 
                 <footer className={styles.tableFooter}>
                   <span className={styles.count}>{pageData.totalCountLabel}</span>
-                  <span className={styles.pageSizeButton}>固定最近 80 条</span>
+                  <span className={styles.pageSizeButton}>每页 {pageData.pagination.pageSize} 条</span>
                 </footer>
+                <div className={styles.paginationArea}>
+                  {pageData.pagination.totalPages > 1 ? (
+                    <nav aria-label="审核分页" className={styles.pagination}>
+                      <Link
+                        aria-disabled={!pageData.pagination.hasPrevious}
+                        className={styles.pageButton}
+                        href={buildModerationHref(filters, {
+                          selectedType: selectedRow?.targetTypeCode ?? null,
+                          selectedId: selectedRow?.targetId ?? null,
+                          page: Math.max(1, pageData.pagination.page - 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasPrevious ? undefined : -1}
+                      >
+                        上一页
+                      </Link>
+                      {paginationPages.map((page, index) =>
+                        page === "..." ? (
+                          <span key={`ellipsis-${pageData.pagination.page}-${index}`} className={styles.pageEllipsis}>
+                            ...
+                          </span>
+                        ) : (
+                          <Link
+                            key={page}
+                            aria-current={page === pageData.pagination.page ? "page" : undefined}
+                            className={`${styles.pageButton} ${page === pageData.pagination.page ? styles.pageButtonActive : ""}`}
+                            href={buildModerationHref(filters, {
+                              selectedType: selectedRow?.targetTypeCode ?? null,
+                              selectedId: selectedRow?.targetId ?? null,
+                              page
+                            })}
+                            scroll={false}
+                          >
+                            {page}
+                          </Link>
+                        )
+                      )}
+                      <Link
+                        aria-disabled={!pageData.pagination.hasNext}
+                        className={styles.pageButton}
+                        href={buildModerationHref(filters, {
+                          selectedType: selectedRow?.targetTypeCode ?? null,
+                          selectedId: selectedRow?.targetId ?? null,
+                          page: Math.min(pageData.pagination.totalPages, pageData.pagination.page + 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasNext ? undefined : -1}
+                      >
+                        下一页
+                      </Link>
+                    </nav>
+                  ) : null}
+                </div>
               </>
             ) : (
               <div className={styles.emptyState}>
@@ -985,6 +1096,7 @@ export default async function ModerationPage({
                   <input name="q" type="hidden" value={filters.q} />
                   <input name="filterTargetType" type="hidden" value={filters.targetType} />
                   <input name="status" type="hidden" value={filters.status} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.primaryAction} disabled={!canApprove} type="submit">
                     通过
                   </button>
@@ -996,6 +1108,7 @@ export default async function ModerationPage({
                   <input name="q" type="hidden" value={filters.q} />
                   <input name="filterTargetType" type="hidden" value={filters.targetType} />
                   <input name="status" type="hidden" value={filters.status} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.secondaryAction} disabled={!canReject} type="submit">
                     驳回
                   </button>
@@ -1007,6 +1120,7 @@ export default async function ModerationPage({
                   <input name="q" type="hidden" value={filters.q} />
                   <input name="filterTargetType" type="hidden" value={filters.targetType} />
                   <input name="status" type="hidden" value={filters.status} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.secondaryAction} disabled={!canOffline} type="submit">
                     下线
                   </button>
@@ -1018,6 +1132,7 @@ export default async function ModerationPage({
                   <input name="q" type="hidden" value={filters.q} />
                   <input name="filterTargetType" type="hidden" value={filters.targetType} />
                   <input name="status" type="hidden" value={filters.status} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.secondaryAction} disabled={!canRestore} type="submit">
                     恢复
                   </button>

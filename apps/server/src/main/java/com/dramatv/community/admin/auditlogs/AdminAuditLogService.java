@@ -24,7 +24,9 @@ public class AdminAuditLogService {
     private static final Logger log = LoggerFactory.getLogger(AdminAuditLogService.class);
 
     private static final String[] MANAGE_ROLES = {"admin", "operator", "moderator"};
-    private static final int DEFAULT_LIMIT = 100;
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 15;
+    private static final int MAX_PAGE_SIZE = 100;
 
     private static final String FILTERED_LOG_ROWS_CTE = """
             with log_rows as (
@@ -85,6 +87,11 @@ public class AdminAuditLogService {
             from log_rows
             order by created_at desc, id desc
             limit ?
+            offset ?
+            """;
+
+    private static final String COUNT_SQL = FILTERED_LOG_ROWS_CTE + """
+            select count(*) from log_rows
             """;
 
     private static final String DETAIL_SQL = """
@@ -155,7 +162,7 @@ public class AdminAuditLogService {
         this.adminAccessService = adminAccessService;
     }
 
-    public AdminAuditLogListResponse listLogs(String query, String module, String result, String risk) {
+    public AdminAuditLogListResponse listLogs(String query, String module, String result, String risk, Integer page, Integer pageSize) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
         String normalizedQuery = normalizeQuery(query);
@@ -163,6 +170,8 @@ public class AdminAuditLogService {
         String normalizedModule = normalizeModule(module);
         String normalizedResult = normalizeResult(result);
         String normalizedRisk = normalizeRisk(risk);
+        int safePage = normalizePage(page);
+        int safePageSize = normalizePageSize(pageSize);
 
         AdminAuditLogListResponse.Summary summary = jdbcTemplate.queryForObject(
                 SUMMARY_SQL,
@@ -190,6 +199,30 @@ public class AdminAuditLogService {
                 normalizedRisk,
                 normalizedRisk
         );
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                normalizedModule,
+                normalizedModule,
+                normalizedResult,
+                normalizedResult,
+                normalizedRisk,
+                normalizedRisk
+        );
+        int totalPages = totalItems == 0 ? 1 : (int) Math.ceil((double) totalItems / safePageSize);
+        int effectivePage = Math.min(safePage, totalPages);
+        int offset = (effectivePage - 1) * safePageSize;
 
         List<AdminAuditLogListResponse.Item> items = jdbcTemplate.query(
                 LIST_SQL,
@@ -211,13 +244,36 @@ public class AdminAuditLogService {
                 normalizedResult,
                 normalizedRisk,
                 normalizedRisk,
-                DEFAULT_LIMIT
+                safePageSize,
+                offset
         );
 
         return new AdminAuditLogListResponse(
                 summary == null ? new AdminAuditLogListResponse.Summary(0, 0, 0, 0) : summary,
+                new AdminAuditLogListResponse.Pagination(
+                        effectivePage,
+                        safePageSize,
+                        totalItems,
+                        totalPages,
+                        effectivePage > 1,
+                        effectivePage < totalPages
+                ),
                 items
         );
+    }
+
+    private int normalizePage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PAGE_SIZE;
+        }
+        return Math.min(pageSize, MAX_PAGE_SIZE);
     }
 
     public AdminAuditLogDetailResponse getLog(String logIdText) {

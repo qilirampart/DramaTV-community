@@ -34,7 +34,7 @@
 
 .metricsGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
 }
 
@@ -95,7 +95,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 384px;
+  grid-template-columns: minmax(0, 1.56fr) minmax(312px, 25vw);
   gap: 14px;
   align-items: start;
 }
@@ -137,7 +137,7 @@
 
 .filterGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px 16px;
   align-items: end;
 }
@@ -486,11 +486,19 @@
   font-size: 0.78rem;
 }
 
+.paginationArea {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px 14px;
+}
+
 .pageButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  min-width: 30px;
+  padding: 0 10px;
   height: 30px;
   border-radius: 8px;
   font-size: 0.78rem;
@@ -511,6 +519,7 @@
 .detailCard {
   position: sticky;
   top: 14px;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -778,13 +787,14 @@
   opacity: 0.5;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1380px) {
   .layout {
     grid-template-columns: 1fr;
   }
 
   .detailCard {
     position: static;
+    min-width: 0;
   }
 }
 
@@ -806,7 +816,8 @@
 }
 
 @media (max-width: 700px) {
-  .metricsGrid {
+  .metricsGrid,
+  .filterGrid {
     grid-template-columns: 1fr;
   }
 
@@ -817,7 +828,4 @@
     align-items: stretch;
   }
 
-  .filterGrid {
-    grid-template-columns: 1fr;
-  }
 }

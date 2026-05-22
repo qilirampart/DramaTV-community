@@ -11,6 +11,8 @@ import { retryMediaTaskAction } from "./actions";
 import MediaTasksTableInteractive from "./MediaTasksTableInteractive";
 import styles from "./page.module.css";
 
+const PAGE_SIZE = 15;
+
 type MetricItem = {
   label: string;
   value: string;
@@ -80,6 +82,7 @@ type MediaTaskFilters = {
   q: string;
   status: string;
   targetType: string;
+  page: number;
 };
 
 type PageData = {
@@ -91,6 +94,14 @@ type PageData = {
   defaultSelectedId: string | null;
   totalCountLabel: string;
   emptyMessage: string | null;
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
 };
 
 const ZERO_METRICS: readonly MetricItem[] = [
@@ -138,6 +149,11 @@ function formatMetricValue(value: number) {
 
 function normalizeFilterValue(value: string | null | undefined) {
   return value?.trim() || "";
+}
+
+function normalizePageValue(value: string | null | undefined) {
+  const parsed = Number.parseInt(value?.trim() || "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
 function resolveTaskTypeLabel(taskType: string) {
@@ -398,11 +414,13 @@ function readFilters(searchParams?: {
   q?: string;
   status?: string;
   targetType?: string;
+  page?: string;
 }) {
   return {
     q: normalizeFilterValue(searchParams?.q),
     status: normalizeFilterValue(searchParams?.status),
-    targetType: normalizeFilterValue(searchParams?.targetType)
+    targetType: normalizeFilterValue(searchParams?.targetType),
+    page: normalizePageValue(searchParams?.page)
   };
 }
 
@@ -415,6 +433,7 @@ function buildMediaTasksHref(
   options?: {
     selected?: string | null;
     error?: string | null;
+    page?: number | null;
   }
 ) {
   const searchParams = new URLSearchParams();
@@ -430,6 +449,10 @@ function buildMediaTasksHref(
   if (filters.targetType) {
     searchParams.set("targetType", filters.targetType);
   }
+  const nextPage = typeof options?.page === "number" && options.page > 0 ? options.page : filters.page;
+  if (nextPage > 1) {
+    searchParams.set("page", String(nextPage));
+  }
   if (options?.error?.trim()) {
     searchParams.set("error", options.error.trim());
   }
@@ -437,9 +460,31 @@ function buildMediaTasksHref(
   return query ? `/media-tasks?${query}` : "/media-tasks";
 }
 
+function buildPaginationPages(currentPage: number, totalPages: number) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  if (currentPage <= 4) {
+    return [1, 2, 3, 4, 5, "...", totalPages] as const;
+  }
+
+  if (currentPage >= totalPages - 3) {
+    return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages] as const;
+  }
+
+  return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages] as const;
+}
+
 async function loadPageData(filters: MediaTaskFilters): Promise<PageData> {
   try {
-    const response = await listAdminMediaTasks(filters);
+    const response = await listAdminMediaTasks({
+      q: filters.q || undefined,
+      status: filters.status || undefined,
+      targetType: filters.targetType || undefined,
+      page: filters.page,
+      pageSize: PAGE_SIZE
+    });
     const metrics: MetricItem[] = [
       {
         label: "失败任务数",
@@ -484,8 +529,9 @@ async function loadPageData(filters: MediaTaskFilters): Promise<PageData> {
         metrics,
         rows,
         defaultSelectedId: null,
-        totalCountLabel: "共 0 条",
-        emptyMessage: hasActiveFilters(filters) ? "当前筛选条件下没有匹配的媒体任务。" : "当前还没有可展示的媒体任务。"
+        totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 0 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+        emptyMessage: hasActiveFilters(filters) ? "当前筛选条件下没有匹配的媒体任务。" : "当前还没有可展示的媒体任务。",
+        pagination: response.data.pagination
       };
     }
 
@@ -496,8 +542,9 @@ async function loadPageData(filters: MediaTaskFilters): Promise<PageData> {
       metrics,
       rows,
       defaultSelectedId: preferredSelected,
-      totalCountLabel: `共 ${formatMetricValue(response.data.summary.totalTasks)} 条`,
-      emptyMessage: null
+      totalCountLabel: `第 ${formatMetricValue(response.data.pagination.page)} 页，当前返回 ${formatMetricValue(rows.length)} 条，共匹配 ${formatMetricValue(response.data.pagination.totalItems)} 条`,
+      emptyMessage: null,
+      pagination: response.data.pagination
     };
   } catch (error) {
     const requestId =
@@ -512,8 +559,16 @@ async function loadPageData(filters: MediaTaskFilters): Promise<PageData> {
       metrics: ZERO_METRICS,
       rows: [],
       defaultSelectedId: null,
-      totalCountLabel: "共 0 条",
-      emptyMessage: "当前无法读取媒体任务，请稍后重试。"
+      totalCountLabel: "第 1 页，当前返回 0 条，共匹配 0 条",
+      emptyMessage: "当前无法读取媒体任务，请稍后重试。",
+      pagination: {
+        page: filters.page,
+        pageSize: PAGE_SIZE,
+        totalItems: 0,
+        totalPages: 1,
+        hasPrevious: false,
+        hasNext: false
+      }
     };
   }
 }
@@ -630,6 +685,7 @@ export default async function MediaTasksPage({
     q?: string;
     status?: string;
     targetType?: string;
+    page?: string;
   }>;
 }) {
   await requireAdminAccess(["admin", "operator", "moderator"], "/media-tasks");
@@ -648,6 +704,7 @@ export default async function MediaTasksPage({
   const errorMessage = resolvedSearchParams?.error?.trim() || null;
   const successMessage = resolvedSearchParams?.success?.trim() || null;
   const canRetry = !pageData.hasError && !!selectedDetail.id && selectedDetail.retryable;
+  const paginationPages = buildPaginationPages(pageData.pagination.page, pageData.pagination.totalPages);
 
   return (
     <section className={styles.page}>
@@ -689,6 +746,7 @@ export default async function MediaTasksPage({
         <div className={styles.mainColumn}>
           <section className={styles.filterCard}>
             <form action="/media-tasks" className={styles.filterForm} method="get">
+              <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
                   <span className={styles.selectLabel}>搜索关键词</span>
@@ -806,8 +864,58 @@ export default async function MediaTasksPage({
 
                 <footer className={styles.tableFooter}>
                   <span>{pageData.totalCountLabel}</span>
-                  <span className={styles.pageSizeButton}>固定最近 100 条</span>
+                  <span className={styles.pageSizeButton}>每页 {pageData.pagination.pageSize} 条</span>
                 </footer>
+                <div className={styles.paginationArea}>
+                  {pageData.pagination.totalPages > 1 ? (
+                    <nav aria-label="媒体任务分页" className={styles.pagination}>
+                      <Link
+                        aria-disabled={!pageData.pagination.hasPrevious}
+                        className={styles.pageButton}
+                        href={buildMediaTasksHref(filters, {
+                          selected: selectedRow?.id ?? null,
+                          page: Math.max(1, pageData.pagination.page - 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasPrevious ? undefined : -1}
+                      >
+                        上一页
+                      </Link>
+                      {paginationPages.map((page, index) =>
+                        page === "..." ? (
+                          <span key={`ellipsis-${pageData.pagination.page}-${index}`} className={styles.pageEllipsis}>
+                            ...
+                          </span>
+                        ) : (
+                          <Link
+                            key={page}
+                            aria-current={page === pageData.pagination.page ? "page" : undefined}
+                            className={`${styles.pageButton} ${page === pageData.pagination.page ? styles.pageButtonActive : ""}`}
+                            href={buildMediaTasksHref(filters, {
+                              selected: selectedRow?.id ?? null,
+                              page
+                            })}
+                            scroll={false}
+                          >
+                            {page}
+                          </Link>
+                        )
+                      )}
+                      <Link
+                        aria-disabled={!pageData.pagination.hasNext}
+                        className={styles.pageButton}
+                        href={buildMediaTasksHref(filters, {
+                          selected: selectedRow?.id ?? null,
+                          page: Math.min(pageData.pagination.totalPages, pageData.pagination.page + 1)
+                        })}
+                        scroll={false}
+                        tabIndex={pageData.pagination.hasNext ? undefined : -1}
+                      >
+                        下一页
+                      </Link>
+                    </nav>
+                  ) : null}
+                </div>
               </>
             ) : (
               <div className={styles.emptyState}>
@@ -973,6 +1081,7 @@ export default async function MediaTasksPage({
                   <input name="q" type="hidden" value={filters.q} />
                   <input name="status" type="hidden" value={filters.status} />
                   <input name="targetType" type="hidden" value={filters.targetType} />
+                  <input name="page" type="hidden" value={String(pageData.pagination.page)} />
                   <button className={styles.primaryAction} disabled={!canRetry} type="submit">
                     重试任务
                   </button>
