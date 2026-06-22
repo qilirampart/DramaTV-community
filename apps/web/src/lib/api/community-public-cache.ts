@@ -1,7 +1,12 @@
-import { unstable_cache } from "next/cache";
 import type { ApiEnvelope, ApiPromptSummary } from "@/lib/contracts/community-api";
-import { getFeaturedArchiveLayout, getHomeFeed, getPrompts, isCommunityBackendUnavailableError } from "@/lib/api/community-service";
+import { getFeaturedArchiveLayout, getHomeFeed, getLandingArchiveLayout, getPrompts, isCommunityBackendUnavailableError } from "@/lib/api/community-service";
+import {
+  getOptionalPublicFeaturedInventory,
+  type FeaturedInventoryQuery
+} from "@/lib/api/featured-inventory";
 import type { PublicReadOptions } from "@/lib/api/community-service";
+
+const HOME_PROMPT_FETCH_LIMIT = 30;
 
 const PUBLIC_READ_OPTIONS = {
   includeAuth: false
@@ -11,9 +16,6 @@ const PUBLIC_OPTIONAL_READ_OPTIONS = {
   includeAuth: false,
   timeoutMs: 1200
 } as const;
-
-const PUBLIC_PAGE_REVALIDATE_SECONDS = 15;
-const IS_DEVELOPMENT = process.env.NODE_ENV !== "production";
 
 type PublicPromptQuery = {
   modality?: "all" | "image" | "video";
@@ -54,45 +56,38 @@ async function loadOptionalPrompts(
 async function loadLandingPagePublicDataUncached() {
   return {
     homeFeed: await getHomeFeed(PUBLIC_READ_OPTIONS),
-    prompts: await loadOptionalPrompts({ modality: "all", sort: "latest", limit: 60 }, "landing-prompts")
+    landingLayout: await getLandingArchiveLayout(PUBLIC_READ_OPTIONS),
+    prompts: await loadOptionalPrompts(
+      { modality: "all", sort: "latest", limit: HOME_PROMPT_FETCH_LIMIT },
+      "landing-prompts"
+    )
   };
 }
 
 async function loadCommunityHomePublicDataUncached() {
-  const [homeFeed, prompts, heroPrompts] = await Promise.all([
+  const [homeFeed, prompts] = await Promise.all([
     getHomeFeed(PUBLIC_READ_OPTIONS),
-    loadOptionalPrompts({ modality: "all", sort: "latest", limit: 60 }, "community-home-prompts"),
-    loadOptionalPrompts({ modality: "video", sort: "latest", limit: 12 }, "community-home-hero-video-prompts")
+    loadOptionalPrompts(
+      { modality: "all", sort: "latest", limit: HOME_PROMPT_FETCH_LIMIT },
+      "community-home-prompts"
+    )
   ]);
 
   return {
     homeFeed,
-    prompts,
-    heroPrompts
+    prompts
   };
 }
 
-async function loadFeaturedArchivePublicDataUncached() {
+async function loadFeaturedArchivePublicDataUncached(featuredInventoryQuery: FeaturedInventoryQuery = {}) {
+  const featuredSort = featuredInventoryQuery.sort === "latest" ? "latest" : "hot";
   return {
-    homeFeed: await getHomeFeed(PUBLIC_READ_OPTIONS),
-    featuredLayout: await getFeaturedArchiveLayout(PUBLIC_READ_OPTIONS)
+    featuredLayout: await getFeaturedArchiveLayout(featuredSort, PUBLIC_READ_OPTIONS),
+    featuredInventory: await getOptionalPublicFeaturedInventory(featuredInventoryQuery, "featured-public-inventory")
   };
 }
 
-export const loadLandingPagePublicData = IS_DEVELOPMENT
-  ? loadLandingPagePublicDataUncached
-  : unstable_cache(loadLandingPagePublicDataUncached, ["community-landing-primary-data"], {
-      revalidate: PUBLIC_PAGE_REVALIDATE_SECONDS
-    });
-
-export const loadCommunityHomePublicData = IS_DEVELOPMENT
-  ? loadCommunityHomePublicDataUncached
-  : unstable_cache(loadCommunityHomePublicDataUncached, ["community-home-primary-data"], {
-      revalidate: PUBLIC_PAGE_REVALIDATE_SECONDS
-    });
-
-export const loadFeaturedArchivePublicData = IS_DEVELOPMENT
-  ? loadFeaturedArchivePublicDataUncached
-  : unstable_cache(loadFeaturedArchivePublicDataUncached, ["community-featured-public-data"], {
-      revalidate: PUBLIC_PAGE_REVALIDATE_SECONDS
-    });
+// Public pages need to reflect admin publishes immediately, so we keep this layer uncached.
+export const loadLandingPagePublicData = loadLandingPagePublicDataUncached;
+export const loadCommunityHomePublicData = loadCommunityHomePublicDataUncached;
+export const loadFeaturedArchivePublicData = loadFeaturedArchivePublicDataUncached;

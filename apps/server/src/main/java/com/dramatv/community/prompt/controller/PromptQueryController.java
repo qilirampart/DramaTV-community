@@ -1,6 +1,7 @@
 package com.dramatv.community.prompt.controller;
 
 import com.dramatv.community.prompt.application.PromptQueryService;
+import com.dramatv.community.prompt.dto.response.FeaturedPromptInventoryResponse;
 import com.dramatv.community.prompt.dto.response.PromptDetailResponse;
 import com.dramatv.community.prompt.dto.response.PromptSummaryResponse;
 import com.dramatv.community.shared.response.ApiResponse;
@@ -31,6 +32,21 @@ public class PromptQueryController {
             @RequestParam(required = false) Integer offset
     ) {
         return ApiResponse.ok(promptQueryService.listPublished(modality, sort, limit, offset));
+    }
+
+    @GetMapping("/featured-inventory")
+    public ApiResponse<FeaturedPromptInventoryResponse> featuredInventory(
+            @RequestParam(defaultValue = "all") String filter,
+            @RequestParam(defaultValue = "latest") String sort,
+            @RequestParam(required = false) String q,
+            @RequestParam(required = false) String modelCategory,
+            @RequestParam(required = false) String contentCategory,
+            @RequestParam(required = false) Integer limit,
+            @RequestParam(required = false) String cursor
+    ) {
+        return ApiResponse.ok(
+                promptQueryService.loadFeaturedInventory(filter, sort, q, modelCategory, contentCategory, limit, cursor)
+        );
     }
 
     @GetMapping("/{id}")

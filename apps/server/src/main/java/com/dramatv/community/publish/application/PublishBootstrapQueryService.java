@@ -51,7 +51,7 @@ public class PublishBootstrapQueryService {
                 ),
                 videoDraft,
                 workflowDraft,
-                creatorQueryService.listWorkflows(currentUser.id().toString(), null, "latest").items()
+                creatorQueryService.listWorkflows(currentUser.id().toString(), null).items()
         );
     }
 

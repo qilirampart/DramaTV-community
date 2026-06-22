@@ -44,6 +44,13 @@ public class UploadController {
         return buildResponse(() -> uploadApplicationService.createImagePolicy(request));
     }
 
+    @PostMapping("/audio-policy")
+    public ResponseEntity<ApiResponse<UploadPolicyResponse>> audioPolicy(
+            @Valid @RequestBody UploadPolicyRequest request
+    ) {
+        return buildResponse(() -> uploadApplicationService.createAudioPolicy(request));
+    }
+
     @PutMapping(value = "/assets/{assetId}/binary", consumes = ALL_VALUE)
     public ResponseEntity<ApiResponse<UploadAssetResponse>> uploadBinary(
             @PathVariable String assetId,

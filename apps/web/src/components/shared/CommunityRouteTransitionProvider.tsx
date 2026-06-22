@@ -12,6 +12,7 @@ import {
 } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
+import { rememberBackAnchorSource } from "@/lib/routes/back-anchor";
 import styles from "./CommunityRouteTransitionProvider.module.css";
 
 type TransitionNav = "home" | "featured" | "community";
@@ -26,7 +27,7 @@ type CommunityRouteTransitionContextValue = {
   beginTransition: (options: BeginTransitionOptions) => void;
 };
 
-const MIN_TRANSITION_MS = 500;
+const MIN_TRANSITION_MS = 160;
 const MAX_TRANSITION_MS = 4000;
 
 const CommunityRouteTransitionContext = createContext<CommunityRouteTransitionContextValue | null>(null);
@@ -42,6 +43,14 @@ function normalizeHref(href: string) {
   } catch {
     return href;
   }
+}
+
+function readCurrentWindowRoute() {
+  if (typeof window === "undefined") {
+    return "";
+  }
+
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
 function resolveTransitionMeta(href: string, nav?: TransitionNav, label?: string) {
@@ -167,7 +176,7 @@ export function CommunityRouteTransitionProvider({
   const beginTransition = useCallback(
     ({ href, nav, label }: BeginTransitionOptions) => {
       const normalizedHref = normalizeHref(href);
-      const currentHref = normalizeHref(routeKey);
+      const currentHref = normalizeHref(readCurrentWindowRoute() || routeKey);
 
       if (!normalizedHref || normalizedHref === currentHref || pendingHrefRef.current) {
         return;
@@ -186,6 +195,7 @@ export function CommunityRouteTransitionProvider({
       startTimeRef.current = Date.now();
       originHrefRef.current = currentHref;
       pendingHrefRef.current = normalizedHref;
+      rememberBackAnchorSource(currentHref);
       pauseAmbientVideos();
       setOverlayState({
         visible: true,

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
+import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
 import { uploadAssetFromClient } from "@/lib/api/upload-client";
 import { stripDiscussionContentToPlainText } from "@/lib/discussion-content";
@@ -368,9 +369,9 @@ export function DiscussionComposerPage({ view, channels, initialChannelSlug }: D
       <main className={styles.page}>
         <div className={styles.shell}>
           <div className={styles.breadcrumbs}>
-            <Link className={styles.breadcrumbLink} href="/discussions">
+            <ContextBackLink className={styles.breadcrumbLink} href="/discussions">
               {TEXT.breadcrumbRoot}
-            </Link>
+            </ContextBackLink>
             <span className={styles.breadcrumbDivider}>›</span>
             <span className={styles.breadcrumbCurrent}>{TEXT.breadcrumbCurrent}</span>
           </div>

@@ -65,7 +65,7 @@
 
 .breadcrumb {
   gap: 10px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.82rem;
   font-weight: 700;
 }
@@ -75,7 +75,7 @@
 }
 
 .breadcrumbSeparator {
-  color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .hero {
@@ -99,7 +99,7 @@
 .channelPill,
 .sideLabel,
 .sectionEyebrow {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.62);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -112,7 +112,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.94);
   letter-spacing: 0.03em;
   text-transform: none;
 }
@@ -136,7 +136,7 @@
 .sideAuthor {
   gap: 14px;
   width: fit-content;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.92);
   transition:
     transform 180ms ease,
     color 180ms ease,
@@ -168,7 +168,7 @@
 .infoList span,
 .sideStatItem span,
 .relatedCopy span {
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .heroAuthorCopy span,
@@ -185,7 +185,7 @@
 }
 
 .heroFacts span {
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.62);
   font-size: 0.82rem;
   font-weight: 700;
 }
@@ -193,7 +193,7 @@
 .heroSummary {
   max-width: 820px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.98rem;
   line-height: 1.82;
 }
@@ -255,7 +255,7 @@
 .outlineItem {
   position: relative;
   padding-left: 16px;
-  color: rgba(255, 255, 255, 0.54);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.88rem;
   line-height: 1.45;
   transition: color 180ms ease;
@@ -295,7 +295,7 @@
 
 .outlineFallback {
   margin: 0;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.84rem;
   line-height: 1.7;
 }
@@ -393,7 +393,7 @@
 
 .notice {
   margin: 0;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.76);
   font-size: 0.8rem;
   font-weight: 700;
 }
@@ -578,7 +578,7 @@
 }
 
 .composerFooter span {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -627,7 +627,7 @@
 
 .commentMeta span,
 .commentActions span {
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -648,7 +648,7 @@
   border: 0;
   background: transparent;
   padding: 0;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.62);
   font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
@@ -661,7 +661,7 @@
 .commentEmpty {
   margin: 0;
   padding: 18px 4px 6px 0;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   line-height: 1.72;
 }

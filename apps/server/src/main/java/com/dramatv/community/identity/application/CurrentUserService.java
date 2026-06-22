@@ -55,7 +55,13 @@ public class CurrentUserService {
                     }
 
                     jdbcTemplate.update(
-                            "update auth_sessions set last_seen_at = now(), updated_at = now() where token_hash = ?",
+                            """
+                                    update auth_sessions
+                                    set last_seen_at = now(),
+                                        expires_at = greatest(expires_at, now()) + interval '7200 seconds',
+                                        updated_at = now()
+                                    where token_hash = ?
+                                    """,
                             tokenHash
                     );
 

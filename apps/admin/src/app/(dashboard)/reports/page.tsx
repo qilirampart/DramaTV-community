@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminAccess } from "@/lib/admin-auth";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   AdminBackendError,
   getAdminReport,
@@ -722,7 +723,7 @@ export default async function ReportsPage({
           </section>
 
           <section className={styles.filterCard}>
-            <form action="/reports" className={styles.filterForm} method="get">
+            <form action={buildAdminBrowserPath("/reports")} className={styles.filterForm} method="get">
               <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
@@ -786,9 +787,9 @@ export default async function ReportsPage({
               </div>
 
               <div className={styles.filterFooter}>
-                <a className={styles.resetButton} href="/reports">
+                <Link className={styles.resetButton} href="/reports" scroll={false}>
                   重置筛选
-                </a>
+                </Link>
                 <button className={styles.primaryFilterButton} type="submit">
                   应用筛选
                 </button>
@@ -817,7 +818,6 @@ export default async function ReportsPage({
                           <th>当前状态</th>
                           <th>风险提示</th>
                           <th>处理人</th>
-                          <th>操作入口</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -848,9 +848,6 @@ export default async function ReportsPage({
                                 <span className={`${styles.riskPill} ${RiskToneClass(ticket.riskTone)}`}>{ticket.risk}</span>
                               </td>
                               <td>{ticket.assignee}</td>
-                              <td>
-                                <span className={styles.rowAssist}>{isSelected ? "当前查看中" : "点击行查看"}</span>
-                              </td>
                             </tr>
                           );
                         })}
@@ -960,7 +957,7 @@ export default async function ReportsPage({
                     </div>
                     <div className={styles.infoFull}>
                       <dt>举报说明:</dt>
-                      <dd>{selectedDetail.reportDescription}</dd>
+                      <dd className={styles.textBlock}>{selectedDetail.reportDescription}</dd>
                     </div>
                   </dl>
                 </section>
@@ -981,7 +978,7 @@ export default async function ReportsPage({
                     <div className={styles.contentBody}>
                       <strong>{selectedDetail.contentSummary}</strong>
                       <span>{selectedDetail.targetActor}</span>
-                      <p>{selectedDetail.excerpt}</p>
+                      <p className={styles.contentExcerpt}>{selectedDetail.excerpt}</p>
                       <div className={styles.contentMeta}>
                         <span>{selectedDetail.targetType} · 状态 {selectedDetail.targetStatusCode}</span>
                         <div className={styles.metaStats}>
@@ -1052,7 +1049,7 @@ export default async function ReportsPage({
 
                 <section className={styles.section}>
                   <div className={styles.noteBox}>
-                    <span>{selectedDetail.resultNote}</span>
+                    <span className={styles.noteBody}>{selectedDetail.resultNote}</span>
                     <span className={styles.noteCount}>{detailErrorMessage ?? "已连接真实后端"}</span>
                   </div>
                 </section>

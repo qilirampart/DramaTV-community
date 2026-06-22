@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const root = process.cwd();
 const startPage = Number(process.argv[2] || 1);
@@ -12,6 +13,9 @@ const filterMode = process.argv[8] || "imageCategories";
 const categories = typeof process.argv[9] === "string" ? process.argv[9].trim() : "";
 const requestTimeoutMs = Number(process.argv[11] || 30000);
 const requestRetries = Number(process.argv[12] || 4);
+const extraArgs = process.argv.slice(13);
+const sortBy = readNamedArg(extraArgs, "--sortBy") || "";
+const sortOrder = readNamedArg(extraArgs, "--sortOrder") || "";
 const datasetSlug =
   process.argv[10] ||
   (model === "nano-banana-pro" && campaign === "nano-banana-pro-prompts" && !categories
@@ -40,12 +44,25 @@ function safeArray(value) {
   return Array.isArray(value) ? value.filter((item) => typeof item === "string" && item.trim()) : [];
 }
 
+function readNamedArg(args, flag) {
+  const index = args.indexOf(flag);
+  return index >= 0 && typeof args[index + 1] === "string" ? args[index + 1].trim() : "";
+}
+
 function buildReferer() {
   const localePrefix = locale && locale !== "en-US" ? `/${locale}` : "";
   const url = new URL(`https://youmind.com${localePrefix}/${campaign}`);
 
   if (categories) {
     url.searchParams.set("categories", categories);
+  }
+
+  if (sortBy) {
+    url.searchParams.set("sortBy", sortBy);
+  }
+
+  if (sortOrder) {
+    url.searchParams.set("sortOrder", sortOrder);
   }
 
   return url.toString();
@@ -65,6 +82,8 @@ function normalizePrompt(item, globalRank) {
     filterMode,
     locale,
     categories,
+    sortBy,
+    sortOrder,
     title: safeText(item.title),
     description: safeText(item.description),
     featured: Boolean(item.featured),
@@ -111,33 +130,48 @@ async function fetchPage(page) {
     requestBody.categories = categories;
   }
 
+  if (sortBy) {
+    requestBody.sortBy = sortBy;
+  }
+
+  if (sortOrder) {
+    requestBody.sortOrder = sortOrder;
+  }
+
   let lastError = null;
 
   for (let attempt = 1; attempt <= requestRetries; attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
-
     try {
-      const response = await fetch("https://youmind.com/youhome-api/prompts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          referer,
-          "user-agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
-          "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
-          "sec-ch-ua-mobile": "?0",
-          "sec-ch-ua-platform": "\"Windows\""
-        },
-        body: JSON.stringify(requestBody),
-        signal: controller.signal
-      });
+      const responseText = execFileSync(
+        "curl.exe",
+        [
+          "-sS",
+          "-L",
+          "--max-time",
+          String(Math.max(30, Math.ceil(requestTimeoutMs / 1000))),
+          "-X",
+          "POST",
+          "-H",
+          "content-type: application/json",
+          "-H",
+          `referer: ${referer}`,
+          "-H",
+          "accept: application/json, text/plain, */*",
+          "-H",
+          "accept-language: zh-CN,zh;q=0.9,en;q=0.8",
+          "-H",
+          "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+          "--data-raw",
+          JSON.stringify(requestBody),
+          "https://youmind.com/youmarketing-api/prompts"
+        ],
+        {
+          encoding: "utf8",
+          maxBuffer: 50 * 1024 * 1024
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error(`Failed to fetch page ${page}: ${response.status} ${response.statusText}`);
-      }
-
-      return response.json();
+      return JSON.parse(responseText);
     } catch (error) {
       lastError = error;
       const shouldRetry = attempt < requestRetries;
@@ -148,8 +182,6 @@ async function fetchPage(page) {
 
       const backoffMs = attempt * 1500;
       await new Promise((resolve) => setTimeout(resolve, backoffMs));
-    } finally {
-      clearTimeout(timeout);
     }
   }
 
@@ -208,6 +240,8 @@ async function main() {
         campaign,
         filterMode,
         categories,
+        sortBy,
+        sortOrder,
         datasetSlug,
         mergedPath,
         pageCount: pages.length,

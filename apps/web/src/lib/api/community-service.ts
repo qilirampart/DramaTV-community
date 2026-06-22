@@ -5,6 +5,7 @@
   ApiAuthProviderConfig,
   ApiAuthSession,
   ApiCopyToCanvasResult,
+  ApiCreatorWorkSummary,
   ApiCreatorProfile,
   ApiCursorPage,
   ApiDraftLifecycle,
@@ -14,6 +15,12 @@
   ApiCanvasRuntime,
   ApiEnvelope,
   ApiFeaturedArchiveResponse,
+  ApiFeaturedInventoryFilter,
+  ApiFeaturedInventoryItem,
+  ApiFeaturedInventoryResponse,
+  ApiFeaturedPromptInventoryFilter,
+  ApiFeaturedPromptInventoryResponse,
+  ApiFeaturedWorkflowInventoryType,
   ApiFeedHomeResponse,
   ApiInteractionState,
   ApiInteractionTargetType,
@@ -286,6 +293,7 @@ type BackendMeHubResponse = {
   }>;
   publishedContent: {
     videos: ApiVideoSummary[];
+    prompts: ApiPromptSummary[];
     workflows: ApiWorkflowSummary[];
     posts: BackendDiscussionHomeResponse["featuredThreads"];
   };
@@ -340,6 +348,24 @@ function normalizePromptSummary(prompt: ApiPromptSummary): ApiPromptSummary {
   };
 }
 
+function normalizeCreatorWorkSummary(work: ApiCreatorWorkSummary): ApiCreatorWorkSummary {
+  return {
+    ...work,
+    itemType: work.itemType === "prompt" ? "prompt" : "video",
+    promptModality:
+      work.promptModality === "image" ? "image" : work.promptModality === "video" ? "video" : undefined,
+    coverUrl: normalizeAssetUrl(work.coverUrl),
+    posterUrl: normalizeAssetUrl(work.posterUrl),
+    previewUrl: normalizeAssetUrl(work.previewUrl),
+    sourceUrl: normalizeAssetUrl(work.sourceUrl),
+    author: {
+      id: work.author.id,
+      displayName: work.author.displayName,
+      avatarUrl: normalizeAssetUrl(work.author.avatarUrl)
+    }
+  };
+}
+
 function normalizePromptDetail(prompt: ApiPromptDetail): ApiPromptDetail {
   return {
     ...prompt,
@@ -348,7 +374,64 @@ function normalizePromptDetail(prompt: ApiPromptDetail): ApiPromptDetail {
       contentCategory: prompt.taxonomy?.contentCategory,
       compositionCategory: prompt.taxonomy?.compositionCategory
     },
-    tagNames: normalizeTagNames(prompt.tagNames)
+    tagNames: normalizeTagNames(prompt.tagNames),
+    examples: Array.isArray(prompt.examples) ? prompt.examples : []
+  };
+}
+
+function normalizeFeaturedInventoryItem(item: ApiFeaturedInventoryItem): ApiFeaturedInventoryItem {
+  return {
+    ...item,
+    contentKind: item.contentKind === "workflow_work" || item.contentKind === "post" ? item.contentKind : "prompt",
+    promptModality: item.promptModality === "video" ? "video" : item.promptModality === "image" ? "image" : undefined,
+    itemType: item.itemType === "workflow" || item.itemType === "post" ? item.itemType : "prompt",
+    coverUrl: normalizeAssetUrl(item.coverUrl),
+    posterUrl: normalizeAssetUrl(item.posterUrl),
+    previewUrl: normalizeAssetUrl(item.previewUrl),
+    sourceUrl: normalizeAssetUrl(item.sourceUrl),
+    width: typeof item.width === "number" && item.width > 0 ? item.width : undefined,
+    height: typeof item.height === "number" && item.height > 0 ? item.height : undefined,
+    author: {
+      id: item.author.id,
+      displayName: item.author.displayName,
+      avatarUrl: normalizeAssetUrl(item.author.avatarUrl)
+    },
+    stats: {
+      playCount: item.stats?.playCount,
+      likeCount: item.stats?.likeCount ?? 0
+    },
+    tagNames: normalizeTagNames(item.tagNames),
+    viewerActions: item.viewerActions
+      ? {
+          liked: item.viewerActions.liked ?? false
+        }
+      : undefined
+  };
+}
+
+function normalizeFeaturedInventorySummary(
+  summary?: ApiFeaturedInventoryResponse["summary"]
+): ApiFeaturedInventoryResponse["summary"] {
+  return {
+    counts: {
+      all: summary?.counts?.all ?? 0,
+      workflow: summary?.counts?.workflow ?? 0,
+      videoPrompt: summary?.counts?.videoPrompt ?? 0,
+      imagePrompt: summary?.counts?.imagePrompt ?? 0,
+      activity: summary?.counts?.activity ?? 0
+    },
+    workflowFacets: {
+      copyable: summary?.workflowFacets?.copyable ?? 0,
+      placeholder: summary?.workflowFacets?.placeholder ?? 0
+    },
+    videoPromptFacets: {
+      modelCounts: summary?.videoPromptFacets?.modelCounts ?? {},
+      contentCounts: summary?.videoPromptFacets?.contentCounts ?? {}
+    },
+    imagePromptFacets: {
+      modelCounts: summary?.imagePromptFacets?.modelCounts ?? {},
+      contentCounts: summary?.imagePromptFacets?.contentCounts ?? {}
+    }
   };
 }
 
@@ -433,6 +516,8 @@ type BackendVideoDraft = {
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
   sourceAssetId?: string;
+  referenceImageAssetIds?: string[];
+  referenceAudioAssetIds?: string[];
   statusCode: string;
   lifecycle: ApiDraftLifecycle;
 };
@@ -587,6 +672,7 @@ type BackendAuthProviderConfig = {
 const REQUEST_ID_HEADER_NAME = "X-Request-Id";
 const AUTHORIZATION_HEADER_NAME = "Authorization";
 const COMMUNITY_ACCESS_TOKEN_COOKIE = "dramatv_access_token";
+const COMMUNITY_SESSION_COOKIE_MAX_AGE_SECONDS = 7200;
 const API_BASE_URL =
   process.env.DRAMATV_API_BASE_URL?.trim() ||
   process.env.NEXT_PUBLIC_DRAMATV_API_BASE_URL?.trim() ||
@@ -965,7 +1051,7 @@ export async function loginCommunity(input: {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
-    maxAge: backend.data.expiresIn
+    maxAge: Math.max(backend.data.expiresIn, COMMUNITY_SESSION_COOKIE_MAX_AGE_SECONDS)
   });
 
   return ok(backend.data, backend.requestId);
@@ -1013,9 +1099,18 @@ export async function getHomeFeed(options?: PublicReadOptions): Promise<ApiEnvel
 }
 
 export async function getFeaturedArchiveLayout(
+  sort: "latest" | "hot" = "latest",
   options?: PublicReadOptions
 ): Promise<ApiEnvelope<ApiFeaturedArchiveResponse>> {
-  const backend = await requestBackend<ApiFeaturedArchiveResponse>("/api/feed/featured", undefined, options);
+  const path = sort === "hot" ? "/api/feed/featured?sort=hot" : "/api/feed/featured";
+  const backend = await requestBackend<ApiFeaturedArchiveResponse>(path, undefined, options);
+  return ok(backend.data, backend.requestId);
+}
+
+export async function getLandingArchiveLayout(
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiFeaturedArchiveResponse>> {
+  const backend = await requestBackend<ApiFeaturedArchiveResponse>("/api/feed/landing", undefined, options);
   return ok(backend.data, backend.requestId);
 }
 
@@ -1094,6 +1189,122 @@ export async function getRelatedVideos(id: string): Promise<ApiEnvelope<ApiVideo
   return ok(backend.data, backend.requestId);
 }
 
+export type FeaturedPromptInventoryQueryInput = {
+  filter?: ApiFeaturedPromptInventoryFilter;
+  sort?: "latest" | "hot";
+  q?: string;
+  modelCategory?: string | null;
+  contentCategory?: string | null;
+  limit?: number;
+  cursor?: string | null;
+};
+
+export type FeaturedInventoryQueryInput = {
+  filter?: ApiFeaturedInventoryFilter;
+  sort?: "latest" | "hot";
+  q?: string;
+  modelCategory?: string | null;
+  contentCategory?: string | null;
+  workflowType?: ApiFeaturedWorkflowInventoryType | null;
+  limit?: number;
+  cursor?: string | null;
+};
+
+function buildFeaturedPromptInventoryQuery(input?: FeaturedPromptInventoryQueryInput) {
+  const params = new URLSearchParams();
+  const filter = input?.filter ?? "all";
+  const sort = input?.sort ?? "latest";
+  const q = input?.q?.trim();
+  const modelCategory = input?.modelCategory?.trim();
+  const contentCategory = input?.contentCategory?.trim();
+  const cursor = input?.cursor?.trim();
+  const limit =
+    typeof input?.limit === "number" && Number.isFinite(input.limit) && input.limit > 0
+      ? Math.trunc(input.limit)
+      : undefined;
+
+  if (filter !== "all") {
+    params.set("filter", filter);
+  }
+
+  if (sort !== "latest") {
+    params.set("sort", sort);
+  }
+
+  if (q) {
+    params.set("q", q);
+  }
+
+  if (modelCategory) {
+    params.set("modelCategory", modelCategory);
+  }
+
+  if (contentCategory) {
+    params.set("contentCategory", contentCategory);
+  }
+
+  if (typeof limit === "number") {
+    params.set("limit", String(limit));
+  }
+
+  if (cursor) {
+    params.set("cursor", cursor);
+  }
+
+  const query = params.toString();
+  return query.length > 0 ? `?${query}` : "";
+}
+
+function buildFeaturedInventoryQuery(input?: FeaturedInventoryQueryInput) {
+  const params = new URLSearchParams();
+  const filter = input?.filter ?? "all";
+  const sort = input?.sort ?? "latest";
+  const q = input?.q?.trim();
+  const modelCategory = input?.modelCategory?.trim();
+  const contentCategory = input?.contentCategory?.trim();
+  const workflowType = input?.workflowType?.trim();
+  const cursor = input?.cursor?.trim();
+  const limit =
+    typeof input?.limit === "number" && Number.isFinite(input.limit) && input.limit > 0
+      ? Math.trunc(input.limit)
+      : undefined;
+
+  if (filter !== "all") {
+    params.set("filter", filter);
+  }
+
+  if (sort !== "latest") {
+    params.set("sort", sort);
+  }
+
+  if (q) {
+    params.set("q", q);
+  }
+
+  if (modelCategory) {
+    params.set("modelCategory", modelCategory);
+  }
+
+  if (contentCategory) {
+    params.set("contentCategory", contentCategory);
+  }
+
+  if (workflowType) {
+    params.set("workflowType", workflowType);
+  }
+
+  if (typeof limit === "number") {
+    params.set("limit", String(limit));
+  }
+
+  if (cursor) {
+    params.set("cursor", cursor);
+  }
+
+  const query = params.toString();
+  return query.length > 0 ? `?${query}` : "";
+}
+
 export async function getPrompts(input?: {
   modality?: "all" | "image" | "video";
   sort?: "latest" | "hot";
@@ -1118,6 +1329,66 @@ options?: PublicReadOptions): Promise<ApiEnvelope<ApiPromptSummary[]>> {
   );
 
   return ok(backend.data.map(normalizePromptSummary), backend.requestId);
+}
+
+export async function getFeaturedPromptInventoryPage(
+  input?: FeaturedPromptInventoryQueryInput,
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiFeaturedPromptInventoryResponse>> {
+  const backend = await requestBackend<ApiFeaturedPromptInventoryResponse>(
+    `/api/prompts/featured-inventory${buildFeaturedPromptInventoryQuery(input)}`,
+    undefined,
+    options
+  );
+
+  return ok(
+    {
+      summary: {
+        counts: {
+          all: backend.data.summary?.counts?.all ?? 0,
+          videoPrompt: backend.data.summary?.counts?.videoPrompt ?? 0,
+          imagePrompt: backend.data.summary?.counts?.imagePrompt ?? 0
+        },
+        videoPromptFacets: {
+          modelCounts: backend.data.summary?.videoPromptFacets?.modelCounts ?? {},
+          contentCounts: backend.data.summary?.videoPromptFacets?.contentCounts ?? {}
+        },
+        imagePromptFacets: {
+          modelCounts: backend.data.summary?.imagePromptFacets?.modelCounts ?? {},
+          contentCounts: backend.data.summary?.imagePromptFacets?.contentCounts ?? {}
+        }
+      },
+      page: {
+        items: (backend.data.page?.items ?? []).map(normalizePromptSummary),
+        nextCursor: backend.data.page?.nextCursor ?? null,
+        hasMore: backend.data.page?.hasMore ?? false
+      }
+    },
+    backend.requestId
+  );
+}
+
+export async function getFeaturedInventoryPage(
+  input?: FeaturedInventoryQueryInput,
+  options?: PublicReadOptions
+): Promise<ApiEnvelope<ApiFeaturedInventoryResponse>> {
+  const backend = await requestBackend<ApiFeaturedInventoryResponse>(
+    `/api/feed/featured-inventory${buildFeaturedInventoryQuery(input)}`,
+    undefined,
+    options
+  );
+
+  return ok(
+    {
+      summary: normalizeFeaturedInventorySummary(backend.data.summary),
+      page: {
+        items: (backend.data.page?.items ?? []).map(normalizeFeaturedInventoryItem),
+        nextCursor: backend.data.page?.nextCursor ?? null,
+        hasMore: backend.data.page?.hasMore ?? false
+      }
+    },
+    backend.requestId
+  );
 }
 
 export async function getAllPrompts(
@@ -1203,19 +1474,63 @@ export async function getCreator(id: string): Promise<ApiEnvelope<ApiCreatorProf
   return ok(backend.data, backend.requestId);
 }
 
-export async function getCreatorVideos(id: string): Promise<ApiEnvelope<ApiCursorPage<ApiVideoSummary>>> {
-  const backend = await requestBackend<BackendCursorPage<ApiVideoSummary>>(`/api/creators/${id}/videos`);
+export async function getCreatorWorks(
+  id: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCursorPage<ApiCreatorWorkSummary>>> {
+  const query = cursor ? `?cursor=${encodeURIComponent(cursor)}` : "";
+  const backend = await requestBackend<BackendCursorPage<ApiCreatorWorkSummary>>(`/api/creators/${id}/works${query}`);
+  return ok(
+    {
+      items: (backend.data.items ?? []).map(normalizeCreatorWorkSummary),
+      nextCursor: backend.data.nextCursor ?? null,
+      hasMore: backend.data.hasMore
+    },
+    backend.requestId
+  );
+}
+
+export async function getCreatorVideos(
+  id: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCursorPage<ApiVideoSummary>>> {
+  const query = cursor ? `?cursor=${encodeURIComponent(cursor)}` : "";
+  const backend = await requestBackend<BackendCursorPage<ApiVideoSummary>>(`/api/creators/${id}/videos${query}`);
   return ok(backend.data, backend.requestId);
 }
 
-export async function getCreatorWorkflows(id: string): Promise<ApiEnvelope<ApiCursorPage<ApiWorkflowSummary>>> {
-  const backend = await requestBackend<BackendCursorPage<ApiWorkflowSummary>>(`/api/creators/${id}/workflows`);
+export async function getCreatorPrompts(
+  id: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCursorPage<ApiPromptSummary>>> {
+  const query = cursor ? `?cursor=${encodeURIComponent(cursor)}` : "";
+  const backend = await requestBackend<BackendCursorPage<ApiPromptSummary>>(`/api/creators/${id}/prompts${query}`);
+  return ok(
+    {
+      items: (backend.data.items ?? []).map(normalizePromptSummary),
+      nextCursor: backend.data.nextCursor ?? null,
+      hasMore: backend.data.hasMore
+    },
+    backend.requestId
+  );
+}
+
+export async function getCreatorWorkflows(
+  id: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCursorPage<ApiWorkflowSummary>>> {
+  const query = cursor ? `?cursor=${encodeURIComponent(cursor)}` : "";
+  const backend = await requestBackend<BackendCursorPage<ApiWorkflowSummary>>(`/api/creators/${id}/workflows${query}`);
   return ok(backend.data, backend.requestId);
 }
 
-export async function getCreatorPosts(id: string): Promise<ApiEnvelope<ApiCursorPage<ApiDiscussionHomeResponse["featuredThreads"][number]>>> {
+export async function getCreatorPosts(
+  id: string,
+  cursor?: string
+): Promise<ApiEnvelope<ApiCursorPage<ApiDiscussionHomeResponse["featuredThreads"][number]>>> {
+  const query = cursor ? `?cursor=${encodeURIComponent(cursor)}` : "";
   const backend = await requestBackend<BackendCursorPage<BackendDiscussionHomeResponse["featuredThreads"][number]>>(
-    `/api/creators/${id}/posts`
+    `/api/creators/${id}/posts${query}`
   );
 
   return ok(
@@ -1235,6 +1550,7 @@ export async function getMeHub(): Promise<ApiEnvelope<ApiMeHubResponse>> {
       draftItems: backend.data.draftItems ?? [],
       publishedContent: {
         videos: backend.data.publishedContent?.videos ?? [],
+        prompts: (backend.data.publishedContent?.prompts ?? []).map(normalizePromptSummary),
         workflows: backend.data.publishedContent?.workflows ?? [],
         posts: (backend.data.publishedContent?.posts ?? []).map(normalizeDiscussionThreadCard)
       }
@@ -1414,8 +1730,14 @@ export async function createUploadPolicy(input: {
   mimeType: string;
   sizeBytes: number;
 }): Promise<ApiEnvelope<ApiUploadPolicy>> {
+  const policyPath =
+    input.kind === "image"
+      ? "/api/uploads/image-policy"
+      : input.kind === "audio"
+        ? "/api/uploads/audio-policy"
+        : "/api/uploads/video-policy";
   const backend = await requestBackendCommand<BackendUploadPolicy>(
-    input.kind === "image" ? "/api/uploads/image-policy" : "/api/uploads/video-policy",
+    policyPath,
     {
       method: "POST",
       body: JSON.stringify({
@@ -1559,6 +1881,8 @@ export async function getPublishPageBootstrap(input?: {
         visibility: backend.data.videoDraft.visibility,
         coverAssetId: backend.data.videoDraft.coverAssetId,
         sourceAssetId: backend.data.videoDraft.sourceAssetId,
+        referenceImageAssetIds: backend.data.videoDraft.referenceImageAssetIds ?? [],
+        referenceAudioAssetIds: backend.data.videoDraft.referenceAudioAssetIds ?? [],
         statusCode: backend.data.videoDraft.statusCode,
         lifecycle: normalizeDraftLifecycle(backend.data.videoDraft.lifecycle, backend.data.videoDraft.statusCode)
       },
@@ -1647,6 +1971,8 @@ export async function updateVideoDraft(
       visibility: backend.data.visibility,
       coverAssetId: backend.data.coverAssetId,
       sourceAssetId: backend.data.sourceAssetId,
+      referenceImageAssetIds: backend.data.referenceImageAssetIds ?? [],
+      referenceAudioAssetIds: backend.data.referenceAudioAssetIds ?? [],
       statusCode: backend.data.statusCode,
       lifecycle: normalizeDraftLifecycle(backend.data.lifecycle, backend.data.statusCode)
     },

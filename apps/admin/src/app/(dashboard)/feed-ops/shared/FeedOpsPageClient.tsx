@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import FeedOpsMediaPreview, { type FeedOpsPreviewItem } from "./FeedOpsMediaPreview";
-import type { FeedOpsPageData } from "./feed-ops-types";
+import type { FeedOpsCandidateListData, FeedOpsPageData } from "./feed-ops-types";
 import {
   contentMetaText,
   feedOpsPageSubtitle,
@@ -18,12 +18,20 @@ import styles from "./page.module.css";
 
 type FeedOpsPageClientProps = {
   page: FeedOpsPageKind;
+  featuredSort?: "latest" | "hot";
   data: FeedOpsPageData;
   isFallback: boolean;
   modeDetail: string;
   errorMessage: string | null;
   successMessage: string | null;
   saveAction: (formData: FormData) => Promise<void>;
+  loadCandidates: (query: {
+    slotKey: string;
+    q?: string;
+    promptFilter?: CandidatePromptFilter;
+    page?: number;
+    pageSize?: number;
+  }) => Promise<FeedOpsCandidateListData>;
 };
 
 type ContentItem = FeedOpsPageData["candidatePool"][number];
@@ -35,9 +43,17 @@ type PreviewSlotKeys = {
   primary: SlotKey | null;
   secondary: SlotKey | null;
 };
+type PreviewItemSlice = {
+  offset: number;
+  limit: number;
+};
 type CandidatePromptFilter = "all" | "image" | "video";
+type CandidateState = {
+  loading: boolean;
+  error: string | null;
+  data: FeedOpsCandidateListData | null;
+};
 
-const MAIN_POOL_PAGE_SIZE = 5;
 const ARRANGE_POOL_PAGE_SIZE = 6;
 const CANDIDATE_PROMPT_FILTER_OPTIONS: Array<{ value: CandidatePromptFilter; label: string }> = [
   { value: "all", label: "全部" },
@@ -133,15 +149,12 @@ function buildHomeFallbackSlotItems(candidatePool: readonly ContentItem[]) {
   const workflows = candidatePool.filter((item) => item.targetType === "workflow");
   const videoPrompts = prompts.filter(hasVideoCapability);
   const imagePrompts = prompts.filter((item) => !videoPrompts.some((candidate) => contentItemKey(candidate) === contentItemKey(item)));
-  const workflowLeads = workflows.filter(hasVideoCapability);
-  const workflowBase = workflowLeads.length > 0 ? workflowLeads : workflows;
   const fallbackPool = [...videoPrompts, ...imagePrompts, ...workflows];
   const heroTaken = new Set<string>();
   const shelfTaken = new Set<string>();
 
-  const homeHero = takeUniqueContentItems([...videoPrompts, ...prompts, ...workflows], 3, heroTaken);
+  const homeHero = takeUniqueContentItems([...videoPrompts, ...prompts, ...workflows], 6, heroTaken);
   const recommendedPrimary = fillUniqueContentItems(takeUniqueContentItems(videoPrompts, 4, shelfTaken), fallbackPool, 4, shelfTaken);
-  const recommendedSecondary = fillUniqueContentItems(takeUniqueContentItems(workflowBase, 4, shelfTaken), fallbackPool, 4, shelfTaken);
   const canvas = fillUniqueContentItems(takeUniqueContentItems(videoPrompts, 4, shelfTaken), fallbackPool, 4, shelfTaken);
   const commercial = takeUniqueContentItems(fallbackPool, 4, shelfTaken);
   const animation = takeUniqueContentItems(fallbackPool, 4, shelfTaken);
@@ -152,7 +165,6 @@ function buildHomeFallbackSlotItems(candidatePool: readonly ContentItem[]) {
   return {
     "home-hero": homeHero,
     "recommended-primary": recommendedPrimary,
-    "recommended-secondary": recommendedSecondary,
     canvas,
     commercial,
     animation,
@@ -209,6 +221,14 @@ function buildFallbackItemsBySlot(page: FeedOpsPageKind, data: FeedOpsPageData):
 
   if (page === "featured") {
     return buildFeaturedFallbackSlotItems(data.candidatePool);
+  }
+
+  if (page === "landing") {
+    return {
+      "landing-archive-grid": data.candidatePool
+        .filter((item) => item.targetType === "prompt" || item.targetType === "workflow")
+        .slice(0, 12)
+    };
   }
 
   return buildDiscussionFallbackSlotItems(data.candidatePool, data.slots);
@@ -407,15 +427,11 @@ function MediaThumb({
               : styles.arrangeThumb;
   const mediaSrc = media.coverUrl ?? media.posterUrl ?? (media.canPreviewVideo ? null : media.previewUrl ?? media.sourceUrl ?? null);
   const canOpenPreview = typeof onOpenPreview === "function" && Boolean(media.coverUrl ?? media.posterUrl ?? media.previewUrl ?? media.sourceUrl);
-  const showBadge = variant !== "slot";
-  const badgeText = media.canPreviewVideo ? "视频资源" : mediaSrc ? "封面素材" : "暂无素材";
   const thumbContent = (
     <>
       {mediaSrc ? <img alt="" className={styles.mediaElement} decoding="async" loading="lazy" src={mediaSrc} /> : null}
       {media.canPreviewVideo ? <span className={styles.playBadge}>▶</span> : null}
-      {showBadge ? <span className={styles.mediaBadge}>{badgeText}</span> : null}
       {typeof index === "number" ? <span className={styles.previewMiniIndex}>{index}</span> : null}
-      {canOpenPreview && variant !== "slot" ? <span className={styles.mediaOpenHint}>点击预览</span> : null}
     </>
   );
 
@@ -466,8 +482,35 @@ function statusLabel(statusCode: string) {
   return "未配置";
 }
 
+function sanitizeSlotItems(items: readonly SlotItem[], maxItems: number) {
+  const next: SlotItem[] = [];
+  const seen = new Set<string>();
+
+  for (const item of items) {
+    if (item.available === false) {
+      continue;
+    }
+
+    const key = contentItemKey(item);
+    if (seen.has(key)) {
+      continue;
+    }
+
+    seen.add(key);
+    next.push(toSlotItem(item));
+
+    if (next.length >= maxItems) {
+      break;
+    }
+  }
+
+  return next;
+}
+
 function createInitialSlots(data: FeedOpsPageData): EditableSlotsState {
-  return Object.fromEntries(data.slots.map((slot) => [slot.key, slot.items])) as EditableSlotsState;
+  return Object.fromEntries(
+    data.slots.map((slot) => [slot.key, sanitizeSlotItems(slot.items, slot.maxItems)])
+  ) as EditableSlotsState;
 }
 
 function findSlot(data: FeedOpsPageData, slotKey: SlotKey): SlotData {
@@ -496,10 +539,49 @@ function previewSlotKeys(page: FeedOpsPageKind, slotKeys: SlotKey[]): PreviewSlo
     };
   }
 
+  if (page === "landing") {
+    return {
+      primary: findPreviewKey("landing-archive-grid", 0),
+      secondary: findPreviewKey("landing-archive-grid", 0)
+    };
+  }
+
   return {
     primary: findPreviewKey("discussion-all-thread-stream", 1),
     secondary: findPreviewKey("discussion-channel-order", 0)
   };
+}
+
+function previewItemSlices(page: FeedOpsPageKind): { primary: PreviewItemSlice; secondary: PreviewItemSlice } {
+  if (page === "home") {
+    return {
+      primary: { offset: 0, limit: 6 },
+      secondary: { offset: 0, limit: 4 }
+    };
+  }
+
+  if (page === "featured") {
+    return {
+      primary: { offset: 0, limit: 12 },
+      secondary: { offset: 0, limit: 4 }
+    };
+  }
+
+  if (page === "landing") {
+    return {
+      primary: { offset: 0, limit: 6 },
+      secondary: { offset: 6, limit: 6 }
+    };
+  }
+
+  return {
+    primary: { offset: 0, limit: 4 },
+    secondary: { offset: 0, limit: 8 }
+  };
+}
+
+function slicePreviewItems(items: readonly SlotItem[], slice: PreviewItemSlice) {
+  return items.slice(slice.offset, slice.offset + slice.limit);
 }
 
 function discussionSlotChannelSlug(slotKey: string) {
@@ -507,16 +589,12 @@ function discussionSlotChannelSlug(slotKey: string) {
   return match?.[1] ?? null;
 }
 
-function candidateSummary(item: ContentItem) {
-  return trimSummaryText(item.summaryText) ?? "当前内容没有补充摘要，进入详情后可查看完整信息。";
-}
-
 function previewPanelCopy(page: FeedOpsPageKind, secondarySlotTitle?: string | null) {
   if (page === "home") {
     return {
       panelTitle: "首页结构预览",
       primaryTitle: "首页轮播预览",
-      secondaryTitle: secondarySlotTitle ?? "为你推荐（第一组）",
+      secondaryTitle: secondarySlotTitle ?? "为你推荐",
       tertiaryTitle: "首页配置位清单",
       headerHint: "以真实首页首屏结构为准"
     };
@@ -529,6 +607,16 @@ function previewPanelCopy(page: FeedOpsPageKind, secondarySlotTitle?: string | n
       secondaryTitle: secondarySlotTitle ?? "工作流 tab",
       tertiaryTitle: "精选 tab 清单",
       headerHint: "与精选页真实 tab 结构同步"
+    };
+  }
+
+  if (page === "landing") {
+    return {
+      panelTitle: "落地页结构预览",
+      primaryTitle: "精选档案前 6 张",
+      secondaryTitle: secondarySlotTitle ? `${secondarySlotTitle} 后 6 张` : "精选档案后 6 张",
+      tertiaryTitle: "落地页配置位清单",
+      headerHint: "对应社区根首页 / 的精选档案真实展示区"
     };
   }
 
@@ -598,28 +686,70 @@ function SlotColumn({
 
 export default function FeedOpsPageClient({
   page,
+  featuredSort,
   data,
   isFallback,
   modeDetail,
   errorMessage,
   successMessage,
-  saveAction
+  saveAction,
+  loadCandidates
 }: FeedOpsPageClientProps) {
   const slotKeys = useMemo(() => data.slots.map((slot) => slot.key), [data.slots]);
   const initialSlotKey = (slotKeys[0] ?? "") as SlotKey;
   const [activeSceneKey, setActiveSceneKey] = useState<SlotKey>(initialSlotKey);
   const [isArrangeModalOpen, setIsArrangeModalOpen] = useState(false);
-  const [searchKeyword, setSearchKeyword] = useState("");
+  const [arrangeSearchKeyword, setArrangeSearchKeyword] = useState("");
   const [candidatePromptFilter, setCandidatePromptFilter] = useState<CandidatePromptFilter>(
     defaultPromptFilterForScene(initialSlotKey)
   );
-  const [poolPage, setPoolPage] = useState(1);
   const [arrangePoolPage, setArrangePoolPage] = useState(1);
   const [replaceTargetIndex, setReplaceTargetIndex] = useState<number | null>(null);
   const [previewItem, setPreviewItem] = useState<FeedOpsPreviewItem | null>(null);
   const [statusCode, setStatusCode] = useState(data.summary.statusCode);
   const [editableSlots, setEditableSlots] = useState<EditableSlotsState>(() => createInitialSlots(data));
+  const [candidateState, setCandidateState] = useState<CandidateState>({
+    loading: false,
+    error: null,
+    data: null
+  });
   const [isPending, startTransition] = useTransition();
+  const pageTitleText =
+    page === "featured"
+      ? `${feedOpsPageTitle(page)} · ${featuredSort === "hot" ? "最热" : "最新"}`
+      : feedOpsPageTitle(page);
+
+  const renderFeaturedSortSwitch = (label: string) => {
+    if (page !== "featured") {
+      return null;
+    }
+
+    return (
+      <div className={styles.modeSwitchRow}>
+        <span className={styles.modeSwitchLabel}>{label}</span>
+        <div className={styles.modeSwitchGroup}>
+          {featuredSort === "latest" ? (
+            <button className={`${styles.tab} ${styles.tabActive}`} type="button">
+              最新
+            </button>
+          ) : (
+            <Link className={styles.tabLink} href="/feed-ops/featured">
+              最新
+            </Link>
+          )}
+          {featuredSort === "hot" ? (
+            <button className={`${styles.tab} ${styles.tabActive}`} type="button">
+              最热
+            </button>
+          ) : (
+            <Link className={styles.tabLink} href="/feed-ops/featured?sort=hot">
+              最热
+            </Link>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   useEffect(() => {
     const nextInitialSlotKey = (data.slots[0]?.key ?? "") as SlotKey;
@@ -627,7 +757,7 @@ export default function FeedOpsPageClient({
     setEditableSlots(createInitialSlots(data));
     setActiveSceneKey(nextInitialSlotKey);
     setCandidatePromptFilter(defaultPromptFilterForScene(nextInitialSlotKey));
-    setPoolPage(1);
+    setArrangeSearchKeyword("");
     setArrangePoolPage(1);
     setReplaceTargetIndex(null);
     setPreviewItem(null);
@@ -638,10 +768,13 @@ export default function FeedOpsPageClient({
   }, [activeSceneKey]);
 
   useEffect(() => {
-    setPoolPage(1);
     setArrangePoolPage(1);
     setReplaceTargetIndex(null);
-  }, [activeSceneKey, candidatePromptFilter, searchKeyword]);
+  }, [activeSceneKey, candidatePromptFilter]);
+
+  useEffect(() => {
+    setArrangePoolPage(1);
+  }, [arrangeSearchKeyword]);
 
   useEffect(() => {
     if (!isArrangeModalOpen) {
@@ -669,7 +802,11 @@ export default function FeedOpsPageClient({
   const effectiveSceneKey = (slotKeys.includes(activeSceneKey) ? activeSceneKey : initialSlotKey) as SlotKey;
   const activeScene = findSlot(data, effectiveSceneKey);
   const activeItems = editableSlots[effectiveSceneKey] ?? [];
-  const fallbackItemsBySlot = useMemo(() => buildFallbackItemsBySlot(page, data), [data, page]);
+  const supportsPromptFilter = activeScene.allowedTargetTypes.includes("prompt");
+  const fallbackItemsBySlot = useMemo(() => {
+    const entries = data.slots.map((slot) => [slot.key, slot.fallbackItems]);
+    return Object.fromEntries(entries) as Record<string, ContentItem[]>;
+  }, [data.slots]);
   const displayedItemsBySlot = useMemo(() => {
     const entries = data.slots.map((slot) => [
       slot.key,
@@ -682,62 +819,96 @@ export default function FeedOpsPageClient({
   const activeFallbackItems = fallbackItemsBySlot[effectiveSceneKey] ?? [];
   const activeConfiguredKeys = useMemo(() => new Set(activeItems.map(contentItemKey)), [activeItems]);
   const previewKeys = previewSlotKeys(page, slotKeys);
+  const previewSlices = previewItemSlices(page);
   const primaryPreviewSlot = previewKeys.primary ? findSlot(data, previewKeys.primary) : null;
   const secondaryPreviewSlot = previewKeys.secondary ? findSlot(data, previewKeys.secondary) : null;
   const previewCopy = previewPanelCopy(page, secondaryPreviewSlot?.title);
   const primaryItems =
     previewKeys.primary === null
       ? []
-      : (displayedItemsBySlot[previewKeys.primary] ?? []).slice(0, page === "home" ? 3 : page === "featured" ? 12 : 4);
+      : slicePreviewItems(displayedItemsBySlot[previewKeys.primary] ?? [], previewSlices.primary);
   const secondaryItems =
     previewKeys.secondary === null
       ? []
-      : (displayedItemsBySlot[previewKeys.secondary] ?? []).slice(0, page === "home" ? 4 : page === "featured" ? 4 : 8);
+      : slicePreviewItems(displayedItemsBySlot[previewKeys.secondary] ?? [], previewSlices.secondary);
   const workspaceNote = feedOpsWorkspaceNote(page);
   const canSave = !isFallback && !isPending;
-  const supportsPromptFilter = activeScene.allowedTargetTypes.includes("prompt");
   const modeTitle = isFallback ? "接口异常，只读预览" : "真实数据，可写配置";
 
-  const filteredPool = useMemo(() => {
-    const keyword = searchKeyword.trim().toLowerCase();
-    const allowedTargetTypes = new Set(activeScene.allowedTargetTypes);
-    const scopedDiscussionChannelSlug = page === "discussions" ? discussionSlotChannelSlug(activeScene.key) : null;
-
-    return data.candidatePool.filter((item) => {
-      if (!allowedTargetTypes.has(item.targetType)) {
-        return false;
-      }
-
-      if (page === "discussions" && item.targetType === "post" && scopedDiscussionChannelSlug && item.channelSlug !== scopedDiscussionChannelSlug) {
-        return false;
-      }
-
-      if (!matchesPromptFilter(item, candidatePromptFilter)) {
-        return false;
-      }
-
-      if (!keyword) {
-        return true;
-      }
-
-      const haystack = `${item.title} ${item.authorDisplayName} ${item.channelTitle ?? ""} ${item.itemTypeLabel} ${item.summaryText ?? ""}`.toLowerCase();
-      return haystack.includes(keyword);
-    });
-  }, [activeScene.allowedTargetTypes, activeScene.key, candidatePromptFilter, data.candidatePool, page, searchKeyword]);
+  const candidateItems = candidateState.data?.items ?? [];
+  const candidatePagination = candidateState.data?.pagination ?? null;
+  const candidatePageSummary = candidateState.data?.summary ?? null;
   const candidateCountLabel =
     candidatePromptFilter === "image"
-      ? `${filteredPool.length} 条图片提示词`
+      ? `${candidatePageSummary?.filteredItems ?? 0} 条图片提示词`
       : candidatePromptFilter === "video"
-        ? `${filteredPool.length} 条视频提示词`
-        : `${filteredPool.length} 条`;
-  const pagedPool = useMemo(
-    () => paginateItems(filteredPool, poolPage, MAIN_POOL_PAGE_SIZE),
-    [filteredPool, poolPage]
-  );
-  const pagedArrangePool = useMemo(
-    () => paginateItems(filteredPool, arrangePoolPage, ARRANGE_POOL_PAGE_SIZE),
-    [arrangePoolPage, filteredPool]
-  );
+        ? `${candidatePageSummary?.filteredItems ?? 0} 条视频提示词`
+        : `${candidatePageSummary?.filteredItems ?? 0} 条`;
+
+  useEffect(() => {
+    if (!isArrangeModalOpen) {
+      setCandidateState({
+        loading: false,
+        error: null,
+        data: null
+      });
+      return undefined;
+    }
+
+    let cancelled = false;
+
+    async function run() {
+      setCandidateState((current) => ({
+        ...current,
+        loading: true,
+        error: null
+      }));
+
+      try {
+        const response = await loadCandidates({
+          slotKey: effectiveSceneKey,
+          q: arrangeSearchKeyword.trim() || undefined,
+          promptFilter: supportsPromptFilter ? candidatePromptFilter : "all",
+          page: arrangePoolPage,
+          pageSize: ARRANGE_POOL_PAGE_SIZE
+        });
+
+        if (cancelled) {
+          return;
+        }
+
+        setCandidateState({
+          loading: false,
+          error: null,
+          data: response
+        });
+      } catch (error) {
+        if (cancelled) {
+          return;
+        }
+
+        setCandidateState({
+          loading: false,
+          error: error instanceof Error ? error.message : "候选内容池读取失败",
+          data: null
+        });
+      }
+    }
+
+    void run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    arrangePoolPage,
+    arrangeSearchKeyword,
+    candidatePromptFilter,
+    effectiveSceneKey,
+    isArrangeModalOpen,
+    loadCandidates,
+    supportsPromptFilter
+  ]);
 
   const openArrangeModal = (sceneKey: SlotKey) => {
     setActiveSceneKey(sceneKey);
@@ -771,11 +942,26 @@ export default function FeedOpsPageClient({
         })}
       </div>
     ) : null;
+  const renderSearchField = (value: string, onChange: (value: string) => void, extraClassName?: string) => (
+    <label className={`${styles.searchField}${extraClassName ? ` ${extraClassName}` : ""}`}>
+      <span className={styles.searchIcon}>
+        <SearchIcon />
+      </span>
+      <input
+        onChange={(event) => onChange(event.target.value)}
+        placeholder="搜索标题、作者、频道或摘要"
+        value={value}
+      />
+    </label>
+  );
 
   const syncDisplayedItemsToEditableSlot = (nextVisibleItems: readonly SlotItem[], excludedKeys?: ReadonlySet<string>) => {
     setEditableSlots((current) => ({
       ...current,
-      [effectiveSceneKey]: buildVisibleSlotItems(nextVisibleItems, activeFallbackItems, activeScene.maxItems, excludedKeys)
+      [effectiveSceneKey]: sanitizeSlotItems(
+        buildVisibleSlotItems(nextVisibleItems, activeFallbackItems, activeScene.maxItems, excludedKeys),
+        activeScene.maxItems
+      )
     }));
   };
 
@@ -872,7 +1058,7 @@ export default function FeedOpsPageClient({
       statusCode: nextStatusCode,
       slots: slotKeys.map((slotKey) => ({
         slotKey,
-        items: (editableSlots[slotKey] ?? []).map((item) => ({
+        items: sanitizeSlotItems(editableSlots[slotKey] ?? [], findSlot(data, slotKey).maxItems).map((item) => ({
           targetType: item.targetType,
           targetId: item.targetId
         }))
@@ -881,6 +1067,9 @@ export default function FeedOpsPageClient({
 
     const formData = new FormData();
     formData.set("payload", JSON.stringify(payload));
+    if (page === "featured" && featuredSort) {
+      formData.set("sort", featuredSort);
+    }
     setStatusCode(nextStatusCode);
     startTransition(() => {
       void saveAction(formData);
@@ -891,7 +1080,7 @@ export default function FeedOpsPageClient({
       <section className={styles.page}>
         <header className={styles.header}>
           <div className={styles.headerMain}>
-            <h1 className={styles.title}>{feedOpsPageTitle(page)}</h1>
+            <h1 className={styles.title}>{pageTitleText}</h1>
             <p className={styles.subtitle}>{feedOpsPageSubtitle(page)}</p>
           </div>
         </header>
@@ -924,90 +1113,10 @@ export default function FeedOpsPageClient({
         )}
       </div>
 
+      {renderFeaturedSortSwitch("排序页面")}
+
       <div className={styles.stage}>
         <div className={styles.layout}>
-          <section className={styles.poolCard}>
-            <header className={styles.cardHeader}>
-              <h2>候选内容池</h2>
-            </header>
-
-            <div className={styles.poolToolbar}>
-              <label className={styles.searchField}>
-                <span className={styles.searchIcon}>
-                  <SearchIcon />
-                </span>
-                <input
-                  onChange={(event) => setSearchKeyword(event.target.value)}
-                  placeholder="搜索标题、作者、频道或摘要"
-                  value={searchKeyword}
-                />
-              </label>
-              {renderPromptFilterGroup("候选内容类型筛选")}
-              <button className={styles.filterButton} disabled type="button">
-                {filteredPool.length} 条
-              </button>
-            </div>
-
-            <div className={styles.poolListViewport}>
-              <div className={styles.poolList}>
-              {filteredPool.length > 0 ? (
-                pagedPool.items.map((item) => {
-                  const selected = activeItems.some(
-                    (existing) => existing.targetType === item.targetType && existing.targetId === item.targetId
-                  );
-                  const reachedLimit = activeItems.length >= activeScene.maxItems;
-                  return (
-                    <article key={`${item.targetType}-${item.targetId}`} className={styles.poolItem}>
-                      <MediaThumb item={item} variant="pool" onOpenPreview={() => openPreview(item)} />
-                      <div className={styles.poolBody}>
-                        <strong>{item.title}</strong>
-                        <span>{contentMetaText(item)}</span>
-                        <div className={styles.metaRow}>
-                          <span className={styles.metaTag}>{item.itemTypeLabel}</span>
-                          <span className={styles.metaTag}>{formatDateTime(item.publishedAt)}</span>
-                        </div>
-                        <p className={styles.poolSummary}>{candidateSummary(item)}</p>
-                      </div>
-                      <button
-                        className={styles.primaryGhost}
-                        disabled={isFallback || selected || reachedLimit}
-                        type="button"
-                        onClick={() => addItemToActiveSlot(item)}
-                      >
-                        {selected ? "已加入" : reachedLimit ? "当前位已满" : "加入当前配置位"}
-                      </button>
-                    </article>
-                  );
-                })
-              ) : (
-                <div className={styles.emptyState}>当前筛选下没有可挂载内容。</div>
-              )}
-              </div>
-            </div>
-
-            {filteredPool.length > 0 ? (
-              <div className={styles.poolPaginationRow}>
-                <PaginationBar
-                  endIndex={pagedPool.endIndex}
-                  page={pagedPool.page}
-                  startIndex={pagedPool.startIndex}
-                  totalItems={filteredPool.length}
-                  totalPages={pagedPool.totalPages}
-                  onChange={setPoolPage}
-                />
-              </div>
-            ) : null}
-
-            <footer className={styles.poolFooter}>
-              <span>候选池共 {data.summary.candidateItemCount} 条内容</span>
-              <button className={styles.footerLink} disabled type="button">
-                {page === "discussions" && discussionSlotChannelSlug(activeScene.key)
-                  ? "已按当前话题栏目自动过滤帖子"
-                  : "仅显示当前配置位可挂载类型"}
-              </button>
-            </footer>
-          </section>
-
           <section className={styles.workspaceCard}>
             <header className={styles.cardHeaderRow}>
               <div>
@@ -1089,7 +1198,7 @@ export default function FeedOpsPageClient({
               <div className={styles.previewSectionHeader}>
                 <h3>{previewCopy.secondaryTitle}</h3>
                 <button className={styles.footerLink} disabled type="button">
-                  {page === "discussions" ? "对应左侧话题栏目" : "对应真实首屏卡位"}
+                  {page === "discussions" ? "对应左侧话题栏目" : page === "landing" ? "对应精选档案后半区" : "对应真实首屏卡位"}
                 </button>
               </div>
               {secondaryItems.length > 0 ? (
@@ -1190,6 +1299,9 @@ export default function FeedOpsPageClient({
                   <h3 id="feed-ops-arrange-title">编排工作区</h3>
                   <span className={styles.arrangeScene}>{activeScene.title}</span>
                 </div>
+                {page === "featured" ? (
+                  <div className={styles.arrangeModeSwitch}>{renderFeaturedSortSwitch("当前配置页")}</div>
+                ) : null}
               </div>
               <div className={styles.arrangeHeaderActions}>
                 <span className={styles.arrangeStatus}>{statusLabel(statusCode)}</span>
@@ -1209,7 +1321,7 @@ export default function FeedOpsPageClient({
                   </div>
                   <div>
                     <span>所属页面</span>
-                    <strong>{feedOpsPageTitle(page)}</strong>
+                    <strong>{pageTitleText}</strong>
                   </div>
                   <div>
                     <span>已挂载内容</span>
@@ -1265,12 +1377,20 @@ export default function FeedOpsPageClient({
                     <span>这里只展示当前配置位允许挂载的内容类型。</span>
                   </div>
                   <div className={styles.arrangePanelToolbar}>
+                    {renderSearchField(arrangeSearchKeyword, setArrangeSearchKeyword, styles.arrangeSearchField)}
+                    <button className={styles.filterButton} disabled type="button">
+                      {candidateCountLabel}
+                    </button>
                     {renderPromptFilterGroup("编排候选内容类型筛选")}
                   </div>
                   <div className={styles.arrangePanelListViewport}>
                     <div className={styles.arrangePanelList}>
-                    {filteredPool.length > 0 ? (
-                      pagedArrangePool.items.map((item) => {
+                    {candidateState.loading ? (
+                      <div className={styles.emptyState}>鍊欓€夊唴瀹规睜鍔犺浇涓?...</div>
+                    ) : candidateState.error ? (
+                      <div className={styles.emptyState}>{candidateState.error}</div>
+                    ) : candidateItems.length > 0 ? (
+                      candidateItems.map((item) => {
                         const selected = displayedItems.some(
                           (existing) => existing.targetType === item.targetType && existing.targetId === item.targetId
                         );
@@ -1316,13 +1436,13 @@ export default function FeedOpsPageClient({
                     )}
                     </div>
                   </div>
-                  {filteredPool.length > 0 ? (
+                  {candidatePagination && candidatePagination.totalItems > 0 ? (
                     <PaginationBar
-                      endIndex={pagedArrangePool.endIndex}
-                      page={pagedArrangePool.page}
-                      startIndex={pagedArrangePool.startIndex}
-                      totalItems={filteredPool.length}
-                      totalPages={pagedArrangePool.totalPages}
+                      endIndex={Math.min(candidatePagination.page * candidatePagination.pageSize, candidatePagination.totalItems)}
+                      page={candidatePagination.page}
+                      startIndex={(candidatePagination.page - 1) * candidatePagination.pageSize}
+                      totalItems={candidatePagination.totalItems}
+                      totalPages={candidatePagination.totalPages}
                       onChange={setArrangePoolPage}
                     />
                   ) : null}
@@ -1333,7 +1453,8 @@ export default function FeedOpsPageClient({
                     <div className={styles.arrangeSectionTitle}>3. 前台真实展示内容</div>
                     <span>可在这里调整顺序、删除内容，第一位通常是首个曝光位。</span>
                   </div>
-                  <div className={styles.arrangePanelList}>
+                  <div className={styles.arrangePanelListViewport}>
+                    <div className={styles.arrangePanelList}>
                     {displayedItems.length > 0 ? (
                       displayedItems.map((item, index) => {
                         const isConfiguredItem = activeConfiguredKeys.has(contentItemKey(item));
@@ -1399,6 +1520,7 @@ export default function FeedOpsPageClient({
                     ) : (
                       <div className={styles.emptyState}>当前前台真实展示内容为空，可先从左侧候选池加入或编排内容。</div>
                     )}
+                    </div>
                   </div>
                   <div className={styles.arrangeHintRow}>
                     <span>

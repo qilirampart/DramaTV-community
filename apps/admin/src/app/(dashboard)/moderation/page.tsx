@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminAccess } from "@/lib/admin-auth";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   AdminBackendError,
   getAdminModerationItem,
@@ -726,7 +727,7 @@ export default async function ModerationPage({
           </section>
 
           <section className={styles.filterCard}>
-            <form action="/moderation" className={styles.filterForm} method="get">
+            <form action={buildAdminBrowserPath("/moderation")} className={styles.filterForm} method="get">
               <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
@@ -775,9 +776,9 @@ export default async function ModerationPage({
 
               <div className={styles.filterFooter}>
                 <div className={styles.filterActions}>
-                  <a className={styles.resetButton} href="/moderation">
+                  <Link className={styles.resetButton} href="/moderation" scroll={false}>
                     重置筛选
-                  </a>
+                  </Link>
                   <button className={styles.primaryAction} type="submit">
                     应用筛选
                   </button>
@@ -807,7 +808,6 @@ export default async function ModerationPage({
                           <th>审核状态</th>
                           <th>风险提示</th>
                           <th>审核人</th>
-                          <th>操作入口</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -867,11 +867,6 @@ export default async function ModerationPage({
                                 <span className={`${styles.riskPill} ${RiskToneClass(row.riskTone)}`}>{row.risk}</span>
                               </td>
                               <td>{row.reviewer}</td>
-                              <td>
-                                <span className={styles.rowAssist}>
-                                  {isSelected ? "当前查看中" : "点击行查看"}
-                                </span>
-                              </td>
                             </tr>
                           );
                         })}
@@ -960,9 +955,9 @@ export default async function ModerationPage({
                 <h2>审核详情</h2>
               </div>
             )}
-            <a className={styles.drawerClose} href={buildModerationHref(filters)}>
+            <Link className={styles.drawerClose} href={buildModerationHref(filters)} scroll={false}>
               ×
-            </a>
+            </Link>
           </header>
 
           {selectedDetail ? (
@@ -1031,7 +1026,16 @@ export default async function ModerationPage({
 
                 <section className={styles.section}>
                   <h3>3. 提示词/正文内容</h3>
-                  <p className={styles.excerpt}>{selectedDetail.contentText}</p>
+                  <div className={styles.contentStack}>
+                    <div className={styles.contentBlock}>
+                      <span className={styles.contentLabel}>摘要</span>
+                      <p className={styles.excerpt}>{selectedDetail.excerpt}</p>
+                    </div>
+                    <div className={styles.contentBlock}>
+                      <span className={styles.contentLabel}>{selectedDetail.targetTypeCode === "prompt" ? "提示词正文" : "正文"}</span>
+                      <p className={`${styles.excerpt} ${styles.contentBody}`}>{selectedDetail.contentText}</p>
+                    </div>
+                  </div>
                   <div className={styles.modelTags}>
                     <span className={styles.metaLabel}>描述标签:</span>
                     <div className={styles.tagList}>
@@ -1137,15 +1141,16 @@ export default async function ModerationPage({
                     恢复
                   </button>
                 </form>
-                <a
+                <Link
                   className={styles.secondaryAction}
                   href={buildModerationHref(filters, {
                     selectedType: selectedDetail.targetTypeCode,
                     selectedId: selectedDetail.targetId
                   })}
+                  scroll={false}
                 >
                   刷新
-                </a>
+                </Link>
               </footer>
             </>
           ) : (

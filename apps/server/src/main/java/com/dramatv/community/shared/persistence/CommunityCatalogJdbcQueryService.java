@@ -2,8 +2,9 @@ package com.dramatv.community.shared.persistence;
 
 import com.dramatv.community.admin.feedops.AdminFeedOpsService;
 import com.dramatv.community.admin.feedops.dto.response.AdminFeedOpsPageResponse;
-import com.dramatv.community.feed.dto.response.FeaturedArchiveResponse;
 import com.dramatv.community.creator.dto.response.CreatorProfileResponse;
+import com.dramatv.community.creator.dto.response.CreatorWorkSummaryResponse;
+import com.dramatv.community.feed.dto.response.FeaturedArchiveResponse;
 import com.dramatv.community.feed.dto.response.HomeFeedResponse;
 import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.identity.application.CurrentUserContext;
@@ -28,6 +29,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommunityCatalogJdbcQueryService {
+
+    private static final int DEFAULT_PUBLISHED_PROMPT_FEED_LIMIT = 12;
+    private static final int FEATURED_PROMPT_FALLBACK_LIMIT = 48;
+    private static final int FEATURED_PROMPT_MODALITY_SLOT_LIMIT = 12;
 
     private final JdbcTemplate jdbcTemplate;
     private final JdbcMediaUrlResolver jdbcMediaUrlResolver;
@@ -199,6 +204,10 @@ public class CommunityCatalogJdbcQueryService {
     }
 
     public List<VideoSummaryResponse> videosForAuthor(String creatorId) {
+        return videosForAuthor(creatorId, 200, 0);
+    }
+
+    public List<VideoSummaryResponse> videosForAuthor(String creatorId, int limit, int offset) {
         UUID authorId = resolveAuthorId(creatorId);
         if (authorId == null) {
             return List.of();
@@ -222,15 +231,23 @@ public class CommunityCatalogJdbcQueryService {
                     cover.storage_provider as cover_storage_provider,
                     cover.bucket_name as cover_bucket_name,
                     cover.object_key as cover_url,
+                    cover.width as cover_width,
+                    cover.height as cover_height,
                     poster.storage_provider as poster_storage_provider,
                     poster.bucket_name as poster_bucket_name,
                     poster.object_key as poster_url,
+                    poster.width as poster_width,
+                    poster.height as poster_height,
                     preview.storage_provider as preview_storage_provider,
                     preview.bucket_name as preview_bucket_name,
                     preview.object_key as preview_url,
+                    preview.width as preview_width,
+                    preview.height as preview_height,
                     source.storage_provider as source_storage_provider,
                     source.bucket_name as source_bucket_name,
-                    source.object_key as source_url
+                    source.object_key as source_url,
+                    source.width as source_width,
+                    source.height as source_height
                 from videos v
                 join users author on author.id = v.author_id
                 left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
@@ -243,9 +260,147 @@ public class CommunityCatalogJdbcQueryService {
                 left join media_assets source on source.id = v.source_asset_id
                 where v.author_id = ? and v.publish_status = 'published' and v.deleted_at is null
                 order by v.updated_at desc
+                limit ?
+                offset ?
                 """,
                 (resultSet, rowNum) -> mapVideoSummary(resultSet),
-                authorId
+                authorId,
+                limit,
+                offset
+        );
+    }
+
+    public List<CreatorWorkSummaryResponse> worksForAuthor(String creatorId, int limit, int offset) {
+        UUID authorId = resolveAuthorId(creatorId);
+        if (authorId == null) {
+            return List.of();
+        }
+
+        return jdbcTemplate.query("""
+                select *
+                from (
+                    select
+                        'video' as item_type,
+                        coalesce(v.published_at, v.updated_at) as sort_at,
+                        v.id,
+                        v.title,
+                        v.summary,
+                        null::text as prompt_modality,
+                        v.like_count,
+                        v.play_count,
+                        author.id as author_id,
+                        author.display_name as author_display_name,
+                        coalesce(author_avatar_asset.object_key, author.avatar_url) as author_avatar_url,
+                        author_avatar_asset.storage_provider as author_avatar_storage_provider,
+                        author_avatar_asset.bucket_name as author_avatar_bucket_name,
+                        workflow.id as workflow_id,
+                        workflow.title as workflow_title,
+                        cover.storage_provider as cover_storage_provider,
+                        cover.bucket_name as cover_bucket_name,
+                        cover.object_key as cover_url,
+                        poster.storage_provider as poster_storage_provider,
+                        poster.bucket_name as poster_bucket_name,
+                        poster.object_key as poster_url,
+                        preview.storage_provider as preview_storage_provider,
+                        preview.bucket_name as preview_bucket_name,
+                        preview.object_key as preview_url,
+                        source.storage_provider as source_storage_provider,
+                        source.bucket_name as source_bucket_name,
+                        source.object_key as source_url,
+                        null::text as prompt_cover_storage_provider,
+                        null::text as prompt_cover_bucket_name,
+                        null::text as prompt_cover_url,
+                        null::text as prompt_cover_asset_kind,
+                        null::text as prompt_primary_example_storage_provider,
+                        null::text as prompt_primary_example_bucket_name,
+                        null::text as prompt_primary_example_url,
+                        null::text as prompt_primary_example_asset_kind,
+                        null::text as prompt_preview_example_storage_provider,
+                        null::text as prompt_preview_example_bucket_name,
+                        null::text as prompt_preview_example_url,
+                        null::text as prompt_preview_example_asset_kind
+                    from videos v
+                    join users author on author.id = v.author_id
+                    left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
+                    left join workflows workflow on workflow.id = v.workflow_id
+                        and workflow.publish_status = 'published'
+                        and workflow.deleted_at is null
+                    left join media_assets cover on cover.id = v.cover_asset_id
+                    left join media_assets poster on poster.id = v.poster_asset_id
+                    left join media_assets preview on preview.id = v.preview_asset_id
+                    left join media_assets source on source.id = v.source_asset_id
+                    where v.author_id = ?
+                      and v.publish_status = 'published'
+                      and v.deleted_at is null
+
+                    union all
+
+                    select
+                        'prompt' as item_type,
+                        coalesce(prompt.published_at, prompt.updated_at) as sort_at,
+                        prompt.id,
+                        prompt.title,
+                        prompt.summary,
+                        prompt.modality as prompt_modality,
+                        prompt.like_count,
+                        prompt.example_count as play_count,
+                        author.id as author_id,
+                        author.display_name as author_display_name,
+                        coalesce(author_avatar_asset.object_key, author.avatar_url) as author_avatar_url,
+                        author_avatar_asset.storage_provider as author_avatar_storage_provider,
+                        author_avatar_asset.bucket_name as author_avatar_bucket_name,
+                        null::uuid as workflow_id,
+                        null::text as workflow_title,
+                        null::text as cover_storage_provider,
+                        null::text as cover_bucket_name,
+                        null::text as cover_url,
+                        null::text as poster_storage_provider,
+                        null::text as poster_bucket_name,
+                        null::text as poster_url,
+                        null::text as preview_storage_provider,
+                        null::text as preview_bucket_name,
+                        null::text as preview_url,
+                        null::text as source_storage_provider,
+                        null::text as source_bucket_name,
+                        null::text as source_url,
+                        prompt_cover.storage_provider as prompt_cover_storage_provider,
+                        prompt_cover.bucket_name as prompt_cover_bucket_name,
+                        prompt_cover.object_key as prompt_cover_url,
+                        prompt_cover.asset_kind as prompt_cover_asset_kind,
+                        prompt_primary_example.storage_provider as prompt_primary_example_storage_provider,
+                        prompt_primary_example.bucket_name as prompt_primary_example_bucket_name,
+                        prompt_primary_example.object_key as prompt_primary_example_url,
+                        prompt_primary_example.asset_kind as prompt_primary_example_asset_kind,
+                        prompt_preview_example.storage_provider as prompt_preview_example_storage_provider,
+                        prompt_preview_example.bucket_name as prompt_preview_example_bucket_name,
+                        prompt_preview_example.object_key as prompt_preview_example_url,
+                        prompt_preview_example.asset_kind as prompt_preview_example_asset_kind
+                    from prompt_entries prompt
+                    join users author on author.id = prompt.author_id
+                    left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
+                    left join media_assets prompt_cover on prompt_cover.id = prompt.cover_asset_id
+                    left join media_assets prompt_primary_example on prompt_primary_example.id = prompt.primary_example_asset_id
+                    left join media_assets prompt_preview_example on prompt_preview_example.id = (
+                        select link.media_asset_id
+                        from prompt_example_links link
+                        where link.prompt_id = prompt.id
+                          and link.role_code = 'preview'
+                        order by link.sort_order asc, link.created_at asc
+                        limit 1
+                    )
+                    where prompt.author_id = ?
+                      and prompt.publish_status = 'published'
+                      and prompt.deleted_at is null
+                ) creator_works
+                order by sort_at desc nulls last, id desc
+                limit ?
+                offset ?
+                """,
+                (resultSet, rowNum) -> mapCreatorWorkSummary(resultSet),
+                authorId,
+                authorId,
+                limit,
+                offset
         );
     }
 
@@ -435,6 +590,10 @@ public class CommunityCatalogJdbcQueryService {
     }
 
     public List<WorkflowSummaryResponse> workflowsForAuthor(String creatorId) {
+        return workflowsForAuthor(creatorId, 200, 0);
+    }
+
+    public List<WorkflowSummaryResponse> workflowsForAuthor(String creatorId, int limit, int offset) {
         UUID authorId = resolveAuthorId(creatorId);
         if (authorId == null) {
             return List.of();
@@ -454,16 +613,22 @@ public class CommunityCatalogJdbcQueryService {
                     author_avatar_asset.bucket_name as author_avatar_bucket_name,
                     cover.storage_provider as cover_storage_provider,
                     cover.bucket_name as cover_bucket_name,
-                    cover.object_key as cover_url
+                    cover.object_key as cover_url,
+                    cover.width as cover_width,
+                    cover.height as cover_height
                 from workflows workflow
                 join users author on author.id = workflow.author_id
                 left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
                 left join media_assets cover on cover.id = workflow.cover_asset_id
                 where workflow.author_id = ? and workflow.publish_status = 'published' and workflow.deleted_at is null
                 order by workflow.updated_at desc
+                limit ?
+                offset ?
                 """,
                 (resultSet, rowNum) -> mapWorkflowSummary(resultSet),
-                authorId
+                authorId,
+                limit,
+                offset
         );
     }
 
@@ -593,9 +758,15 @@ public class CommunityCatalogJdbcQueryService {
         );
     }
 
-    public FeaturedArchiveResponse loadFeaturedArchive() {
-        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> configuredSlots = adminFeedOpsService.loadPublishedFeaturedSlotItems();
-        List<HomeFeedResponse.FeedItemResponse> prompts = loadPublishedPromptFeed().stream()
+    public FeaturedArchiveResponse loadFeaturedArchive(String sort) {
+        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> configuredSlots = adminFeedOpsService.loadPublishedFeaturedSlotItems(sort);
+        List<HomeFeedResponse.FeedItemResponse> prompts = loadPublishedPromptFeed(FEATURED_PROMPT_FALLBACK_LIMIT).stream()
+                .map(FeedCandidate::item)
+                .toList();
+        List<HomeFeedResponse.FeedItemResponse> videoPromptFallbackPool = loadPublishedPromptFeed("video", FEATURED_PROMPT_MODALITY_SLOT_LIMIT).stream()
+                .map(FeedCandidate::item)
+                .toList();
+        List<HomeFeedResponse.FeedItemResponse> imagePromptFallbackPool = loadPublishedPromptFeed("image", FEATURED_PROMPT_MODALITY_SLOT_LIMIT).stream()
                 .map(FeedCandidate::item)
                 .toList();
         List<HomeFeedResponse.FeedItemResponse> workflows = loadPublishedWorkflowFeed().stream()
@@ -613,22 +784,39 @@ public class CommunityCatalogJdbcQueryService {
         List<HomeFeedResponse.FeedItemResponse> promptFallbackPool = new ArrayList<>(prompts);
         List<HomeFeedResponse.FeedItemResponse> workflowFallbackPool = new ArrayList<>(workflows);
         List<HomeFeedResponse.FeedItemResponse> postFallbackPool = new ArrayList<>(posts);
-        List<HomeFeedResponse.FeedItemResponse> videoPromptFallbackPool = prompts.stream()
-                .filter(item -> "video".equalsIgnoreCase(item.promptModality()))
-                .toList();
-        List<HomeFeedResponse.FeedItemResponse> imagePromptFallbackPool = prompts.stream()
-                .filter(item -> !"video".equalsIgnoreCase(item.promptModality()))
-                .toList();
 
         Map<String, HomeFeedResponse.FeedItemResponse> poolItemsByKey = new LinkedHashMap<>();
         allFallbackPool.forEach(item -> poolItemsByKey.put(homeLayoutItemKey(item), item));
+        videoPromptFallbackPool.forEach(item -> poolItemsByKey.put(homeLayoutItemKey(item), item));
+        imagePromptFallbackPool.forEach(item -> poolItemsByKey.put(homeLayoutItemKey(item), item));
 
         List<FeaturedArchiveResponse.FeaturedSlot> slots = new ArrayList<>();
-        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, allFallbackPool, "featured-all", 12);
-        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, workflowFallbackPool, "featured-workflow", 12);
-        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, videoPromptFallbackPool, "featured-video-prompt", 12);
-        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, imagePromptFallbackPool, "featured-image-prompt", 12);
-        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, postFallbackPool, "featured-activity", 12);
+        addFeaturedArchiveConfiguredSlot(slots, configuredSlots, poolItemsByKey, "featured-all", 12);
+        addFeaturedArchiveConfiguredSlot(slots, configuredSlots, poolItemsByKey, "featured-workflow", 12);
+        addFeaturedArchiveConfiguredSlot(slots, configuredSlots, poolItemsByKey, "featured-video-prompt", 12);
+        addFeaturedArchiveConfiguredSlot(slots, configuredSlots, poolItemsByKey, "featured-image-prompt", 12);
+        addFeaturedArchiveConfiguredSlot(slots, configuredSlots, poolItemsByKey, "featured-activity", 12);
+        return new FeaturedArchiveResponse(List.copyOf(slots));
+    }
+
+    public FeaturedArchiveResponse loadLandingArchive() {
+        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> configuredSlots = adminFeedOpsService.loadPublishedLandingSlotItems();
+        List<HomeFeedResponse.FeedItemResponse> prompts = loadPublishedPromptFeed(FEATURED_PROMPT_FALLBACK_LIMIT).stream()
+                .map(FeedCandidate::item)
+                .toList();
+        List<HomeFeedResponse.FeedItemResponse> workflows = loadPublishedWorkflowFeed().stream()
+                .map(FeedCandidate::item)
+                .toList();
+
+        List<HomeFeedResponse.FeedItemResponse> fallbackPool = new ArrayList<>();
+        fallbackPool.addAll(prompts);
+        fallbackPool.addAll(workflows);
+
+        Map<String, HomeFeedResponse.FeedItemResponse> poolItemsByKey = new LinkedHashMap<>();
+        fallbackPool.forEach(item -> poolItemsByKey.put(homeLayoutItemKey(item), item));
+
+        List<FeaturedArchiveResponse.FeaturedSlot> slots = new ArrayList<>();
+        addFeaturedArchiveSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "landing-archive-grid", 12);
         return new FeaturedArchiveResponse(List.copyOf(slots));
     }
 
@@ -660,29 +848,45 @@ public class CommunityCatalogJdbcQueryService {
                     video_cover.storage_provider as video_cover_storage_provider,
                     video_cover.bucket_name as video_cover_bucket_name,
                     video_cover.object_key as video_cover_url,
+                    video_cover.width as video_cover_width,
+                    video_cover.height as video_cover_height,
                     video_poster.storage_provider as video_poster_storage_provider,
                     video_poster.bucket_name as video_poster_bucket_name,
                     video_poster.object_key as video_poster_url,
+                    video_poster.width as video_poster_width,
+                    video_poster.height as video_poster_height,
                     video_preview.storage_provider as video_preview_storage_provider,
                     video_preview.bucket_name as video_preview_bucket_name,
                     video_preview.object_key as video_preview_url,
+                    video_preview.width as video_preview_width,
+                    video_preview.height as video_preview_height,
                     video_source.storage_provider as video_source_storage_provider,
                     video_source.bucket_name as video_source_bucket_name,
                     video_source.object_key as video_source_url,
+                    video_source.width as video_source_width,
+                    video_source.height as video_source_height,
                     workflow_cover.storage_provider as workflow_cover_storage_provider,
                     workflow_cover.bucket_name as workflow_cover_bucket_name,
                     workflow_cover.object_key as workflow_cover_url,
+                    workflow_cover.width as workflow_cover_width,
+                    workflow_cover.height as workflow_cover_height,
                     prompt_cover.storage_provider as prompt_cover_storage_provider,
                     prompt_cover.bucket_name as prompt_cover_bucket_name,
                     prompt_cover.object_key as prompt_cover_url,
+                    prompt_cover.width as prompt_cover_width,
+                    prompt_cover.height as prompt_cover_height,
                     prompt_cover.asset_kind as prompt_cover_asset_kind,
                     prompt_primary_example.storage_provider as prompt_primary_example_storage_provider,
                     prompt_primary_example.bucket_name as prompt_primary_example_bucket_name,
                     prompt_primary_example.object_key as prompt_primary_example_url,
+                    prompt_primary_example.width as prompt_primary_example_width,
+                    prompt_primary_example.height as prompt_primary_example_height,
                     prompt_primary_example.asset_kind as prompt_primary_example_asset_kind,
                     prompt_preview_example.storage_provider as prompt_preview_example_storage_provider,
                     prompt_preview_example.bucket_name as prompt_preview_example_bucket_name,
                     prompt_preview_example.object_key as prompt_preview_example_url,
+                    prompt_preview_example.width as prompt_preview_example_width,
+                    prompt_preview_example.height as prompt_preview_example_height,
                     prompt_preview_example.asset_kind as prompt_preview_example_asset_kind
                 from feed_items feed_item
                 left join videos video on coalesce(feed_item.target_type, feed_item.item_type) = 'video'
@@ -757,7 +961,9 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         resultSet.getLong("video_play_count"),
                                         resultSet.getLong("video_like_count")
-                                )
+                                ),
+                                resolveVideoWidth(resultSet),
+                                resolveVideoHeight(resultSet)
                         );
                     }
 
@@ -782,7 +988,9 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         null,
                                         resultSet.getLong("prompt_like_count")
-                                )
+                                ),
+                                resolvePromptWidth(resultSet),
+                                resolvePromptHeight(resultSet)
                         );
                     }
 
@@ -806,7 +1014,9 @@ public class CommunityCatalogJdbcQueryService {
                             new HomeFeedResponse.ItemStats(
                                     null,
                                     resultSet.getLong("workflow_like_count")
-                            )
+                            ),
+                            toInteger(resultSet, "workflow_cover_width"),
+                            toInteger(resultSet, "workflow_cover_height")
                     );
                 },
                 channel
@@ -877,7 +1087,9 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         resultSet.getLong("play_count"),
                                         resultSet.getLong("like_count")
-                                )
+                                ),
+                                resolveVideoWidth(resultSet),
+                                resolveVideoHeight(resultSet)
                         )
                 )
         );
@@ -898,7 +1110,9 @@ public class CommunityCatalogJdbcQueryService {
                     author_avatar_asset.bucket_name as author_avatar_bucket_name,
                     cover.storage_provider as cover_storage_provider,
                     cover.bucket_name as cover_bucket_name,
-                    cover.object_key as cover_url
+                    cover.object_key as cover_url,
+                    cover.width as cover_width,
+                    cover.height as cover_height
                 from workflows workflow
                 join users author on author.id = workflow.author_id
                 left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
@@ -929,13 +1143,19 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         null,
                                         resultSet.getLong("like_count")
-                                )
+                                ),
+                                toInteger(resultSet, "cover_width"),
+                                toInteger(resultSet, "cover_height")
                         )
                 )
         );
     }
 
     private List<FeedCandidate> loadPublishedPromptFeed() {
+        return loadPublishedPromptFeed(null, DEFAULT_PUBLISHED_PROMPT_FEED_LIMIT);
+    }
+
+    private List<FeedCandidate> loadPublishedPromptFeed(int limit) {
         return jdbcTemplate.query("""
                 select
                     prompt.id,
@@ -952,14 +1172,20 @@ public class CommunityCatalogJdbcQueryService {
                     cover.storage_provider as cover_storage_provider,
                     cover.bucket_name as cover_bucket_name,
                     cover.object_key as cover_url,
+                    cover.width as cover_width,
+                    cover.height as cover_height,
                     cover.asset_kind as cover_asset_kind,
                     primary_example.storage_provider as primary_example_storage_provider,
                     primary_example.bucket_name as primary_example_bucket_name,
                     primary_example.object_key as primary_example_url,
+                    primary_example.width as primary_example_width,
+                    primary_example.height as primary_example_height,
                     primary_example.asset_kind as primary_example_asset_kind,
                     preview_example.storage_provider as preview_example_storage_provider,
                     preview_example.bucket_name as preview_example_bucket_name,
                     preview_example.object_key as preview_example_url,
+                    preview_example.width as preview_example_width,
+                    preview_example.height as preview_example_height,
                     preview_example.asset_kind as preview_example_asset_kind
                 from prompt_entries prompt
                 join users author on author.id = prompt.author_id
@@ -976,7 +1202,7 @@ public class CommunityCatalogJdbcQueryService {
                 )
                 where prompt.publish_status = 'published' and prompt.deleted_at is null
                 order by coalesce(prompt.published_at, prompt.updated_at) desc
-                limit 12
+                limit ?
                 """,
                 (resultSet, rowNum) -> new FeedCandidate(
                         resultSet.getObject("sort_at", OffsetDateTime.class),
@@ -1000,9 +1226,95 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         null,
                                         resultSet.getLong("like_count")
-                                )
+                                ),
+                                resolvePromptWidth(resultSet),
+                                resolvePromptHeight(resultSet)
                         )
+                ),
+                limit
+        );
+    }
+
+    private List<FeedCandidate> loadPublishedPromptFeed(String modality, int limit) {
+        return jdbcTemplate.query("""
+                select
+                    prompt.id,
+                    prompt.modality,
+                    prompt.title,
+                    prompt.summary,
+                    prompt.like_count,
+                    coalesce(prompt.published_at, prompt.updated_at) as sort_at,
+                    author.id as author_id,
+                    author.display_name as author_display_name,
+                    coalesce(author_avatar_asset.object_key, author.avatar_url) as author_avatar_url,
+                    author_avatar_asset.storage_provider as author_avatar_storage_provider,
+                    author_avatar_asset.bucket_name as author_avatar_bucket_name,
+                    cover.storage_provider as cover_storage_provider,
+                    cover.bucket_name as cover_bucket_name,
+                    cover.object_key as cover_url,
+                    cover.width as cover_width,
+                    cover.height as cover_height,
+                    cover.asset_kind as cover_asset_kind,
+                    primary_example.storage_provider as primary_example_storage_provider,
+                    primary_example.bucket_name as primary_example_bucket_name,
+                    primary_example.object_key as primary_example_url,
+                    primary_example.width as primary_example_width,
+                    primary_example.height as primary_example_height,
+                    primary_example.asset_kind as primary_example_asset_kind,
+                    preview_example.storage_provider as preview_example_storage_provider,
+                    preview_example.bucket_name as preview_example_bucket_name,
+                    preview_example.object_key as preview_example_url,
+                    preview_example.width as preview_example_width,
+                    preview_example.height as preview_example_height,
+                    preview_example.asset_kind as preview_example_asset_kind
+                from prompt_entries prompt
+                join users author on author.id = prompt.author_id
+                left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
+                left join media_assets cover on cover.id = prompt.cover_asset_id
+                left join media_assets primary_example on primary_example.id = prompt.primary_example_asset_id
+                left join media_assets preview_example on preview_example.id = (
+                    select link.media_asset_id
+                    from prompt_example_links link
+                    where link.prompt_id = prompt.id
+                      and link.role_code = 'preview'
+                    order by link.sort_order asc, link.created_at asc
+                    limit 1
                 )
+                where prompt.publish_status = 'published'
+                  and prompt.deleted_at is null
+                  and prompt.modality = ?
+                order by coalesce(prompt.published_at, prompt.updated_at) desc
+                limit ?
+                """,
+                (resultSet, rowNum) -> new FeedCandidate(
+                        resultSet.getObject("sort_at", OffsetDateTime.class),
+                        new HomeFeedResponse.FeedItemResponse(
+                                "prompt",
+                                resultSet.getString("modality"),
+                                "prompt",
+                                resultSet.getObject("id").toString(),
+                                resultSet.getString("title"),
+                                resultSet.getString("summary"),
+                                resolvePromptCoverUrl(resultSet),
+                                resolvePromptPosterUrl(resultSet),
+                                resolvePromptPreviewUrl(resultSet),
+                                resolvePromptSourceUrl(resultSet),
+                                new HomeFeedResponse.AuthorSummary(
+                                        resultSet.getObject("author_id").toString(),
+                                        resultSet.getString("author_display_name"),
+                                        jdbcMediaUrlResolver.resolve(resultSet, "author_avatar_url")
+                                ),
+                                null,
+                                new HomeFeedResponse.ItemStats(
+                                        null,
+                                        resultSet.getLong("like_count")
+                                ),
+                                resolvePromptWidth(resultSet),
+                                resolvePromptHeight(resultSet)
+                        )
+                ),
+                modality,
+                limit
         );
     }
 
@@ -1048,7 +1360,9 @@ public class CommunityCatalogJdbcQueryService {
                                 new HomeFeedResponse.ItemStats(
                                         null,
                                         resultSet.getLong("like_count")
-                                )
+                                ),
+                                null,
+                                null
                         )
                 )
         );
@@ -1133,9 +1447,8 @@ public class CommunityCatalogJdbcQueryService {
         fallbackPool.forEach(item -> poolItemsByKey.put(homeLayoutItemKey(item), item));
 
         List<HomeFeedResponse.HomeLayoutSlot> slots = new ArrayList<>();
-        addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "home-hero", 3);
+        addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "home-hero", 6);
         addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "recommended-primary", 4);
-        addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "recommended-secondary", 4);
         addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "canvas", 4);
         addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "commercial", 4);
         addHomeLayoutSlot(slots, configuredSlots, poolItemsByKey, fallbackPool, "animation", 4);
@@ -1158,6 +1471,20 @@ public class CommunityCatalogJdbcQueryService {
                 .toList();
         List<HomeFeedResponse.FeedItemResponse> mergedItems = fillHomeLayoutSlot(configuredItems, fallbackPool, maxItems);
         slots.add(new HomeFeedResponse.HomeLayoutSlot(slotKey, mergedItems));
+    }
+
+    private void addFeaturedArchiveConfiguredSlot(
+            List<FeaturedArchiveResponse.FeaturedSlot> slots,
+            Map<String, List<AdminFeedOpsPageResponse.ContentItem>> configuredSlots,
+            Map<String, HomeFeedResponse.FeedItemResponse> poolItemsByKey,
+            String slotKey,
+            int maxItems
+    ) {
+        List<HomeFeedResponse.FeedItemResponse> configuredItems = configuredSlots.getOrDefault(slotKey, List.of()).stream()
+                .map(item -> poolItemsByKey.getOrDefault(homeLayoutItemKey(item.targetType(), item.targetId()), mapHomeLayoutItem(item)))
+                .toList();
+        List<HomeFeedResponse.FeedItemResponse> pinnedItems = fillHomeLayoutSlot(configuredItems, List.of(), maxItems);
+        slots.add(new FeaturedArchiveResponse.FeaturedSlot(slotKey, pinnedItems));
     }
 
     private void addFeaturedArchiveSlot(
@@ -1248,7 +1575,9 @@ public class CommunityCatalogJdbcQueryService {
                 new HomeFeedResponse.ItemStats(
                         playCount,
                         null
-                )
+                ),
+                null,
+                null
         );
     }
 
@@ -1417,6 +1746,30 @@ public class CommunityCatalogJdbcQueryService {
         return "admin".equals(roleCode) || "operator".equals(roleCode) || "moderator".equals(roleCode);
     }
 
+    private CreatorWorkSummaryResponse mapCreatorWorkSummary(ResultSet resultSet) throws SQLException {
+        boolean isPrompt = "prompt".equalsIgnoreCase(resultSet.getString("item_type"));
+
+        return new CreatorWorkSummaryResponse(
+                resultSet.getObject("id").toString(),
+                isPrompt ? "prompt" : "video",
+                resultSet.getString("title"),
+                resultSet.getString("summary"),
+                isPrompt ? resultSet.getString("prompt_modality") : null,
+                isPrompt ? resolvePromptCoverUrl(resultSet) : resolveVideoCoverUrl(resultSet),
+                isPrompt ? resolvePromptPosterUrl(resultSet) : resolveVideoPosterUrl(resultSet),
+                isPrompt ? resolvePromptPreviewUrl(resultSet) : resolveVideoPreviewUrl(resultSet),
+                isPrompt ? resolvePromptSourceUrl(resultSet) : resolveVideoSourceUrl(resultSet),
+                toLong(resultSet, "like_count"),
+                toLong(resultSet, "play_count"),
+                new CreatorWorkSummaryResponse.AuthorSummary(
+                        resultSet.getObject("author_id").toString(),
+                        resultSet.getString("author_display_name"),
+                        jdbcMediaUrlResolver.resolve(resultSet, "author_avatar_url")
+                ),
+                nullableCreatorWorkWorkflowSummary(resultSet)
+        );
+    }
+
     private VideoSummaryResponse mapVideoSummary(ResultSet resultSet) throws SQLException {
         return new VideoSummaryResponse(
                 resultSet.getObject("id").toString(),
@@ -1518,6 +1871,18 @@ public class CommunityCatalogJdbcQueryService {
         );
     }
 
+    private CreatorWorkSummaryResponse.WorkflowSummary nullableCreatorWorkWorkflowSummary(ResultSet resultSet) throws SQLException {
+        Object workflowId = resultSet.getObject("workflow_id");
+        if (workflowId == null) {
+            return null;
+        }
+
+        return new CreatorWorkSummaryResponse.WorkflowSummary(
+                workflowId.toString(),
+                resultSet.getString("workflow_title")
+        );
+    }
+
     private String normalizeContentKind(String rawContentKind, String itemType) {
         if (rawContentKind != null && !rawContentKind.isBlank()) {
             return rawContentKind;
@@ -1582,6 +1947,23 @@ public class CommunityCatalogJdbcQueryService {
         return null;
     }
 
+    private Integer resolveFirstAvailableInteger(ResultSet resultSet, String... columnNames) throws SQLException {
+        for (String columnName : columnNames) {
+            if (columnName == null || columnName.isBlank()) {
+                continue;
+            }
+            try {
+                Integer value = toInteger(resultSet, columnName);
+                if (value != null) {
+                    return value;
+                }
+            } catch (SQLException ignored) {
+                // Different feed queries expose different width/height aliases. Missing optional columns should be skipped.
+            }
+        }
+        return null;
+    }
+
     private String resolveVideoCoverUrl(ResultSet resultSet) throws SQLException {
         String coverUrl = resolveFirstAvailableMediaUrl(resultSet, "cover_url", "video_cover_url");
         if (coverUrl != null && !coverUrl.isBlank()) {
@@ -1609,6 +1991,34 @@ public class CommunityCatalogJdbcQueryService {
         return resolveFirstAvailableMediaUrl(resultSet, "source_url", "video_source_url");
     }
 
+    private Integer resolveVideoWidth(ResultSet resultSet) throws SQLException {
+        return resolveFirstAvailableInteger(
+                resultSet,
+                "poster_width",
+                "video_poster_width",
+                "cover_width",
+                "video_cover_width",
+                "preview_width",
+                "video_preview_width",
+                "source_width",
+                "video_source_width"
+        );
+    }
+
+    private Integer resolveVideoHeight(ResultSet resultSet) throws SQLException {
+        return resolveFirstAvailableInteger(
+                resultSet,
+                "poster_height",
+                "video_poster_height",
+                "cover_height",
+                "video_cover_height",
+                "preview_height",
+                "video_preview_height",
+                "source_height",
+                "video_source_height"
+        );
+    }
+
     private String resolvePromptCoverUrl(ResultSet resultSet) throws SQLException {
         String coverUrl = resolveImageMediaUrl(
                 resultSet,
@@ -1633,22 +2043,13 @@ public class CommunityCatalogJdbcQueryService {
     }
 
     private String resolvePromptPreviewUrl(ResultSet resultSet) throws SQLException {
-        String previewUrl = resolveVideoMediaUrl(
+        return resolveVideoMediaUrl(
                 resultSet,
                 "prompt_preview_example_url",
                 "preview_example_url",
                 "prompt_preview_example_asset_kind",
                 "preview_example_asset_kind"
         );
-        return previewUrl != null
-                ? previewUrl
-                : resolveVideoMediaUrl(
-                        resultSet,
-                        "prompt_primary_example_url",
-                        "primary_example_url",
-                        "prompt_primary_example_asset_kind",
-                        "primary_example_asset_kind"
-                );
     }
 
     private String resolvePromptSourceUrl(ResultSet resultSet) throws SQLException {
@@ -1656,6 +2057,92 @@ public class CommunityCatalogJdbcQueryService {
                 resultSet,
                 "prompt_primary_example_url",
                 "primary_example_url",
+                "prompt_primary_example_asset_kind",
+                "primary_example_asset_kind"
+        );
+    }
+
+    private Integer resolvePromptWidth(ResultSet resultSet) throws SQLException {
+        Integer imageWidth = resolveImageMediaDimension(
+                resultSet,
+                "prompt_cover_width",
+                "cover_width",
+                "prompt_cover_asset_kind",
+                "cover_asset_kind"
+        );
+        if (imageWidth != null) {
+            return imageWidth;
+        }
+
+        imageWidth = resolveImageMediaDimension(
+                resultSet,
+                "prompt_primary_example_width",
+                "primary_example_width",
+                "prompt_primary_example_asset_kind",
+                "primary_example_asset_kind"
+        );
+        if (imageWidth != null) {
+            return imageWidth;
+        }
+
+        Integer previewWidth = resolveVideoMediaDimension(
+                resultSet,
+                "prompt_preview_example_width",
+                "preview_example_width",
+                "prompt_preview_example_asset_kind",
+                "preview_example_asset_kind"
+        );
+        if (previewWidth != null) {
+            return previewWidth;
+        }
+
+        return resolveVideoMediaDimension(
+                resultSet,
+                "prompt_primary_example_width",
+                "primary_example_width",
+                "prompt_primary_example_asset_kind",
+                "primary_example_asset_kind"
+        );
+    }
+
+    private Integer resolvePromptHeight(ResultSet resultSet) throws SQLException {
+        Integer imageHeight = resolveImageMediaDimension(
+                resultSet,
+                "prompt_cover_height",
+                "cover_height",
+                "prompt_cover_asset_kind",
+                "cover_asset_kind"
+        );
+        if (imageHeight != null) {
+            return imageHeight;
+        }
+
+        imageHeight = resolveImageMediaDimension(
+                resultSet,
+                "prompt_primary_example_height",
+                "primary_example_height",
+                "prompt_primary_example_asset_kind",
+                "primary_example_asset_kind"
+        );
+        if (imageHeight != null) {
+            return imageHeight;
+        }
+
+        Integer previewHeight = resolveVideoMediaDimension(
+                resultSet,
+                "prompt_preview_example_height",
+                "preview_example_height",
+                "prompt_preview_example_asset_kind",
+                "preview_example_asset_kind"
+        );
+        if (previewHeight != null) {
+            return previewHeight;
+        }
+
+        return resolveVideoMediaDimension(
+                resultSet,
+                "prompt_primary_example_height",
+                "primary_example_height",
                 "prompt_primary_example_asset_kind",
                 "primary_example_asset_kind"
         );
@@ -1673,6 +2160,28 @@ public class CommunityCatalogJdbcQueryService {
                 : null;
     }
 
+    private Integer resolveImageMediaDimension(
+            ResultSet resultSet,
+            String preferredColumnName,
+            String fallbackColumnName,
+            String... assetKindColumns
+    ) throws SQLException {
+        return "image".equalsIgnoreCase(resolveFirstAvailableText(resultSet, assetKindColumns))
+                ? resolveFirstAvailableInteger(resultSet, preferredColumnName, fallbackColumnName)
+                : null;
+    }
+
+    private Integer resolveVideoMediaDimension(
+            ResultSet resultSet,
+            String preferredColumnName,
+            String fallbackColumnName,
+            String... assetKindColumns
+    ) throws SQLException {
+        return "video".equalsIgnoreCase(resolveFirstAvailableText(resultSet, assetKindColumns))
+                ? resolveFirstAvailableInteger(resultSet, preferredColumnName, fallbackColumnName)
+                : null;
+    }
+
     private String resolveFirstAvailableText(ResultSet resultSet, String... columnNames) throws SQLException {
         for (String columnName : columnNames) {
             String value = jdbcMediaUrlResolver.nullableTextIfPresent(resultSet, columnName);
@@ -1681,6 +2190,16 @@ public class CommunityCatalogJdbcQueryService {
             }
         }
         return null;
+    }
+
+    private Integer toInteger(ResultSet resultSet, String columnName) throws SQLException {
+        Object value = resultSet.getObject(columnName);
+        if (!(value instanceof Number number)) {
+            return null;
+        }
+
+        int normalized = number.intValue();
+        return normalized > 0 ? normalized : null;
     }
 
     private Long toLong(ResultSet resultSet, String columnName) throws SQLException {

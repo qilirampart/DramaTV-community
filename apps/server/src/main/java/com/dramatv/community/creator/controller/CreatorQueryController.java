@@ -2,7 +2,9 @@ package com.dramatv.community.creator.controller;
 
 import com.dramatv.community.creator.application.CreatorQueryService;
 import com.dramatv.community.creator.dto.response.CreatorProfileResponse;
+import com.dramatv.community.creator.dto.response.CreatorWorkSummaryResponse;
 import com.dramatv.community.discussion.dto.response.DiscussionHomeResponse;
+import com.dramatv.community.prompt.dto.response.PromptSummaryResponse;
 import com.dramatv.community.shared.response.ApiResponse;
 import com.dramatv.community.shared.response.CursorPageResponse;
 import com.dramatv.community.video.dto.response.VideoSummaryResponse;
@@ -36,27 +38,40 @@ public class CreatorQueryController {
     @GetMapping("/{id}/videos")
     public ApiResponse<CursorPageResponse<VideoSummaryResponse>> videos(
             @PathVariable String id,
-            @RequestParam(required = false) String cursor,
-            @RequestParam(defaultValue = "latest") String sort
+            @RequestParam(required = false) String cursor
     ) {
-        return ApiResponse.ok(creatorQueryService.listVideos(id, cursor, sort));
+        return ApiResponse.ok(creatorQueryService.listVideos(id, cursor));
+    }
+
+    @GetMapping("/{id}/works")
+    public ApiResponse<CursorPageResponse<CreatorWorkSummaryResponse>> works(
+            @PathVariable String id,
+            @RequestParam(required = false) String cursor
+    ) {
+        return ApiResponse.ok(creatorQueryService.listWorks(id, cursor));
+    }
+
+    @GetMapping("/{id}/prompts")
+    public ApiResponse<CursorPageResponse<PromptSummaryResponse>> prompts(
+            @PathVariable String id,
+            @RequestParam(required = false) String cursor
+    ) {
+        return ApiResponse.ok(creatorQueryService.listPrompts(id, cursor));
     }
 
     @GetMapping("/{id}/workflows")
     public ApiResponse<CursorPageResponse<WorkflowSummaryResponse>> workflows(
             @PathVariable String id,
-            @RequestParam(required = false) String cursor,
-            @RequestParam(defaultValue = "latest") String sort
+            @RequestParam(required = false) String cursor
     ) {
-        return ApiResponse.ok(creatorQueryService.listWorkflows(id, cursor, sort));
+        return ApiResponse.ok(creatorQueryService.listWorkflows(id, cursor));
     }
 
     @GetMapping("/{id}/posts")
     public ApiResponse<CursorPageResponse<DiscussionHomeResponse.ThreadCard>> posts(
             @PathVariable String id,
-            @RequestParam(required = false) String cursor,
-            @RequestParam(defaultValue = "latest") String sort
+            @RequestParam(required = false) String cursor
     ) {
-        return ApiResponse.ok(creatorQueryService.listPosts(id, cursor, sort));
+        return ApiResponse.ok(creatorQueryService.listPosts(id, cursor));
     }
 }

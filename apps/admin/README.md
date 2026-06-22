@@ -16,6 +16,10 @@ Copy `.env.example` to `.env.local` if you need to override the backend address.
 
 ```bash
 DRAMATV_ADMIN_API_BASE_URL=http://127.0.0.1:18080
+DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106
+NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106
+NEXT_PUBLIC_DRAMATV_ADMIN_BASE_PATH=/admin
+DRAMATV_ADMIN_BASE_PATH=/admin
 ```
 
 ## Scripts

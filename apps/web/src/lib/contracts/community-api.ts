@@ -134,6 +134,30 @@ export type ApiVideoSummary = {
   };
 };
 
+export type ApiCreatorWorkSummary = {
+  id: string;
+  itemType: "video" | "prompt";
+  title: string;
+  summary?: string;
+  promptModality?: "image" | "video";
+  coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
+  likeCount?: number;
+  playCount?: number;
+  author: {
+    id: string;
+    displayName: string;
+    avatarUrl?: string;
+  };
+  workflow?: {
+    id: string;
+    title: string;
+    processHref?: string;
+  };
+};
+
 export type ApiWorkflowSummary = {
   id: string;
   title: string;
@@ -161,6 +185,8 @@ export type ApiFeedHomeResponse = {
     posterUrl?: string;
     previewUrl?: string;
     sourceUrl?: string;
+    width?: number;
+    height?: number;
     author: {
       id: string;
       displayName: string;
@@ -200,6 +226,8 @@ export type ApiFeedHomeResponse = {
         posterUrl?: string;
         previewUrl?: string;
         sourceUrl?: string;
+        width?: number;
+        height?: number;
         author: {
           id: string;
           displayName: string;
@@ -232,6 +260,8 @@ export type ApiFeaturedArchiveResponse = {
       posterUrl?: string;
       previewUrl?: string;
       sourceUrl?: string;
+      width?: number;
+      height?: number;
       author: {
         id: string;
         displayName: string;
@@ -317,6 +347,85 @@ export type ApiPromptSummary = {
   };
 };
 
+export type ApiFeaturedPromptInventoryFilter = "all" | "video_prompt" | "image_prompt";
+
+export type ApiFeaturedPromptFacetSummary = {
+  modelCounts: Record<string, number>;
+  contentCounts: Record<string, number>;
+};
+
+export type ApiFeaturedPromptInventorySummary = {
+  counts: {
+    all: number;
+    videoPrompt: number;
+    imagePrompt: number;
+  };
+  videoPromptFacets: ApiFeaturedPromptFacetSummary;
+  imagePromptFacets: ApiFeaturedPromptFacetSummary;
+};
+
+export type ApiFeaturedPromptInventoryResponse = {
+  summary: ApiFeaturedPromptInventorySummary;
+  page: ApiCursorPage<ApiPromptSummary>;
+};
+
+export type ApiFeaturedInventoryFilter = "all" | "workflow" | "video_prompt" | "image_prompt" | "activity";
+export type ApiFeaturedWorkflowInventoryType = "copyable" | "placeholder";
+
+export type ApiFeaturedInventoryItem = {
+  contentKind: "prompt" | "workflow_work" | "post";
+  promptModality?: "image" | "video";
+  itemType: "prompt" | "workflow" | "post";
+  targetId: string;
+  targetSlug?: string;
+  channelSlug?: string;
+  title: string;
+  summary?: string;
+  coverUrl?: string;
+  posterUrl?: string;
+  previewUrl?: string;
+  sourceUrl?: string;
+  width?: number;
+  height?: number;
+  author: {
+    id: string;
+    displayName: string;
+    avatarUrl?: string;
+  };
+  stats: {
+    playCount?: number;
+    likeCount?: number;
+  };
+  tagNames: string[];
+  modelCategory?: string;
+  contentCategory?: string;
+  allowCopy?: boolean;
+  viewerActions?: {
+    liked: boolean;
+  };
+};
+
+export type ApiFeaturedInventorySummary = {
+  counts: {
+    all: number;
+    workflow: number;
+    videoPrompt: number;
+    imagePrompt: number;
+    activity: number;
+  };
+  workflowFacets: {
+    copyable: number;
+    placeholder: number;
+  };
+  videoPromptFacets: ApiFeaturedPromptFacetSummary;
+  imagePromptFacets: ApiFeaturedPromptFacetSummary;
+};
+
+export type ApiFeaturedInventoryResponse = {
+  summary: ApiFeaturedInventorySummary;
+  page: ApiCursorPage<ApiFeaturedInventoryItem>;
+};
+
 export type ApiPromptDetail = {
   id: string;
   title: string;
@@ -350,9 +459,12 @@ export type ApiPromptDetail = {
   tagNames: string[];
   examples: Array<{
     id: string;
-    assetKind: "image" | "video";
+    role: "example" | "reference_image" | "reference_audio";
+    assetKind: "image" | "video" | "audio";
     url: string;
+    fileName: string;
     mimeType?: string;
+    sizeBytes?: number;
     width?: number;
     height?: number;
     durationMs?: number;
@@ -446,6 +558,7 @@ export type ApiMeHubResponse = {
   draftItems: ApiMeDraftItem[];
   publishedContent: {
     videos: ApiVideoSummary[];
+    prompts: ApiPromptSummary[];
     workflows: ApiWorkflowSummary[];
     posts: ApiDiscussionHomeResponse["featuredThreads"];
   };
@@ -657,6 +770,8 @@ export type ApiPublishPageBootstrap = ApiPublishCurrentUser & {
     visibility: "public" | "link" | "private";
     coverAssetId?: string;
     sourceAssetId?: string;
+    referenceImageAssetIds: string[];
+    referenceAudioAssetIds: string[];
     statusCode: string;
     lifecycle: ApiDraftLifecycle;
   };
@@ -695,7 +810,7 @@ export type ApiPostComposerBootstrap = ApiPublishCurrentUser & {
 export type ApiVideoDraft = ApiPublishPageBootstrap["videoDraft"];
 export type ApiWorkflowDraft = ApiPublishPageBootstrap["workflowDraft"];
 export type ApiPostDraft = ApiPostComposerBootstrap["postDraft"];
-export type ApiUploadAssetKind = "video" | "image";
+export type ApiUploadAssetKind = "video" | "image" | "audio";
 export type ApiUploadAssetRole = "source" | "cover" | "preview" | "poster" | "avatar" | "attachment";
 
 export type ApiUploadPolicy = {
@@ -733,6 +848,8 @@ export type ApiVideoDraftUpdateInput = {
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
   sourceAssetId?: string;
+  referenceImageAssetIds: string[];
+  referenceAudioAssetIds: string[];
 };
 
 export type ApiWorkflowDraftUpdateInput = {

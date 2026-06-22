@@ -13,7 +13,8 @@ export type VideoPromptModelCategory =
   | "wan"
   | "other-video-model";
 
-export type PromptCompositionCategory = "single-model" | "multi-model";
+export type VideoPromptModelUsageCategory = "single-model" | "multi-model";
+export type PromptCompositionCategory = VideoPromptModelUsageCategory;
 
 export type ImagePromptContentCategory = "real-person" | "animation" | "scene" | "prop" | "other";
 export type VideoPromptContentCategory = "real-person" | "animation" | "other";
@@ -27,14 +28,13 @@ export type ImagePromptTaxonomySelection = {
   categoryCode: "image_prompt";
   modelCategory?: ImagePromptModelCategory;
   contentCategory?: ImagePromptContentCategory;
-  compositionCategory: PromptCompositionCategory;
 };
 
 export type VideoPromptTaxonomySelection = {
   categoryCode: "video_prompt";
   modelCategory?: VideoPromptModelCategory;
   contentCategory?: VideoPromptContentCategory;
-  compositionCategory: PromptCompositionCategory;
+  compositionCategory?: VideoPromptModelUsageCategory;
 };
 
 export type PromptTaxonomySelection = ImagePromptTaxonomySelection | VideoPromptTaxonomySelection;
@@ -54,10 +54,11 @@ export const VIDEO_PROMPT_MODEL_OPTIONS: TaxonomyOption<VideoPromptModelCategory
   { id: "other-video-model", label: "其他模型" }
 ];
 
-export const PROMPT_COMPOSITION_OPTIONS: TaxonomyOption<PromptCompositionCategory>[] = [
+export const VIDEO_PROMPT_MODEL_USAGE_OPTIONS: TaxonomyOption<VideoPromptModelUsageCategory>[] = [
   { id: "single-model", label: "单模型" },
   { id: "multi-model", label: "模型组合" }
 ];
+export const PROMPT_COMPOSITION_OPTIONS = VIDEO_PROMPT_MODEL_USAGE_OPTIONS;
 
 export const IMAGE_PROMPT_CONTENT_OPTIONS: TaxonomyOption<ImagePromptContentCategory>[] = [
   { id: "real-person", label: "真人" },
@@ -249,13 +250,11 @@ function classifyImagePromptTaxonomy(text: string): ImagePromptTaxonomySelection
     ["animation", "real-person", "scene", "prop"],
     "other"
   );
-  const compositionCategory = includesAnyKeyword(text, MULTI_MODEL_KEYWORDS) ? "multi-model" : "single-model";
 
   return {
     categoryCode: "image_prompt",
     modelCategory,
-    contentCategory,
-    compositionCategory
+    contentCategory
   };
 }
 
@@ -286,7 +285,7 @@ export function buildPromptTaxonomyTags(input: {
   categoryCode: PromptCategoryCode;
   modelCategory?: ImagePromptModelCategory | VideoPromptModelCategory;
   contentCategory?: ImagePromptContentCategory | VideoPromptContentCategory;
-  compositionCategory?: PromptCompositionCategory;
+  compositionCategory?: VideoPromptModelUsageCategory;
   existingTags?: string[];
 }) {
   const tags = [
@@ -294,7 +293,7 @@ export function buildPromptTaxonomyTags(input: {
     input.categoryCode === "image_prompt" ? "image-prompt" : "video-prompt",
     input.modelCategory,
     input.contentCategory,
-    input.compositionCategory
+    input.categoryCode === "video_prompt" ? input.compositionCategory : undefined
   ].filter((value): value is string => Boolean(value));
 
   return [...new Set(tags)];
@@ -316,8 +315,7 @@ export function classifyPromptTaxonomy(item: {
       standardTags: buildPromptTaxonomyTags({
         categoryCode: "image_prompt",
         modelCategory: taxonomy.modelCategory,
-        contentCategory: taxonomy.contentCategory,
-        compositionCategory: taxonomy.compositionCategory
+        contentCategory: taxonomy.contentCategory
       })
     };
   }
@@ -355,10 +353,6 @@ export function parsePromptTaxonomySelection(input: {
 
   if (input.categoryCode === "image_prompt") {
     const fallback = classifyImagePromptTaxonomy(normalizeClassifierText([input.title, input.summary, ...input.tagNames]));
-    const compositionCategory =
-      PROMPT_COMPOSITION_OPTIONS.find((option) => option.id === input.compositionCategory)?.id ??
-      PROMPT_COMPOSITION_OPTIONS.find((option) => tagSet.has(option.id))?.id ??
-      fallback.compositionCategory;
 
     return {
       categoryCode: "image_prompt",
@@ -371,16 +365,15 @@ export function parsePromptTaxonomySelection(input: {
         ? IMAGE_PROMPT_CONTENT_OPTIONS.find((option) => option.id === input.contentCategory)?.id ??
           IMAGE_PROMPT_CONTENT_OPTIONS.find((option) => tagSet.has(option.id))?.id ??
           fallback.contentCategory
-        : undefined,
-      compositionCategory
+        : undefined
     };
   }
 
   const fallback = classifyVideoPromptTaxonomy(normalizeClassifierText([input.title, input.summary, ...input.tagNames]));
   const compositionCategory =
-    PROMPT_COMPOSITION_OPTIONS.find((option) => option.id === input.compositionCategory)?.id ??
-    PROMPT_COMPOSITION_OPTIONS.find((option) => tagSet.has(option.id))?.id ??
-    fallback.compositionCategory;
+    VIDEO_PROMPT_MODEL_USAGE_OPTIONS.find((option) => option.id === input.compositionCategory)?.id ??
+    VIDEO_PROMPT_MODEL_USAGE_OPTIONS.find((option) => tagSet.has(option.id))?.id ??
+    (hasMeaningfulSignal ? fallback.compositionCategory : undefined);
 
   return {
     categoryCode: "video_prompt",

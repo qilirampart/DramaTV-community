@@ -35,7 +35,7 @@
     "perf:frontend:baseline": "python scripts/run-local-frontend-performance-baseline.py --output artifacts/frontend-performance/latest/summary.json",
     "readiness:local": "node scripts/check-local-runtime-readiness.mjs --scope all --output artifacts/runtime-readiness/latest/summary.json",
     "readiness:local:backend": "node scripts/check-local-runtime-readiness.mjs --scope backend --output artifacts/runtime-readiness/latest/backend-summary.json",
-    "readiness:test": "node scripts/check-test-runtime-readiness.mjs --public-base-url http://8.141.20.130 --output artifacts/runtime-readiness/test/summary.json",
+    "readiness:test": "node scripts/check-test-runtime-readiness.mjs --public-base-url http://community.8.141.20.130.nip.io --output artifacts/runtime-readiness/test/summary.json",
     "deploy:verify:pre": "npm run verify:quick",
     "deploy:verify:post:test": "npm run readiness:test",
     "deploy:test:web": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy-test-web.ps1 -VerifyBeforeDeploy -VerifyAfterDeploy",
@@ -55,6 +55,8 @@
     "media:audit": "node scripts/audit-media-asset-keys.mjs",
     "media:normalize:preview": "node scripts/normalize-media-asset-keys.mjs",
     "media:normalize:apply": "node scripts/normalize-media-asset-keys.mjs --apply",
+    "media:derivatives:backfill:preview": "node scripts/backfill-media-derivative-tasks.mjs",
+    "media:derivatives:backfill:apply": "node scripts/backfill-media-derivative-tasks.mjs --apply",
     "moderation:backfill:preview": "node scripts/backfill-historical-moderation-audits.mjs",
     "moderation:backfill:apply": "node scripts/backfill-historical-moderation-audits.mjs --apply"
   }

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const root = process.cwd();
 const inputPath = process.argv[2]
@@ -7,6 +8,8 @@ const inputPath = process.argv[2]
   : path.resolve(root, "youmind-image-assets", "nano-banana-extracted", "nano-banana-items.all.json");
 const argOutputDirOrMode = process.argv[3] || "";
 const argMode = process.argv[4] || "";
+const requestTimeoutMs = Number(process.argv[5] || 45000);
+const requestRetries = Number(process.argv[6] || 3);
 const outputDir =
   argOutputDirOrMode && argOutputDirOrMode.toLowerCase() !== "thumbs"
     ? path.resolve(root, argOutputDirOrMode)
@@ -52,17 +55,44 @@ function getExtensionFromUrl(url) {
 }
 
 async function downloadFile(url, targetPath, refererUrl) {
-  const response = await fetch(url, {
-    headers: buildHeaders(url, refererUrl)
-  });
+  let lastError = null;
 
-  if (!response.ok) {
-    throw new Error(`Download failed: ${response.status} ${response.statusText} for ${url}`);
+  for (let attempt = 1; attempt <= requestRetries; attempt += 1) {
+    try {
+      execFileSync(
+        "curl.exe",
+        [
+          "-sS",
+          "-L",
+          "--max-time",
+          String(Math.max(30, Math.ceil(requestTimeoutMs / 1000))),
+          "-H",
+          `user-agent: ${buildHeaders(url, refererUrl)["user-agent"]}`,
+          "-H",
+          `accept: ${buildHeaders(url, refererUrl).accept}`,
+          "-H",
+          `referer: ${buildHeaders(url, refererUrl).referer}`,
+          "-o",
+          targetPath,
+          url
+        ],
+        {
+          encoding: "utf8",
+          maxBuffer: 10 * 1024 * 1024
+        }
+      );
+
+      return fs.statSync(targetPath).size;
+    } catch (error) {
+      lastError = error;
+
+      if (attempt < requestRetries) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+      }
+    }
   }
 
-  const buffer = Buffer.from(await response.arrayBuffer());
-  fs.writeFileSync(targetPath, buffer);
-  return buffer.length;
+  throw lastError || new Error(`Download failed for ${url}`);
 }
 
 async function downloadAssetGroup(urls, targetDir, prefix, refererUrl) {
@@ -114,11 +144,21 @@ async function main() {
   ensureDir(outputDir);
 
   const results = [];
+  const totalMediaCount = items.reduce((sum, item) => sum + (Array.isArray(item.media) ? item.media.length : 0), 0);
+  let processedMediaCount = 0;
+  let processedItemCount = 0;
 
   for (const item of items) {
     const media = Array.isArray(item.media) ? item.media : [];
     const thumbs = Array.isArray(item.mediaThumbnails) ? item.mediaThumbnails : [];
     const refererUrl = buildPageReferer(item);
+    processedItemCount += 1;
+
+    console.log(
+      `[item ${processedItemCount}/${items.length}] rank=${item.rank} id=${item.id} media=${media.length} title=${JSON.stringify(
+        item.title || ""
+      )}`
+    );
 
     if (media.length === 0) {
       results.push({
@@ -138,11 +178,12 @@ async function main() {
     const imageResults = await downloadAssetGroup(media, imagesDir, "", refererUrl);
     const thumbnailResults =
       downloadThumbnails && thumbs.length > 0 ? await downloadAssetGroup(thumbs, thumbsDir, "", refererUrl) : [];
+    processedMediaCount += media.length;
 
     item.localMediaFiles = imageResults.filter((entry) => !entry.failed).map((entry) => entry.targetPath);
     item.localThumbnailFiles = thumbnailResults.filter((entry) => !entry.failed).map((entry) => entry.targetPath);
 
-    results.push({
+    const itemResult = {
       rank: item.rank,
       id: item.id,
       title: item.title,
@@ -154,7 +195,13 @@ async function main() {
       downloadedThumbnails: thumbnailResults.filter((entry) => !entry.skipped && !entry.failed).length,
       skippedThumbnails: thumbnailResults.filter((entry) => entry.skipped).length,
       failedThumbnails: thumbnailResults.filter((entry) => entry.failed).length
-    });
+    };
+
+    results.push(itemResult);
+
+    console.log(
+      `[done ${processedItemCount}/${items.length}] media=${processedMediaCount}/${totalMediaCount} downloaded=${itemResult.downloadedImages} skipped=${itemResult.skippedImages} failed=${itemResult.failedImages}`
+    );
   }
 
   fs.writeFileSync(inputPath, `${JSON.stringify(items, null, 2)}\n`, "utf8");

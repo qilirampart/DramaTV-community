@@ -15,11 +15,15 @@ import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.dramatv.community.shared.security.ActionRateLimiter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.OffsetDateTime;
+import java.util.HexFormat;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.slf4j.Logger;
@@ -39,6 +43,8 @@ public class UploadApplicationService {
     private static final String ROLE_POSTER = "poster";
     private static final String ROLE_AVATAR = "avatar";
     private static final String ROLE_ATTACHMENT = "attachment";
+    private static final String CHECKSUM_ALGORITHM = "SHA-256";
+    private static final int IO_BUFFER_SIZE = 16 * 1024;
     private static final List<String> ALLOWED_IMAGE_MIME_TYPES = List.of(
             "image/jpeg",
             "image/png",
@@ -48,6 +54,14 @@ public class UploadApplicationService {
             "video/mp4",
             "video/quicktime",
             "video/webm"
+    );
+    private static final List<String> ALLOWED_AUDIO_MIME_TYPES = List.of(
+            "audio/mpeg",
+            "audio/mp4",
+            "audio/wav",
+            "audio/x-wav",
+            "audio/webm",
+            "audio/ogg"
     );
     private static final List<String> ALLOWED_IMAGE_EXTENSIONS = List.of(
             "jpg",
@@ -59,6 +73,13 @@ public class UploadApplicationService {
             "mp4",
             "mov",
             "webm"
+    );
+    private static final List<String> ALLOWED_AUDIO_EXTENSIONS = List.of(
+            "mp3",
+            "m4a",
+            "wav",
+            "webm",
+            "ogg"
     );
 
     private final JdbcTemplate jdbcTemplate;
@@ -94,6 +115,10 @@ public class UploadApplicationService {
         return createPolicy("image", request, maxSizeBytesFor("image"));
     }
 
+    public UploadPolicyResponse createAudioPolicy(UploadPolicyRequest request) {
+        return createPolicy("audio", request, maxSizeBytesFor("audio"));
+    }
+
     public UploadAssetResponse uploadBinary(
             String assetIdText,
             String contentType,
@@ -116,25 +141,34 @@ public class UploadApplicationService {
         validateMime(effectiveMimeType, asset.assetKind());
         validateBinaryMimeConsistency(asset, effectiveMimeType);
 
-        long sizeBytes = uploadByProvider(asset, effectiveMimeType, contentLength, inputStream);
+        MaterializedUpload upload = materializeUpload(inputStream);
+        long sizeBytes = upload.sizeBytes();
 
-        jdbcTemplate.update("""
-                update media_assets
-                set mime_type = ?,
-                    size_bytes = ?,
-                    status_code = ?,
-                    updated_at = now()
-                where id = ?
-                """,
-                effectiveMimeType,
-                sizeBytes,
-                    STATUS_READY,
-                    asset.id()
-        );
+        ReusableAsset reusableAsset = null;
+        try {
+            validateActualSize(asset.assetKind(), sizeBytes, maxSizeBytes);
+            if (sizeBytes <= 0) {
+                throw ApiBusinessException.badRequest("UPLOAD_EMPTY_FILE", "upload file is empty");
+            }
+
+            reusableAsset = findReusableReadyAsset(asset, upload.checksum(), sizeBytes);
+            if (reusableAsset == null) {
+                try (InputStream body = Files.newInputStream(upload.path())) {
+                    sizeBytes = uploadByProvider(asset, effectiveMimeType, sizeBytes, body);
+                } catch (IOException ex) {
+                    throw ApiBusinessException.internalError("UPLOAD_WRITE_FAILED", "upload write failed");
+                }
+            }
+        } finally {
+            cleanupTempFile(upload.path());
+        }
+
+        String resolvedObjectKey = reusableAsset == null ? asset.objectKey() : reusableAsset.objectKey();
+        markAssetReady(asset.id(), effectiveMimeType, sizeBytes, upload.checksum(), resolvedObjectKey);
 
         try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(assetContext(asset.id()))) {
             log.info(
-                    "upload binary success: userId={} assetId={} assetKind={} assetRole={} storageProvider={} declaredSizeBytes={} actualSizeBytes={} statusCode={} mimeType={}",
+                    "upload binary success: userId={} assetId={} assetKind={} assetRole={} storageProvider={} declaredSizeBytes={} actualSizeBytes={} statusCode={} mimeType={} checksum={} reusedObjectKey={}",
                     currentUser.id(),
                     asset.id(),
                     asset.assetKind(),
@@ -143,7 +177,9 @@ public class UploadApplicationService {
                     asset.declaredSizeBytes(),
                     sizeBytes,
                     STATUS_READY,
-                    effectiveMimeType
+                    effectiveMimeType,
+                    upload.checksum(),
+                    reusableAsset != null
             );
         }
 
@@ -152,8 +188,8 @@ public class UploadApplicationService {
                 asset.assetKind(),
                 asset.assetRole(),
                 STATUS_READY,
-                mediaAssetUrlResolver.toMediaPath(asset.storageProvider(), asset.bucketName(), asset.objectKey()),
-                resolvePublicUrl(asset),
+                mediaAssetUrlResolver.toMediaPath(asset.storageProvider(), asset.bucketName(), resolvedObjectKey),
+                resolvePublicUrl(asset.storageProvider(), asset.bucketName(), resolvedObjectKey),
                 sizeBytes
         );
     }
@@ -186,16 +222,30 @@ public class UploadApplicationService {
         }
         validateActualSize(normalizedAssetKind, declaredSize, maxSizeBytesFor(normalizedAssetKind));
 
+        String checksum = computeChecksum(sourcePath);
+        ReusableAsset reusableAsset = findReusableReadyAsset(
+                normalizedAssetKind,
+                normalizedAssetRole,
+                mediaStorageProperties.getStorageProvider(),
+                mediaStorageProperties.getBucketName(),
+                checksum,
+                declaredSize
+        );
+        boolean reuseExistingObject = reusableAsset != null;
+
         UUID assetId = UUID.randomUUID();
         String safeFileName = safeFileName(fileName);
-        String objectKey = buildObjectKey(normalizedAssetKind, normalizedAssetRole, assetId, safeFileName);
+        String objectKey = reuseExistingObject
+                ? reusableAsset.objectKey()
+                : buildObjectKey(normalizedAssetKind, normalizedAssetRole, assetId, safeFileName);
+        String initialStatus = reuseExistingObject ? STATUS_READY : STATUS_PENDING_UPLOAD;
 
         jdbcTemplate.update("""
                 insert into media_assets (
                     id, asset_kind, asset_role, storage_provider, bucket_name, object_key,
-                    file_name, mime_type, size_bytes, duration_ms, status_code, is_public, created_by, created_at, updated_at
+                    file_name, mime_type, size_bytes, duration_ms, checksum, status_code, is_public, created_by, created_at, updated_at
                 )
-                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())
+                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())
                 """,
                 assetId,
                 normalizedAssetKind,
@@ -207,10 +257,31 @@ public class UploadApplicationService {
                 normalizedMimeType,
                 declaredSize,
                 durationMs,
-                STATUS_PENDING_UPLOAD,
+                checksum,
+                initialStatus,
                 true,
                 createdBy
         );
+
+        if (reuseExistingObject) {
+            return new StoredAsset(
+                    assetId,
+                    normalizedAssetKind,
+                    normalizedAssetRole,
+                    objectKey,
+                    mediaAssetUrlResolver.toMediaPath(
+                            mediaStorageProperties.getStorageProvider(),
+                            mediaStorageProperties.getBucketName(),
+                            objectKey
+                    ),
+                    resolvePublicUrl(
+                            mediaStorageProperties.getStorageProvider(),
+                            mediaStorageProperties.getBucketName(),
+                            objectKey
+                    ),
+                    declaredSize
+            );
+        }
 
         RegisteredAsset asset = new RegisteredAsset(
                 assetId,
@@ -233,6 +304,7 @@ public class UploadApplicationService {
                     set mime_type = ?,
                         size_bytes = ?,
                         duration_ms = coalesce(?, duration_ms),
+                        checksum = ?,
                         status_code = ?,
                         updated_at = now()
                     where id = ?
@@ -240,6 +312,7 @@ public class UploadApplicationService {
                     normalizedMimeType,
                     actualSizeBytes,
                     durationMs,
+                    checksum,
                     STATUS_READY,
                     assetId
             );
@@ -250,7 +323,7 @@ public class UploadApplicationService {
                     normalizedAssetRole,
                     objectKey,
                     mediaAssetUrlResolver.toMediaPath(asset.storageProvider(), asset.bucketName(), asset.objectKey()),
-                    resolvePublicUrl(asset),
+                    resolvePublicUrl(asset.storageProvider(), asset.bucketName(), asset.objectKey()),
                     actualSizeBytes
             );
         } catch (IOException ex) {
@@ -352,9 +425,12 @@ public class UploadApplicationService {
             throw ApiBusinessException.badRequest("UPLOAD_MIME_NOT_ALLOWED", "upload mime type is not allowed");
         }
 
-        List<String> allowedMimeTypes = "image".equals(assetKind)
-                ? ALLOWED_IMAGE_MIME_TYPES
-                : ALLOWED_VIDEO_MIME_TYPES;
+        List<String> allowedMimeTypes = switch (assetKind) {
+            case "image" -> ALLOWED_IMAGE_MIME_TYPES;
+            case "video" -> ALLOWED_VIDEO_MIME_TYPES;
+            case "audio" -> ALLOWED_AUDIO_MIME_TYPES;
+            default -> List.of();
+        };
         if (!allowedMimeTypes.contains(mimeType)) {
             throw ApiBusinessException.badRequest("UPLOAD_MIME_NOT_ALLOWED", "upload mime type is not allowed");
         }
@@ -382,9 +458,12 @@ public class UploadApplicationService {
             );
         }
 
-        List<String> allowedExtensions = "image".equals(assetKind)
-                ? ALLOWED_IMAGE_EXTENSIONS
-                : ALLOWED_VIDEO_EXTENSIONS;
+        List<String> allowedExtensions = switch (assetKind) {
+            case "image" -> ALLOWED_IMAGE_EXTENSIONS;
+            case "video" -> ALLOWED_VIDEO_EXTENSIONS;
+            case "audio" -> ALLOWED_AUDIO_EXTENSIONS;
+            default -> List.of();
+        };
         if (!allowedExtensions.contains(extension)) {
             throw ApiBusinessException.badRequest(
                     "UPLOAD_FILE_EXTENSION_NOT_ALLOWED",
@@ -405,7 +484,7 @@ public class UploadApplicationService {
 
     private String normalizeAssetKind(String assetKind) {
         String normalized = assetKind == null ? "" : assetKind.trim().toLowerCase();
-        if ("image".equals(normalized) || "video".equals(normalized)) {
+        if ("image".equals(normalized) || "video".equals(normalized) || "audio".equals(normalized)) {
             return normalized;
         }
         throw ApiBusinessException.badRequest("UPLOAD_ASSET_KIND_INVALID", "upload asset kind is invalid");
@@ -490,15 +569,23 @@ public class UploadApplicationService {
                     || ROLE_ATTACHMENT.equals(normalizedRole)) {
                 return normalizedRole;
             }
+        } else if ("audio".equals(assetKind)) {
+            if (ROLE_SOURCE.equals(normalizedRole)
+                    || ROLE_ATTACHMENT.equals(normalizedRole)) {
+                return normalizedRole;
+            }
         }
 
         throw ApiBusinessException.badRequest("UPLOAD_ASSET_ROLE_INVALID", "upload asset role is invalid");
     }
 
     private long maxSizeBytesFor(String assetKind) {
-        return "image".equals(assetKind)
-                ? mediaStorageProperties.getUpload().getMaxImageSizeBytes()
-                : mediaStorageProperties.getUpload().getMaxVideoSizeBytes();
+        return switch (assetKind) {
+            case "image" -> mediaStorageProperties.getUpload().getMaxImageSizeBytes();
+            case "video" -> mediaStorageProperties.getUpload().getMaxVideoSizeBytes();
+            case "audio" -> mediaStorageProperties.getUpload().getMaxAudioSizeBytes();
+            default -> mediaStorageProperties.getUpload().getMaxVideoSizeBytes();
+        };
     }
 
     private void assertSupportedUploadMode() {
@@ -620,12 +707,146 @@ public class UploadApplicationService {
         }
     }
 
-    private String resolvePublicUrl(RegisteredAsset asset) {
-        return mediaAssetUrlResolver.resolve(
+    private MaterializedUpload materializeUpload(InputStream inputStream) {
+        Path tempFile;
+        try {
+            tempFile = Files.createTempFile("dramatv-upload-", ".bin");
+        } catch (IOException ex) {
+            throw ApiBusinessException.internalError("UPLOAD_WRITE_FAILED", "upload write failed");
+        }
+
+        MessageDigest digest = newChecksumDigest();
+        long sizeBytes = 0L;
+        byte[] buffer = new byte[IO_BUFFER_SIZE];
+
+        try (InputStream body = inputStream; OutputStream outputStream = Files.newOutputStream(tempFile)) {
+            int read;
+            while ((read = body.read(buffer)) >= 0) {
+                if (read == 0) {
+                    continue;
+                }
+                outputStream.write(buffer, 0, read);
+                digest.update(buffer, 0, read);
+                sizeBytes += read;
+            }
+        } catch (IOException ex) {
+            cleanupTempFile(tempFile);
+            throw ApiBusinessException.internalError("UPLOAD_WRITE_FAILED", "upload write failed");
+        }
+
+        return new MaterializedUpload(tempFile, sizeBytes, HexFormat.of().formatHex(digest.digest()));
+    }
+
+    private String computeChecksum(Path sourcePath) {
+        MessageDigest digest = newChecksumDigest();
+        byte[] buffer = new byte[IO_BUFFER_SIZE];
+
+        try (InputStream inputStream = Files.newInputStream(sourcePath)) {
+            int read;
+            while ((read = inputStream.read(buffer)) >= 0) {
+                if (read == 0) {
+                    continue;
+                }
+                digest.update(buffer, 0, read);
+            }
+        } catch (IOException ex) {
+            throw ApiBusinessException.internalError(
+                    "UPLOAD_DERIVED_SOURCE_READ_FAILED",
+                    "derived asset source file could not be read"
+            );
+        }
+
+        return HexFormat.of().formatHex(digest.digest());
+    }
+
+    private MessageDigest newChecksumDigest() {
+        try {
+            return MessageDigest.getInstance(CHECKSUM_ALGORITHM);
+        } catch (NoSuchAlgorithmException ex) {
+            throw ApiBusinessException.internalError("UPLOAD_CHECKSUM_UNAVAILABLE", "upload checksum is unavailable");
+        }
+    }
+
+    private ReusableAsset findReusableReadyAsset(RegisteredAsset asset, String checksum, long sizeBytes) {
+        return findReusableReadyAsset(
+                asset.assetKind(),
+                asset.assetRole(),
                 asset.storageProvider(),
                 asset.bucketName(),
-                asset.objectKey()
+                checksum,
+                sizeBytes
         );
+    }
+
+    private ReusableAsset findReusableReadyAsset(
+            String assetKind,
+            String assetRole,
+            String storageProvider,
+            String bucketName,
+            String checksum,
+            long sizeBytes
+    ) {
+        if (checksum == null || checksum.isBlank() || sizeBytes <= 0) {
+            return null;
+        }
+
+        return jdbcTemplate.query("""
+                select object_key
+                from media_assets
+                where asset_kind = ?
+                  and asset_role = ?
+                  and storage_provider = ?
+                  and bucket_name = ?
+                  and checksum = ?
+                  and size_bytes = ?
+                  and status_code = ?
+                order by created_at asc, id asc
+                limit 1
+                """,
+                resultSet -> resultSet.next() ? new ReusableAsset(resultSet.getString("object_key")) : null,
+                assetKind,
+                assetRole,
+                storageProvider,
+                bucketName,
+                checksum,
+                sizeBytes,
+                STATUS_READY
+        );
+    }
+
+    private void markAssetReady(UUID assetId, String mimeType, long sizeBytes, String checksum, String objectKey) {
+        jdbcTemplate.update("""
+                update media_assets
+                set mime_type = ?,
+                    size_bytes = ?,
+                    checksum = ?,
+                    object_key = ?,
+                    status_code = ?,
+                    updated_at = now()
+                where id = ?
+                """,
+                mimeType,
+                sizeBytes,
+                checksum,
+                objectKey,
+                STATUS_READY,
+                assetId
+        );
+    }
+
+    private void cleanupTempFile(Path tempFile) {
+        if (tempFile == null) {
+            return;
+        }
+        try {
+            Files.deleteIfExists(tempFile);
+        } catch (IOException ignored) {
+            // Best effort cleanup for temporary uploads.
+        }
+    }
+
+    private String resolvePublicUrl(String storageProvider, String bucketName, String objectKey) {
+        return mediaAssetUrlResolver.resolve(storageProvider, bucketName, objectKey);
     }
 
     private String safeFileName(String fileName) {
@@ -657,6 +878,18 @@ public class UploadApplicationService {
             String statusCode,
             long declaredSizeBytes,
             UUID createdBy
+    ) {
+    }
+
+    private record ReusableAsset(
+            String objectKey
+    ) {
+    }
+
+    private record MaterializedUpload(
+            Path path,
+            long sizeBytes,
+            String checksum
     ) {
     }
 

@@ -133,7 +133,7 @@ public class AdminAuthApplicationService {
             return;
         }
 
-        jdbcTemplate.update(""" 
+        jdbcTemplate.update("""
                 update auth_sessions
                 set status_code = 'revoked',
                     revoked_at = now(),

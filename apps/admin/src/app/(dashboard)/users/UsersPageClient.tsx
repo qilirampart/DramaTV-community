@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   createUserAction,
   resetUserPasswordAction,
@@ -201,7 +202,9 @@ function RecentContentList({ items, compact = false }: RecentContentListProps) {
             <span className={styles.recentType}>{item.targetLabel}</span>
             <span className={styles.recentStatus}>{publishStatusLabel(item.publishStatus)}</span>
           </div>
-          <strong className={styles.recentTitle}>{item.title}</strong>
+          <strong className={styles.recentTitle} title={item.title}>
+            {item.title}
+          </strong>
           <span className={styles.recentTime}>{item.publishedAt}</span>
         </article>
       ))}
@@ -248,7 +251,7 @@ function CreateUserModal({ canAssignAdminRole, onClose }: CreateUserModalProps) 
         <header className={styles.recentModalHeader}>
           <div className={styles.recentModalTitle}>
             <h2 id="create-user-title">创建账号</h2>
-            <p>创建本地账号，可直接设置初始密码；留空时默认使用 dramatv-local-dev。</p>
+            <p>创建本地账号，可直接设置初始密码；留空时会自动生成临时密码。</p>
           </div>
           <button
             aria-label="关闭创建账号弹窗"
@@ -289,7 +292,7 @@ function CreateUserModal({ canAssignAdminRole, onClose }: CreateUserModalProps) 
             </label>
             <label className={styles.formField}>
               <span>初始密码</span>
-              <input className={styles.searchInput} name="password" placeholder="可选，不填则使用默认密码" type="text" />
+              <input className={styles.searchInput} name="password" placeholder="可选，不填则自动生成临时密码" type="text" />
             </label>
           </div>
 
@@ -297,7 +300,7 @@ function CreateUserModal({ canAssignAdminRole, onClose }: CreateUserModalProps) 
             <div className={styles.passwordResultSuccess}>
               <strong>账号创建成功</strong>
               <span>{createUserState.message}</span>
-              <span>{createUserState.passwordMode === "custom" ? "初始密码（自定义）" : "初始密码（默认）"}</span>
+              <span>{createUserState.passwordMode === "custom" ? "初始密码（自定义）" : "初始密码（临时生成）"}</span>
               <code>{createUserState.temporaryPassword}</code>
               <span>
                 {createUserState.createdDisplayName} / {createUserState.createdUsername}
@@ -481,7 +484,7 @@ export default function UsersPageClient({ data, canManageUsers, canAssignAdminRo
             </section>
 
             <section className={styles.filterCard}>
-              <form action="/users" className={styles.filterForm} method="get">
+              <form action={buildAdminBrowserPath("/users")} className={styles.filterForm} method="get">
                 <input name="page" type="hidden" value="1" />
                 <label className={styles.searchField}>
                   <span className={styles.filterLabel}>搜索关键词</span>
@@ -695,26 +698,39 @@ export default function UsersPageClient({ data, canManageUsers, canAssignAdminRo
                   </div>
                   <div className={styles.detailFull}>
                     <dt>账号备注</dt>
-                    <dd>{selectedDetail.note}</dd>
+                    <dd className={styles.detailTextBox} title={selectedDetail.note}>
+                      {selectedDetail.note}
+                    </dd>
                   </div>
                 </dl>
 
                 <div className={styles.statsPanel}>
                   <article className={styles.miniStatCard}>
                     <span>内容发布</span>
-                    <strong>{selectedDetail.contentSummary}</strong>
+                    <strong className={styles.statValueClamp} title={selectedDetail.contentSummary}>
+                      {selectedDetail.contentSummary}
+                    </strong>
                   </article>
                   <article className={styles.miniStatCard}>
                     <span>互动沉淀</span>
-                    <strong>粉丝 {selectedDetail.followerCount} / 获赞 {selectedDetail.likesCount}</strong>
+                    <strong className={styles.statValueClamp}>
+                      粉丝 {selectedDetail.followerCount} / 获赞 {selectedDetail.likesCount}
+                    </strong>
                   </article>
                   <article className={styles.miniStatCard}>
                     <span>治理摘要</span>
-                    <strong>{selectedDetail.moderationSummary}</strong>
+                    <strong className={styles.statValueClamp} title={selectedDetail.moderationSummary}>
+                      {selectedDetail.moderationSummary}
+                    </strong>
                   </article>
                   <article className={styles.miniStatCard}>
                     <span>被举报风险</span>
-                    <strong>{selectedDetail.openReportsAgainstUser} 条未关闭举报命中该账号内容</strong>
+                    <strong
+                      className={styles.statValueClamp}
+                      title={`${selectedDetail.openReportsAgainstUser} 条未关闭举报命中该账号内容`}
+                    >
+                      {selectedDetail.openReportsAgainstUser} 条未关闭举报命中该账号内容
+                    </strong>
                   </article>
                 </div>
 

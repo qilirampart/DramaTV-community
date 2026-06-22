@@ -153,7 +153,7 @@ class AdminUserGovernanceApiIntegrationTest extends ApiIntegrationTestSupport {
     }
 
     @Test
-    void operatorCanCreateCreatorUserWithDefaultPasswordWhenPasswordBlank() throws Exception {
+    void operatorCanCreateCreatorUserWithGeneratedTemporaryPasswordWhenPasswordBlank() throws Exception {
         LoginSession operator = loginAsRandomUser("admin-users-create-operator");
         promoteToRole(operator.userId(), "operator");
 
@@ -183,7 +183,9 @@ class AdminUserGovernanceApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(createBody.at("/data/username").asText()).isEqualTo(username);
         assertThat(createBody.at("/data/roleCode").asText()).isEqualTo("creator");
         assertThat(createBody.at("/data/statusCode").asText()).isEqualTo("active");
-        assertThat(temporaryPassword).isEqualTo(DEFAULT_PASSWORD);
+        assertThat(temporaryPassword).startsWith("DT");
+        assertThat(temporaryPassword).hasSize(12);
+        assertThat(temporaryPassword).isNotEqualTo(DEFAULT_PASSWORD);
         assertThat(userRole(createdUserId)).isEqualTo("creator");
         assertThat(userStatus(createdUserId)).isEqualTo("active");
         assertThat(userIdentityProvider(createdUserId)).isEqualTo("local");

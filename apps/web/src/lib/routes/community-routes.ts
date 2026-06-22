@@ -10,6 +10,8 @@ export const COMMUNITY_ROUTES = {
   canvasEntry: "/canvas"
 } as const;
 
+export const COMMUNITY_CANVAS_ENTRY_URL = "https://dz-ailab-stage.dzkjm.cn/marketcanvas/";
+
 export const COMMUNITY_INTERNAL_ROUTES = {
   index: "/internal",
   seedance: "/internal/seedance",

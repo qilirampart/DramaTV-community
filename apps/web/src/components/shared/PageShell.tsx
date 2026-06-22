@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { CommunityTransitionLink } from "@/components/shared/CommunityTransitionLink";
 import { logoutAction } from "@/features/auth/actions";
@@ -7,8 +8,8 @@ import { useCommunitySession } from "@/components/shared/CommunitySessionProvide
 import { NotificationBell } from "@/components/shared/NotificationBell";
 import { normalizeAssetUrl } from "@/lib/presentation";
 import { rememberBackAnchorSource } from "@/lib/routes/back-anchor";
-import { COMMUNITY_ROUTES } from "@/lib/routes/community-routes";
-import { appendBackSource } from "@/lib/routes/redirect-utils";
+import { COMMUNITY_CANVAS_ENTRY_URL, COMMUNITY_ROUTES } from "@/lib/routes/community-routes";
+import { appendBackSource, shouldReplaceHistoryEntryForBackSource } from "@/lib/routes/redirect-utils";
 
 type PageShellVariant =
   | "default"
@@ -141,6 +142,7 @@ export function PageShell({
   showHomeFloatingDock = false,
   gateActionsToLogin = false
 }: PageShellProps) {
+  const router = useRouter();
   const { currentUser } = useCommunitySession();
   const [hydrated, setHydrated] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
@@ -228,6 +230,17 @@ export function PageShell({
         return;
       }
 
+      if (
+        shouldReplaceHistoryEntryForBackSource(
+          `${window.location.pathname}${window.location.search}${window.location.hash}`,
+          from
+        )
+      ) {
+        try {
+          window.history.replaceState(window.history.state, "", from);
+        } catch {}
+      }
+
       rememberBackAnchorSource(from);
     };
 
@@ -252,9 +265,7 @@ export function PageShell({
   const publishHref = gateActionsToLogin
     ? `/login?redirectTo=${encodeURIComponent(COMMUNITY_ROUTES.publish)}`
     : COMMUNITY_ROUTES.publish;
-  const canvasHref = gateActionsToLogin
-    ? `/login?redirectTo=${encodeURIComponent(COMMUNITY_ROUTES.canvasEntry)}`
-    : COMMUNITY_ROUTES.canvasEntry;
+  const canvasHref = COMMUNITY_CANVAS_ENTRY_URL;
   const gatedProfileHref = gateActionsToLogin
     ? `/login?redirectTo=${encodeURIComponent(resolvedProfileHref)}`
     : resolvedProfileHref;
@@ -262,8 +273,24 @@ export function PageShell({
     !gateActionsToLogin && currentPath
       ? appendBackSource(resolvedProfileHref, currentPath)
       : gatedProfileHref;
+  const landingHref = "/";
   const themeLabel = themeMode === "light" ? "日间" : "夜间";
   const themeAriaLabel = themeMode === "light" ? "切换到夜间模式" : "切换到日间模式";
+
+  useEffect(() => {
+    if (variant !== "home") {
+      return;
+    }
+
+    const routes = new Set([landingHref, homeHref, featuredHref, communityHref]);
+    routes.forEach((href) => {
+      if (!href.startsWith("/") || href.startsWith("/login")) {
+        return;
+      }
+
+      router.prefetch(href);
+    });
+  }, [communityHref, featuredHref, homeHref, landingHref, router, variant]);
 
   function handleThemeToggle() {
     setThemeMode((currentTheme) => {

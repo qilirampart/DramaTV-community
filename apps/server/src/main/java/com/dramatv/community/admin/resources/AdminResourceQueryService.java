@@ -747,6 +747,7 @@ public class AdminResourceQueryService {
                 nullableText(resultSet, "channel_title"),
                 nullableText(resultSet, "binding_target_type"),
                 nullableUuidText(resultSet, "binding_target_id"),
+                nullableText(resultSet, "prompt_modality"),
                 buildListMedia(resultSet, targetType),
                 buildModelTags(resultSet)
         );
@@ -775,6 +776,7 @@ public class AdminResourceQueryService {
                 nullableText(resultSet, "channel_title"),
                 nullableText(resultSet, "binding_target_type"),
                 nullableUuidText(resultSet, "binding_target_id"),
+                nullableText(resultSet, "prompt_modality"),
                 buildDetailMedia(resultSet, targetType),
                 buildModelTags(resultSet),
                 buildRiskSignals(resultSet, detailJson)

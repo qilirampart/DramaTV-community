@@ -1,6 +1,7 @@
 package com.dramatv.community.me.dto.response;
 
 import com.dramatv.community.discussion.dto.response.DiscussionHomeResponse;
+import com.dramatv.community.prompt.dto.response.PromptSummaryResponse;
 import com.dramatv.community.publish.dto.response.DraftLifecycleResponse;
 import com.dramatv.community.video.dto.response.VideoSummaryResponse;
 import com.dramatv.community.workflow.dto.response.WorkflowSummaryResponse;
@@ -71,6 +72,7 @@ public record MeHubResponse(
 
     public record PublishedContent(
             List<VideoSummaryResponse> videos,
+            List<PromptSummaryResponse> prompts,
             List<WorkflowSummaryResponse> workflows,
             List<DiscussionHomeResponse.ThreadCard> posts
     ) {

@@ -49,9 +49,12 @@ public record PromptDetailResponse(
 
     public record ExampleAsset(
             String id,
+            String role,
             String assetKind,
             String url,
+            String fileName,
             String mimeType,
+            Long sizeBytes,
             Integer width,
             Integer height,
             Integer durationMs

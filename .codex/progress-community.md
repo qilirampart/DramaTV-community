@@ -19,6 +19,9 @@
 
 ## 当前看板
 
+- 2026-06-02 新增项目级审查与优化任务板：`docs/04_实施设计/project-code-review-optimization-board-2026-06-02.md`
+- 进行中：`O7-1` 收口后台 bootstrap 默认入口，先补回归保护，再改默认值和后台登录页预填行为。
+
 - 活跃中：社区主线后续统一按 `apps/web + apps/server` 推进，优先处理会影响前台真实行为和共享状态一致性的后端问题。
 - 已完成：`submit -> submitted` 真实落地，已提交草稿禁止再次编辑/删除/重提，前后端状态文案已对齐。
 - 已完成：`Feed / Discussion / Video / Workflow / Prompt / Creator / Me / Canvas` 读链路集成测试基线已补齐并跑通。
@@ -49,12 +52,489 @@
 - `C2` 已完成：`/api/comments` 已补根评论分页；仅分页根评论，二级回复继续内嵌在根评论下，保持当前“两层楼中楼”产品策略。
 - `C3` 已完成：共享 `CommentThread` 已拆为 memoized root/reply item，并隔离局部输入状态，避免回复输入拖动整棵评论树重渲染。
 - `C4` 进行中：评论通知轮询与通知查询 SQL 做第二轮收口；当前已先把“通知定位到具体评论”的显式契约补齐，再视真实 trace 决定是否继续压查询/轮询成本。
+- 进行中：`R1 发布页参考素材增强`
+  - `R1-1` 已完成：视频/图片提示词草稿模型扩展，支持 `referenceImageAssetIds / referenceAudioAssetIds`
+  - `R1-2` 已完成：上传层新增音频上传策略、大小校验与 MIME/扩展名白名单
+  - `R1-3` 已完成：发布持久化接入 `prompt_example_links(reference_image/reference_audio)`
+  - `R1-4` 已完成：发布页 UI 与前端 API 契约接入参考图片/参考音频
+  - `R1-5` 已完成：提示词详情页接入参考素材展示与下载闭环
+  - `R1-6` 已完成：本地类型检查、`apps/web` 生产构建与后端集成测试验收
 - 进行中：`Phase 5 可观测性 / 错误码 / 日志硬化`
-  - 已完成：`P5-1` 常见业务 ID (`videoId / workflowId / draftId / commentId / runtimeId / copyTaskId / reportId / taskId / assetId / targetType / targetId`) 注入 MDC
-  - 已完成：`P5-2` `application.log / access.log` 统一补 `biz` 业务上下文输出
-  - 进行中：`P5-3` 已完成 `reports`、`publish submit`、`media retry / admin media task`、`publish callback`、`moderation`、`interaction write paths`、`admin comments / users / feed ops` 八组真实写链路的结构化业务日志收口；下一步优先继续挑剩余高价值真实写链路，不再停在单点 service 修修补补
+  - `P5-1` 已完成：关键请求入口已统一补 `requestId + biz` 业务上下文透传
+  - `P5-2` 已完成：`application.log / access.log` 统一补 `biz` 业务上下文输出
+  - `P5-3` 进行中：已完成 `reports`、`publish submit`、`media retry / admin media task`、`publish callback`、`moderation`、`interaction write paths`、`admin comments / users / feed ops` 八组真实写链路的结构化业务日志收口；下一步优先继续挑剩余高价值真实写链路，不再停在单点 service 修修补补
 
 ## 追加日志
+
+### 2026-06-17 featured multi-hop browser-back restore root cause narrowed to history-entry degradation and fixed locally
+
+- 这轮没有继续直接改 `/featured` 的专用恢复状态机，而是先做了云端高数据量真实回放，重点压了：
+  - `/featured` 深滚动到 `300` 条左右
+  - 进入提示词详情
+  - 再进入作者页
+  - 再进入作者作品详情
+  - 之后逐级 `back`
+- 复现结论明确分成两层：
+  - `作者作品详情 -> 作者 -> 原详情` 这两跳返回都很快，说明共享 `appendBackSource / ContextBackLink / 普通列表恢复` 并不是这轮慢点主因
+  - 真正异常集中在最后一跳回 `/featured`：
+    - 返回后常常先落到一个无 hash 的浅层 `/featured`
+    - 精选页虽然已经有大量列表数据，但恢复遮罩仍会继续挂着
+    - 体感上就表现成“最后一跳回精选尤其慢、而且定位容易漂”
+- 根因判断：
+  - 这不是单纯的 shared `back-anchor` 轮询节奏问题
+  - 也不是再次回到 `/featured` 后列表数据没恢复
+  - 更像是多跳链路里 `history.back()` 回到的那一项，本身已经退化成“无 hash 的旧列表历史项”
+  - 一旦最后一跳回的是 `/featured` 而不是 `/featured#featured-item-*`，就会绕开精选页更强的锚点恢复语义，只剩普通滚动恢复，导致深处回退体感明显变差
+- 本地修复：
+  - `apps/web/src/lib/routes/redirect-utils.ts`
+    - 新增 `shouldReplaceHistoryEntryForBackSource(...)`
+    - 用于判断某次带 `from` 的出链，是否其实是在离开“当前同一路由但更精确锚点版本”的页面
+  - `apps/web/src/components/shared/PageShell.tsx`
+    - 在捕获带 `from` 的同源出链点击时，若 `from` 指向当前同一路由但带更精确 hash 的版本，则先执行一次 `history.replaceState(..., from)`
+    - 然后继续沿用原有 `rememberBackAnchorSource(from)` 逻辑
+  - 目的：
+    - 不改 `/featured` 专用恢复状态机
+    - 不把 `/featured` 的特殊逻辑扩散到别的页面
+    - 只保证后续 `history.back()` 真正回到“带锚点的列表历史项”，避免多跳后退化为无 hash 列表页
+- 回归覆盖：
+  - `apps/web/src/lib/routes/redirect-utils.test.mjs`
+    - 新增“同路由无 hash -> 同路由带 hash”应当升级当前历史项的测试
+    - 新增“不同路由不应误替换历史项”的测试
+- 本地验证：
+  - `node --test apps/web/src/lib/routes/redirect-utils.test.mjs` 通过
+  - `apps/web -> npm.cmd run typecheck` 通过
+- 当前状态：
+  - 这轮修复只落在本地
+  - 下一步应使用全新云端标签页重新验证：
+    - 深滚动 `/featured`
+    - 进入详情 -> 作者 -> 作者作品详情
+    - 连续使用页面返回或浏览器返回逐级退出
+    - 确认最终回到的是带 `#featured-item-*` 的精选页历史项，而不是浅层无 hash `/featured`
+
+### 2026-06-16 featured detail-return pagination stall fixed and synced to cloud
+
+- 用户新反馈的症状已按真实云端链路复现并收口：
+  - `/featured` 深滚动进入详情页后，通过 `返回列表` 回到精选页
+  - 返回定位虽然成功，但继续下滑时可能不再触发后续资源加载，表现为“退出定位后直接加载不了新视频”
+- 这次根因不是接口没数据，也不是单纯的 `IntersectionObserver` 丢失，而是精选页的“下一页已预取”状态只存放在：
+  - `bufferedPageRef`
+  - `bufferedPageKeyRef`
+- 上述缓冲页状态只放在 `ref` 里时，预取成功本身不会触发 React 重新渲染：
+  - 返回定位后页面可能已经处在底部附近
+  - 但负责“自动合并缓冲页 / 继续加载下一批”的 effect 没有收到新的渲染信号
+  - 于是页面表面看起来已经到底，却不会继续长出新批次
+- 本轮修复：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 新增 `bufferedPageVersion` 状态
+    - 预取成功写入缓冲页时递增版本号
+    - 合并缓冲页清空缓冲区时递增版本号
+    - 因筛选条件切换而清空缓冲区时递增版本号
+  - 目标是让“缓冲页已就绪 / 已消费 / 已失效”这些关键节点真正进入渲染信号，保证返回定位后的自动续载逻辑能继续推进
+- 本地验证：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - `apps/web -> npm.cmd run build` 通过
+- 云端同步：
+  - 执行：
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - 云端 web release：
+    - `20260616-202157`
+  - readiness：
+    - `artifacts/runtime-readiness/test/web-deploy-20260616-202157-summary.json`
+    - `13 passed / 0 failed`
+- 云端复测证据：
+  - 路径：
+    - `/featured` 深滚动到 `120` 条
+    - 打开详情 `/prompts/100d955b-83d6-4e60-9640-81461a937a66?...`
+    - 点击 `返回列表`
+    - 返回后继续持续下滑触发加载
+  - 结果：
+    - 返回前：
+      - `count=120`
+      - `scrollY=4628.8`
+      - `height=12344`
+      - 目标卡片仍在视口内
+      - 无 `Restoring featured position` 遮罩
+    - 返回后继续下滑：
+      - `count=192`
+      - `scrollY=18717.6`
+      - `height=19373`
+      - 未卡在 `加载中...`
+      - 未落入 `加载失败，点击重试`
+- 当前判断：
+  - 这条“详情返回后后续不再加载”的主症状在当前云端 build 上已收口
+  - `/featured` 返回定位链路仍然是高风险页面，后续如果再出现同类卡死，优先继续检查“缓冲页状态是否进入渲染信号”这条线，而不是先怀疑接口本身
+
+### 2026-06-16 featured hash return no longer re-centers on every later incremental load
+
+- 用户新反馈的异常现象已单独复现：
+  - 从精选详情返回后，URL 形如：
+    - `http://drama-community-dev.dzkjm.cn/featured#featured-item-...`
+  - 首次返回定位本身是对的
+  - 但继续下滑触发后续增量加载时，页面会再次被拉回这个旧的 `featured-item-*` 资源
+- 根因确认：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - 页面里有一段“轻量 hash 锚点校正”逻辑：
+    - 非 blocking back-scroll 模式下，如果当前 hash 对应的卡片已经存在，就执行一次 `target.scrollIntoView({ block: "center" })`
+  - 旧实现把这段逻辑依赖到了：
+    - `renderedItems.length`
+    - `snapshotRestoreState.phase`
+  - 结果是返回完成后，只要后面继续增量加载、列表条数变化，effect 就会再次执行，把页面重新拉回旧锚点，看起来像“每次加载一批就重新定位一次”
+- 本轮修复：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 新增 `softHashAnchorCenteredRouteRef`
+    - 对同一个 `featuredBackAnchorRouteKey` 只允许执行一次轻量 `scrollIntoView`
+    - 当 routeKey 变化或返回链路变化时再重置，避免把一次正常的返回校正变成后续每轮增量加载都重复执行的副作用
+  - 同时把这段 effect 的触发依赖从 `renderedItems.length` 收窄到真正需要的 route/restore 维度，避免单纯追加新卡片就重新触发定位
+- 本地验证：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - `apps/web -> npm.cmd run build` 通过
+- 云端同步：
+  - 执行：
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - 云端 web release：
+    - `20260616-203743`
+  - readiness：
+    - `artifacts/runtime-readiness/test/web-deploy-20260616-203743-summary.json`
+    - `13 passed / 0 failed`
+- 云端专项复测证据：
+  - 路径：
+    - `/featured` 深滚动
+    - 打开详情 `/prompts/924e3991-ed93-4a2f-a3c5-c387f530c2ef?...`
+    - `返回列表`
+    - 返回后继续连续下滑 8 轮触发增量加载
+  - 返回瞬间：
+    - `count=228`
+    - `scrollY=3672`
+    - 目标卡片 `top=224.4`
+  - 后续继续加载：
+    - 第 1 轮就增长到 `count=240`
+    - `scrollY=22260.8`
+    - 目标旧卡片 `top=-18364.3`
+    - 之后不再被重新拉回旧锚点
+  - 结论：
+    - 返回后继续加载已经不会再“每次加载一批就重新定位回那个旧资源”
+
+### 2026-06-16 deep featured return overlay stall narrowed to restore-source priority and fixed on cloud
+
+- 用户继续反馈新的深层问题：
+  - 精选页滑动得更深后，从详情返回有时会直接卡在：
+    - `Restoring featured position`
+  - 用户截图对应的是整页恢复遮罩长期不退出，而不是单纯“回到的位置不准”
+- 本轮先做了真实云端深滑回放，确认这类问题的高风险前提是：
+  - `/featured` 已经滚到远超首批和普通分页缓存的深度
+  - 返回时 URL 带 `#featured-item-*`
+  - 恢复链路需要在“快照 route snapshot / 同标签内存缓存 / session 缓存”之间选一份列表状态作为恢复底稿
+- 确认的结构性风险：
+  - `featured-hash-route-snapshot.ts` 当前 route snapshot 仍有 `240` 条上限
+  - `featured-inventory-session-cache.ts` 的持久化 session cache 每条只有 `72` 条
+  - 但同标签 memory cache 实际能保留更深的当前页列表状态
+  - 旧实现的恢复顺序是：
+    - 先吃 route snapshot
+    - 再看 memory cache
+    - 最后才看 session cache
+  - 这会导致一个典型深层回归：
+    - 用户离开前其实已经滚到 `300` 条
+    - 返回时先恢复一份被 route snapshot 截断到 `240` 条的列表
+    - hash 目标卡如果在更深位置，恢复状态机就会继续等它挂载
+    - 于是容易出现遮罩卡住或恢复推进异常
+- 本轮修复：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 新增 `FeaturedRestoreCandidate`
+    - 新增 `getFeaturedRestoreAnchorTargetId(...)`
+    - 新增 `featuredRestoreEntryContainsTargetId(...)`
+    - 新增 `choosePreferredFeaturedRestoreCandidate(...)`
+  - 恢复策略从“固定先 route snapshot”改成：
+    - 在 `route snapshot / memory cache / session cache` 三份候选里
+    - 优先选择：
+      - 真正包含当前 `#featured-item-*` 目标卡的那份
+      - 如果都包含或都不包含，则优先条数更深的那份
+      - 条数相同再按 `route snapshot > memory > session` 选
+  - 这样深层同标签返回时，会优先吃更完整的 memory cache，不再被 `240` 条截断快照抢先接管
+  - 只有在最终选中的恢复源本身带有效 masonry snapshot 时，才进入 `restoring-layout`
+  - 否则直接进入 `restoring-viewport`，避免因为拿不到可复用的布局快照而额外拖长阻塞态
+- 本地验证：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - `apps/web -> npm.cmd run build` 通过
+- 云端同步：
+  - 执行：
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - 云端 web release：
+    - `20260616-205402`
+  - readiness：
+    - `artifacts/runtime-readiness/test/web-deploy-20260616-205402-summary.json`
+    - `13 passed / 0 failed`
+- 云端深滑回放证据：
+  - 路径：
+    - `/featured` 深滚动到 `300` 条
+    - 打开详情 `/prompts/db03fc7c-3872-4d17-ab93-512e41c75fe0?...`
+    - 点击 `返回列表`
+  - 返回结果：
+    - `count=300`
+    - `scrollY=15144`
+    - `height=32038`
+    - 目标卡 `found=true`
+    - `top=165.7`
+    - `inViewport=true`
+    - `overlay=false`
+    - `loadingText=false`
+- 当前结论：
+  - 这轮修复后，云端 `300` 条深滑返回已经没有复现“卡在 Restoring featured position”
+  - 如果用户后续再次遇到，优先对照当前云端 release 是否至少为：
+    - `20260616-205402`
+  - 并继续重点看是否存在“同标签更深 memory cache 丢失”或“跨链路返回切换成了另一路恢复源”的新场景
+
+### 2026-06-16 featured deep hash refresh cloud follow-up completed
+
+- objective in this slice:
+  - continue the cloud-only `/featured#featured-item-*` refresh repair after the earlier blocking overlay fix
+  - confirm whether the remaining issue was still the full-screen `Restoring featured position` overlay or a deeper hash-restore paging gap
+- first repair in this round:
+  - `apps/web/src/lib/featured/featured-back-anchor.ts`
+    - added `shouldShowFeaturedBackAnchorRestoreOverlay(...)`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - overlay rendering is now gated by the real blocking featured restore state, not by the mere presence of a `#featured-item-*` hash
+  - regression coverage added in:
+    - `apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+- local verification after the first repair:
+  - `node --test apps/web/src/lib/featured/featured-back-anchor.test.mjs apps/web/src/lib/featured/featured-buffered-commit.test.mjs apps/web/src/lib/routes/redirect-utils.test.mjs`
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- first cloud deploy in this round:
+  - web release `20260616-181723`
+  - readiness artifact `artifacts/runtime-readiness/test/web-deploy-20260616-181723-summary.json`
+  - readiness result `13 passed / 0 failed`
+- first cloud replay verdict after that deploy:
+  - medium-depth manual hash refresh no longer showed `Restoring featured position`
+  - but deeper hash refresh could still silently fall back because the target card was not yet mounted
+  - conclusion: blocking overlay bug was fixed, but manual hash refresh still needed non-blocking auto-paging until the target card exists
+- second repair in this round:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - added a soft featured hash-restore paging state for `#featured-item-*` routes without stored back-scroll
+    - deep manual hash refresh now participates in the same buffered-page / load-more progression until the target card mounts
+    - the blocking overlay still remains reserved for real stored-scroll featured return restore only
+- local verification after the second repair:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- second cloud deploy in this round:
+  - web release `20260616-183411`
+  - readiness artifact `artifacts/runtime-readiness/test/web-deploy-20260616-183411-summary.json`
+  - readiness result `13 passed / 0 failed`
+- cloud replay evidence on `http://drama-community-dev.dzkjm.cn/featured`:
+  - deep hash refresh no longer shows the blocking overlay
+  - a deep replay sample reached:
+    - before reload: `count=180`, `target=featured-item-e5b6e726-5e7f-4e4d-8fa6-b3841eaa752f`
+    - after reload: `scrollY=8876.7998`, `count=84`, `overlay=false`, `targetExists=true`, `target in viewport=true`
+- important residual observation collected in the same cloud session:
+  - another target `featured-item-470850ee-6a63-4081-90f0-594e480b21db` did not remount even after the page kept loading from `204 -> 264` cards
+  - this means one more residual issue still exists in the hash-refresh restore path:
+    - overlay is no longer the blocker
+    - auto-paging is active
+    - but some manual hash targets can still be skipped by the rebuilt masonry/list route even after additional pages append
+- current status:
+  - cloud sync for this round is complete
+  - the original “refresh gets stuck on restoring overlay” symptom has been removed
+  - the remaining open item is narrower: certain manual deep hash targets can still fail to reappear after refresh even while non-blocking auto-paging continues
+
+### 2026-06-14 featured return-restore regressions observed again and explicitly recorded
+
+- 用户本轮再次反馈并提供截图，`/featured` 瀑布流返回定位链路目前至少还有两条未收口回归，必须单独记录，不能再只留在临时对话里：
+  - 回到精选列表后，左侧列会出现“数据看不见”的空列现象；继续下滑一段、触发下一次增量加载后，该列内容才会重新出现。
+  - 回到精选列表后，返回定位偶发卡死在加载遮罩界面，长时间停留在 `Restoring featured position`，未能自行恢复。
+- 当前判断：
+  - 这两条都属于 `/featured` 返回定位与瀑布流增量恢复的真实线上/云端回归，不是单次浏览器偶发现象。
+  - 其中第一条更像“返回后已恢复的数据批次、列分配或可见区重建不完整”；第二条更像“返回定位完成条件没有被正确满足或释放”。
+- 处理要求：
+  - 后续修复时必须把这两条作为独立验收项同时验证，不能只验证“能回到大致位置”。
+  - 回归验证至少覆盖：深滚动进入详情、`返回列表`、恢复后不再出现空左列、无遮挡卡死、无需再次触发下一页加载即可稳定展示。
+
+### 2026-06-14 featured return-restore first repair slice landed locally
+
+- 本轮先只处理 `/featured` 返回链路，不继续混入 hydration 首帧问题，目标是先收口用户当前最直观的两条回归：
+  - 返回后左侧列偶发空掉，必须再触发一次增量加载才恢复。
+  - 返回后偶发长时间停留在 `Restoring featured position` 遮罩。
+- 本轮代码收口：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 将“正常首屏未滚动时禁止 buffer 直接并入列表”和“返回定位期间允许继续补批次”显式拆开，不再共用同一条提交条件。
+    - 返回定位活跃期间，瀑布流列分配显式 `forceReset`，避免沿用旧列缓存导致恢复后列分布不完整。
+    - `IntersectionObserver` 与 near-bottom 提交逻辑都改为识别返回恢复态，避免普通首屏和返回恢复互相污染。
+- 本地回归证据：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - `apps/web -> npm.cmd run build` 通过
+  - Playwright 本地深返回回放：
+    - `/featured` 自底部自动加载到 `60` 条
+    - 进入深处详情 `/prompts/31101f38-9f78-5cae-b679-e39eb7de9ecd`
+    - 点击 `返回列表`
+    - 返回后结果：
+      - `scrollY = 5122.4`
+      - `cards = 60`
+      - 遮罩文本不存在
+      - 三列卡片数分别为 `22 / 21 / 17`
+      - console `error = 0`
+- 当前边界：
+  - 本地返回定位两条直观回归已先压住
+  - 云端同路径仍需复验
+  - `#418 / hydration mismatch` 仍是独立问题，尚未在本轮一并收口
+
+### 2026-06-12 local 3106 dev-origin mismatch fixed and featured interaction restored
+
+- 用户反馈“从之前经验看是服务启动方式有问题导致的”，本轮已确认这是准确判断，不是精选页业务逻辑再次回归。
+- 根因闭环：
+  - 当前本地 `3106` 实际是 `next dev`，不是稳定的 `next start`
+  - 但 `apps/web/package.json` 里的 `dev` 脚本只写了 `next dev --port 3106`，默认绑定到 `localhost`
+  - 用户与脚本长期按项目约定通过 `http://127.0.0.1:3106` 访问
+  - Next 16 因 dev-origin 安全限制直接拦截了 `127.0.0.1` 对 `/_next/webpack-hmr` 的访问，`web-3106.out.log` 已明确出现：
+    - `Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1"`
+  - 表面症状就变成“精选页分类点不了、主题切换没反应、滚动加载像坏了”，本质是客户端交互层没有正常接管
+- 本轮修复：
+  - `apps/web/package.json`
+    - `dev` 改为 `next dev --hostname 127.0.0.1 --port 3106`
+  - `apps/web/next.config.ts`
+    - 新增 `allowedDevOrigins: ["127.0.0.1", "localhost"]`
+  - 停掉旧 `3106` 进程后，按标准脚本重新拉起：
+    - `scripts/start-web-3100.ps1 -Mode dev -Port 3106 -BindHost 127.0.0.1`
+- 验证证据：
+  - Playwright 复验 `http://127.0.0.1:3106/featured`
+    - console `error = 0`
+    - 点击 `视频提示词` 后 URL 从 `/featured` 变为 `/featured?filter=video_prompt`
+    - 主题切换从 `dark -> light`
+    - 底部滚动后文档高度从 `2152 -> 3239`，说明自动加载继续生效
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json` 通过
+  - `apps/web -> npm.cmd run build` 通过
+- 当前结论：
+  - 这次问题是本地 dev 启动口径和访问口径不一致，不是精选页业务代码本身再次坏掉
+  - 后续只要继续以 `127.0.0.1:3106` 为固定入口，这个绑定和 `allowedDevOrigins` 就不能再丢
+
+### 2026-06-02 项目级审查问题已收口到独立任务板
+
+- 已把 2026-06-02 代码审查确认的问题和优化顺序写入 `docs/04_实施设计/project-code-review-optimization-board-2026-06-02.md`，不再只留在聊天记录里。
+- 本轮固定顺序为：`O7-1 后台 bootstrap 默认入口` -> `O7-2 社区本地密码默认入口` -> `O7-3/O7-4 作者主页数据契约` -> `O7-5 typecheck 工程链路`。
+- 当前先做 `O7-1`，范围控制在 `apps/server + apps/admin`，目标是先关掉默认后台入口，再保留测试环境显式开启能力。
+
+### 2026-05-26 creator page backdrop unified to theme background
+
+- 用户反馈作者主页存在前台视图不一致：自己看 `/me` 时背景是正常深色底，但别人看 `/creators/{id}` 时，如果该作者没有公开作品封面，整页背景会错误回退成头像大图。
+- 根因已确认在前端 `apps/web/src/features/creator/CreatorPage.tsx`，不是后端数据问题：
+  - 作者页原逻辑先后经历过 `作品封面 -> 头像` 的背景回退
+  - 这会导致作者页背景跟随内容或头像漂移，而 `/me` 页面本身并没有同类 hero 背景逻辑
+- 最终按产品口径收口：
+  - 作者页背景不再回退到头像
+  - 作者页背景也不再回退到作品封面
+  - 当前统一为主题背景：
+    - 夜间模式：黑底
+    - 日间模式：白底
+  - 头像仍只保留在 hero 头像位，不再影响整页背景
+- 本轮修复：
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - 去掉作者页背景层的动态 `backgroundImage`
+    - 头像也不再从作品封面回退
+  - `apps/web/src/features/creator/CreatorPage.module.css`
+    - 背景层收口为固定主题底色
+    - 新增 light 主题下的最小配色覆盖，保证白底时文字、tab、卡片、空态仍可读
+- 验证证据：
+  - `npm.cmd run typecheck:web` 通过
+  - Playwright 本地复验通过：
+    - dark：`backdropImage.backgroundColor = rgb(5, 7, 10)`，`backgroundImage = none`
+    - light：`backdropImage.backgroundColor = rgb(255, 255, 255)`，`backgroundImage = none`
+- 当前结论：
+  - 这是一条前台展示层 bug，影响范围收口在 `CreatorPage`
+  - 共享接口、共享状态语义和后端契约都无需改动
+
+### 2026-05-25 publish reference panels tightened to fixed-height blocks
+
+- 用户确认公网音频上传恢复后，又补充了发布页参考素材区的视觉要求：不要再形成过长的内容块，而要表现为固定大小的控件区。
+- 已在 `apps/web/src/features/publish/PublishPage.module.css` 继续收口：
+  - 桌面端 `参考图片 / 参考音频` 卡片高度从上一轮的大尺寸收为固定 `320px`
+  - 中屏保持固定 `312px`
+  - 小屏保持固定 `288px`
+  - 列表区继续保留内部滚动，避免素材数量把整段发布页再次撑长
+- 已完成本地校验：
+  - `npm.cmd --prefix apps/web run typecheck`
+- 已完成云端同步与复看：
+  - `scripts/deploy-test-web.ps1 -VerifyAfterDeploy` -> web release `20260525-155547`
+  - 公网 `http://8.141.20.130/publish` Playwright 复看已确认参考素材区高度落为固定 `320px`
+  - 本轮同步被默认 `deploy:test:web` 预检里的后端时序波动拦过一次，根因是无关的 `PublishPipelineIntegrationTest` 断言 `queued` / 实际更快进入 `processing`；最终按“前端样式只发 web”口径单独完成同步
+
+### 2026-05-24 publish reference asset enhancement taskboard initialized
+
+- 已把“发布页参考素材增强”正式挂进社区主线任务板，避免继续停留在聊天口径。
+- 当前确定的产品边界：
+  - 图片提示词：`主示例图片 1` + `参考图片 0-9`
+  - 视频提示词：`主示例视频 1` + `参考图片 0-9` + `参考音频 0-5`
+  - 工作流：本轮不接参考素材，继续保持占位
+- 当前确定的实现边界：
+  - 不新建单独的 draft reference 表
+  - 优先复用 `prompt_example_links`
+  - 通过 `role_code=example/reference_image/reference_audio/preview` 承接主示例、参考图、参考音频与预览
+- 本轮任务拆分：
+  - `R1-1` 草稿模型扩展
+  - `R1-2` 上传层新增音频支持
+  - `R1-3` 发布持久化写入参考素材关系
+  - `R1-4` 发布页 UI 与前端契约接入
+  - `R1-5` 本地验证与回写进度
+- 当前做到哪一步：
+  - 任务板已初始化，下一步先落后端最小闭环：草稿 DTO + 应用服务校验 + 音频上传策略
+- 下次先做什么：
+  - 完成 `R1-1` 与 `R1-2` 后，立刻补集成测试，再继续做前端接入
+
+### 2026-05-24 r1-1 draft reference payload support completed
+
+- `R1-1` 已按真实后端链路落地，不再停留在任务板层面。
+- 本轮完成内容：
+  - `VideoDraftApplicationService` 默认 payload 已补 `referenceImageAssetIds / referenceAudioAssetIds`
+  - 草稿 `mergePayload -> toResponse` 已贯通两个参考素材数组字段
+  - 草稿校验已补齐：
+    - 非 prompt 分类禁止携带参考素材
+    - 参考图片最多 `9` 条
+    - 参考音频最多 `5` 条
+    - `image_prompt` 禁止参考音频
+  - 错误码已补：
+    - `VIDEO_DRAFT_REFERENCE_ASSET_NOT_ALLOWED`
+    - `VIDEO_DRAFT_REFERENCE_IMAGE_LIMIT_EXCEEDED`
+    - `VIDEO_DRAFT_REFERENCE_AUDIO_LIMIT_EXCEEDED`
+    - `VIDEO_DRAFT_REFERENCE_AUDIO_NOT_ALLOWED`
+- 已验证：
+  - `DraftApiIntegrationTest` 已覆盖草稿 round-trip 与 `image_prompt` 禁止参考音频场景
+  - `& '.\scripts\use-local-java17-maven.ps1' -f apps/server/pom.xml '-Dtest=DraftApiIntegrationTest' test` -> `6 passed / 0 failed`
+- 当前做到哪一步：
+  - `R1-1` 已完成，任务板状态已回写
+  - 下一步直接进入 `R1-2`，先补上传层音频策略和集成测试
+
+### 2026-05-24 publish reference asset detail-download scope added
+
+- 已把用户补充的“提示词详情页素材下载闭环”正式纳入 `R1`，避免这轮只把发布链路做通、却把详情消费层留空。
+- 当前范围补充为：
+  - 图片提示词详情页：主示例图片 + 参考图片，均应可展示并可下载
+  - 视频提示词详情页：主示例视频 + 参考图片 + 参考音频，均应可展示并可下载
+  - 下载仍走现有 `/media/**` 代理链路，不暴露内部 OSS 细节
+- 任务板同步调整：
+  - `R1-3` 继续负责后端落库角色化关系
+  - `R1-4` 继续负责发布页上传与前端契约
+  - 新增 `R1-5`：提示词详情页参考素材展示与下载
+  - 原本验收项顺延为 `R1-6`
+- 当前做到哪一步：
+  - 需求边界已收口，下一步先做后端持久化与详情查询，否则前端无从消费
+
+### 2026-05-25 R1 prompt reference asset publish/detail loop completed
+
+- 这轮把“提示词可带参考素材”从后端能力补到了前端可用闭环，不再停留在 DTO 和落库层。
+- 已完成的前端闭环：
+  - `apps/web` 新增 `/api/uploads/audio-policy`，前端上传代理现在正式支持 `audio`
+  - 发布页 `图片提示词` 支持 `1 主图 + 0-9 参考图`
+  - 发布页 `视频提示词` 支持 `1 主视频 + 0-9 参考图 + 0-5 参考音频`
+  - 参考素材使用 `attachment` 角色上传，草稿保存时会带上 `referenceImageAssetIds / referenceAudioAssetIds`
+  - 提示词详情页已新增“参考素材 / 下载素材”区，主素材、参考图片、参考音频都会按分组展示并提供下载入口
+- 共享层补齐内容：
+  - `view-models.ts` 已补 `VideoDraftView` 的参考素材数组，以及提示词详情页的 `promptAssets`
+  - `community-service.ts` 已补 publish bootstrap / update draft / upload policy 的音频与参考素材映射
+  - `community.ts` 已把后端 `examples(role=example/reference_image/reference_audio)` 映射成前端可直接渲染的下载资产视图
+- 验证证据：
+  - 后端上一轮已通过 `PublishPipelineIntegrationTest + PromptReadApiIntegrationTest + DraftApiIntegrationTest + UploadValidationIntegrationTest`，`35 passed / 0 failed`
+  - 本轮前端执行 `npx.cmd tsc --noEmit -p apps/web/tsconfig.json` 通过
+  - 本轮前端执行 `apps/web -> npm.cmd run build` 通过，构建产物已出现 `/api/uploads/audio-policy` 与 `/prompts/[id]`
+- 当前做到哪一步：
+  - `R1-1 ~ R1-6` 已全部收口，当前提示词参考素材发布链路与详情下载链路已具备本地可交付状态
+- 下次先做什么：
+  - 如果要继续增强，优先考虑补“草稿态已上传参考素材文件名回显”而不是继续扩散到工作流发布页
 
 ### 2026-05-21 discussion composer editor enhancement
 
@@ -2551,20 +3031,3668 @@
 
 ### 2026-05-21 discussion composer upgraded to wysiwyg rich editor
 
-- �ѽ� `/discussions/new` �� `textarea + markdown ��ť` ����Ϊ�����ĸ��ı��༭�������������� `# / ** / *` ���ܿ�Ԥ��ȷ��Ч����ģʽ��
-- ���ֺ��ĸĶ���
-  - ���� `apps/web/src/features/discussions/discussion-rich-content.ts`��ͳһ�������������ĵĸ��ı� schema����Ƶ��ڵ㡢markdown/html ˫��ת�������Ĵ��ı���ȡ�߼���
-  - ���� `apps/web/src/features/discussions/discussion-rich-editor.tsx` + `discussion-rich-editor.module.css`�����ӷ���ҳ����֧�����������ñ༭������㼶����б�塢���ӡ��б������á�����顢���롢��ɫ���ֺš�ͼƬ���롢��Ƶ���붼�ڱ༭��ֱ����Ⱦ��
-  - `DiscussionComposerPage.tsx` ���л�Ϊʹ���¸��ı��༭������ `textarea`���Ҽ��˵���markdown �ַ�������ʽ�����߼����Ƴ���
-  - `discussion-markdown.tsx` �� `discussion-markdown.module.css` ��ͬ���е�ͬһ��ֻ�����ı���Ⱦ���壬Ԥ����������������ҳ�ɼ������ѵ�ǰ `content` �ַ�������������������ֺš���ɫ����Ƶ��͸��ı� HTML ���ġ�
-- ��ǰ�Ա��ֺ�� `content_text` ��Լ���䣺
-  - �༭����ͨ�� `content` �ַ������˽�����
-  - Ϊ����������·���༭��������ȱ��� HTML ������ģ�
-  - �� markdown �����Կɱ�������ȡ����Ⱦ��
-- ����֤��
-  - `apps/web -> npm.cmd run typecheck` ͨ����
-- ��ǰ������һ����
-  - ���ı��༭������ֻ����Ⱦ��������ǰ�������ϣ���һ����Ҫ����������� `/discussions/new` ��ʵ�ʽ����뷢��������ҳ���Ա��֡�
-- �´�����ʲô��
-  - ��������ձ���/��ɫ/�ֺ�/ͼƬ/��Ƶ�����Ƿ�Ԥ�ڹ�����
-  - ���������б�ժҪ¶�� HTML Ƭ�Σ��򲹺�� `buildExcerpt` �ĸ��ı�ժҪ��ϴ����
+- �ѽ� `/discussions/new` �� `textarea + markdown ��ť` ����Ϊ�����ĸ��ı��༭�������������� `# / ** / *` ���ܿ�Ԥ��ȷ��Ч����ģʽ��
+- ���ֺ��ĸĶ���
+  - ���� `apps/web/src/features/discussions/discussion-rich-content.ts`��ͳһ�������������ĵĸ��ı� schema����Ƶ��ڵ㡢markdown/html ˫��ת�������Ĵ��ı���ȡ�߼���
+  - ���� `apps/web/src/features/discussions/discussion-rich-editor.tsx` + `discussion-rich-editor.module.css`�����ӷ���ҳ����֧�����������ñ༭������㼶����б�塢���ӡ��б������á�����顢���롢��ɫ���ֺš�ͼƬ���롢��Ƶ���붼�ڱ༭��ֱ����Ⱦ��
+  - `DiscussionComposerPage.tsx` ���л�Ϊʹ���¸��ı��༭������ `textarea`���Ҽ��˵���markdown �ַ�������ʽ�����߼����Ƴ���
+  - `discussion-markdown.tsx` �� `discussion-markdown.module.css` ��ͬ���е�ͬһ��ֻ�����ı���Ⱦ���壬Ԥ����������������ҳ�ɼ������ѵ�ǰ `content` �ַ�������������������ֺš���ɫ����Ƶ��͸��ı� HTML ���ġ�
+- ��ǰ�Ա��ֺ�� `content_text` ��Լ���䣺
+  - �༭����ͨ�� `content` �ַ������˽�����
+  - Ϊ����������·���༭��������ȱ��� HTML ������ģ�
+  - �� markdown �����Կɱ�������ȡ����Ⱦ��
+- ����֤��
+  - `apps/web -> npm.cmd run typecheck` ͨ����
+- ��ǰ������һ����
+  - ���ı��༭������ֻ����Ⱦ��������ǰ�������ϣ���һ����Ҫ����������� `/discussions/new` ��ʵ�ʽ����뷢��������ҳ���Ա��֡�
+- �´�����ʲô��
+  - ��������ձ���/��ɫ/�ֺ�/ͼƬ/��Ƶ�����Ƿ�Ԥ�ڹ�����
+  - ���������б�ժҪ¶�� HTML Ƭ�Σ��򲹺�� `buildExcerpt` �ĸ��ı�ժҪ��ϴ����
+
+### 2026-05-25 local publish page recovered by correcting the 3106 runtime mode
+
+- 用户反馈 `http://127.0.0.1:3106/publish` 打不开；先复现后确认并不是路由丢失，而是登录后进入发布页时前端运行时崩溃。
+- 真实根因已经定位：
+  - `3106` 端口当时跑的是 `next start`，不是标准本地联调态 `next dev`
+  - 浏览器在 `/publish` 登录后请求了路由依赖 chunk：
+    - `/_next/static/chunks/0m2_9i66egy7d.js`
+    - `/_next/static/chunks/097zf_exb0hqo.js`
+    - `/_next/static/chunks/0kb123i2v-7ne.css`
+  - 这些静态资源全部返回 `500`
+  - 控制台随后出现 `ChunkLoadError`，页面落到 `This page couldn't load`
+- 已执行修复：
+  - 停掉错误的 `next start --port 3106` 进程
+  - 通过 `scripts/start-web-3100.ps1 -Mode dev -Port 3106` 按标准方式重新拉起本地社区前台
+- 验证证据：
+  - 重新拉起后 `web-3106.out.log` 显示 `next dev --port 3106 --hostname 127.0.0.1`
+  - Playwright 登录后再次访问 `/publish`，页面已正常渲染出完整发布表单
+  - 新控制台仅剩开发态正常日志：`React DevTools` 提示和 `[HMR] connected`
+- 当前做到哪一步：
+  - 本地发布页已恢复可用
+  - 这次属于运行时恢复，不是新的业务代码 bug；相关经验已同步写入 `memory/MEMORY.md`
+- 下次先做什么：
+  - 继续回到发布链路增强主线时，先确认 `3106` 仍处于 `next dev`，避免再次在错误运行模式上排假问题
+## 2026-05-25 prompt asset detail popup UI refined
+
+- 提示词详情页的参考素材展示已从“正文下方长列表”收口成“紧凑摘要入口 + 弹窗下载”。
+- 本轮改动：
+  - `apps/web/src/features/video-detail/VideoDetailPage.tsx`
+    - 新增 `PromptAssetModal`
+    - 主视图只保留 `参考素材 + 共 N 项 · 分组计数 + 查看素材`
+  - `apps/web/src/features/video-detail/VideoDetailPage.module.css`
+    - 压缩参考素材入口卡片高度
+    - 新增弹窗样式，避免破坏现有详情页主排版
+- 验证证据：
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json` 通过
+  - Playwright 复验 `video prompt` 与 `image prompt` 两种详情页：
+    - 详情页正文区已不再被素材列表拉长
+    - `查看素材` 按钮可打开弹窗
+    - 弹窗内仍保留分组下载入口
+
+## 2026-05-25 prompt asset popup synced to cloud
+
+- 已将这轮提示词详情页“参考素材入口收口成弹窗”的前端改动同步到测试云前台。
+- 这次云验收中顺手定位并修掉了一处前后端版本差异带来的兼容口：
+  - 云上旧 prompt 详情接口返回 `examples[]` 时，历史数据未稳定带 `role`
+  - 前端共享映射层现已补兼容：缺 `role` 时按 `video/image => example`、`audio => reference_audio` 兜底
+  - 这样无需先发后端，云上旧数据也能正常点亮 `查看素材` 入口
+- 云发布结果：
+  - 初次 web release：`20260525-135652`
+  - 兼容修复后最终 web release：`20260525-140650`
+- 验证证据：
+  - 两次 `deploy:test:web` 均完成 `VerifyBeforeDeploy + VerifyAfterDeploy`
+  - 最新云端 readiness 产物：`artifacts/runtime-readiness/test/web-deploy-20260525-140650-summary.json`
+  - 公网详情页 spot check：`/prompts/fc73e857-6925-4913-a0af-aa6ce10a834f`
+    - 页面已出现 `参考素材 / 共 1 项 · 示例视频 1 / 查看素材`
+    - 点击后弹窗可正常打开，并显示下载入口
+
+## 2026-05-25 cloud audio upload recovered and publish reference panels bounded
+
+- 公网发布页“参考音频上传失败”已定位并收口，不是文件问题，而是云后端版本落后。
+- 真实根因证据：
+  - 公网复现请求：`POST http://8.141.20.130/api/uploads/audio-policy -> 404 RESOURCE_NOT_FOUND`
+  - 本地后端已具备 `UploadController /audio-policy`
+  - 故障前云后端 release 仍是 `20260524-215718`，未带上本轮 `R1` 音频上传能力
+- 处理动作：
+  - 本地先复验后端链路：`UploadValidationIntegrationTest + PublishPipelineIntegrationTest = 24 passed / 0 failed`
+  - 同步云后端：`deploy:test:backend` -> backend release `20260525-144731`
+  - 再同步发布页前端微调：`deploy:test:web` -> web release `20260525-145458`
+- 发布页布局同步优化：
+  - `参考图片 / 参考音频` 卡片改为固定高度
+  - 卡片内容区改为内部滚动，不再被 9 张图或多条音频把整段页面撑长
+  - `referenceGrid` 增加 `align-items: start`，避免左右卡片被最长一列一起拉高
+- 验证证据：
+  - `apps/web -> tsc --noEmit` 通过
+  - `deploy:test:backend` 前置校验通过，后置 readiness `11 passed / 0 failed`
+  - `deploy:test:web` 前后校验通过，后置 readiness `11 passed / 0 failed`
+  - 用户已在公网确认：参考音频上传恢复可用
+
+### 2026-05-26 creator page published works mismatch analysis
+
+- 用户反馈“作者主页的作品页作品和实际发布的作品有偏差，好像没有真实绑定”，本轮先完成根因分析，暂未改代码。
+- 已确认这不是后端“我的主页”和“别人看我主页”两套数据源不一致：
+  - `apps/server/src/main/java/com/dramatv/community/me/application/MeQueryService.java`
+    - `/api/me/hub` 的 `publishedContent.videos` 直接来自 `videoQueryService.summariesForAuthor(currentUser.id())`
+  - `apps/server/src/main/java/com/dramatv/community/creator/application/CreatorQueryService.java`
+    - `/api/creators/{id}/videos` 同样直接来自 `videoQueryService.summariesForAuthor(creatorId)`
+  - `apps/server/src/main/java/com/dramatv/community/shared/persistence/CommunityCatalogJdbcQueryService.java`
+    - `videosForAuthor(...)` 查询的是作者全部 `publish_status='published'` 且未删除的视频，不会因为是否绑定工作流而过滤
+- 根因已定位在前端展示层二次裁剪：
+  - `apps/web/src/features/creator/CreatorPage.tsx:74`
+    - `toArchiveCard(video)` 中只要存在 `video.workflow?.id` 就直接 `return null`
+  - `apps/web/src/features/me/PersonalCenterPage.tsx:203`
+    - `buildPublishedCards(...)` 同样过滤 `video.workflow?.id`
+  - 结果是：
+    - 已发布且绑定工作流的视频，后端其实正常返回了
+    - 但作者主页“作品”tab 和我的主页“作品”tab 都把这类视频前端丢掉了
+    - 用户会误以为“作品没有真实绑定”或“发布结果和主页展示对不上”
+- 当前实现还有一层语义冲突：
+  - `AGENTS.md` 明确要求作者主页“至少分两个内容区：作品、工作流”
+  - 但现在 `CreatorPage` 实际是把“未绑定工作流的视频 + 工作流”混在同一个“作品”tab 里，并且把“已绑定工作流的视频”过滤掉
+  - 同时统计口径又按后端真实已发布内容计算，容易出现“作品数”和列表内容不一致
+- 当前做到哪一步：
+  - 已完成 creator/me/mapper/frontend page 四层链路比对，确认问题不是数据库绑定丢失，而是前端筛选逻辑错误
+- 下次先做什么：
+  - 优先做最小修复：作者主页与我的主页都不要再过滤 `video.workflow?.id`
+  - 修完后补一条回归验证：已绑定工作流的视频应同时出现在作者视频接口返回和作者主页作品列表中
+
+### 2026-05-26 creator and me works list restored for workflow-bound videos
+
+- 已按最小修复收口“已绑定工作流的视频被作者主页/我的主页过滤掉”的前端 bug，不改后端接口和共享契约。
+- 本轮改动：
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - 去掉 `toArchiveCard(video)` 中对 `video.workflow?.id` 的直接过滤
+    - 作者主页“作品”tab 现在会展示作者全部已发布视频，再和工作流卡片一起组合显示
+  - `apps/web/src/features/me/PersonalCenterPage.tsx`
+    - 去掉 `buildPublishedCards(...)` 中对 `video.workflow?.id` 的过滤
+    - 我的主页“作品”tab 现在同样展示全部已发布视频
+- 验证证据：
+  - `npm.cmd run typecheck:web` 通过
+  - 本地浏览器复验通过：
+    - `/me` 作品列表已恢复展示 `雨夜追逐短片`
+    - 该视频详情页明确带有 `工作流名称：写实追逐工作流`
+    - 对应作者页 `/creators/11111111-1111-1111-1111-111111111111` 的“作品”tab 现在也能看到这条视频
+- 当前结论：
+  - 这次问题的根因已确认并修复，之前不是“绑定没有写上”，而是前端把“已绑定工作流的视频”错误过滤掉了
+- 仍需后续单独评估的产品问题：
+  - 当前作者页仍是“作品 + 工作流”混排在同一个 tab 里，这和 `AGENTS.md` 中“作者主页至少分作品/工作流两个内容区”的规则仍不完全一致
+
+### 2026-05-26 creator/me work cards aligned with featured-style media fallback
+
+- 在“作者主页/我的主页作品数量已恢复正确”之后，继续收口了剩余的作品卡片媒体缺口：历史预填充视频摘要里如果缺 `cover/poster/preview/source`，作品卡片之前会渲染成空白媒体区，看起来就不像精选页，也无法悬浮播放。
+- 根因确认：
+  - `apps/web/src/lib/mappers/community.ts`
+    - `mapVideoMiniCard(...)` 之前完全信任后端 summary 里的 `coverUrl/posterUrl/previewUrl/sourceUrl`
+    - 对历史本地预填充视频（例如 `3d82413b-1036-4c1b-93dd-3a102e0b4683 / 雨夜追逐短片`）来说，这四个字段可能全空
+  - `ProfileMediaCard` 本身没有问题：
+    - 没图就显示空 media
+    - 没 `preview/source` 就不会挂 `<video>`
+  - 视频详情页之所以还能播放，是因为它单独走了 `resolvePrefillVideoForDetail(...)` 的详情兜底，不代表列表卡片链路正常
+- 本轮修复：
+  - 新增 `apps/web/src/lib/prefill/prefill-video-fallback.ts`
+    - 把预填充视频的关键词、预览地址和静态封面图统一收口到共享 fallback 解析器
+    - 新增 `resolvePrefillVideoCardMediaFallback(...)`
+    - 规则固定为：
+      - 已有真实 `preview/source` 时不覆盖真实播放链路
+      - 但如果缺 `cover/poster`，仍可按标题/摘要补静态封面
+      - 如果四个媒体字段都缺，则同时补封面和预览视频
+  - `apps/web/src/lib/prefill/prefill-videos.ts`
+    - 改成兼容出口，详情页继续复用同一套 prefill 元数据，不再和列表卡片各自维护两套映射
+  - `apps/web/src/lib/mappers/community.ts`
+    - `mapVideoMiniCard(...)` 现在接入共享 fallback
+    - 这样作者主页、我的主页、详情页相关推荐等所有依赖 `VideoMiniCardView` 的视频小卡片都会一起受益
+  - 新增轻量回归：
+    - `apps/web/src/lib/prefill/prefill-video-fallback.test.mjs`
+    - 覆盖“全空媒体时补全封面+预览”和“已有真实 preview/source 时只补封面、不覆盖真实播放”两条规则
+- 验证证据：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - `node --test apps/web/src/lib/prefill/prefill-video-fallback.test.mjs` 通过
+  - 本地 Playwright 复验通过：
+    - `/creators/11111111-1111-1111-1111-111111111111`
+      - `雨夜追逐短片` 卡片已补出封面 `/nano-banana-images/000014-13327/01.jpg`
+      - hover 后已真实挂载 `<video src=\"/prefill-videos/009-warehouse-fight.mp4\">`
+    - `/me`
+      - 同一条视频卡片 hover 后也已挂载 `/prefill-videos/009-warehouse-fight.mp4`
+- 当前结论：
+  - 作者主页/我的主页这条问题已经从“作品数量不匹配”推进到“作品卡片媒体表现也与精选页同口径”
+  - 剩余如果还要继续增强，就是纯产品层优化：是否进一步把作者页作品 tab 的排序、首屏优先级和精选页完全做成同一编排语义，而不是当前只对齐卡片展示方案
+
+### 2026-05-26 creator/me work cards trimmed to title-only overlays
+
+- 用户继续反馈作者主页与个人主页作品卡片的信息层级太重：标题、简介同时压在封面上，导致封面可视面积被明显挤占。
+- 这轮按最小范围收口，没有改共享 `ProfileMediaCard` 组件，也没有改工作流/帖子/点赞/收藏卡片：
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - `toWorkCard(...)` 去掉作品卡片 `subtitle`
+    - `toPromptCard(...)` 去掉提示词卡片 `subtitle`
+  - `apps/web/src/features/me/PersonalCenterPage.tsx`
+    - `buildPublishedCards(...)` 里的 `video` 作品卡片去掉 `subtitle`
+    - `buildPublishedCards(...)` 里的 `prompt` 卡片去掉 `subtitle`
+- 当前展示结果已收口为“封面上只保留标题 + 作者/互动指标”，不再把摘要文案继续压在作品封面上。
+- 验证证据：
+  - `apps/web -> npm.cmd run typecheck` 通过
+  - 本地 Playwright 复验通过：
+    - `/creators/11111111-1111-1111-1111-111111111111` 的“作品”tab 中，`雨夜追逐短片` 等卡片文本已只剩标题，不再出现摘要段落
+    - `/me` 的“作品”tab 中，同一批作品卡片也已只剩标题
+    - 作者页和 `/me` 中 `雨夜追逐短片` hover 后仍会挂载 `/prefill-videos/009-warehouse-fight.mp4`，说明这轮只收掉文字层，没有打坏封面/悬浮播放链路
+- 当前结论：
+  - 这轮已经把用户指出的“简介挡住封面”问题按最小成本修掉
+  - 如果后续还要继续精修，方向应是作品卡片标题排版和封面构图，而不是把简介再加回来
+
+### 2026-05-26 personal-center secondary tabs aligned to title-only cards
+
+- 用户继续补充个人中心的一致性要求：`/me` 中不只“作品”tab 要去掉简介，`工作流 / 帖子 / 点赞 / 收藏` 这几类卡片也要统一成“只保留标题”，避免封面和主视觉再次被摘要文本压住。
+- 本轮按最小范围收口：
+  - `apps/web/src/features/me/PersonalCenterPage.tsx`
+    - `workflowCards` 去掉 `subtitle`
+    - `buildLibraryCards(...)` 去掉 `subtitle`，因此 `点赞 / 收藏` 卡片不再展示 `summary / workflowTitle / channelTitle`
+    - `buildPostCards(...)` 去掉 `subtitle`，帖子卡片不再展示 `excerpt / 绑定目标标题`
+- 同轮顺手补平了一处已有在途编译缺口，但不改变页面行为：
+  - `apps/web/src/lib/mappers/community.ts`
+    - 把已被 `community-interactions/actions.ts` 引用的 `mapVideoMiniCard / mapPromptMiniCard / mapWorkflowMiniCard` 正式导出，消除前端 `typecheck` 阻塞
+- 验证证据：
+  - `apps/web -> npx.cmd tsc --noEmit` 通过
+- 当前结论：
+  - 个人中心现在已和作者主页作品卡片保持同一信息密度方向：封面层只保留标题，摘要类文案不再覆盖在卡片主视觉上
+
+### 2026-05-26 creator page load-more completed for works workflows and posts
+
+- 用户对作者主页首屏负载控制的要求已经从“不能硬限制数量”收口为真实交互：首屏可以分批，但列表底部必须有 `查看更多`，点击后继续加载下一批。
+- 已确认此前状态是“后端分页 + 前端 server action 半完成，作者页 UI 未接通”：
+  - 后端 `/api/creators/{id}/videos|prompts|workflows|posts` 已支持 `offset:*` cursor 分页
+  - `apps/web/src/features/community-interactions/actions.ts` 已有 `loadMoreCreatorWorksAction / loadMoreCreatorWorkflowsAction / loadMoreCreatorPostsAction`
+  - 但 `apps/web/src/features/creator/CreatorPage.tsx` 之前只有“当前仅展示最近公开内容”的提示，没有真正的 `查看更多`
+- 本轮已补齐作者页前端闭环：
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - 接入三个 tab 的 `查看更多` 按钮
+    - 作品 tab 同时消费 `nextVideoCursor + nextPromptCursor`，点击后把视频和提示词一并追加
+    - 工作流 / 帖子 tab 分别按各自 cursor 继续追加
+    - 新增本地去重追加逻辑，避免重复卡片混入
+    - 新增加载中状态，防止连续点击
+  - `apps/web/src/features/creator/CreatorPage.module.css`
+    - 补 `查看更多` 行和按钮样式，并兼容 light theme
+- 验证证据：
+  - `apps/web -> npx.cmd tsc --noEmit` 通过
+- 当前结论：
+  - 作者页这条“首屏控负载 + 点击查看更多继续加载”的交互现在已经不是提示语，而是完整可用状态
+
+### 2026-05-26 top-nav page switch latency optimized locally
+
+- 用户继续反馈首页、精选页、讨论区等顶部导航切换“每次都差不多慢”，希望首跳更快，二次切换不要还是同样的慢感。
+- 本轮已确认这不是单一接口慢，而是三层问题叠加：
+  - `apps/web/src/components/shared/CommunityRouteTransitionProvider.tsx`
+    - 共享转场遮罩固定最短 `500ms`，会把快跳也渲染成“至少慢半秒”
+  - `apps/web/src/components/shared/CommunityTransitionLink.tsx` + `PageShell.tsx`
+    - 顶部导航此前只在 `hover/focus` 时被动 `prefetch`
+    - 触屏和直接点击场景预取命中率低
+  - `apps/web/src/app/(community)/featured/page.tsx`
+    - 登录态进入 `/featured` 时，服务端首屏仍阻塞全量 `getAllPrompts(video + image)`
+    - 导致和公网匿名态相比，登录态精选页首跳明显更重
+- 本轮前端收口：
+  - `CommunityRouteTransitionProvider.tsx`
+    - 把最短转场时长从 `500ms` 收到 `160ms`
+  - `CommunityTransitionLink.tsx`
+    - 新增 `onTouchStart` 预取，减少触屏点击前完全无预热的情况
+  - `PageShell.tsx`
+    - `variant="home"` 顶部主导航现在会主动预取 `/`、`/home`、`/featured`、`/discussions`
+    - 显式跳过 `/login?...` 这类 gated 路径，避免无效预取
+  - `apps/web/src/app/(community)/featured/page.tsx`
+    - 登录态 `/featured` 改成和公网同口径：首屏先只等 `homeFeed + featuredLayout`
+    - 提示词全量库存改为客户端异步拉 `/api/featured-prompts`
+  - `apps/web/src/app/api/featured-prompts/route.ts`
+    - 新增登录态专用的同源库存聚合路由
+    - 返回 `private, max-age=15, stale-while-revalidate=60`，避免把登录态内容混进公共缓存
+  - `apps/web/src/app/(community)/home/page.tsx` + `apps/web/src/lib/api/community-public-cache.ts`
+    - 首页 hero 不再额外单独打一次 `video-only` prompts
+    - 统一从已获取的 `all prompts` 中截取前 `12` 条视频提示词，减少一次首屏阻塞请求
+- 验证证据：
+  - `apps/web -> npx.cmd tsc --noEmit` 通过
+  - `apps/web -> npm.cmd run build` 通过
+  - Playwright 本地运行态复验：
+    - `http://127.0.0.1:3106/featured` 新标签页打开后控制台无新增错误
+    - 网络请求已验证登录态 `/featured` 先完成页面路由请求，再异步请求 `/api/featured-prompts -> 200`
+    - `home -> featured -> home -> featured` 顶部导航切换可正常往返，第二次回到 `/featured` 仍沿用“页面先到、库存后补”的节奏
+- 当前结论：
+  - 这轮已经把“固定半秒假慢感 + 顶部导航预热不足 + 登录态精选首屏过重”三条最直接影响体感的前台问题一起压下去
+  - 下一步如果还要继续压切换耗时，优先看 `/api/me/notifications/recent` 轮询噪音和首页/精选页 mounted video 数量，而不是先去做激进全局缓存
+
+### 2026-05-26 top-nav switch performance synced to test cloud
+
+- 已将这轮前台导航切换性能优化同步到测试云前台，未改云后端与共享接口语义。
+- 云发布范围：
+  - `apps/web`
+  - 发布标签：`nav-switch-performance-2026-05-26`
+  - web release：`20260526-144312`
+- 本轮发布过程说明：
+  - 默认 `deploy:test:web` 预检会顺带跑后端 core 集成测试
+  - 当前工作区存在无关的后端在途改动，`apps/server` 的 `CreatorQueryService` 编译失败，导致 `VerifyBeforeDeploy` 被拦
+  - 本轮已按“只发前台 web、不碰后端”口径改用：
+    - `scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+  - 因此这次云同步不是前台代码问题导致中断，而是主动绕开与本轮无关的后端预检阻塞
+- 云端验证证据：
+  - 远端 `apps/web` 生产构建通过，构建产物已包含：
+    - `/api/featured-prompts`
+    - `/featured`
+    - `/home`
+  - 测试云 readiness：
+    - `artifacts/runtime-readiness/test/web-deploy-20260526-144312-summary.json`
+    - 结果：`11 passed / 0 failed`
+  - 服务状态：
+    - `dramatv-community-web` 已重启成功并处于 `active (running)`
+- 当前结论：
+  - 这轮“导航切换体感优化”已经完成本地实现与测试云同步
+  - 如果接下来还要看真实公网体感差异，下一步应直接做浏览器级复验和必要的细调，而不是再回头改接口层
+### 2026-05-26 home hero coverflow width widened toward page edges
+
+- 鐢ㄦ埛缁х画绮句慨棣栭〉 hero 锛屼笉鏄鍐嶆敼涓夊崱缁撴瀯锛岃€屾槸瑕佽杩欎釜 coverflow 鍖哄煙鍚戝乏鍙充袱渚у啀鎷夊紑涓€鐐癸紝鏇撮潬杩?Liblib 鍙傝€冪珯鐨勮竟璺濆彛寰勩€?
+- 鏈疆鍙仛瀹瑰櫒瀹藉害鏀跺彛锛屼笉鍐嶅姩 hero 鍗＄墖缁撴瀯銆佽嚜鍔ㄨ疆鎾€佷袱渚у墠鍚庣墖鍜?6 dots 閫昏緫锛?
+  - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - 鎶?`.hero` 浠庡師鏉ュ拰 `inspiration / shelves` 鍏辩敤鐨?`1138px` 瀹藉害鎷嗗嚭鏉?
+    - hero 鏂板搴︽敼涓?`min(1720px, calc(100vw - 104px))`
+    - `inspiration / shelves` 缁х画淇濇寔鍘熸潵鐨勫唴瀹瑰搴︼紝閬垮厤鏁翠釜棣栭〉涓嬫柟 shelf 鍚岃疆琚竴璧锋斁澶?
+- 楠岃瘉璇佹嵁锛?
+  - Playwright 妗岄潰绔?`1705px` 瑙嗗彛涓嬶紝hero 瀹瑰櫒瀹藉害宸茶揪 `1602px`锛屽乏鍙宠竟璺濈害 `44px`
+  - 鍚岃疆澶嶇湅纭锛?coverflow 鐨?3 寮犲彲瑙佸崱鐗囥€?6 涓?dots`銆佷腑蹇冨崱鎾斁鍜屼袱渚у崱鐗囧睍绀洪兘鏈杩欐瀹藉害璋冩暣鎵撳潖
+
+### 2026-05-26 home hero coverflow perspective and centering refined locally
+
+- 用户继续细修首页 hero，希望更接近 Liblib 参考站的 coverflow 质感：
+  - 两侧卡片和中间卡片之间要有明显夹角
+  - 同时不能再出现“页面整体向右偏、左右不对称”的观感
+- 本轮收口分成两层，不改接口、不上云，只在 `apps/web` 本地前台修：
+  - `apps/web/src/features/home/CommunityHomePage.tsx`
+    - 把 hero 的可见层正式收口为 `3 卡可见 / 6 卡轮播`
+    - 为两侧卡片补上更明显的 `rotateY + translateZ`，让 coverflow 夹角真正成立
+    - 保留“点击两侧卡片先激活、中心卡片播放”的既有交互
+  - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - 给 `heroStage` 补 `perspective` / `preserve-3d`
+    - 去掉首页外层原本 `100vw + 负 margin` 的不稳定撑宽方式
+    - 改成 hero 自身相对视口居中，消除滚动条参与计算时造成的横向偏移
+- 根因确认：
+  - “两侧没有夹角”不是位移量不够，而是之前只有 `rotateY` 数值，没有真正的 3D 透视环境
+  - “页面像是整体向右偏”不是后续 shelf 或顶栏的问题，而是首页最外层 `100vw` 在有纵向滚动条时会引入横向溢出，导致视觉中心漂移
+- 本地验证证据：
+  - `npm.cmd --prefix apps/web run typecheck` 通过
+  - `npm.cmd --prefix apps/web run build` 通过
+  - Playwright 复验：
+    - `document.documentElement.scrollWidth == clientWidth`，首页不再有横向溢出
+    - hero 容器回到对称位置：左约 `44px` / 右约 `44px`
+    - 当前桌面态只保留 `3` 张可见卡片，且两侧卡片已具备明显透视夹角
+- 当前结论：
+  - 这一轮已经把“更像 Liblib 的 coverflow 透视感”和“首页整体偏移”的问题一起收住
+  - 当前仍是本地改动，尚未同步测试云
+
+### 2026-05-26 home hero titles removed from first-screen carousel
+
+- 用户继续收首页首屏 hero 的信息密度，明确要求“首屏这些视频不要展示标题”。
+- 本轮只改前台展示层：
+  - `apps/web/src/features/home/CommunityHomePage.tsx`
+    - 去掉 hero 轮播卡片上的标题/副标题覆盖层
+  - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - 同步减轻 hero 遮罩，避免保留大面积为文案服务的底部压暗层
+- 验证：
+  - `npm.cmd --prefix apps/web run typecheck` 通过
+  - `npm.cmd --prefix apps/web run build` 通过
+- 当前结论：
+  - 首页首屏 hero 现在只保留画面、箭头和 dots，不再压标题文字
+
+### 2026-05-26 home shelf area widened slightly on both sides
+
+- 用户继续细修首页下方内容区，希望“为你推荐 / 电视广告 / 动画”等 shelf 区域整体向两侧再扩一点。
+- 本轮保持 4 列卡片结构不变，只放宽容器：
+  - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - `inspiration / shelves` 宽度从 `min(1138px, calc(100vw - 96px))` 调整为 `min(1248px, calc(100vw - 96px))`
+- 验证：
+  - `npm.cmd --prefix apps/web run typecheck` 通过
+  - `npm.cmd --prefix apps/web run build` 通过
+  - 本地浏览器复看确认下方 shelf 已整体向两侧铺开，且 4 列卡片结构未被打坏
+
+### 2026-05-26 home hero bottom black band removed
+
+- 用户继续细修首页首屏 hero，指出底部 dots 下方还残留一条黑色圆角底栏，需要去掉。
+- 根因确认：
+  - 这不是额外组件，而是 hero 还保留着旧标题区时代的底部预留高度
+  - 标题移除后，这段 `heroFrame` 底部 padding 直接暴露成了空黑条
+- 本轮只收布局预留，不改轮播结构：
+  - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - `heroFrame` 底部 padding 从 `54px` 收到 `10px`
+    - `dots` 从底栏里抬回到画面上方，桌面 `bottom` 调整到 `14px`
+    - 移动端同步把 `heroFrame` 底部 padding 从 `46px` 收到 `10px`，`dots bottom` 调整到 `10px`
+- 验证：
+  - `npm.cmd --prefix apps/web run typecheck` 通过
+  - `npm.cmd --prefix apps/web run build` 通过
+  - 本地浏览器复看确认：首屏 hero 底部黑色圆角空带已消失，dots 贴回视频画面底部
+
+### 2026-05-26 recent home hero refinements synced to test cloud
+
+- 已按“只同步前台 web、不碰后端”的口径，把最近这几轮首页 hero / shelf 细修同步到测试云：
+  - hero 改为更接近 Liblib 的 coverflow 透视
+  - 去掉首屏 hero 标题覆盖层
+  - 去掉 hero 底部黑色圆角空带
+  - 下方 shelf 区整体向两侧放宽
+- 云端发布方式：
+  - `scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+  - 本轮工作区仍是 dirty 状态，发布脚本给出提示，但未阻断 web-only 云同步
+- 云端发布结果：
+  - web release: `20260526-180222`
+  - release dir: `/opt/dramatv-community-web/releases/20260526-180222`
+  - readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260526-180222-summary.json`
+  - readiness 结果：`12 passed / 0 failed`
+- 已确认的云端验收点：
+  - 远端 `apps/web` 生产构建通过
+  - `dramatv-community-web.service` 已重启并处于 `active (running)`
+  - 公网根页、登录页、匿名受保护路由重定向、`/api/feed/home`、`/api/prompts`、`/api/discussions/home`、`/api/me/notifications/recent` 均通过 readiness 复核
+- 当前结论：
+  - 最近这轮首页前台细修已完成测试云同步
+  - 本轮仍未改动测试云后端
+
+### 2026-05-26 公共首页 hero 共享布局口径改为 6 条轮播池
+
+- 用户补充要求不是前台样式，而是共享布局语义：首页 hero 既然已经按“首屏 3 张、轮播池 6 张”设计，后台配置和公共首页接口也不能继续把 `home-hero` 截成 3。
+- 本轮前台主线相关的共享收口：
+  - `apps/server/src/main/java/com/dramatv/community/shared/persistence/CommunityCatalogJdbcQueryService.java`
+    - 公共 `/api/feed/home` 的 `home-hero` 布局上限从 `3` 改到 `6`
+  - 这样前台首页消费共享布局时，不会再出现“后台可配更多、但公共接口只给前 3 条”的截断
+- 同轮配套共享改动已在后台线完成，但这里记录前台结果：
+  - `apps/admin / feed-ops/home` 的 `home-hero` 也已同步扩到 `6`
+  - `apps/server / AdminFeedOpsService` 的 slot 定义、fallback 与保存校验已统一按 `6`
+- 验证证据：
+  - `apps/server -> .\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=AdminFeedOpsHomeApiIntegrationTest,FeedReadApiIntegrationTest test`
+    - 结果：`12 passed / 0 failed`
+  - 其中 `FeedReadApiIntegrationTest.homeFeedReturnsPublishedHomeHeroLayoutFromAdminFeedOps`
+    - 已明确断言公共 `/api/feed/home` 的 `home-hero.items.size = 6`
+- 当前结论：
+  - 这轮没有改社区前台 `apps/web` 页面代码，但把前台真正依赖的公共首页 hero 布局语义收口成了 6 条轮播池
+  - 当前仍是本地验证完成态，若要让测试云后台和后台工作台都同步这条口径，还需要单独发 `apps/server + apps/admin`
+
+### 2026-05-26 精选页刷新首屏错页修复
+
+- 用户反馈的现象不是普通“加载慢”，而是 `/featured` 刷新时会先短暂显示一版小库存错误页：
+  - 首屏 tab 计数只有 `全部 15 / 工作流 3 / 视频提示词 1 / 图片提示词 11`
+  - 随后客户端再跳回真实大库存页
+- 根因已确认在前台数据装配层，而不是云端资源或样式：
+  - `apps/web/src/app/(community)/featured/page.tsx` 首屏 SSR 只传了 `homeFeed + featuredLayout`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx` 里的 `prompts` 初始值默认是空数组
+  - 页面真正的大 prompt 库存依赖客户端 `useEffect` 再请求 `/api/public/featured-prompts` 或 `/api/featured-prompts`
+  - 结果就是“服务端首屏一套小池子，客户端补完后另一套大池子”，刷新时必然闪错页
+- 本轮修复：
+  - 新增 `apps/web/src/lib/api/featured-prompt-inventory.ts`
+    - 统一精选页 prompt 库存加载逻辑
+    - 公共读增加 `15s` 级别服务端缓存
+    - 同时保留 backend timeout / unavailable 时回退空库存的软降级
+  - `apps/web/src/app/(community)/featured/page.tsx`
+    - 登录态首屏现在会在服务端直接带入 `prompts`
+  - `apps/web/src/lib/api/community-public-cache.ts`
+    - 游客态 `loadFeaturedArchivePublicData()` 现在也会在服务端直接带入 `prompts`
+  - `apps/web/src/app/api/public/featured-prompts/route.ts`
+  - `apps/web/src/app/api/featured-prompts/route.ts`
+    - 两条客户端补数路由统一复用同一套库存加载器，避免后续再分叉
+- 当前首屏口径：
+  - `/featured` 刷新时服务端和客户端现在使用同一套 prompt 库存来源
+  - 客户端懒请求仍保留，但只作为空库存/失败场景下的兜底重试，不再是主数据源
+- 验证证据：
+  - `apps/web -> npm.cmd --prefix apps/web run typecheck`
+    - 结果：通过
+  - `apps/web -> npm.cmd --prefix apps/web run build`
+    - 结果：通过
+  - 本地 `GET /api/public/featured-prompts`
+    - 已可稳定返回完整 prompt 库存，而不是首页小池子裁剪结果
+- 当前结论：
+  - 这轮修的是精选页首屏数据一致性，不是样式遮挡
+  - 当前为本地验证完成态；如果要让公网 `8.141.20.130/featured` 也消除这次刷新闪错页，还需要单独同步 `apps/web`
+### 2026-05-26 精选页刷新首屏错页修复已同步测试云
+
+- 已按 `web-only` 口径把本轮 `/featured` 首屏一致性修复同步到测试云：
+  - 发布命令：`./scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+  - web release：`20260526-185525`
+  - release dir：`/opt/dramatv-community-web/releases/20260526-185525`
+- 部署后机器状态正常：
+  - `dramatv-community-web.service` 为 `active (running)`
+  - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260526-185525-summary.json`
+  - readiness 结果：`12 passed / 0 failed`
+- 云端复验证据：
+  - `GET http://8.141.20.130/api/featured-prompts` 已返回大库存，当前 `items=5645`
+  - 使用公网测试账号 `creator-b / 123456` 登录后，浏览器真实进入 `http://8.141.20.130/featured`
+  - 刷新后首屏计数稳定为：`全部 5,648 / 工作流 3 / 视频提示词 1,490 / 图片提示词 4,155 / 活动 0`
+  - 直接抓取带登录态的 `/featured` 服务端 HTML，已确认首屏 SSR 直接渲染 `24` 张卡片，并带 `继续加载更多内容...`，不再是旧的 `15 / 3 / 1 / 11` 小库存首屏
+- 当前结论：
+  - 本轮问题已同步修复到测试云
+  - 这次修的是 `/featured` 首屏 SSR 与 hydration 数据源不一致，不是单纯前端遮挡或延迟加载假象
+
+### 2026-05-26 精选页分页缓存导出修复已完成
+
+- 本轮继续收口了 `/featured` 的分页加载和分类切换链路，核心修复是把客户端页面对 `serializeFeaturedPromptInventoryQuery` 的引用迁回纯 query 模块，避免 `next/headers` 被拉进客户端构建。
+- `apps/web/src/lib/api/featured-prompt-inventory.ts` 现在继续对路由和服务端提供公共库存读取，同时把 `serializeFeaturedPromptInventoryQuery` / route input 转换方法补回公共导出，供页面和 API route 复用。
+- `FeaturedArchivePage` 仍保留 query-key cache + 底部“查看更多”双入口，当前没有改成强行截断数量。
+- 验证已完成：
+  - `npm.cmd --prefix apps/web run typecheck`
+  - `npm.cmd --prefix apps/web run build`
+
+### 2026-05-26 精选页加载速度优化任务板初始化
+
+- 这轮把 `/featured` 后续优化单独挂板，避免“改到一半换会话就丢上下文”：
+  - `F0` 任务板初始化：`已完成`
+  - `F1` 分类 / tab / 首屏计数 / 查询参数适配复核：`已完成`
+  - `F2` 首屏媒体预热策略收口：`已完成（首批落地）`
+  - `F3` 路由切换体感优化：`已完成（首批落地）`
+  - `F4` 浏览器级验证与结果回写：`已完成`
+- 当前约束：
+  - 不回退到“后端全量拉取 + 前端只做渲染分页”
+  - 继续保留服务端首屏分页、前端 query-key cache、底部 `查看更多`
+  - 后续每完成一项，直接把对应状态改成 `已完成` 并追加验证证据
+- 当前已确认的适配缺口：
+  - 本轮已收口：`全部 / 工作流 / 视频提示词 / 图片提示词 / 活动` 全部改为统一 `featured-inventory` 真分页库存
+  - 后续如果还要继续压缩首屏体感，优先看首屏图片/视频请求量与 hover 预览策略，而不是回退到全量后拉
+
+### 2026-05-26 精选页 unified inventory 本地运行时验收完成
+
+- 本轮先把本地运行时从“代码已改但 18080 还是旧进程”收口到真实可验收状态：
+  - 停掉旧的 `18080` Java 进程 `PID=30132`
+  - 按 `scripts/start-server-18080.ps1` 重启本地后端
+  - 新进程 `PID=13232` 已带最新 `apps/server` JAR 启动，日志显示本地 schema 已到 `Flyway V26`
+- 本地接口实测已通过：
+  - `GET http://127.0.0.1:18080/api/feed/featured-inventory?limit=1 -> 200`
+  - 当前本地 summary 为：
+    - `all=82`
+    - `workflow=1`
+    - `videoPrompt=32`
+    - `imagePrompt=45`
+    - `activity=4`
+  - 说明 `/featured` 已不再停留在旧的 `404` 运行态
+- 本地前端统一分页链路实测已通过：
+  - `GET http://127.0.0.1:3106/api/public/featured-inventory?limit=1 -> 200`
+  - `/featured` 首屏文本与统一 summary 一致：`82 / 1 / 32 / 45 / 4`
+  - `视频提示词` tab 切换后 URL 变为 `/featured?filter=video_prompt`
+  - 切换后模型/内容二级 facet 正常显示，首屏卡片保持 `24`
+  - `查看更多` 点击后卡片数从 `24` 增到 `48`
+- 本轮顺手把体感优化第一批一起落地到 `FeaturedArchivePage.tsx`：
+  - `F2`：首屏只对前 `6` 张可播卡片做 viewport 预热，其余仍维持 hover/focus 挂载，避免首屏全量 mount video
+  - `F3`：tab / 二级筛选 / 排序增加 hover/focus 预取，并在首屏 idle 时预拉相邻高频分类库存
+  - 浏览器验证证据：
+    - `/featured` 首屏 `document.querySelectorAll('video').length = 3`
+    - 切到 `video_prompt` 后 mounted video 为 `6`
+    - 加载更多到 `48` 卡后 mounted video 仍为 `4`
+  - 网络验证证据：
+    - `GET /api/featured-inventory?filter=video_prompt -> 200`
+    - `GET /api/featured-inventory?filter=image_prompt -> 200`
+    - `GET /api/featured-inventory?cursor=offset:24 -> 200`
+    - `GET /api/featured-inventory?filter=workflow -> 200`
+- 本轮代码级验证：
+  - `npm.cmd --prefix apps/web run typecheck`
+  - `npm.cmd --prefix apps/web run build`
+
+### 2026-05-27 精选页 inventory 云端 404 与“查看更多”闪烁已修复并同步测试云
+
+- 用户反馈的“底部 `加载中...` 和 `查看更多` 一直来回闪”不是单纯前端动画问题，而是云端真实请求失败后被 `IntersectionObserver` 反复重试。
+- 根因已经确认在测试云入口转发，不在 `apps/server`：
+  - `scripts/deploy-test-web.ps1` 生成的 Nginx 配置只把
+    - `/api/featured-prompts`
+    - `/api/public/featured-prompts`
+    这两条 Next 同源路由转给 `3106`
+  - 新增的
+    - `/api/featured-inventory`
+    - `/api/public/featured-inventory`
+    没进白名单，命中了通用 `location /api/ -> 18080`
+  - 后端没有这两条路径，所以公网真实返回 `RESOURCE_NOT_FOUND`
+  - `FeaturedArchivePage` 的触底加载失败后只会把 `isLoading` 复位，不会阻断 observer，于是按钮文案在“加载中 / 查看更多”之间循环打闪
+- 本轮修复分两层：
+  - `scripts/deploy-test-web.ps1`
+    - 补上 `/api/featured-inventory` 与 `/api/public/featured-inventory` 的前端同源代理规则
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 触底加载失败后新增 `loadMoreError` 收口
+    - observer 在失败态暂停自动重试
+    - 底部按钮文案改为 `加载失败，点击重试`，不再无限闪烁
+  - `scripts/check-test-runtime-readiness.mjs`
+    - 新增 `public.web.featured-inventory` 验收项
+    - 防止下次 web-only 发布再次漏掉这类 Next API 路由
+- 本地验证：
+  - `apps/web -> npm.cmd run build` 通过
+  - 构建产物已明确包含：
+    - `/api/featured-inventory`
+    - `/api/public/featured-inventory`
+  - `npm.cmd run readiness:local` 通过：`12 passed / 0 failed`
+- 测试云同步：
+  - `./scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+  - web release：`20260527-211040`
+  - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260527-211040-summary.json`
+  - readiness 结果：`13 passed / 0 failed`
+  - 随后补跑带测试账号的云端 readiness：
+    - `npm.cmd run readiness:test -- --creator-username creator-b --creator-password 123456`
+    - 结果：`17 passed / 0 failed`
+    - 已明确包含 `auth.web.featured-inventory`
+- 云端浏览器级复验：
+  - 直接访问
+    - `http://8.141.20.130/api/featured-inventory?limit=1 -> 200`
+    - `http://8.141.20.130/api/public/featured-inventory?limit=1 -> 200`
+  - 登录态新页签进入 `/featured` 后，控制台新增错误为 `0`
+  - 网络请求已确认恢复：
+    - `GET /api/featured-inventory?filter=video_prompt -> 200`
+    - `GET /api/featured-inventory?filter=image_prompt -> 200`
+    - `GET /api/featured-inventory?cursor=offset:24 -> 200`
+    - `GET /api/featured-inventory?cursor=offset:48 -> 200`
+- 当前结论：
+  - 这轮问题的主根因是测试云 Nginx 没把新增的 Next inventory 路由转给前端运行时
+  - 闪烁症状已随路由修复消失，同时前端也补了失败态止损，不会再因为单次分页失败无限自动重试
+
+### 2026-05-27 精选页历史脏编排根因确认并已清理
+
+- 用户反馈 `/featured` 实际展示内容持续和后台配置不一致，并怀疑“刷新时一闪而过的旧数据”落回了正式页面。
+- 根因已确认不是前台 hydration 残影，而是两层共享问题叠加：
+  - 历史根因：
+    - `.codex/progress-admin.md` 已记录 `2026-05-17 feed-ops empty-config recovery after reboot`
+    - 当时 `admin_feed_slot_configs` 变空后，系统把 fallback 推断内容重新发布成了 `featured` 真实配置
+  - 共享后端旧逻辑：
+    - `CommunityCatalogJdbcQueryService.loadFeaturedArchive()` 之前仍用 `fillHomeLayoutSlot(configuredItems, fallbackPool, maxItems)`
+    - 这会让 `/api/feed/featured` 在“没有人工配置”时继续吐出 fallback 内容，看起来像前台还在吃一套旧的手工编排
+- 本轮后端修复：
+  - `apps/server/src/main/java/com/dramatv/community/shared/persistence/CommunityCatalogJdbcQueryService.java`
+    - `featured-all / featured-workflow / featured-video-prompt / featured-image-prompt / featured-activity`
+    - 现在全部改为“只返回真实 configured items”，不再把 fallback 混进 `/api/feed/featured`
+  - `landing` 仍保留 fallback merge 语义，不影响根首页档案区
+  - `apps/server/src/test/java/com/dramatv/community/integration/FeedReadApiIntegrationTest.java`
+    - 已把精选页无配置场景改成严格断言：
+      - `featured-all.items = []`
+      - `featured-video-prompt.items = []`
+      - `featured-image-prompt.items = []`
+- 本地验证：
+  - 本地 `18080` 已按 `scripts/start-server-18080.ps1` 恢复
+  - `.\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=FeedReadApiIntegrationTest test`
+    - 结果：`14 passed / 0 failed`
+- 测试云同步与清理：
+  - `npm.cmd run deploy:test:backend` 本轮尾部报错并非功能失败，而是远端 `curl 127.0.0.1:18080` 探活打在 Spring Boot 刚重启尚未完成绑定的窗口，属于部署脚本尾部就绪校验过早
+  - 随后浏览器直接复核云端真实运行态：
+    - `http://8.141.20.130/api/feed/featured`
+    - 已确认 `featured-workflow` 和 `featured-activity` 不再被 fallback 自动补成 `3` 条，而是回到 `0`
+  - 云端后台 `http://8.141.20.130/admin/feed-ops/featured`
+    - 清理前可见：
+      - `全部首屏 12/12`
+      - `视频提示词 tab 12/12`
+      - `图片提示词 tab 12/12`
+      - 合计 `36` 条真实已发布脏配置
+    - 本轮已逐个清空并发布：
+      - `全部首屏`
+      - `视频提示词 tab`
+      - `图片提示词 tab`
+    - 清理后五个 featured slot 均为 `0/12`
+- 云端复验结果：
+  - `GET http://8.141.20.130/api/feed/featured`
+    - 当前 `featured-all / workflow / video-prompt / image-prompt / activity` 五个 slot 全部返回空数组
+  - 公网 `http://8.141.20.130/featured`
+    - 默认页与 `video_prompt / image_prompt` 分类继续正常通过 `featured-inventory` 展示真实库存
+    - 首屏顺序已回到 inventory 顺序，不再受那批历史 36 条脏编排干扰
+- 当前结论：
+  - “那几十条脏数据”不是前台自己闪出来的缓存脏读，也不是数据库随机坏数据
+  - 它们本质上是 `2026-05-17` 那次 empty-config recovery 里由 fallback 推断结果重新发布成的真实 featured 配置
+  - 当前已同时完成：
+    - 后端不再把 fallback 伪装成 featured 手工编排
+    - 云端历史污染的 featured 配置已清空
+
+### 2026-05-27 精选页默认首屏改为真实消费后台精选配置
+
+- 用户继续反馈一个更深层的问题：即使后台 `featured` 配置后来重新配好并发布，前台 `/featured` 默认首屏仍可能“不跟着变”。
+- 根因已确认在 `apps/web`，不是后台发布失败：
+  - `FeaturedArchivePage.tsx` 之前只把 `/api/feed/featured` 的 slot 内容做成 `pinnedRank`
+  - 但页面真实渲染源始终来自 `featured-inventory`
+  - 结果是：只有“刚好已经在当前 inventory 首批结果里”的配置项才可能被提前；不在当前 inventory 首批中的配置项根本不会出现在首屏
+- 本轮前台修复：
+  - 新增 `apps/web/src/lib/featured/featured-curation.ts`
+    - 显式收口“什么时候允许把后台精选配置注入首屏”
+    - 当前规则固定为：
+      - 只在 `/featured` 默认视图下注入
+      - 默认视图定义：`sort=latest`、无搜索词、无工作流二级筛选、无 prompt model/content facet
+      - 一旦用户进入搜索、切 `最热`、切二级 facet，就回到纯 `featured-inventory` 实时结果
+  - 新增 `apps/web/src/lib/featured/featured-curation.test.mjs`
+    - 已补回归：
+      - 默认视图下会把后台精选配置真实插到首屏前部
+      - 过滤视图不会被后台精选配置篡改
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 现在会先把 `featuredSlots` 映射成与 inventory 同构的前台卡片项
+    - 再按上述规则执行“配置首屏注入 + 去重 + inventory 续接”
+    - 已顺手移除旧的 `pinnedRank` 伪排序逻辑，避免以后再次出现“配置只参与排序提示、不参与真实首屏来源”的灰区
+- 本地验证证据：
+  - `npm.cmd --prefix apps/web run typecheck`
+  - `node` 执行 `featured-curation.test.mjs` -> `3 passed / 0 failed`
+  - `npm.cmd --prefix apps/web run build`
+  - 本地运行态补充确认：
+    - `GET http://127.0.0.1:18080/api/feed/featured` 当前为空配置
+    - `GET http://127.0.0.1:18080/api/feed/featured-inventory?limit=12` 与页面首屏保持一致
+    - 说明当前前台已不会在“空配置”场景误吃旧 pinned 逻辑
+- 当前结论：
+  - 现在 `/featured` 的共享语义已经清晰：
+    - 默认首屏：真实吃后台 `featured` 发布配置
+    - 搜索 / facet / 二级筛选视图：纯走 `featured-inventory`
+  - 本轮已同步测试云并完成公网复验：
+    - `npm.cmd run deploy:test:web`
+    - web release：`20260527-232734`
+    - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260527-232734-summary.json`
+    - readiness 结果：`13 passed / 0 failed`
+    - 公网 `GET http://8.141.20.130/api/feed/featured` 当前已返回新的 `featured-all` 12 条视频提示词配置
+    - 公网 `http://8.141.20.130/featured` 刷新后，默认首屏前 12 张已切换为后台配置的视频提示词序列，不再停留在旧的 inventory 首批帖子/工作流顺序
+### 2026-05-28 精选页分页后返回定位丢失已修复
+- 用户反馈：
+  - 精选页之前点进详情再返回，能回到刚才点开的那一块区域
+  - 改成分页加载后，只有前 24 条还能正常回位
+  - 超过前 24 条的资源返回后统一回到页顶
+- 根因已确认：
+  - 旧的返回定位逻辑依赖 `from=/featured#featured-item-...` 对应的卡片 DOM 已经存在
+  - 精选页改成 `featured-inventory` 分页后，首屏默认只挂首批数据
+  - 当返回目标在后续批次里时，hash 对应卡片还没渲染出来，`useBackAnchorRestore(...)` 会直接退出，导致页面停在顶部
+- 本轮前台修复：
+  - 新增 `apps/web/src/lib/featured/featured-back-anchor.ts`
+    - 收口精选卡片 anchor 规则
+    - 收口“是否需要因返回锚点自动补拉下一页”的判定
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 保留原有返回锚点恢复逻辑
+    - 在检测到当前 URL 带 `featured-item-*` 锚点、但目标卡片尚未挂载时，自动继续拉取后续分页
+    - 一直拉到目标卡片出现或库存到底为止
+    - 不会对非精选卡片 hash 或正常首次进入触发额外补拉
+  - 新增轻量回归：
+    - `apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+- 本轮本地验证：
+  - `apps/web -> npm.cmd run build` 通过
+  - `node --test apps/web/src/lib/featured/featured-curation.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+    - 结果：`6 passed / 0 failed`
+  - `apps/web -> npm.cmd run typecheck`
+    - 当前单独执行仍受既有 `.next/types/*.d.ts` 缺失影响
+    - 但 `next build` 已完整跑过 TypeScript，说明本轮改动未引入新的类型错误
+- 当前结论：
+  - 这不是“返回定位功能被删了”，而是分页后返回目标不在首批 DOM 中
+  - 现在精选页已补上“带返回锚点时按需自动补页”的能力，后续批次资源返回也能恢复到原位置
+
+### 2026-05-28 精选页活动分类保留，但帖子正式退出公共精选与活动 tab
+- 用户补充的真实产品口径已经收口清楚：
+  - `活动` 分类要保留
+  - 但 `post / 帖子` 不能再进入公共 `/featured`
+  - 也不能再进入 `活动` 分类
+  - `全部` 在首屏 12 条之后不能继续变成“图片提示词一边倒”，而要保持图片/视频提示词混排
+- 根因确认：
+  - 之前精选公共库存、后台 featured 配置和前台活动 tab 的消费口径并不一致
+  - 历史 `post` 既可能从 `featured-inventory` 混进 `all/activity`，也可能作为旧配置残留在 `featured-activity`
+  - 同时 `all` 后续库存之前是全局按时间排序的 prompt 池，视觉上容易连续落成图片提示词
+- 本轮后端收口：
+  - `apps/server/src/main/java/com/dramatv/community/feed/application/FeaturedInventoryQueryService.java`
+    - `filter=activity` 现在直接返回空库存页，活动 tab 改为只消费 curated slot
+    - `summary.counts.activity` 当前固定回到 `0`
+    - `all` 库存不再拉 `discussion thread`
+    - `all` 库存新增图片/视频提示词混排逻辑，避免后续列表继续被单一模态占满
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsService.java`
+    - `featured-all` 允许目标收口为 `prompt / workflow`
+    - `featured-activity` 允许目标收口为 `prompt / workflow`
+    - 历史已存的 `post` ref 现在在读取配置时会被过滤，不再继续落回前台
+- 本轮前台收口：
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 保留 `活动` tab
+    - `活动` tab 改为直接消费 `featured-activity` 的 curated items
+    - `activity` 计数改为以 curated items 长度兜底，不会因为公共 inventory 为空把 tab 计数打没
+    - `all`、`workflow`、`video_prompt`、`image_prompt` 继续走真实 `featured-inventory`
+- 本轮验证：
+  - `apps/server -> FeedReadApiIntegrationTest, AdminFeedOpsFeaturedApiIntegrationTest`
+    - 结果：`17 passed / 0 failed`
+  - `apps/web -> npm.cmd --prefix apps/web run typecheck`
+    - 结果：通过
+  - `apps/web -> npm.cmd --prefix apps/web run build`
+    - 结果：通过
+  - `node --test apps/web/src/lib/featured/featured-curation.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+    - 结果：`6 passed / 0 failed`
+- 当前结论：
+  - `活动` 分类没有被移除
+  - 但帖子现在已经从公共精选和活动 tab 的共享口径里正式退出
+  - 这轮仍是本地验证完成态，尚未同步测试云
+
+### 2026-05-28 精选页帖子退出公共精选口径已同步测试云
+- 本轮已按 `backend -> web` 顺序同步到测试云：
+  - backend release：`20260528-161045`
+  - web release：`20260528-161330`
+- 同步过程中的两处非功能性阻塞已确认并排除：
+  - 第一次 backend 发布失败不是代码问题，而是本地 `18080` 运行中的 Java 进程占住了 `apps/server/target/*.jar`，导致 `spring-boot:repackage` 无法重命名产物
+  - 第二次 backend 发布尾部 `curl 127.0.0.1:18080/actuator/health` 失败，是远端 Spring Boot 刚重启尚未完成 bind 的时序窗口；随后手工公网复核已确认后端新版本真实生效
+- 云端复核证据：
+  - `GET http://8.141.20.130/api/feed/featured-inventory?filter=all&limit=3`
+    - 当前 `summary.counts` 已为：
+      - `all=5641`
+      - `workflow=2`
+      - `videoPrompt=1489`
+      - `imagePrompt=4150`
+      - `activity=0`
+  - `GET http://8.141.20.130/api/feed/featured`
+    - 当前 `featured-activity.items=[]`
+    - 说明活动 tab 仍保留，但帖子没有再通过公共精选配置回流
+  - `apps/web -> artifacts/runtime-readiness/test/web-deploy-20260528-161330-summary.json`
+    - 结果：`13 passed / 0 failed`
+  - `npm.cmd run readiness:test -- --creator-username creator-b --creator-password 123456`
+    - 结果：`17 passed / 0 failed`
+    - 已明确包含 `auth.web.featured-inventory`
+- 2026-05-28 讨论区卡片摘要移除：
+  - 用户要求 `/discussions` 的“超能社区”线程卡片与其他资源卡片统一，只保留标题，不保留摘要/简介
+  - 前端已删除 `apps/web/src/features/discussions/DiscussionsPage.tsx` 中 `thread.excerpt` 的渲染与回退文案
+  - 前端已删除 `apps/web/src/app/globals.css` 中 `.discussion-replica-thread-excerpt` 及 light theme 对应样式引用
+  - 本地验证已通过：
+    - `npm.cmd --prefix apps/web run typecheck`
+    - Playwright 访问 `http://127.0.0.1:3106/discussions`
+    - 结果：线程卡片仅保留标题，频道/时间/标签/作者/互动统计仍正常
+  - 已同步测试云：
+    - `./scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+    - web release：`20260528-164329`
+    - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260528-164329-summary.json`
+    - readiness 结果：`13 passed / 0 failed`
+    - 公网 Playwright 复核：`http://8.141.20.130/discussions`
+    - 结果：云端线程卡片同样仅保留标题，未再展示摘要/简介
+- 2026-05-28 管理员举报不限频修复：
+  - 用户确认真实使用口径：前台举报会被当作运营快速标记下架入口，管理员账号举报不应再受“举报过于频繁”限制
+  - 当前收口规则调整为：
+    - 普通用户：继续保留举报频控
+    - `admin / operator / moderator`：举报不限频
+  - 后端改动：
+    - `apps/server/src/main/java/com/dramatv/community/shared/security/ActionRateLimiter.java`
+      - `checkReport(...)` 新增基于 `roleCode` 的运营角色豁免
+    - `apps/server/src/main/java/com/dramatv/community/publish/application/ReportApplicationService.java`
+      - 举报创建时改为传入当前用户 `roleCode`
+  - 回归测试已补：
+    - `apps/server/src/test/java/com/dramatv/community/integration/ActionRateLimitIntegrationTest.java`
+      - 新增 `reportCreateByAdminRoleBypassesRateLimit`
+  - 本地验证已通过：
+    - `ActionRateLimitIntegrationTest`
+    - `ReportApiIntegrationTest`
+    - `AdminReportApiIntegrationTest`
+    - 汇总结果：`14 passed / 0 failed`
+- 本地运行态恢复：
+  - 为避免后续本地开发环境被这次发布打断，发布完成后已重新按标准脚本拉回本地后端 `18080`
+- 当前结论：
+  - 这轮“活动分类保留，但帖子退出公共精选与活动 tab”的共享口径已经同步到测试云
+  - 当前测试云前后端与本地代码口径一致
+- 2026-05-28 精选页深位置返回回位提速与顶部闪动收口：
+  - 用户反馈 `/featured` 越往下滑再返回时，回位越来越慢，并且会先短暂显示页面顶部，再跳回进入前的位置
+  - 根因确认：
+    - 回位锚点恢复仍依赖 `hash -> DOM 已存在 -> 再 scrollTo/scrollIntoView`
+    - 精选页改成 `featured-inventory` 分页后，深位置目标卡片往往不在首批 DOM 中，需要一页页补拉
+    - 之前没有把“补拉分页 + 恢复滚动”的阶段并进页面级加载态，所以用户会先看到顶部
+  - 本轮前端收口：
+    - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+      - 新增精选页 `sessionStorage` 级 inventory cache，返回同一路由时优先恢复已加载分页结果
+      - 新增 back-anchor 恢复状态机；当目标卡片尚未恢复完成时，整页进入专用恢复遮罩，不再直接暴露顶部首屏
+      - 保留现有“查看更多 / 自动补拉分页 / 回位到目标卡片”能力
+    - `apps/web/src/lib/featured/featured-inventory-session-cache.ts`
+      - 新增分页结果会话缓存读写与过期清理
+    - `apps/web/src/lib/routes/back-anchor.ts`
+      - 把回位滚动从 `useEffect` 前移到 `useLayoutEffect`，减少已命中目标时的可见闪动
+    - `apps/web/src/features/featured/FeaturedArchivePage.module.css`
+      - 新增返回恢复遮罩与恢复中内容隐藏样式
+  - 回归测试已补：
+    - `apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+    - `apps/web/src/lib/featured/featured-inventory-session-cache.test.mjs`
+  - 本地验证已通过：
+    - `node --test apps/web/src/lib/featured/featured-back-anchor.test.mjs apps/web/src/lib/featured/featured-inventory-session-cache.test.mjs`
+      - 结果：`7 passed / 0 failed`
+    - `npm.cmd --prefix apps/web run typecheck`
+    - `npm.cmd --prefix apps/web run build`
+    - Playwright 本地复核：
+      - 登录 `http://127.0.0.1:3106/featured`
+      - 扩展到 `72` 条卡片后点开第 `40` 张资源再返回
+      - 返回采样结果保持在原始 `scrollY=2764`，未再出现“先回顶部再跳回”的阶段
+  - 当前结论：
+    - 这轮修复已在本地闭环
+    - 尚未同步测试云，后续如需上云可以直接按 `web` 侧发布链路推进
+### 2026-05-28 社区返回定位与提示词详情标题区收口
+
+- 用户补充了两个前台问题：
+  - `/discussions` 查看帖子后返回列表时，也要像 `/featured` 一样尽量回到进入前的位置，不能再只回到顶部。
+  - 提示词详情页标题过长时，标题区会把下方“提示词内容”区域挤压得过小；需要先把标题调小，再固定标题区域高度。
+- 本轮前台修复分三层：
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - 把 hash 同步从 `useEffect` 前移到 `useLayoutEffect`
+    - 让回位锚点在首次可见渲染前尽早进入恢复流程，减少顶部先露出来再跳转的闪动窗口
+  - `apps/web/src/features/discussions/DiscussionsPage.tsx`
+    - 新增讨论列表页 back-anchor 恢复状态
+    - 当 URL 带帖子回位锚点时，页面先进入恢复遮罩，待目标卡片完成回位后再显露列表
+  - `apps/web/src/features/discussions/DiscussionDetailPage.tsx`
+    - 讨论详情顶部面包屑里的“社区”入口改为消费 `backHref`
+    - 不再写死跳 `/discussions` 顶部，而是带上进入详情时的回位锚点返回
+  - `apps/web/src/app/globals.css`
+    - 补讨论列表页恢复中的隐藏态与恢复遮罩样式
+  - `apps/web/src/features/video-detail/VideoDetailPage.tsx`
+  - `apps/web/src/features/video-detail/VideoDetailPage.module.css`
+    - 新增 `titleBlock`
+    - 标题字号从原先的大尺寸收窄
+    - 标题区改为固定高度并限制为 2 行
+    - 桌面端标题区固定 `88px`，移动端固定 `74px`
+    - 这样长标题不会继续侵占下方“提示词内容”区高度
+- 本轮本地验证已通过：
+  - `npm.cmd --prefix apps/web run typecheck`
+  - `npm.cmd --prefix apps/web run build`
+  - Playwright 本地复核：
+    - `/discussions` 进入帖子详情后点击面包屑“社区”返回，当前 URL 已为 `#discussion-thread-...`，目标帖子卡片稳定回到视口中部附近
+    - 提示词详情页桌面端实测：
+      - 标题字号约 `29.76px`
+      - 标题块高度固定 `88px`
+      - “提示词内容”面板仍保有稳定可见高度
+    - 提示词详情页移动端 `390px` 宽度实测：
+      - 标题字号约 `27.2px`
+      - 标题块高度固定 `74px`
+      - 提示词内容面板高度保持 `300px`
+- 当前结论：
+  - 这轮属于纯前台交互与布局修复，未改共享后端契约
+  - 当前状态为本地验证完成，尚未同步测试云
+
+### 2026-05-28 社区返回定位与提示词详情标题区已同步测试云
+
+- 本轮已按 `apps/web` 单独同步测试云：
+  - web release：`20260528-222321`
+  - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260528-222321-summary.json`
+  - readiness 结果：`13 passed / 0 failed`
+- 发布说明：
+  - 本次同步刻意只发 `web`
+  - 原因是这批待上云内容都落在前台：
+    - 精选页深位置返回恢复与遮罩
+    - 社区帖子返回定位
+    - 作者页/个人页主页相关前台展示调整
+    - 提示词详情页标题区高度收口
+  - 当前未把本地那批独立脏着的 `apps/server` 改动一起带上云，避免把未在这轮验收范围内的后端工作树一并发布
+- 云端浏览器级复核已通过：
+  - 讨论区回位：
+    - 登录 `creator-b / 123456`
+    - 访问 `http://8.141.20.130/discussions`
+    - 进入 `weekly-creator-thread`
+    - 点击面包屑“社区”返回后，当前 URL 为 `http://8.141.20.130/discussions#discussion-thread-98b8a9e5-61b1-4bf9-94fd-2ed845de886a`
+    - 目标帖子卡片保持在视口中部附近：`targetTop≈279.84px`
+  - 提示词详情标题区：
+    - 云端移动端复核：
+      - 标题块高度 `74px`
+      - 标题 `line-clamp=2`
+      - 提示词内容面板高度 `300px`
+    - 云端桌面端复核：
+      - 标题块高度 `88px`
+      - 标题字号约 `35.28px`
+      - 提示词内容面板仍保有稳定可见高度 `156.4px`
+- 当前结论：
+  - 这批最近的主页/列表返回定位与提示词详情布局改动已经同步到测试云
+  - 当前测试云前台与本地这轮 `apps/web` 代码口径一致
+
+### 2026-05-29 公网登录态压测已按真实会话重跑并补齐路由拆分
+
+- 这轮压测不再沿用 `20260526-184954` 那份匿名公网结果，因为已确认：
+  - 公网 `/featured`、`/home`、`/discussions` 在未登录态下都会 `307 -> /login`
+  - 老报告主体实际测到的是重定向/登录链路，不是登录后真实内容页
+- 为了避免再次误测，本轮已把登录态压测脚本固定为：
+  - `scripts/k6/public-auth-shared.js`
+    - `setup()` 先登录一次，复用 `dramatv_access_token`
+    - 页面请求统一 `redirects: 0`
+    - 新增 `ROUTES` 环境变量覆写，便于按单路由复压而不复制脚本
+  - 使用脚本：
+    - `scripts/k6/public-auth-baseline.js`
+    - `scripts/k6/public-auth-load.js`
+- 混合路由登录态结果：
+  - 基线压测：
+    - 产物：`artifacts/qa-reruns/20260529-public-auth-stress/baseline.summary.json`
+    - 结果：`avg=131.90ms`，`p95=303.65ms`，`0% failed`
+  - 50 VU 混合压测：
+    - 产物：`artifacts/qa-reruns/20260529-public-auth-stress/load.summary.json`
+    - 结果：`avg=6002.97ms`，`med=3393.36ms`，`p95=19145.64ms`，`max=60014.40ms`，`http_req_failed=1.063%`
+- 为了拆出具体瓶颈页，又补跑了三组同档并发的单路由缩短压测（`1m -> 50 VU`，`2m hold`，`1m -> 0`）：
+  - `/home`
+    - 产物：`artifacts/qa-reruns/20260529-public-auth-stress/home.load.summary.json`
+    - 结果：`avg=8761.44ms`，`med=5110.81ms`，`p95=32489.54ms`，`max=60000.87ms`，`http_req_failed=2.493%`
+  - `/featured`
+    - 产物：`artifacts/qa-reruns/20260529-public-auth-stress/featured.load.summary.json`
+    - 结果：`avg=7339.79ms`，`med=5004.32ms`，`p95=20303.95ms`，`max=60001.87ms`，`http_req_failed=1.014%`
+  - `/discussions`
+    - 产物：`artifacts/qa-reruns/20260529-public-auth-stress/discussions.load.summary.json`
+    - 结果：`avg=1224.36ms`，`med=557.95ms`，`p95=3951.46ms`，`max=60001.18ms`，`http_req_failed=0.038%`
+- 这轮最关键的性能信号已经稳定复现，不是偶发：
+  - 混合压测：
+    - `http_req_waiting avg/p95 = 67.50 / 156.54ms`
+    - `http_req_receiving avg/p95 = 5935.44 / 19094.27ms`
+  - `/home`：
+    - `waiting avg/p95 = 73.59 / 173.52ms`
+    - `receiving avg/p95 = 8687.84 / 32446.66ms`
+  - `/featured`：
+    - `waiting avg/p95 = 66.78 / 153.06ms`
+    - `receiving avg/p95 = 7272.99 / 20263.76ms`
+  - `/discussions`：
+    - `waiting avg/p95 = 50.23 / 79.82ms`
+    - `receiving avg/p95 = 1174.13 / 3910.01ms`
+- 当前判断：
+  - 真实瓶颈不在首字节等待阶段，而在登录后内容页 HTML/流式响应体的接收阶段
+  - 优先级已经明确：
+    1. `/home`
+    2. `/featured`
+    3. `/discussions`
+  - 接下来该查的是公网同时间窗下的 `nginx / dramatv-community-web / dramatv-community-server` 路由级日志和响应体积，而不是继续参考匿名旧压测报告
+- 额外记录：
+  - `k6 --summary-export` 里的 threshold 布尔值本轮再次出现误导，结论统一以控制台统计和原始 metric 数值为准
+
+## 2026-05-29 home / featured SSR 首屏减载第一轮已在本地落地
+
+- 这轮只改 pps/web，目标是先压低 /home 与 /featured 登录态首屏 SSR 负载，不直接动后端查询契约，也还没有同步到云端。
+- /home 已落地的减载动作：
+  - 新增 pps/web/src/features/home/home-page-data.ts
+  - 服务端现在先把首页 hero + 6 组 shelf 计算成最小渲染数据，再传给 CommunityHomePage
+  - 登录态与公开态首页 prompts 拉取上限从 60 收到 30
+  - CommunityHomePage 不再依赖整包 iew + prompts 在客户端首屏再做二次组装
+- /featured 已落地的减载动作：
+  - pps/web/src/lib/featured/featured-inventory-query.ts 默认首批分页从 24 收到 12
+  - 默认精选页在 ll + latest + 无搜索/无二级筛选 条件下，SSR 只带运营位和 summary，首批 inventory 改为 hydration 后立即补拉
+  - FeaturedArchivePage 首轮 hydration 已跳过默认精选 key 的 sessionStorage 覆盖，避免 defer inventory 时出现 hydration mismatch
+- 本地验证：
+  - 
+px.cmd tsc --noEmit -p apps/web/tsconfig.json 通过
+  - pps/web -> npm.cmd run build 多轮通过
+  - Playwright 本地复核：
+    - /home 登录后可正常进入，hero 与 shelf 正常渲染
+    - /featured 默认页可正常进入，defer inventory 后无 hydration console error
+- 压测结论需要区分环境：
+  - 2026-05-29 这轮后续 k6 公网复跑仍然默认命中 http://8.141.20.130，因为本地代码尚未发布，所以那几份公网 summary 不能用于判断本轮代码改动效果
+  - 本地直接把 public-auth-load.js 指到 http://127.0.0.1:3106 也不可直接复用：当前本地 Next 开发入口不存在 POST /api/auth/login，脚本 setup 会拿到 404
+- 当前阶段结论：
+  - /home 首屏序列化减载已经落地，方向明确
+  - /featured 默认首屏也已改成 运营位先出、inventory 后补的更轻口径
+  - 下一步若要拿到有效性能结论，必须先把这轮 pps/web 代码同步到测试云，再按登录态脚本重跑公网压测
+
+## 2026-05-29 community web first-screen performance slice synced to test cloud and validated on public authenticated load
+
+- 本轮已把社区前台首屏减载切片同步到测试云：
+  - web release：`20260529-114158`
+  - readiness artifact：`artifacts/runtime-readiness/test/web-deploy-20260529-114158-summary.json`
+  - readiness 结果：`13 passed / 0 failed`
+- 本轮公网登录态压测产物：
+  - `/home`：旧 `artifacts/qa-reruns/20260529-public-auth-stress/home.load.summary.json` -> 新 `artifacts/qa-reruns/20260529-public-auth-stress-post-deploy/home.load.summary.json`
+  - `/featured`：旧 `artifacts/qa-reruns/20260529-public-auth-stress/featured.load.summary.json` -> 新 `artifacts/qa-reruns/20260529-public-auth-stress-post-deploy/featured.load.summary.json`
+  - 混合 `/featured + /home + /discussions`：旧 `artifacts/qa-reruns/20260529-public-auth-stress/load.summary.json` -> 新 `artifacts/qa-reruns/20260529-public-auth-stress-post-deploy/load.summary.json`
+- `/home` 新旧对比已经形成稳定收益：
+  - `avg 8761.44ms -> 5275.71ms`，下降约 `39.8%`
+  - `p95 32489.54ms -> 16489.43ms`，下降约 `49.2%`
+  - `fail 2.493% -> 0.632%`
+  - `http_req_receiving avg 8687.84ms -> 5174.67ms`
+  - 单请求接收体量约 `159.81 KiB -> 92.29 KiB`
+- `/featured` 新旧对比同样明显改善：
+  - `avg 7339.79ms -> 3945.29ms`，下降约 `46.2%`
+  - `p95 20303.95ms -> 12463.72ms`，下降约 `38.6%`
+  - `fail 1.014% -> 0.241%`
+  - `http_req_receiving avg 7272.99ms -> 3872.08ms`
+  - 单请求接收体量约 `135.28 KiB -> 74.95 KiB`
+- 混合登录态公网压测也已改善，不只是单路由：
+  - `avg 6002.97ms -> 3431.21ms`，下降约 `42.8%`
+  - `p95 19145.64ms -> 10925.85ms`，下降约 `42.9%`
+  - `fail 1.063% -> 0.406%`
+  - `http_req_receiving avg 5935.44ms -> 3363.52ms`
+  - 单请求接收体量约 `107.99 KiB -> 65.25 KiB`
+- 这轮最关键的验证结论：
+  - 收益主要来自 `receiving` 和响应体量下降，不是 `waiting` 明显下降
+  - 说明 `/home` 与 `/featured` 这次命中的是真实瓶颈：SSR 首屏序列化负担和首屏响应过重
+  - `/home` 仍是当前最慢页，虽然已经从 `p95 32.49s` 压到 `16.49s`，但仍高于目标，需要继续做第二轮减载
+- 当前后续优先级：
+  1. 继续压 `/home` 首屏 shelf payload 和非关键区块首屏输出
+  2. 继续检查 `/featured` 默认页还能否再缩 summary / curated payload
+  3. 如需继续下探，再看云端 `Next route` 级日志与 HTML/RSC 实际体积，而不是优先怀疑后端首字节
+
+## 2026-05-29 /home 第二轮客户端瘦身已在本地落地
+
+- 延续上一轮 `/home` SSR 首屏减载后的排查，已确认 `apps/web/src/features/home/CommunityHomePage.tsx` 仍残留一整套旧的客户端数据拼装逻辑：
+  - prompt / workflow -> card 转换
+  - hero slide 组装
+  - 首页 slot -> shelf 混排与去重
+  - 这些逻辑现在已经由 `apps/web/src/features/home/home-page-data.ts` 在服务端统一完成
+- 本轮已把 `CommunityHomePage.tsx` 收口为“渲染 + 交互”组件：
+  - 删除不再参与运行的旧 helper 和对应 import
+  - 保留的职责只剩 hero 轮播、卡片悬浮播放、点赞交互和返回锚点恢复
+  - `/home` 的 `page.tsx -> buildCommunityHomePageData(...) -> <CommunityHomePage pageData={...} />` 现在口径更干净，避免同一套首页组装逻辑同时存在于 server/client 两侧
+- 本地验证已通过：
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+- 当前状态：
+  - 这是 `/home` 第二轮减载的本地切片，已完成代码与构建验证
+  - 还没有重新同步测试云，也还没有新的公网 k6 结果
+- 下一步：
+  1. 同步新的 `apps/web` 到测试云
+  2. 重跑公网登录态 `/home` 与 mixed k6
+  3. 如果收益仍有限，再继续看 `/home` 下半屏 shelf 是否要进一步拆成更轻的首屏输出
+
+## 2026-05-29 /home 第二轮客户端瘦身已同步测试云并完成公网复测
+
+- 社区前台新 release 已同步到测试云：
+  - `web release=20260529-123950`
+  - readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260529-123950-summary.json`
+  - readiness: `13 passed / 0 failed`
+- 这轮复测补跑了两组真实登录态 k6：
+  - `/home`：`artifacts/qa-reruns/20260529-public-auth-stress-post-client-trim-home.load.summary.json`
+  - mixed `/featured + /home + /discussions`：`artifacts/qa-reruns/20260529-public-auth-stress-post-client-trim-mixed.load.summary.json`
+- 对比上一版已部署的 `20260529-114158`：
+  - `/home`
+    - `avg 5275.71ms -> 4988.85ms`
+    - `p95 16489.43ms -> 16262.35ms`
+    - `fail 0.632% -> 0.699%`
+    - `http_req_receiving avg 5174.67ms -> 4933.72ms`
+    - 单请求接收体量 `92.30 KiB -> 92.22 KiB`，基本不变
+  - mixed
+    - `avg 3431.21ms -> 3415.08ms`
+    - `p95 10925.85ms -> 11182.40ms`
+    - `fail 0.406% -> 0.368%`
+    - `http_req_receiving avg 3363.52ms -> 3358.57ms`
+    - 单请求接收体量 `65.25 KiB -> 65.28 KiB`，基本不变
+- 当前结论已经很明确：
+  - 这轮“客户端 bundle / 组件清理”本身对公网 k6 只有很小收益，且没有继续压低首屏接收体量
+  - 原因并不意外：当前 k6 主要在测页面文档请求，客户端组件里残留 helper 清掉后，运行态更干净，但不会像上一轮那样明显改变 SSR 文档大小
+  - 下一轮不该继续在 `CommunityHomePage.tsx` 做同类小修，而该回到 `/home` 的服务端首屏输出本身，继续减轻首屏真正返回的 shelf / card payload
+- 下一步建议已收口为：
+  1. 继续分析 `/home` 哪些 shelf 属于首屏非关键输出，可延后或进一步瘦身
+  2. 如需确认 HTML/RSC 体量瓶颈，可直接抓 `/home` 文档响应大小或 route 级日志，而不是继续押注客户端 helper 清理
+
+## 2026-05-29 /featured 最新/最热配置分桶已在本地接通后台
+
+- 这轮不是继续做性能，而是补齐精选页和后台运营之间的新共享口径：
+  - 公共 `/featured` 默认仍是 `最热`
+  - 但“最热”和“最新”现在不再共用同一份后台精选配置
+- 当前前台消费口径：
+  - `apps/web/src/app/(community)/featured/page.tsx`
+    - 默认 `sort=hot`
+    - 会按当前路由 sort 维度读取对应的精选 layout
+  - `apps/web/src/lib/api/community-service.ts`
+    - `getFeaturedArchiveLayout(sort)` 已按 `sort=hot|latest` 请求公共 `/api/feed/featured`
+  - `apps/web/src/lib/api/community-public-cache.ts`
+    - 公共未登录态精选页也会按相同 sort 维度读取 layout，不再把热榜/最新共用一份缓存入口
+- 这轮实际共享阻塞点也已顺手定位并修掉：
+  - 后端原本虽然已经支持 `featured-hot` page key 分桶
+  - 但数据库 `admin_feed_slot_configs` 约束不允许 `featured-hot`
+  - 当前已补 `V27__allow_featured_hot_admin_feed_slot_configs.sql`
+- 验证结果：
+  - `apps/server -> AdminFeedOpsFeaturedApiIntegrationTest,FeedReadApiIntegrationTest`
+    - 新增回归保护：
+      - 后台 `latest/hot` 配置互不覆盖
+      - 公共 `/api/feed/featured` 会按 `sort` 读对桶
+    - 结果：`19 passed / 0 failed`
+  - `apps/web -> npm.cmd run build`
+- 当前状态：
+  - 本地闭环完成，尚未同步测试云
+  - 云端当前还没有这条“后台最热/最新分配置”的完整能力，只带了更早那条“公共 `/featured` 默认最热”的前台默认值切换
+
+## 2026-05-29 /featured 云端分类切换穿插详情返回卡死已复现并修复
+
+- 本轮直接按用户反馈在测试云 `http://8.141.20.130` 复现 `/featured` 真机问题，而不是只看本地：
+  1. 打开 `/featured?filter=video_prompt&sort=latest`
+  2. 连续点击两次 `查看更多`
+  3. 进入深位提示词详情
+  4. 点击详情页 `返回列表`
+  5. 在返回恢复尚未稳定时，立刻切换二级分类，例如 `真人`
+- 云端故障表现已确认：
+  - 页面先闪 `Loading featured`
+  - 随后长时间停在 `Restoring featured position`
+  - URL 里的 hash 已清掉，但恢复遮罩不消失
+  - 前台会错误地继续请求新筛选条件下的多页 `/api/featured-inventory?...cursor=offset:24/36/48/...`
+  - 控制台曾伴随 React hydration 错误
+- 根因已收口到两处前台共享逻辑：
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - 旧逻辑只在初始化和 `hashchange` 时同步 hash
+    - `router.replace(...)` 改筛选并清 hash 时，不一定触发 `hashchange`
+    - 结果是旧的 `featured-item-*` 锚点会残留到新筛选路由里
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 首次 hydration 会直接吃同路由 `sessionStorage` 里的旧 inventory cache
+    - SSR 首屏和客户端首帧因此不一致，触发 hydration mismatch
+- 已落地修复：
+  - `useBackAnchorRestore()` 改为在路由切换时也用 `useLayoutEffect` 重新同步当前 hash，保证筛选切换清 hash 后旧锚点立刻失效
+  - `/featured` 首帧不再默认把同 key 的 session cache 注入初始渲染
+  - 只有 URL 真实带着 `featured-item-*` 返回锚点时，才在 hydration 后恢复同 key cache，用于保留深位返回体验
+- 本地验证已通过：
+  - `apps/web -> npm.cmd run build`
+  - `apps/web -> npm.cmd run typecheck`
+  - 本地云镜像 `http://[::1]:3107` 复跑同路径，恢复遮罩不再卡死
+- 云端已同步：
+  - `web release=20260529-172151`
+  - readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260529-172151-summary.json`
+  - readiness: `13 passed / 0 failed`
+- 云端复验已通过：
+  - 同路径重放后，页面最终稳定落在 `http://8.141.20.130/featured?filter=video_prompt&content=real-person&sort=latest`
+  - 未再出现 `Loading featured` / `Restoring featured position` 卡死页
+  - Playwright 控制台错误数为 `0`
+  - `/api/featured-inventory` 请求链已收口为当前筛选下的正常翻页，不再出现旧锚点驱动的失控连翻页
+
+## 2026-05-29 登录页联调提示收口并已同步测试云
+
+- 本轮按用户要求继续收掉社区登录页里的本地联调暴露信息，不再在前台直接展示测试账号或联调说明。
+- 前台改动范围：
+  - `apps/web/src/features/login/LoginPage.tsx`
+  - `apps/web/src/features/login/LoginPage.module.css`
+- 当前登录页口径已收口为：
+  - 用户名默认空
+  - 密码默认空
+  - 页面仅保留标题、输入表单和 `进入社区 / 暂不登录`
+  - 已移除：
+    - “开发环境测试账号”整块
+    - “当前用于开发联调”“当前登录方式”“当前用于本地联调”等说明区
+- 本地验证：
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright 本地复看：
+    - `usernameValue=""`
+    - `passwordValue=""`
+    - 页面正文不再包含“开发环境测试账号”或“开发环境账号登录”
+- 云端已同步：
+  - `web release=20260529-185002`
+  - readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260529-185002-summary.json`
+  - readiness: `13 passed / 0 failed`
+- 云端复验：
+  - `http://8.141.20.130/login`
+  - Playwright 复看结果：
+  - `usernameValue=""`
+  - `passwordValue=""`
+  - 页面正文当前仅剩：
+      - `Login`
+      - `进入 DramaTV 社区`
+      - `用户名`
+      - `密码`
+      - `进入社区`
+      - `暂不登录`
+
+## 2026-06-02 测试云公网入口 Host 护栏已在本地收口
+
+- 根因已确认不是浏览器异常，而是测试 ECS 上多个项目共用 `:80`；社区脚本过去默认使用裸 IP `http://8.141.20.130` 与 `server_name _`，会把社区部署成兜底站点或让验活/压测误打到别的项目。
+- 本轮只改本仓库脚本，不碰云端现网：
+  - `deploy-test-web.ps1` 默认入口改为 `http://community.8.141.20.130.nip.io`
+  - 同脚本新增护栏，拒绝 `_`、通配 host、裸 IP 和 `localhost`
+  - `web/admin/backend` 的 deploy、rollback、readiness、k6 与 smoke 默认入口统一收口到社区专属 host
+- 台账同步：
+  - 共享口径已补到 `.codex/community-admin-shared-sync.md`
+  - 总索引已补到 `.codex/progress.md`
+- 本轮验证：
+  - PowerShell 相关脚本语法解析通过
+  - `scripts/check-test-runtime-readiness.mjs`、`k6` 共享脚本与相关 smoke/import 脚本 `node --check` 通过
+  - `package.json` JSON 结构解析通过
+
+## 2026-06-02 测试云社区专属 Host 已修复到云端
+
+- 用户复核发现 `http://community.8.141.20.130.nip.io` 和 `/admin` 仍然进入同事的 DramaLoom 项目；本轮按只读排查先确认公网返回标题确实为 `DramaLoom - AI剧本协作编辑器`，不是浏览器缓存。
+- 云端 Nginx 根因：
+  - 社区配置 `/etc/nginx/conf.d/dramatv-community-http.conf` 仍是 `server_name _`
+  - 同机 `dramaloom.conf` 有精确 `server_name dramaloom.8.141.20.130.nip.io`
+  - 因 Nginx 默认 server 选择与文件加载顺序，未精确命中的 `community.8.141.20.130.nip.io` 被 DramaLoom 默认站接住
+- 已执行的最小云端修复：
+  - 只备份并修改社区自己的 Nginx 配置
+  - 备份文件：`/etc/nginx/conf.d/dramatv-community-http.conf.bak-20260602-hostfix`
+  - 修改内容：`server_name _` -> `server_name community.8.141.20.130.nip.io`
+  - `nginx -t` 通过后执行 `systemctl reload nginx`
+- 云端复验：
+  - 社区前台 `http://community.8.141.20.130.nip.io` 返回 `DramaTV 社区`
+  - 社区后台 `http://community.8.141.20.130.nip.io/admin` 返回 `DramaTV 社区后台`
+  - 同事项目 `http://dramaloom.8.141.20.130.nip.io` 仍返回 `DramaLoom - AI剧本协作编辑器`
+  - 法务项目 `http://novel-similarity.8.141.20.130.nip.io` 仍返回 `小说库相似度比对平台`
+- 额外发现：
+  - 云端 admin 仍是旧版本登录页，页面里还有默认账号密码预填；这属于之前本地安全修复尚未同步云端，不在本轮 Host 修复里扩大处理。
+## 2026-06-02 O7-2 community local auth hardening closed
+
+- 这轮把社区本地密码登录从“默认开放”改成了“显式开启”：
+  - `apps/server/src/main/resources/application.yml`
+  - `apps/server/src/main/java/com/dramatv/community/identity/application/CommunityAuthProperties.java`
+- 当前默认运行口径：
+  - `dramatv.community-auth.provider.local-password-enabled=false`
+  - 未显式配置 `local-password-bootstrap-secret` 时，不再允许通过硬编码共享密码自动建号或初始化本地密码
+- 为保证现有后端集成测试仍可稳定跑通，测试基座 `ApiIntegrationTestSupport` 已显式开启本地登录并注入测试专用 bootstrap secret，而不是继续隐式依赖生产默认值。
+- 与后台联动补口：
+  - 后台创建本地账号时，空密码输入改为生成 `DT` 前缀 12 位临时密码
+  - `apps/admin/src/app/(dashboard)/users/UsersPageClient.tsx` 和 `actions.ts` 文案已同步改为“自动生成临时密码”
+- 本轮验证：
+  - `CommunityAuthDefaultsIntegrationTest`
+  - `AdminUserGovernanceApiIntegrationTest`
+  - `AuthMeApiIntegrationTest`
+  - `apps/admin -> npm.cmd run build`
+- 下一个社区主线优化项继续回到任务板 `O7-3`，处理作者主页作品流真实混排与分页契约。
+
+## 2026-06-02 O7-3 creator works unified stream closed
+
+- root cause confirmed and removed:
+  - creator page no longer loads `videos` and `prompts` as two independent lists and concatenate them on the frontend
+  - backend now provides `/api/creators/{id}/works` as one mixed stream with one cursor
+- implementation scope:
+  - `apps/server`: added `CreatorWorkSummaryResponse`, controller/service route, JDBC mixed union query, and anonymous read access for `/api/creators/*/works`
+  - `apps/web`: creator route loader, server actions, mapper, contracts, and `CreatorPage` load-more flow all switched to `works + nextWorksCursor`
+- behavior outcome:
+  - creator works now keep real mixed publish order on first screen
+  - creator works load-more continues the same stream instead of juggling video/prompt cursors
+- verification:
+  - `CreatorReadApiIntegrationTest`
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+- next step on the board: move to `O7-4` and clean up the remaining misleading creator pagination contract (`sort + offset` exposure on legacy endpoints)
+
+## 2026-06-02 O7-4 creator pagination contract cleanup closed
+
+- regression first:
+  - tightened `CreatorReadApiIntegrationTest` to require opaque creator cursors for both heavy-author `/videos` and mixed `/works`
+  - confirmed the old failure shape was real: backend still returned `offset:24`
+- backend contract cleanup:
+  - `CreatorQueryController` no longer exposes public `sort` params on `/api/creators/{id}/videos|prompts|workflows|posts`
+  - `CreatorQueryService` now emits opaque creator cursors and still accepts legacy `offset:*` cursors during the transition
+  - `PublishBootstrapQueryService` was aligned to the new creator workflow list signature
+- verification:
+  - `CreatorReadApiIntegrationTest`
+- next step on the board: move to `O7-5` and clean up the repo-level `.next/types` typecheck dependency
+
+## 2026-06-02 O7-5 repo typecheck `.next/types` dependency closed
+
+- failure path pinned down:
+  - both Next apps still had `next-env.d.ts -> import "./.next/types/routes.d.ts"`
+  - with generated route types temporarily hidden, the old `apps/web` script `tsc --noEmit` failed immediately on `TS2307 Cannot find module './routes.js'`
+- implementation:
+  - `apps/web/package.json` now uses `next typegen && tsc --noEmit`
+  - `apps/admin/package.json` now uses `next typegen && tsc --noEmit`
+  - root `typecheck` / `verify:quick` / `verify:full` scripts did not need reordering once app-level typecheck became self-contained
+- verification:
+  - cold-state repro before fix: `npm.cmd --prefix apps/web run typecheck`
+  - cold-state pass after fix: `npm.cmd run typecheck`
+- result:
+  - the 2026-06-02 review-board slices under the current community-led track are now all closed locally
+
+## 2026-06-09 cloud media URL host regression closed
+
+- root cause:
+  - public `GET /api/feed/home` and `GET /api/feed/featured` were already returning relative `/media/...`
+  - the broken landing page came from `apps/web/src/lib/presentation.ts -> normalizeAssetUrl()`, which still prefixed relative `/media/**` with the build-time public base URL
+  - after the public entry moved to `community.8.141.20.130.nip.io`, the live web runtime still rendered media requests as `http://8.141.20.130/media/...`, which reproduced in Playwright as `net::ERR_BLOCKED_BY_ORB`
+- implementation:
+  - `apps/web/src/lib/presentation.ts`
+    - `/media/**` now stays same-origin instead of being expanded with `NEXT_PUBLIC_DRAMATV_API_BASE_URL`
+    - legacy absolute community media URLs on `8.141.20.130` and `community.8.141.20.130.nip.io` are rewritten back to relative `/media/...`
+  - `apps/web/src/features/video-detail/detail-image-preview.ts`
+    - aligned the image-detail preview URL normalizer with the same legacy bare-IP rewrite rule
+  - `apps/web/src/features/video-detail/detail-image-preview.test.mjs`
+    - added regression coverage for legacy bare-IP media URLs
+- deploy/runtime repair:
+  - local web verification passed: `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - local web regression test passed: `node --test apps/web/src/features/video-detail/detail-image-preview.test.mjs`
+  - local production build passed: `apps/web -> npm.cmd run build`
+  - test cloud web synced with release `20260609-135718`
+  - readiness artifact passed `13 / 0`: `artifacts/runtime-readiness/test/web-deploy-20260609-135718-summary.json`
+  - post-deploy Playwright verification on `http://community.8.141.20.130.nip.io/` confirmed media requests now resolve to `http://community.8.141.20.130.nip.io/media/...` and no longer hit `http://8.141.20.130/media/...`
+
+## 2026-06-09 community canvas entry now bound to external market canvas
+
+- requirement closed locally:
+  - community "画布入口" no longer lands on the old reserved `/canvas` placeholder page
+  - target URL is now `https://dz-ailab-stage.dzkjm.cn/marketcanvas/`
+- implementation:
+  - `apps/web/src/lib/routes/community-routes.ts`
+    - added shared constant `COMMUNITY_CANVAS_ENTRY_URL`
+  - `apps/web/src/components/shared/PageShell.tsx`
+    - floating "画布入口" now links directly to the external market canvas URL instead of `/canvas`
+    - removed the old local-login wrapping for this entry because community `redirectTo` only supports internal paths
+  - `apps/web/src/app/(community)/canvas/page.tsx`
+    - replaced the old placeholder/copy-to-canvas bootstrap flow with a direct redirect to the external canvas URL
+  - `apps/web/src/proxy.ts`
+    - added `/canvas` to the public-path allowlist so old `/canvas` bookmarks can still reach the compatibility redirect without being intercepted by community auth
+- verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current boundary:
+  - this change only rebinding the shared community canvas entry; existing workflow runtime routes such as `/canvas/[runtimeId]` remain untouched
+
+## 2026-06-09 community external canvas entry synced to test cloud
+
+- deployment:
+  - test cloud web release: `20260609-172654`
+  - public host: `http://community.8.141.20.130.nip.io`
+  - release path: `/opt/dramatv-community-web/releases/20260609-172654`
+- automated verification:
+  - deploy script: `./scripts/deploy-test-web.ps1 -VerifyAfterDeploy`
+  - readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260609-172654-summary.json`
+  - readiness result: `13 passed / 0 failed`
+- browser verification:
+  - public landing page floating `画布入口` now points to `https://dz-ailab-stage.dzkjm.cn/marketcanvas/`
+  - public `http://community.8.141.20.130.nip.io/canvas` compatibility route now redirects outward to the same external canvas URL instead of showing the old placeholder page
+- note:
+  - deploy script warned that the local workspace was dirty before packaging; this rollout still completed successfully and only synced the web app release
+
+## 2026-06-09 home archive collage UI optimization board created
+
+- planning scope fixed:
+  - this round only targets the home landing `精选档案` block
+  - does not expand to `精选页 / 社区页 / 作者页` in the first slice
+- accepted layout strategy:
+  - `比例分桶 + 固定模板 + 轻裁切 + 无空位填槽`
+  - no pure masonry for the landing-page shelf
+  - first phase does not require backend ratio metadata
+  - second phase may add homepage `width / height / aspectRatio` contract only if first-phase crop is still too strong
+- task board:
+  - `docs/04_实施设计/home-archive-collage-ui-optimization-board-2026-06-09.md`
+  - current completed item: `U8-0 方案定稿与约束收口`
+  - next task: `U8-1 首页拼贴卡位模型落地`
+- execution rule:
+  - after each completed task, update both the board doc and `.codex/progress-community.md`
+
+## 2026-06-09 home archive collage first implementation slice landed locally
+
+- implementation scope:
+  - `apps/web/src/features/home/HomePage.tsx`
+  - `apps/web/src/features/home/HomePage.module.css`
+  - task board: `docs/04_实施设计/home-archive-collage-ui-optimization-board-2026-06-09.md`
+- completed/advanced tasks:
+  - `U8-1` completed
+    - added first-phase homepage collage slot model
+    - `archiveCards` are now mapped through `buildArchiveCollageRows(...)` before rendering
+    - slot layer now supports `hero / portrait / square / wide / landscape`
+    - fill logic includes bucket-priority fallback instead of direct uniform-grid map
+  - `U8-2` in progress
+    - `精选档案` rendering has been switched from one uniform 4-column grid to a 4-row fixed collage template
+    - desktop/tablet/mobile responsive fallback rules were added in CSS so the layout can collapse without reusing the old fixed 4-column wall
+- local verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- local browser status:
+  - local frontend `3106` was started successfully for verification
+  - attempted Playwright review hit the existing local backend data problem on `/`, so the real collage shelf could not yet be visually accepted from live homepage data
+  - current blocker is not compile failure; it is local homepage data availability during manual UI inspection
+- next step:
+  - continue `U8-2 / U8-3` with one more pass on media density and title pressure, then do a real browser acceptance pass once local homepage data is available or after a test-cloud sync
+
+## 2026-06-09 local login runtime restored without reopening built-in demo credentials
+
+- root cause confirmed:
+  - the local login page did not fail because of the frontend itself
+  - backend default auth hardening had already changed `dramatv.community-auth.provider.local-password-enabled` to `false`
+  - after a reboot, the commonly used background starter `scripts/start-server-18080.ps1` did not load `apps/server/.env`, so local explicit auth overrides were silently lost
+- implementation:
+  - `scripts/start-server-18080.ps1` now imports both `apps/server/.env.example` and `apps/server/.env` before launching the jar, matching the existing `scripts/run-server-local-db.ps1` behavior
+  - local-only ignored file `apps/server/.env` was added on this machine to explicitly enable:
+    - `DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_ENABLED=true`
+    - `DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_BOOTSTRAP_SECRET=<local-only value>`
+  - this keeps production/test defaults closed while restoring local login capability after restarts
+- runtime verification:
+  - backend `18080` was restarted through the updated starter
+  - Playwright rechecked `http://127.0.0.1:3106/login?redirectTo=%2Fhome`
+  - login page RSC payload now carries `providerConfig.loginProviders[0].enabled=true`, and the primary CTA text returned from `登录方式暂不可用` to `进入社区`
+- note:
+  - current local browser automation still reports HMR websocket noise on `3106`, so automated button-click verification is not a reliable signal in this session
+  - the auth-enable regression itself is closed; if the user still sees the old disabled copy in a real browser, refresh the `3106` page once after backend restart
+
+## 2026-06-09 login form now tolerates paste, password-manager autofill, and pre-hydration submit
+
+- confirmed user-facing failure shape:
+  - local login provider was already re-enabled
+  - but the login page still depended on client-side controlled input state plus `onSubmit`
+  - browser paste / remembered-password autofill could leave the CTA in a bad state
+  - when hydration timing was poor, clicking `进入社区` could also fall back to a native submit path that did not execute the intended login action
+- implementation:
+  - `apps/web/src/features/login/LoginPage.tsx`
+    - removed username/password controlled-state gating
+    - added real `name="username"` and `name="password"` fields for browser password managers
+    - switched the form to a native Next server action `action={formAction}`
+    - kept provider-disabled guard only on the CTA itself
+  - `apps/web/src/app/(community)/login/actions.ts`
+    - replaced the client-triggered object-call login helper with a real form-backed server action
+    - action now reads `FormData`, validates empty credentials, calls backend login, and redirects on success
+- browser verification:
+  - `http://127.0.0.1:3106/login?redirectTo=%2Fhome`
+  - empty submit stays on `/login` and renders `请输入用户名和密码。`
+  - filled submit with local credentials now lands on `/home`
+- current verification boundary:
+  - `apps/web` typecheck/build are still blocked by an existing unrelated Next generated-route-types corruption under `.next/dev/types/routes.d.ts`
+  - this round did not introduce that route-types failure; login runtime verification was completed in the browser instead
+
+## 2026-06-09 local web `/media/**` chain restored on 3106
+
+- confirmed failure shape:
+  - local backend `18080` could already serve the same media objects with `200`
+  - local frontend `3106` rendered same-origin relative `/media/...` asset paths
+  - but `apps/web` had no local rewrite/proxy for `/media/:path*`, so the browser hit `3106/media/...` directly and got `404`
+  - this is a local-runtime mismatch, not a cloud media-url regression: cloud/test still rely on same-origin `/media/**` through Nginx
+- implementation:
+  - `apps/web/next.config.ts`
+    - added a local-only `rewrites()` rule for `/media/:path*`
+    - the rewrite activates only when `DRAMATV_API_BASE_URL` or `NEXT_PUBLIC_DRAMATV_API_BASE_URL` points to a loopback host
+    - local `3106` now proxies `/media/** -> 18080/media/**`, while cloud/test keep the existing same-origin behavior unchanged
+- runtime verification:
+  - restarted local web `3106` after the config change
+  - direct checks confirmed:
+    - `HEAD http://127.0.0.1:18080/media/... -> 200`
+    - `HEAD http://127.0.0.1:3106/media/... -> 200`
+  - Playwright rechecked `http://127.0.0.1:3106/home`
+    - media requests switched from repeated `404` to `200/206`
+    - console error count dropped to `0`
+    - homepage cards recovered visible covers/previews
+- build verification:
+  - `apps/web -> npm.cmd run build`
+- note:
+  - the earlier local `login/page.tsx` module-resolution and `use server` console noise did not reproduce after the `3106` restart; current evidence points to stale dev-session compilation state, not a persistent source-code regression
+
+## 2026-06-09 shared back-anchor restore loop fixed locally
+
+- confirmed failure shape:
+  - after the local `3106` runtime was cleaned up, `/home` still produced a real client error:
+    - `Maximum update depth exceeded`
+    - stack pointed into `useBackAnchorRestore`
+  - the same bad render loop also drove repeated `/api/me/notifications/recent` requests, making the issue look like HMR noise from the outside
+- root cause:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+  - the hook used a `useLayoutEffect` without a dependency array and called `setHashAnchorId(...)` on every render
+  - the intent was valid: keep hash-anchor state synced when route replace/hash changes do not fire a native `hashchange`
+  - but the implementation synced too aggressively and could recurse under dev runtime + page state churn
+- implementation:
+  - `useBackAnchorRestore` now reads `pathname` and `searchParams` from `next/navigation`
+  - route-sync runs only when `pathname` or `searchParams.toString()` changes
+  - the hashchange listener now also uses the same guarded updater and no longer does an eager extra sync on mount
+  - this keeps the earlier “route replace also clears stale anchor state” behavior while removing the render-loop trigger
+- verification:
+  - Playwright reopened `http://127.0.0.1:3106/home`
+  - after waiting for the page to settle:
+    - console errors dropped to `0`
+    - the previous `Maximum update depth exceeded` no longer reproduced
+    - `/api/me/notifications/recent` stopped spamming the network log
+  - `apps/web -> npm.cmd run build`
+
+## 2026-06-09 landing archive cards now hide titles until hover on desktop
+
+- scope:
+  - `apps/web/src/features/home/HomePage.module.css`
+  - only the public landing-page archive collage cards on `/`
+- behavior change:
+  - on hover-capable desktop devices, `.archiveCardTitle` is now hidden by default
+  - `.archiveCardMeta` (author + metric) is also hidden by default
+  - the title and meta reappear on `.archiveCard:hover` and `.archiveCard:focus-within`
+  - the top-left `.archiveCardBadge` stays visible at all times
+  - touch/mobile layouts keep the existing always-visible title behavior so cards do not lose essential text on non-hover devices
+- verification:
+  - Playwright runtime check on `http://127.0.0.1:3106/`
+  - computed-style validation on the first archive card:
+    - default: `title=none`, `meta=none`
+    - hover: `title=flow-root`, `meta=flex`
+
+## 2026-06-09 featured archive UI migration board initialized
+
+- user request changed from “home landing archive block refinement” to “migrate the new card UI language into `/featured`”
+- implementation was intentionally not started yet; this round stayed in planning/read-only mode
+- affected-area conclusion:
+  - direct render scope is `apps/web/src/features/featured/FeaturedArchivePage.tsx` + `.module.css`
+  - high-risk linked behaviors are:
+    - `loadMoreRef + IntersectionObserver` pagination
+    - featured detail return-position restore via `getFeaturedCardAnchorId(...)` and `useBackAnchorRestore(...)`
+    - `useInteractiveVideoPreview(...)` hover preview / prewarm
+    - prompt-like action via `togglePromptLikeAction(...)`
+  - first-stage recommendation is to migrate the single-card visual language before deciding whether to replace the current 3-column grid with a paginated collage rhythm
+- task board created:
+  - `docs/04_实施设计/featured-archive-ui-migration-board-2026-06-09.md`
+  - current state:
+    - `U9-0` completed: impact analysis and execution order closed
+    - next task: `U9-1` single-card style-language migration
+- current boundary:
+  - no business code changed in this planning slice
+  - no shared contract or backend change is planned for the first phase unless card-ratio metadata later proves necessary
+  - admin impact is now explicitly recorded:
+    - first-phase `FeaturedCard` visual migration can stay frontend-only
+    - but if the migration later changes `首屏 12 条` semantics, featured slot meaning, preview-expression expectations, or requires ratio/layout metadata, the admin feed-ops featured page and shared feed-ops types must be synchronized as a follow-up track
+
+## 2026-06-09 featured archive U9-1/U9-2 first waterfall slice landed locally
+
+- implementation scope:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - `apps/web/src/features/featured/FeaturedArchivePage.module.css`
+  - task board: `docs/04_实施设计/featured-archive-ui-migration-board-2026-06-09.md`
+- completed tasks:
+  - `U9-1` completed
+    - featured cards now use the same new visual language as the landing archive cards:
+      - denser media-first card surface
+      - monospaced top-left type badge
+      - desktop hover/focus reveal for title + meta
+      - mobile small-screen override keeps title + meta visible
+    - prompt like button remained clickable under the new hover-reveal footer
+  - `U9-2` completed
+    - decision landed as “upgrade from uniform 3-column wall to a paginated staged collage rhythm”
+    - implementation uses a frontend-only repeating layout pattern:
+      - row A: `hero + portrait + portrait`
+      - row B: `portrait + portrait + wide`
+    - important constraint: items are **not reordered** for layout; the layout only assigns slot variants by current sequence so `最新 / 最热` ordering semantics remain intact
+- local verification:
+  - `apps/web -> npm.cmd run build`
+  - Playwright runtime checks on `http://127.0.0.1:3106/featured`
+    - desktop default first card: `title=none`, `meta=none`
+    - desktop hover first card: `title=flow-root`, `meta=flex`
+    - first six layout variants: `hero, portrait, portrait, portrait, portrait, wide`
+    - prompt like button regression passed: `false/1 -> true/2 -> false/1`
+    - small-screen override at `390px` passed: `title=flow-root`, `meta=flex`
+    - basic pagination smoke passed: card count `12 -> 24` after one bottom scroll, and `查看更多` recovered after load
+- current boundary:
+  - this slice still does **not** change backend contracts, featured slot semantics, or admin feed-ops logic
+  - next tasks remain:
+    - `U9-3` pagination / load-more stability
+    - `U9-4` detail return-position regression
+    - `U9-5` video preview / responsive / like full sweep
+
+## 2026-06-09 featured ratio-metadata slice wired locally, with runtime guard and live-data gap confirmed
+
+- this round continued the accepted `U9-6` direction instead of further tweaking frontend-only heuristics:
+  - backend public feed contracts now support optional `width / height` on featured inventory and related feed items
+  - frontend `FeaturedArchivePage` now prefers backend ratio metadata when assigning collage variants, and only falls back to client natural-size measurement when metadata is absent
+  - featured inventory session cache key was bumped so old dimension-less cached inventory does not keep polluting the new layout logic
+- while verifying the runtime, a real local frontend bug was also closed:
+  - `/featured` could throw `TypeError: Cannot read properties of undefined` inside `resolveFeaturedLayoutBucket(...)`
+  - root cause was the measured aspect-ratio cache being read without a defensive fallback during dev/HMR/runtime transitions
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx` now guards both ratio-map reads and ratio-map updates with an empty-map fallback
+- local verification completed:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright reopened `http://127.0.0.1:3106/featured`
+    - console error count: `0`
+    - first screen rendered `12` cards
+    - clicking `查看更多` expanded the list to `24` cards
+    - network noise stayed tight: one additional `GET /api/featured-inventory?cursor=offset:12 -> 200`
+- important live-data finding:
+  - browser-side fetch of `/api/public/featured-inventory?limit=12` confirmed the current local real inventory still returns many `width / height = null`
+  - direct backend check on `http://127.0.0.1:18080/api/feed/featured-inventory?limit=1` also showed that this is not a frontend proxy loss; the current local dataset itself lacks stored dimension metadata on many historical assets
+  - current effect therefore is:
+    - contract path is wired
+    - rows that already have dimensions can benefit immediately
+    - many current rows still rely on client natural-size measurement after image load
+- current conclusion:
+  - `U9-6` has moved from “candidate” to “in progress / contract landed”
+  - if the next goal is to improve first-paint layout stability further, the follow-up track is no longer frontend layout tuning first; it is historical media `width / height` backfill
+
+## 2026-06-11 featured archive pagination regression fixed locally, dev-runtime issue isolated
+
+- user-facing failure shape:
+  - `/featured` category and sort chips looked “unclickable” on local `3106`
+  - after the waterfall migration, the page could also eagerly load the whole featured inventory instead of expanding by scroll batches
+- root-cause split:
+  - local `next dev` runtime on `3106` is currently not completing client hydration on this machine
+  - evidence:
+    - `PageShell` theme toggle and featured filter chips had no React handlers attached in the browser
+    - Playwright confirmed DOM-native clicks fired but React state never changed
+    - the same page immediately recovered React hydration when switched to local production runtime via `next start --port 3106`
+  - separate from that runtime issue, `FeaturedArchivePage` had a real pagination bug:
+    - the auto-load sentinel had been left inside the top filter bar
+    - this made `IntersectionObserver` fire on first paint and drain inventory pages too aggressively
+- code changes landed:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - removed temporary `console.info` debug probes
+    - moved the auto-load sentinel from the toolbar back to the content footer
+    - changed the normal state from “button + auto-load mixed mode” to “scroll auto-load, retry button only on loadMoreError”
+    - tightened `IntersectionObserver.rootMargin` so loading starts near the real bottom instead of far above the fold
+  - `apps/web/src/components/shared/PageShell.tsx`
+    - removed temporary hydration/theme debug logs
+  - `apps/web/src/app/(community)/featured/page.tsx`
+    - aligned `searchParams` typing with current Next.js page contract so `next build` passes again
+  - `docs/04_实施设计/featured-archive-ui-migration-board-2026-06-09.md`
+    - marked `U9-3` complete with verification notes
+- verification:
+  - `apps/web -> npm.cmd run build`
+  - local production runtime on `http://127.0.0.1:3106/featured`
+    - first paint restored to `12` cards
+    - scroll-to-bottom expanded inventory in batches `12 -> 24 -> 36`
+    - `工作流` and `最新` route switches updated the URL normally
+    - browser console errors: `0`
+- current boundary:
+  - the featured-page pagination/interaction regression is closed in the local production runtime
+  - the local `next dev` HMR websocket / no-hydration issue is still an environment/runtime task and should be tracked separately from featured-page business logic
+
+## 2026-06-12 featured waterfall pagination fix synced to test cloud
+
+- this round only synced the web runtime for the featured waterfall pagination/load-more repair; no backend/admin contract was changed
+- deploy target:
+  - public host: `http://drama-community-dev.dzkjm.cn`
+  - release: `20260612-191508`
+  - label: `featured-waterfall-pagination-20260612`
+- why explicit deploy parameters were required:
+  - repo deploy defaults still point at `http://community.8.141.20.130.nip.io`
+  - that old host now returns `403` at the public access layer
+  - this rollout therefore used explicit `-PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn` to avoid rewriting cloud nginx back to the stale host
+- local verification before deploy:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright on `http://127.0.0.1:3106/featured`
+    - first screen stayed at `12` cards
+    - bottom scroll expanded `12 -> 24 -> 36`
+    - filter/sort route switching remained responsive
+- cloud deploy verification:
+  - remote build completed successfully in release dir `/opt/dramatv-community-web/releases/20260612-191508`
+  - remote `systemctl status dramatv-community-web` -> `active`
+  - post-deploy readiness artifact: `artifacts/runtime-readiness/test/web-deploy-20260612-191508-summary.json`
+  - readiness result: `13 passed / 0 failed`
+  - verified public checks included:
+    - `/` -> `200`
+    - `/login` -> `200`
+    - unauthenticated `/featured` -> redirect to `/login?redirectTo=%2Ffeatured`
+    - `/api/public/featured-inventory?limit=1` -> `200`
+- rollout note:
+  - first upload attempt failed at about `95%` with `Network error: Software caused connection abort`
+  - second attempt with the same deploy command succeeded; failure shape matched transient upload-link interruption rather than code/build/runtime breakage
+
+## 2026-06-12 featured deep return restore hardened locally
+
+- user-reported failure shape:
+  - after scrolling deep into `/featured`, entering a detail page, and using the in-page `返回列表`, return positioning could drift
+  - on bad restores, the visible viewport could show the masonry columns out of balance, including an apparent empty left column until the next incremental load fired
+- confirmed root-cause split:
+  - shared `useBackAnchorRestore()` only attempted one stored `scrollY` restore and immediately marked the route as restored
+  - if the page height was still catching up when that first `scrollTo()` happened, the browser clamped the scroll position and the hook never retried
+  - `/featured` masonry also kept measured card aspect ratios only in component memory, so route re-entry could recompute different column heights before image metadata was re-read
+- implementation:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - changed stored-scroll restore from single-shot to bounded retry restore
+    - the hook now keeps retrying until the target scroll becomes reachable or the anchor is back near the viewport, then clears the stored back-scroll key
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - added session-scoped persistence for measured featured card aspect ratios
+    - returning to `/featured` now reuses previously measured card ratios instead of rebuilding every column from fallback guesses
+- verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright local return-flow replay on `http://127.0.0.1:3106/featured`
+    - cleared featured inventory/aspect-ratio session caches
+    - auto-loaded inventory to `60` cards
+    - entered a deep prompt detail card and used the page `← 返回列表`
+    - restore result after settle:
+      - `scrollY ≈ 4973.6`
+      - `cardCount = 60`
+      - `visiblePerColumn = [3, 3, 4]`
+      - consumed back-scroll keys were cleared from `sessionStorage`
+- current boundary:
+  - this round fixes the real deep return restore path used by the app's own back link
+  - Playwright still shows unrelated local `next dev` HMR websocket noise on `3106`; that environment issue is separate from the featured return logic and did not block the functional restore verification
+
+## 2026-06-14 creator page return-position and title-density fix landed locally
+
+- user-reported scope on creator pages:
+  - entering a detail page from creator content and returning could not reliably restore position for cards that came from later `鏌ョ湅鏇村` batches
+  - creator-page content cards should not show the title block by default
+- root-cause split confirmed:
+  - creator cards already carried `from=/creators/...#creator-*` anchors, and creator route already mounted `useBackAnchorRestore(...)`
+  - the real missing layer was creator-page list-state persistence: after returning, the route only had the first page of `works/workflows/posts`, so anchors from later loaded batches often did not exist yet
+  - title density issue was local to the shared creator/personal-center media card footer layout rather than a backend/data problem
+- implementation:
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - added session-scoped creator-page snapshot restore keyed by the current creator route
+    - persisted already loaded `works/workflows/posts` plus their `nextCursor` values
+    - on route re-entry, restore now rehydrates larger previously loaded batches before shared back-anchor scrolling runs
+    - creator `works` and `workflows` cards now opt into compact mode so the title block stays hidden
+  - `apps/web/src/components/shared/ProfileMediaCard.tsx`
+    - added `hideTextBlock` prop to support title/subtitle-free card rendering without forking the whole component
+  - `apps/web/src/components/shared/ProfileMediaCard.module.css`
+    - added compact footer behavior so hidden-title cards keep the bottom row visually stable
+- verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current boundary:
+  - this round closes the structural creator-page return bug for later loaded batches at the code level
+  - no backend/admin contract changed
+  - browser-side manual replay for a real creator route was not run in this turn
+
+## 2026-06-14 test-cloud authenticated pressure rerun for mixed navigation routes
+
+- user intent:
+  - local data volume is too small to expose the reported `multi-page switch + content click -> page freeze` risk
+  - pressure validation should therefore target the test cloud instead of local
+- target and method:
+  - public host: `http://drama-community-dev.dzkjm.cn`
+  - reused existing authenticated k6 scripts under `scripts/k6`
+  - first ran a 1 VU authenticated baseline against `/featured,/home,/discussions`
+  - then ran a mixed authenticated load against:
+    - `/featured`
+    - `/prompts/fcd93e2f-48cc-4482-b7a2-a470a313778d`
+    - `/prompts/347c62a0-d6a8-4fb3-a6b3-7cfad15ad783`
+    - `/creators/11111111-1111-1111-1111-111111111111`
+    - `/home`
+    - `/discussions`
+- baseline result:
+  - no failures
+  - `http_req_duration p95=101.58ms`
+  - baseline confirms the current cloud entry and authenticated session flow are healthy before applying concurrency
+- mixed-load result:
+  - command:
+    - `k6 run --stage 30s:6 --stage 1m:12 --stage 2m:12 --stage 30s:0 -e PUBLIC_BASE_URL=http://drama-community-dev.dzkjm.cn -e ROUTES=... scripts/k6/public-auth-load.js`
+  - total:
+    - `http_reqs=3079`
+    - `http_req_failed=0.00%`
+    - `avg=233.93ms`
+    - `p90=597.59ms`
+    - `p95=817.02ms`
+    - `p99=1.25s`
+    - `max=2.85s`
+    - `iteration_duration p95=6.09s`
+  - threshold outcome:
+    - `http_req_failed` threshold still passed
+    - `http_req_duration p(95)<500` and `p(99)<1000` both failed
+- cross-line conclusion:
+  - this round did not reproduce a hard service-level collapse; the site stayed up and returned `200` throughout
+  - but under realistic authenticated mixed-route pressure, the cloud runtime is already slow enough to threaten route-switch feel and increase the likelihood of browser-side `卡住/切换迟滞` perception
+  - current k6 still measures route document requests, not full browser hydration/main-thread stalls, so it proves server/SSR latency pressure but does not fully close the client-side freeze question
+- next recommended track:
+  - add one browser-side cloud replay focused on rapid route switching and detail-entry loops
+  - then correlate browser network/console timing with the slowest cloud routes from this k6 run, starting with `/featured`, creator page, and detail pages
+
+### 2026-06-14 cloud featured hydration mismatch captured; local first-frame restore hardened
+
+- browser-side cloud replay on `http://drama-community-dev.dzkjm.cn/featured` captured a real client-side production React error during featured first paint:
+  - `Minified React error #418`
+  - no paired backend failure was observed at the same time; route requests still returned `200`
+- current root-cause conclusion:
+  - featured waterfall page still had one SSR/client first-frame mismatch path
+  - server HTML was rendered from the trimmed first-screen inventory, but client first frame could immediately rebuild masonry assignment using session-restored aspect-ratio cache
+  - this makes `/featured` vulnerable to hydration mismatch and likely contributes to the reported flash / switch-lag / occasional stuck-feeling chain on cloud
+- local code change landed in `apps/web/src/features/featured/FeaturedArchivePage.tsx`:
+  - removed aspect-ratio session-cache restore from the initial `useState`
+  - deferred aspect-ratio cache restore until after hydration
+  - limited that restore to real `featured-item-*` back-anchor return flows so normal first entry stays SSR-deterministic
+- local verification completed:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright on `http://127.0.0.1:3106/featured`
+    - console `error = 0`
+    - first screen remained `12` cards / `3` columns
+- current boundary:
+  - this round did not deploy the fix to cloud
+  - deep featured return + rapid multi-route switching still need one post-deploy cloud replay to confirm the original freeze perception is reduced, not only the hydration error removed
+
+### 2026-06-14 featured prefetch buffer optimization board initialized
+
+- user intent:
+  - current featured waterfall still visibly shifts when the next batch loads near the bottom
+  - target is not just "request earlier", but "hide the active loading / reflow feeling" so the next batch appears more naturally
+- implementation conclusion before coding:
+  - only moving the trigger earlier is not enough
+  - the real optimization track must cover three linked steps together:
+    - fetch next batch earlier
+    - prepare aspect ratios before visible insertion as much as possible
+    - merge buffered items into the visible masonry in a more stable way
+- task board:
+  - `F10-1` completed: first implementation slice landed as a safer reduced version; instead of keeping a separate delayed-commit buffer state, featured load-more now stays on a single append path with request in-flight de-duplication, avoiding the earlier local render-loop regression from the more complex double-stage buffer attempt
+  - `F10-2` completed: featured auto-load trigger was moved earlier so the next page starts loading before the user reaches the literal bottom
+  - `F10-3` completed: newly loaded featured items now run a lightweight aspect-ratio preparation pass before append; backend `width/height` is still preferred, and items without backend dimensions now probe `poster/cover` natural size first when available
+  - `F10-4` completed: featured paging now keeps a route-scoped hidden next-page buffer in refs, preloads the next page earlier, and only commits that buffered page when the user gets closer to the bottom; this keeps the stronger visual buffering behavior without reintroducing the earlier state-loop regression
+  - `F10-5` completed: local browser regression sweep for `/featured` passed across first entry, deep scroll auto-load, category/sort switching, and detail return, with no console errors and no repeated featured cursor fetches
+  - `F10-6` pending: if local verification passes, sync the featured hydration fix and buffer-loading optimization to cloud, then rerun cloud browser replay on the original freeze path
+- tracking rule for follow-up rounds:
+  - keep this board in `.codex/progress-community.md`
+  - every time one item is completed or re-scoped, update the item status here first before moving on
+
+### 2026-06-14 featured early-load optimization first slice completed locally
+
+- implementation outcome:
+  - the original plan to keep a separate `prefetchedItems -> commit later` buffer was tried first, but it introduced a real local `Maximum update depth exceeded` loop during featured scrolling
+  - this round intentionally reduced complexity instead of forcing the larger design through
+  - current local landed version keeps:
+    - earlier featured load trigger
+    - same-route/cursor in-flight de-duplication for load-more
+    - the existing single append path for visible inventory
+  - current local landed version does **not yet** keep:
+    - a true hidden next-page buffer
+    - off-screen ratio preparation before visible insertion
+- local verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright on `http://127.0.0.1:3106/featured`
+    - console `error = 0`
+    - first screen stayed `12` cards
+    - one deep wheel scroll expanded first batch to `23` cards without request duplication
+    - clicking `视频提示词` updated route to `?filter=video_prompt` and kept the page responsive
+- current conclusion:
+  - `F10-1/F10-2` are complete in a reduced but stable form
+  - the user-visible “don’t wait until the literal bottom” goal has improved locally
+  - the remaining visual reflow problem is now concentrated in `F10-3/F10-4`, i.e. ratio preparation and stabler insertion, not basic trigger timing
+
+### 2026-06-14 featured ratio-preparation slice completed locally
+
+- implementation:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - newly loaded featured page items now run a lightweight pre-append ratio preparation pass
+  - the preparation order is:
+    - use backend `width/height` first when already available
+    - otherwise probe `posterUrl / coverUrl` natural size off-screen before append when possible
+  - this keeps the current simpler single-append paging model, but reduces how many newly appended cards still rely on pure fallback bucket ratios
+- local verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright on `http://127.0.0.1:3106/featured`
+    - console `error = 0`
+    - first screen stayed `12` cards
+    - one deep wheel scroll expanded list to `23` cards
+    - `视频提示词` filter switch still updated route to `?filter=video_prompt` and remained responsive
+- current boundary:
+  - this slice improves ratio readiness before append, but it is still not a true hidden next-page buffer
+  - `F10-4` remains open if we still want the stronger “prepare whole next batch off-screen, then commit in one visually cleaner step” behavior
+
+### 2026-06-14 featured hidden next-page buffer landed locally without shared-state regression
+
+- implementation:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - this round introduced a route-scoped hidden next-page buffer using `useRef`, not React list state
+  - behavior now splits into two phases:
+    - near the earlier threshold, request the next featured page and keep it buffered off-screen
+    - only when the user gets much closer to the bottom, commit that buffered page into the visible inventory
+  - this keeps the buffering behavior isolated inside `/featured` pagination and avoids polluting category switching, back-anchor restore, or shared cache contracts
+- why this version was chosen:
+  - an earlier attempt to model the buffer directly in React state caused a real local `Maximum update depth exceeded`
+  - the ref-scoped buffer keeps the stronger UX goal while sharply reducing cross-effect churn
+- local verification:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright on `http://127.0.0.1:3106/featured`
+    - console `error = 0`
+    - network only requested `offset:12` and `offset:24`, with no duplicate cursor fetches
+    - visible inventory progression observed as `12 -> 23 -> 35`
+    - category switching `全部 <-> 视频提示词` stayed responsive and updated URL correctly
+- current conclusion:
+  - `F10-4` is complete locally in a low-blast-radius form
+  - the remaining tasks before cloud rollout are now `F10-5/F10-6`: broader featured regression replay and then cloud sync + cloud browser replay
+
+### 2026-06-14 featured regression sweep completed locally
+
+- scope:
+  - local browser regression on `http://127.0.0.1:3106/featured`
+  - paths covered:
+    - first entry
+    - deep scroll auto-load
+    - `全部 -> 视频提示词 -> 最新 -> 全部`
+    - prompt detail entry and `返回列表`
+- verification evidence:
+  - console remained clean: `error = 0`
+  - deep scroll progression observed as:
+    - `12 -> 23 -> 35`
+  - category / sort switching behaved as expected:
+    - `?filter=video_prompt`
+    - `?filter=video_prompt&sort=latest`
+    - `?sort=latest`
+  - detail return on `sort=latest` came back to:
+    - `http://127.0.0.1:3106/featured?sort=latest#featured-item-...`
+    - restored list count `23`
+    - restored scroll `952`
+  - featured inventory network requests stayed de-duplicated in the sweep:
+    - `offset:12`
+    - `offset:24`
+    - `filter=video_prompt&sort=latest`
+    - `filter=video_prompt&sort=latest&cursor=offset:12`
+    - `sort=latest`
+    - `sort=latest&cursor=offset:12`
+- residual note:
+  - returning to `sort=latest` after entering detail restored a partially expanded list (`23` items) instead of the smaller `11`-item first screen
+  - current judgment: this is consistent with the existing return-restore strategy, not a regression from the buffer slice
+- current conclusion:
+  - `F10-5` is complete locally
+  - next step is `F10-6`: sync to cloud and replay the original cloud freeze path
+
+### 2026-06-15 featured return-restore repair slice synced to cloud and replayed
+
+- cloud web deploy completed for the current `/featured` stabilization slice:
+  - deploy command:
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - web release:
+    - `20260615-000520`
+  - remote release dir:
+    - `/opt/dramatv-community-web/releases/20260615-000520`
+  - readiness artifact:
+    - `artifacts/runtime-readiness/test/web-deploy-20260615-000520-summary.json`
+  - readiness result:
+    - `13 passed / 0 failed`
+- first-screen cloud verification on `http://drama-community-dev.dzkjm.cn/featured` now matches the intended trimmed behavior:
+  - visible card count stayed at `12`
+  - `scrollY = 0`
+  - `scrollHeight = 2046`
+  - no visible `Restoring featured position` overlay
+  - console `error = 0` on a fresh tab replay
+  - one background request for `GET /api/featured-inventory?cursor=offset:12` still exists, but it no longer auto-commits the next page into the visible list
+- deep return replay on cloud passed after the deploy:
+  - path:
+    - `/featured` deep scroll to `60` items
+    - enter `/prompts/5f91b255-f803-4ba9-9509-d87feb6b5d09?...`
+    - click `杩斿洖鍒楄〃`
+  - settled result:
+    - return route `http://drama-community-dev.dzkjm.cn/featured#featured-item-5f91b255-f803-4ba9-9509-d87feb6b5d09`
+    - `scrollY = 4140.7998`
+    - `cards = 60`
+    - masonry columns `17 / 21 / 22`
+    - restore overlay text empty
+    - console `error = 0`
+- additional cloud replay for the user-reported filter/sort path also passed:
+  - path:
+    - `鍏ㄩ儴 -> 瑙嗛鎻愮ず璇?-> 鏈€鏂?-> prompt detail -> 杩斿洖鍒楄〃`
+  - settled result:
+    - return route `http://drama-community-dev.dzkjm.cn/featured?filter=video_prompt&sort=latest#featured-item-5458b28c-2c9e-4f32-b9a4-1da43783e42c`
+    - restored list count `23`
+    - masonry columns `8 / 7 / 8`
+    - target anchor remained in viewport
+    - no stuck restore overlay reproduced on this path
+- current conclusion:
+  - the two explicitly recorded `/featured` regressions from 2026-06-14 are not reproduced in the current cloud runtime:
+    - left column blank after return
+    - restore overlay stuck on `Restoring featured position`
+  - `F10-6` can be treated as completed for the current featured pagination/buffer/return stabilization rollout
+  - hydration mismatch remains a separate observation track and should only be treated as active again if it reproduces on a fresh-tab replay, not from stale console history in older tabs
+
+### 2026-06-15 featured first-screen buffered page could still auto-commit after shallow scroll; local guard tightened
+
+- newly isolated regression shape on the current cloud runtime:
+  - on an already logged-in `/featured` tab, directly re-entering `http://drama-community-dev.dzkjm.cn/featured` could still land in a state where:
+    - `scrollY` was already slightly above `0` (observed `100`)
+    - first screen expanded from the intended `12` cards to `24`
+    - visible columns became `8 / 6 / 10`
+  - this is different from the earlier `left blank column` / `restore overlay stuck` return bug; it happens on first-screen buffered-page commit eligibility
+- root-cause conclusion in local code:
+  - `/featured` buffered next page was only gated by `window.scrollY > 0`
+  - once the page had any shallow residual scroll offset, the hidden prefetched page was eligible for immediate commit even though the user was nowhere near the bottom
+  - result: the first screen could consume the buffered `offset:12` page too early and visually jump back to `24`
+- local repair landed in `apps/web/src/features/featured/FeaturedArchivePage.tsx`:
+  - added `getFeaturedRemainingDistanceToBottom()`
+  - changed `shouldAllowFeaturedBufferedCommit()` from `force || window.scrollY > 0` to:
+    - `force`
+    - or actual remaining distance to bottom `<= FEATURED_BUFFER_COMMIT_DISTANCE_PX`
+  - aligned the scroll listener path to reuse the same remaining-distance calculation instead of duplicating the formula inline
+- verification completed locally at static/build level:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current verification boundary:
+  - local browser replay for this exact fix is still blocked in this turn because local `3106` currently redirected to `/login?redirectTo=%2Ffeatured` and this tab set did not have an active local session to exercise the protected route
+  - cloud runtime still reflects the pre-fix behavior until the next web deploy
+- next step:
+  - reuse a valid session (local or cloud after deploy) to replay:
+    - fresh `/featured` first entry stays at `12`
+    - no shallow-scroll auto-commit to `24`
+    - previous deep return path still restores correctly
+
+### 2026-06-15 featured deep return could still mark restore complete before anchor returned to viewport; local completion guard tightened
+
+- cloud replay after web release `20260615-125416` confirmed one remaining `/featured` deep-return gap:
+  - path:
+    - logged-in `/featured` first entry
+    - deep scroll to `48+` items
+    - enter prompt detail `/prompts/be0b2ea8-c3d1-4e1a-9123-9461db560064?...`
+    - click `杩斿洖鍒楄〃`
+  - observed result:
+    - route returned to `/featured#featured-item-be0b2ea8-c3d1-4e1a-9123-9461db560064`
+    - `scrollY` recovered near the previous deep position (`5717.6`)
+    - list size recovered to `60`
+    - restore overlay did disappear
+    - but the target anchor card was still far above the viewport (`targetTop ≈ -2450`)
+- root-cause conclusion:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+  - stored-scroll mode treated `reachedStoredScroll` as sufficient proof of successful restore
+  - this allowed restore completion as soon as scroll offset numerically matched the stored value, even if the actual anchor card had not yet returned to the viewport after masonry/list rebuilding
+- local repair landed:
+  - stored-scroll completion now requires both:
+    - stored scroll position reached
+    - target anchor already near the viewport
+  - the previous branch that also allows completion when page height catches up enough and the anchor is near the viewport remains intact
+- local verification completed:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current verification boundary:
+  - this second repair slice has not yet been redeployed to cloud in this turn
+  - cloud runtime still reflects the pre-fix completion rule until the next web deploy
+
+### 2026-06-15 no-anchor return-position restore extended for featured and discussions locally
+
+- user-reported gap expanded beyond detail-card hash returns:
+  - `/featured` deep scroll -> enter own `/me` -> return: route came back but there was no return positioning because this path carried only `from=/featured?...` without a `#featured-item-*` anchor
+  - `/discussions` scroll -> enter thread / creator / own profile -> return: same class of problem for community list routes when the jump source was a non-card entry
+- root-cause conclusion:
+  - current shared restore layer only became active when the returning route carried a hash anchor
+  - `PageShell` topbar profile jump correctly persisted `rememberBackAnchorSource(from)` scroll snapshots, but list pages such as `/featured` and `/discussions` did not consume that stored route-level scroll when the return path had no hash
+  - result: card-entry returns could restore, but profile-entry / no-anchor returns silently fell back to top
+- local repair landed:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - added `useStoredRouteScrollRestore()` for plain route-level scroll restore when a stored `from` route has no hash anchor
+    - restore stays disabled whenever the current URL already has a hash, so existing anchor-based flows remain the primary path
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - hooked stored-route restore into the existing featured restore overlay so `/featured -> /me -> back` can restore under the same guarded loading experience
+  - `apps/web/src/features/discussions/DiscussionsPage.tsx`
+    - hooked stored-route restore into the community-page restore overlay so list-level discussion returns no longer depend on thread-card anchors only
+  - `apps/web/src/features/discussions/DiscussionDetailPage.tsx`
+    - related-thread links now append the real current discussion route as `from`, instead of a hard-coded `/discussions/{slug}`, reducing route-source drift for follow-up returns
+- local verification completed:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current verification boundary:
+  - this slice has local static/build verification only in this turn
+  - cloud replay for `/featured -> /me -> back` and `/discussions -> detail/profile -> back` still needs to be run after deploy
+
+### 2026-06-15 no-anchor return-position restore synced to cloud; featured passed, discussions still has a small remaining gap
+
+- cloud web deploys completed twice for this slice:
+  - release `20260615-132114`
+  - follow-up fix release `20260615-132702`
+  - readiness artifacts:
+    - `artifacts/runtime-readiness/test/web-deploy-20260615-132114-summary.json`
+    - `artifacts/runtime-readiness/test/web-deploy-20260615-132702-summary.json`
+  - both passed `13 / 0`
+- verified on cloud:
+  - `/featured -> /me?from=%2Ffeatured -> 返回`
+    - before: `scrollY = 745.6`
+    - after return: `scrollY = 745.6`
+    - no hash required
+    - no lingering `Restoring featured position` overlay
+    - current cloud conclusion: this no-anchor featured return path is fixed
+- still not fully closed on cloud:
+  - `/discussions -> /me?from=%2Fdiscussions -> 返回`
+    - before leaving discussions: `scrollY = 77.6`
+    - after return on both cloud replays: `scrollY = 0`, while max scroll height remained only about `78`
+    - stored route-scroll snapshot was definitely written on `/me` and later cleared on return, so the failure is now narrowed to the restore-completion / timing path on the discussions page rather than snapshot persistence
+- follow-up local repair already attempted in `apps/web/src/lib/routes/back-anchor.ts`:
+  - plain route-scroll restore completion was tightened to require actual arrival at `min(storedScrollY, maxScrollableY)` instead of treating “page height caught up” as sufficient
+  - this was redeployed in release `20260615-132702`
+- current conclusion:
+  - cloud rollout is live
+  - `/featured` no-anchor return is closed
+  - `/discussions` no-anchor return still has a small but real remaining mismatch and needs one more repair round
+
+### 2026-06-15 discussions no-anchor return-position fully closed on cloud
+
+### 2026-06-15 architecture review after complex cloud stress replay; second-level featured return restore first repair landed locally
+
+- this round first re-read the community mainline docs and shared route/feature code before making changes, to avoid treating return-position bugs as isolated page symptoms.
+- mainline architecture conclusion remains:
+  - the current product core is still `content list -> detail -> creator/profile -> continue browsing -> smooth return`
+  - so return-position stability and loaded-list continuity belong to the mainline experience, not post-launch polish
+- cloud complex replay produced one high-value real failure shape beyond the already-fixed first-level no-anchor return:
+  - `/featured` deep scroll reached about `48` cards and `scrollY ~= 5717`
+  - path:
+    - `/featured`
+    - prompt detail
+    - `/me`
+    - browser back to prompt detail
+    - browser back to `/featured`
+  - observed result:
+    - route returned correctly
+    - but featured list only recovered to about `24` cards and `scrollY ~= 1208`
+  - this is a real second-level return-state loss, not a simple first-level no-anchor gap
+- root-cause conclusion after code review:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+  - shared `rememberBackAnchorSource(from)` previously persisted only one key for the exact `from` route
+  - when that `from` route included a hash anchor such as `/featured#featured-item-*`, the stored deep scroll snapshot lived only under that anchored key
+  - later second-level returns could land on plain `/featured` first, while the deep snapshot still existed only under the anchored key
+  - result:
+    - first-level anchor restore could still work
+    - but `detail -> profile -> back -> detail -> back -> list` could lose the deeper list-state/scroll recovery path
+- local repair landed:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - `rememberBackAnchorSource()` now persists the same scroll snapshot under both:
+      - the exact normalized `from` route
+      - the same route with hash stripped
+    - this keeps existing hash-anchor restores intact while also giving later plain-route returns a stable fallback key
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - featured session inventory restore no longer runs only for explicit `#featured-item-*` returns
+    - when the current `/featured` route already has a stored route-scroll snapshot, the page now also restores the persisted featured inventory batches from session cache
+    - intent: second-level returns should recover both scroll position and enough loaded featured inventory to make that scroll position reachable again
+- verification completed locally:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current boundary:
+  - this slice has local static/build verification only in this turn
+  - cloud browser replay for the exact second-level featured path still needs to be rerun after deploy
+  - the separate repeated browser-console `404` on `/media/image/ccac8677-6a33-49fa-affa-63ae608fbe0e/callback-cover.png` was confirmed during the same cloud stress sweep, but is not fixed in this slice yet
+
+### 2026-06-15 creator and personal pages aligned to shared no-anchor return restore locally
+
+- this round did not continue patching `/featured` only. After reviewing the shared route-return architecture, the same restore model was extended to the two long-list profile surfaces that were still lagging behind:
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+  - `apps/web/src/features/me/PersonalCenterPage.tsx`
+- root-cause conclusion:
+  - `/featured` and `/discussions` had already consumed both:
+    - `useBackAnchorRestore(...)`
+    - `useStoredRouteScrollRestore()`
+  - but creator page and personal center still only consumed hash-anchor restore
+  - result: card-entry returns could work, while profile-entry / no-anchor return chains around creator or personal pages still had a structural gap and no consistent restoring overlay
+- local repair landed:
+  - both pages now consume `useStoredRouteScrollRestore()`
+  - both pages now keep a route-scoped restore-completion state for hash-anchor restores, matching the existing `featured/discussions` pattern
+  - both pages now render a fixed restore overlay and disable pointer events while restore is still settling:
+    - `Restoring creator position`
+    - `Restoring personal position`
+  - CSS support was added in:
+    - `apps/web/src/features/creator/CreatorPage.module.css`
+    - `apps/web/src/features/me/PersonalCenterPage.module.css`
+- verification completed locally:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- current boundary:
+  - this slice is currently local-code verified only
+  - real browser replay for deep `featured/discussions -> creator/me -> back` paths still needs to be rerun on a cleaner navigation harness, because the current Playwright session history included noisy `about:blank` back-stack interference during manual multi-step browser-back attempts
+
+- final local repair:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+  - plain route-scroll restore now requires:
+    - the page to be genuinely scrollable when the stored target expects a non-zero scroll area
+    - actual arrival at the target scroll position across two consecutive restore frames
+  - this prevents `/discussions` from treating an early `scrollY = 0` frame as successful restore before the page has fully settled
+- verification before deploy:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- cloud web deploy:
+  - release `20260615-133306`
+  - readiness artifact `artifacts/runtime-readiness/test/web-deploy-20260615-133306-summary.json`
+  - readiness result `13 / 0`
+- final cloud replay:
+  - path: `/discussions -> /me?from=%2Fdiscussions -> 返回`
+  - before leaving discussions: `scrollY = 77.6`
+  - after return: `scrollY = 77.6`
+  - `maxScroll ≈ 78`
+  - stored back-scroll snapshot was consumed and cleared
+  - no lingering `Restoring community position` overlay
+- current conclusion:
+  - `/featured -> /me -> 返回` and `/discussions -> /me -> 返回` are both closed on cloud for the no-anchor return-position path
+### 2026-06-15 local featured runtime loop re-localized and contained before cloud sync
+
+- this round paused any cloud rollout and re-entered strict local debugging after the user asked to continue the overall function/architecture review rather than pushing forward blindly.
+- re-localized evidence on local `3106`:
+  - Playwright/browser console reproduced two concrete local runtime failures on `/featured`
+  - first: `Cannot access 'restoredBackAnchorId' before initialization`
+  - second: repeated `Maximum update depth exceeded`
+  - the second stack did not point to creator/me restore overlays; it pointed back into `/featured` card ratio reporting:
+    - `FeaturedCard.useEffect -> handleCardAspectRatioChange -> setMeasuredAspectRatioByItemKey`
+- root-cause conclusion:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - featured card image-ratio reporting was still vulnerable to effect churn:
+    - child card effects could keep re-reporting the same natural image ratio
+    - parent-side ratio setter identity was not explicitly stabilized in this path
+    - result was repeated passive-effect state writes on the featured masonry route
+  - same file also carried a declaration-order/HMR hazard around `restoredBackAnchorId`, which contaminated local verification with a separate TDZ-style runtime error
+- local repair landed:
+  - `FeaturedCard` now keeps a per-card `reportedAspectRatioRef` and only reports a normalized ratio once per distinct value
+  - card-side ratio reporting now routes through `useEffectEvent(...)` instead of directly depending on a render-time callback identity
+  - parent-side `handleCardAspectRatioChange` was converted to `useEffectEvent(...)` as well
+  - featured restore hooks
+    - `useBackAnchorRestore()`
+    - `useStoredRouteScrollRestore()`
+    - `featuredBackAnchorRouteKey`
+    - `isFeaturedBackAnchorActive`
+    were moved earlier in the component body to remove the local HMR declaration-order hazard
+- local verification completed:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - Playwright/browser replay on `http://127.0.0.1:3106/featured`
+    - fresh `/featured` runtime console `error = 0`
+    - category switch `全部 -> 视频提示词` updated URL to `?filter=video_prompt`
+    - bottom scroll expanded visible inventory from first screen to `24` cards
+    - prompt detail entry and browser back returned to `/featured?filter=video_prompt`
+    - returned state settled with:
+      - `scrollY ~= 52.8`
+      - `cardCount = 24`
+      - no visible `Restoring featured position` overlay
+- current boundary:
+  - this round intentionally stopped before cloud deploy
+  - local complex return replay around deeper scroll + `/me`/creator hops still needs one more logged-in replay pass before the next cloud sync decision
+
+### 2026-06-15 detail-to-creator second-level return source repaired locally
+
+- this round continued the shared return-position architecture review instead of patching `/featured` only.
+- newly confirmed root-cause class:
+  - some detail pages were still building downstream links with `appendBackSource(..., backHref)`
+  - `backHref` on detail pages is the previous page route, not the current detail route
+  - visible consequence:
+    - `list -> detail -> creator/me/related-detail` flattened the chain
+    - the second-level page could only return toward the original list
+    - browser-back and in-page `返回上一页` semantics no longer matched the actual navigation depth
+- local repair landed:
+  - `apps/web/src/features/video-detail/VideoDetailPage.tsx`
+    - creator link now uses the current detail route as `from`
+    - related content links now use the current detail route as `from`
+    - workflow detail entry now uses the current detail route as `from`
+  - `apps/web/src/features/workflow-detail/WorkflowDetailPage.tsx`
+    - creator link now uses the current workflow detail route as `from`
+    - related video links now use the current workflow detail route as `from`
+  - `apps/web/src/features/discussions/DiscussionDetailPage.tsx`
+    - both author links now use `currentRoute` instead of `backHref`
+- verification completed locally:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - direct browser DOM verification on local `3106`:
+    - prompt detail author link now emits `/creators/{id}?from=/prompts/{id}?from=/featured#featured-item-*`
+    - prompt detail related content link now emits `/prompts|/videos/... ?from=/prompts/{id}?from=/featured#...`
+    - creator page `返回上一页` now points back to the exact detail route instead of jumping straight to the list
+    - discussion detail author link now emits `/creators/{id}?from=/discussions/{slug}?from=/discussions#discussion-thread-*`
+- current boundary:
+  - this slice fixes the already confirmed second-level return-source mismatch in shared detail-page navigation
+  - a clean logged-in browser replay for deep `/featured -> detail -> creator/me -> return -> return` still needs to be rerun without the current Playwright history/download noise before any cloud sync decision
+
+### 2026-06-15 detail-to-creator return-source repair synced to cloud and spot-verified
+
+- cloud web deploy completed for the current shared navigation slice:
+  - deploy command:
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - web release:
+    - `20260615-162006`
+  - readiness artifact:
+    - `artifacts/runtime-readiness/test/web-deploy-20260615-162006-summary.json`
+  - readiness result:
+    - `13 passed / 0 failed`
+- high-volume cloud replay on `/featured` first confirmed the page still behaves normally after the patch:
+  - first screen stayed at `12`
+  - deep scroll expanded to `48`
+  - masonry columns stayed populated as `16 / 14 / 18`
+  - no visible `Restoring featured position` overlay during this pass
+- cloud DOM verification confirmed the shared `from` semantics are now correct for the repaired path:
+  - prompt detail author link now emits:
+    - `/creators/{id}?from=/prompts/{id}?from=/featured#featured-item-*`
+  - prompt detail related-content links now emit:
+    - `/prompts|/videos/{id}?from=/prompts/{id}?from=/featured#featured-item-*`
+  - creator page `返回上一页` now points back to the exact prompt detail route:
+    - `/prompts/{id}?from=/featured#featured-item-*`
+- current conclusion:
+  - the previously confirmed second-level flattening bug for `featured -> detail -> creator -> return` is now closed on cloud at the route-contract level
+  - next replay focus should stay on full deep-return behavior under cloud data volume:
+    - `featured deep scroll -> detail -> creator/me -> return -> return`
+    - plus category switch pressure after returning
+
+### 2026-06-15 cloud deep-return behavior replay completed; no new featured regression reproduced
+
+- this round continued with behavior-level cloud replay on the already deployed web release `20260615-162006`, instead of making more local-only guesses.
+- replay scope focused on real high-volume paths the user is sensitive to:
+  - `/featured` first screen -> deep scroll to `60`
+  - `featured -> detail -> /me -> back -> back`
+  - `featured -> detail -> creator -> back -> back`
+  - category switch after returning to `/featured`
+- cloud evidence collected:
+  - first-screen remained stable at `12`
+  - deep scroll expanded inventory normally to `60`
+  - `featured -> detail -> /me -> back -> back` returned to `/featured` with:
+    - `scrollY ~= 5841.6`
+    - `cards = 60`
+    - no visible `Restoring featured position` overlay
+  - `featured -> detail -> creator -> back -> back` returned to `/featured` with:
+    - `scrollY ~= 5841.6`
+    - `cards = 60`
+    - no visible `Restoring featured position` overlay
+  - post-return filter switch to `?filter=video_prompt` still responded normally and reset to the filtered first screen (`12`)
+- important debugging conclusion:
+  - one earlier cloud replay had shown a shallower return position near `scrollY ~= 2428`
+  - this round re-checked that path with a stricter replay method and ruled it out as a real product regression
+  - root cause of that misleading evidence was the automation path itself: a coarse card click path could change the viewport before navigation and therefore store a shallower scroll snapshot than the intended deep position
+  - current rule going forward: deep-return verification for `/featured` must click a card that is already truly visible in the current viewport, not a locator action that may auto-scroll first
+- current conclusion:
+  - for the current cloud release, the repaired shared route contract and `/featured` restore path both passed the main deep multi-hop replay
+  - this round did not reproduce a new real `/featured` return-state regression
+  - remaining future work should shift from “re-fix featured return blindly” to broader stress replay and any newly observed concrete freeze/state-loss evidence
+
+### 2026-06-15 cloud complex replay expanded to featured + discussions; mainline return paths stayed stable
+
+- this round expanded cloud replay beyond the earlier single-path verification and re-ran more hostile combinations on the current cloud entry `http://drama-community-dev.dzkjm.cn`.
+- `/featured` replay covered:
+  - first screen `12`
+  - deep scroll `12 -> 24 -> 36 -> 48 -> 60`
+  - deep item detail open
+  - detail -> browser back
+  - topbar `/me` entry -> browser back
+  - sort switch `最热 <-> 最新`
+  - filter switch `全部 -> 图片提示词 -> 视频提示词`
+  - filtered detail open -> browser back
+- `/featured` observed result:
+  - no freeze
+  - no lingering `Restoring featured position`
+  - no repeated `加载中 / 查看更多` flicker
+  - deep returns stayed at the original deep position when the replay clicked a card already visible in the current viewport
+  - sort/filter switches remained responsive after returning from detail and `/me`
+- important debugging clarification:
+  - one earlier “returned only to half depth” result was re-checked and rejected as a real product regression
+  - the misleading result came from automation changing the viewport before navigation, which caused a shallower scroll snapshot to be stored
+  - current verification rule is now explicit: deep-return replay must only click a card that is already naturally visible in the viewport
+- `/discussions` replay covered:
+  - list -> thread detail -> `/me` -> back -> back
+  - list -> thread detail -> creator -> back -> back
+- `/discussions` observed result:
+  - both paths returned to `/discussions` at the original list scroll (`scrollY ~= 73.6`)
+  - no lingering `Restoring community position`
+  - no route flattening; both `/me` and creator links carried the full discussion-detail `from` chain
+- current residual issue found during the same replay:
+  - browser console still showed one stable media 404 on cloud:
+    - `/media/image/ccac8677-6a33-49fa-affa-63ae608fbe0e/callback-cover.png`
+  - this did not block the mainline replay, but it is still a real runtime hygiene issue and should be treated as a separate media-data / derived-cover cleanup item rather than a return-position bug
+
+### 2026-06-15 cloud featured deep-scroll stress replay reached 300 items; a stronger deep-item access regression was exposed
+
+- this round raised the replay depth from the earlier `60`-item verification to a real stress pass on cloud `http://drama-community-dev.dzkjm.cn/featured`.
+- verified behavior-level evidence first:
+  - featured masonry continued loading in stable `12`-item batches all the way to `300`
+  - observed incremental cursors advanced cleanly from `offset:12` through `offset:288`
+  - no hard freeze
+  - no lingering `Restoring featured position`
+  - no repeated `加载中 / 查看更多` flicker during the 300-item pass itself
+- but a more important regression surfaced under deep data volume:
+  - after reaching `scrollY ~= 36002` and `cardCount = 300`, clicking a naturally visible deep prompt card
+    - `/prompts/07a78857-3cef-4017-a17c-c550d159b1c0?from=%2Ffeatured%23featured-item-07a78857-3cef-4017-a17c-c550d159b1c0`
+    - did not open prompt detail
+    - it redirected to login:
+      - `/login?redirectTo=%2Fprompts%2F07a78857-3cef-4017-a17c-c550d159b1c0...`
+- network evidence shows this is not an isolated single-card glitch:
+  - during deep scroll prefetch, a large set of deeper prompt routes started returning `307`
+  - those `307` responses resolve to login redirects rather than prompt detail payloads
+  - earlier shallow cards on the same page still prefetch/open normally with `200`
+- current conclusion:
+  - the new highest-priority runtime issue on `/featured` is no longer only “deep return restore”
+  - under deeper pagination, featured inventory is mixing in prompt items whose route access path behaves like protected content and redirects to login
+  - this can both break real deep-item click-through and contaminate perceived return-flow testing, because the user is taken to the wrong page before any normal detail/back path can complete
+- next debugging focus:
+  - identify why these deeper featured prompt entries are publicly listable in `/api/featured-inventory` but their actual detail route/payload chain redirects to login
+  - likely scope includes prompt detail data access gating, publish/visibility semantics drift on imported deep inventory, or route-level auth mismatch between list and detail
+
+### 2026-06-15 cloud featured 300-item replay rechecked; deep cards are not inherently broken, auth/proxy state is the stronger suspect
+
+- this follow-up replay stayed on the same cloud target and continued from the already loaded deep `/featured` state:
+  - `scrollY ~= 36002`
+  - `cardCount = 300`
+  - visible deep cards included ids such as:
+    - `ffefbb00-0bec-48d9-bde0-09728483ecd7`
+    - `73b2a609-2c81-4439-a35c-2abbedfbbead`
+- first reproduction still hit the earlier bad behavior:
+  - clicking visible deep card `ffefbb00-0bec-48d9-bde0-09728483ecd7`
+  - redirected to `/login?redirectTo=...`
+- but the same session then exposed an important contradiction:
+  - on that login page, the shell still showed `psk / 退出`
+  - after clicking `进入社区`, the target prompt detail opened normally
+  - after browser back, `/featured` restored directly to the deep position:
+    - `scrollY ~= 36002`
+    - `cardCount = 300`
+  - clicking another visible deep card `73b2a609-2c81-4439-a35c-2abbedfbbead` then opened prompt detail normally without login redirect
+- current refined conclusion:
+  - the deep prompt items themselves are not yet proven bad
+  - the more consistent explanation is session / cookie / proxy-state inconsistency in a long-lived browser session
+  - likely failure mode: the page can remain usable under an already-present token, but a later route navigation re-runs proxy verification and gets bounced to `/login`
+  - this is more aligned with the current `proxy.ts` behavior than with a pure deep-data corruption hypothesis
+- next fix direction:
+  - inspect proxy/session verification behavior around stale tokens and `verifyCommunitySession(...) === "skip"`
+  - verify whether `/login` can render with a shell that still hydrates prior session UI, creating a misleading “already logged in but sent to login” state
+  - only after this is cleared should deeper data-quality hypotheses remain primary
+
+### 2026-06-15 session sliding expiry fix applied for deep cloud stress stability
+
+- root cause confirmed:
+  - community sessions were hard-capped at `7200s`
+  - access only refreshed `last_seen_at`
+  - `expires_at` was not extended on normal authenticated access
+  - the browser cookie was also being issued with a fixed `maxAge=7200`
+- this explains why very long featured/discussion pressure runs could eventually jump to `/login` even though the session had been healthy earlier in the same browser
+- code changes applied:
+  - server session lookup now slides `expires_at` forward on authenticated access
+  - web proxy now refreshes the `dramatv_access_token` cookie when session verification succeeds
+  - added an integration test that verifies `/api/auth/me` extends session expiry
+- verification status:
+  - browser-side follow-up on the existing deep detail tab still showed the authenticated shell (`psk / 退出`) and deep prompt details opening normally after the fix path was exercised
+  - local server test execution was not completed in this round because the machine does not currently expose `mvn` or `gradlew` in the shell
+- residual risk:
+  - the new session test still needs a real local test run once the build toolchain is available
+  - the 300-item deep inventory pressure path itself remains valid and should be rechecked after a clean server restart to confirm the login-hop no longer recurs
+
+### 2026-06-15 backend verification completed for session sliding expiry
+
+- final local verification result:
+  - `CommunitySessionExpiryIntegrationTest` now passes on the local machine
+  - the earlier Java 8 toolchain mismatch is confirmed as the cause of the first compilation failure, not a source-level regression
+  - `mvn -version` on the machine resolves to Java `1.8.0_152` by default, so backend tests must be run with `JAVA_HOME=C:\Program Files\Java\jdk-17.0.2`
+- code/test adjustments made during verification:
+  - `apps/server/src/main/java/com/dramatv/community/admin/auth/AdminAuthApplicationService.java`
+    - reconstructed as a clean compiling source file after it was found to be polluted by broken string literals during recovery
+  - `apps/server/src/test/java/com/dramatv/community/integration/CommunitySessionExpiryIntegrationTest.java`
+    - removed the direct dependency on package-private `AuthTokenSupport`
+    - test now computes its own SHA-256 helper locally
+- final test evidence:
+  - command:
+    - `JAVA_HOME=C:\Program Files\Java\jdk-17.0.2 ..\..\.tools\apache-maven\apache-maven-3.9.16\bin\mvn.cmd -Dtest=CommunitySessionExpiryIntegrationTest test`
+  - result:
+    - `BUILD SUCCESS`
+    - `Tests run: 1, Failures: 0, Errors: 0, Skipped: 0`
+- follow-up note:
+  - no cloud sync was performed in this round
+  - the only verified change in this round is the backend session-expiry regression path and its supporting test/toolchain cleanup
+- 2026-06-15 featured search quality expanded locally
+
+- this round focused on why `/featured` search quality felt incomplete for terms like `真人` on cloud-sized data.
+- local code changes already in place:
+  - `apps/server/src/main/java/com/dramatv/community/feed/application/FeaturedInventoryQueryService.java`
+    - prompt inventory search now matches `summary`, `prompt_text`, `prompt_text_zh`, `prompt_text_en`, `prompt_text_raw`, author, tags, `model_category`, `content_category`, and `composition_category`
+    - semantic mapping now expands `真人 -> real-person` and `动画 -> animation`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - front-end search tokens now include `topicTokens` plus taxonomy aliases so the UI no longer under-filters already loaded items
+  - `apps/server/src/test/java/com/dramatv/community/integration/FeedReadApiIntegrationTest.java`
+    - added `featuredInventorySearchesSemanticRealPersonCategory`
+    - local Maven verification passed for the new search path
+- verification status:
+  - local search logic is verified only on the current workspace data
+  - cloud data still needs a real replay because imported content can have broader semantic drift than the local fixtures
+- next step:
+  - cloud validation completed on `drama-community-dev.dzkjm.cn` for `q=真人` and `q=动画`
+  - verified counts on `/api/featured-inventory?filter=video_prompt&sort=latest`:
+    - `q=真人` => `all=19`, `videoPrompt=12`, `imagePrompt=7`
+    - `q=动画` => `all=70`, `videoPrompt=54`, `imagePrompt=16`
+  - results stayed in prompt inventory and did not mix in posts or activity items
+## 2026-06-16 featured deep return freeze first mitigation landed locally
+
+- issue under investigation:
+  - cloud `/featured` could freeze after a deep path:
+    - scroll featured far down
+    - open detail
+    - enter creator/community profile
+    - open several creator works
+    - return out and switch back to `/featured`
+  - earlier code inspection confirmed both `/featured` and `/creators/[id]` were repeatedly persisting large list snapshots into `sessionStorage`, which is a plausible main-thread stall source on deep-scroll returns
+- local mitigation landed:
+  - `apps/web/src/lib/featured/featured-inventory-session-cache.ts`
+    - added module-memory cache for same-tab full inventory restore
+    - bounded session fallback to a small recent-key window and a capped item count per key
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - restore now prefers in-memory featured inventory before falling back to session storage
+    - cache persistence now writes full state to memory and only a bounded fallback to session storage
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - creator page snapshot now keeps the full view in module memory
+    - session fallback is narrowed to list buckets plus cursors and capped list sizes instead of serializing the whole page view every time
+- verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- cloud replay status:
+  - Playwright cloud session was reset and `/featured` reopened on `http://drama-community-dev.dzkjm.cn/featured`
+  - current cloud test account `psk` does not have enough creator-page content to fully replay the exact creator deep-detail chain in this round
+  - no cloud deploy was performed in this round, so the live freeze behavior still reflects the old runtime
+- next step:
+  - deploy this web slice to cloud
+  - replay the exact deep featured -> detail -> creator -> creator works -> featured path with a content-rich creator account
+  - if freeze still exists after the persistence-cost reduction, inspect the remaining restore-completion loop and masonry re-entry path
+
+## 2026-06-16 creator first-return anchor miss narrowed and fixed locally
+
+- newly confirmed symptom:
+  - creator page return positioning could fail on the first return from a work detail
+  - after one failed return, later returns often looked normal
+- root cause:
+  - shared `useBackAnchorRestore(dependencies)` accepted dependency hints from list pages but then discarded them with `void dependencies`
+  - creator page also marked its own restore state `completed=true` immediately when the anchor target was not yet mounted
+  - on a cold first return, the target card could still be rebuilding, so the first restore window ended too early
+- local fix:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - shared restore effect now actually depends on the caller-provided dependency list
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - creator restore no longer marks completion immediately on `!target`
+    - it now keeps waiting within a bounded timeout so the first return can catch the anchor after list restore finishes
+- verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- follow-up:
+  - this should be cloud-replayed on the high-volume `community` creator page after deploy because that page is the best real-world stress sample for first-return timing
+
+## 2026-06-16 creator deep-return freeze narrowed to nested `from` hash corruption and repaired locally
+
+- cloud replay was continued on the real high-volume path instead of stopping at the earlier simplified creator-only return:
+  - `/featured` deep scroll
+  - open prompt detail
+  - enter `community` creator page
+  - load more creator works
+  - open creator work detail
+  - return to creator page
+- new reproduced failure shape on cloud:
+  - creator page could get stuck behind `Restoring creator position`
+  - the page URL at the stuck moment was malformed as:
+    - `/creators/{id}?from=/prompts/{id}?from=/featured#featured-item-...#creator-work-...`
+  - this means the inner featured hash and the outer creator-work hash were concatenated into one browser hash segment
+  - once that happened, creator-page restore kept waiting for a non-existent anchor and the `← 返回上一页` path became effectively blocked by the restore overlay
+- root cause:
+  - shared `normalizeBackTarget()` previously trusted the decoded `from` string as-is
+  - for nested routes like `featured -> prompt detail -> creator -> creator work detail -> creator`, the decoded source could contain both:
+    - an inner hash that belongs to the previous route
+    - an outer hash that belongs to the current route
+  - after decode, the browser interpreted only the last `#...` as the real hash and left the earlier one embedded in the query value, which broke route-key and anchor reconstruction
+- local fix:
+  - `apps/web/src/lib/routes/redirect-utils.ts`
+    - `normalizeBackTarget()` now normalizes nested internal routes before returning them
+    - when a decoded `from` contains both an inner route hash and an outer current-route hash, the inner hash is re-encoded back into the query value while the outer hash remains the real browser hash
+  - added regression test:
+    - `apps/web/src/lib/routes/redirect-utils.test.mjs`
+    - locks the exact malformed nested creator/prompt/featured path that reproduced on cloud
+- local verification:
+  - `node --test apps/web/src/lib/routes/redirect-utils.test.mjs` passed
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- next step:
+  - deploy this web-only slice to cloud
+  - replay the exact `featured deep -> detail -> creator -> creator work detail -> back -> back` path
+  - specifically verify:
+    - creator page no longer sticks on `Restoring creator position`
+    - creator page `← 返回上一页` can be clicked after returning from creator work detail
+    - final return to `/featured` restores the deep list state instead of dropping to top
+
+## 2026-06-16 nested `from` hash repair synced to cloud; creator freeze closed, one creator-list restore gap remains
+
+- cloud web deploy completed:
+  - release: `20260616-121827`
+  - readiness: `artifacts/runtime-readiness/test/web-deploy-20260616-121827-summary.json`
+  - result: `13 passed / 0 failed`
+- exact cloud replay rerun on `http://drama-community-dev.dzkjm.cn`:
+  - `/featured` deep scroll to about `scrollY=7238.4`, visible cards=`60`
+  - open prompt detail `f6b41e94-a1b1-425a-a3f8-9c1401bbd240`
+  - enter `community` creator page
+  - load more creator works
+  - open creator work detail `5d3864e6-7621-47ab-9d40-6970f5009e02`
+  - return to creator
+  - return to prompt detail
+  - return to featured
+- verified improvements:
+  - creator page no longer sticks behind `Restoring creator position`
+  - malformed nested URL is now normalized correctly:
+    - creator route keeps prompt `from` as `/prompts/{id}?from=/featured%23featured-item-...`
+    - prompt route keeps featured deep anchor for the final return
+  - final featured return now lands back near the deep position instead of top:
+    - before: `scrollY=7238.4`
+    - after: `scrollY=7012`
+    - target featured card remained visible in viewport
+    - no lingering `Restoring featured position`
+- residual issue discovered in the same replay:
+  - creator page `查看更多` had been used before entering creator work detail
+  - after returning from creator work detail, creator page no longer froze, but visible work count dropped back to `24` instead of preserving `48`
+  - this is now a separate remaining bug:
+    - creator route/anchor restore is healthy
+    - creator incremental list-state restore across nested detail return is still incomplete in this exact multi-hop path
+- next step:
+  - inspect why creator-page local expanded list is not surviving the `creator work detail -> creator` return when the source route itself contains a nested prompt/featured chain
+  - likely scope remains inside `CreatorPage` snapshot restore / route-key matching rather than shared hash parsing
+
+## 2026-06-16 creator 48->24 return regression narrowed to route-key normalization gap and fixed locally
+
+- continued from the residual cloud replay issue after the creator-freeze repair:
+  - creator page could already return without freezing
+  - but after `查看更多` expanded works from `24 -> 48`, entering a creator work detail and returning could drop visible works back to `24`
+- root cause confirmed locally by replaying the exact route-shape math:
+  - creator-page snapshot restore was keyed by the raw `currentRoute`
+  - on first entry into creator page, the route key stayed in an encoded form such as:
+    - `/creators/{id}?from=%2Fprompts%2F...%3Ffrom%3D%2Ffeatured%2523featured-item-...`
+  - after returning from creator work detail, the route was normalized into a decoded-but-still-valid internal form:
+    - `/creators/{id}?from=/prompts/...?...from=/featured%23featured-item-...`
+  - these two strings describe the same logical creator page, but they were treated as different snapshot buckets
+  - result: the previously expanded `48`-item creator snapshot could be missed on return, leaving only the fresh server first page `24`
+- local fix:
+  - `apps/web/src/features/creator/CreatorPage.tsx`
+    - added creator-page route-key normalization through `normalizeBackTarget(...)`
+    - creator snapshot read/write now keys against the normalized route, not the raw encoded/decoded string form
+    - memory snapshot lookup also tolerates either legacy raw key or the new normalized key during rollout
+  - `apps/web/src/lib/routes/redirect-utils.test.mjs`
+    - added regression coverage proving the encoded and decoded creator return routes collapse to the same normalized key
+- verification:
+  - `node --test apps/web/src/lib/routes/redirect-utils.test.mjs` passed
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- current status:
+  - this slice is fixed locally
+  - cloud replay is still pending for the exact `creator 48 -> detail -> back` path after the next web sync
+
+## 2026-06-16 featured prompt facet rapid-switch race fixed and verified on cloud
+
+- new user-reported symptom on cloud:
+  - on `/featured?filter=image_prompt`, switching prompt model facets quickly could land on the wrong final facet
+  - concrete replay example:
+    - click `nanobanana`
+    - click `midjourney`
+    - click `nanobanana`
+    - final page could incorrectly fall back to `midjourney`
+- root cause:
+  - `FeaturedArchivePage` computed next facet/filter state from render-time `activeFilter / activeModelFilter / activeContentFilter / activeSort`
+  - under rapid consecutive clicks, later handlers could still read the previous render state before React had committed the newer route intent
+  - result: an older facet state could be re-applied into the final route update
+- local fix:
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - introduced a synchronous `effectiveRouteStateRef`
+    - all filter / secondary / model / content / sort click and intent handlers now derive next state from the latest route intent ref instead of only the last committed render snapshot
+    - `replaceRoute(...)` now updates that ref immediately before scheduling route replacement, so rapid clicks chain from the newest intended state
+- verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+  - cloud web deploy completed:
+    - release: `20260616-143548`
+    - readiness: `artifacts/runtime-readiness/test/web-deploy-20260616-143548-summary.json`
+    - result: `13 passed / 0 failed`
+  - cloud rapid-switch replay on `http://drama-community-dev.dzkjm.cn/featured?filter=image_prompt` passed:
+    - `nanobanana -> midjourney -> nanobanana` ended at `model=nanobanana`
+    - `midjourney -> nanobanana -> midjourney` ended at `model=midjourney`
+    - final URL and active chip both matched the last click in each replay
+
+## 2026-06-16 frontend style baseline documented for future UI extension
+
+- added `apps/web/style.md` as the shared frontend visual constraint document for future community-page work
+- this doc is intentionally based on the currently shipped web style instead of generic UI taste advice:
+  - cinematic / editorial / media-first / restrained
+  - dark studio theme by default with intentional warm light mode
+  - existing token families from `apps/web/src/app/globals.css`
+  - existing page patterns from home / featured / creator
+- the doc also locks several already-proven product/UI decisions into reusable guidance:
+  - dense media lists should stay title-first and cover-first
+  - summary text should not return to high-density grids by default
+  - creator-page background should remain theme-driven instead of falling back to avatar or work cover
+  - future AI-assisted page generation should reference `apps/web/style.md` first
+- this is a documentation-only addition; no runtime behavior changed in this slice
+
+## 2026-06-16 frontend style docs expanded into a 3-file UI guidance set
+
+- expanded the new frontend style documentation from one file into three coordinated docs under `apps/web`
+  - `style.md`: product-level visual thesis and hard constraints
+  - `component-patterns.md`: reusable component behavior and density rules
+  - `page-recipes.md`: page composition recipes for home / featured / creator / detail / discussion / publish / login
+- updated `apps/web/style.md` to link the two companion docs so later UI work can enter from one stable root
+- purpose of this split:
+  - reduce repeated prompt/context cost in later UI sessions
+  - keep future page extension aligned with the current shipped visual language
+  - give AI-assisted implementation a more concrete structure than one broad style memo alone
+- this is still documentation-only work; no runtime behavior changed
+
+## 2026-06-16 cloud community multidimensional test design landed and first cloud replay completed
+
+- added test asset:
+  - `docs/04_实施设计/云端社区多维度测试用例-2026-06-16.md`
+- this round explicitly converted the current community feature surface into a cloud regression matrix covering:
+  - login / protected-route redirect
+  - home / featured / discussions / publish / creator / detail
+  - deep scroll and back-restore
+  - session consistency
+  - media/category/search correctness
+  - theme / loading / notification behavior
+- first cloud replay was executed directly on `http://drama-community-dev.dzkjm.cn` with the existing authenticated test session and produced these concrete results:
+  - `/home` first screen opened normally
+  - `/featured` first screen opened normally
+  - `/featured` rapid category switching remained correct
+  - `/featured?filter=video_prompt&q=真人` returned prompt results consistent with the semantic keyword
+  - `/featured` infinite continuation worked in-browser: visible cards grew `12 -> 48`
+  - prompt detail -> creator page main path remained reachable
+  - `/discussions` first screen opened normally
+  - recent-interactions bell opened and follow-up network checks showed `/api/me/notifications/recent` returning `200` in the replay, so the earlier single `502` console entry was not stably reproduced in this round
+  - `/publish` route was reachable under the logged-in session and rendered the expected publishing shell
+- one real regression/coverage gap is now explicitly confirmed on cloud:
+  - discussion detail currently does not provide a true anchored return-to-list path
+  - the visible breadcrumb `社区` points to plain `/discussions`, not `/discussions#discussion-thread-*`
+  - this means the earlier user requirement that community/thread browsing should support return positioning is still not fully closed on the discussion side
+- weaker signal, not yet confirmed as a product bug:
+  - one early `/featured` console capture showed a transient external media `ERR_CONNECTION_CLOSED`
+  - later cloud replay did not produce stable page-level failures from it
+  - treat it as an observation to keep watching, not as a closed root-cause finding yet
+
+## 2026-06-16 cloud complex replay second round completed
+
+- continued cloud replay moved beyond first-screen checks and specifically stressed:
+  - `/featured` deep scroll to `180` visible cards
+  - deep card entry into prompt detail
+  - prompt detail -> creator page
+  - creator `查看更多`
+  - creator work detail return chain
+  - discussion channel switching
+  - cross-page logged-in session continuity
+- confirmed healthy in this second round:
+  - `/featured` deep scroll itself stayed usable and did not white-screen
+  - `/discussions` channel switching `video-production -> prompt-lab -> canvas-workflows -> video-production` stayed stable
+  - no repeated `加载中 / 查看更多` flicker loop was observed on discussions in this replay
+  - cross-page logged-in continuity remained stable across `/home -> /featured -> /discussions -> /me -> /publish`
+  - logged-in shell still showed `psk / 退出`, and no unexpected `/login` bounce happened in that sequence
+- newly observed likely residual bug on the featured/creator multi-hop return chain:
+  - starting from deep featured prompt detail, entering creator page, expanding creator works, opening a creator work detail, then returning through the chain did not behave fully as expected in automation
+  - one replay timed out while waiting to land back on the intermediate prompt detail because the route had already collapsed directly to:
+    - `/featured#featured-item-bb682a96-2332-431d-8584-509b12bee95b`
+  - this suggests the multi-hop `from` / back-target chain may still over-collapse in some routes, skipping the intended middle page instead of stepping back through `creator work detail -> creator -> prompt detail -> featured`
+  - current status:
+    - this is not yet recorded as fully root-caused
+    - but it is strong enough to keep on the high-risk regression list together with creator/featured deep restore
+- still-open discussion-side gap remains unchanged:
+  - discussion detail does not yet provide true anchored return to list items
+
+## 2026-06-16 cloud replay third round corrected one old verdict and closed the creator multi-hop chain on the current build
+
+- this round intentionally re-ran the two highest-risk paths instead of trusting the earlier partial replay notes:
+  - discussion detail return-to-list
+  - `featured deep -> prompt detail -> creator -> creator work detail -> back -> back -> featured`
+- cloud environment:
+  - site: `http://drama-community-dev.dzkjm.cn`
+  - authenticated session: existing `psk`
+- corrected verdict on discussions:
+  - the earlier same-day note that discussion detail only returned to plain `/discussions` is no longer true on the current live build
+  - replay on:
+    - `/discussions/weekly-creator-thread?from=%2Fdiscussions%23discussion-thread-98b8a9e5-61b1-4bf9-94fd-2ed845de886a`
+  - visible breadcrumb `社区` now points to:
+    - `/discussions#discussion-thread-98b8a9e5-61b1-4bf9-94fd-2ed845de886a`
+  - actual return verification on cloud passed:
+    - target thread node found
+    - `scrollY=548`
+    - target card `top=265`
+    - target already in viewport
+  - conclusion:
+    - the previous “discussion return gap” entry should now be treated as outdated replay evidence, not as the current-runtime verdict
+- creator multi-hop chain was re-run on a high-volume creator instead of the smaller `Rina Flux` sample:
+  - deep featured scroll reached:
+    - `180` visible cards
+    - `scrollY=16320.8`
+  - opened prompt detail:
+    - `/prompts/f6b41e94-a1b1-425a-a3f8-9c1401bbd240?from=%2Ffeatured%23featured-item-f6b41e94-a1b1-425a-a3f8-9c1401bbd240`
+  - entered creator:
+    - `/creators/04e32520-c171-40af-8c93-7bb1ad58d6d5?...`
+    - creator=`community`
+    - first screen showed `24` works with `查看更多`
+  - after one `查看更多`:
+    - creator visible works `24 -> 48`
+    - `scrollY=3768.8`
+  - opened a deeper creator work detail:
+    - `/prompts/19eab634-7a26-4511-b259-ba0408c923e5?...#creator-work-19eab634-7a26-4511-b259-ba0408c923e5`
+  - returned to creator and verified on cloud:
+    - visible works still `48`
+    - no `Restoring creator position` stuck overlay
+    - target `creator-work-19eab634-7a26-4511-b259-ba0408c923e5` found
+    - target `top=219.6`
+    - target in viewport
+    - `scrollY=4927.2`
+  - returned to the intermediate prompt detail and then back to featured:
+    - prompt detail remained reachable as the intermediate page
+    - final featured return landed on:
+      - `/featured#featured-item-f6b41e94-a1b1-425a-a3f8-9c1401bbd240`
+      - `cards=180`
+      - `scrollY=5854.4`
+      - target found and in viewport
+      - no lingering `Restoring featured position`
+  - conclusion:
+    - the previously suspected over-collapse on the featured/creator chain was not reproduced on the current live build in this high-volume replay
+    - the previously tracked `creator 48 -> detail -> back drops to 24` regression is also not present on the current live build
+- additional route return observation:
+  - from deep featured, entering `/me?from=%2Ffeatured%23featured-item-f6b41e94-a1b1-425a-a3f8-9c1401bbd240` and returning via `← 返回首页` also came back to the same featured anchor with:
+    - `cards=180`
+    - `scrollY=5854.4`
+    - target still visible
+  - note:
+    - this is still an anchor-bearing return path, not a pure no-hash route-scroll restore proof
+- residual observations collected during this replay, not yet promoted to confirmed product bugs:
+  - stable local media 404 in browser runtime:
+    - `GET /media/image/ccac8677-6a33-49fa-affa-63ae608fbe0e/callback-cover.png => 404`
+    - seen during creator/profile-side browsing
+    - likely indicates one stale/broken image asset reference still exists in live data
+  - external media transient failure:
+    - `https://d8j0ntlcm91z4.cloudfront.net/...mp4 => net::ERR_CONNECTION_CLOSED`
+    - reproduced twice in the request log during this round
+    - no stable white-screen or route break was observed from it, so it stays a watch item
+- current cloud verdict after three rounds on 2026-06-16:
+  - `/featured` deep scroll, creator expansion, creator-detail return, prompt-detail return, and final featured return are healthy on the current deployed build
+  - `/discussions` detail return-to-thread is also healthy on the current deployed build
+  - the remaining cloud risk surface from this round is no longer return-restore logic first; it is the smaller class of bad media references / unstable external assets that still deserve follow-up
+
+## 2026-06-16 stability follow-up: bad creator/profile poster fallback narrowed and fixed locally
+
+- continued cloud replay stayed focused on real runtime stability instead of doc cleanup:
+  - `/featured` was pushed to `300+` visible cards without a fresh white-screen or stuck overlay
+  - the multi-hop path `featured deep -> prompt detail -> creator community -> 查看更多 -> creator work detail -> back -> back -> featured` still returned to a live featured anchor with the target card in viewport
+  - `/api/me/notifications/recent` showed one earlier console `502` in browser history, but active request inspection in this round returned `200` repeatedly, so it is not yet a current reproducible product bug
+- one concrete residual issue was confirmed at the shared component level:
+  - live cloud browsing still hits `GET /media/image/ccac8677-6a33-49fa-affa-63ae608fbe0e/callback-cover.png => 404`
+  - the affected surface is the creator/profile shared media card path, not the featured/home masonry path
+  - local review found that `apps/web/src/components/shared/ProfileMediaCard.tsx` only used `backgroundImage` for the video-card poster layer, so image failure never triggered the intended `imageFailed` fallback
+- local fix:
+  - `apps/web/src/components/shared/ProfileMediaCard.tsx`
+    - keep the neutral gradient base layer as the true fallback
+    - render the video-card poster as a real `<img>` with `onError={() => setImageFailed(true)}`
+    - this makes creator page and personal center cards degrade cleanly when a poster/cover URL is stale instead of continuing to expose a broken poster layer
+- local verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- current status:
+  - this stability slice is fixed locally only
+  - next step, if needed, is to sync the web change to cloud and re-check the creator/profile path that currently emits `callback-cover.png 404`
+
+## 2026-06-16 featured buffered-page commit gap narrowed and fixed locally
+
+- new user-reported symptom cluster on `/featured` was traced back to one shared pagination-state gap rather than two unrelated bugs:
+  - after scrolling deep, the page could reach bottom and then stop loading subsequent inventory even though more data existed
+  - refreshing a deep `/featured#featured-item-*` route could stay stuck behind `Restoring featured position`
+- root cause confirmed in `apps/web/src/features/featured/FeaturedArchivePage.tsx`:
+  - `handleFeaturedInventoryLoadMore()` can enter `isLoading=true` and then request the next page through the buffered prefetch path
+  - when that request succeeds, the next page was only parked in `bufferedPageRef`
+  - but there was no guaranteed follow-up trigger to commit that buffered page immediately
+  - result:
+    - if the user was already at the bottom, the next page could sit buffered forever waiting for another scroll/intersection event that never came
+    - if featured back-anchor restore was active, the restore overlay could also stall because the page stayed in a self-locked `isLoading` state
+- local fix:
+  - added `apps/web/src/lib/featured/featured-buffered-commit.ts`
+  - added regression coverage in `apps/web/src/lib/featured/featured-buffered-commit.test.mjs`
+  - `FeaturedArchivePage` now auto-commits a buffered page immediately when either:
+    - a load-more cycle is already in progress
+    - featured back-anchor restore is forcing forward progress
+    - or the user is already within the bottom commit threshold
+  - also added a light refresh-time anchor nudge after restoring cached featured snapshots so deep hash refreshes do not wait for another manual interaction before centering the mounted target
+- local verification:
+  - `node --test apps/web/src/lib/featured/featured-buffered-commit.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs apps/web/src/lib/routes/redirect-utils.test.mjs` passed
+  - `apps/web -> npm.cmd run typecheck` passed
+- current status:
+  - fixed locally only
+  - next step is local/manual replay of:
+    - deep scroll -> bottom continue loading
+    - deep scroll -> refresh anchored featured URL
+    - deep detail return path with featured restore overlay
+
+## 2026-06-16 featured return positioning issue promoted from single-bug repair to system-level architecture review
+
+- latest user-facing failure pattern on `/featured` is no longer a single “overlay stuck” symptom:
+  - after deep scrolling, entering detail, and returning, the restored viewport can land in a broken masonry state
+  - visible effect includes:
+    - left column content disappearing or becoming nearly empty
+    - later content looking stuck and not continuing to load as expected
+    - scrolling again can sometimes resume loading, which means the route is not fully dead but the restore state is inconsistent
+- current code-level diagnosis after reviewing the restore chain:
+  - there are now multiple restore mechanisms stacked together on the same page:
+    - shared hash-anchor restore via `useBackAnchorRestore()`
+    - shared route scroll restore via `useStoredRouteScrollRestore()`
+    - featured-specific hash-route snapshot restore
+    - featured inventory session cache restore
+    - featured aspect-ratio session cache restore
+    - featured masonry assignment rebuild on render
+    - buffered page prefetch + delayed commit
+  - these mechanisms are individually reasonable, but together they currently form a coupled state machine without one single source of truth
+- main systemic risks identified:
+  - restore source fragmentation:
+    - scroll position, anchor, list snapshot, route snapshot, ratio map, and masonry assignment are restored from different places with different timing
+    - one layer can declare “restore complete” while another layer is still rebuilding
+  - layout instability after restore:
+    - `/featured` uses masonry assignment derived from card order plus aspect ratios
+    - deep return can restore `scrollY` before the column assignment is deterministically rebuilt
+    - result: user lands in the old vertical area but not on the old visual structure
+  - cache depth mismatch:
+    - generic featured session cache still caps each entry at `72` items while deep route snapshots allow `240`
+    - this creates mixed restore fidelity depending on which restore source wins for a given path
+  - completion criteria mismatch:
+    - some restore branches effectively treat “scroll reached” or “target mounted” as enough
+    - but the real success condition for this page must also include stable masonry reconstruction and continued pagination readiness
+- conclusion:
+  - this class of issues should no longer be handled as isolated patch-by-patch regressions
+  - next optimization should refactor featured return/refresh into a single ordered restore pipeline with one owner and explicit phase boundaries:
+    - rebuild list state
+    - rebuild layout state
+    - restore viewport
+    - verify target visibility
+    - only then release the restoring state
+
+## 2026-06-16 featured restore architecture first refactor slice landed locally
+
+- this slice deliberately stopped patching visible symptoms only and instead changed the restore payload shape for `/featured`
+- main code changes:
+  - `apps/web/src/lib/featured/featured-hash-route-snapshot.ts`
+    - featured route snapshot now supports carrying:
+      - loaded inventory items
+      - aspect-ratio entries
+      - masonry assignment state
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - introduced explicit featured snapshot restore phases:
+      - `restoring-list`
+      - `restoring-layout`
+      - `restoring-viewport`
+      - `completed`
+    - returning to `/featured` now restores list snapshot and layout snapshot together instead of restoring items first and letting the masonry structure drift later
+    - route snapshot persistence now tracks the plain featured route itself, not only the anchored hash route
+    - masonry force-reset is now constrained so the restored layout snapshot is not immediately blown away during the same restore cycle
+  - `apps/web/src/lib/featured/featured-hash-route-snapshot.test.mjs`
+    - added regression coverage for optional aspect-ratio and masonry snapshot data
+- why this slice matters:
+  - the previously repeated cloud symptom was not just “scroll returned wrong”
+  - it was “scroll could return into a different masonry structure”, which is exactly how blank/near-empty side columns and delayed self-healing could appear
+  - this slice is the first step toward making `/featured` restore deterministic instead of opportunistic
+- local verification:
+  - `node --test apps/web/src/lib/featured/featured-hash-route-snapshot.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs apps/web/src/lib/featured/featured-buffered-commit.test.mjs apps/web/src/lib/routes/redirect-utils.test.mjs` passed
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- current status:
+  - landed locally only
+  - next required validation is cloud deep-scroll replay, because local inventory depth is still too small to prove the original left-column disappearance is actually closed
+- residual risk still explicitly open:
+  - route snapshot currently stores one featured route snapshot per tab/session bucket, not a larger multi-route restore graph
+  - deep cloud replay is still required to confirm:
+    - no left-column disappearance after return
+    - no stalled continuation load after return
+    - no new refresh/overlay regressions
+
+## 2026-06-16 return-position scope audit completed and shared list-page restore hook landed locally
+
+- this round explicitly stopped treating return positioning as only a `/featured` issue and audited the wider `apps/web` surface
+- confirmed return-position related routes/components currently include:
+  - list pages with anchor return:
+    - `/featured`
+    - `/creators/[id]`
+    - `/me`
+    - `/discussions`
+    - `/home`
+    - `/`
+  - non-card route returns that still rely on stored route scroll:
+    - topbar profile entry -> `/me`
+    - notification / comment-author / creator hops
+  - visible detail-page back entrances:
+    - `ContextBackLink` in detail / creator / personal-center pages
+  - shared route plumbing:
+    - `appendBackSource(...)`
+    - `rememberBackAnchorSource(...)`
+    - `useBackAnchorRestore(...)`
+    - `useStoredRouteScrollRestore()`
+- local code changes in this slice:
+  - added `apps/web/src/lib/routes/list-page-back-restore.ts`
+    - centralizes the common list-page restore completion logic
+    - unifies hash-anchor restore + stored route-scroll restore into one shared page-level state
+    - avoids each page independently deciding too early that restore has completed when the target node has not mounted yet
+  - adopted the shared hook in:
+    - `apps/web/src/features/creator/CreatorPage.tsx`
+    - `apps/web/src/features/me/PersonalCenterPage.tsx`
+    - `apps/web/src/features/discussions/DiscussionsPage.tsx`
+    - `apps/web/src/features/home/CommunityHomePage.tsx`
+    - `apps/web/src/features/home/HomePage.tsx`
+  - `/home` and `/` now also participate in the same visible restoring state instead of only mounting hash restore silently
+  - added minimal overlay support in:
+    - `apps/web/src/features/home/CommunityHomePage.module.css`
+    - `apps/web/src/features/home/HomePage.module.css`
+- local verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+  - `node --test apps/web/src/lib/routes/redirect-utils.test.mjs apps/web/src/lib/featured/featured-hash-route-snapshot.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs apps/web/src/lib/featured/featured-buffered-commit.test.mjs` passed
+- current status:
+  - this slice is local only
+  - it does not replace the `/featured` special restore pipeline; it only removes duplicated normal-list restore logic across the other pages
+- still-open return-position risk surface after this slice:
+  - `/featured` remains the highest-risk special case because it still owns masonry/list snapshot restore separately
+  - `ContextBackLink` history-first behavior and nested `from` chain trimming are already landed locally but still need cloud replay together with this shared-hook slice
+  - notification / comment-author / multi-hop creator-detail chains still need cloud replay on real deep data after the latest local changes
+
+## 2026-06-16 return-position scope follow-up patched missed discussion back entrances locally
+
+- after the broader return-position audit, one more shared-pattern gap was confirmed:
+  - most detail/profile pages already route visible “back” actions through `ContextBackLink`
+  - but discussion-side breadcrumb returns were still partly using plain `Link`
+  - this meant the same-origin history-first return path could still be bypassed on discussion flows even after the shared restore hook landed
+- local fixes in this slice:
+  - `apps/web/src/features/discussions/DiscussionDetailPage.tsx`
+    - changed the breadcrumb `社区` return entry from plain `Link` to `ContextBackLink`
+  - `apps/web/src/features/discussions/DiscussionComposerPage.tsx`
+    - changed the composer breadcrumb `社区` return entry from plain `Link` to `ContextBackLink`
+- why this matters:
+  - these are low-visibility but real discussion entry/exit paths
+  - without this change, detail/composer discussion routes could still skip the shared history-first back behavior and fall back to plain route jumps
+- scope confirmation after code search:
+  - visible return entrances now consistently use `ContextBackLink` on:
+    - `VideoDetailPage`
+    - `WorkflowDetailPage`
+    - `CreatorPage`
+    - `PersonalCenterPage`
+    - `DiscussionDetailPage`
+    - `DiscussionComposerPage`
+  - route-level `backHref` derivation continues to come from normalized `from` on:
+    - `/prompts/[id]`
+    - `/videos/[id]`
+    - `/workflows/[id]`
+    - `/creators/[id]`
+    - `/discussions/[slug]`
+    - `/me`
+- local verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- cloud replay notes collected in the same round:
+  - current deployed cloud build still reproduces healthy deep featured return on the already-synced paths:
+    - deep `/featured` scroll to `120` cards
+    - prompt detail entry
+    - final `返回列表`
+    - result stayed on `/featured` with the target card back in viewport and no `Restoring featured position` overlay
+  - these new discussion breadcrumb fixes are local only for now and still need deployment before cloud verification
+
+### 2026-06-16 featured -> detail -> creator multi-hop return root cause fixed on cloud
+
+- root cause was confirmed in shared route plumbing, not in the featured masonry algorithm itself:
+  - `apps/web/src/lib/routes/redirect-utils.ts -> appendBackSource(...)`
+  - old logic normalized the current route and then removed any nested `from` query before attaching it to the next hop
+  - result:
+    - `/featured -> /prompts/{id}` kept the featured anchor
+    - `/prompts/{id} -> /creators/{id}` dropped the upstream featured context and only kept the immediate prompt route
+    - later creator-detail back links therefore returned through a collapsed chain and could hand the final featured restore a shallower context than the original entry path
+- fix:
+  - `appendBackSource(...)` now preserves the normalized nested `from` chain instead of stripping it
+  - `apps/web/src/lib/routes/redirect-utils.test.mjs` regression was updated to assert creator links keep nested `from=/prompts?...from=/featured%23featured-item-*`
+- local verification:
+  - `node --test apps/web/src/lib/routes/redirect-utils.test.mjs` passed
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- cloud deploy:
+  - command:
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - web release:
+    - `20260616-212311`
+  - readiness:
+    - `artifacts/runtime-readiness/test/web-deploy-20260616-212311-summary.json`
+    - `13 passed / 0 failed`
+- cloud replay after deploy:
+  - author link from prompt detail now preserves full upstream source:
+    - `/creators/... ?from=/prompts/... ?from=/featured%23featured-item-11c85570-...`
+  - creator work detail back link also preserves the same upstream featured source through creator:
+    - `/creators/... ?from=/prompts/11c85570-... ?from=/featured%23featured-item-11c85570-... #creator-work-...`
+  - full replay path:
+    - deep `/featured` scroll to `132` cards
+    - open `featured-item-11c85570-ea9f-45a8-bf58-67442dca4fd0`
+    - enter creator `community`
+    - open creator work detail `creator-work-be0b2ea8-c3d1-4e1a-9123-9461db560064`
+    - back to creator
+    - back to prompt detail
+    - back to featured
+  - final featured result on cloud:
+    - `url=/featured#featured-item-11c85570-ea9f-45a8-bf58-67442dca4fd0`
+    - `count=132`
+    - `scrollY=11149.6`
+    - `overlay=false`
+    - target card exists, `top=239.9`, and is in viewport
+    - column counts recovered as `[40,43,49]`, no missing right column observed
+- conclusion:
+  - the reported multi-hop featured return bug is closed on the current cloud build
+  - if a similar issue reappears, inspect nested `from` propagation before patching featured restore/masonry again
+
+## 2026-06-17 shared return-position strategy synced to remaining lightweight entry points locally
+
+- scope decision:
+  - do sync the shared return-position strategy to remaining lightweight entry points
+  - do not copy `/featured`'s specialized masonry/list-snapshot restore pipeline into other pages
+  - keep the architecture split as:
+    - normal list pages: `appendBackSource + ContextBackLink + useListPageBackRestore`
+    - special list pages such as `/featured`: keep dedicated restore owner
+- local entry-point fixes:
+  - `apps/web/src/features/home/HomePage.tsx`
+    - landing-page `browse archive` now carries `from=currentRoute` into `/featured`
+    - landing-page footer profile entry now carries `from=currentRoute` into `/me`
+  - `apps/web/src/features/home/CommunityHomePage.tsx`
+    - each shelf `查看全部` link now carries `from=currentRoute` into `/featured`
+  - `apps/web/src/features/discussions/DiscussionDetailPage.tsx`
+    - breadcrumb channel link now carries `from=currentRoute`
+    - hero channel pill now carries `from=currentRoute`
+- rationale:
+  - these were lightweight cross-page exits that could leave the current list/context without preserving route-scroll restore state
+  - they fit the shared strategy and did not require any `/featured`-style snapshot or masonry logic
+- intentional non-changes:
+  - no change to `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - no attempt to force non-list pages onto `useListPageBackRestore`
+  - no broad rewrite of current-page filter/category links that are really in-page navigation rather than back-restore exits
+- local verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - Playwright local replay confirmed:
+    - landing `/` now exposes `/featured?from=%2F` on both `浏览档案` and `查看全部`
+    - landing `/` now exposes `/me?from=%2F` on the footer profile entry
+    - `/login?redirectTo=%2Fme%3Ffrom%3D%252F -> login -> /me?from=/` completed normally with back link returning to `/`
+    - `/discussions -> thread detail -> channel page` now carries nested `from` back to the originating thread detail route
+    - `channel page -> browser back` returned to the thread detail route correctly
+- follow-up note:
+  - the above discussion channel replay showed an abnormally long Playwright `goBack()` wait before the page settled, even though the final route/result were correct and console stayed clean
+  - treat this as a separate runtime/perf signal to revisit during the next broader return-navigation stress pass, not as a functional regression of the shared entry-point patch
+
+## 2026-06-17 return-position performance slice first pass landed locally
+
+- focus:
+  - optimize shared return-position waiting overhead before touching page-specific logic
+  - keep restore semantics unchanged; only reduce idle delay between restore checks
+- implementation:
+  - `apps/web/src/lib/routes/back-anchor.ts`
+    - replaced fixed `setInterval(120ms)` polling in both hash-anchor restore and stored-route restore with short, on-demand `setTimeout` retries
+    - added shared retry delay constant `BACK_SCROLL_RESTORE_RETRY_DELAY_MS = 48`
+    - centralized finish/clear scheduling paths so restore completion stops pending retries immediately
+  - boundary:
+    - no change to nested `from` propagation
+    - no change to restore success conditions
+    - no change to `/featured` specialized masonry/list snapshot pipeline
+- rationale:
+  - the previous shared hooks could spend visible extra time between already-satisfied restore conditions and overlay dismissal because they only rechecked on a coarse 120ms cadence
+  - this slice targets that scheduler dead time first, which is lower risk than changing route semantics or page restore rules
+- verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- current status:
+  - local functional replay still shows correct route recovery on discussion detail/channel back paths
+  - deeper proof for perceived speed improvement still needs the next browser pass, ideally on cloud/high-data routes where the original slow-return symptom is more obvious
+
+## 2026-06-17 cloud deep replay validated the new return-position chain on `/featured`
+
+- cloud validation was run on a fresh tab against `http://drama-community-dev.dzkjm.cn/featured` after the latest shared history-entry and back-anchor changes were deployed
+- verified replay path:
+  - deep scroll on `/featured` to `300` items
+  - open `featured-item-11764a13-3bbc-43db-8ebe-f51e25eaad32`
+  - enter creator `community`
+  - open creator work detail `be0b2ea8-c3d1-4e1a-9123-9461db560064`
+  - go back step by step to creator, then prompt, then featured
+- verified final cloud state:
+  - final URL: `/featured#featured-item-11764a13-3bbc-43db-8ebe-f51e25eaad32`
+  - `count=312`
+  - `scrollY=37156`
+  - `restoring=false`
+  - target card still exists and stays near the restored area
+  - after returning, the page can continue incremental loading and did not re-enter a stuck restore overlay
+- interpretation:
+  - the multi-hop return-position regression that was previously collapsing the final featured hop is not reproducing on the current cloud build
+  - the shared history-entry upgrade plus nested `from` preservation are both working in the cloud route chain
+- residual note:
+  - creator/detail transitions still show a noticeable wait window during `goBack()` in the browser harness, but the final route and restore state are correct
+
+### 2026-06-17 professional testing workflow first round appended
+
+- External test package under `E:\tmp\skills-专业版V2.0` was adopted as a methodology layer for this repo.
+- Added docs:
+  - `docs/04_实施设计/社区专业测试执行任务板-2026-06-17.md`
+  - `docs/04_实施设计/社区专业测试首轮结果-2026-06-17.md`
+- Cloud UI validation in this round passed for:
+  - `/home`
+  - `/discussions`
+  - discussion detail -> list anchor return
+  - logged-in access to `/login` redirecting back out
+- Local validation in this round:
+  - `npm.cmd run smoke:auth-session` -> `12 passed / 0 failed`
+  - `npm.cmd run smoke:api` -> `8 passed / 11 failed`
+  - `npm.cmd run backend-test:read` -> multiple failures
+  - `npm.cmd run backend-test:core` -> multiple failures
+- First concrete root cause closed:
+  - `scripts/run-local-community-api-smoke.mjs` used a hard-coded temp password default that no longer matched local `apps/server/.env`
+  - current local bootstrap secret is `123456`
+  - the smoke script now resolves temp password from CLI arg, env vars, then `apps/server/.env`
+- Supporting local bootstrap contract was also made explicit in:
+  - `apps/server/.env.example`
+- Next debug order:
+  1. re-run `smoke:api`
+  2. isolate `ApiIntegrationTestSupport.cleanupTestUsers()` FK cleanup residue
+  3. then isolate authenticated-path `403` regressions in backend suites
+
+### 2026-06-17 professional testing local rerun stabilized
+
+- Re-ran the previously failing local suites after fixing temp-user bootstrap password resolution.
+- Current local results:
+  - `npm.cmd run smoke:api` -> `19 passed / 0 failed`
+  - `npm.cmd run backend-test:read` -> `41 run / 0 failures / 0 errors`
+  - `npm.cmd run backend-test:core` -> `53 run / 0 failures / 0 errors`
+  - `npm.cmd run smoke:notifications` -> `4 passed / 0 failed`
+  - `npm.cmd run readiness:local` -> `12 passed / 0 failed`
+- Interpretation:
+  - the only confirmed local regression in this testing slice was the temp-user bootstrap password mismatch
+  - the earlier FK-cleanup and `403` clusters did not reproduce on the fresh rerun against the current local runtime
+- Immediate next focus should move back to cloud/browser-heavy validation rather than continuing to optimize already-green local suites
+
+### 2026-06-17 cloud notifications instability confirmed separately from featured deep-scroll flow
+
+- This round continued cloud validation on `http://drama-community-dev.dzkjm.cn` with the logged-in `psk` account.
+- Confirmed cloud featured infinite-loading still works at high depth:
+  - `/featured` deep scroll reached `300` rendered items
+  - measured state at stop:
+    - `count=300`
+    - `scrollY=36002.4`
+    - `height=38969`
+  - no visible pagination stall reproduced in this path
+- Confirmed featured detail -> creator multi-hop source propagation is still structurally correct on cloud:
+  - detail entry preserved `/featured#featured-item-*`
+  - creator entry preserved nested `from=/prompts/...from=/featured%23featured-item-*`
+  - creator work detail links also carried nested upstream featured source
+- New cloud-specific finding isolated:
+  - `/api/me/notifications/recent` still shows real intermittent `502 Bad Gateway`
+  - browser-visible evidence:
+    - repeated successful `200` responses are mixed with intermittent `502`
+    - sampled failed response headers were minimal proxy-style headers only:
+      - `content-length: 0`
+      - `connection: keep-alive`
+    - this strongly suggests failure occurs before the Next route fallback JSON is produced
+- Important narrowing from the same round:
+  - client-side notification refresh is not running as a tight millisecond loop in the healthy path
+  - `performance.getEntriesByType("resource")` on the cloud page showed a normal cadence close to every `15s`
+  - therefore the current primary issue is not “frontend keeps spamming notifications every moment”, but “cloud notification route / upstream occasionally returns 502”
+- Residual UX/perf signal still open:
+  - creator/deep-detail return chain did not clearly regress functionally
+  - but creator/deep-detail back navigation still feels slower than ideal in the browser harness and should remain in the next perf-focused replay batch
+- Recommended next debugging order:
+  1. inspect cloud-side Next / nginx / service logs around `/api/me/notifications/recent`
+  2. verify whether the failing requests coincide with web process restarts, upstream timeout, or proxy connection churn
+  3. only after that decide whether any frontend notification-refresh throttling changes are still needed
+### 2026-06-17 cloud notifications 502 root cause narrowed to web restart windows
+
+- Follow-up cloud server-side diagnosis was completed through ECS `nginx + systemd + journalctl` logs.
+- Confirmed current runtime state is healthy:
+  - `dramatv-community-web` was `active`
+  - `NRestarts=0`
+  - the currently running process had been stable since `2026-06-17 16:23:31 CST`
+  - the latest sampled `/api/me/notifications/recent` requests on `drama-community-dev.dzkjm.cn` were all `200`
+- Historical failure evidence was still found in nginx error logs:
+  - `2026/06/15 13:28:55 [error] ... connect() failed (111: Connection refused) while connecting to upstream`
+  - request: `GET /api/me/notifications/recent`
+  - upstream: `http://127.0.0.1:3106/api/me/notifications/recent`
+- The same timestamp matched `systemd` restart events for `dramatv-community-web`:
+  - `13:28:55` stop old process
+  - `13:28:55` start new process
+  - Next became ready immediately after on `127.0.0.1:3106`
+- Conclusion update:
+  - the confirmed real 502 shape is `nginx -> 127.0.0.1:3106` upstream refusal during web restart or deploy windows
+  - this is not currently reproduced as a steady-state notification polling bug while the web process stays up
+  - the existing Next route fallback only helps after the request has already reached the web process; it cannot help when nginx cannot connect to `3106` at all
+- Practical next-step priority:
+  1. do not start by changing frontend notification refresh cadence
+  2. if this failure must be eliminated, focus on deploy/runtime strategy first:
+     - reduce restart-window downtime
+     - or add ingress-level fallback for this exact route
+  3. continue broader cloud browser stress testing separately from this deploy-window issue
+
+### 2026-06-17 cloud notifications restart-window fallback landed and verified
+
+- Implemented a narrow ingress hardening change in `scripts/deploy-test-web.ps1` only:
+  - `location = /api/me/notifications/recent` now enables `proxy_intercept_errors on`
+  - added `error_page 502 503 504 = @community_notifications_recent_fallback`
+  - added a named nginx fallback location that returns `200` with an empty notification payload and `Cache-Control: no-store`
+- Rationale:
+  - keep the existing Next route and its auth/header behavior unchanged
+  - avoid broad backend auth changes just to handle one restart-window soft-failure
+  - only cover the exact case already proven by logs: nginx cannot connect to `127.0.0.1:3106` during web restart
+- Cloud rollout:
+  - command:
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - web release:
+    - `20260617-221940`
+  - readiness artifact:
+    - `artifacts/runtime-readiness/test/web-deploy-20260617-221940-summary.json`
+    - `13 passed / 0 failed`
+- Targeted cloud verification:
+  - actively triggered `systemctl restart dramatv-community-web` on ECS
+  - at the same time hit `http://drama-community-dev.dzkjm.cn/api/me/notifications/recent` 25 times in a row from the client side
+  - result:
+    - `25 / 25` responses were `200`
+    - no `502` escaped to the caller during the restart window
+- Updated conclusion:
+  - the previously confirmed restart-window notification `502` is now closed on the current cloud test build
+  - if this pattern reappears later, inspect whether a different exact Next-backed route needs the same ingress fallback rather than re-tuning notification polling first
+
+### 2026-06-18 community professional testing methodology was formalized for this repo
+
+- This round did not add new code behavior. It formalized the external professional testing workflow into a repo-specific execution framework so future testing does not drift back to ad-hoc page clicking.
+- Added project method doc:
+  - `docs/04_实施设计/社区专业测试方法框架-2026-06-18.md`
+- The new framework explicitly fixes four parts for this repo:
+  - what the methodology is actually optimizing for: risk-first chain testing rather than page-by-page clicking
+  - the fixed test dimensions for DramaTV community: function, state, data semantics, interaction, boundary, session/permission, performance, observability
+  - the practical difference between breadth and depth on this project
+  - the execution layering for this repo: `L1 主路径冒烟 -> L2 高风险链路 -> L3 数据语义 -> L4 稳定性与体感`
+- Existing board sync:
+  - `docs/04_实施设计/社区专业测试执行任务板-2026-06-17.md`
+  - added `TST-07` as completed and linked the new method doc as the long-lived explanation layer
+- Current value:
+  - future rounds can keep using one stable language for `/featured` deep scroll, creator returns, discussion returns, login redirects, and cloud data-semantic verification
+  - avoids repeatedly re-explaining “what counts as deep testing” vs “what only counts as breadth smoke”
+
+### 2026-06-18 page-grouped community testing checklist was added
+
+- Built a directly executable checklist layer on top of the new testing framework:
+  - `docs/04_实施设计/社区页面分组测试清单-2026-06-18.md`
+- The new checklist is intentionally page-grouped instead of only dimension-grouped:
+  - `登录与会话`
+  - `首页`
+  - `精选页`
+  - `社区页`
+  - `作者页`
+  - `个人中心`
+  - `发布页`
+  - `详情页族`
+  - `内容语义专项`
+  - `视觉与可读性专项`
+- It also fixes three execution bundles for future rounds:
+  - small-change minimum regression
+  - return-position / pagination / masonry specific regression
+  - pre-cloud full regression
+- Existing professional-testing board sync:
+  - `docs/04_实施设计/社区专业测试执行任务板-2026-06-17.md`
+  - added `TST-08` as completed and linked the checklist doc
+- Practical effect:
+  - after any community change, future runs no longer need to reconstruct the same page list by memory
+  - the repo now has a stable `方法框架 -> 任务板 -> 页面清单 -> 结果文档` testing structure
+### 2026-06-18 cloud testing continued and the current featured/discussions return chain stayed healthy
+
+- This round continued the cloud browser pass on `http://drama-community-dev.dzkjm.cn` without changing code.
+- Verified featured multi-hop return on the current deployed build:
+  - started from `/featured#featured-item-5783d039-9c37-4bf1-89cb-0fca78c1de0b`
+  - entered prompt detail `5783d039-9c37-4bf1-89cb-0fca78c1de0b`
+  - entered creator `04e32520-c171-40af-8c93-7bb1ad58d6d5`
+  - expanded creator works from `24 -> 48`
+  - opened creator work detail `be0b2ea8-c3d1-4e1a-9123-9461db560064`
+  - returned step by step to creator, then prompt, then featured
+- Verified creator-side state after return:
+  - creator page still held `48` rendered works
+  - target creator item `creator-work-be0b2ea8-c3d1-4e1a-9123-9461db560064` remained in viewport
+  - `查看更多` remained available
+- Verified final featured-side state after the same chain:
+  - final URL stayed `/featured#featured-item-5783d039-9c37-4bf1-89cb-0fca78c1de0b`
+  - restore overlay was not visible
+  - visible count was `96`
+  - target featured card remained in viewport
+- Verified incremental loading still works after the completed return chain:
+  - continued scrolling on the restored featured page
+  - visible cards grew `96 -> 132`
+  - no stuck `加载中...`
+  - no `加载失败`
+- Verified discussions detail return again on cloud:
+  - `/discussions -> weekly-creator-thread -> browser back -> /discussions`
+  - target thread `discussion-thread-98b8a9e5-61b1-4bf9-94fd-2ed845de886a` remained in viewport after return
+- Current conclusion update:
+  - no new functional regression was isolated in featured/creator/discussions return positioning on the current cloud build
+  - the remaining cloud watch items are:
+    - intermittent console `502` on `/api/me/notifications/recent`
+    - creator/detail multi-hop back still feels slower than ideal, but this round did not show state loss, wrong route, or pagination stall
+
+### 2026-06-18 cloud notification 502 follow-up was narrowed further to stale browser-session evidence, not current live nginx failures
+
+- This round continued cloud validation without changing code, focusing on the only remaining live watch item: `/api/me/notifications/recent`.
+- Browser-side observation first looked suspicious again:
+  - Playwright session history still showed mixed `200` and `502` entries for `GET /api/me/notifications/recent`
+  - the failed entries were the old proxy-style empty `502` shape:
+    - `content-length: 0`
+    - empty response body
+- But the live cloud verification narrowed the picture further:
+  - current ECS nginx config already contains the exact-route fallback for `/api/me/notifications/recent`
+  - direct ECS check with `Host: drama-community-dev.dzkjm.cn` returned `200` JSON from the current route chain
+  - current nginx access logs during the fresh replay window `2026-06-18 15:17:00 ~ 15:19:59 CST` showed continuous `200` for the same endpoint
+  - nginx access log currently contains no fresh `502` rows for `/api/me/notifications/recent`
+  - nginx error log also showed no matching fresh upstream failure in the same window
+  - `journalctl -u dramatv-community-web` had no restart/error evidence in that window either
+- Conclusion update:
+  - the previously reported notification `502` is not currently reproducible as a fresh live cloud ingress/runtime failure
+  - the remaining `502` evidence inside the Playwright/MCP browser session should now be treated as stale session history unless a fresh cloud log window shows matching server-side failures again
+  - next testing focus should return to real functional or performance chains instead of continuing to chase this residual browser-session noise
+
+### 2026-06-18 fresh cloud stress pass found a new RSC-layer instability cluster on `/featured` and `/discussions`
+
+- This round switched back to fresh cloud tabs and higher-risk browser chains instead of log-only verification.
+- Confirmed stable path first:
+  - `/discussions -> weekly-creator-thread -> browser back -> /discussions#discussion-thread-98b8a9e5-61b1-4bf9-94fd-2ed845de886a`
+  - functional return positioning still worked
+  - target thread stayed present and near viewport after return
+- New instability was then observed on the fresh cloud browser runtime:
+  - `/featured` incremental loading did not always grow smoothly in the same tab
+  - browser network log showed real empty `502 Bad Gateway` failures on:
+    - `GET /api/featured-inventory?sort=latest`
+  - sampled failed shape:
+    - duration around `26.5s`
+    - empty body
+    - minimal proxy-style headers only
+  - later cursor-page requests such as `cursor=offset:24/36/48` could still return `200`, so this is not a permanent page-dead state
+- A second related cluster was observed on `/discussions`:
+  - browser network log captured one burst where multiple `_rsc` navigations simultaneously returned `502`
+  - affected paths in that burst included:
+    - `/discussions?channel=*`
+    - `/discussions/weekly-creator-thread?...&_rsc=*`
+    - `/me?...&_rsc=*`
+    - `/creators/...?...&_rsc=*`
+    - `/api/me/notifications/recent`
+  - browser console also showed matching burst errors and one `net::ERR_NETWORK_CHANGED`
+- Important narrowing:
+  - the stable direct `curl` path still returned `200` for:
+    - `GET /api/featured-inventory?sort=latest`
+  - the stable direct click path for discussion detail/back also still passed
+  - cloud `nginx access/error` and `journalctl -u dramatv-community-web` did not yet show an obvious matching restart/error entry in the sampled window
+- Current interpretation:
+  - this round found a real cloud runtime instability at the web/RSC layer, stronger than the earlier “stale notification 502 history” hypothesis
+  - the failure shape currently looks more like a short-lived 3106-side RSC/request serving wobble than a single business API contract bug
+  - next debugging order should prioritize:
+    1. correlate fresh browser burst time with exact web process logs or Next stderr capture
+    2. inspect whether 3106 runtime has transient request concurrency/resource exhaustion under multi-prefetch / multi-tab pressure
+    3. isolate whether `/featured` `sort=latest` and discussion `_rsc` bursts share the same upstream bottleneck
+
+### 2026-06-18 featured/discussions pressure trim landed locally before next cloud replay
+
+- This round closed a concrete local optimization slice before continuing cloud investigation.
+- Cloud diagnosis from the previous replay stayed the same:
+  - no fresh steady-state `/api/me/notifications/recent` ingress failure was reproduced
+  - the more actionable pressure signal was that `/featured` list cards could still mount full `/media/.../video/source/.../video.mp4` as preview fallbacks on the live cloud build
+  - `/discussions` also showed dense route/link interaction pressure during rapid switching even when requests were mostly still `200`
+- Local code changes completed:
+  - `apps/web/src/lib/media-playback.ts`
+    - added `allowSourceFallback?: boolean`
+    - heavy list-card callers can now explicitly disable fallback from `previewUrl` to `sourceUrl`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - featured cards now call `resolveCardVideoPlaybackUrl(... allowSourceFallback: false)`
+    - card links now use `prefetch={false}`
+  - `apps/web/src/components/shared/ProfileMediaCard.tsx`
+    - creator/me/profile cards also disable source fallback for list preview playback
+    - card links now use `prefetch={false}`
+  - `apps/web/src/features/discussions/DiscussionsPage.tsx`
+    - dense channel/thread/contributor links now use `prefetch={false}`
+- Supporting refactor:
+  - extracted same-origin media URL normalization into `apps/web/src/lib/media-asset-url.js`
+  - shared both `media-playback` and `detail-image-preview` on the same pure helper so lightweight Node tests no longer depend on Next alias resolution
+- Local verification completed:
+  - `node --test apps/web/src/lib/media-playback.test.mjs`
+  - `node --test apps/web/src/features/video-detail/detail-image-preview.test.mjs`
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+- Next step:
+  - deploy the current web build to `http://drama-community-dev.dzkjm.cn`
+  - recheck `/featured?filter=video_prompt&sort=latest` for mounted video `src`
+  - rerun rapid `/discussions` channel switching on the deployed build
+
+### 2026-06-18 featured curated-slot prompt preview root cause narrowed and patched locally
+
+- This round continued from the confirmed cloud evidence that `/api/feed/featured?sort=latest` still returned several `featured-video-prompt` items with:
+  - `previewUrl == sourceUrl`
+  - while `/api/featured-inventory?filter=video_prompt&sort=latest` mostly already returned `previewUrl = null` when no real preview asset existed
+- Root cause was narrowed from “shared featured read path” to the featured curated-slot snapshot layer:
+  - `CommunityCatalogJdbcQueryService.loadFeaturedArchive(...)` reads curated slot content from:
+    - `adminFeedOpsService.loadPublishedFeaturedSlotItems(sort)`
+  - `AdminFeedOpsService.mapContentItem(...)` was still resolving prompt `previewUrl` with an explicit fallback:
+    - real `prompt_preview_example_url`
+    - else fallback to `prompt_primary_example_url`
+  - that fallback directly explains why curated featured slots could still promote source video as preview even after the frontend disabled list-card `sourceUrl` fallback
+- Local code change completed:
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsService.java`
+    - removed the fallback from prompt preview to prompt primary/source media
+    - featured/admin curated prompt snapshots now only expose `previewUrl` when a real preview asset exists
+- Regression guard added:
+  - `apps/server/src/test/java/com/dramatv/community/integration/FeedReadApiIntegrationTest.java`
+    - added `featuredFeedDoesNotPromotePromptSourceVideoAsPreviewWhenPreviewAssetIsMissing`
+    - test shape mirrors the existing home-feed regression:
+      - create a published video prompt with only source media
+      - publish it into `featured-video-prompt`
+      - assert `/api/feed/featured` returns blank/null `previewUrl` and valid `sourceUrl`
+- Verification status:
+  - attempted targeted Maven test with local Maven binary:
+    - `C:\Users\psk13\.codex\memories\dramatv_link\.tools\apache-maven\apache-maven-3.9.16\bin\mvn.cmd test -Dtest=FeedReadApiIntegrationTest#featuredFeedDoesNotPromotePromptSourceVideoAsPreviewWhenPreviewAssetIsMissing`
+  - attempted backend compile:
+    - `...\\mvn.cmd -DskipTests compile`
+  - both are currently blocked by unrelated existing compile errors already present elsewhere in the dirty backend tree, including but not limited to:
+    - `apps/server/src/main/java/com/dramatv/community/admin/auditlogs/AdminAuditLogService.java`
+    - `apps/server/src/main/java/com/dramatv/community/admin/auth/AdminAuthApplicationService.java`
+    - multiple unrelated integration tests such as `AdminAuditLogApiIntegrationTest.java`, `AdminCommentApiIntegrationTest.java`, `ActionRateLimitIntegrationTest.java`
+- Current conclusion:
+  - the confirmed user-facing featured first-screen source-video promotion bug is now fixed at the real backend curated-slot fallback point
+  - but this round cannot safely deploy or runtime-verify on cloud until the unrelated backend compile breakage is first repaired or isolated
+- Next step:
+  1. repair or temporarily isolate the unrelated backend compile failures already present in the current working tree
+  2. rerun the new featured regression test and backend compile
+  3. deploy backend to test cloud
+  4. recheck `/api/feed/featured?sort=latest` and the cloud `/featured?filter=video_prompt&sort=latest` first-screen mounted video `src`
+### 2026-06-18 featured curated preview cloud verification resumed after backend test-env outage
+
+- Took over the cloud verification chain for the featured first-screen prompt-preview bug.
+- Confirmed the immediate test-env outage was not an app logic issue:
+  - remote `dramatv-community-server` was stuck because
+    `/opt/dramatv-community-server/current/dramatv-community-server.jar`
+    pointed to a non-existent release dir `20260618-183638`
+  - actual uploaded dir on ECS was `20260618-183056`
+  - repaired the symlink manually and restored service health
+  - verified:
+    - `systemctl is-active dramatv-community-server -> active`
+    - `curl http://127.0.0.1:18080/actuator/health -> {"status":"UP"}`
+- Re-verified the real bug status on cloud after service recovery:
+  - public `GET http://drama-community-dev.dzkjm.cn/api/feed/featured?sort=latest`
+  - `featured-video-prompt` still had 9 items where `previewUrl == sourceUrl`
+  - so the user-facing bug is not closed on cloud yet
+- Local source status was rechecked:
+  - `AdminFeedOpsService.resolvePromptPreviewUrl(...)` still only reads
+    `prompt_preview_example_url`
+  - it no longer falls back to `prompt_primary_example_url`
+  - targeted regression test still passes locally under Java 17:
+    - `FeedReadApiIntegrationTest#featuredFeedDoesNotPromotePromptSourceVideoAsPreviewWhenPreviewAssetIsMissing`
+- A packaging/deploy chain issue was found and fixed locally:
+  - local backend port `18080` had a Java process locking
+    `apps/server/target/dramatv-community-server-0.1.0-SNAPSHOT.jar`
+  - because of that, earlier backend deploy attempts were effectively capable of
+    reusing an old jar even after source changes
+  - stopped the locking local Java process, rebuilt successfully, and produced a
+    fresh Spring Boot jar at `2026-06-18 18:50:42`
+- Cloud backend was then manually re-uploaded to a new release dir:
+  - release dir: `/opt/dramatv-community-server/releases/20260618-185556`
+  - service restarted and health stayed `UP`
+  - but `/api/feed/featured?sort=latest` still returned the same 9 bad
+    `previewUrl == sourceUrl` items
+- Data-level narrowing on ECS:
+  - queried the live test database directly for those 9 prompt ids
+  - result: all 9 prompts had
+    - a real `primary_example_asset_id`
+    - no `role_code='preview'` link at all
+  - therefore this is not a simple dirty-data case where preview links were
+    wrongly bound to the same source asset
+- Current conclusion:
+  - cloud test env is healthy again
+  - local regression test is green
+  - the cloud response is still wrong even after fresh jar upload
+  - next debugging focus must shift from deploy/data suspicion to the exact
+    runtime read path that produces `/api/feed/featured` on ECS, including any
+    remaining server-side mapper/cache/path divergence between expected code and
+    live response
+
+### 2026-06-18 featured prompt preview cloud mismatch was finally traced to an old active backend symlink, not a remaining mapper bug
+
+- This round closed the lingering ambiguity around `/api/feed/featured?sort=latest`.
+- Evidence chain:
+  - direct ECS backend:
+    - `GET http://127.0.0.1:18080/api/feed/featured?sort=latest`
+    - `featured-video-prompt.badCount = 9`
+  - same ECS host through nginx with `Host: drama-community-dev.dzkjm.cn`:
+    - same `badCount = 9`
+  - conclusion:
+    - ingress was only forwarding the backend response
+    - the wrong payload was already coming from the running Spring Boot service
+- Then verified the built artifact instead of continuing to guess:
+  - local rebuilt jar:
+    - `apps/server/target/dramatv-community-server-0.1.0-SNAPSHOT.jar`
+    - `SHA256 = 262A6224491BC5DAD4D1E9AD8DEE4B0CF2E19F9AF3C36645FEF331771DE4F42B`
+  - decompiled `AdminFeedOpsService.class` and `CommunityCatalogJdbcQueryService.class` from that jar
+  - both classes already contained the intended new logic:
+    - `resolvePromptPreviewUrl(...)` only reads preview media
+    - no fallback from prompt preview to prompt primary/source remained in the jar
+- Root cause was finally narrowed to the live test-env release pointer:
+  - active symlink before repair:
+    - `/opt/dramatv-community-server/current/dramatv-community-server.jar`
+    - actually pointed to:
+      - `/opt/dramatv-community-server/releases/20260618-183056/dramatv-community-server.jar`
+  - active runtime jar hash before repair:
+    - `f595d2af150bf3f6e45cb39a4cd85227d9e3e0a5f5bb858ca270ca556b3de7d3`
+  - uploaded fresh release jar hash:
+    - `/opt/dramatv-community-server/releases/20260618-185556/dramatv-community-server.jar`
+    - `262a6224491bc5dad4d1e9ad8dee4b0cf2e19f9af3c36645fef331771de4f42b`
+  - conclusion:
+    - the cloud bug persisted because the service never actually switched onto the fresh release
+    - this was a deploy-pointer problem, not a remaining feed mapper bug
+- Cloud repair:
+  - repointed:
+    - `/opt/dramatv-community-server/current/dramatv-community-server.jar`
+    - -> `/opt/dramatv-community-server/releases/20260618-185556/dramatv-community-server.jar`
+  - restarted:
+    - `systemctl restart dramatv-community-server`
+  - verified:
+    - `systemctl status dramatv-community-server` -> `active (running)`
+    - `ss -ltnp | grep 18080` -> Java listening on `*:18080`
+- Final verification:
+  - direct ECS backend after pointer repair:
+    - `GET http://127.0.0.1:18080/api/feed/featured?sort=latest`
+    - `featured-video-prompt.count = 12`
+    - `featured-video-prompt.badCount = 0`
+- Practical takeaway:
+  - for future backend cloud fixes on this repo, do not stop at “new release dir exists” or “fresh jar uploaded”
+  - always verify all three together:
+    1. current symlink target
+    2. running jar hash
+    3. target business endpoint behavior
+
+### 2026-06-18 featured list-only cross-page return restore was narrowed to missing leave-page snapshot writes on nav transitions
+
+- New user-reported symptom was split into two reproducible chains:
+  - chain A:
+    - `/featured` deep scroll
+    - do not enter detail
+    - switch to `/home` or `/discussions`
+    - switch back to `/featured`
+    - result: no restore
+  - chain B:
+    - `/featured` deep scroll
+    - enter detail and return to `/featured`
+    - then switch to `/home` or `/discussions`
+    - switch back to `/featured`
+    - result: restore can work once, then later cross-page switches lose it again
+- Code-level conclusion:
+  - detail-return restore was already using `from + #featured-item-*` semantics
+  - plain top-nav page switching was not reliably persisting the current featured route + scroll snapshot before leaving the page
+  - so list-only page switching could not consistently re-enter `/featured` with a fresh stored back-scroll state
+  - after a detail-driven restore, later nav switches could still lose the refreshed position because the leave-page snapshot was not rewritten on every transition
+- Local fix:
+  - `apps/web/src/components/shared/CommunityRouteTransitionProvider.tsx`
+  - before `beginTransition()` pushes a new internal route, it now:
+    - reads the real current window route including hash
+    - calls `rememberBackAnchorSource(currentHref)`
+  - this makes top-nav transitions persist the current page position the same way tracked detail links already do
+  - practical effect:
+    - `/featured` list-only -> `/home|/discussions` -> `/featured`
+      now has a stored route snapshot to restore from
+    - `/featured` detail-return -> `/home|/discussions` -> `/featured`
+      rewrites the latest featured position again instead of consuming only the first restore
+- Verification:
+  - `apps/web -> npm.cmd run typecheck` passed
+  - `apps/web -> npm.cmd run build` passed
+- Next step:
+  - run browser verification for both chains locally or on cloud:
+    1. featured deep scroll without entering detail, cross-page switch, return
+    2. featured detail return, then cross-page switch twice in a row, return each time
+
+### 2026-06-18 featured cross-page return restore fix was synced to cloud
+
+- Scope:
+  - sync the frontend-only fix that persists the current route + scroll snapshot before community top-nav transitions
+  - target symptom:
+    - `/featured` list-only deep scroll -> `/home|/discussions` -> `/featured` had no restore
+    - `/featured` detail-return -> `/home|/discussions` -> `/featured` only restored once
+- Cloud rollout:
+  - command:
+    - `./scripts/deploy-test-web.ps1 -PublicBaseUrl http://drama-community-dev.dzkjm.cn -ServerNames drama-community-dev.dzkjm.cn -VerifyAfterDeploy`
+  - web release:
+    - `20260618-193956`
+- Verification:
+  - remote `dramatv-community-web.service` -> `active (running)`
+  - remote Next runtime ready on `127.0.0.1:3106`
+  - readiness artifact:
+    - `artifacts/runtime-readiness/test/web-deploy-20260618-193956-summary.json`
+  - result:
+    - `13 passed / 0 failed`
+- Current status:
+  - the cloud test env now contains the featured nav-transition restore fix
+  - next validation should be real browser chain replay on cloud for the two exact user paths above

@@ -244,6 +244,31 @@
 - 下次先做什么：
   - 继续处理 `feed-ops` 媒体 404 的资源映射问题，补齐少量本地图片路径在后台域名下无法直接访问的情况
   - 再视用户验收结果决定是否给运营配置页补“仅看视频 / 仅看图片”之外的更细粒度筛选
+
+### 2026-05-22 feed-ops 候选池真分页收口
+
+- 本轮继续收口 `apps/admin /feed-ops/*` 的候选内容加载策略，目标不是只让页面“先进去”，而是把候选池接口本身也从“全量查出再内存筛选”改成真实分页读取：
+  - 页面主配置 `GET /api/admin/feed-ops/{pageKey}` 继续保持轻量响应，不再携带整池 `candidatePool`
+  - 候选池读取统一走新接口：
+    - `GET /api/admin/feed-ops/home/candidates`
+    - `GET /api/admin/feed-ops/featured/candidates`
+    - `GET /api/admin/feed-ops/discussions/candidates`
+  - 后端 `AdminFeedOpsService` 现已改为：
+    - 页面首屏 fallback 只按每类资源抓取有限窗口
+    - 候选池分页按 `slotKey / promptFilter / keyword / page / pageSize` 做数据库侧筛选
+    - 不再返回页面级整池候选列表，避免云端点击“运营配置”后先卡在大 payload 上
+  - 同时修正一处真实偏差：页面 fallback 池读取 prompt 时不再把 `promptFilter=null` 误当成“图片提示词”
+- 本轮定向回归已通过：
+  - `apps/server -> .\\scripts\\use-local-java17-maven.ps1 -f apps/server/pom.xml '-Dtest=AdminFeedOpsHomeApiIntegrationTest,AdminFeedOpsFeaturedApiIntegrationTest,AdminFeedOpsDiscussionsApiIntegrationTest' test`
+  - `apps/admin -> npm.cmd run build`
+- 补充说明：
+  - `apps/admin -> npm.cmd run typecheck` 仍会因为本地 `.next/types` 缺文件单独报错，这次没有新增这一类问题；同轮 `next build` 的 TypeScript 阶段已通过，说明当前改动本身可编译
+- 当前做到哪一步：
+  - 运营配置页的“点击后无响应体感”问题，现已从前端 `loading.tsx + 异步候选加载` 和后端“候选池真分页”两侧一起收口
+  - 现在剩下的重点不再是整池加载，而是继续看云端真实服务是否已重启到这版后端，并补操作级验收
+- 下次先做什么：
+  - 重启本地或云端后台服务后，优先验证 `/feed-ops/home`、`/feed-ops/featured`、`/feed-ops/discussions` 三页切换体感
+  - 再检查候选池翻页、关键词筛选、图片/视频筛选是否都走到了真实接口
   - 褰撳墠璇︽儏鎺ュ彛宸茶ˉ锛氳处鍙峰熀纭€淇℃伅銆佸唴瀹圭粺璁°€佷簰鍔ㄦ矇娣€銆佹不鐞嗘憳瑕併€佹渶杩戝唴瀹?  - 褰撳墠娌荤悊鎺ュ彛宸茶ˉ锛氳处鍙风姸鎬佽皟鏁淬€佸悗鍙拌鑹茶皟鏁淬€佺鐢ㄥ悗鎾ら攢鐜版湁鐧诲綍鎬?- 褰撳墠璐﹀彿娌荤悊鏉冮檺杈圭晫宸插厛鏀朵弗锛?  - `admin / operator / moderator` 閮藉彲璇荤敤鎴疯鎯?  - 鍙湁 `admin / operator` 鍙敼瑙掕壊涓庣姸鎬?  - `operator` 涓嶈兘鎶婅处鍙锋彁鎴?`admin`
   - 褰撳墠绠＄悊鍛樹笉鑳芥妸鑷繁绂佺敤鎴栨妸鑷繁闄嶆潈
 - 鍚庡彴 `/users` 宸蹭粠鈥滃垪琛?+ 鍋囧脊绐椻€濇敼鍒扳€滃垪琛?+ 鐪熷疄璇︽儏渚ф爮 + 灏卞湴娌荤悊琛ㄥ崟鈥濓細
@@ -1953,6 +1978,32 @@
 - 本轮验证已通过：
   - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
   - `apps/admin -> npm.cmd run build`
+
+### 2026-05-25 taxonomy 分类管理页信息架构收口
+
+- 用户反馈：
+  - 页面排版混乱
+  - 中间列表信息少但占位大
+  - 页面用途不清楚
+- 本轮处理：
+  - `apps/admin/src/app/(dashboard)/taxonomy/page.tsx`
+    - 顶部补“页面用途 + 4 步操作”说明，明确这页分成“分类治理”和“批量修正提示词池”两类操作
+    - 给三块主工作区补 `步骤 1/2/3`，中间列表补“点击分类名即可切换右侧治理配置”
+    - 中间分类列表真正挂上可点击入口，分类名可直接切换右侧治理面板
+    - 原先塞在右侧卡片里的“待修正提示词池”拆到页面下方，独立成 `步骤 4`
+  - `apps/admin/src/app/(dashboard)/taxonomy/page.module.css`
+    - 收窄三栏布局右侧宽度
+    - 新增 guide / step / bulk stage 样式
+    - 压缩表格最小宽度，减少“信息少但占位大”的感觉
+    - 隐藏旧的内嵌 bulk 区，避免重复展示
+- 本轮验证已通过：
+  - `apps/admin -> npm.cmd run typecheck`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - taxonomy 页已经从“右侧大表单里混合两种任务”改成“上半区治理分类、下半区批量修正提示词”的结构
+- 下次先做什么：
+  - 登录后台手动复看 `taxonomy` 页的真实视觉密度
+  - 如果还觉得列表占位偏大，再继续压缩表格列宽或改成更强的 master-detail 形式
   - 测试云环境后台新 release：`/opt/dramatv-community-admin/releases/20260522-130604`
   - 发布后 smoke：
     - `artifacts/runtime-readiness/test/admin-deploy-20260522-130604-public-summary.json`
@@ -2010,3 +2061,968 @@
   - 当前本地 `18080 + 3206` 已恢复可验收。
 - 下次先做什么：
   - 如果你手动验收还有个别页残留异常，优先先分清是“运行态没切过去”还是“单接口真 bug”，继续按这次顺序排查，不再先怀疑前端页面壳子。
+
+### 2026-05-22 云端后台“页面数据加载不出来”复验
+
+- 本轮不是继续猜测页面截图，而是直接在云端后台 `http://8.141.20.130:3206` 登录后逐页复验：
+  - `/users`
+  - `/moderation`
+  - `/resources`
+  - `/reports`
+  - `/comments`
+  - `/feed-ops/home`
+  - `/taxonomy`
+  - `/media-tasks`
+  - `/audit-logs`
+- 当前复验结果：
+  - 上述页面当前都能正常进入
+  - 页面正文中已不再出现“页面数据加载不出来 / 当前无法读取 / 读取异常 / 请稍后重试”这类错误态
+  - 浏览器控制台错误数为 `0`
+- 这轮也进一步确认了上一轮云端故障的真实根因：
+  - 不是 `apps/admin` 页面壳子本身坏了
+  - 是后台前端先切到了真实分页契约，但云端共享后端 `apps/server` 当时还停在旧响应结构
+  - 结果就是新前端读旧后端，多个治理页一起掉进错误态
+- 当前状态判断：
+  - 云端后台这批“读不到数据”的页面已恢复
+  - 如果你之后再看到个别页面偶发同类报错，优先先看是不是又出现“前端已发布、共享后端未同步”的版本错位，而不是先怀疑样式或单页组件
+
+### 2026-05-22 云端首页运营候选池资源不全修复
+
+- 本轮处理的是你在云端 `/feed-ops/home` 看到的异常：资源治理页能看到大量真实资源，但首页运营候选池切到“视频提示词”时只剩 `1` 条。
+- 实际根因不是前端筛选按钮坏了，也不是云端资源没导入，而是后台两页走的不是同一套查询口径：
+  - `/resources` 走的是资源治理全量分页查询
+  - `/feed-ops/home` / `/feed-ops/featured` 走的是 `AdminFeedOpsService` 的独立候选池查询
+  - 这套候选池查询把 `prompt / workflow / post / channel` 都写死成了 `limit 256`
+- 直接后果：
+  - 候选池只保留各类内容“最新前 256 条”
+  - 云端当前最新一批 prompt 里，视频提示词在这个窗口内只剩极少数，所以你在首页运营里看到“视频提示词只有 1 条”
+  - 资源治理页正常，是因为它根本没走这个 `256` 截断
+- 本轮修复：
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsService.java`
+  - 把候选池硬上限从 `256` 提升到 `10000`
+  - 同步补回归：
+    - `apps/server/src/test/java/com/dramatv/community/integration/AdminFeedOpsHomeApiIntegrationTest.java`
+    - 新增用例覆盖“首页运营候选池应包含超过旧 256 窗口之外的 prompt”
+- 本轮验证：
+  - `AdminFeedOpsFeaturedApiIntegrationTest`
+  - `AdminFeedOpsHomeApiIntegrationTest`
+  - 定向结果：`4 passed / 0 failed`
+  - 共享后端已同步到云测试环境：
+    - release：`/opt/dramatv-community-server/releases/20260522-175552`
+  - 云端浏览器复验：
+    - `http://8.141.20.130:3206/feed-ops/home`
+    - 候选池总量已从之前截图里的 `259` 恢复到 `5648`
+    - “视频提示词”筛选当前已显示 `1490 条`
+- 当前做到哪一步：
+  - 云端首页运营 / 精选运营候选池已经不再被旧的 `256` 窗口截断
+  - 这轮先把“看不到真实候选资源”主问题收掉，候选池接口本身还不是后端真分页接口，只是把上限放到了足够覆盖当前云端真实资源规模
+- 下次先做什么：
+  - 如果后续资源量继续明显上涨，再把 feed-ops 候选池从“大窗口返回”升级成后端真分页查询，避免前端一次吃太大候选池
+
+### 2026-05-23 dashboard 概览台布局修复
+
+- 本轮修复了 `apps/admin /dashboard` 的两个问题：
+  - 左侧 `待审核队列 + 快捷操作` 被错误拆成上下两段，导致右侧栏被挤到下面并制造大块空白
+  - `失败任务` 侧栏之前直接展示原始错误文本，内容过长时会把卡片撑爆
+- 处理方式：
+  - 左侧内容改回 `primaryColumn` 单列容器，桌面态恢复双栏布局
+  - 失败任务 detail 改成 `目标作者 + 错误摘要 + 重试次数`
+  - `contentGrid` 的单栏断点从 `1180px` 收紧到 `900px`，避免 996px 宽度误切到移动态
+- 验证结果：
+  - `apps/admin -> npm.cmd run build` 通过
+  - 本地 `http://127.0.0.1:3206/dashboard` 已恢复双栏
+  - 失败任务侧栏不再显示原始长错误日志
+
+### 2026-05-23 治理页笔记本宽度适配收口
+
+- 本轮针对你明确点名的 4 个后台治理页收了一轮桌面端响应式适配：
+  - `内容审核 /moderation`
+  - `资源治理 /resources`
+  - `举报中心 /reports`
+  - `评论治理 /comments`
+- 本轮处理目标不是单纯“缩小一点字体”，而是同时解决 3 个桌面端比例问题：
+  - 后台工作区横向可用空间偏保守，导致笔记本全屏时内容区被白白吃掉一截
+  - 右侧详情卡固定得偏宽，左侧表格列表被挤压过早
+  - 左侧表格列宽在 `14~16` 寸笔记本全屏下不够收敛，明明不是极限比例也容易提前出现横向拥挤
+- 实际代码收口：
+  - `apps/admin/src/components/AdminShell.module.css`
+    - 收紧侧栏与工作区 padding
+    - 略缩左侧导航宽度
+    - 让桌面端内容区在常见笔记本宽度下多释放一截横向空间
+  - `apps/admin/src/app/(dashboard)/moderation/page.module.css`
+    - 同步影响 `/moderation` 与复用该样式的 `/resources`
+    - 右侧详情栏改成更窄的 `clamp(...)` 列宽策略
+    - 新增 `1600 / 1440 / 1260` 三段式断点
+    - 在较窄桌面宽度下同步压缩表格列宽与单元格 padding
+  - `apps/admin/src/app/(dashboard)/comments/page.module.css`
+    - 同步改窄详情栏
+    - 补笔记本宽度下的列宽收敛断点
+  - `apps/admin/src/app/(dashboard)/reports/page.module.css`
+    - 同步改窄详情栏
+    - 补笔记本宽度下的列宽收敛断点
+- 断点策略变化：
+  - 之前这些页在 `1380px` 就会退化成单栏，桌面笔记本宽度下太激进
+  - 现在改成先在 `1600 / 1440` 逐步缩右栏、缩列表，再到 `1260px` 以下才正式切单栏
+  - 目标是让常见笔记本全屏宽度优先保住“左表 + 右详情”双栏，而不是过早堆叠或挤爆
+- 这轮顺手确认了本地后台入口口径：
+  - 由于后台前端已固定 `basePath=/admin`，旧地址 `http://127.0.0.1:3206/users` 会直接 `404`
+  - 当前本地正确入口应为：
+    - `http://127.0.0.1:3206/admin/login`
+    - `http://127.0.0.1:3206/admin/users`
+- 本轮验证结果：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+  - 本地路由检查：
+    - `/admin/login -> 200`
+    - `/admin/users -> 307` 跳登录
+- 当前做到哪一步：
+  - 这 4 个治理页的桌面端布局规则已经按“笔记本全屏优先双栏、右栏更窄、列表更能铺开”的方向收口完成
+  - `resources` 因为复用 `moderation` 样式，已经一起跟随生效
+- 下次先做什么：
+  - 等你按真实笔记本分辨率复看一轮
+  - 如果还有某一页依旧偏挤，再做第二轮定向微调，而不是重新改回统一大宽度右栏
+
+### 2026-05-23 后台 UI 笔记本适配已同步云端
+
+- 本轮把刚完成的后台前端 UI 收口同步到了云测试环境，只包含 `apps/admin` 这批界面样式改动，不混入本地 Docker/数据库恢复这类运行态修复。
+- 云端后台发布结果：
+  - release label：`20260523-143226`
+  - release path：`/opt/dramatv-community-admin/releases/20260523-143226`
+  - public admin url：`http://8.141.20.130/admin`
+- 本轮发云前本地构建已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 本轮发云后公网最小验收已通过：
+  - `GET http://8.141.20.130/admin/login -> 200`
+  - `GET http://8.141.20.130/admin/users -> 307`
+  - redirect target：`/admin/login?redirectTo=%2Fusers`
+- 这次同步对应的主要界面范围：
+  - `内容审核 /moderation`
+  - `资源治理 /resources`
+  - `举报中心 /reports`
+  - `评论治理 /comments`
+  - 以及共享后台壳层 `AdminShell` 的桌面端横向空间释放
+- 当前做到哪一步：
+  - 云端后台已经切到包含“笔记本宽度下右侧详情栏更窄、表格区更能铺开”的新前端版本
+  - 运行态入口和登录守卫都还正常
+- 下次先做什么：
+  - 等你直接在云后台按真实屏幕分辨率复看
+  - 如果还有个别页的详情卡比例不理想，再继续做第二轮断点微调
+
+### 2026-05-23 内容审核正文框与资源治理对齐
+
+- 本轮继续收口你在云后台指出的一个细节差异：`/moderation` 右侧详情里的“提示词/正文内容”之前还是直接整段铺开，不像 `/resources` 那样使用固定大小、内部滚动的文本框。
+- 实际改动：
+  - 文件：`apps/admin/src/app/(dashboard)/moderation/page.tsx`
+  - 把审核详情区第 `3` 段从单个 `<p>` 改成和资源治理同款的 `contentStack + contentBlock + contentBody`
+  - 当前展示结构变为：
+    - 上方 `摘要`
+    - 下方 `提示词正文 / 正文`
+    - 下方正文块固定高度，超出后在块内滚动
+- 这轮没有新加样式文件：
+  - `moderation/page.module.css` 里原本已经存在 `contentStack / contentBlock / contentBody`
+  - 之前只是审核页 JSX 没接上这套结构，本轮直接复用即可
+- 本地验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 云端已同步：
+  - release label：`20260523-144129`
+  - release path：`/opt/dramatv-community-admin/releases/20260523-144129`
+- 云端最小可达性复验已通过：
+  - `GET http://8.141.20.130/admin/login -> 200`
+  - `GET http://8.141.20.130/admin/moderation -> 307`
+  - redirect target：`/admin/login?redirectTo=%2Fmoderation`
+- 当前做到哪一步：
+  - 内容审核页的正文展示结构已经和资源治理页对齐，并且已发布到云端后台
+- 下次先做什么：
+  - 等你直接在云后台验收正文框的实际观感
+  - 如果你还希望摘要框和正文框的高度、留白、滚动条样式进一步完全一致，再做第二轮微调
+
+### 2026-05-23 后台长文本撑布局巡检与收口
+
+- 本轮目标不是改业务逻辑，而是统一收口后台管理端那些“因为真实内容长度差异把详情区、统计卡、日志区撑高”的残留点。
+- 实际处理范围：
+  - `comments`
+    - 评论正文改为固定高度内滚
+    - 评论上下文列表、治理日志列表改为固定高度容器
+    - 单条上下文卡片和日志描述也补了内部滚动保护
+  - `reports`
+    - 举报说明改为固定高度文本块
+    - 被举报内容摘要正文改为固定高度内滚
+    - 处理记录列表与处理备注改为固定高度容器
+  - `users`
+    - 账号备注改为固定高度文本块
+    - 内容发布 / 治理摘要 / 风险摘要这类统计值改为两行截断
+    - 最近内容标题改为两行截断，完整列表继续走既有弹窗
+  - `audit-logs`
+    - 请求扩展上下文改为固定高度内滚
+    - 处理备注改为固定高度内滚
+    - 长 requestId / traceId / targetId 补了强制换行保护
+  - `media-tasks`
+    - 关联标题 / 错误摘要 / 内容摘要改为固定高度文本块
+    - 任务标题改为两行截断
+    - 日志摘要列表改为固定高度容器
+    - 结果载荷 textarea 固定高度，不再允许手动拉伸把页面撑乱
+  - `moderation` / `resources`
+    - 由于两页复用同一份 `page.module.css`，本轮顺手把“摘要”块也改成固定高度内滚
+    - 风险提示条目文本也补了固定高度保护
+- 这轮没有继续动 `feed-ops`：
+  - 巡检结果显示它本身已有 `poolListViewport / arrangeModal / line-clamp` 等收口，不属于本轮主要问题源
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - 后台主要“左表右详情”治理页里，长正文、长备注、长日志、长统计摘要造成右栏被内容长度拉高的点已做完一轮统一收口
+  - 当前仍停留在本地代码与本地构建验证，尚未发布到云测试环境
+- 下次先做什么：
+  - 等你按真实页面手动体验一轮
+  - 如果你再指出某个具体区块仍会被内容长度撑坏，再做定点补强，不重新大面积改版
+
+### 2026-05-23 治理列表去掉无效操作列并强化选中态
+
+- 本轮收口的是你明确指出的一个交互问题：后台多个治理列表最后一列都还挂着“操作入口 / 点击行查看 / 当前查看中”这类低价值提示，占列宽但不提供真实能力。
+- 本轮已统一处理：
+  - 删除这批页面表格最后一列：
+    - `moderation`
+    - `resources`
+    - `reports`
+    - `comments`
+    - `audit-logs`
+    - `media-tasks`
+    - `taxonomy`
+  - 分类治理第一页空态 `colSpan` 已同步从 `7` 收口到 `6`
+  - 原先依赖这列提示的选中反馈，改为更明显的整行高亮
+- 选中态本轮统一改为：
+  - 更深一档的蓝色渐变底
+  - 更明显的左侧高亮竖条
+  - 额外补一层内描边，避免在白底页面里“像没选中”
+- 这轮还顺手统一了 `users` 页的选中行颜色：
+  - 虽然它本身没有“操作入口”列，但为了让后台不同列表的选中反馈一致，也一并切到同一套蓝色选中态
+- 本轮完成后，用搜索回归确认：
+  - `apps/admin/src/app/(dashboard)` 下已不再残留
+    - `操作入口`
+    - `点击行查看`
+    - `当前查看中`
+    - `点击左侧树或当前行对应项查看`
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - 后台主要治理/日志列表的无效末列已统一移除
+  - 选中行反馈已统一增强
+- 下次先做什么：
+  - 等你按真实分辨率手动看一轮
+  - 如果你觉得蓝色选中态还不够重，再继续把对比度往上抬一档，但先不重新引入任何末列提示
+
+### 2026-05-23 右侧详情栏统一放宽一档
+
+- 本轮处理的是你在真实页面里继续指出的比例问题：虽然上一轮已经把右侧详情栏从“明显过宽”收回来，但当前版本又收得偏保守，导致 `资源治理` 这类页的详情面板内容显得偏窄。
+- 本轮没有回退到旧的超宽右栏，而是统一做“一档放宽”：
+  - `moderation` / `resources`
+    - 主断点从 `clamp(268px, 22vw, 304px)` 调到 `clamp(300px, 24vw, 340px)`
+    - 中间断点同步抬高到 `324px / 304px` 上限
+  - `comments`
+    - 主断点从 `clamp(260px, 21vw, 296px)` 调到 `clamp(292px, 23vw, 332px)`
+  - `reports`
+    - 主断点从 `clamp(264px, 21vw, 300px)` 调到 `clamp(296px, 23vw, 336px)`
+  - `audit-logs`
+    - 右栏从 `minmax(304px, 24vw)` 调到 `minmax(336px, 25.5vw)`
+  - `media-tasks`
+    - 右栏从 `minmax(312px, 25vw)` 调到 `minmax(344px, 26vw)`
+  - `users`
+    - 右栏从 `minmax(288px, 22vw)` 调到 `minmax(320px, 24vw)`
+  - `taxonomy`
+    - 右侧治理卡从 `362px` 调到 `396px`
+- 本轮保持不变的原则：
+  - 单栏切换断点没有重新放宽到不合理范围
+  - 没有把左侧表格重新压回“内容看不全”的状态
+  - `resources` 继续复用 `moderation/page.module.css`，不会出现两页样式分叉
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - 后台主要“左表右详情”页的详情栏宽度已经从上一轮的偏窄状态统一放宽一档
+  - 当前仍是本地代码与本地构建验证，尚未发云
+- 下次先做什么：
+  - 等你按真实页面手动看一轮
+  - 如果你觉得某一类页还应该更宽，只继续定点调该页，不再整批反复拉锯
+
+### 2026-05-23 非用户页详情卡再放宽一档
+
+- 这轮是基于你最新反馈做的定点收口：
+  - `用户管理` 右侧详情卡维持当前尺寸，不再继续放大
+  - 其他带“左侧列表 + 右侧详情”结构的后台页面，右侧详情卡统一再放宽一档
+- 本轮实际调整范围：
+  - `moderation` / `resources`
+  - `comments`
+  - `reports`
+  - `audit-logs`
+  - `media-tasks`
+  - `taxonomy`
+- 本轮未纳入的页面：
+  - `users`
+    - 明确保留当前宽度
+  - `dashboard`
+  - `feed-ops`
+    - 它们是多栏信息布局，不是这轮说的“选中行后右侧详情卡”结构
+- 代码现状确认：
+  - `resources` 继续直接复用 `../moderation/page.module.css`
+  - 非用户页详情卡宽度已分别抬高到更大的 `clamp(...)` / `minmax(...)` 值
+  - `users` 仍保留：
+    - 基础宽度 `minmax(320px, 24vw)`
+    - `<=1440px` 宽度 `minmax(304px, 23vw)`
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - 你最新要求的“用户管理保持现状，其余详情卡放大一点”已经落到本地代码并完成构建校验
+  - 当前仍是本地代码状态，尚未发云
+- 下次先做什么：
+  - 等你按真实页面看一轮
+  - 如果有某一页还想再宽或再收，只继续定点改那一页
+
+### 2026-05-23 非用户页详情卡继续放大第二轮
+
+- 这轮承接你刚才的最新反馈：上一轮放宽后，`用户管理` 已经够大，其余后台页右侧详情卡还要继续再放大一轮。
+- 本轮处理原则不变：
+  - `users` 不动
+  - 只放大非用户页右侧详情卡
+  - 继续保留笔记本宽度下的双栏断点策略，不回退成“右栏过宽把左表压坏”
+- 本轮具体调整：
+  - `moderation` / `resources`
+    - 基础宽度改到 `clamp(316px, 25vw, 356px)`
+    - `<=1600px` 改到 `clamp(300px, 23vw, 340px)`
+    - `<=1440px` 改到 `clamp(280px, 21.5vw, 316px)`
+  - `comments`
+    - 基础宽度改到 `clamp(308px, 24vw, 348px)`
+    - `<=1600px` 改到 `clamp(292px, 22vw, 332px)`
+    - `<=1440px` 改到 `clamp(272px, 20.8vw, 308px)`
+  - `reports`
+    - 基础宽度改到 `clamp(312px, 24vw, 352px)`
+    - `<=1600px` 改到 `clamp(296px, 22vw, 336px)`
+    - `<=1440px` 改到 `clamp(276px, 20.8vw, 312px)`
+  - `audit-logs`
+    - 基础宽度改到 `minmax(352px, 26.5vw)`
+  - `media-tasks`
+    - 基础宽度改到 `minmax(360px, 27vw)`
+  - `taxonomy`
+    - 右侧治理卡改到 `420px`
+    - `<=1480px` 改到 `388px`
+- 这轮保持不变的点：
+  - `users` 仍保持当前宽度，不继续放大
+  - `resources` 继续复用 `moderation/page.module.css`
+- 当前做到哪一步：
+  - 第二轮放大已落到本地代码
+  - 还需要本地构建校验
+- 下次先做什么：
+  - 跑 `tsc` 和 `build`
+  - 再等你按真实页面验收
+
+### 2026-05-23 后台详情卡第二轮放大已同步云端
+
+- 本轮把“非用户页右侧详情卡继续放大第二轮”的后台前端改动同步到了测试云环境。
+- 云端当前后台 active release：
+  - `/opt/dramatv-community-admin/releases/20260523-160940`
+- 本轮云端入口核验结果：
+  - `http://8.141.20.130/admin -> 307 /admin/login?redirectTo=%2F`
+  - `http://8.141.20.130/admin/login -> 200`
+  - `http://8.141.20.130/admin/users -> 307 /admin/login?redirectTo=%2Fusers`
+- 本轮补做的公网 smoke：
+  - `node scripts/smoke-admin-routes.mjs --base-url http://8.141.20.130/admin --base-path /admin --mode public`
+  - 结果：`13 passed / 0 failed`
+  - 产物：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260523-160940-public-baseurl-admin-summary.json`
+- 这次部署过程里还顺手定位并修掉了一处发布脚本误判：
+  - 原 `scripts/deploy-test-admin.ps1` / `scripts/rollback-test-admin.ps1` 在跑后台 smoke 时，把 `AdminPublicBaseUrl` 裁成了纯域名 authority，导致 `basePath=/admin` 场景下可能出现“实际已发云，但 smoke 假失败”的误判
+  - 现已改为直接把完整 `AdminPublicBaseUrl` 传给 `scripts/smoke-admin-routes.mjs`
+- 这轮状态结论：
+  - 后台前端最新详情卡宽度调整已发云
+  - 当前云端后台路由守卫与登录入口可达
+  - 这次最初 `deploy-test-admin.ps1` 报错，不是服务没发上去，而是脚本内公网 smoke 的 `base-url` 口径不对
+- 下次先做什么：
+  - 等你直接在云后台按真实页面验收视觉比例
+  - 如果还要继续调宽，只需要在当前云端版本基础上继续做下一轮微调
+
+### 2026-05-24 feed-ops landing 独立运营入口补齐
+
+- 本轮补的是你刚刚指出的实际缺口：后台运营配置里虽然已有根首页 `/` 的真实编排链路，但之前没有把它明确纳入现有“运营配置”工作台的可识别范围。
+- 实际修复：
+  - `apps/admin/src/lib/admin-nav.ts`
+    - 维持单个 `运营配置` 导航入口
+    - 入口说明改为覆盖 `首页 / 精选页 / 落地页 / 讨论区`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+    - `landing` 现在不再落到讨论区默认分支
+    - 预览面板、配置位摘要和展示切片都按独立页面处理
+    - 根首页精选档案区改成更贴近实际的 `前 6 / 后 6` 结构预览
+- 这次验证已通过：
+  - `apps/admin -> npm.cmd run build`
+- 当前状态：
+  - 后台仍保持单个 `运营配置` 入口
+  - 但页内 tab 现在已经把根首页 `/` 的“精选档案”12 卡编排按独立页面正确纳入
+- 下次先做什么：
+  - 如果你还希望后台入口文字更贴近前台命名，我再把 `落地页运营` 这四个字替换成你更习惯的口径
+  - 如果没别的命名要求，就按这版继续看页面本身
+
+### 2026-05-24 feed-ops landing structure sync to cloud
+
+- This round synced the current admin UI state to the test cloud.
+- Active release: `20260524-193217`
+- Remote path: `/opt/dramatv-community-admin/releases/20260524-193217`
+- Public base URL: `http://8.141.20.130/admin`
+- Verification:
+  - public smoke: `13 passed / 0 failed`
+  - full smoke: `24 passed / 1 failed`
+- The only failing full-smoke item was `root.redirect`, which expected `/login` but got `/admin`; the route body and auth pages themselves passed.
+- Current result:
+  - the admin cloud release is updated
+  - the `运营配置` entry is still one left-nav item with `首页 / 精选页 / 落地页 / 讨论区` tabs inside
+
+### 2026-05-24 前台公共页取消缓存，发布立即生效
+
+- 本轮定位到一个真实问题：前台 `loadLandingPagePublicData / loadCommunityHomePublicData / loadFeaturedArchivePublicData` 外层用了 `unstable_cache`，而底层请求本身已经是 `no-store`，这会让后台发布后前台页面在缓存 TTL 内看起来“没生效”。
+- 实际修复：
+  - `apps/web/src/lib/api/community-public-cache.ts`
+  - 去掉三处 `unstable_cache`
+  - 保持 landing / home / featured 三个公共页直接读后端最新数据
+- 验证：
+  - `apps/web -> npm.cmd run build`
+  - `npm.cmd run deploy:test:web -VerifyBeforeDeploy -VerifyAfterDeploy`
+  - 云端 web release：`20260524-222205`
+  - 公网验收通过，首页相关数据链路保持可用
+- 结论：
+  - 后台发布 landing / home / featured 后，前台页面不再被公共读缓存卡住
+  - 这次的现象不是后端没写进去，而是前台缓存层把新结果暂时盖住了
+
+### 2026-05-25 feed-ops 运营配置共性 UI 收口
+
+- 本轮继续收口 `apps/admin/src/app/(dashboard)/feed-ops/shared/*` 的共性问题，不再按单页分别打补丁。
+- 实际收口点：
+  - 编排弹窗 `2. 候选内容池` 补上独立搜索框，和页面左侧候选池分开保存关键词，避免两个场景互相覆盖。
+  - 缩略图上统一去掉 `视频资源 / 封面素材 / 点击预览` 这类遮挡内容的悬浮文案，保留点击预览能力本身。
+  - 编排弹窗里那块重复的前 12 位卡片预览条统一隐藏，实际位次和替换操作继续收口到 `3. 前台真实展示内容`。
+- 改动文件：
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/page.module.css`
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - `home / featured / landing / discussions` 这 4 个运营配置页已经共用同一套候选池搜索、重复预览隐藏和缩略图文案清理策略。
+- 下次先做什么：
+  - 等你按真实页面手动复看这 4 个运营配置页
+  - 如果还要继续清理其它共性噪音，再继续收口到 `shared` 层而不是分页面修
+
+### 2026-05-25 feed-ops 右侧已挂载列表固定高度
+
+- 本轮继续收口运营配置编排弹窗里的共性布局问题：`3. 前台真实展示内容` 之前会随着挂载条数增多把整个右侧面板越撑越长。
+- 实际处理：
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+    - 给右侧已挂载列表补上独立 `arrangePanelListViewport`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/page.module.css`
+    - 给右侧列表视窗补 `clamp(...)` 固定高度与内部滚动
+    - 底部统计提示与清空按钮留在滚动区外，不跟着内容一起被挤走
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+
+### 2026-05-25 taxonomy 分类页结构与语义收口
+
+- 本轮处理的是 `apps/admin/src/app/(dashboard)/taxonomy` 的两个实际问题：
+  - 页面主工作区是“左树 + 中表 + 右卡 + 下方再来一整块批量区”，中间容易出现大面积空白，结构失衡。
+  - `批量修正待分类提示词 / 待修正提示词池` 这组文案会误导成“已有分类错了”，但后端真实语义其实是 `taxonomy` 字段尚未补完整。
+- 先做了后端语义确认：
+  - `apps/server/src/main/java/com/dramatv/community/admin/taxonomy/AdminTaxonomyService.java`
+  - `needsAttention` 的判定是 `model_category / content_category / composition_category` 任一为空。
+  - `apps/server/src/test/java/com/dramatv/community/integration/AdminTaxonomyApiIntegrationTest.java` 也已覆盖这个口径。
+  - 结论：这里不是“错误分类池”，而是“字段待补齐池”。
+- 前端页面本轮实际收口：
+  - 工作区结构从 `三栏 + 底部独立批量区` 改成 `左侧分类导航 + 右侧主工作区`。
+  - 右侧主工作区再拆成：
+    - 上方 `分类项列表`
+    - 下方 `分类项治理配置 + 待补分类提示词池`
+  - 删除了页面里那块重复且隐藏的旧批量区，避免后续继续混乱。
+- 文案同步调整：
+  - `待整理提示词` -> `待补分类提示词`
+  - `待修正提示词池` -> `待补分类提示词池`
+  - `批量修正待分类提示词` -> `批量补齐未完整分类提示词`
+  - 同时补充说明：这里只处理 `taxonomy` 字段未补完整的数据，不代表已有分类判断错误。
+- 改动文件：
+  - `apps/admin/src/app/(dashboard)/taxonomy/page.tsx`
+  - `apps/admin/src/app/(dashboard)/taxonomy/page.module.css`
+- 本轮验证已通过：
+  - `apps/admin -> npx.cmd tsc --noEmit -p apps/admin/tsconfig.json`
+  - `apps/admin -> npm.cmd run build`
+- 当前做到哪一步：
+  - 分类页的页面构造已经从“空白大、语义混”收口到“左导航 + 右工作区”的更稳定结构。
+  - 批量区的业务语义也已经和真实后端口径对齐，不再暗示“系统已有错误分类”。
+- 下次先做什么：
+  - 先等你按真实页面看这一版结构是否顺手。
+  - 如果你希望分类列表再更紧凑，或者治理卡/批量卡的左右比例继续调，我再做第二轮定点微调。
+
+### 2026-05-25 taxonomy 图片/视频分类维度重新对齐
+
+- 本轮不是继续做页面排版，而是正式修正 taxonomy 的共享业务语义错位：
+  - `single-model / multi-model` 之前被页面和部分测试误当成了“构图分类”
+  - 但按项目真实语义，它其实只属于 `视频提示词` 的 `模型使用方式`
+  - `图片提示词` 只应该有 `模型分类 + 内容分类` 两个维度
+- 本轮实际收口范围：
+  - `apps/admin/src/app/(dashboard)/taxonomy/page.tsx`
+    - section key 从旧的 `content-category / composition-category` 切到 5 段真实结构：
+      - `image-model`
+      - `video-model`
+      - `image-content-category`
+      - `video-content-category`
+      - `video-model-usage`
+    - 统计卡同步改读：
+      - `imageContentCategories`
+      - `videoContentCategories`
+      - `videoModelUsageCategories`
+    - 批量补齐区改成：
+      - 图片提示词：只填 `模型分类 + 内容分类`
+      - 视频提示词：再补 `模型使用方式`
+    - 候选池“当前分类”列改成图片不再强行展示第三维
+  - `apps/server/src/main/java/com/dramatv/community/publish/application/VideoDraftApplicationService.java`
+    - 草稿保存时增加 prompt taxonomy 清洗
+    - 只要不是 `video_prompt`，就主动清空 `compositionCategory`
+  - `apps/server/src/main/java/com/dramatv/community/publish/persistence/PublishedContentPersistenceService.java`
+    - image prompt 发布入库时强制把 `composition_category` 落成 `null`
+    - 同时把 taxonomy 标签做服务端净化：
+      - 去掉旧的 taxonomy 标签残留
+      - image prompt 不再把 `single-model / multi-model` 写进 `tag_names`
+      - 再按真实维度重新补回标准 taxonomy 标签
+  - `apps/server/src/main/java/com/dramatv/community/admin/taxonomy/AdminTaxonomyService.java`
+    - `bulk apply` 返回体已补齐 `modelUsageCategory` 字段，和新前端口径对齐
+- 同步调整的测试口径：
+  - `AdminTaxonomyApiIntegrationTest`
+  - `AdminTaxonomyLoggingIntegrationTest`
+  - `DraftApiIntegrationTest`
+  - `PromptReadApiIntegrationTest`
+  - `PublishPipelineIntegrationTest`
+  - `ApiIntegrationTestSupport`
+  - 目标都是同一个：
+    - image prompt 不再断言 `compositionCategory=single-model`
+    - video prompt 继续保留第三维断言
+- 共享口径已先更新到：
+  - `.codex/community-admin-shared-sync.md -> S4 taxonomy 分类体系`
+- 当前做到哪一步：
+  - 代码层核心语义已收口
+  - 共享文档已先同步
+  - 还差本轮 `apps/admin` 构建与后端定向集成回归
+- 下次先做什么：
+  - 先跑 admin typecheck/build
+  - 再跑 taxonomy / draft / prompt / publish 这组后端定向测试
+  - 通过后再把最终验证结果补回本条日志
+
+### 2026-05-25 taxonomy 图片/视频分类维度重新对齐已完成验证
+
+- 上一条 taxonomy 语义修正本轮已完成本地验证闭环，不再停留在中间态。
+- 本轮验证结果：
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/server -> use-local-java17-maven.ps1 -Dtest=AdminTaxonomyApiIntegrationTest,AdminTaxonomyLoggingIntegrationTest,DraftApiIntegrationTest,PromptReadApiIntegrationTest,PublishPipelineIntegrationTest test` 通过
+  - 定向后端回归结果：`35 passed / 0 failed / 0 errors`
+- 本轮验证过程中额外收口的真实问题：
+  - `PublishedContentPersistenceService` 初版修改里把 `compositionCategory` 先赋值后再改写，触发了 Java lambda 的 effectively-final 编译限制
+  - 现已改成 `rawCompositionCategory + final compositionCategory` 的写法，编译问题已消除
+- 当前结论：
+  - 后台 taxonomy 页面、前台发布 taxonomy 语义、后端批量补齐、草稿保存和 prompt 发布入库这几层已经重新对齐
+  - `image prompt` 不再写入/回显 `single-model`
+  - `video prompt` 仍保留第三维 `single-model / multi-model`
+- 当前做到哪一步：
+  - 本轮代码与共享文档都已收口
+  - 本地构建和这次直接受影响的后端集成回归都已通过
+- 下次先做什么：
+  - 等你按真实后台 taxonomy 页和前台发布页手动验收
+  - 如果你要，我再继续把这轮改动同步到云测试环境
+
+### 2026-05-25 taxonomy 云同步完成并补齐 admin basePath 验收口径
+
+- 本轮不是继续改 taxonomy 业务代码，而是把已经完成的 taxonomy 重构正式同步到测试云，并把部署验收里暴露出的共享脚本误判收口。
+- 实际云同步范围：
+  - `apps/server`：taxonomy 真实分类定义 / 删除 / 重绑 / prompt 分页候选池接口
+  - `apps/admin`：重构后的 `/taxonomy` 工作台页面
+  - `apps/web`：本轮未单独发云；只有为仓库级 typecheck 收口的一处本地 TypeScript 修正，不影响当前 taxonomy 云端运行时
+- 本轮先恢复了本地部署前置：
+  - 重新拉起 `127.0.0.1:18080`
+  - `npm.cmd run smoke:api` 通过：`19 passed / 0 failed`
+  - `npm.cmd run smoke:auth-session` 通过：`12 passed / 0 failed`
+- 云端发布结果：
+  - backend release：`/opt/dramatv-community-server/releases/20260525-221644`
+  - admin release：`/opt/dramatv-community-admin/releases/20260525-224039`
+- 本轮额外修复的不是页面功能缺陷，而是共享验收脚本口径过旧：
+  - `scripts/smoke-admin-routes.mjs`
+  - 之前把 `http://127.0.0.1:3206/` 先跳 `/admin`、再由 `/admin` 守卫跳 `/admin/login?redirectTo=%2F` 误判成失败
+  - 现已把 `basePath=/admin` 的合法中转行为纳入 `root.redirect` 验收
+- 本轮验证结果：
+  - 本地脚本复验：`node scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --base-path /admin --backend-base-url http://127.0.0.1:18080 --mode full`
+    - 结果：`25 passed / 0 failed`
+  - backend post-deploy readiness：
+    - `artifacts/runtime-readiness/test/backend-deploy-20260525-221644-summary.json`
+    - 结果：`11 passed / 0 failed`
+  - admin public smoke：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260525-224039-public-summary.json`
+    - 结果：`13 passed / 0 failed`
+  - admin internal smoke：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260525-224039-internal-summary.json`
+    - 结果：`25 passed / 0 failed`
+- 当前结论：
+  - taxonomy 后台页和其依赖的共享后端接口都已同步到测试云
+  - 当前云端 `/admin/taxonomy` 的可用性已由 public/internal 两层 smoke 收口
+  - 这次 admin 部署链路的剩余注意点不是业务功能，而是后续所有 `/admin` basePath 相关 smoke 都应沿用这次更新后的根路由口径
+
+### 2026-05-25 taxonomy 标准分类集与后台展示口径对齐
+
+- 本轮处理的是一个真实共享口径问题，不是纯 UI：
+  - 前台精选页里视频模型分类能看到 `seedance / kling / happyhorse / wan / 其他模型`
+  - 后台 taxonomy 分类管理页之前只会显示当前数据库真实落库到的少量值，因此会出现“前台已有分类，后台看不到”的错位
+- 本轮实际收口：
+  - `apps/server/src/main/java/com/dramatv/community/admin/taxonomy/AdminTaxonomyService.java`
+    - 新增后端内置标准分类集：
+      - `image-model`
+      - `video-model`
+      - `image-content-category`
+      - `video-content-category`
+      - `video-model-usage`
+    - taxonomy section 现在会先注入标准分类，再由真实聚合数据覆盖同名项
+    - taxonomy item 的 `label` 不再直接等于数据库 value，而是按标准标签映射
+    - 内置分类改为：
+      - 不能重复创建
+      - 不能删除
+  - `apps/server/src/main/resources/db/migration/V26__seed_builtin_admin_taxonomy_categories.sql`
+    - 新增 admin taxonomy 标准分类初始化迁移
+  - `apps/server/src/test/java/com/dramatv/community/integration/AdminTaxonomyApiIntegrationTest.java`
+    - 新增标准分类返回存在断言：
+      - `kling`
+      - `wan`
+      - `other`
+      - `single-model`
+    - 新增内置分类不可删断言：`ADMIN_TAXONOMY_CATEGORY_PROTECTED`
+- 本轮验证已通过：
+  - `apps/server -> .\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=AdminTaxonomyApiIntegrationTest,AdminTaxonomyLoggingIntegrationTest test`
+  - 结果：`14 passed / 0 failed`
+- 当前做到哪一步：
+  - 后端 taxonomy 已稳定按“标准分类集 + 真实聚合覆盖”返回，不再依赖当前 prompt 是否正好落库到该分类
+  - 本地自动化已验证后台 taxonomy 会稳定返回：
+    - `video-model`：`seedance / kling / happyhorse / wan / other-video-model`
+    - `video-content-category`：`real-person / animation / other`
+    - `video-model-usage`：`single-model / multi-model`
+- 本轮云同步已完成：
+  - `npm.cmd run smoke:api`
+    - 结果：`19 passed / 0 failed`
+  - `npm.cmd run smoke:auth-session`
+    - 结果：`12 passed / 0 failed`
+  - `npm.cmd run deploy:test:backend`
+    - backend release：`/opt/dramatv-community-server/releases/20260525-234447`
+  - `artifacts/runtime-readiness/test/backend-deploy-20260525-234447-summary.json`
+    - 结果：`11 passed / 0 failed`
+- 当前做到哪一步：
+  - 这轮 taxonomy 标准分类集修正已经同步到测试云共享后端
+  - 当前云端 `/api/admin/taxonomy` 已切到“标准分类集 + 真实聚合覆盖”的新口径
+- 下次先做什么：
+  - 等你直接在云后台手动看 taxonomy 页是否已经按标准分类集完整展示
+  - 如果云页仍有旧表现，优先排查后台会话/缓存或旧页面资源，而不是继续怀疑共享后端未发布
+
+### 2026-05-26 首页运营配置 home-hero 容量同步扩到 6
+
+- 用户补充了一个真实共享要求：前台首页 hero 现在已经是“首屏展示 3 张、轮播池 6 张”，后台 `运营配置 -> 首页` 里的 `home-hero` 也必须同步按 6 管，不再停在旧的 3。
+- 这轮不是只改后台文案，而是把 admin 这条真实配置链路一起收口：
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/feed-ops-page.ts`
+    - `home-hero` 的 `maxItems` 从 `3` 调到 `6`
+    - 首页说明文案同步改成 `6 个轮播位`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+    - 首页 fallback hero 池改为抽 `6` 条
+    - 右侧首页轮播预览从只切 `3` 条改为展示 `6` 条，避免后台工作台和真实配置上限再次错位
+- 这轮顺手清掉了一个本地既有编译阻塞，但不改变业务语义：
+  - `apps/server/src/main/java/com/dramatv/community/creator/application/CreatorQueryService.java`
+  - 之前 `paginate(List<T>, int offset)` 的 4 个调用点仍停在旧签名，导致后端定向测试无法编译
+  - 现已补齐 `offset` 透传，恢复可编译状态
+- 验证结果：
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/server -> .\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=AdminFeedOpsHomeApiIntegrationTest,FeedReadApiIntegrationTest test`
+    - 结果：`12 passed / 0 failed`
+- 当前做到哪一步：
+  - 后台首页运营配置已经和前台首页 hero 的 6 条轮播池口径对齐
+  - 后端读写验证和后台工作台验证都已通过，本轮仍是本地完成态，尚未发云
+
+### 2026-05-27 admin 筛选表单 basePath 跳错路由修复
+
+- 本轮处理的是一个真实云端运行时问题，不是单页偶发现象：
+  - 后台部署在 `basePath=/admin`
+  - `资源治理` 页点击 `应用筛选` 后，浏览器实际跳到了 `http://8.141.20.130/resources?...`
+  - 结果直接落到社区前台域根路由并 404
+- 根因已确认：
+  - 这不是后端接口、权限守卫或 Nginx 转发坏了
+  - 而是把 `buildAdminBrowserPath("/xxx")` 误扩散到了 Next 应用内路由
+  - 对 `apps/admin` 来说必须严格区分两类路径：
+    - Next 内部路由：`Link / router / redirect / requireAdminAccess` 继续使用 `"/comments"`、`"/resources"` 这类应用内路径
+    - 浏览器原生 URL：只有裸 `<form action>`、裸 `<a href>` 这类才需要显式补成 `"/admin/comments"`、`"/admin/resources"`
+- 本轮实际收口：
+  - 保留 `apps/admin/src/lib/admin-routes.ts -> buildAdminBrowserPath()`，但只用于浏览器原生表单 action
+  - 已把以下页面和 server action 的内部回跳路径恢复成应用内路由：
+    - `apps/admin/src/app/(dashboard)/comments/page.tsx`
+    - `apps/admin/src/app/(dashboard)/comments/actions.ts`
+    - `apps/admin/src/app/(dashboard)/moderation/page.tsx`
+    - `apps/admin/src/app/(dashboard)/moderation/actions.ts`
+    - `apps/admin/src/app/(dashboard)/reports/page.tsx`
+    - `apps/admin/src/app/(dashboard)/reports/actions.ts`
+    - `apps/admin/src/app/(dashboard)/media-tasks/page.tsx`
+    - `apps/admin/src/app/(dashboard)/media-tasks/actions.ts`
+    - `apps/admin/src/app/(dashboard)/audit-logs/page.tsx`
+  - `resources` 页继续保持：
+    - `form action={buildAdminBrowserPath("/resources")}`
+    - `Link / buildResourcesHref / redirect` 继续走 `"/resources"`
+- 本轮补强的自动化保护：
+  - `scripts/smoke-admin-routes.mjs`
+    - 新增 `guard.resources`
+    - 新增登录后 `/resources` 页面可达断言
+    - 新增 HTML 断言：`/resources` 页面必须包含 `action="/admin/resources"`
+- 本轮验证结果：
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `node scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --base-path /admin --backend-base-url http://127.0.0.1:18080 --mode full`
+    - 结果：`28 passed / 0 failed`
+- 当前结论：
+  - 这次不是只修了 `resources`
+  - 而是把同类筛选页里“浏览器路径 helper 被误用于内部 Next 路由”的问题一起收口了
+  - 后续再改 admin 筛选页时，默认规则就是：
+    - 原生 form/action 才补 `/admin`
+    - 其它内部导航一律不要手动补 `/admin`
+
+### 2026-05-28 admin 筛选表单 basePath 漏网点补齐并已同步云端
+
+- 本轮不是直接沿用昨天“`resources` 已修”的结论就发云，而是继续按同类问题做了一轮全局清扫。
+- 追加确认到两个真实漏网点：
+  - `apps/admin/src/app/(dashboard)/users/UsersPageClient.tsx`
+    - 筛选表单仍是裸 `action="/users"`
+  - `apps/admin/src/app/(dashboard)/moderation/page.tsx`
+    - 筛选表单仍是裸 `action="/moderation"`
+- 这两个问题和昨天 `resources` 是同一类根因：
+  - 都是浏览器原生 GET 表单
+  - 在本地根路径下不一定显眼
+  - 但云端 `basePath=/admin` 时会直接跳到社区前台根路由
+- 本轮实际收口：
+  - `UsersPageClient.tsx`
+    - 引入 `buildAdminBrowserPath`
+    - 把筛选表单改成 `form action={buildAdminBrowserPath("/users")}`
+  - `moderation/page.tsx`
+    - 把筛选表单改成 `form action={buildAdminBrowserPath("/moderation")}`
+  - `scripts/smoke-admin-routes.mjs`
+    - 不再只校验 `/resources`
+    - 现已把以下 7 个筛选页都纳入 HTML `action="/admin/..."` 断言：
+      - `/users`
+      - `/comments`
+      - `/moderation`
+      - `/reports`
+      - `/resources`
+      - `/media-tasks`
+      - `/audit-logs`
+- 本轮本地验证结果：
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `node scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --base-path /admin --backend-base-url http://127.0.0.1:18080 --mode full`
+    - 结果：`34 passed / 0 failed`
+- 本轮云同步过程有一个与本次修复无关的前置阻塞：
+  - 根命令 `npm.cmd run deploy:test:admin` 会先跑仓库级 `verify:quick`
+  - 其中被既有后端失败挡住：
+    - `PublishPipelineIntegrationTest.videoMediaProcessorRebuildsPreviewWhenExistingPreviewAssetIsNotDerivedPreview`
+  - 这不是本次 admin `basePath` 修复引入的问题，也不在这次改动范围内
+- 为避免无关后端用例阻塞 admin-only 同步，本轮改用：
+  - `./scripts/deploy-test-admin.ps1 -VerifyAfterDeploy`
+- 云端发布结果：
+  - admin release：`/opt/dramatv-community-admin/releases/20260528-094801`
+  - public base URL：`http://8.141.20.130/admin`
+- 云端验收结果：
+  - `artifacts/runtime-readiness/test/admin-deploy-20260528-094801-public-summary.json`
+    - 结果：`14 passed / 0 failed`
+  - `artifacts/runtime-readiness/test/admin-deploy-20260528-094801-internal-summary.json`
+    - 结果：`34 passed / 0 failed`
+- 当前结论：
+  - 这类 `basePath=/admin` 筛选表单跳错路由的问题，本轮已经不再只修单页，而是把当前已知 7 个筛选页一起纳入自动化回归保护
+  - 云端后台当前已同步到包含这轮修复的新版本
+## 2026-05-28 admin 资源治理 prompt 类型误判已修复
+
+- 用户反馈：
+  - 在 `资源治理` 里筛选出来的明明是图片提示词资源
+  - 但列表里的 `资源类型` 仍然显示成了 `视频提示词`
+- 根因已确认：
+  - 后端 `AdminResourceQueryService` 的筛选一直是对的，`image_prompt / video_prompt` 都按 `prompt_entries.modality` 过滤
+  - 真正出错的是前端 `apps/admin/src/app/(dashboard)/resources/page.tsx`
+  - 旧逻辑用 `media.previewUrl || media.sourceUrl` 去猜 prompt 类型
+  - 这会把“有媒体地址的图片提示词”误标成 `视频提示词`
+- 本轮修复：
+  - 后端 DTO：
+    - `AdminResourceListResponse.Item` 新增 `promptModality`
+    - `AdminResourceDetailResponse` 新增 `promptModality`
+  - 后端查询映射：
+    - `AdminResourceQueryService.mapListItem(...)`
+    - `AdminResourceQueryService.mapDetailItem(...)`
+    - 都显式返回 `prompt_modality`
+  - 前端资源页：
+    - `apps/admin/src/lib/admin-service.ts` 同步补齐返回类型
+    - `apps/admin/src/app/(dashboard)/resources/page.tsx` 改成只认 `promptModality`
+    - 不再通过 `previewUrl/sourceUrl` 猜类型
+  - 回归测试：
+    - `AdminResourceApiIntegrationTest` 新增断言，校验列表/详情返回的 `promptModality`
+- 本轮本地验证：
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/server -> AdminResourceApiIntegrationTest` 通过
+- 当前结论：
+  - 这次不是筛选条件失效，也不是库里脏数据把类型改坏了
+  - 是 `/resources` 前端展示层把“媒体地址存在”误当成了“视频提示词”
+  - 现已改成和后端统一以真实 `modality` 为准
+
+## 2026-05-28 admin cloud self-call timeout root cause closed locally
+
+- 继续公网压测收尾时，顺手定位了一条云端后台稳定性隐患：`dramatv-community-admin` 运行中反复出现 `Failed to proxy http://8.141.20.130/nano-banana-images/...` 与 `connect ETIMEDOUT 8.141.20.130:80`，但 `nginx / dramatv-community-web / dramatv-community-admin / dramatv-community-server` 本身都保持 `active`。
+- 直接复核云端当前 env 已确认现态问题：
+  - `/opt/dramatv-community-admin/shared/dramatv-community-admin.env`
+    - `DRAMATV_ADMIN_API_BASE_URL=http://127.0.0.1:18080`
+    - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=http://8.141.20.130`
+  - 而 `apps/admin/next.config.ts` 的 `/__admin_proxy__/seedance-videos/*` 与 `/__admin_proxy__/nano-banana-images/*` rewrite 正是读取 `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL`
+- 本轮本地收口：
+  - `apps/admin/next.config.ts` 改成优先读取 `DRAMATV_WEB_BASE_URL`，再回退 `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/feed-ops-media.ts` 同步改成服务端优先走 `DRAMATV_ADMIN_API_BASE_URL / DRAMATV_WEB_BASE_URL`
+  - `scripts/deploy-test-admin.ps1` 生成云端 env 时新增 `DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106`
+  - `apps/admin/.env.example` 与 `apps/admin/README.md` 同步补齐新变量说明
+- 本轮本地验证：
+  - `apps/admin -> npm.cmd run build` 通过
+- 当前结论：
+  - 这不是后台服务挂掉，而是 admin 服务端代理静态资源时错误绕公网自调
+  - 下次同步 admin 到云后，静态资源代理会优先走 ECS 本机 `127.0.0.1:3106`，不再依赖 `8.141.20.130:80` 自回环
+
+## 2026-05-29 admin cloud self-call timeout fix deployed and verified
+
+- 上一条“只在本地收口”的 admin 媒体代理修复本轮已完成测试云同步，不再停留在“下次上云再看”状态。
+- 云端发布结果：
+  - admin release：`/opt/dramatv-community-admin/releases/20260529-095822`
+  - 发布路径：`./scripts/deploy-test-admin.ps1 -VerifyAfterDeploy`
+  - 公网后台入口：`http://8.141.20.130/admin`
+- 云端 env 与代理链路复核：
+  - `/opt/dramatv-community-admin/shared/dramatv-community-admin.env`
+    - `DRAMATV_ADMIN_API_BASE_URL=http://127.0.0.1:18080`
+    - `DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106`
+    - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=http://8.141.20.130`
+  - 内部代理自检：
+    - `curl -I http://127.0.0.1:3206/admin/__admin_proxy__/nano-banana-images/000029-13311/01.jpg -> 200 OK`
+- 云端日志复核：
+  - `journalctl -u dramatv-community-admin -n 30` 在本轮重启后未再出现新的 `connect ETIMEDOUT 8.141.20.130:80`
+  - 当前可见的 `ETIMEDOUT` 仅剩 2026-05-28 的历史旧日志
+- 云端验收结果：
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-095822-public-summary.json`
+    - 结果：`14 passed / 0 failed`
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-095822-internal-summary.json`
+    - 结果：`34 passed / 0 failed`
+  - `npm run release:list:test` 已确认当前 active admin release 为 `20260529-095822`
+- 当前结论：
+  - admin 服务端媒体代理现已稳定改为 ECS 内部上游自调，不再绕公网自回环
+  - 这条云端稳定性隐患已在测试环境关闭
+
+## 2026-05-29 feed-ops save blocked by stale unavailable items closed on cloud
+
+- 用户在云端后台 `首页运营` 保存时命中 `feed ops target not found`，并且问题不只出现在首页轮播，`featured / landing / discussions` 这类 feed-ops 页面也可能被同类脏配置一起卡住。
+- 根因确认在 admin 前端共享编辑器，而不是这轮又出现新的 feed-ops 后端契约变更：
+  - `FeedOpsPageClient` 初始化可编辑状态时直接把 `slot.items` 全量带入 `editableSlots`
+  - 页面保存时又会把整页所有 slot 一起回传
+  - 一旦任意 slot 里残留 `available=false` 的历史失效挂载项，保存别的 slot 也会把这条脏 target 一起发回后端
+  - 后端 `AdminFeedOpsService.validateSlotItems(...)` 对失效 target 会稳定返回 `ADMIN_FEED_OPS_TARGET_NOT_FOUND`
+- 本轮修复落点：
+  - 文件：`apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+  - 新增 `sanitizeSlotItems(...)`
+  - 在 `createInitialSlots(...)` 里先过滤 `available=false`、去重并按 slot 上限截断
+  - 在 `syncDisplayedItemsToEditableSlot(...)` 与 `saveCurrentState(...)` 里继续复用同一层清洗，避免失效项再次混回保存 payload
+- 本地验证：
+  - `apps/admin -> npm.cmd run typecheck`
+  - `apps/admin -> npm.cmd run build`
+- 云端同步：
+  - admin release=`20260529-134708`
+  - 发布方式：`./scripts/deploy-test-admin.ps1 -VerifyAfterDeploy`
+  - readiness：
+    - `artifacts/runtime-readiness/test/admin-deploy-20260529-134708-public-summary.json` -> `14 passed / 0 failed`
+    - `artifacts/runtime-readiness/test/admin-deploy-20260529-134708-internal-summary.json` -> `34 passed / 0 failed`
+- 云端实测闭环：
+  - Playwright 登录 `admin-chief`
+  - 真实点击 `保存草稿`
+  - 以下页面均已从报错恢复为成功提示：
+    - `/admin/feed-ops/home`
+    - `/admin/feed-ops/featured`
+    - `/admin/feed-ops/landing`
+    - `/admin/feed-ops/discussions`
+
+## 2026-05-29 featured 运营页最新/最热分配置已本地闭环
+
+- 用户要求后台 `精选运营` 不再只配置“最新”，而是新增一个 `最新 / 最热` 切换，并且两套配置必须真实隔离，不能只是 UI 文案切换。
+- 当前实现口径：
+  - `featured` 保留为原“最新”配置桶
+  - 新增 `featured-hot` 作为“最热”配置桶
+  - 后台页面 `apps/admin/src/app/(dashboard)/feed-ops/featured/page.tsx` 已按 `searchParams.sort` 切换读取
+  - `FeedOpsPageClient.tsx` 已新增 `最新 / 最热` 顶部切换，并在保存时透传 `sort`
+  - `actions.ts` 已保证热榜保存后仍留在 `?sort=hot`，不会跳回默认页
+- 这轮实际踩中的共享阻塞不是前端，而是后端存储约束：
+  - `admin_feed_slot_configs.page_key` 的 DB check constraint 之前不允许 `featured-hot`
+  - 已新增迁移 `V27__allow_featured_hot_admin_feed_slot_configs.sql`，否则热榜保存稳定 500
+- 当前本地验证已通过：
+  - `apps/server -> AdminFeedOpsFeaturedApiIntegrationTest,FeedReadApiIntegrationTest`
+    - 结果：`19 passed / 0 failed`
+  - `apps/admin -> npm.cmd run build`
+  - `apps/web -> npm.cmd run build`
+- 当前状态：
+  - 这轮是本地已闭环、未上云
+  - 下一步如果用户确认要同步测试云，需要一起发 `backend + admin + web`
+
+## 2026-05-29 featured 运营页主视图去候选池并补弹层切换入口
+
+- 用户补充了两个明确要求：
+  - 精选运营页外层主视图不再展示 `候选内容池`
+  - `最新 / 最热` 切换不能只留在页头，编排弹层里也必须能直接看到
+- 本轮本地收口如下：
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+    - 删除外层 `poolCard` 候选池整块
+    - 候选内容查询改为仅在 `编排工作区` 弹层打开时触发
+    - 把 `最新 / 最热` 切换抽成共用块，并补到弹层头部
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/page.module.css`
+    - 外层布局从三列收口为 `工作区 + 预览` 两列
+    - 补充弹层内排序切换位置样式
+- 当前本地验证已通过：
+  - `apps/admin -> npm.cmd run build`
+- 当前状态：
+  - 这轮是本地已闭环、未上云
+  - 如果用户确认同步测试云，需要发 `admin` 前端；本轮不涉及共享接口契约变更
+
+## 2026-05-29 featured 运营页弹层切换与主视图收口已同步测试云
+
+- 本轮已将精选运营页最新修改同步到测试云：
+  - `admin release=20260529-160920`
+  - `label=20260529-admin-feed-ops-modal-sync`
+- 云端实际同步内容：
+  - 外层主视图移除 `候选内容池`
+  - 候选内容池仅保留在 `编排工作区` 弹层中
+  - `最新 / 最热` 切换已补到精选运营编排弹层头部
+- 部署与验收结果：
+  - 通过 `./scripts/deploy-test-admin.ps1 -VerifyAfterDeploy` 完成 admin-only 云部署
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-160920-public-summary.json` -> `14 passed / 0 failed`
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-160920-internal-summary.json` -> `34 passed / 0 failed`
+- 当前状态：
+  - 测试云 admin 当前版本已切到 `20260529-160920`
+  - 本轮不涉及 `web / server` 新增同步
+
+## 2026-06-02 测试云后台 Host 路由已从同事项目纠偏回 DramaTV
+
+- 用户反馈社区后台新地址也会落到同事的 DramaLoom 项目，本轮没有先猜浏览器缓存，而是直接按公网返回内容和云端 Nginx 配置排查。
+- 根因已确认：
+  - 社区 Nginx 配置 `/etc/nginx/conf.d/dramatv-community-http.conf` 在云端仍保留旧的 `server_name _`
+  - 同机 `dramaloom.conf` 与 `novel-similarity-host.conf` 都是精确 Host
+  - 在当前加载顺序下，`community.8.141.20.130.nip.io` 这类未精确命中的请求会被 DramaLoom 站点接住
+- 本轮云端最小修复：
+  - 只备份并修改社区自己的 Nginx 配置
+  - 备份文件：`/etc/nginx/conf.d/dramatv-community-http.conf.bak-20260602-hostfix`
+  - 修改内容：`server_name _` -> `server_name community.8.141.20.130.nip.io`
+  - `nginx -t` 通过后执行 `systemctl reload nginx`
+- 云端复验：
+  - `http://community.8.141.20.130.nip.io/admin` 当前返回 `DramaTV 社区后台`
+  - `http://dramaloom.8.141.20.130.nip.io` 仍返回 `DramaLoom - AI剧本协作编辑器`
+  - `http://novel-similarity.8.141.20.130.nip.io` 仍返回 `小说库相似度比对平台`
+- 边界说明：
+  - 这轮只修 Host 路由，不扩大到 admin 前端版本同步
+  - 云端后台登录页里仍有默认账号密码预填，说明云端 admin 运行版本仍落后于本地最新安全修复；该问题已单独识别，但未在本轮顺手发版

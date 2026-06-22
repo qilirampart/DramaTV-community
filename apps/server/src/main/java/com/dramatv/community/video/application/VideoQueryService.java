@@ -27,4 +27,8 @@ public class VideoQueryService {
     public List<VideoSummaryResponse> summariesForAuthor(String creatorId) {
         return jdbcQueryService.videosForAuthor(creatorId);
     }
+
+    public List<VideoSummaryResponse> summariesForAuthor(String creatorId, int limit, int offset) {
+        return jdbcQueryService.videosForAuthor(creatorId, limit, offset);
+    }
 }

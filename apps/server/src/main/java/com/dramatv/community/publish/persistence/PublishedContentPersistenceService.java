@@ -11,7 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.Types;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,26 @@ public class PublishedContentPersistenceService {
 
     private static final String CATEGORY_VIDEO_PROMPT = "video_prompt";
     private static final String CATEGORY_IMAGE_PROMPT = "image_prompt";
+    private static final Set<String> PROMPT_TAXONOMY_TAGS = Set.of(
+            "image-prompt",
+            "video-prompt",
+            "gpt-image-2",
+            "nanobanana",
+            "midjourney",
+            "other-image-model",
+            "seedance",
+            "kling",
+            "happyhorse",
+            "wan",
+            "other-video-model",
+            "real-person",
+            "animation",
+            "scene",
+            "prop",
+            "other",
+            "single-model",
+            "multi-model"
+    );
 
     private final JdbcTemplate jdbcTemplate;
     private final ObjectMapper objectMapper;
@@ -227,13 +250,20 @@ public class PublishedContentPersistenceService {
         String modelName = nullableText(payloadJson, "modelName");
         String modelCategory = nullableText(payloadJson, "modelCategory");
         String contentCategory = nullableText(payloadJson, "contentCategory");
-        String compositionCategory = nullableText(payloadJson, "compositionCategory");
+        String rawCompositionCategory = nullableText(payloadJson, "compositionCategory");
+        String compositionCategory = CATEGORY_IMAGE_PROMPT.equals(categoryCode) ? null : rawCompositionCategory;
         String sourcePlatform = nullableText(payloadJson, "sourcePlatform");
         String sourceCampaign = nullableText(payloadJson, "sourceCampaign");
         String sourceItemId = nullableText(payloadJson, "sourceItemId");
         String sourceUrl = nullableText(payloadJson, "sourceUrl");
 
-        List<String> tagNames = stringList(payloadJson.get("tagNames"));
+        List<String> tagNames = normalizePromptTagNames(
+                stringList(payloadJson.get("tagNames")),
+                modality,
+                modelCategory,
+                contentCategory,
+                compositionCategory
+        );
         String visibility = textOrFallback(payloadJson, "visibility", null, "public");
         ReadyAsset coverAsset = resolveOptionalReadyAsset(
                 nullableText(payloadJson, "coverAssetId"),
@@ -257,6 +287,38 @@ public class PublishedContentPersistenceService {
             );
         }
 
+        List<ReadyAsset> referenceImageAssets = resolveReferenceReadyAssets(
+                stringList(payloadJson.get("referenceImageAssetIds")),
+                "image",
+                "PROMPT_REFERENCE_IMAGE_ASSET_INVALID",
+                "prompt reference image asset is invalid or not ready",
+                "PROMPT_REFERENCE_IMAGE_ASSET_KIND_INVALID",
+                "prompt reference image asset must be an image"
+        );
+        List<ReadyAsset> referenceAudioAssets = resolveReferenceReadyAssets(
+                stringList(payloadJson.get("referenceAudioAssetIds")),
+                "audio",
+                "PROMPT_REFERENCE_AUDIO_ASSET_INVALID",
+                "prompt reference audio asset is invalid or not ready",
+                "PROMPT_REFERENCE_AUDIO_ASSET_KIND_INVALID",
+                "prompt reference audio asset must be an audio file"
+        );
+        if ("image".equals(modality) && !referenceAudioAssets.isEmpty()) {
+            throw ApiBusinessException.badRequest(
+                    "PROMPT_REFERENCE_AUDIO_NOT_ALLOWED",
+                    "image prompt does not support reference audio assets"
+            );
+        }
+
+        List<UUID> referenceImageAssetIds = referenceImageAssets.stream()
+                .map(ReadyAsset::id)
+                .filter(assetId -> !assetId.equals(exampleAsset.id()))
+                .toList();
+        List<UUID> referenceAudioAssetIds = referenceAudioAssets.stream()
+                .map(ReadyAsset::id)
+                .filter(assetId -> !assetId.equals(exampleAsset.id()))
+                .toList();
+        int exampleCount = 1 + referenceImageAssetIds.size();
         OffsetDateTime publishedAt = parsePublishedAt(nullableText(payloadJson, "publishedAt"), OffsetDateTime.now());
 
         jdbcTemplate.update(connection -> {
@@ -268,7 +330,7 @@ public class PublishedContentPersistenceService {
                         visibility, publish_status, cover_asset_id, primary_example_asset_id, tag_names,
                         example_count, published_at, created_at, updated_at
                     )
-                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'published', ?, ?, ?, 1, ?, now(), now())
+                    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'published', ?, ?, ?, ?, ?, now(), now())
                     on conflict (id) do update
                     set title = excluded.title,
                         summary = excluded.summary,
@@ -315,14 +377,49 @@ public class PublishedContentPersistenceService {
             setNullableUuid(statement, 19, coverAsset == null ? null : coverAsset.id());
             statement.setObject(20, exampleAsset.id());
             statement.setArray(21, createTextArray(connection.createArrayOf("text", tagNames.toArray(String[]::new))));
-            statement.setObject(22, publishedAt);
+            statement.setInt(22, exampleCount);
+            statement.setObject(23, publishedAt);
             return statement;
         });
 
-        replacePromptExampleLinks(promptId, exampleAsset.id());
+        replacePromptExampleLinks(promptId, exampleAsset.id(), referenceImageAssetIds, referenceAudioAssetIds);
         insertAuditRecord("prompt", promptId, authorId, submitMode);
         syncCreatorProfileCounts(authorId);
         syncPublishedPromptFeed(promptId, publishedAt);
+    }
+
+    private List<String> normalizePromptTagNames(
+            List<String> existingTagNames,
+            String modality,
+            String modelCategory,
+            String contentCategory,
+            String compositionCategory
+    ) {
+        LinkedHashSet<String> normalizedTags = new LinkedHashSet<>();
+        for (String existingTagName : existingTagNames) {
+            if (existingTagName == null) {
+                continue;
+            }
+
+            String trimmed = existingTagName.trim();
+            if (trimmed.isEmpty() || PROMPT_TAXONOMY_TAGS.contains(trimmed)) {
+                continue;
+            }
+            normalizedTags.add(trimmed);
+        }
+
+        normalizedTags.add("image".equals(modality) ? "image-prompt" : "video-prompt");
+        if (modelCategory != null && !modelCategory.isBlank()) {
+            normalizedTags.add(modelCategory);
+        }
+        if (contentCategory != null && !contentCategory.isBlank()) {
+            normalizedTags.add(contentCategory);
+        }
+        if ("video".equals(modality) && compositionCategory != null && !compositionCategory.isBlank()) {
+            normalizedTags.add(compositionCategory);
+        }
+
+        return List.copyOf(normalizedTags);
     }
 
     public void upsertDiscussionThreadForPublish(
@@ -652,6 +749,35 @@ public class PublishedContentPersistenceService {
         return asset;
     }
 
+    private List<ReadyAsset> resolveReferenceReadyAssets(
+            List<String> candidates,
+            String expectedKind,
+            String invalidErrorCode,
+            String invalidMessage,
+            String kindErrorCode,
+            String kindMessage
+    ) {
+        if (candidates.isEmpty()) {
+            return List.of();
+        }
+
+        List<ReadyAsset> assets = new ArrayList<>();
+        Set<UUID> seen = new LinkedHashSet<>();
+        for (String candidate : candidates) {
+            ReadyAsset asset = loadReadyAsset(candidate);
+            if (asset == null) {
+                throw ApiBusinessException.badRequest(invalidErrorCode, invalidMessage);
+            }
+            if (!expectedKind.equals(asset.assetKind())) {
+                throw ApiBusinessException.badRequest(kindErrorCode, kindMessage);
+            }
+            if (seen.add(asset.id())) {
+                assets.add(asset);
+            }
+        }
+        return assets;
+    }
+
     private String nextDiscussionSlug(String title, UUID threadId) {
         String base = slugify(title);
         String existing = jdbcTemplate.query("""
@@ -688,7 +814,12 @@ public class PublishedContentPersistenceService {
         upsertFeedItem("hot", "prompt", "prompt", promptId, rankScore, publishedAt);
     }
 
-    private void replacePromptExampleLinks(UUID promptId, UUID exampleAssetId) {
+    private void replacePromptExampleLinks(
+            UUID promptId,
+            UUID exampleAssetId,
+            List<UUID> referenceImageAssetIds,
+            List<UUID> referenceAudioAssetIds
+    ) {
         jdbcTemplate.update("""
                 delete from prompt_example_links
                 where prompt_id = ?
@@ -696,15 +827,27 @@ public class PublishedContentPersistenceService {
                 promptId
         );
 
+        insertPromptExampleLink(promptId, exampleAssetId, "example", 0);
+        for (int index = 0; index < referenceImageAssetIds.size(); index++) {
+            insertPromptExampleLink(promptId, referenceImageAssetIds.get(index), "reference_image", index);
+        }
+        for (int index = 0; index < referenceAudioAssetIds.size(); index++) {
+            insertPromptExampleLink(promptId, referenceAudioAssetIds.get(index), "reference_audio", index);
+        }
+    }
+
+    private void insertPromptExampleLink(UUID promptId, UUID mediaAssetId, String roleCode, int sortOrder) {
         jdbcTemplate.update("""
                 insert into prompt_example_links (
                     id, prompt_id, media_asset_id, role_code, sort_order, created_at
                 )
-                values (?, ?, ?, 'example', 0, now())
+                values (?, ?, ?, ?, ?, now())
                 """,
                 UUID.randomUUID(),
                 promptId,
-                exampleAssetId
+                mediaAssetId,
+                roleCode,
+                sortOrder
         );
     }
 

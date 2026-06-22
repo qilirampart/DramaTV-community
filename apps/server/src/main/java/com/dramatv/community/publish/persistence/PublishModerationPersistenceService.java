@@ -432,17 +432,31 @@ public class PublishModerationPersistenceService {
             UUID previewAssetId,
             Integer durationMs
     ) {
-        jdbcTemplate.update(connection -> {
-            java.sql.PreparedStatement statement = connection.prepareStatement("""
-                    update prompt_entries
-                    set cover_asset_id = coalesce(cover_asset_id, ?),
-                        updated_at = now()
-                    where id = ? and deleted_at is null
-                    """);
-            setNullableUuid(statement, 1, coverAssetId);
-            statement.setObject(2, targetId);
-            return statement;
-        });
+        if (coverAssetId != null) {
+            jdbcTemplate.update(connection -> {
+                java.sql.PreparedStatement statement = connection.prepareStatement("""
+                        update prompt_entries prompt
+                        set cover_asset_id = case
+                                when prompt.cover_asset_id is null then ?
+                                when prompt.cover_asset_id = prompt.primary_example_asset_id then ?
+                                when not coalesce((
+                                    select current_cover.asset_kind = 'image'
+                                       and current_cover.asset_role = 'cover'
+                                    from media_assets current_cover
+                                    where current_cover.id = prompt.cover_asset_id
+                                ), false) then ?
+                                else prompt.cover_asset_id
+                            end,
+                            updated_at = now()
+                        where prompt.id = ? and prompt.deleted_at is null
+                        """);
+                setNullableUuid(statement, 1, coverAssetId);
+                setNullableUuid(statement, 2, coverAssetId);
+                setNullableUuid(statement, 3, coverAssetId);
+                statement.setObject(4, targetId);
+                return statement;
+            });
+        }
 
         if (previewAssetId != null) {
             jdbcTemplate.update("""
@@ -800,3 +814,6 @@ public class PublishModerationPersistenceService {
         }
     }
 }
+
+
+

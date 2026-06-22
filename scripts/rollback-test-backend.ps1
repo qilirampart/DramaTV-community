@@ -4,7 +4,7 @@ param(
   [string]$RemoteBaseDir = "/opt/dramatv-community-server",
   [string]$ServiceName = "dramatv-community-server",
   [int]$ServerPort = 18080,
-  [string]$PublicBaseUrl = "http://8.141.20.130",
+  [string]$PublicBaseUrl = "http://community.8.141.20.130.nip.io",
   [switch]$VerifyAfterRollback,
   [switch]$SkipStart
 )
@@ -35,7 +35,7 @@ Require-File -Path $helperPath -Label "release helper"
 . $helperPath
 
 $connection = Get-TestEnvConnectionInfo -Workspace $workspace -ResourceFile $ResourceFile
-$normalizedPublicBaseUrl = $PublicBaseUrl.TrimEnd("/")
+$normalizedPublicBaseUrl = Assert-RootPublicBaseUrl -Url $PublicBaseUrl -Label "PublicBaseUrl"
 $remoteReleaseDir = "$RemoteBaseDir/releases/$ReleaseName"
 $remoteJarPath = "$remoteReleaseDir/dramatv-community-server.jar"
 $skipStartFlag = if ($SkipStart) { "1" } else { "0" }

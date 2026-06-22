@@ -25,6 +25,35 @@ function parseArgs(argv) {
   return parsed;
 }
 
+function readServerEnvValue(key) {
+  const envPath = path.resolve("apps/server/.env");
+  if (!fs.existsSync(envPath)) {
+    return "";
+  }
+
+  const lines = fs.readFileSync(envPath, "utf8").split(/\r?\n/);
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) {
+      continue;
+    }
+
+    const separatorIndex = line.indexOf("=");
+    if (separatorIndex <= 0) {
+      continue;
+    }
+
+    const currentKey = line.slice(0, separatorIndex).trim();
+    if (currentKey !== key) {
+      continue;
+    }
+
+    return line.slice(separatorIndex + 1).trim();
+  }
+
+  return "";
+}
+
 const args = parseArgs(process.argv.slice(2));
 const backendBaseUrl = args["backend-base-url"] ?? process.env.DRAMATV_BACKEND_BASE_URL ?? "http://127.0.0.1:18080";
 const smokeVideoId = args["smoke-video-id"] ?? process.env.DRAMATV_SMOKE_VIDEO_ID ?? "3d82413b-1036-4c1b-93dd-3a102e0b4683";
@@ -35,7 +64,12 @@ const creatorPassword = args["creator-password"] ?? process.env.DRAMATV_SMOKE_CR
 const outputPath = args.output ?? "";
 const nowLabel = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
 const tempUsername = `qa-smoke-${nowLabel}`;
-const tempPassword = args["temp-password"] ?? "dramatv-local-dev";
+const tempPassword =
+  args["temp-password"] ??
+  process.env.DRAMATV_SMOKE_TEMP_PASSWORD ??
+  process.env.DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_BOOTSTRAP_SECRET ??
+  readServerEnvValue("DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_BOOTSTRAP_SECRET") ??
+  creatorPassword;
 
 const results = [];
 

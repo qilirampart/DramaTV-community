@@ -14,8 +14,9 @@ public record AdminTaxonomyResponse(
             long needsAttentionPrompts,
             long imageModelCategories,
             long videoModelCategories,
-            long contentCategories,
-            long compositionCategories
+            long imageContentCategories,
+            long videoContentCategories,
+            long videoModelUsageCategories
     ) {
     }
 

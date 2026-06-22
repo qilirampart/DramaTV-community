@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CommentThread } from "@/components/comments/CommentThread";
 import { ReportModal } from "@/components/report/ReportModal";
@@ -32,7 +33,9 @@ import type { VideoDetailPageView } from "@/lib/contracts/view-models";
 import { promptPreviewVideoId } from "@/lib/prefill/prompt-detail-demo";
 import { resolvePrefillVideoForDetail } from "@/lib/prefill/prefill-videos";
 import { isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildCurrentRoute } from "@/lib/routes/back-anchor";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
+import { resolveDetailImagePreviewUrl } from "./detail-image-preview";
 import styles from "./VideoDetailPage.module.css";
 
 type VideoDetailPageProps = {
@@ -174,6 +177,33 @@ function ImageIcon() {
   );
 }
 
+function AudioIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.2 8.3 11.2 6.8v6.4L7.2 11.7"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.45"
+      />
+      <path d="M11.2 6.8v6.4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+      <path d="M5.5 9.2h1.7v1.6H5.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.45" />
+      <path d="M14.2 8.5a2.9 2.9 0 0 1 0 3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 3.8v7.2" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+      <path d="m6.9 8.7 3.1 3.1 3.1-3.1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.45" />
+      <path d="M4.8 14.1h10.4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.45" />
+    </svg>
+  );
+}
+
 function LayersIcon() {
   return (
     <svg aria-hidden="true" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -218,6 +248,182 @@ function formatDurationLabel(durationMs?: number) {
   }
 
   return `${minutes}m ${seconds.toString().padStart(2, "0")}s`;
+}
+
+function PromptAssetDownloadList({
+  title,
+  items
+}: {
+  title: string;
+  items: NonNullable<VideoDetailPageView["promptAssets"]>["all"];
+}) {
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <article className={styles.promptAssetGroup}>
+      <div className={styles.promptAssetGroupHeader}>
+        <strong>{title}</strong>
+        <span>{items.length}</span>
+      </div>
+      <ul className={styles.promptAssetList}>
+        {items.map((asset) => {
+          const previewStyle = asset.previewImageUrl
+            ? { backgroundImage: `url(${asset.previewImageUrl})` }
+            : undefined;
+
+          return (
+            <li className={styles.promptAssetItem} key={asset.id}>
+              <span className={styles.promptAssetPreview} style={previewStyle}>
+                {!asset.previewImageUrl ? (
+                  asset.assetKind === "audio" ? <AudioIcon /> : <ImageIcon />
+                ) : null}
+              </span>
+
+              <span className={styles.promptAssetCopy}>
+                <span className={styles.promptAssetBadge}>{asset.badgeLabel}</span>
+                <strong title={asset.fileName}>{asset.fileName}</strong>
+                {asset.metaLabel ? <span>{asset.metaLabel}</span> : null}
+              </span>
+
+              {asset.url ? (
+                <a className={styles.promptAssetDownload} download={asset.fileName} href={asset.url}>
+                  <DownloadIcon />
+                  下载
+                </a>
+              ) : (
+                <span className={styles.promptAssetUnavailable}>不可下载</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </article>
+  );
+}
+
+function PromptAssetModal({
+  open,
+  groups,
+  totalCount,
+  onClose
+}: {
+  open: boolean;
+  groups: Array<{
+    key: string;
+    title: string;
+    items: NonNullable<VideoDetailPageView["promptAssets"]>["all"];
+  }>;
+  totalCount: number;
+  onClose: () => void;
+}) {
+  if (!open) {
+    return null;
+  }
+
+  const summary = groups
+    .map((group) => `${group.title} ${group.items.length}`)
+    .join(" · ");
+
+  return (
+    <div
+      aria-hidden="true"
+      className={styles.promptAssetModalBackdrop}
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <section
+        aria-label="参考素材"
+        aria-modal="true"
+        className={styles.promptAssetModal}
+        role="dialog"
+      >
+        <div className={styles.promptAssetModalHeader}>
+          <div className={styles.promptAssetModalHeading}>
+            <span className={styles.promptAssetModalEyebrow}>参考素材</span>
+            <h2>查看并下载素材</h2>
+            <p>
+              共 {totalCount} 项
+              {summary ? ` · ${summary}` : ""}
+            </p>
+          </div>
+          <button
+            aria-label="关闭参考素材弹窗"
+            className={styles.promptAssetModalClose}
+            type="button"
+            onClick={onClose}
+          >
+            ×
+          </button>
+        </div>
+        <div className={styles.promptAssetModalBody}>
+          {groups.map((group) => (
+            <PromptAssetDownloadList items={group.items} key={group.key} title={group.title} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function DetailImagePreviewModal({
+  imageUrl,
+  title,
+  open,
+  onClose
+}: {
+  imageUrl: string;
+  title: string;
+  open: boolean;
+  onClose: () => void;
+}) {
+  if (!open) {
+    return null;
+  }
+
+  return (
+    <div
+      aria-hidden="true"
+      className={styles.detailImagePreviewBackdrop}
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <section
+        aria-label="查看大图"
+        aria-modal="true"
+        className={styles.detailImagePreviewModal}
+        role="dialog"
+      >
+        <div className={styles.detailImagePreviewHeader}>
+          <div className={styles.detailImagePreviewHeading}>
+            <span className={styles.detailImagePreviewEyebrow}>图片预览</span>
+            <h2>{title}</h2>
+            <p>双击主图可放大查看，按 Esc 或点击遮罩关闭。</p>
+          </div>
+          <button
+            aria-label="关闭图片预览"
+            className={styles.detailImagePreviewClose}
+            type="button"
+            onClick={onClose}
+          >
+            ×
+          </button>
+        </div>
+        <div className={styles.detailImagePreviewBody}>
+          <img alt={title} className={styles.detailImagePreviewImage} src={imageUrl} />
+        </div>
+      </section>
+    </div>
+  );
 }
 
 function buildPromptLikeText(view: VideoDetailPageView, summary?: string, workflowTitle?: string) {
@@ -289,7 +495,7 @@ function RelatedVideoCard({
   const imageUrl = [normalizeAssetUrl(posterUrl), normalizeAssetUrl(coverUrl)].find(
     (value): value is string => Boolean(value) && !isVideoAssetUrl(value)
   );
-  const previewMediaUrl = normalizeAssetUrl(previewUrl) ?? normalizeAssetUrl(sourceUrl);
+  const previewMediaUrl = normalizeAssetUrl(previewUrl);
   const hasPreviewVideo = Boolean(previewMediaUrl);
   const {
     handlePreviewImmediateStart,
@@ -352,6 +558,8 @@ function RelatedVideoCard({
 
 
 export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPageProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
@@ -361,6 +569,8 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
   const [commentPolicyPending, setCommentPolicyPending] = useState(false);
   const [commentLoadMorePending, setCommentLoadMorePending] = useState(false);
   const [commentNotice, setCommentNotice] = useState<ActionNotice | null>(null);
+  const [promptAssetModalOpen, setPromptAssetModalOpen] = useState(false);
+  const [detailImagePreviewOpen, setDetailImagePreviewOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
   const [reportPending, setReportPending] = useState(false);
   const [reportNotice, setReportNotice] = useState<ActionNotice | null>(null);
@@ -388,9 +598,10 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
   const authorId = normalizeText(currentView.author.id);
   const authorName = normalizeText(currentView.author.displayName) ?? "匿名创作者";
   const authorAvatarUrl = normalizeAssetUrl(currentView.author.avatarUrl);
-  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, backHref) : undefined;
+  const currentRoute = buildCurrentRoute(pathname, searchParams);
+  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, currentRoute) : undefined;
   const workflowId = normalizeText(currentView.workflow?.id);
-  const workflowHref = workflowId ? `/workflows/${workflowId}#canvas-entry` : undefined;
+  const workflowHref = workflowId ? appendBackSource(`/workflows/${workflowId}#canvas-entry`, currentRoute) : undefined;
   const workflowTitle = normalizeText(currentView.workflow?.title) ?? "未公开工作流";
   const durationLabel = formatDurationLabel(currentView.media.durationMs);
   const resourceMode = currentView.workflow ? "workflow" : "prompt";
@@ -402,6 +613,25 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
     ? normalizeText(currentView.promptText) ??
       buildPromptLikeText(currentView, summary, normalizeText(currentView.workflow?.title))
     : buildWorkflowArchiveText(workflowTitle, summary, currentView.workflow?.allowCopy);
+  const promptAssetGroups = isPromptResource
+    ? [
+        {
+          key: "primary",
+          title: isImagePrompt ? "示例图片" : "示例视频",
+          items: currentView.promptAssets?.primary ? [currentView.promptAssets.primary] : []
+        },
+        {
+          key: "reference-images",
+          title: "参考图片",
+          items: currentView.promptAssets?.referenceImages ?? []
+        },
+        {
+          key: "reference-audios",
+          title: "参考音频",
+          items: currentView.promptAssets?.referenceAudios ?? []
+        }
+      ].filter((group) => group.items.length > 0)
+    : [];
   const detailTags = currentView.tags.slice(0, 4);
   const renderedComments = currentView.comments;
   const isCommentEmpty = currentView.comments.items.length === 0;
@@ -428,11 +658,18 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
     : isReadonlyPromptDetail
       ? "当前提示词详情来自本地导入数据，支持浏览与复制，互动能力暂不写入后端。"
       : null;
+  const promptAssetSummaryText = promptAssetGroups
+    .map((group) => `${group.title} ${group.items.length}`)
+    .join(" · ");
+  const detailImagePreviewUrl = resolveDetailImagePreviewUrl(currentView);
+  const canOpenDetailImagePreview = Boolean(detailImagePreviewUrl);
 
   useEffect(() => {
     setHasPlaybackStarted(false);
     setIsPlaybackActive(false);
     setIsMediaVideoReady(false);
+    setPromptAssetModalOpen(false);
+    setDetailImagePreviewOpen(false);
   }, [currentView.id, playbackUrl, isImagePrompt]);
 
   useEffect(() => {
@@ -457,6 +694,22 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
 
     return () => window.clearTimeout(timer);
   }, [reportNotice]);
+
+  useEffect(() => {
+    if (!promptAssetModalOpen && !detailImagePreviewOpen) {
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setPromptAssetModalOpen(false);
+        setDetailImagePreviewOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [detailImagePreviewOpen, promptAssetModalOpen]);
 
   const handleMediaVideoRef = useCallback((node: HTMLVideoElement | null) => {
     mediaVideoRef.current = node;
@@ -799,7 +1052,14 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
 
           <div className={styles.heroGrid}>
             <div className={styles.mediaColumn}>
-              <div className={styles.mediaFrame}>
+              <div
+                className={`${styles.mediaFrame} ${canOpenDetailImagePreview ? styles.mediaFrameZoomable : ""}`}
+                onDoubleClick={() => {
+                  if (canOpenDetailImagePreview) {
+                    setDetailImagePreviewOpen(true);
+                  }
+                }}
+              >
                 <div
                   className={styles.mediaPoster}
                   style={posterImageUrl ? { backgroundImage: `url(${posterImageUrl})` } : undefined}
@@ -827,6 +1087,10 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
                   <button className={styles.mediaToggle} type="button" onClick={handlePlaybackToggle}>
                     {isPlaybackActive ? "暂停播放" : "开始播放"}
                   </button>
+                ) : null}
+
+                {canOpenDetailImagePreview ? (
+                  <span className={styles.mediaDoubleTapHint}>双击查看大图</span>
                 ) : null}
               </div>
 
@@ -896,7 +1160,9 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
                 ))}
               </div>
 
-              <h1 className={styles.title}>{currentView.title}</h1>
+              <div className={styles.titleBlock}>
+                <h1 className={styles.title}>{currentView.title}</h1>
+              </div>
               <p className={styles.summary}>{summaryText}</p>
 
               <div className={styles.panelHeader}>
@@ -924,6 +1190,29 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
               >
                 <pre>{resourceText}</pre>
               </div>
+
+              {isPromptResource && promptAssetGroups.length > 0 ? (
+                <section className={styles.promptAssetSection}>
+                  <div className={styles.promptAssetSectionSummary}>
+                    <div className={styles.promptAssetSectionCopy}>
+                      <span className={styles.panelLabel}>参考素材</span>
+                      {promptAssetSummaryText ? (
+                        <span className={styles.promptAssetSectionMeta}>
+                          共 {currentView.promptAssets?.all.length ?? 0} 项 · {promptAssetSummaryText}
+                        </span>
+                      ) : null}
+                    </div>
+                    <button
+                      className={styles.promptAssetOpenButton}
+                      type="button"
+                      onClick={() => setPromptAssetModalOpen(true)}
+                    >
+                      <LayersIcon />
+                      查看素材
+                    </button>
+                  </div>
+                </section>
+              ) : null}
 
               <div className={styles.metricRow}>
                 <button
@@ -1146,7 +1435,7 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
                       <RelatedVideoCard
                         authorName={relatedAuthor}
                         coverUrl={video.coverUrl}
-                        href={appendBackSource(video.href ?? `/videos/${video.id}`, backHref)}
+                        href={appendBackSource(video.href ?? `/videos/${video.id}`, currentRoute)}
                         key={video.id}
                         posterUrl={video.posterUrl}
                         previewUrl={video.previewUrl}
@@ -1188,6 +1477,20 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
           onClose={() => setReportOpen(false)}
           onSubmit={handleReportSubmit}
         />
+        <PromptAssetModal
+          groups={promptAssetGroups}
+          open={promptAssetModalOpen}
+          totalCount={currentView.promptAssets?.all.length ?? 0}
+          onClose={() => setPromptAssetModalOpen(false)}
+        />
+        {detailImagePreviewUrl ? (
+          <DetailImagePreviewModal
+            imageUrl={detailImagePreviewUrl}
+            open={detailImagePreviewOpen}
+            title={currentView.title}
+            onClose={() => setDetailImagePreviewOpen(false)}
+          />
+        ) : null}
       </div>
     </PageShell>
   );

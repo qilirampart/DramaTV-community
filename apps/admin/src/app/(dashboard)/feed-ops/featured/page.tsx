@@ -1,5 +1,5 @@
 import { requireAdminAccess } from "@/lib/admin-auth";
-import { AdminBackendError, getAdminFeedOpsFeatured } from "@/lib/admin-service";
+import { AdminBackendError, getAdminFeedOpsFeatured, listAdminFeedOpsFeaturedCandidates } from "@/lib/admin-service";
 import FeedOpsPageClient from "../shared/FeedOpsPageClient";
 import {
   buildFallbackFeedOpsPageData,
@@ -11,15 +11,22 @@ import { saveFeedOpsFeaturedAction } from "./actions";
 type SearchParams = {
   error?: string;
   success?: string;
+  sort?: string;
 };
 
-async function loadPageData() {
+type FeaturedSort = "latest" | "hot";
+
+function parseFeaturedSort(value?: string | null): FeaturedSort {
+  return value === "hot" ? "hot" : "latest";
+}
+
+async function loadPageData(sort: FeaturedSort) {
   try {
-    const response = await getAdminFeedOpsFeatured();
+    const response = await getAdminFeedOpsFeatured(sort);
     return {
       data: response.data,
       isFallback: false,
-      modeDetail: feedOpsModeDetail("featured")
+      modeDetail: `${feedOpsModeDetail("featured")} 当前编辑：${sort === "hot" ? "最热" : "最新"}`
     };
   } catch (error) {
     if (error instanceof AdminBackendError && error.requestId) {
@@ -45,7 +52,8 @@ export default async function FeedOpsFeaturedPage({
 }) {
   await requireAdminAccess(["admin", "operator"], "/feed-ops/featured");
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
-  const pageData = await loadPageData();
+  const featuredSort = parseFeaturedSort(resolvedSearchParams?.sort);
+  const pageData = await loadPageData(featuredSort);
 
   return (
     <FeedOpsPageClient
@@ -55,7 +63,13 @@ export default async function FeedOpsFeaturedPage({
       isFallback={pageData.isFallback}
       modeDetail={pageData.modeDetail}
       page="featured"
+      featuredSort={featuredSort}
       saveAction={saveFeedOpsFeaturedAction}
+      loadCandidates={async (query) => {
+        "use server";
+        const response = await listAdminFeedOpsFeaturedCandidates(query);
+        return response.data;
+      }}
     />
   );
 }

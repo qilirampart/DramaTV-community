@@ -18,7 +18,91 @@ const DB_NAME = process.env.DRAMATV_DB_NAME || "dramatv";
 const DB_USER = process.env.DRAMATV_DB_USER || "dramatv";
 
 const IMPORT_NAMESPACE = "2d3b91f4-c745-4f84-b8c5-5f5f8fdaf0dd";
+const MB = 1024 * 1024;
+const DEFAULT_OFFSET = 0;
 const DEFAULT_LIMIT = 30;
+const DEFAULT_VIDEO_PREVIEW_THRESHOLD_BYTES = Number(
+  process.env.DRAMATV_MEDIA_PROCESSING_COMPRESSION_THRESHOLD_BYTES || 6 * MB
+);
+const DEFAULT_IMAGE_COVER_THRESHOLD_BYTES = Number(
+  process.env.DRAMATV_MEDIA_PROCESSING_IMAGE_COVER_THRESHOLD_BYTES || 1 * MB
+);
+const DEFAULT_DERIVATIVE_PRIORITY = Number(process.env.DRAMATV_MEDIA_DERIVATIVE_PRIORITY || 4);
+const CHECKSUM_BUFFER_SIZE = 64 * 1024;
+
+function parseArgs(argv) {
+  const parsed = {};
+  for (let index = 0; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (!token.startsWith("--")) {
+      continue;
+    }
+
+    const key = token.slice(2);
+    const next = argv[index + 1];
+    if (next && !next.startsWith("--")) {
+      parsed[key] = next;
+      index += 1;
+      continue;
+    }
+
+    parsed[key] = "true";
+  }
+
+  return parsed;
+}
+
+function toNonNegativeInt(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? Math.trunc(parsed) : fallback;
+}
+
+function toPositiveInt(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.trunc(parsed) : fallback;
+}
+
+function toPositiveBytes(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.trunc(parsed) : fallback;
+}
+
+function toBooleanFlag(value, fallback = false) {
+  if (value === undefined || value === null || value === "") {
+    return fallback;
+  }
+
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  return /^(1|true|yes|on)$/i.test(String(value).trim());
+}
+
+function resolveImportOptions(argv) {
+  const args = parseArgs(argv);
+  return {
+    dryRun: toBooleanFlag(args["dry-run"], false),
+    offset: toNonNegativeInt(args.offset ?? process.env.YOUMIND_IMPORT_OFFSET, DEFAULT_OFFSET),
+    limit: toNonNegativeInt(args.limit ?? process.env.YOUMIND_IMPORT_LIMIT, DEFAULT_LIMIT),
+    queueDerivatives: toBooleanFlag(
+      args["queue-derivatives"] ?? process.env.YOUMIND_IMPORT_QUEUE_DERIVATIVES,
+      false
+    ),
+    derivativePriority: toPositiveInt(
+      args["derivative-priority"] ?? process.env.DRAMATV_MEDIA_DERIVATIVE_PRIORITY,
+      DEFAULT_DERIVATIVE_PRIORITY
+    ),
+    videoPreviewThresholdBytes: toPositiveBytes(
+      args["video-preview-threshold-bytes"] ?? process.env.DRAMATV_MEDIA_PROCESSING_COMPRESSION_THRESHOLD_BYTES,
+      DEFAULT_VIDEO_PREVIEW_THRESHOLD_BYTES
+    ),
+    imageCoverThresholdBytes: toPositiveBytes(
+      args["image-cover-threshold-bytes"] ?? process.env.DRAMATV_MEDIA_PROCESSING_IMAGE_COVER_THRESHOLD_BYTES,
+      DEFAULT_IMAGE_COVER_THRESHOLD_BYTES
+    ),
+  };
+}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -201,6 +285,52 @@ function safeSize(filePath) {
   return fs.statSync(filePath).size;
 }
 
+function computeFileChecksum(filePath) {
+  const hash = crypto.createHash("sha256");
+  const buffer = Buffer.alloc(CHECKSUM_BUFFER_SIZE);
+  const fd = fs.openSync(filePath, "r");
+
+  try {
+    let bytesRead = 0;
+    let position = 0;
+    do {
+      bytesRead = fs.readSync(fd, buffer, 0, buffer.length, position);
+      if (bytesRead > 0) {
+        hash.update(buffer.subarray(0, bytesRead));
+        position += bytesRead;
+      }
+    } while (bytesRead > 0);
+  } finally {
+    fs.closeSync(fd);
+  }
+
+  return hash.digest("hex");
+}
+
+function resolveAssetChecksum(asset) {
+  if (Object.prototype.hasOwnProperty.call(asset, "checksum")) {
+    return asset.checksum;
+  }
+
+  if (asset.filePath && fs.existsSync(asset.filePath) && fs.statSync(asset.filePath).isFile()) {
+    return computeFileChecksum(asset.filePath);
+  }
+
+  return null;
+}
+
+function sliceCatalogItems(items, offset, limit) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return [];
+  }
+
+  if (limit === 0) {
+    return items.slice(offset);
+  }
+
+  return items.slice(offset, offset + limit);
+}
+
 function ensureExtractedVideoCover(sourceItemId, videoPath) {
   const coverObjectKey = `${seedanceCoverObjectPrefix}/${sourceItemId}.jpg`;
   const coverPath = path.join(publicRoot, coverObjectKey.replace(/\//g, path.sep));
@@ -238,6 +368,9 @@ function buildVideoPromptCoverAsset(item, sourceItemId, videoPath) {
       objectKey: thumbnailUrl,
       fileName: resolveFileNameFromUrl(thumbnailUrl, `${sourceItemId}.jpg`),
       mimeType: "image/jpeg",
+      role: "cover",
+      checksum: null,
+      filePath: null,
       sizeBytes: null,
       width: null,
       height: null,
@@ -258,6 +391,8 @@ function buildVideoPromptCoverAsset(item, sourceItemId, videoPath) {
     objectKey: extractedCover.objectKey,
     fileName: path.basename(extractedCover.filePath),
     mimeType: "image/jpeg",
+    role: "cover",
+    filePath: extractedCover.filePath,
     sizeBytes: safeSize(extractedCover.filePath),
     width: null,
     height: null,
@@ -364,6 +499,8 @@ function buildVideoPrompt(item, index) {
         objectKey: normalizeLocalPublicObjectKey(item.videoSrc),
         fileName: path.basename(videoPath),
         mimeType: "video/mp4",
+        role: "source",
+        filePath: videoPath,
         sizeBytes: safeSize(videoPath),
         width: probe.width,
         height: probe.height,
@@ -454,9 +591,13 @@ function buildImagePrompt(item, index) {
     assets: existingImages.map((entry) => ({
       id: uuidV5(`asset:youmind:nano-banana:${sourceItemId}:${entry.sortOrder}`),
       kind: "image",
+      role: "source",
+      storageProvider: "local-public",
+      bucketName: "apps-web-public",
       objectKey: normalizeLocalPublicObjectKey(entry.url),
       fileName: path.basename(entry.filePath),
       mimeType: getMimeType(entry.filePath, "image/jpeg"),
+      filePath: entry.filePath,
       sizeBytes: safeSize(entry.filePath),
       width: null,
       height: null,
@@ -466,17 +607,16 @@ function buildImagePrompt(item, index) {
   };
 }
 
-function buildImports() {
+function buildImports(options) {
   const seedance = readJson(seedanceCatalogPath);
   const nanoBanana = readJson(nanoBananaCatalogPath);
-  const limit = Number(process.env.YOUMIND_IMPORT_LIMIT || DEFAULT_LIMIT);
+  const selectedSeedanceItems = sliceCatalogItems(seedance.items, options.offset, options.limit);
+  const selectedNanoBananaItems = sliceCatalogItems(nanoBanana.items, options.offset, options.limit);
 
-  const videoPrompts = seedance.items
-    .slice(0, limit)
+  const videoPrompts = selectedSeedanceItems
     .map(buildVideoPrompt)
     .filter(Boolean);
-  const imagePrompts = nanoBanana.items
-    .slice(0, limit)
+  const imagePrompts = selectedNanoBananaItems
     .map(buildImagePrompt)
     .filter(Boolean);
 
@@ -530,14 +670,17 @@ on conflict (user_id) do update set
 }
 
 function insertAssetSql(asset, promptId, authorId) {
+  const checksum = resolveAssetChecksum(asset);
+
   return `
 insert into media_assets (
-    id, asset_kind, biz_type, biz_id, storage_provider, bucket_name, object_key,
+    id, asset_kind, asset_role, biz_type, biz_id, storage_provider, bucket_name, object_key,
     file_name, mime_type, size_bytes, width, height, duration_ms, checksum,
     status_code, is_public, created_by, created_at, updated_at
 ) values (
     ${sqlString(asset.id)}::uuid,
     ${sqlString(asset.kind)},
+    ${sqlString(asset.role ?? "source")},
     'prompt',
     ${sqlString(promptId)}::uuid,
     ${sqlString(asset.storageProvider ?? "local-public")},
@@ -549,7 +692,7 @@ insert into media_assets (
     ${asset.width ?? "null"},
     ${asset.height ?? "null"},
     ${asset.durationMs ?? "null"},
-    ${sqlString(crypto.createHash("sha1").update(asset.objectKey).digest("hex"))},
+    ${sqlString(checksum)},
     'ready',
     true,
     ${sqlString(authorId)}::uuid,
@@ -557,8 +700,12 @@ insert into media_assets (
     now()
 )
 on conflict (id) do update set
+    asset_kind = excluded.asset_kind,
+    asset_role = excluded.asset_role,
     biz_type = excluded.biz_type,
     biz_id = excluded.biz_id,
+    storage_provider = excluded.storage_provider,
+    bucket_name = excluded.bucket_name,
     object_key = excluded.object_key,
     file_name = excluded.file_name,
     mime_type = excluded.mime_type,
@@ -566,6 +713,7 @@ on conflict (id) do update set
     width = excluded.width,
     height = excluded.height,
     duration_ms = excluded.duration_ms,
+    checksum = excluded.checksum,
     status_code = excluded.status_code,
     is_public = excluded.is_public,
     updated_at = now();`;
@@ -628,7 +776,18 @@ on conflict (id) do update set
     source_campaign = excluded.source_campaign,
     source_item_id = excluded.source_item_id,
     source_url = excluded.source_url,
-    cover_asset_id = excluded.cover_asset_id,
+    cover_asset_id = case
+        when excluded.cover_asset_id is null then prompt_entries.cover_asset_id
+        when prompt_entries.cover_asset_id is null then excluded.cover_asset_id
+        when prompt_entries.cover_asset_id = prompt_entries.primary_example_asset_id then excluded.cover_asset_id
+        when not coalesce((
+            select current_cover.asset_kind = 'image'
+               and current_cover.asset_role = 'cover'
+            from media_assets current_cover
+            where current_cover.id = prompt_entries.cover_asset_id
+        ), false) then excluded.cover_asset_id
+        else prompt_entries.cover_asset_id
+    end,
     primary_example_asset_id = excluded.primary_example_asset_id,
     tag_names = excluded.tag_names,
     example_count = excluded.example_count,
@@ -684,7 +843,150 @@ on conflict (channel_code, target_type, target_id) do update set
     updated_at = now();`;
 }
 
-function buildSql(entries) {
+function buildVideoPromptDerivativeTaskSql(entry, options) {
+  const primaryAsset = entry.assets.find((asset) => asset.id === entry.primaryAssetId) ?? entry.assets[0] ?? null;
+  const desiredOutputs = ["cover", "duration"];
+  if ((primaryAsset?.sizeBytes ?? 0) > options.videoPreviewThresholdBytes) {
+    desiredOutputs.push("preview");
+  }
+
+  const payload = {
+    sourceAssetId: entry.primaryAssetId,
+    targetType: "prompt",
+    targetId: entry.prompt.id,
+    submitMode: "backfill",
+    reason: "youmind-import",
+    desiredOutputs,
+  };
+
+  return `
+insert into async_task_records (
+    id, task_type, target_type, target_id, queue_name, priority_level,
+    status_code, payload_json, retry_count, max_retry_count, scheduled_at, created_at, updated_at
+)
+select
+    ${sqlString(crypto.randomUUID())}::uuid,
+    'video_media_process',
+    'prompt',
+    prompt.id,
+    'media-processing',
+    ${options.derivativePriority},
+    'queued',
+    cast(${sqlString(JSON.stringify(payload))} as jsonb),
+    0,
+    3,
+    now(),
+    now(),
+    now()
+from prompt_entries prompt
+join media_assets source
+  on source.id = prompt.primary_example_asset_id
+ and source.asset_kind = 'video'
+ and source.status_code = 'ready'
+left join lateral (
+    select
+        link.media_asset_id as preview_asset_id,
+        asset.asset_role as preview_asset_role
+    from prompt_example_links link
+    left join media_assets asset on asset.id = link.media_asset_id
+    where link.prompt_id = prompt.id
+      and link.role_code = 'preview'
+    order by link.sort_order asc, link.created_at asc
+    limit 1
+) preview_link on true
+where prompt.id = ${sqlString(entry.prompt.id)}::uuid
+  and prompt.deleted_at is null
+  and (
+    prompt.cover_asset_id is null
+    or (
+      (preview_link.preview_asset_id is null or preview_link.preview_asset_role is distinct from 'preview')
+      and coalesce(source.size_bytes, 0) > ${options.videoPreviewThresholdBytes}
+    )
+  )
+  and not exists (
+    select 1
+    from async_task_records task
+    where task.task_type = 'video_media_process'
+      and task.target_type = 'prompt'
+      and task.target_id = prompt.id
+      and task.queue_name = 'media-processing'
+      and task.status_code in ('queued', 'processing')
+  );`;
+}
+
+function buildImagePromptDerivativeTaskSql(entry, options) {
+  const payload = {
+    sourceAssetId: entry.primaryAssetId,
+    targetType: "prompt",
+    targetId: entry.prompt.id,
+    submitMode: "backfill",
+    reason: "youmind-import",
+    desiredOutputs: ["cover"],
+  };
+
+  return `
+insert into async_task_records (
+    id, task_type, target_type, target_id, queue_name, priority_level,
+    status_code, payload_json, retry_count, max_retry_count, scheduled_at, created_at, updated_at
+)
+select
+    ${sqlString(crypto.randomUUID())}::uuid,
+    'image_media_process',
+    'prompt',
+    prompt.id,
+    'media-processing',
+    ${options.derivativePriority},
+    'queued',
+    cast(${sqlString(JSON.stringify(payload))} as jsonb),
+    0,
+    3,
+    now(),
+    now(),
+    now()
+from prompt_entries prompt
+join media_assets source
+  on source.id = prompt.primary_example_asset_id
+ and source.asset_kind = 'image'
+ and source.status_code = 'ready'
+left join media_assets cover on cover.id = prompt.cover_asset_id
+where prompt.id = ${sqlString(entry.prompt.id)}::uuid
+  and prompt.deleted_at is null
+  and coalesce(source.size_bytes, 0) > ${options.imageCoverThresholdBytes}
+  and (
+    prompt.cover_asset_id is null
+    or prompt.cover_asset_id = prompt.primary_example_asset_id
+    or cover.id is null
+    or cover.asset_kind <> 'image'
+    or cover.asset_role is distinct from 'cover'
+  )
+  and not exists (
+    select 1
+    from async_task_records task
+    where task.task_type = 'image_media_process'
+      and task.target_type = 'prompt'
+      and task.target_id = prompt.id
+      and task.queue_name = 'media-processing'
+      and task.status_code in ('queued', 'processing')
+  );`;
+}
+
+function buildDerivativeTaskSql(entry, options) {
+  if (!options.queueDerivatives) {
+    return null;
+  }
+
+  if (entry.prompt.modality === "video") {
+    return buildVideoPromptDerivativeTaskSql(entry, options);
+  }
+
+  if (entry.prompt.modality === "image") {
+    return buildImagePromptDerivativeTaskSql(entry, options);
+  }
+
+  return null;
+}
+
+function buildSql(entries, options) {
   const seenAuthors = new Set();
   const statements = ["begin;"];
 
@@ -708,6 +1010,11 @@ function buildSql(entries) {
       statements.push(insertLinkSql(entry.prompt.id, asset, sortOrder));
     });
     statements.push(insertFeedSql(entry.prompt, index));
+
+    const derivativeTaskSql = buildDerivativeTaskSql(entry, options);
+    if (derivativeTaskSql) {
+      statements.push(derivativeTaskSql);
+    }
   });
 
   statements.push(`
@@ -764,13 +1071,14 @@ function runPsql(sql) {
 }
 
 async function main() {
-  const entries = buildImports();
+  const options = resolveImportOptions(process.argv.slice(2));
+  const entries = buildImports(options);
   if (entries.length === 0) {
     throw new Error("No valid YouMind prompt entries were found.");
   }
 
-  const sql = buildSql(entries);
-  if (process.argv.includes("--dry-run")) {
+  const sql = buildSql(entries, options);
+  if (options.dryRun) {
     process.stdout.write(sql);
     return;
   }
@@ -778,7 +1086,11 @@ async function main() {
   const result = await runPsql(sql);
   const videos = entries.filter((entry) => entry.prompt.modality === "video").length;
   const images = entries.filter((entry) => entry.prompt.modality === "image").length;
-  process.stdout.write(`Imported YouMind prompts: ${entries.length} (${videos} video, ${images} image)\n`);
+  const limitLabel = options.limit === 0 ? "all" : String(options.limit);
+  const derivativeLabel = options.queueDerivatives ? ", derivative queue enabled" : "";
+  process.stdout.write(
+    `Imported YouMind prompts: ${entries.length} (${videos} video, ${images} image), offset=${options.offset}, limit=${limitLabel}${derivativeLabel}\n`
+  );
   if (result.stderr.trim()) {
     process.stderr.write(result.stderr);
   }

@@ -29,6 +29,8 @@ public class MediaProxyController {
                 objectKey,
                 HttpMethod.valueOf(request.getMethod()),
                 request.getHeader("Range"),
+                request.getHeader("If-None-Match"),
+                request.getHeader("If-Modified-Since"),
                 response
         );
     }

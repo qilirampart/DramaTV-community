@@ -113,6 +113,36 @@ class ActionRateLimitIntegrationTest extends ApiIntegrationTestSupport {
     }
 
     @Test
+    void reportCreateByAdminRoleBypassesRateLimit() throws Exception {
+        actionRateLimitProperties.setEnabled(true);
+        actionRateLimitProperties.getReport().setWindowSeconds(60);
+        actionRateLimitProperties.getReport().setMaxAttempts(1);
+
+        LoginSession owner = loginAsRandomUser("report-rate-admin-owner");
+        LoginSession reporter = loginAsRandomUser("report-rate-admin-actor");
+        jdbcTemplate.update(
+                "update users set role_code = ?, updated_at = now() where id = ?",
+                "admin",
+                java.util.UUID.fromString(reporter.userId())
+        );
+
+        for (int index = 0; index < 3; index++) {
+            String videoId = createPublishedVideo(owner.userId(), "Report admin bypass target " + index);
+            mockMvc.perform(authorized(
+                            MockMvcRequestBuilders.post("/api/reports")
+                                    .contentType(MediaType.APPLICATION_JSON)
+                                    .content(objectMapper.writeValueAsString(new ReportPayload(
+                                            "video",
+                                            videoId,
+                                            "spam",
+                                            "admin bypass report " + index
+                                    ))),
+                            reporter.accessToken()))
+                    .andExpect(status().isOk());
+        }
+    }
+
+    @Test
     void uploadPolicyIsRateLimitedPerUser() throws Exception {
         actionRateLimitProperties.setEnabled(true);
         actionRateLimitProperties.getUploadPolicy().setWindowSeconds(60);

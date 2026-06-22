@@ -6012,6 +6012,18 @@ html[data-theme="light"] .notification-bell-dot {
   padding: 1.2rem 0 3rem;
 }
 
+.discussion-replica-page-restoring {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.discussion-replica-back-anchor-restore-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: #040506;
+}
+
 .discussion-replica-layout {
   display: grid;
   grid-template-columns: minmax(142px, 188px) minmax(0, 1fr) minmax(184px, 236px);
@@ -6040,7 +6052,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 .discussion-replica-caption {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.42);
   font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
   font-size: 0.68rem;
   font-weight: 700;
@@ -6106,7 +6118,7 @@ html[data-theme="light"] .notification-bell-dot {
 
 .discussion-replica-rules-card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.52);
   font-size: 0.8rem;
   line-height: 1.72;
 }
@@ -6130,7 +6142,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 .discussion-replica-rule-stats span {
-  color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -6166,7 +6178,7 @@ html[data-theme="light"] .notification-bell-dot {
 
 .discussion-replica-hero p {
   margin: 0.6rem 0 0;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.52);
   font-size: 0.82rem;
   line-height: 1.6;
 }
@@ -6244,7 +6256,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 .discussion-replica-topic-kind {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.42);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -6263,7 +6275,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 .discussion-replica-topic-meta {
-  color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.74rem;
   font-weight: 700;
 }
@@ -6346,7 +6358,7 @@ html[data-theme="light"] .notification-bell-dot {
 
 .discussion-replica-thread-time {
   margin-left: auto;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.34);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -6359,17 +6371,6 @@ html[data-theme="light"] .notification-bell-dot {
   font-size: 1.12rem;
   font-weight: 700;
   line-height: 1.28;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.discussion-replica-thread-excerpt {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.78rem;
-  line-height: 1.68;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
@@ -6391,7 +6392,7 @@ html[data-theme="light"] .notification-bell-dot {
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.02);
-  color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.38);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -6464,7 +6465,7 @@ html[data-theme="light"] .notification-bell-dot {
 
 .discussion-replica-thread-author-copy span,
 .discussion-replica-contributor-copy span {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.44);
   font-size: 0.72rem;
   font-weight: 600;
 }
@@ -6473,7 +6474,7 @@ html[data-theme="light"] .notification-bell-dot {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.2rem;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.42);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -6520,7 +6521,7 @@ html[data-theme="light"] .notification-bell-dot {
 .discussion-replica-trend-row span {
   display: block;
   margin-top: 0.3rem;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.42);
   font-size: 0.7rem;
   font-weight: 700;
 }
@@ -6577,7 +6578,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 :root[data-theme="light"] .discussion-replica-caption {
-  color: rgba(97, 75, 51, 0.46);
+  color: rgba(97, 75, 51, 0.58);
 }
 
 :root[data-theme="light"] .discussion-replica-category-link {
@@ -6612,7 +6613,6 @@ html[data-theme="light"] .notification-bell-dot {
 
 :root[data-theme="light"] .discussion-replica-rules-card p,
 :root[data-theme="light"] .discussion-replica-hero p,
-:root[data-theme="light"] .discussion-replica-thread-excerpt,
 :root[data-theme="light"] .discussion-replica-trend-row span,
 :root[data-theme="light"] .discussion-replica-thread-author-copy span,
 :root[data-theme="light"] .discussion-replica-contributor-copy span,
@@ -6620,7 +6620,7 @@ html[data-theme="light"] .notification-bell-dot {
 :root[data-theme="light"] .discussion-replica-topic-meta,
 :root[data-theme="light"] .discussion-replica-topic-kind,
 :root[data-theme="light"] .discussion-replica-rule-stats span {
-  color: rgba(99, 77, 54, 0.58);
+  color: rgba(99, 77, 54, 0.7);
 }
 
 :root[data-theme="light"] .discussion-replica-divider,
@@ -6656,7 +6656,7 @@ html[data-theme="light"] .notification-bell-dot {
 }
 
 :root[data-theme="light"] .discussion-replica-thread-time {
-  color: rgba(99, 77, 54, 0.44);
+  color: rgba(99, 77, 54, 0.58);
 }
 
 :root[data-theme="light"] .discussion-replica-floating-dot {

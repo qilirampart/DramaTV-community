@@ -1,17 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
 import { usePathname, useSearchParams } from "next/navigation";
 import { PageShell } from "@/components/shared/PageShell";
 import type { DiscussionHubPageView, DiscussionThreadCardView } from "@/lib/contracts/view-models";
 import {
-  formatDiscussionDisplayExcerpt,
   formatDiscussionDisplayTag,
   formatDiscussionDisplayTitle,
   normalizeAssetUrl,
   normalizeText
 } from "@/lib/presentation";
-import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import {
+  buildBackAnchorSource,
+  buildCurrentRoute,
+  createBackAnchorId
+} from "@/lib/routes/back-anchor";
+import { useListPageBackRestore } from "@/lib/routes/list-page-back-restore";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
 
 type DiscussionsPageProps = {
@@ -211,9 +217,6 @@ function DiscussionThreadStream({ threads, className, currentRoute }: Discussion
       {threads.length > 0 ? (
         threads.map((thread, index) => {
           const threadAuthorAvatarUrl = normalizeAssetUrl(thread.author.avatarUrl);
-          const excerpt =
-            formatDiscussionDisplayExcerpt(thread.excerpt) ??
-            "\u56f4\u7ed5\u521b\u4f5c\u65b9\u6cd5\u3001\u63d0\u793a\u8bcd\u62c6\u89e3\u4e0e\u5b9e\u6218\u7ecf\u9a8c\u5c55\u5f00\u66f4\u5b8c\u6574\u7684\u8ba8\u8bba\u3002";
           const bindingLabel = thread.binding?.label ?? "\u72ec\u7acb\u5e16\u5b50";
           const anchorId = createBackAnchorId("discussion-thread", thread.id);
 
@@ -223,6 +226,7 @@ function DiscussionThreadStream({ threads, className, currentRoute }: Discussion
                 aria-label={formatDiscussionDisplayTitle(thread.title) ?? thread.title}
                 className="discussion-replica-thread-overlay"
                 href={appendBackSource(thread.href, buildBackAnchorSource(currentRoute, anchorId))}
+                prefetch={false}
               />
 
               <div className="discussion-replica-thread-body">
@@ -235,7 +239,6 @@ function DiscussionThreadStream({ threads, className, currentRoute }: Discussion
                 <h2 className="discussion-replica-thread-title">
                   {formatDiscussionDisplayTitle(thread.title) ?? thread.title}
                 </h2>
-                <p className="discussion-replica-thread-excerpt">{excerpt}</p>
 
                 {thread.tags.length > 0 ? (
                   <div className="discussion-replica-thread-tags">
@@ -298,12 +301,17 @@ export function DiscussionsPage({ view, requestedChannelSlug }: DiscussionsPageP
   const composerHref = requestedChannelSlug
     ? `/discussions/new?channel=${encodeURIComponent(requestedChannelSlug)}`
     : "/discussions/new";
-
-  useBackAnchorRestore([view.featuredThreads.length, contributors.length]);
+  const { isBackAnchorRestoring } = useListPageBackRestore({
+    currentRoute,
+    dependencies: [view.featuredThreads.length, contributors.length]
+  });
 
   return (
     <PageShell showHomeFloatingDock topNavActive="community" variant="home">
-      <div className="discussion-replica-page">
+      <div
+        aria-hidden={isBackAnchorRestoring}
+        className={`discussion-replica-page${isBackAnchorRestoring ? " discussion-replica-page-restoring" : ""}`}
+      >
         <div className="discussion-replica-layout">
           <aside className="discussion-replica-sidebar">
             <div className="discussion-replica-sidebar-block">
@@ -316,6 +324,7 @@ export function DiscussionsPage({ view, requestedChannelSlug }: DiscussionsPageP
                     }`}
                     href={category.href}
                     key={category.id}
+                    prefetch={false}
                     title={category.description}
                   >
                     <span>{category.label}</span>
@@ -416,6 +425,7 @@ export function DiscussionsPage({ view, requestedChannelSlug }: DiscussionsPageP
                       )}
                       id={createBackAnchorId("discussion-contributor", contributor.id)}
                       key={contributor.id}
+                      prefetch={false}
                     >
                       {content}
                     </Link>
@@ -432,6 +442,16 @@ export function DiscussionsPage({ view, requestedChannelSlug }: DiscussionsPageP
 
         <div className="discussion-replica-floating-dot" />
       </div>
+      {isBackAnchorRestoring ? (
+        <div className="discussion-replica-back-anchor-restore-overlay">
+          <RouteVideoLoading
+            activeNav="community"
+            label="Restoring community position"
+            useVideo={false}
+            videoActive={false}
+          />
+        </div>
+      ) : null}
     </PageShell>
   );
 }

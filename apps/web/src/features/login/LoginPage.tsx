@@ -1,10 +1,10 @@
 "use client";
 
-import type { FormEvent } from "react";
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { useActionState } from "react";
+import { submitLoginAction } from "@/app/(community)/login/actions";
 import { PageShell } from "@/components/shared/PageShell";
-import { loginAction } from "@/app/(community)/login/actions";
+import type { LoginFormState } from "@/app/(community)/login/actions";
 import type { ApiAuthProviderConfig } from "@/lib/contracts/community-api";
 import styles from "./LoginPage.module.css";
 
@@ -13,58 +13,22 @@ type LoginPageProps = {
   providerConfig: ApiAuthProviderConfig;
 };
 
-function resolveRedirectLabel(redirectTo?: string) {
-  switch (redirectTo) {
-    case "/publish":
-      return "登录后将返回发布页";
-    case "/discussions/new":
-      return "登录后将返回发帖页";
-    case "/me":
-      return "登录后将返回个人中心";
-    case "/canvas":
-      return "登录后将进入画布入口";
-    default:
-      if (redirectTo?.startsWith("/canvas/")) {
-        return "登录后将返回指定画布运行态";
-      }
-
-      return "登录后默认进入社区首页";
-  }
-}
+const LOGIN_TITLE = "\u8fdb\u5165 DramaTV \u793e\u533a";
+const USERNAME_LABEL = "\u7528\u6237\u540d";
+const PASSWORD_LABEL = "\u5bc6\u7801";
+const LOGIN_PENDING_TEXT = "\u767b\u5f55\u4e2d...";
+const LOGIN_READY_TEXT = "\u8fdb\u5165\u793e\u533a";
+const LOGIN_DISABLED_TEXT = "\u767b\u5f55\u65b9\u5f0f\u6682\u4e0d\u53ef\u7528";
+const SKIP_LOGIN_TEXT = "\u6682\u4e0d\u767b\u5f55";
+const INITIAL_LOGIN_FORM_STATE: LoginFormState = { message: null };
 
 export function LoginPage({ redirectTo, providerConfig }: LoginPageProps) {
   const primaryProvider =
     providerConfig.loginProviders.find((provider) => provider.code === providerConfig.primaryProvider) ??
     providerConfig.loginProviders.find((provider) => provider.enabled) ??
     providerConfig.loginProviders[0];
-  const [username, setUsername] = useState("creator-a");
-  const [password, setPassword] = useState("dramatv-local-dev");
-  const [notice, setNotice] = useState<string | null>(null);
-  const [pending, startTransition] = useTransition();
-  const redirectLabel = resolveRedirectLabel(redirectTo);
-  const canSubmit =
-    Boolean(primaryProvider?.enabled) &&
-    !pending &&
-    username.trim().length > 0 &&
-    password.trim().length > 0;
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setNotice(null);
-
-    startTransition(async () => {
-      const result = await loginAction({
-        loginType: primaryProvider?.code,
-        username,
-        password,
-        redirectTo
-      });
-
-      if (!result.ok) {
-        setNotice(result.message);
-      }
-    });
-  }
+  const [state, formAction, pending] = useActionState(submitLoginAction, INITIAL_LOGIN_FORM_STATE);
+  const canSubmit = Boolean(primaryProvider?.enabled) && !pending;
 
   return (
     <PageShell topNavActive="landing" variant="home">
@@ -72,47 +36,38 @@ export function LoginPage({ redirectTo, providerConfig }: LoginPageProps) {
         <section className={styles.panel}>
           <div className={styles.panelHeader}>
             <div className={styles.eyebrow}>Login</div>
-            <h1 className={styles.panelTitle}>进入 DramaTV 社区</h1>
-            <p className={styles.panelCopy}>当前用于开发联调。身份源后续会切到画布产品登录，社区页面和交互链路保持不变。</p>
-            <p className={styles.redirectHint}>{redirectLabel}</p>
+            <h1 className={styles.panelTitle}>{LOGIN_TITLE}</h1>
           </div>
 
-          {primaryProvider ? (
-            <section className={styles.providerCard} aria-label="当前登录方式">
-              <div className={styles.providerHeader}>
-                <strong>{primaryProvider.displayName}</strong>
-                <span>{primaryProvider.enabled ? "当前可用" : "暂未开放"}</span>
-              </div>
-              {primaryProvider.description ? <p className={styles.providerCopy}>{primaryProvider.description}</p> : null}
-            </section>
-          ) : null}
+          <form action={formAction} className={styles.form}>
+            <input name="redirectTo" type="hidden" value={redirectTo ?? "/home"} />
+            <input name="loginType" type="hidden" value={primaryProvider?.code ?? ""} />
 
-          <form className={styles.form} onSubmit={handleSubmit}>
             <label className={styles.field}>
-              <span className={styles.label}>用户名</span>
+              <span className={styles.label}>{USERNAME_LABEL}</span>
               <input
+                autoCapitalize="none"
                 autoComplete="username"
                 className={styles.input}
                 disabled={pending}
-                onChange={(event) => setUsername(event.target.value)}
+                name="username"
+                spellCheck={false}
                 type="text"
-                value={username}
               />
             </label>
 
             <label className={styles.field}>
-              <span className={styles.label}>密码</span>
+              <span className={styles.label}>{PASSWORD_LABEL}</span>
               <input
                 autoComplete="current-password"
                 className={styles.input}
                 disabled={pending}
-                onChange={(event) => setPassword(event.target.value)}
+                name="password"
                 type="password"
-                value={password}
               />
             </label>
 
-            {notice ? <p className={styles.notice}>{notice}</p> : null}
+            {state.message ? <p className={styles.notice}>{state.message}</p> : null}
 
             <div className={styles.actionRow}>
               <button
@@ -120,35 +75,13 @@ export function LoginPage({ redirectTo, providerConfig }: LoginPageProps) {
                 disabled={!canSubmit}
                 type="submit"
               >
-                {pending ? "登录中..." : primaryProvider?.enabled ? "进入社区" : "登录方式暂不可用"}
+                {pending ? LOGIN_PENDING_TEXT : primaryProvider?.enabled ? LOGIN_READY_TEXT : LOGIN_DISABLED_TEXT}
               </button>
               <Link className={`${styles.actionButton} ${styles.secondaryButton}`} href="/">
-                暂不登录
+                {SKIP_LOGIN_TEXT}
               </Link>
             </div>
           </form>
-
-          <div className={styles.devCard}>
-            <div className={styles.devHeader}>
-              <strong>开发环境测试账号</strong>
-              <span>当前 provider：{primaryProvider?.code ?? "unknown"}，后续会被画布侧登录替换</span>
-            </div>
-
-            <div className={styles.devGrid}>
-              <div className={styles.devItem}>
-                <span>用户名</span>
-                <code>creator-a</code>
-              </div>
-              <div className={styles.devItem}>
-                <span>密码</span>
-                <code>dramatv-local-dev</code>
-              </div>
-            </div>
-
-            <p className={styles.devCopy}>
-              如果你现在只是继续看页面，可以直接走公开浏览入口；只有写入动作和个人态页面才要求登录。
-            </p>
-          </div>
         </section>
       </main>
     </PageShell>

@@ -152,11 +152,11 @@ export async function createUserAction(
     revalidatePath("/users");
     return {
       status: "success",
-      message: password ? "账号已创建，已按填写内容设置初始密码。" : "账号已创建，未填写密码时已落到默认密码。",
+      message: password ? "账号已创建，已按填写内容设置初始密码。" : "账号已创建，已自动生成临时密码。",
       requestId: response.requestId,
       createdUserId: response.data.userId,
       temporaryPassword: response.data.temporaryPassword,
-      passwordMode: password ? "custom" : "default",
+      passwordMode: password ? "custom" : "generated",
       createdUsername: response.data.username,
       createdDisplayName: response.data.displayName
     };

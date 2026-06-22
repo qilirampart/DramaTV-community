@@ -44,11 +44,11 @@ public class AdminDashboardOverviewService {
                      where status_code in ('pending', 'processing')) as pending_report_count,
                     (select count(*)
                      from async_task_records
-                     where task_type = 'video_media_process'
+                     where task_type in ('video_media_process', 'image_media_process')
                        and status_code = 'failed') as failed_media_task_count,
                     (select count(*)
                      from async_task_records
-                     where task_type = 'video_media_process'
+                     where task_type in ('video_media_process', 'image_media_process')
                        and status_code = 'failed'
                        and retry_count < max_retry_count) as retryable_media_task_count,
                     (select count(*)
@@ -206,7 +206,7 @@ public class AdminDashboardOverviewService {
                     on task.target_type = 'prompt'
                    and prompt.id = task.target_id
                 left join users prompt_author on prompt_author.id = prompt.author_id
-                where task.task_type = 'video_media_process'
+                where task.task_type in ('video_media_process', 'image_media_process')
                   and task.status_code = 'failed'
                 order by
                     case when task.retry_count < task.max_retry_count then 0 else 1 end,

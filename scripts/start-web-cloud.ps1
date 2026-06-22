@@ -3,7 +3,7 @@ param(
   [string]$Mode = 'start',
   [string]$BindHost = 'localhost',
   [int]$Port = 3107,
-  [string]$CloudBackendBaseUrl = 'http://8.141.20.130',
+  [string]$CloudBackendBaseUrl = 'http://community.8.141.20.130.nip.io',
   [string]$DistDirName = '.next-cloud-3107',
   [int]$StartupTimeoutSec = 60,
   [switch]$SkipReadinessCheck

@@ -11,6 +11,7 @@ import type {
   PersonalCenterDraftItemView,
   PersonalCenterItemView,
   PersonalCenterPageView,
+  PromptAssetView,
   PublishPageView,
   VideoDetailPageView,
   VideoMiniCardView,
@@ -21,6 +22,7 @@ import type {
   ApiCanvasRuntime,
   ApiComment,
   ApiCommentPage,
+  ApiCreatorWorkSummary,
   ApiCreatorProfile,
   ApiCursorPage,
   ApiDiscussionHomeResponse,
@@ -39,6 +41,7 @@ import type {
   ApiWorkflowDetail,
   ApiWorkflowSummary
 } from "@/lib/contracts/community-api";
+import { resolvePrefillVideoCardMediaFallback } from "@/lib/prefill/prefill-video-fallback";
 import { normalizeAssetUrl } from "@/lib/presentation";
 
 export function mapComment(comment: ApiComment): CommentView {
@@ -156,6 +159,120 @@ function formatFavoriteCountLabel(value: number): string {
   return `${value.toLocaleString("zh-CN")} favorites`;
 }
 
+function formatAssetSizeLabel(sizeBytes?: number): string | undefined {
+  if (typeof sizeBytes !== "number" || !Number.isFinite(sizeBytes) || sizeBytes <= 0) {
+    return undefined;
+  }
+
+  const units = ["B", "KB", "MB", "GB"];
+  let value = sizeBytes;
+  let unitIndex = 0;
+
+  while (value >= 1024 && unitIndex < units.length - 1) {
+    value /= 1024;
+    unitIndex += 1;
+  }
+
+  const rounded = value >= 10 || unitIndex === 0 ? Math.round(value) : Number(value.toFixed(1));
+  return `${rounded}${units[unitIndex]}`;
+}
+
+function formatAssetDurationLabel(durationMs?: number): string | undefined {
+  if (typeof durationMs !== "number" || !Number.isFinite(durationMs) || durationMs <= 0) {
+    return undefined;
+  }
+
+  const totalSeconds = Math.max(1, Math.round(durationMs / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  if (minutes === 0) {
+    return `${totalSeconds}s`;
+  }
+
+  return `${minutes}m ${seconds.toString().padStart(2, "0")}s`;
+}
+
+function resolvePromptAssetBadgeLabel(
+  asset: ApiPromptDetail["examples"][number]
+): PromptAssetView["badgeLabel"] {
+  if (asset.role === "reference_image") {
+    return "参考图";
+  }
+
+  if (asset.role === "reference_audio") {
+    return "参考音频";
+  }
+
+  if (asset.assetKind === "video") {
+    return "主视频";
+  }
+
+  if (asset.assetKind === "audio") {
+    return "主音频";
+  }
+
+  return "主图片";
+}
+
+function normalizePromptAssetRole(
+  asset: ApiPromptDetail["examples"][number]
+): PromptAssetView["role"] {
+  if (asset.role === "reference_image" || asset.role === "reference_audio" || asset.role === "example") {
+    return asset.role;
+  }
+
+  return asset.assetKind === "audio" ? "reference_audio" : "example";
+}
+
+function buildPromptAssetMetaLabel(asset: ApiPromptDetail["examples"][number]): string | undefined {
+  const parts: string[] = [];
+
+  if (
+    asset.assetKind === "image" &&
+    typeof asset.width === "number" &&
+    asset.width > 0 &&
+    typeof asset.height === "number" &&
+    asset.height > 0
+  ) {
+    parts.push(`${asset.width}×${asset.height}`);
+  }
+
+  const durationLabel = formatAssetDurationLabel(asset.durationMs);
+  if (durationLabel) {
+    parts.push(durationLabel);
+  }
+
+  const sizeLabel = formatAssetSizeLabel(asset.sizeBytes);
+  if (sizeLabel) {
+    parts.push(sizeLabel);
+  }
+
+  return parts.length > 0 ? parts.join(" · ") : undefined;
+}
+
+function mapPromptAsset(
+  asset: ApiPromptDetail["examples"][number],
+  previewImageUrl?: string
+): PromptAssetView {
+  const normalizedRole = normalizePromptAssetRole(asset);
+
+  return {
+    id: asset.id,
+    role: normalizedRole,
+    assetKind: asset.assetKind,
+    url: normalizeAssetUrl(asset.url),
+    fileName: asset.fileName?.trim() || `asset-${asset.id.slice(0, 8)}`,
+    sizeBytes: asset.sizeBytes,
+    width: asset.width,
+    height: asset.height,
+    durationMs: asset.durationMs,
+    badgeLabel: resolvePromptAssetBadgeLabel(asset),
+    metaLabel: buildPromptAssetMetaLabel(asset),
+    previewImageUrl
+  };
+}
+
 function mapDiscussionBinding(
   binding:
     | ApiDiscussionHomeResponse["featuredThreads"][number]["binding"]
@@ -178,15 +295,29 @@ function mapDiscussionBinding(
   };
 }
 
-function mapVideoMiniCard(video: ApiVideoSummary): VideoMiniCardView {
+export function mapVideoMiniCard(video: ApiVideoSummary): VideoMiniCardView {
+  const normalizedCoverUrl = normalizeAssetUrl(video.coverUrl);
+  const normalizedPosterUrl = normalizeAssetUrl(video.posterUrl);
+  const normalizedPreviewUrl = normalizeAssetUrl(video.previewUrl);
+  const normalizedSourceUrl = normalizeAssetUrl(video.sourceUrl);
+  const fallbackMedia = resolvePrefillVideoCardMediaFallback({
+    title: video.title,
+    summary: video.summary,
+    coverUrl: normalizedCoverUrl,
+    posterUrl: normalizedPosterUrl,
+    previewUrl: normalizedPreviewUrl,
+    sourceUrl: normalizedSourceUrl
+  });
+
   return {
     id: video.id,
+    itemType: "video",
     title: video.title,
     href: `/videos/${video.id}`,
-    coverUrl: normalizeAssetUrl(video.coverUrl) ?? normalizeAssetUrl(video.posterUrl) ?? "",
-    posterUrl: normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl),
-    previewUrl: normalizeAssetUrl(video.previewUrl),
-    sourceUrl: normalizeAssetUrl(video.sourceUrl),
+    coverUrl: normalizedCoverUrl ?? normalizedPosterUrl ?? fallbackMedia?.coverUrl ?? fallbackMedia?.posterUrl ?? "",
+    posterUrl: normalizedPosterUrl ?? normalizedCoverUrl ?? fallbackMedia?.posterUrl ?? fallbackMedia?.coverUrl,
+    previewUrl: normalizedPreviewUrl ?? fallbackMedia?.previewUrl,
+    sourceUrl: normalizedSourceUrl ?? fallbackMedia?.sourceUrl,
     durationMs: video.durationMs,
     summary: video.summary,
     likeCount: video.likeCount,
@@ -199,9 +330,11 @@ function mapVideoMiniCard(video: ApiVideoSummary): VideoMiniCardView {
   };
 }
 
-function mapPromptMiniCard(prompt: ApiPromptSummary): VideoMiniCardView {
+export function mapPromptMiniCard(prompt: ApiPromptSummary): VideoMiniCardView {
   return {
     id: prompt.id,
+    itemType: "prompt",
+    promptModality: prompt.modality,
     title: prompt.title,
     href: `/prompts/${prompt.id}`,
     coverUrl: normalizeAssetUrl(prompt.coverUrl) ?? normalizeAssetUrl(prompt.posterUrl) ?? "",
@@ -218,7 +351,50 @@ function mapPromptMiniCard(prompt: ApiPromptSummary): VideoMiniCardView {
   };
 }
 
-function mapWorkflowMiniCard(workflow: ApiWorkflowSummary): WorkflowMiniCardView {
+export function mapCreatorWorkMiniCard(work: ApiCreatorWorkSummary): VideoMiniCardView {
+  const normalizedCoverUrl = normalizeAssetUrl(work.coverUrl);
+  const normalizedPosterUrl = normalizeAssetUrl(work.posterUrl);
+  const normalizedPreviewUrl = normalizeAssetUrl(work.previewUrl);
+  const normalizedSourceUrl = normalizeAssetUrl(work.sourceUrl);
+  const fallbackMedia =
+    work.itemType === "video"
+      ? resolvePrefillVideoCardMediaFallback({
+          title: work.title,
+          summary: work.summary,
+          coverUrl: normalizedCoverUrl,
+          posterUrl: normalizedPosterUrl,
+          previewUrl: normalizedPreviewUrl,
+          sourceUrl: normalizedSourceUrl
+        })
+      : null;
+
+  return {
+    id: work.id,
+    itemType: work.itemType,
+    promptModality: work.itemType === "prompt" ? work.promptModality : undefined,
+    title: work.title,
+    href: work.itemType === "prompt" ? `/prompts/${work.id}` : `/videos/${work.id}`,
+    coverUrl:
+      normalizedCoverUrl ??
+      normalizedPosterUrl ??
+      fallbackMedia?.coverUrl ??
+      fallbackMedia?.posterUrl ??
+      "",
+    posterUrl: normalizedPosterUrl ?? normalizedCoverUrl ?? fallbackMedia?.posterUrl ?? fallbackMedia?.coverUrl,
+    previewUrl: normalizedPreviewUrl ?? fallbackMedia?.previewUrl,
+    sourceUrl: normalizedSourceUrl ?? fallbackMedia?.sourceUrl,
+    summary: work.summary,
+    likeCount: work.likeCount,
+    playCount: work.playCount,
+    author: {
+      ...work.author,
+      avatarUrl: normalizeAssetUrl(work.author.avatarUrl)
+    },
+    workflow: work.workflow
+  };
+}
+
+export function mapWorkflowMiniCard(workflow: ApiWorkflowSummary): WorkflowMiniCardView {
   return {
     id: workflow.id,
     title: workflow.title,
@@ -376,8 +552,31 @@ export function mapPromptDetailPageView(
   related: ApiEnvelope<ApiPromptSummary[]>,
   comments?: ApiEnvelope<ApiCommentPage>
 ): VideoDetailPageView {
-  const primaryImageExample = detail.data.examples.find((item) => item.assetKind === "image");
-  const primaryVideoExample = detail.data.examples.find((item) => item.assetKind === "video");
+  const exampleAssets = detail.data.examples ?? [];
+  const primaryImageExample =
+    exampleAssets.find((item) => item.role === "example" && item.assetKind === "image") ??
+    exampleAssets.find((item) => item.assetKind === "image");
+  const primaryVideoExample =
+    exampleAssets.find((item) => item.role === "example" && item.assetKind === "video") ??
+    exampleAssets.find((item) => item.assetKind === "video");
+  const normalizedCoverUrl =
+    normalizeAssetUrl(detail.data.coverUrl) ??
+    normalizeAssetUrl(detail.data.posterUrl) ??
+    (primaryImageExample?.assetKind === "image" ? normalizeAssetUrl(primaryImageExample.url) : undefined);
+  const normalizedPosterUrl =
+    normalizeAssetUrl(detail.data.posterUrl) ??
+    normalizeAssetUrl(detail.data.coverUrl) ??
+    (primaryImageExample?.assetKind === "image" ? normalizeAssetUrl(primaryImageExample.url) : undefined);
+  const promptAssets = exampleAssets.map((asset) =>
+    mapPromptAsset(
+      asset,
+      asset.assetKind === "image"
+        ? normalizeAssetUrl(asset.url)
+        : asset.role === "example" && asset.assetKind === "video"
+          ? normalizedCoverUrl ?? normalizedPosterUrl
+          : undefined
+    )
+  );
 
   return {
     id: detail.data.id,
@@ -387,13 +586,14 @@ export function mapPromptDetailPageView(
     tags: detail.data.tagNames,
     media: {
       kind: detail.data.modality,
-      coverUrl: normalizeAssetUrl(detail.data.coverUrl) ?? normalizeAssetUrl(detail.data.posterUrl) ?? normalizeAssetUrl(primaryImageExample?.url),
-      posterUrl: normalizeAssetUrl(detail.data.posterUrl) ?? normalizeAssetUrl(detail.data.coverUrl) ?? normalizeAssetUrl(primaryImageExample?.url),
-      previewUrl: normalizeAssetUrl(detail.data.previewUrl) ?? normalizeAssetUrl(primaryVideoExample?.url),
+      coverUrl: normalizedCoverUrl,
+      posterUrl: normalizedPosterUrl,
+      previewUrl: normalizeAssetUrl(detail.data.previewUrl),
       sourceUrl:
-        normalizeAssetUrl(detail.data.sourceUrl) ??
-        normalizeAssetUrl(detail.data.previewUrl) ??
-        normalizeAssetUrl(primaryVideoExample?.url),
+        detail.data.modality === "video"
+          ? normalizeAssetUrl(detail.data.sourceUrl) ??
+            (primaryVideoExample?.assetKind === "video" ? normalizeAssetUrl(primaryVideoExample.url) : undefined)
+          : undefined,
       durationMs: primaryVideoExample?.durationMs
     },
     author: {
@@ -401,6 +601,12 @@ export function mapPromptDetailPageView(
       displayName: detail.data.author.displayName,
       avatarUrl: normalizeAssetUrl(detail.data.author.avatarUrl),
       followed: detail.data.viewerActions.followedAuthor
+    },
+    promptAssets: {
+      primary: promptAssets.find((asset) => asset.role === "example"),
+      referenceImages: promptAssets.filter((asset) => asset.role === "reference_image"),
+      referenceAudios: promptAssets.filter((asset) => asset.role === "reference_audio"),
+      all: promptAssets
     },
     stats: {
       playCount: detail.data.stats.exampleCount,
@@ -460,7 +666,7 @@ export function mapWorkflowDetailPageView(
 
 export function mapCreatorPageView(
   profile: ApiEnvelope<ApiCreatorProfile>,
-  videos: ApiEnvelope<ApiCursorPage<ApiVideoSummary>>,
+  works: ApiEnvelope<ApiCursorPage<ApiCreatorWorkSummary>>,
   workflows: ApiEnvelope<ApiCursorPage<ApiWorkflowSummary>>,
   posts: ApiEnvelope<ApiCursorPage<ApiDiscussionHomeResponse["featuredThreads"][number]>>
 ): CreatorPageView {
@@ -474,10 +680,10 @@ export function mapCreatorPageView(
       followed: profile.data.viewerActions.followed
     },
     stats: profile.data.stats,
-    videos: videos.data.items.map(mapVideoMiniCard),
+    works: works.data.items.map(mapCreatorWorkMiniCard),
     workflows: workflows.data.items.map(mapWorkflowMiniCard),
     posts: posts.data.items.map(mapDiscussionThreadCard),
-    nextVideoCursor: videos.data.nextCursor ?? undefined,
+    nextWorksCursor: works.data.nextCursor ?? undefined,
     nextWorkflowCursor: workflows.data.nextCursor ?? undefined,
     nextPostCursor: posts.data.nextCursor ?? undefined
   };
@@ -492,6 +698,7 @@ export function mapPersonalCenterPageView(
       avatarUrl: normalizeAssetUrl(response.data.profile.avatarUrl)
     },
     publishedVideos: response.data.publishedContent.videos.map(mapVideoMiniCard),
+    publishedPrompts: response.data.publishedContent.prompts.map(mapPromptMiniCard),
     publishedWorkflows: response.data.publishedContent.workflows.map(mapWorkflowMiniCard),
     likedItems: response.data.likedItems.map(mapPersonalCenterItem),
     favoritedItems: response.data.favoritedItems.map(mapPersonalCenterItem),

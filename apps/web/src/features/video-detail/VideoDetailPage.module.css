@@ -24,6 +24,7 @@
 .heroGrid {
   --detail-media-height: 528px;
   --detail-support-height: 122px;
+  --detail-title-block-height: 88px;
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.94fr);
   gap: 34px;
@@ -48,9 +49,27 @@
   box-shadow: 0 28px 68px rgba(0, 0, 0, 0.32);
 }
 
+.mediaFrameZoomable {
+  cursor: zoom-in;
+}
+
+.mediaFrameZoomable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(5, 7, 10, 0.08));
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.mediaFrameZoomable:hover::after {
+  opacity: 1;
+}
+
 .contentColumn {
   height: calc(var(--detail-media-height) + var(--detail-support-height));
-  grid-template-rows: auto auto 108px auto minmax(0, 1fr) auto auto;
+  grid-template-rows: auto var(--detail-title-block-height) 108px auto minmax(0, 1fr) auto auto;
   align-content: stretch;
 }
 
@@ -104,6 +123,26 @@
   font-size: 0.94rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.mediaDoubleTapHint {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(5, 7, 10, 0.58);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  pointer-events: none;
 }
 
 .authorCard,
@@ -246,12 +285,22 @@
   opacity: 0.7;
 }
 
+.titleBlock {
+  min-height: var(--detail-title-block-height);
+  max-height: var(--detail-title-block-height);
+  overflow: hidden;
+}
+
 .title {
   margin: 0;
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
-  font-size: clamp(2.2rem, 3.1vw, 3.34rem);
-  line-height: 1.02;
-  letter-spacing: -0.06em;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: clamp(1.86rem, 2.45vw, 2.46rem);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .summary {
@@ -389,6 +438,352 @@
   line-height: 1.82;
 }
 
+.promptAssetSection {
+  display: grid;
+  gap: 14px;
+}
+
+.promptAssetSectionSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.promptAssetSectionCopy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.promptAssetSectionMeta {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.promptAssetOpenButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.promptAssetOpenButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.promptAssetModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(12px);
+}
+
+.promptAssetModal {
+  width: min(980px, 100%);
+  max-height: min(82vh, 920px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: rgba(12, 12, 14, 0.98);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.promptAssetModalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 24px 18px;
+}
+
+.promptAssetModalHeading {
+  display: grid;
+  gap: 6px;
+}
+
+.promptAssetModalEyebrow {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.promptAssetModalHeading h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1.34rem;
+  font-weight: 800;
+}
+
+.promptAssetModalHeading p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.promptAssetModalClose {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.promptAssetModalBody {
+  display: grid;
+  gap: 14px;
+  padding: 0 24px 24px;
+  overflow-y: auto;
+}
+
+.detailImagePreviewBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  background: rgba(3, 5, 8, 0.84);
+  backdrop-filter: blur(12px);
+}
+
+.detailImagePreviewModal {
+  width: min(1180px, 100%);
+  max-height: min(92vh, 980px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(22, 24, 29, 0.94), rgba(9, 11, 15, 0.98)),
+    rgba(8, 10, 14, 0.96);
+  box-shadow: 0 36px 88px rgba(0, 0, 0, 0.42);
+  overflow: hidden;
+}
+
+.detailImagePreviewHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 24px 18px;
+}
+
+.detailImagePreviewHeading {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.detailImagePreviewEyebrow {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detailImagePreviewHeading h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+
+.detailImagePreviewHeading p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.detailImagePreviewClose {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.detailImagePreviewBody {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: 0 24px 24px;
+}
+
+.detailImagePreviewImage {
+  display: block;
+  max-width: 100%;
+  max-height: min(74vh, 840px);
+  border-radius: 22px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.34);
+}
+
+.promptAssetGroup {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.promptAssetGroupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.promptAssetGroupHeader strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.promptAssetGroupHeader span {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.promptAssetList {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.promptAssetItem {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.promptAssetPreview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.02);
+  background-position: center;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.promptAssetPreview svg {
+  width: 20px;
+  height: 20px;
+}
+
+.promptAssetCopy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.promptAssetBadge {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.promptAssetCopy strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.promptAssetCopy span:last-child {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.promptAssetDownload,
+.promptAssetUnavailable {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.promptAssetDownload svg {
+  width: 16px;
+  height: 16px;
+}
+
+.promptAssetUnavailable {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .metricRow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -419,6 +814,8 @@
 .metricButton:hover,
 .panelLink:hover,
 .panelLinkButton:hover,
+.promptAssetOpenButton:hover,
+.promptAssetDownload:hover,
 .secondaryAction:hover,
 .authorLink:hover,
 .followButton:hover,
@@ -871,6 +1268,13 @@
 :global(:root[data-theme="light"]) .workflowCard,
 :global(:root[data-theme="light"]) .relatedSection,
 :global(:root[data-theme="light"]) .promptPanel,
+:global(:root[data-theme="light"]) .promptAssetSectionSummary,
+:global(:root[data-theme="light"]) .promptAssetGroup,
+:global(:root[data-theme="light"]) .promptAssetModal,
+:global(:root[data-theme="light"]) .promptAssetPreview,
+:global(:root[data-theme="light"]) .promptAssetOpenButton,
+:global(:root[data-theme="light"]) .promptAssetDownload,
+:global(:root[data-theme="light"]) .promptAssetUnavailable,
 :global(:root[data-theme="light"]) .metricButton,
 :global(:root[data-theme="light"]) .commentComposer,
 :global(:root[data-theme="light"]) .commentItem,
@@ -913,13 +1317,49 @@
 
 :global(:root[data-theme="light"]) .typeBadge,
 :global(:root[data-theme="light"]) .secondaryPill,
-:global(:root[data-theme="light"]) .secondaryPlaceholder {
+:global(:root[data-theme="light"]) .secondaryPlaceholder,
+:global(:root[data-theme="light"]) .promptAssetBadge {
   background: rgba(255, 255, 255, 0.74);
   color: #6a5038;
 }
 
 :global(:root[data-theme="light"]) .commentAvatarFallback {
   color: #6f5437;
+}
+
+:global(:root[data-theme="light"]) .promptAssetSectionMeta,
+:global(:root[data-theme="light"]) .promptAssetModalEyebrow,
+:global(:root[data-theme="light"]) .promptAssetModalHeading p,
+:global(:root[data-theme="light"]) .detailImagePreviewEyebrow,
+:global(:root[data-theme="light"]) .detailImagePreviewHeading p,
+:global(:root[data-theme="light"]) .promptAssetGroupHeader span,
+:global(:root[data-theme="light"]) .promptAssetCopy span:last-child,
+:global(:root[data-theme="light"]) .promptAssetUnavailable {
+  color: rgba(84, 62, 39, 0.62);
+}
+
+:global(:root[data-theme="light"]) .promptAssetModalHeading h2,
+:global(:root[data-theme="light"]) .detailImagePreviewHeading h2,
+:global(:root[data-theme="light"]) .promptAssetGroupHeader strong,
+:global(:root[data-theme="light"]) .promptAssetCopy strong,
+:global(:root[data-theme="light"]) .promptAssetOpenButton,
+:global(:root[data-theme="light"]) .promptAssetDownload {
+  color: #24170e;
+}
+
+:global(:root[data-theme="light"]) .detailImagePreviewModal {
+  border-color: rgba(121, 93, 63, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(247, 241, 233, 0.98)),
+    rgba(255, 252, 247, 0.96);
+  box-shadow: 0 36px 88px rgba(129, 98, 67, 0.18);
+}
+
+:global(:root[data-theme="light"]) .detailImagePreviewClose,
+:global(:root[data-theme="light"]) .mediaDoubleTapHint {
+  border-color: rgba(121, 93, 63, 0.12);
+  background: rgba(255, 255, 255, 0.84);
+  color: #24170e;
 }
 
 :global(:root[data-theme="light"]) .promptPanel pre,
@@ -972,6 +1412,8 @@
 :global(:root[data-theme="light"]) .metricButton:hover,
 :global(:root[data-theme="light"]) .panelLink:hover,
 :global(:root[data-theme="light"]) .panelLinkButton:hover,
+:global(:root[data-theme="light"]) .promptAssetOpenButton:hover,
+:global(:root[data-theme="light"]) .promptAssetDownload:hover,
 :global(:root[data-theme="light"]) .secondaryAction:hover,
 :global(:root[data-theme="light"]) .authorLink:hover,
 :global(:root[data-theme="light"]) .followButton:hover,
@@ -1004,6 +1446,49 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .promptAssetSectionSummary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .promptAssetOpenButton {
+    width: 100%;
+  }
+
+  .promptAssetModalBackdrop {
+    padding: 16px;
+  }
+
+  .detailImagePreviewBackdrop {
+    padding: 16px;
+  }
+
+  .promptAssetModalHeader {
+    padding: 22px 18px 16px;
+  }
+
+  .detailImagePreviewHeader {
+    padding: 22px 18px 16px;
+  }
+
+  .promptAssetModalBody {
+    padding: 0 18px 18px;
+  }
+
+  .detailImagePreviewBody {
+    padding: 0 18px 18px;
+  }
+
+  .promptAssetItem {
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .promptAssetDownload,
+  .promptAssetUnavailable {
+    grid-column: 2;
+    width: fit-content;
+  }
+
   .recommendHeaderOffset {
     padding-bottom: 0;
   }
@@ -1026,6 +1511,13 @@
     min-height: 360px;
   }
 
+  .mediaDoubleTapHint {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+  }
+
   .authorCard {
     grid-template-columns: 1fr;
   }
@@ -1039,8 +1531,12 @@
     grid-template-columns: 1fr;
   }
 
+  .heroGrid {
+    --detail-title-block-height: 74px;
+  }
+
   .title {
-    font-size: 2.06rem;
+    font-size: 1.7rem;
   }
 
   .summary,
@@ -1059,6 +1555,15 @@
 
   .commentComposer {
     padding: 20px 18px 18px;
+  }
+
+  .detailImagePreviewModal {
+    border-radius: 24px;
+  }
+
+  .detailImagePreviewImage {
+    max-height: min(68vh, 620px);
+    border-radius: 18px;
   }
 
   .commentItem {

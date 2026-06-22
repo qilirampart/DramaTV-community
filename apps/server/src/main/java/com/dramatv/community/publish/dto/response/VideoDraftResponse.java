@@ -17,6 +17,8 @@ public record VideoDraftResponse(
         String visibility,
         String coverAssetId,
         String sourceAssetId,
+        List<String> referenceImageAssetIds,
+        List<String> referenceAudioAssetIds,
         String statusCode,
         DraftLifecycleResponse lifecycle
 ) {

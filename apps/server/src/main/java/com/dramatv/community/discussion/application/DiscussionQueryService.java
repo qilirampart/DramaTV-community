@@ -48,6 +48,10 @@ public class DiscussionQueryService {
     }
 
     public List<DiscussionHomeResponse.ThreadCard> listThreadsForAuthor(String creatorId) {
+        return listThreadsForAuthor(creatorId, 48, 0);
+    }
+
+    public List<DiscussionHomeResponse.ThreadCard> listThreadsForAuthor(String creatorId, int limit, int offset) {
         UUID authorId = parseUuid(creatorId);
         if (authorId == null) {
             return List.of();
@@ -112,12 +116,15 @@ public class DiscussionQueryService {
                   and thread.publish_status = 'published'
                   and thread.deleted_at is null
                 order by coalesce(thread.last_activity_at, thread.published_at, thread.updated_at) desc
-                limit 48
+                limit ?
+                offset ?
                 """,
                 this::mapThreadCard,
                 viewerId,
                 viewerId,
-                authorId
+                authorId,
+                limit,
+                offset
         );
     }
 

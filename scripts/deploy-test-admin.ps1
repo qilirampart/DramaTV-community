@@ -4,10 +4,11 @@ param(
   [string]$ServiceName = "dramatv-community-admin",
   [int]$AdminPort = 3206,
   [string]$BackendBaseUrl = "http://127.0.0.1:18080",
-  [string]$CommunityPublicBaseUrl = "http://8.141.20.130",
-  [string]$AdminPublicBaseUrl = "http://8.141.20.130:3206",
+  [string]$CommunityPublicBaseUrl = "http://community.8.141.20.130.nip.io",
+  [string]$AdminPublicBaseUrl = "http://community.8.141.20.130.nip.io/admin",
   [string]$NodeVersion = "24.11.0",
   [string]$DistDirName = ".next-admin",
+  [string]$AdminBasePath = "/admin",
   [string]$ReleaseLabel = "",
   [string]$ReleaseNotes = "",
   [switch]$VerifyBeforeDeploy,
@@ -63,9 +64,14 @@ Require-File -Path $helperPath -Label "release helper"
 . $helperPath
 
 $connection = Get-TestEnvConnectionInfo -Workspace $workspace -ResourceFile $ResourceFile
-$normalizedBackendBaseUrl = $BackendBaseUrl.TrimEnd("/")
-$normalizedCommunityPublicBaseUrl = $CommunityPublicBaseUrl.TrimEnd("/")
-$normalizedAdminPublicBaseUrl = $AdminPublicBaseUrl.TrimEnd("/")
+$normalizedBackendBaseUrl = Get-ValidatedAbsoluteUrl -Url $BackendBaseUrl -Label "BackendBaseUrl"
+$validatedPublicBaseUrls = Assert-AdminPublicBaseUrls `
+  -CommunityPublicBaseUrl $CommunityPublicBaseUrl `
+  -AdminPublicBaseUrl $AdminPublicBaseUrl `
+  -AdminBasePath $AdminBasePath
+$normalizedCommunityPublicBaseUrl = $validatedPublicBaseUrls.CommunityPublicBaseUrl
+$normalizedAdminPublicBaseUrl = $validatedPublicBaseUrls.AdminPublicBaseUrl
+$normalizedAdminBasePath = $validatedPublicBaseUrls.AdminBasePath
 $deployTimestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 
 if ($VerifyBeforeDeploy) {
@@ -107,8 +113,11 @@ NODE_ENV=production
 HOSTNAME=0.0.0.0
 PORT=$AdminPort
 DRAMATV_ADMIN_API_BASE_URL=$normalizedBackendBaseUrl
+DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106
 NEXT_PUBLIC_DRAMATV_ADMIN_API_BASE_URL=$normalizedCommunityPublicBaseUrl
 NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=$normalizedCommunityPublicBaseUrl
+NEXT_PUBLIC_DRAMATV_ADMIN_BASE_PATH=$normalizedAdminBasePath
+DRAMATV_ADMIN_BASE_PATH=$normalizedAdminBasePath
 DRAMATV_ADMIN_NEXT_DIST_DIR=$DistDirName
 NEXT_TELEMETRY_DISABLED=1
 "@
@@ -286,12 +295,14 @@ if ($VerifyAfterDeploy) {
   Invoke-LocalCommand `
     -Executable $node `
     -Arguments @(
-      $verifyScript,
-      "--base-url",
-      $normalizedAdminPublicBaseUrl,
-      "--mode",
-      "public",
-      "--output",
+    $verifyScript,
+    "--base-url",
+    $normalizedAdminPublicBaseUrl,
+    "--base-path",
+    $normalizedAdminBasePath,
+    "--mode",
+    "public",
+    "--output",
       $verifyPublicOutput
     ) `
     -Label "deploy:verify:post:test:admin:public"
@@ -305,7 +316,7 @@ if ($VerifyAfterDeploy) {
     -PlinkPath $plink `
     -HostKey $hostKey `
     -ConnectionInfo $connection `
-    -Command "node $remoteSmokeScriptPath --base-url http://127.0.0.1:$AdminPort --backend-base-url $normalizedBackendBaseUrl --mode full --output $remoteSmokeOutputPath"
+    -Command "node $remoteSmokeScriptPath --base-url http://127.0.0.1:$AdminPort --base-path $normalizedAdminBasePath --backend-base-url $normalizedBackendBaseUrl --mode full --output $remoteSmokeOutputPath"
 
   & $pscp -batch -hostkey $hostKey -pw $connection.ServerPassword "root@$($connection.ServerHost):$remoteSmokeOutputPath" $verifyInternalOutput
   if ($LASTEXITCODE -ne 0) {

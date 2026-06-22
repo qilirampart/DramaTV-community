@@ -39,7 +39,6 @@ public class AdminUserGovernanceService {
     private static final Set<String> ALLOWED_ROLE_CODES = Set.of("creator", "admin", "operator", "moderator");
     private static final Set<String> ALLOWED_STATUS_CODES = Set.of("active", "pending", "disabled");
     private static final String LOCAL_IDENTITY_PROVIDER = "local";
-    private static final String DEFAULT_CREATED_USER_PASSWORD = "dramatv-local-dev";
     private static final String PASSWORD_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
     private static final SecureRandom PASSWORD_RANDOM = new SecureRandom();
 
@@ -235,6 +234,7 @@ public class AdminUserGovernanceService {
         }
 
         UUID userId = UUID.randomUUID();
+        boolean customPasswordProvided = request.password() != null && !request.password().trim().isEmpty();
         String initialPassword = resolveCreatePassword(request.password());
         String passwordHash = passwordEncoder.encode(initialPassword);
 
@@ -291,7 +291,7 @@ public class AdminUserGovernanceService {
         metadataParts.add("roleCode=" + normalizedRoleCode);
         metadataParts.add("email=" + nullableMetadata(normalizedEmail));
         metadataParts.add("phone=" + nullableMetadata(normalizedPhone));
-        metadataParts.add("passwordMode=" + (DEFAULT_CREATED_USER_PASSWORD.equals(initialPassword) ? "default" : "custom"));
+        metadataParts.add("passwordMode=" + (customPasswordProvided ? "custom" : "generated"));
 
         adminAuditLogService.recordSuccessfulOperation(
                 operator,
@@ -828,12 +828,12 @@ public class AdminUserGovernanceService {
 
     private String resolveCreatePassword(String password) {
         if (password == null) {
-            return DEFAULT_CREATED_USER_PASSWORD;
+            return generateTemporaryPassword();
         }
 
         String normalized = password.trim();
         if (normalized.isEmpty()) {
-            return DEFAULT_CREATED_USER_PASSWORD;
+            return generateTemporaryPassword();
         }
         return normalized;
     }

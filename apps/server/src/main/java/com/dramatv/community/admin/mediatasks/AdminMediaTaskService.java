@@ -31,7 +31,6 @@ public class AdminMediaTaskService {
 
     private static final Logger log = LoggerFactory.getLogger(AdminMediaTaskService.class);
     private static final String[] MANAGE_ROLES = {"admin", "operator", "moderator"};
-    private static final String VIDEO_MEDIA_PROCESS = "video_media_process";
     private static final int DEFAULT_PAGE = 1;
     private static final int DEFAULT_PAGE_SIZE = 15;
     private static final int MAX_PAGE_SIZE = 100;
@@ -79,7 +78,7 @@ public class AdminMediaTaskService {
                     on task.target_type = 'prompt'
                    and prompt.id = task.target_id
                 left join users prompt_author on prompt_author.id = prompt.author_id
-                where task.task_type = 'video_media_process'
+                where task.task_type in ('video_media_process', 'image_media_process')
             )
             """;
 

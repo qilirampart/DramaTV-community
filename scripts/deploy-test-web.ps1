@@ -4,8 +4,8 @@ param(
   [string]$ServiceName = "dramatv-community-web",
   [int]$FrontendPort = 3106,
   [string]$BackendBaseUrl = "http://127.0.0.1:18080",
-  [string]$PublicBaseUrl = "http://8.141.20.130",
-  [string]$ServerNames = "_",
+  [string]$PublicBaseUrl = "http://community.8.141.20.130.nip.io",
+  [string]$ServerNames = "community.8.141.20.130.nip.io",
   [string]$NodeVersion = "24.11.0",
   [string]$DistDirName = ".next-public",
   [string]$ReleaseLabel = "",
@@ -185,9 +185,9 @@ $script:ServerHost = Get-RequiredMatch -InputText $resource -Pattern "(?m)^\s*(\
 $rootLineIndex = Find-FirstLineIndex -Lines $lines -Pattern "(^|[:\uFF1A])\s*root\s*$"
 $script:ServerPassword = Get-NextValueAfterIndex -Lines $lines -StartIndex $rootLineIndex -Label "server password"
 
-$normalizedBackendBaseUrl = $BackendBaseUrl.TrimEnd("/")
-$normalizedPublicBaseUrl = $PublicBaseUrl.TrimEnd("/")
-$normalizedServerNames = if ([string]::IsNullOrWhiteSpace($ServerNames)) { "_" } else { $ServerNames.Trim() }
+$normalizedBackendBaseUrl = (Get-ValidatedAbsoluteUrl -Url $BackendBaseUrl -Label "BackendBaseUrl")
+$normalizedPublicBaseUrl = Assert-RootPublicBaseUrl -Url $PublicBaseUrl -Label "PublicBaseUrl"
+$normalizedServerNames = Assert-ServerNamesMatchPublicBaseUrl -ServerNames $ServerNames -PublicBaseUrl $normalizedPublicBaseUrl
 $deployTimestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 
 if ($VerifyBeforeDeploy) {
@@ -212,6 +212,7 @@ try {
   & $tar `
     --exclude=node_modules `
     --exclude=.next `
+    --exclude=.next-dev-* `
     --exclude=.next-cloud-3107 `
     --exclude=.next-deploy-public `
     --exclude=.env.local `
@@ -292,6 +293,30 @@ server {
     location = /api/me/notifications/recent {
         proxy_pass http://127.0.0.1:$FrontendPort;
         proxy_http_version 1.1;
+        proxy_intercept_errors on;
+        error_page 502 503 504 = @community_notifications_recent_fallback;
+
+        proxy_set_header Upgrade `$http_upgrade;
+        proxy_set_header Connection `$connection_upgrade;
+        proxy_set_header Host `$host;
+        proxy_set_header X-Real-IP `$remote_addr;
+        proxy_set_header X-Forwarded-For `$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto `$scheme;
+        proxy_set_header X-Forwarded-Host `$host;
+        proxy_set_header X-Forwarded-Port `$server_port;
+
+        proxy_buffering off;
+    }
+
+    location @community_notifications_recent_fallback {
+        default_type application/json;
+        add_header Cache-Control "no-store" always;
+        return 200 '{"code":"ME_NOTIFICATIONS_EDGE_FALLBACK","message":"Loading recent notifications failed.","data":{"items":[]},"requestId":"me-notifications-edge-fallback"}';
+    }
+
+    location = /api/featured-prompts {
+        proxy_pass http://127.0.0.1:$FrontendPort;
+        proxy_http_version 1.1;
 
         proxy_set_header Upgrade `$http_upgrade;
         proxy_set_header Connection `$connection_upgrade;
@@ -306,6 +331,38 @@ server {
     }
 
     location = /api/public/featured-prompts {
+        proxy_pass http://127.0.0.1:$FrontendPort;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade `$http_upgrade;
+        proxy_set_header Connection `$connection_upgrade;
+        proxy_set_header Host `$host;
+        proxy_set_header X-Real-IP `$remote_addr;
+        proxy_set_header X-Forwarded-For `$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto `$scheme;
+        proxy_set_header X-Forwarded-Host `$host;
+        proxy_set_header X-Forwarded-Port `$server_port;
+
+        proxy_buffering off;
+    }
+
+    location = /api/featured-inventory {
+        proxy_pass http://127.0.0.1:$FrontendPort;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade `$http_upgrade;
+        proxy_set_header Connection `$connection_upgrade;
+        proxy_set_header Host `$host;
+        proxy_set_header X-Real-IP `$remote_addr;
+        proxy_set_header X-Forwarded-For `$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto `$scheme;
+        proxy_set_header X-Forwarded-Host `$host;
+        proxy_set_header X-Forwarded-Port `$server_port;
+
+        proxy_buffering off;
+    }
+
+    location = /api/public/featured-inventory {
         proxy_pass http://127.0.0.1:$FrontendPort;
         proxy_http_version 1.1;
 
@@ -347,6 +404,38 @@ server {
         proxy_set_header X-Forwarded-Port `$server_port;
         proxy_set_header Range `$http_range;
         proxy_set_header If-Range `$http_if_range;
+
+        proxy_buffering off;
+    }
+
+    location = /admin {
+        proxy_pass http://127.0.0.1:3206;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade `$http_upgrade;
+        proxy_set_header Connection `$connection_upgrade;
+        proxy_set_header Host `$host;
+        proxy_set_header X-Real-IP `$remote_addr;
+        proxy_set_header X-Forwarded-For `$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto `$scheme;
+        proxy_set_header X-Forwarded-Host `$host;
+        proxy_set_header X-Forwarded-Port `$server_port;
+
+        proxy_buffering off;
+    }
+
+    location ^~ /admin/ {
+        proxy_pass http://127.0.0.1:3206;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade `$http_upgrade;
+        proxy_set_header Connection `$connection_upgrade;
+        proxy_set_header Host `$host;
+        proxy_set_header X-Real-IP `$remote_addr;
+        proxy_set_header X-Forwarded-For `$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto `$scheme;
+        proxy_set_header X-Forwarded-Host `$host;
+        proxy_set_header X-Forwarded-Port `$server_port;
 
         proxy_buffering off;
     }

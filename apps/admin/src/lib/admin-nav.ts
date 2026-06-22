@@ -69,7 +69,7 @@ export const ADMIN_NAV_GROUPS: readonly AdminNavGroup[] = [
       {
         href: "/feed-ops/home",
         label: "运营配置",
-        note: "首页、精选页与讨论区展示编排",
+        note: "首页、精选页、落地页与讨论区展示编排",
         allowedRoles: OPS_ROLES
       },
       {

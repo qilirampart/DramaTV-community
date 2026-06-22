@@ -111,7 +111,7 @@ class AdminTaxonomyLoggingIntegrationTest extends ApiIntegrationTestSupport {
         String promptId = insertPrompt(
                 author.userId(),
                 "Taxonomy bulk logging prompt",
-                "image",
+                "video",
                 null,
                 null,
                 null
@@ -125,11 +125,11 @@ class AdminTaxonomyLoggingIntegrationTest extends ApiIntegrationTestSupport {
                             MockMvcRequestBuilders.post("/api/admin/taxonomy/prompts/bulk-apply")
                                     .contentType(MediaType.APPLICATION_JSON)
                                     .content(objectMapper.writeValueAsString(Map.of(
-                                            "modality", "image",
+                                            "modality", "video",
                                             "promptIds", List.of(promptId),
-                                            "modelCategory", "midjourney",
-                                            "contentCategory", "scene",
-                                            "compositionCategory", "multi-model"
+                                            "modelCategory", "seedance",
+                                            "contentCategory", "animation",
+                                            "modelUsageCategory", "multi-model"
                                     ))),
                             operator.accessToken()))
                     .andExpect(status().isOk());
@@ -137,15 +137,15 @@ class AdminTaxonomyLoggingIntegrationTest extends ApiIntegrationTestSupport {
             ILoggingEvent event = findEvent(appender, "admin taxonomy bulk apply success:");
             assertThat(event.getFormattedMessage())
                     .contains("operatorId=" + operator.userId())
-                    .contains("modality=image")
+                    .contains("modality=video")
                     .contains("promptCount=1")
-                    .contains("modelCategory=midjourney")
-                    .contains("contentCategory=scene")
+                    .contains("modelCategory=seedance")
+                    .contains("contentCategory=animation")
                     .contains("compositionCategory=multi-model");
             assertThat(event.getMDCPropertyMap())
                     .containsEntry("targetType", "taxonomy_prompt_batch")
-                    .containsEntry("targetId", "image:1")
-                    .containsEntry("bizContext", "targetType=taxonomy_prompt_batch,targetId=image:1");
+                    .containsEntry("targetId", "video:1")
+                    .containsEntry("bizContext", "targetType=taxonomy_prompt_batch,targetId=video:1");
         } finally {
             detachAppender(logger, appender);
         }

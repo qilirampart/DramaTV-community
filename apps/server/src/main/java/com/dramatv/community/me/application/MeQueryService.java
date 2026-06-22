@@ -6,6 +6,8 @@ import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.identity.application.CurrentUserService;
 import com.dramatv.community.me.dto.response.MeHubResponse;
 import com.dramatv.community.me.dto.response.MeNotificationsResponse;
+import com.dramatv.community.prompt.application.PromptQueryService;
+import com.dramatv.community.prompt.dto.response.PromptSummaryResponse;
 import com.dramatv.community.publish.application.PublishDraftLifecycleQueryService;
 import com.dramatv.community.publish.persistence.PersistedPublishDraft;
 import com.dramatv.community.shared.media.JdbcMediaUrlResolver;
@@ -36,6 +38,7 @@ public class MeQueryService {
     private final CurrentUserService currentUserService;
     private final JdbcMediaUrlResolver jdbcMediaUrlResolver;
     private final VideoQueryService videoQueryService;
+    private final PromptQueryService promptQueryService;
     private final WorkflowQueryService workflowQueryService;
     private final DiscussionQueryService discussionQueryService;
     private final PublishDraftLifecycleQueryService publishDraftLifecycleQueryService;
@@ -46,6 +49,7 @@ public class MeQueryService {
             CurrentUserService currentUserService,
             JdbcMediaUrlResolver jdbcMediaUrlResolver,
             VideoQueryService videoQueryService,
+            PromptQueryService promptQueryService,
             WorkflowQueryService workflowQueryService,
             DiscussionQueryService discussionQueryService,
             PublishDraftLifecycleQueryService publishDraftLifecycleQueryService,
@@ -55,6 +59,7 @@ public class MeQueryService {
         this.currentUserService = currentUserService;
         this.jdbcMediaUrlResolver = jdbcMediaUrlResolver;
         this.videoQueryService = videoQueryService;
+        this.promptQueryService = promptQueryService;
         this.workflowQueryService = workflowQueryService;
         this.discussionQueryService = discussionQueryService;
         this.publishDraftLifecycleQueryService = publishDraftLifecycleQueryService;
@@ -64,6 +69,7 @@ public class MeQueryService {
     public MeHubResponse loadHub() {
         CurrentUser currentUser = currentUserService.requireCurrentUser();
         List<VideoSummaryResponse> publishedVideos = videoQueryService.summariesForAuthor(currentUser.id().toString());
+        List<PromptSummaryResponse> publishedPrompts = promptQueryService.summariesForAuthor(currentUser.id().toString());
         List<WorkflowSummaryResponse> publishedWorkflows = workflowQueryService.summariesForAuthor(currentUser.id().toString());
         List<DiscussionHomeResponse.ThreadCard> publishedPosts = discussionQueryService.listThreadsForAuthor(currentUser.id().toString());
 
@@ -74,6 +80,7 @@ public class MeQueryService {
                 loadDraftItems(currentUser.id()),
                 new MeHubResponse.PublishedContent(
                         publishedVideos,
+                        publishedPrompts,
                         publishedWorkflows,
                         publishedPosts
                 )

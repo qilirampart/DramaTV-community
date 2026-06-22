@@ -2,17 +2,22 @@ package com.dramatv.community.prompt.application;
 
 import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.identity.application.CurrentUserContext;
+import com.dramatv.community.prompt.dto.response.FeaturedPromptInventoryResponse;
 import com.dramatv.community.prompt.dto.response.PromptDetailResponse;
 import com.dramatv.community.prompt.dto.response.PromptSummaryResponse;
 import com.dramatv.community.shared.error.ApiBusinessException;
 import com.dramatv.community.shared.media.JdbcMediaUrlResolver;
+import com.dramatv.community.shared.response.CursorPageResponse;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -23,10 +28,13 @@ import org.springframework.stereotype.Service;
 public class PromptQueryService {
 
     private static final Set<String> SUPPORTED_MODALITIES = Set.of("all", "image", "video");
+    private static final Set<String> SUPPORTED_FEATURED_FILTERS = Set.of("all", "image_prompt", "video_prompt");
     private static final Set<String> SUPPORTED_SORTS = Set.of("latest", "hot");
     private static final int DEFAULT_LIST_LIMIT = 24;
     private static final int DEFAULT_LIST_OFFSET = 0;
     private static final int MAX_LIST_LIMIT = 10000;
+    private static final int MAX_FEATURED_LIST_LIMIT = 48;
+    private static final String OFFSET_CURSOR_PREFIX = "offset:";
 
     private final JdbcTemplate jdbcTemplate;
     private final JdbcMediaUrlResolver jdbcMediaUrlResolver;
@@ -134,6 +142,122 @@ public class PromptQueryService {
                 sql.toString(),
                 (resultSet, rowNum) -> mapPromptSummary(resultSet),
                 params
+        );
+    }
+
+    public FeaturedPromptInventoryResponse loadFeaturedInventory(
+            String filter,
+            String sort,
+            String query,
+            String modelCategory,
+            String contentCategory,
+            Integer limit,
+            String cursor
+    ) {
+        String normalizedFilter = normalizeFilter(filter, "all", SUPPORTED_FEATURED_FILTERS, "PROMPT_FILTER_INVALID");
+        String normalizedSort = normalizeFilter(sort, "latest", SUPPORTED_SORTS, "PROMPT_SORT_INVALID");
+        String normalizedQuery = normalizeSearchQuery(query);
+        String normalizedModelCategory = normalizeOptionalFilterValue(modelCategory);
+        String normalizedContentCategory = normalizeOptionalFilterValue(contentCategory);
+        int normalizedLimit = normalizeFeaturedLimit(limit);
+        int normalizedOffset = decodeOffsetCursor(cursor);
+
+        FeaturedPromptInventoryResponse.Summary summary = new FeaturedPromptInventoryResponse.Summary(
+                loadFeaturedPromptCounts(normalizedQuery),
+                loadPromptFacetSummary("video", normalizedQuery),
+                loadPromptFacetSummary("image", normalizedQuery)
+        );
+
+        CursorPageResponse<PromptSummaryResponse> page = loadFeaturedPromptPage(
+                normalizedFilter,
+                normalizedSort,
+                normalizedQuery,
+                normalizedModelCategory,
+                normalizedContentCategory,
+                normalizedLimit,
+                normalizedOffset
+        );
+
+        return new FeaturedPromptInventoryResponse(summary, page);
+    }
+
+    public List<PromptSummaryResponse> summariesForAuthor(String creatorId) {
+        return summariesForAuthor(creatorId, 200, 0);
+    }
+
+    public List<PromptSummaryResponse> summariesForAuthor(String creatorId, int limit, int offset) {
+        UUID authorId = parseUuid(creatorId);
+        if (authorId == null) {
+            return List.of();
+        }
+
+        UUID viewerId = optionalViewerId();
+
+        return jdbcTemplate.query("""
+                select
+                    prompt.id,
+                    prompt.title,
+                    prompt.summary,
+                    prompt.modality,
+                    cover.storage_provider as cover_storage_provider,
+                    cover.bucket_name as cover_bucket_name,
+                    cover.object_key as cover_url,
+                    cover.asset_kind as cover_asset_kind,
+                    primary_example.storage_provider as primary_example_storage_provider,
+                    primary_example.bucket_name as primary_example_bucket_name,
+                    primary_example.object_key as primary_example_url,
+                    primary_example.asset_kind as primary_example_asset_kind,
+                    preview_example.storage_provider as preview_example_storage_provider,
+                    preview_example.bucket_name as preview_example_bucket_name,
+                    preview_example.object_key as preview_example_url,
+                    preview_example.asset_kind as preview_example_asset_kind,
+                    prompt.model_category,
+                    prompt.content_category,
+                    prompt.composition_category,
+                    author.id as author_id,
+                    author.display_name as author_display_name,
+                    coalesce(author_avatar_asset.object_key, author.avatar_url) as author_avatar_url,
+                    author_avatar_asset.storage_provider as author_avatar_storage_provider,
+                    author_avatar_asset.bucket_name as author_avatar_bucket_name,
+                    prompt.tag_names,
+                    prompt.like_count,
+                    prompt.favorite_count,
+                    prompt.example_count,
+                    exists(
+                        select 1
+                        from interaction_actions action
+                        where action.actor_id = ?
+                          and action.action_type = 'like'
+                          and action.target_type = 'prompt'
+                          and action.target_id = prompt.id
+                          and action.status_code = 'active'
+                    ) as viewer_liked
+                from prompt_entries prompt
+                join users author on author.id = prompt.author_id
+                left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
+                left join media_assets cover on cover.id = prompt.cover_asset_id
+                left join media_assets primary_example on primary_example.id = prompt.primary_example_asset_id
+                left join media_assets preview_example on preview_example.id = (
+                    select link.media_asset_id
+                    from prompt_example_links link
+                    where link.prompt_id = prompt.id
+                      and link.role_code = 'preview'
+                    order by link.sort_order asc, link.created_at asc
+                    limit 1
+                )
+                where prompt.author_id = ?
+                  and prompt.publish_status = 'published'
+                  and prompt.deleted_at is null
+                order by coalesce(prompt.published_at, prompt.updated_at) desc,
+                         prompt.like_count desc
+                limit ?
+                offset ?
+                """,
+                (resultSet, rowNum) -> mapPromptSummary(resultSet),
+                viewerId,
+                authorId,
+                limit,
+                offset
         );
     }
 
@@ -418,29 +542,286 @@ public class PromptQueryService {
                 .toList();
     }
 
+    private FeaturedPromptInventoryResponse.Counts loadFeaturedPromptCounts(String normalizedQuery) {
+        StringBuilder sql = new StringBuilder("""
+                select prompt.modality, count(*) as total
+                from prompt_entries prompt
+                join users author on author.id = prompt.author_id
+                where prompt.publish_status = 'published'
+                  and prompt.deleted_at is null
+                """);
+        List<Object> params = new ArrayList<>();
+        appendPromptSearchClause(sql, params, normalizedQuery);
+        sql.append("""
+                group by prompt.modality
+                """);
+
+        Map<String, Long> totals = jdbcTemplate.query(
+                sql.toString(),
+                resultSet -> {
+                    LinkedHashMap<String, Long> counts = new LinkedHashMap<>();
+                    while (resultSet.next()) {
+                        counts.put(resultSet.getString("modality"), resultSet.getLong("total"));
+                    }
+                    return counts;
+                },
+                params.toArray()
+        );
+
+        long imagePromptCount = totals.getOrDefault("image", 0L);
+        long videoPromptCount = totals.getOrDefault("video", 0L);
+        return new FeaturedPromptInventoryResponse.Counts(
+                imagePromptCount + videoPromptCount,
+                videoPromptCount,
+                imagePromptCount
+        );
+    }
+
+    private FeaturedPromptInventoryResponse.PromptFacetSummary loadPromptFacetSummary(
+            String modality,
+            String normalizedQuery
+    ) {
+        return new FeaturedPromptInventoryResponse.PromptFacetSummary(
+                loadFacetCountMap(modality, normalizedQuery, "model_category"),
+                loadFacetCountMap(modality, normalizedQuery, "content_category")
+        );
+    }
+
+    private Map<String, Long> loadFacetCountMap(String modality, String normalizedQuery, String columnName) {
+        StringBuilder sql = new StringBuilder("""
+                select prompt.""");
+        sql.append(columnName).append("""
+                 as facet_value,
+                       count(*) as total
+                from prompt_entries prompt
+                join users author on author.id = prompt.author_id
+                where prompt.publish_status = 'published'
+                  and prompt.deleted_at is null
+                  and prompt.modality = ?
+                  and prompt.""");
+        sql.append(columnName).append(" is not null\n");
+        sql.append("                  and prompt.").append(columnName).append(" <> ''\n");
+        List<Object> params = new ArrayList<>();
+        params.add(modality);
+        appendPromptSearchClause(sql, params, normalizedQuery);
+        sql.append("                group by prompt.").append(columnName).append('\n');
+        sql.append("                order by count(*) desc, prompt.").append(columnName).append(" asc\n");
+
+        LinkedHashMap<String, Long> counts = jdbcTemplate.query(
+                sql.toString(),
+                resultSet -> {
+                    LinkedHashMap<String, Long> values = new LinkedHashMap<>();
+                    while (resultSet.next()) {
+                        values.put(resultSet.getString("facet_value"), resultSet.getLong("total"));
+                    }
+                    return values;
+                },
+                params.toArray()
+        );
+        return counts;
+    }
+
+    private CursorPageResponse<PromptSummaryResponse> loadFeaturedPromptPage(
+            String normalizedFilter,
+            String normalizedSort,
+            String normalizedQuery,
+            String normalizedModelCategory,
+            String normalizedContentCategory,
+            int normalizedLimit,
+            int normalizedOffset
+    ) {
+        UUID viewerId = optionalViewerId();
+        StringBuilder sql = new StringBuilder("""
+                select
+                    prompt.id,
+                    prompt.title,
+                    prompt.summary,
+                    prompt.modality,
+                    cover.storage_provider as cover_storage_provider,
+                    cover.bucket_name as cover_bucket_name,
+                    cover.object_key as cover_url,
+                    cover.asset_kind as cover_asset_kind,
+                    primary_example.storage_provider as primary_example_storage_provider,
+                    primary_example.bucket_name as primary_example_bucket_name,
+                    primary_example.object_key as primary_example_url,
+                    primary_example.asset_kind as primary_example_asset_kind,
+                    preview_example.storage_provider as preview_example_storage_provider,
+                    preview_example.bucket_name as preview_example_bucket_name,
+                    preview_example.object_key as preview_example_url,
+                    preview_example.asset_kind as preview_example_asset_kind,
+                    prompt.model_category,
+                    prompt.content_category,
+                    prompt.composition_category,
+                    author.id as author_id,
+                    author.display_name as author_display_name,
+                    coalesce(author_avatar_asset.object_key, author.avatar_url) as author_avatar_url,
+                    author_avatar_asset.storage_provider as author_avatar_storage_provider,
+                    author_avatar_asset.bucket_name as author_avatar_bucket_name,
+                    prompt.tag_names,
+                    prompt.like_count,
+                    prompt.favorite_count,
+                    prompt.example_count,
+                    exists(
+                        select 1
+                        from interaction_actions action
+                        where action.actor_id = ?
+                          and action.action_type = 'like'
+                          and action.target_type = 'prompt'
+                          and action.target_id = prompt.id
+                          and action.status_code = 'active'
+                    ) as viewer_liked
+                from prompt_entries prompt
+                join users author on author.id = prompt.author_id
+                left join media_assets author_avatar_asset on author_avatar_asset.id = author.avatar_asset_id
+                left join media_assets cover on cover.id = prompt.cover_asset_id
+                left join media_assets primary_example on primary_example.id = prompt.primary_example_asset_id
+                left join media_assets preview_example on preview_example.id = (
+                    select link.media_asset_id
+                    from prompt_example_links link
+                    where link.prompt_id = prompt.id
+                      and link.role_code = 'preview'
+                    order by link.sort_order asc, link.created_at asc
+                    limit 1
+                )
+                where prompt.publish_status = 'published'
+                  and prompt.deleted_at is null
+                """);
+        List<Object> params = new ArrayList<>();
+        params.add(viewerId);
+        appendFeaturedPromptPageFilters(
+                sql,
+                params,
+                normalizedFilter,
+                normalizedQuery,
+                normalizedModelCategory,
+                normalizedContentCategory
+        );
+
+        if ("hot".equals(normalizedSort)) {
+            sql.append("""
+                    order by prompt.like_count desc,
+                             prompt.favorite_count desc,
+                             coalesce(prompt.published_at, prompt.updated_at) desc,
+                             prompt.id desc
+                    """);
+        } else {
+            sql.append("""
+                    order by coalesce(prompt.published_at, prompt.updated_at) desc,
+                             prompt.like_count desc,
+                             prompt.id desc
+                    """);
+        }
+
+        sql.append("""
+                limit ?
+                offset ?
+                """);
+        params.add(normalizedLimit + 1);
+        params.add(normalizedOffset);
+
+        List<PromptSummaryResponse> rows = jdbcTemplate.query(
+                sql.toString(),
+                (resultSet, rowNum) -> mapPromptSummary(resultSet),
+                params.toArray()
+        );
+        boolean hasMore = rows.size() > normalizedLimit;
+        List<PromptSummaryResponse> items = hasMore ? rows.subList(0, normalizedLimit) : rows;
+        String nextCursor = hasMore ? encodeOffsetCursor(normalizedOffset + items.size()) : null;
+        return new CursorPageResponse<>(items, nextCursor, hasMore);
+    }
+
+    private void appendFeaturedPromptPageFilters(
+            StringBuilder sql,
+            List<Object> params,
+            String normalizedFilter,
+            String normalizedQuery,
+            String normalizedModelCategory,
+            String normalizedContentCategory
+    ) {
+        String modality = toPromptModalityFromFeaturedFilter(normalizedFilter);
+        if (modality != null) {
+            sql.append("""
+                      and prompt.modality = ?
+                    """);
+            params.add(modality);
+        }
+
+        appendPromptSearchClause(sql, params, normalizedQuery);
+
+        if (modality != null && normalizedModelCategory != null) {
+            sql.append("""
+                      and prompt.model_category = ?
+                    """);
+            params.add(normalizedModelCategory);
+        }
+
+        if (modality != null && normalizedContentCategory != null) {
+            sql.append("""
+                      and prompt.content_category = ?
+                    """);
+            params.add(normalizedContentCategory);
+        }
+    }
+
+    private void appendPromptSearchClause(StringBuilder sql, List<Object> params, String normalizedQuery) {
+        if (normalizedQuery == null) {
+            return;
+        }
+
+        String likePattern = "%" + escapeSqlLike(normalizedQuery.toLowerCase(Locale.ROOT)) + "%";
+        sql.append("""
+                  and (
+                          lower(prompt.title) like ? escape '\\'
+                       or lower(coalesce(author.display_name, '')) like ? escape '\\'
+                       or exists(
+                              select 1
+                              from unnest(coalesce(prompt.tag_names, array[]::text[])) as tag_name
+                              where lower(tag_name) like ? escape '\\'
+                          )
+                  )
+                """);
+        params.add(likePattern);
+        params.add(likePattern);
+        params.add(likePattern);
+    }
+
     private List<PromptDetailResponse.ExampleAsset> loadExampleAssets(UUID promptId) {
         return jdbcTemplate.query("""
                 select
                     asset.id,
+                    link.role_code,
                     asset.asset_kind,
-                    asset.storage_provider as object_key_storage_provider,
-                    asset.bucket_name as object_key_bucket_name,
-                    asset.object_key,
+                    asset.storage_provider as asset_storage_provider,
+                    asset.bucket_name as asset_bucket_name,
+                    asset.object_key as asset_url,
+                    asset.file_name,
                     asset.mime_type,
+                    asset.size_bytes,
                     asset.width,
                     asset.height,
                     asset.duration_ms
                 from prompt_example_links link
                 join media_assets asset on asset.id = link.media_asset_id
                 where link.prompt_id = ?
-                  and link.role_code = 'example'
-                order by link.sort_order asc, link.created_at asc
+                  and link.role_code in ('example', 'reference_image', 'reference_audio')
+                order by
+                    case link.role_code
+                        when 'example' then 0
+                        when 'reference_image' then 1
+                        when 'reference_audio' then 2
+                        else 9
+                    end,
+                    link.sort_order asc,
+                    link.created_at asc
                 """,
                 (resultSet, rowNum) -> new PromptDetailResponse.ExampleAsset(
                         resultSet.getObject("id").toString(),
+                        resultSet.getString("role_code"),
                         resultSet.getString("asset_kind"),
-                        jdbcMediaUrlResolver.resolve(resultSet, "object_key"),
+                        jdbcMediaUrlResolver.resolve(resultSet, "asset_url"),
+                        resultSet.getString("file_name"),
                         resultSet.getString("mime_type"),
+                        resultSet.getObject("size_bytes", Long.class),
                         resultSet.getObject("width", Integer.class),
                         resultSet.getObject("height", Integer.class),
                         resultSet.getObject("duration_ms", Integer.class)
@@ -564,10 +945,7 @@ public class PromptQueryService {
     }
 
     private String resolvePromptPreviewUrl(ResultSet resultSet) throws SQLException {
-        String previewUrl = resolveVideoMediaUrl(resultSet, "preview_example_url", "preview_example_asset_kind");
-        return previewUrl != null
-                ? previewUrl
-                : resolveVideoMediaUrl(resultSet, "primary_example_url", "primary_example_asset_kind");
+        return resolveVideoMediaUrl(resultSet, "preview_example_url", "preview_example_asset_kind");
     }
 
     private String resolvePromptSourceUrl(ResultSet resultSet) throws SQLException {
@@ -623,6 +1001,76 @@ public class PromptQueryService {
         }
 
         return value;
+    }
+
+    private String toPromptModalityFromFeaturedFilter(String normalizedFilter) {
+        return switch (normalizedFilter) {
+            case "video_prompt" -> "video";
+            case "image_prompt" -> "image";
+            default -> null;
+        };
+    }
+
+    private String normalizeSearchQuery(String value) {
+        if (value == null) {
+            return null;
+        }
+
+        String normalized = value.trim();
+        return normalized.isEmpty() ? null : normalized;
+    }
+
+    private String normalizeOptionalFilterValue(String value) {
+        if (value == null) {
+            return null;
+        }
+
+        String normalized = value.trim().toLowerCase(Locale.ROOT);
+        return normalized.isEmpty() ? null : normalized;
+    }
+
+    private int normalizeFeaturedLimit(Integer value) {
+        if (value == null) {
+            return DEFAULT_LIST_LIMIT;
+        }
+
+        if (value <= 0) {
+            throw ApiBusinessException.badRequest("PROMPT_LIMIT_INVALID", "limit must be positive");
+        }
+
+        return Math.min(value, MAX_FEATURED_LIST_LIMIT);
+    }
+
+    private int decodeOffsetCursor(String cursor) {
+        if (cursor == null || cursor.isBlank()) {
+            return DEFAULT_LIST_OFFSET;
+        }
+
+        String normalized = cursor.trim();
+        if (!normalized.startsWith(OFFSET_CURSOR_PREFIX)) {
+            throw ApiBusinessException.badRequest("PROMPT_CURSOR_INVALID", "unsupported cursor");
+        }
+
+        try {
+            int offset = Integer.parseInt(normalized.substring(OFFSET_CURSOR_PREFIX.length()));
+            if (offset < 0) {
+                throw ApiBusinessException.badRequest("PROMPT_CURSOR_INVALID", "cursor must not be negative");
+            }
+            return offset;
+        } catch (NumberFormatException ex) {
+            throw ApiBusinessException.badRequest("PROMPT_CURSOR_INVALID", "unsupported cursor");
+        }
+    }
+
+    private String encodeOffsetCursor(int offset) {
+        return OFFSET_CURSOR_PREFIX + offset;
+    }
+
+    private String escapeSqlLike(String value) {
+        return value
+                .replace("\\", "\\\\")
+                .replace("%", "\\%")
+                .replace("_", "\\_");
     }
 
     private UUID optionalViewerId() {

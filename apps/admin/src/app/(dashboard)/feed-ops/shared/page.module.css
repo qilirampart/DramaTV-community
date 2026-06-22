@@ -78,6 +78,25 @@
   gap: 10px;
 }
 
+.modeSwitchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modeSwitchLabel {
+  color: var(--admin-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.modeSwitchGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .tab {
   display: inline-flex;
   align-items: center;
@@ -118,7 +137,7 @@
 .layout {
   position: relative;
   display: grid;
-  grid-template-columns: 332px minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   gap: 14px;
   align-items: start;
 }
@@ -409,6 +428,7 @@
 }
 
 .mediaBadge {
+  display: none;
   position: absolute;
   top: 6px;
   right: 6px;
@@ -504,6 +524,7 @@
 }
 
 .mediaOpenHint {
+  display: none;
   position: absolute;
   left: 8px;
   bottom: 8px;
@@ -992,6 +1013,10 @@
   gap: 4px;
 }
 
+.arrangeModeSwitch {
+  justify-self: start;
+}
+
 .arrangeTitleRow {
   display: flex;
   align-items: center;
@@ -1123,6 +1148,11 @@
   gap: 10px;
 }
 
+.arrangeSearchField {
+  flex: 1 1 240px;
+  min-width: 220px;
+}
+
 .arrangePanelList {
   display: grid;
   gap: 10px;
@@ -1149,6 +1179,14 @@
 }
 
 .arrangeColumns > .arrangePanel:first-child .arrangePanelListViewport {
+  padding: 10px;
+  border: 1px solid rgba(226, 232, 240, 0.88);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.arrangeColumns > .arrangePanel:last-child .arrangePanelListViewport {
+  height: clamp(260px, calc(100vh - 360px), 560px);
   padding: 10px;
   border: 1px solid rgba(226, 232, 240, 0.88);
   border-radius: 12px;
@@ -1348,7 +1386,7 @@
 }
 
 .arrangePreviewStrip {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
@@ -1427,13 +1465,13 @@
 
 @media (max-width: 1540px) {
   .layout {
-    grid-template-columns: 308px minmax(0, 1fr) 336px;
+    grid-template-columns: minmax(0, 1fr) 336px;
   }
 }
 
 @media (max-width: 1440px) {
   .layout {
-    grid-template-columns: 292px minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .previewCard {
@@ -1478,6 +1516,11 @@
 
   .tabRow {
     flex-wrap: wrap;
+  }
+
+  .modeSwitchRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .previewActions,

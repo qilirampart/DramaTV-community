@@ -12,12 +12,15 @@ public class VideoMediaProcessingProperties {
     private boolean workerEnabled = true;
     private long workerDelayMs = 2000L;
     private int batchSize = 2;
-    private long compressionThresholdBytes = 20L * 1024L * 1024L;
+    private long compressionThresholdBytes = 6L * 1024L * 1024L;
     private long previewTargetMaxBytes = 16L * 1024L * 1024L;
     private int previewMaxHeight = 720;
     private int previewAudioBitrateKbps = 96;
     private int previewMinVideoBitrateKbps = 500;
     private int previewMaxVideoBitrateKbps = 2600;
+    private long imageCoverThresholdBytes = 1024L * 1024L;
+    private int imageCoverMaxWidth = 1600;
+    private int imageCoverMaxHeight = 1600;
     private String ffmpegPath = "";
     private String ffprobePath = "";
 
@@ -91,6 +94,30 @@ public class VideoMediaProcessingProperties {
 
     public void setPreviewMaxVideoBitrateKbps(int previewMaxVideoBitrateKbps) {
         this.previewMaxVideoBitrateKbps = previewMaxVideoBitrateKbps;
+    }
+
+    public long getImageCoverThresholdBytes() {
+        return imageCoverThresholdBytes;
+    }
+
+    public void setImageCoverThresholdBytes(long imageCoverThresholdBytes) {
+        this.imageCoverThresholdBytes = imageCoverThresholdBytes;
+    }
+
+    public int getImageCoverMaxWidth() {
+        return imageCoverMaxWidth;
+    }
+
+    public void setImageCoverMaxWidth(int imageCoverMaxWidth) {
+        this.imageCoverMaxWidth = imageCoverMaxWidth;
+    }
+
+    public int getImageCoverMaxHeight() {
+        return imageCoverMaxHeight;
+    }
+
+    public void setImageCoverMaxHeight(int imageCoverMaxHeight) {
+        this.imageCoverMaxHeight = imageCoverMaxHeight;
     }
 
     public String getFfmpegPath() {

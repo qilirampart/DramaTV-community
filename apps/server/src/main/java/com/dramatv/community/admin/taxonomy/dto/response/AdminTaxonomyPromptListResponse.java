@@ -5,6 +5,7 @@ import java.util.List;
 
 public record AdminTaxonomyPromptListResponse(
         Summary summary,
+        Pagination pagination,
         List<Item> items
 ) {
 
@@ -13,6 +14,16 @@ public record AdminTaxonomyPromptListResponse(
             long needsAttentionItems,
             long imageItems,
             long videoItems
+    ) {
+    }
+
+    public record Pagination(
+            int page,
+            int pageSize,
+            long totalItems,
+            int totalPages,
+            boolean hasPrevious,
+            boolean hasNext
     ) {
     }
 

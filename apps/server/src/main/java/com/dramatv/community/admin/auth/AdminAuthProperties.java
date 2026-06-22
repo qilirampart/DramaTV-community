@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "dramatv.admin-auth")
 public class AdminAuthProperties {
 
-    private boolean allowLocalBootstrap = true;
-    private String bootstrapPassword = "dramatv-admin-demo";
+    private boolean allowLocalBootstrap = false;
+    private String bootstrapPassword = "";
 
     public boolean isAllowLocalBootstrap() {
         return allowLocalBootstrap;

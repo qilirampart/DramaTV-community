@@ -46,6 +46,7 @@ public record AdminResourceListResponse(
             String channelTitle,
             String bindingTargetType,
             String bindingTargetId,
+            String promptModality,
             Media media,
             List<String> modelTags
     ) {

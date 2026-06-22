@@ -4,33 +4,40 @@ import {
   AdminBackendError,
   getAdminTaxonomy,
   listAdminTaxonomyPrompts,
-  type AdminTaxonomyPromptListData,
-  type AdminTaxonomyData
+  type AdminTaxonomyData,
+  type AdminTaxonomyItemData,
+  type AdminTaxonomyPromptListData
 } from "@/lib/admin-service";
-import { bulkApplyTaxonomyAction, updateTaxonomyAction } from "./actions";
+import {
+  createTaxonomyCategoryAction,
+  deleteTaxonomyCategoryAction,
+  rebindTaxonomyPromptsAction,
+  updateTaxonomyAction
+} from "./actions";
 import styles from "./page.module.css";
 
-type SectionKey = "image-model" | "video-model" | "content-category" | "composition-category";
+type SectionKey =
+  | "image-model"
+  | "video-model"
+  | "image-content-category"
+  | "video-content-category"
+  | "video-model-usage";
+
 type ExposureFlag = "homepage" | "featured" | "publish";
+type PoolMode = "rebind" | "cleanup";
+type PromptModality = "image" | "video";
+type ResourceKind = "image" | "video";
 
-type MetricItem = {
+type SectionViewModel = {
+  key: SectionKey;
   label: string;
-  value: string;
-  delta: string;
-  kind: "enabled" | "disabled" | "visible" | "pending";
+  description: string;
+  promptCount: number;
+  categoryCount: number;
+  items: readonly ItemViewModel[];
 };
 
-type TaxonomyGovernance = {
-  hasCustomConfig: boolean;
-  statusCode: string;
-  sortOrder: number;
-  exposureFlags: readonly ExposureFlag[];
-  noteText: string | null;
-  updatedByDisplayName: string | null;
-  updatedAt: string | null;
-};
-
-type TaxonomyItem = {
+type ItemViewModel = {
   value: string;
   label: string;
   modalityScope: string;
@@ -38,52 +45,88 @@ type TaxonomyItem = {
   authorCount: number;
   latestPublishedAt: string;
   sampleTitles: readonly string[];
-  governance: TaxonomyGovernance;
+  governance: {
+    hasCustomConfig: boolean;
+    statusCode: string;
+    sortOrder: number;
+    exposureFlags: readonly ExposureFlag[];
+    noteText: string | null;
+    updatedByDisplayName: string | null;
+    updatedAt: string | null;
+  };
 };
 
-type TaxonomySection = {
-  key: SectionKey;
+type PromptPoolViewModel = {
+  summary: AdminTaxonomyPromptListData["summary"];
+  pagination: AdminTaxonomyPromptListData["pagination"];
+  items: Array<{
+    promptId: string;
+    title: string;
+    modality: PromptModality;
+    authorDisplayName: string;
+    modelCategory: string | null;
+    contentCategory: string | null;
+    compositionCategory: string | null;
+    needsAttention: boolean;
+    publishedAt: string;
+    tagNames: readonly string[];
+  }>;
+  errorMessage: string | null;
+};
+
+type PageState = {
+  sections: readonly SectionViewModel[];
+  activeSection: SectionViewModel | null;
+  activeItem: ItemViewModel | null;
+  poolMode: PoolMode;
+  promptPool: PromptPoolViewModel;
+  pageErrorMessage: string | null;
+};
+
+const SECTION_ORDER: readonly SectionKey[] = [
+  "image-model",
+  "video-model",
+  "image-content-category",
+  "video-content-category",
+  "video-model-usage"
+] as const;
+
+const RESOURCE_GROUPS: ReadonlyArray<{
+  key: ResourceKind;
   label: string;
   description: string;
-  promptCount: number;
-  categoryCount: number;
-  items: readonly TaxonomyItem[];
+  sectionKeys: readonly SectionKey[];
+}> = [
+  {
+    key: "image",
+    label: "图片提示词分类",
+    description: "管理图片提示词的模型分类和内容分类。",
+    sectionKeys: ["image-model", "image-content-category"]
+  },
+  {
+    key: "video",
+    label: "视频提示词分类",
+    description: "管理视频提示词的模型分类、内容分类和模型使用方式。",
+    sectionKeys: ["video-model", "video-content-category", "video-model-usage"]
+  }
+] as const;
+
+const POOL_PAGE_SIZE = 15;
+
+const EMPTY_PROMPT_POOL_SUMMARY: PromptPoolViewModel["summary"] = {
+  totalItems: 0,
+  needsAttentionItems: 0,
+  imageItems: 0,
+  videoItems: 0
 };
 
-type PageData = {
-  isFallback: boolean;
-  modeTitle: string;
-  modeDetail: string;
-  metrics: readonly MetricItem[];
-  sections: readonly TaxonomySection[];
-};
-
-type PromptPoolSummary = {
-  totalItems: number;
-  needsAttentionItems: number;
-  imageItems: number;
-  videoItems: number;
-};
-
-type PromptPoolItem = {
-  promptId: string;
-  title: string;
-  modality: "image" | "video";
-  authorId: string;
-  authorDisplayName: string;
-  modelCategory: string | null;
-  contentCategory: string | null;
-  compositionCategory: string | null;
-  needsAttention: boolean;
-  publishedAt: string;
-  tagNames: readonly string[];
-};
-
-type PromptPoolData = {
-  hasError: boolean;
-  errorMessage: string | null;
-  summary: PromptPoolSummary;
-  items: readonly PromptPoolItem[];
+const EMPTY_PROMPT_POOL_PAGINATION: PromptPoolViewModel["pagination"] = {
+  page: 1,
+  pageSize: POOL_PAGE_SIZE,
+  totalItems: 0,
+  totalPages: 1,
+  hasPrevious: false,
+  hasNext: false
 };
 
 const EXPOSURE_OPTIONS: ReadonlyArray<{
@@ -91,23 +134,23 @@ const EXPOSURE_OPTIONS: ReadonlyArray<{
   label: string;
   detail: string;
 }> = [
-  { value: "homepage", label: "首页分类入口", detail: "允许作为首页发现区的显式分类口径" },
-  { value: "featured", label: "精选分类位", detail: "允许运营在精选页和专题位引用" },
-  { value: "publish", label: "发布页透出", detail: "允许在发布页作为推荐分类口径展示" }
+  { value: "homepage", label: "首页", detail: "允许在首页筛选和展示里使用" },
+  { value: "featured", label: "精选页", detail: "允许在精选页筛选和展示里使用" },
+  { value: "publish", label: "发布页", detail: "允许在发布页面显式选择" }
 ];
 
-const FALLBACK_DATA: PageData = {
-  isFallback: true,
-  modeTitle: "taxonomy 数据读取失败",
-  modeDetail: "当前不再回退展示静态 taxonomy 示例数据，请先排查真实后端请求。",
-  metrics: [
-    { label: "提示词总量", value: "0", delta: "接口异常", kind: "enabled" },
-    { label: "完整分类提示词", value: "0", delta: "接口异常", kind: "visible" },
-    { label: "待整理提示词", value: "0", delta: "接口异常", kind: "pending" },
-    { label: "分类项总数", value: "0", delta: "接口异常", kind: "disabled" }
-  ],
-  sections: []
-};
+function normalizeFilterValue(value?: string | null) {
+  return value?.trim() ?? "";
+}
+
+function normalizePageValue(value?: string | null) {
+  const parsed = Number.parseInt(value ?? "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
+function normalizePoolMode(value?: string | null): PoolMode {
+  return value === "cleanup" ? "cleanup" : "rebind";
+}
 
 function formatNumber(value: number) {
   return value.toLocaleString("en-US");
@@ -131,884 +174,917 @@ function formatDateTime(input?: string | null) {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
-function scopeLabel(scope: string) {
-  if (scope === "image") {
+function modalityLabel(value: string) {
+  if (value === "image") {
     return "图片提示词";
   }
-  if (scope === "video") {
+  if (value === "video") {
     return "视频提示词";
   }
-  return "图片 / 视频混合";
+  return "混合";
 }
 
-function governanceStatusLabel(statusCode: string) {
-  return statusCode === "disabled" ? "已停用" : "已启用";
+function sectionShortLabel(key: SectionKey) {
+  switch (key) {
+    case "image-model":
+      return "图片模型分类";
+    case "video-model":
+      return "视频模型分类";
+    case "image-content-category":
+      return "图片内容分类";
+    case "video-content-category":
+      return "视频内容分类";
+    case "video-model-usage":
+      return "视频模型使用方式";
+    default:
+      return key;
+  }
 }
 
-function governanceStatusTone(statusCode: string) {
-  return statusCode === "disabled" ? styles.statusDanger : styles.statusSuccess;
+function sectionActionLabel(key: SectionKey) {
+  switch (key) {
+    case "image-model":
+      return "新增图片模型";
+    case "video-model":
+      return "新增视频模型";
+    case "image-content-category":
+      return "新增图片内容分类";
+    case "video-content-category":
+      return "新增视频内容分类";
+    case "video-model-usage":
+      return "新增模型使用方式";
+    default:
+      return "新增分类";
+  }
 }
 
-function promptModalityLabel(modality: string) {
-  return modality === "video" ? "视频提示词" : "图片提示词";
+function sectionDimensionLabel(key: SectionKey) {
+  switch (key) {
+    case "image-model":
+    case "video-model":
+      return "模型分类";
+    case "image-content-category":
+    case "video-content-category":
+      return "内容分类";
+    case "video-model-usage":
+      return "模型使用方式";
+    default:
+      return "分类";
+  }
 }
 
-function emptyCategoryLabel(value: string | null) {
-  return value?.trim() || "待补";
+function getResourceKindFromSection(sectionKey?: SectionKey | null): ResourceKind {
+  if (
+    sectionKey === "image-model" ||
+    sectionKey === "image-content-category"
+  ) {
+    return "image";
+  }
+  return "video";
 }
 
-function buildPageData(data: AdminTaxonomyData): PageData {
-  const totalCategoryCount =
-    data.summary.imageModelCategories +
-    data.summary.videoModelCategories +
-    data.summary.contentCategories +
-    data.summary.compositionCategories;
+function poolModeLabel(mode: PoolMode) {
+  return mode === "cleanup" ? "待补齐优先" : "全量资源池";
+}
 
-  return {
-    isFallback: false,
-    modeTitle: "当前为实时 taxonomy 数据",
-    modeDetail: "分类统计、分类项治理和待修正提示词批量回写都已接入真实后端；当前页既能管理分类项治理，也能批量修正真实 prompt taxonomy 字段。",
-    metrics: [
-      {
-        label: "提示词总量",
-        value: formatNumber(data.summary.totalPrompts),
-        delta: "当前实时数据",
-        kind: "enabled"
-      },
-      {
-        label: "完整分类提示词",
-        value: formatNumber(data.summary.fullyCategorizedPrompts),
-        delta: "当前实时数据",
-        kind: "visible"
-      },
-      {
-        label: "待整理提示词",
-        value: formatNumber(data.summary.needsAttentionPrompts),
-        delta: "当前实时数据",
-        kind: "pending"
-      },
-      {
-        label: "分类项总数",
-        value: formatNumber(totalCategoryCount),
-        delta: "当前实时数据",
-        kind: "disabled"
-      }
-    ],
-    sections: data.sections.map((section) => ({
+function buildSectionMap(data: AdminTaxonomyData) {
+  const sectionMap = new Map<SectionKey, SectionViewModel>();
+  for (const section of data.sections) {
+    sectionMap.set(section.key as SectionKey, {
       key: section.key as SectionKey,
       label: section.label,
       description: section.description,
       promptCount: section.promptCount,
       categoryCount: section.categoryCount,
-      items: section.items.map((item) => ({
-        value: item.value,
-        label: item.label,
-        modalityScope: item.modalityScope,
-        promptCount: item.promptCount,
-        authorCount: item.authorCount,
-        latestPublishedAt: formatDateTime(item.latestPublishedAt ?? null),
-        sampleTitles: item.sampleTitles,
-        governance: {
-          hasCustomConfig: item.governance.hasCustomConfig,
-          statusCode: item.governance.statusCode,
-          sortOrder: item.governance.sortOrder,
-          exposureFlags: (item.governance.exposureFlags as ExposureFlag[]) ?? [],
-          noteText: item.governance.noteText ?? null,
-          updatedByDisplayName: item.governance.updatedByDisplayName ?? null,
-          updatedAt: item.governance.updatedAt ? formatDateTime(item.governance.updatedAt) : null
-        }
-      }))
-    }))
-  };
-}
-
-async function loadPageData(): Promise<PageData> {
-  try {
-    const response = await getAdminTaxonomy();
-    return buildPageData(response.data);
-  } catch (error) {
-    if (error instanceof AdminBackendError && error.requestId) {
-      return {
-        ...FALLBACK_DATA,
-        modeDetail: `${error.message}（requestId: ${error.requestId}）`
-      };
-    }
-    return FALLBACK_DATA;
-  }
-}
-
-function buildPromptPoolData(data: AdminTaxonomyPromptListData): PromptPoolData {
-  return {
-    hasError: false,
-    errorMessage: null,
-    summary: data.summary,
-    items: data.items.map((item: AdminTaxonomyPromptListData["items"][number]) => ({
-      promptId: item.promptId,
-      title: item.title,
-      modality: item.modality === "video" ? "video" : "image",
-      authorId: item.authorId,
-      authorDisplayName: item.authorDisplayName,
-      modelCategory: item.modelCategory ?? null,
-      contentCategory: item.contentCategory ?? null,
-      compositionCategory: item.compositionCategory ?? null,
-      needsAttention: item.needsAttention,
-      publishedAt: formatDateTime(item.publishedAt),
-      tagNames: item.tagNames
-    }))
-  };
-}
-
-async function loadPromptPoolData(input: {
-  modality?: string;
-  query?: string;
-}): Promise<PromptPoolData> {
-  try {
-    const response = await listAdminTaxonomyPrompts({
-      modality: input.modality,
-      q: input.query,
-      needsAttention: "true"
+      items: section.items.map((item) => mapItem(item))
     });
-    return buildPromptPoolData(response.data);
+  }
+  return sectionMap;
+}
+
+function mapItem(item: AdminTaxonomyItemData): ItemViewModel {
+  return {
+    value: item.value,
+    label: item.label,
+    modalityScope: item.modalityScope,
+    promptCount: item.promptCount,
+    authorCount: item.authorCount,
+    latestPublishedAt: formatDateTime(item.latestPublishedAt ?? null),
+    sampleTitles: item.sampleTitles,
+    governance: {
+      hasCustomConfig: item.governance.hasCustomConfig,
+      statusCode: item.governance.statusCode,
+      sortOrder: item.governance.sortOrder,
+      exposureFlags: (item.governance.exposureFlags as ExposureFlag[]) ?? [],
+      noteText: item.governance.noteText ?? null,
+      updatedByDisplayName: item.governance.updatedByDisplayName ?? null,
+      updatedAt: item.governance.updatedAt ? formatDateTime(item.governance.updatedAt) : null
+    }
+  };
+}
+
+function buildEmptyPromptPool(errorMessage: string | null): PromptPoolViewModel {
+  return {
+    summary: EMPTY_PROMPT_POOL_SUMMARY,
+    pagination: EMPTY_PROMPT_POOL_PAGINATION,
+    items: [],
+    errorMessage
+  };
+}
+
+function normalizePromptPoolSummary(
+  summary: Partial<PromptPoolViewModel["summary"]> | undefined,
+  itemCount: number
+): PromptPoolViewModel["summary"] {
+  return {
+    totalItems: summary?.totalItems ?? itemCount,
+    needsAttentionItems: summary?.needsAttentionItems ?? 0,
+    imageItems: summary?.imageItems ?? 0,
+    videoItems: summary?.videoItems ?? 0
+  };
+}
+
+function normalizePromptPoolPagination(
+  pagination: Partial<PromptPoolViewModel["pagination"]> | undefined,
+  itemCount: number,
+  requestedPage: number
+): PromptPoolViewModel["pagination"] {
+  const totalItems = pagination?.totalItems ?? itemCount;
+  const pageSize = pagination?.pageSize ?? POOL_PAGE_SIZE;
+  const totalPages = pagination?.totalPages ?? Math.max(1, Math.ceil(totalItems / Math.max(pageSize, 1)));
+  const page = Math.min(pagination?.page ?? requestedPage, totalPages);
+  const hasPrevious = pagination?.hasPrevious ?? page > 1;
+  const hasNext = pagination?.hasNext ?? page < totalPages;
+
+  return {
+    page,
+    pageSize,
+    totalItems,
+    totalPages,
+    hasPrevious,
+    hasNext
+  };
+}
+
+async function loadPromptPool(input: {
+  poolMode: PoolMode;
+  activeSection: SectionViewModel | null;
+  activeItem: ItemViewModel | null;
+  query: string;
+  page: number;
+}): Promise<PromptPoolViewModel> {
+  if (!input.activeSection || !input.activeItem) {
+    return buildEmptyPromptPool(null);
+  }
+
+  const modality = getResourceKindFromSection(input.activeSection.key);
+  const requestQuery = {
+    modality,
+    q: input.query || undefined,
+    page: input.page,
+    pageSize: POOL_PAGE_SIZE,
+    ...(input.poolMode === "cleanup"
+      ? {
+          needsAttention: true
+        }
+      : {})
+  } as const;
+
+  try {
+    const response = await listAdminTaxonomyPrompts(requestQuery);
+    const responseItems = Array.isArray(response.data?.items) ? response.data.items : [];
+    return {
+      summary: normalizePromptPoolSummary(response.data?.summary, responseItems.length),
+      pagination: normalizePromptPoolPagination(response.data?.pagination, responseItems.length, input.page),
+      items: responseItems.map((item) => ({
+        promptId: item.promptId,
+        title: item.title,
+        modality: item.modality === "video" ? "video" : "image",
+        authorDisplayName: item.authorDisplayName,
+        modelCategory: item.modelCategory ?? null,
+        contentCategory: item.contentCategory ?? null,
+        compositionCategory: item.compositionCategory ?? null,
+        needsAttention: item.needsAttention,
+        publishedAt: formatDateTime(item.publishedAt),
+        tagNames: item.tagNames
+      })),
+      errorMessage: null
+    };
   } catch (error) {
     const message =
-      error instanceof AdminBackendError
-        ? `${error.message}${error.requestId ? `（requestId: ${error.requestId}）` : ""}`
-        : "待修正提示词池读取失败。";
-
-    return {
-      hasError: true,
-      errorMessage: message,
-      summary: {
-        totalItems: 0,
-        needsAttentionItems: 0,
-        imageItems: 0,
-        videoItems: 0
-      },
-      items: []
-    };
+      error instanceof AdminBackendError && error.requestId
+        ? `${error.message}（requestId: ${error.requestId}）`
+        : "候选资源读取失败。";
+    return buildEmptyPromptPool(message);
   }
 }
 
-function MetricIcon({ kind }: { kind: MetricItem["kind"] }) {
-  if (kind === "enabled") {
-    return (
-      <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-        <path d="M10 3.5 15.75 6.5v7L10 16.5 4.25 13.5v-7L10 3.5Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.5" />
-        <path d="m7.25 10 1.75 1.75 3.75-4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-      </svg>
-    );
+function buildTaxonomyHref(options: {
+  section?: string | null;
+  selected?: string | null;
+  q?: string | null;
+  poolMode?: PoolMode;
+  poolQ?: string | null;
+  poolPage?: number | null;
+}) {
+  const query = new URLSearchParams();
+  if (options.section?.trim()) {
+    query.set("section", options.section.trim());
   }
-
-  if (kind === "disabled") {
-    return (
-      <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-        <circle cx="10" cy="10" r="6.25" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M10 6.8v3.7" stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" />
-        <circle cx="10" cy="13.7" fill="currentColor" r="0.8" />
-      </svg>
-    );
+  if (options.selected?.trim()) {
+    query.set("selected", options.selected.trim());
   }
-
-  if (kind === "visible") {
-    return (
-      <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-        <path d="M2.75 10s2.5-4.25 7.25-4.25 7.25 4.25 7.25 4.25-2.5 4.25-7.25 4.25S2.75 10 2.75 10Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.5" />
-        <circle cx="10" cy="10" r="2.1" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    );
+  if (options.q?.trim()) {
+    query.set("q", options.q.trim());
   }
-
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
-      <circle cx="10" cy="10" r="6.25" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M10 6.25V10l2.5 2.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-    </svg>
-  );
+  if (options.poolMode) {
+    query.set("poolMode", options.poolMode);
+  }
+  if (options.poolQ?.trim()) {
+    query.set("poolQ", options.poolQ.trim());
+  }
+  if (options.poolPage && options.poolPage > 1) {
+    query.set("page", String(options.poolPage));
+  }
+  const queryString = query.toString();
+  return queryString ? `/taxonomy?${queryString}` : "/taxonomy";
 }
 
-type SearchParams = {
+async function loadPageState(searchParams?: {
   section?: string;
   selected?: string;
-  error?: string;
-  success?: string;
   q?: string;
-  scope?: string;
-  status?: string;
-  exposure?: string;
-  config?: string;
-  bulkModality?: string;
+  poolMode?: string;
   poolQ?: string;
-};
+  page?: string;
+}): Promise<PageState> {
+  try {
+    const taxonomy = await getAdminTaxonomy();
+    const sectionMap = buildSectionMap(taxonomy.data);
+    const orderedSections = SECTION_ORDER.map((key) => sectionMap.get(key)).filter(Boolean) as SectionViewModel[];
 
-function normalizeSearch(value?: string | null) {
-  return value?.trim().toLowerCase() ?? "";
-}
+    const requestedSection = normalizeFilterValue(searchParams?.section) as SectionKey;
+    const activeSection = orderedSections.find((section) => section.key === requestedSection) ?? orderedSections[0] ?? null;
+    const requestedSelected = normalizeFilterValue(searchParams?.selected);
+    const activeItem = activeSection?.items.find((item) => item.value === requestedSelected) ?? activeSection?.items[0] ?? null;
 
-function matchesSearch(text: string, query: string) {
-  return query.length === 0 || text.toLowerCase().includes(query);
-}
+    const poolMode = normalizePoolMode(searchParams?.poolMode);
+    const poolQuery = normalizeFilterValue(searchParams?.poolQ);
+    const poolPage = normalizePageValue(searchParams?.page);
+    const promptPool = await loadPromptPool({
+      poolMode,
+      activeSection,
+      activeItem,
+      query: poolQuery,
+      page: poolPage
+    });
 
-function normalizeFilterValue(value?: string | null) {
-  const normalized = value?.trim();
-  return normalized && normalized.length > 0 ? normalized : "";
+    return {
+      sections: orderedSections,
+      activeSection,
+      activeItem,
+      poolMode,
+      promptPool,
+      pageErrorMessage: null
+    };
+  } catch (error) {
+    const message =
+      error instanceof AdminBackendError && error.requestId
+        ? `${error.message}（requestId: ${error.requestId}）`
+        : "分类页数据读取失败。";
+    return {
+      sections: [],
+      activeSection: null,
+      activeItem: null,
+      poolMode: normalizePoolMode(searchParams?.poolMode),
+      promptPool: buildEmptyPromptPool(null),
+      pageErrorMessage: message
+    };
+  }
 }
 
 export default async function TaxonomyPage({
   searchParams
 }: {
-  searchParams?: Promise<SearchParams>;
+  searchParams?: Promise<{
+    section?: string;
+    selected?: string;
+    q?: string;
+    poolMode?: string;
+    poolQ?: string;
+    page?: string;
+    error?: string;
+    success?: string;
+  }>;
 }) {
-  await requireAdminAccess(["admin", "operator"], "/taxonomy");
-
+  await requireAdminAccess(["admin", "operator", "moderator"], "/taxonomy");
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
-  const pageData = await loadPageData();
-  const requestedSection = resolvedSearchParams?.section?.trim() as SectionKey | undefined;
-  const activeSection = pageData.sections.find((section) => section.key === requestedSection) ?? pageData.sections[0];
-  const requestedSelected = resolvedSearchParams?.selected?.trim();
-  const selectedItem = activeSection?.items.find((item) => item.value === requestedSelected) ?? activeSection?.items[0];
-  const errorMessage = resolvedSearchParams?.error?.trim() || null;
+  const state = await loadPageState(resolvedSearchParams);
+  const pageErrorMessage = resolvedSearchParams?.error?.trim() || state.pageErrorMessage;
   const successMessage = resolvedSearchParams?.success?.trim() || null;
-  const searchQuery = normalizeSearch(resolvedSearchParams?.q);
-  const scopeFilter = normalizeFilterValue(resolvedSearchParams?.scope);
-  const statusFilter = normalizeFilterValue(resolvedSearchParams?.status);
-  const exposureFilter = normalizeFilterValue(resolvedSearchParams?.exposure);
-  const configFilter = normalizeFilterValue(resolvedSearchParams?.config);
-  const bulkModalityFilter = normalizeFilterValue(resolvedSearchParams?.bulkModality) || "image";
-  const poolQuery = resolvedSearchParams?.poolQ?.trim() ?? "";
-  const filteredSections = pageData.sections.map((section) => {
-    const items = section.items.filter((item) => {
-      const matchQuery =
-        matchesSearch(section.label, searchQuery) ||
-        matchesSearch(section.description, searchQuery) ||
-        matchesSearch(item.label, searchQuery) ||
-        matchesSearch(item.value, searchQuery) ||
-        item.sampleTitles.some((title) => matchesSearch(title, searchQuery));
+  const categorySearch = normalizeFilterValue(resolvedSearchParams?.q).toLowerCase();
+  const poolQuery = normalizeFilterValue(resolvedSearchParams?.poolQ);
+  const promptPool = state.promptPool ?? buildEmptyPromptPool(null);
 
-      const matchScope = scopeFilter ? item.modalityScope.toLowerCase() === scopeFilter : true;
-      const matchStatus = statusFilter ? item.governance.statusCode.toLowerCase() === statusFilter : true;
-      const matchExposure = exposureFilter
-        ? item.governance.exposureFlags.map((flag) => flag.toLowerCase()).includes(exposureFilter)
-        : true;
-      const matchConfig =
-        configFilter === "configured"
-          ? item.governance.hasCustomConfig
-          : configFilter === "default"
-            ? !item.governance.hasCustomConfig
-            : true;
-
-      return matchQuery && matchScope && matchStatus && matchExposure && matchConfig;
-    });
-
-    return {
+  const filteredSections = state.sections
+    .map((section) => ({
       ...section,
-      promptCount: items.reduce((total, item) => total + item.promptCount, 0),
-      categoryCount: items.length,
-      items
+      items: section.items.filter((item) => {
+        if (section.key === state.activeSection?.key && item.value === state.activeItem?.value) {
+          return true;
+        }
+        if (!categorySearch) {
+          return true;
+        }
+        return (
+          item.label.toLowerCase().includes(categorySearch) ||
+          item.value.toLowerCase().includes(categorySearch) ||
+          item.sampleTitles.some((title) => title.toLowerCase().includes(categorySearch))
+        );
+      })
+    }))
+    .filter((section) => section.items.length > 0 || !categorySearch);
+
+  const activeSection =
+    filteredSections.find((section) => section.key === state.activeSection?.key) ??
+    filteredSections[0] ??
+    null;
+  const activeItem =
+    activeSection?.items.find((item) => item.value === state.activeItem?.value) ?? activeSection?.items[0] ?? null;
+
+  const activeResourceKind = getResourceKindFromSection(activeSection?.key ?? null);
+  const resourceTabs = RESOURCE_GROUPS.map((group) => {
+    const targetSection =
+      filteredSections.find((section) => group.sectionKeys.includes(section.key)) ??
+      state.sections.find((section) => group.sectionKeys.includes(section.key)) ??
+      null;
+    const targetItem = targetSection?.items[0] ?? null;
+    return {
+      ...group,
+      href:
+        targetSection && targetItem
+          ? buildTaxonomyHref({
+              section: targetSection.key,
+              selected: targetItem.value,
+              q: resolvedSearchParams?.q ?? "",
+              poolMode: state.poolMode,
+              poolQ: poolQuery
+            })
+          : "/taxonomy",
+      active: group.key === activeResourceKind
     };
   });
-  const visibleSections = filteredSections.filter((section) => section.items.length > 0);
-  const visibleItemCount = visibleSections.reduce((total, section) => total + section.items.length, 0);
-  const querySummaryParts = [
-    searchQuery ? `关键词「${resolvedSearchParams?.q?.trim()}」` : null,
-    scopeFilter ? `范围 ${scopeLabel(scopeFilter)}` : null,
-    statusFilter ? `状态 ${statusFilter === "enabled" ? "启用" : "停用"}` : null,
-    exposureFilter ? `曝光 ${exposureFilter}` : null,
-    configFilter ? (configFilter === "configured" ? "仅看已配置" : "仅看默认项") : null
-  ].filter(Boolean) as string[];
-  const filterQueryParams = new URLSearchParams();
-  if (searchQuery) {
-    filterQueryParams.set("q", resolvedSearchParams?.q?.trim() ?? "");
-  }
-  if (scopeFilter) {
-    filterQueryParams.set("scope", scopeFilter);
-  }
-  if (statusFilter) {
-    filterQueryParams.set("status", statusFilter);
-  }
-  if (exposureFilter) {
-    filterQueryParams.set("exposure", exposureFilter);
-  }
-  if (configFilter) {
-    filterQueryParams.set("config", configFilter);
-  }
-  if (bulkModalityFilter) {
-    filterQueryParams.set("bulkModality", bulkModalityFilter);
-  }
-  if (poolQuery) {
-    filterQueryParams.set("poolQ", poolQuery);
-  }
-  const currentItemHref = (() => {
-    if (!activeSection || !selectedItem) {
-      return "/taxonomy";
-    }
 
-    const hrefQuery = new URLSearchParams(filterQueryParams);
-    hrefQuery.set("section", activeSection.key);
-    hrefQuery.set("selected", selectedItem.value);
-    return `/taxonomy?${hrefQuery.toString()}`;
-  })();
-  const activeFilteredSection = filteredSections.find((section) => section.key === activeSection?.key) ?? null;
-  const activeFilteredItems = activeFilteredSection?.items ?? [];
-  const filteredSelectedItem =
-    activeFilteredItems.find((item) => item.value === requestedSelected) ?? activeFilteredItems[0] ?? null;
-  const promptPool = await loadPromptPoolData({
-    modality: bulkModalityFilter,
-    query: poolQuery
-  });
+  const visibleSections = filteredSections.filter(
+    (section) => getResourceKindFromSection(section.key) === activeResourceKind
+  );
+
+  const currentGroup = RESOURCE_GROUPS.find((group) => group.key === activeResourceKind) ?? RESOURCE_GROUPS[0];
+  const sectionHrefBase = {
+    q: resolvedSearchParams?.q ?? "",
+    poolMode: state.poolMode,
+    poolQ: poolQuery
+  };
+
+  const enabledExposureLabels = activeItem
+    ? EXPOSURE_OPTIONS.filter((option) => activeItem.governance.exposureFlags.includes(option.value)).map((option) => option.label)
+    : [];
 
   return (
     <section className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerMain}>
+          <span className={styles.kicker}>content taxonomy</span>
           <h1 className={styles.title}>分类管理</h1>
-          <p className={styles.subtitle}>围绕 prompt taxonomy 的实时统计、分类项和治理配置</p>
+          <p className={styles.subtitle}>
+            这里只做三件事：维护分类、决定分类是否可用、把真实提示词重新挂到正确分类上。
+          </p>
         </div>
       </header>
 
-      {errorMessage ? (
+      {pageErrorMessage ? (
         <div className={styles.errorBanner}>
-          <strong>保存失败</strong>
-          <span>{errorMessage}</span>
+          <strong>页面读取失败</strong>
+          <span>{pageErrorMessage}</span>
         </div>
       ) : null}
 
       {successMessage ? (
         <div className={styles.successBanner}>
-          <strong>保存成功</strong>
+          <strong>操作成功</strong>
           <span>{successMessage}</span>
         </div>
       ) : null}
 
-      {pageData.sections.length > 0 ? (
-        <div className={styles.tabRow}>
-          {pageData.sections.map((section) => {
-            const hrefQuery = new URLSearchParams(filterQueryParams);
-            hrefQuery.set("section", section.key);
-            const href = `/taxonomy?${hrefQuery.toString()}`;
-            return (
-              <Link
-                key={section.key}
-                className={`${styles.tabButton} ${activeSection?.key === section.key ? styles.tabButtonActive : ""}`}
-                href={href}
-              >
-                {section.label}
-              </Link>
-            );
-          })}
+      <section className={styles.heroCard}>
+        <div className={styles.heroCopy}>
+          <span className={styles.eyebrow}>页面目标</span>
+          <h2>把分类定义和提示词重绑拆开做，不再把一堆治理术语堆在同一页。</h2>
+          <p>
+            图片和视频分开管理。图片提示词只有模型分类和内容分类，视频提示词额外有模型使用方式。你后续要做的增删改绑，都应该从这页完成。
+          </p>
         </div>
-      ) : null}
 
-      <form className={styles.filterBar} method="get">
-        <input name="section" type="hidden" value={activeSection?.key ?? ""} />
-        <input name="selected" type="hidden" value={selectedItem?.value ?? ""} />
-        <div className={styles.filterField}>
-          <label htmlFor="taxonomy-q">关键词</label>
-          <input id="taxonomy-q" name="q" placeholder="搜索分类名称、编码、样例标题" defaultValue={resolvedSearchParams?.q ?? ""} />
-        </div>
-        <div className={styles.filterField}>
-          <label htmlFor="taxonomy-scope">范围</label>
-          <select id="taxonomy-scope" name="scope" defaultValue={scopeFilter}>
-            <option value="">全部</option>
-            <option value="image">图片提示词</option>
-            <option value="video">视频提示词</option>
-            <option value="mixed">图片 / 视频混合</option>
-          </select>
-        </div>
-        <div className={styles.filterField}>
-          <label htmlFor="taxonomy-status">状态</label>
-          <select id="taxonomy-status" name="status" defaultValue={statusFilter}>
-            <option value="">全部</option>
-            <option value="enabled">启用</option>
-            <option value="disabled">停用</option>
-          </select>
-        </div>
-        <div className={styles.filterField}>
-          <label htmlFor="taxonomy-exposure">曝光</label>
-          <select id="taxonomy-exposure" name="exposure" defaultValue={exposureFilter}>
-            <option value="">全部</option>
-            <option value="homepage">首页分类入口</option>
-            <option value="featured">精选分类位</option>
-            <option value="publish">发布页透出</option>
-          </select>
-        </div>
-        <div className={styles.filterField}>
-          <label htmlFor="taxonomy-config">配置</label>
-          <select id="taxonomy-config" name="config" defaultValue={configFilter}>
-            <option value="">全部</option>
-            <option value="configured">仅看已配置</option>
-            <option value="default">仅看默认项</option>
-          </select>
-        </div>
-        <div className={styles.filterActions}>
-          <button className={styles.primaryAction} type="submit">
-            应用筛选
-          </button>
-          <Link className={styles.secondaryAction} href="/taxonomy">
-            清空筛选
-          </Link>
-        </div>
-      </form>
-
-      <div className={styles.filterSummary}>
-        <strong>当前可见 {formatNumber(visibleItemCount)} 项</strong>
-        <span>{querySummaryParts.length > 0 ? querySummaryParts.join(" · ") : "未启用筛选条件"}</span>
-      </div>
-
-      <div className={styles.metricsGrid}>
-        {pageData.metrics.map((metric) => (
-          <article key={metric.label} className={styles.metricCard}>
-            <div className={styles.metricHead}>
-              <span className={styles.metricIcon}>
-                <MetricIcon kind={metric.kind} />
-              </span>
-              <span>{metric.label}</span>
-            </div>
-            <strong className={styles.metricValue}>{metric.value}</strong>
-            <span className={styles.metricDelta}>{metric.delta}</span>
+        <div className={styles.heroStats}>
+          <article className={styles.statCard}>
+            <span>当前资源类型</span>
+            <strong>{currentGroup.label}</strong>
+            <em>{currentGroup.description}</em>
           </article>
+          <article className={styles.statCard}>
+            <span>分类总数</span>
+            <strong>{formatNumber(visibleSections.reduce((sum, section) => sum + section.categoryCount, 0))}</strong>
+            <em>{visibleSections.length} 个分类维度</em>
+          </article>
+          <article className={styles.statCard}>
+            <span>候选资源</span>
+            <strong>{formatNumber(promptPool.pagination.totalItems)}</strong>
+            <em>{poolModeLabel(state.poolMode)}</em>
+          </article>
+        </div>
+      </section>
+
+      <nav className={styles.resourceTabs} aria-label="资源类型切换">
+        {resourceTabs.map((group) => (
+          <Link
+            className={`${styles.resourceTab} ${group.active ? styles.resourceTabActive : ""}`}
+            href={group.href}
+            key={group.key}
+            scroll={false}
+          >
+            <strong>{group.label}</strong>
+            <span>{group.description}</span>
+          </Link>
         ))}
-      </div>
+      </nav>
 
       <div className={styles.layout}>
-        <aside className={styles.treeCard}>
-          <header className={styles.cardHeader}>
-            <div>
-              <h2>分类结构</h2>
-              <p>按真实 taxonomy 字段聚合</p>
-            </div>
-          </header>
+        <aside className={styles.sidebar}>
+          <section className={styles.panel}>
+            <header className={styles.panelHeader}>
+              <div>
+                <span className={styles.panelStep}>A</span>
+                <h2>分类定义区</h2>
+                <p>先选资源类型下的分类维度，再维护分类项本身。</p>
+              </div>
+            </header>
 
-          <div className={styles.treeBody}>
-            {visibleSections.length > 0 ? visibleSections.map((section) => (
-              <section key={section.key} className={styles.treeGroup}>
-                <div className={styles.treeGroupTitle}>
-                  <strong>{section.label}</strong>
-                  <span className={styles.treeCount}>{formatNumber(section.categoryCount)} 项</span>
+            <div className={styles.sectionRail}>
+              {visibleSections.map((section, index) => {
+                const isActive = section.key === activeSection?.key;
+                const targetItem = section.items.find((item) => item.value === activeItem?.value) ?? section.items[0] ?? null;
+                const href = buildTaxonomyHref({
+                  ...sectionHrefBase,
+                  section: section.key,
+                  selected: targetItem?.value ?? ""
+                });
+
+                return (
+                  <Link
+                    className={`${styles.sectionRailCard} ${isActive ? styles.sectionRailCardActive : ""}`}
+                    href={href}
+                    key={section.key}
+                    scroll={false}
+                  >
+                    <span className={styles.sectionIndex}>0{index + 1}</span>
+                    <div className={styles.sectionRailBody}>
+                      <strong>{section.label}</strong>
+                      <p>{section.description}</p>
+                    </div>
+                    <span className={styles.sectionCount}>{formatNumber(section.categoryCount)} 项</span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <form className={styles.searchBar} method="get">
+              <input name="section" type="hidden" value={activeSection?.key ?? ""} />
+              <input name="selected" type="hidden" value={activeItem?.value ?? ""} />
+              <input name="poolMode" type="hidden" value={state.poolMode} />
+              <input name="poolQ" type="hidden" value={poolQuery} />
+              <label className={styles.searchField}>
+                <span>分类搜索</span>
+                <input defaultValue={resolvedSearchParams?.q ?? ""} name="q" placeholder="分类名、编码、示例标题" />
+              </label>
+              <button className={styles.secondaryButton} type="submit">
+                刷新
+              </button>
+            </form>
+
+            {activeSection ? (
+              <div className={styles.defineWorkspace}>
+                <div className={styles.defineHeader}>
+                  <div>
+                    <span className={styles.miniEyebrow}>{sectionDimensionLabel(activeSection.key)}</span>
+                    <h3>{activeSection.label}</h3>
+                    <p>{activeSection.description}</p>
+                  </div>
+                  <span className={styles.defineSummary}>
+                    {formatNumber(activeSection.categoryCount)} 项 · {formatNumber(activeSection.promptCount)} 条提示词
+                  </span>
                 </div>
-                <p className={styles.cardDescription}>{section.description}</p>
-                <div className={styles.treeItems}>
-                  {section.items.length > 0 ? (
-                    section.items.map((item) => {
-                      const hrefQuery = new URLSearchParams(filterQueryParams);
-                      hrefQuery.set("section", section.key);
-                      hrefQuery.set("selected", item.value);
-                      const href = `/taxonomy?${hrefQuery.toString()}`;
-                      const isActive = activeSection?.key === section.key && selectedItem?.value === item.value;
+
+                <form action={createTaxonomyCategoryAction} className={styles.createForm}>
+                  <input name="sectionKey" type="hidden" value={activeSection.key} />
+                  <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
+                  <input name="poolMode" type="hidden" value={state.poolMode} />
+                  <input name="poolQ" type="hidden" value={poolQuery} />
+                  <label className={styles.inlineField}>
+                    <span>{sectionActionLabel(activeSection.key)}</span>
+                    <input name="categoryValue" placeholder={`输入新的${sectionShortLabel(activeSection.key)}`} />
+                  </label>
+                  <button className={styles.primaryButton} type="submit">
+                    新增
+                  </button>
+                </form>
+
+                <div className={styles.itemList}>
+                  {activeSection.items.length > 0 ? (
+                    activeSection.items.map((item) => {
+                      const href = buildTaxonomyHref({
+                        ...sectionHrefBase,
+                        section: activeSection.key,
+                        selected: item.value
+                      });
+                      const isActive = item.value === activeItem?.value;
                       return (
                         <Link
-                          key={`${section.key}-${item.value}`}
-                          className={`${styles.treeItem} ${isActive ? styles.treeItemActive : ""}`}
+                          className={`${styles.itemRow} ${isActive ? styles.itemRowActive : ""}`}
                           href={href}
+                          key={`${activeSection.key}-${item.value}`}
+                          scroll={false}
                         >
-                          <span>{item.label}</span>
-                          <span className={styles.treeCount}>{formatNumber(item.promptCount)}</span>
+                          <div className={styles.itemMeta}>
+                            <strong>{item.label}</strong>
+                            <span>{item.value}</span>
+                          </div>
+                          <div className={styles.itemStats}>
+                            <span>{formatNumber(item.promptCount)} 条</span>
+                            <span>{formatNumber(item.authorCount)} 位作者</span>
+                          </div>
                         </Link>
                       );
                     })
                   ) : (
-                    <div className={styles.emptyState}>当前板块还没有可展示的分类项。</div>
+                    <div className={styles.emptyState}>
+                      <strong>当前维度还没有分类项</strong>
+                      <span>先在上面新增一个分类，再开始绑定资源。</span>
+                    </div>
                   )}
                 </div>
-              </section>
-            )) : <div className={styles.emptyState}>当前筛选条件下没有可展示的分类项。</div>}
-          </div>
+              </div>
+            ) : (
+              <div className={styles.emptyState}>
+                <strong>当前没有可用分类维度</strong>
+                <span>先确保后端 taxonomy 数据已经正常返回。</span>
+              </div>
+            )}
+          </section>
         </aside>
 
-        <section className={styles.tableCard}>
-          <header className={styles.tableHeader}>
-            <div>
-              <h2>{activeSection?.label ?? "分类项列表"}</h2>
-              <p>
-                {activeFilteredSection
-                  ? `${formatNumber(activeFilteredSection.categoryCount)} 个分类项，覆盖 ${formatNumber(activeFilteredSection.promptCount)} 条提示词`
-                  : querySummaryParts.length > 0
-                    ? "当前筛选条件下该板块没有匹配项"
-                    : "当前暂无分类项"}
-              </p>
-            </div>
-          </header>
+        <div className={styles.main}>
+          <section className={styles.panel}>
+            <header className={styles.panelHeader}>
+              <div>
+                <span className={styles.panelStep}>B</span>
+                <h2>分类设置</h2>
+                <p>这里不是改资源，而是改这个分类本身是否启用、排序值和适用页面。</p>
+              </div>
+            </header>
 
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>分类名称</th>
-                  <th>适用范围</th>
-                  <th>关联提示词</th>
-                  <th>治理状态</th>
-                  <th>曝光位</th>
-                  <th>最近发布时间</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {activeFilteredItems.length ? (
-                    activeFilteredItems.map((item) => {
-                      const hrefQuery = new URLSearchParams(filterQueryParams);
-                      hrefQuery.set("section", activeSection?.key ?? item.value);
-                      hrefQuery.set("selected", item.value);
-                      const href = `/taxonomy?${hrefQuery.toString()}`;
-                      const isSelected = filteredSelectedItem?.value === item.value;
-                      return (
-                      <tr key={`${activeSection?.key}-${item.value}`} className={`${styles.tableRow} ${isSelected ? styles.rowSelected : ""}`}>
-                        <td>
-                          <strong className={styles.cellTitle}>{item.label}</strong>
-                        </td>
-                        <td>
-                          <span className={styles.statusPill}>{scopeLabel(item.modalityScope)}</span>
-                        </td>
-                        <td>{formatNumber(item.promptCount)}</td>
-                        <td>
-                          <span className={`${styles.statusPill} ${governanceStatusTone(item.governance.statusCode)}`}>
-                            {governanceStatusLabel(item.governance.statusCode)}
-                          </span>
-                        </td>
-                        <td>
-                          <div className={styles.exposureList}>
-                            {item.governance.exposureFlags.length > 0 ? (
-                              item.governance.exposureFlags.map((flag) => <span key={`${item.value}-${flag}`}>{flag}</span>)
-                            ) : (
-                              <span>未配置</span>
-                            )}
-                          </div>
-                        </td>
-                        <td>{item.latestPublishedAt}</td>
-                        <td>
-                          <span className={styles.rowAssist}>{isSelected ? "当前查看中" : "点击左侧树或当前行对应项查看"}</span>
-                        </td>
-                      </tr>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td className={styles.emptyState} colSpan={7}>
-                      当前筛选条件下没有匹配的分类项。
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </section>
+            {activeSection && activeItem ? (
+              <div className={styles.detailBody}>
+                <div className={styles.detailHero}>
+                  <div className={styles.detailHeroCopy}>
+                    <span className={styles.detailLabel}>{sectionDimensionLabel(activeSection.key)}</span>
+                    <h3>{activeItem.label}</h3>
+                    <p>
+                      {currentGroup.label} · {sectionShortLabel(activeSection.key)}
+                    </p>
+                  </div>
 
-        <aside className={styles.editorCard}>
-          <header className={styles.cardHeader}>
-            <div>
-              <h2>治理配置</h2>
-              <p>{filteredSelectedItem ? filteredSelectedItem.label : "请选择一个分类项"}</p>
-            </div>
-            <span className={styles.livePill}>{pageData.isFallback ? "接口异常，只读" : "真实可写"}</span>
-          </header>
-
-          <div className={styles.editorBody}>
-            {filteredSelectedItem ? (
-              <>
-                <p className={styles.editorNote}>
-                  上半区用于管理分类项的启停、排序、曝光位和备注；下半区的待修正提示词池会直接回写 prompt_entries 里的真实 taxonomy 字段。
-                </p>
-
-                <div className={styles.detailBlock}>
-                  <span className={styles.fieldLabel}>所属板块</span>
-                  <strong>{activeSection?.label}</strong>
-                  <p className={styles.detailHint}>{activeSection?.description}</p>
+                  <form action={deleteTaxonomyCategoryAction}>
+                    <input name="sectionKey" type="hidden" value={activeSection.key} />
+                    <input name="categoryValue" type="hidden" value={activeItem.value} />
+                    <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
+                    <input name="poolMode" type="hidden" value={state.poolMode} />
+                    <input name="poolQ" type="hidden" value={poolQuery} />
+                    <button className={styles.dangerButton} type="submit">
+                      删除这个分类
+                    </button>
+                  </form>
                 </div>
 
-                <div className={styles.detailGrid}>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>分类编码</span>
-                    <div className={styles.infoValue}>{filteredSelectedItem.value}</div>
+                <div className={styles.metaGrid}>
+                  <div className={styles.metaCard}>
+                    <span>分类编码</span>
+                    <strong>{activeItem.value}</strong>
                   </div>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>适用范围</span>
-                    <div className={styles.infoValue}>{scopeLabel(filteredSelectedItem.modalityScope)}</div>
+                  <div className={styles.metaCard}>
+                    <span>关联提示词</span>
+                    <strong>{formatNumber(activeItem.promptCount)}</strong>
                   </div>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>关联提示词</span>
-                    <div className={styles.infoValue}>{formatNumber(filteredSelectedItem.promptCount)}</div>
+                  <div className={styles.metaCard}>
+                    <span>覆盖作者</span>
+                    <strong>{formatNumber(activeItem.authorCount)}</strong>
                   </div>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>覆盖作者</span>
-                    <div className={styles.infoValue}>{formatNumber(filteredSelectedItem.authorCount)}</div>
+                  <div className={styles.metaCard}>
+                    <span>最近内容</span>
+                    <strong>{activeItem.latestPublishedAt}</strong>
                   </div>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>最近发布时间</span>
-                    <div className={styles.infoValue}>{filteredSelectedItem.latestPublishedAt}</div>
+                </div>
+
+                <div className={styles.infoStrip}>
+                  <div>
+                    <span>当前状态</span>
+                    <strong>{activeItem.governance.statusCode === "enabled" ? "启用中" : "已停用"}</strong>
                   </div>
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>最近治理更新</span>
-                    <div className={styles.infoValue}>
-                      {filteredSelectedItem.governance.updatedAt
-                        ? `${filteredSelectedItem.governance.updatedAt}${filteredSelectedItem.governance.updatedByDisplayName ? ` · ${filteredSelectedItem.governance.updatedByDisplayName}` : ""}`
+                  <div>
+                    <span>适用页面</span>
+                    <strong>{enabledExposureLabels.length > 0 ? enabledExposureLabels.join(" / ") : "暂未投放"}</strong>
+                  </div>
+                  <div>
+                    <span>最后更新</span>
+                    <strong>
+                      {activeItem.governance.updatedAt
+                        ? `${activeItem.governance.updatedAt}${activeItem.governance.updatedByDisplayName ? ` · ${activeItem.governance.updatedByDisplayName}` : ""}`
                         : "未配置"}
-                    </div>
+                    </strong>
+                  </div>
+                </div>
+
+                <div className={styles.sampleBox}>
+                  <span>这个分类下最近出现的内容</span>
+                  <div className={styles.sampleList}>
+                    {activeItem.sampleTitles.length > 0 ? (
+                      activeItem.sampleTitles.map((title) => <span key={title}>{title}</span>)
+                    ) : (
+                      <em>这个分类暂时还没有实际挂载内容。</em>
+                    )}
                   </div>
                 </div>
 
                 <form action={updateTaxonomyAction} className={styles.governanceForm}>
-                  <input name="sectionKey" type="hidden" value={activeSection?.key ?? ""} />
-                  <input name="categoryValue" type="hidden" value={filteredSelectedItem.value} />
+                  <input name="sectionKey" type="hidden" value={activeSection.key} />
+                  <input name="categoryValue" type="hidden" value={activeItem.value} />
                   <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
-                  <input name="scope" type="hidden" value={scopeFilter} />
-                  <input name="status" type="hidden" value={statusFilter} />
-                  <input name="exposure" type="hidden" value={exposureFilter} />
-                  <input name="config" type="hidden" value={configFilter} />
-                  <input name="bulkModality" type="hidden" value={bulkModalityFilter} />
+                  <input name="poolMode" type="hidden" value={state.poolMode} />
                   <input name="poolQ" type="hidden" value={poolQuery} />
+                  <input name="page" type="hidden" value={String(promptPool.pagination.page)} />
 
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>
-                      治理状态 <em>*</em>
-                    </span>
-                    <select defaultValue={filteredSelectedItem.governance.statusCode} disabled={pageData.isFallback} name="statusCode">
-                      <option value="enabled">启用</option>
-                      <option value="disabled">停用</option>
-                    </select>
+                  <div className={styles.formGrid}>
+                    <label className={styles.formField}>
+                      <span>是否启用</span>
+                      <select defaultValue={activeItem.governance.statusCode} name="statusCode">
+                        <option value="enabled">启用</option>
+                        <option value="disabled">停用</option>
+                      </select>
+                    </label>
+                    <label className={styles.formField}>
+                      <span>排序值</span>
+                      <input defaultValue={String(activeItem.governance.sortOrder)} name="sortOrder" type="number" />
+                    </label>
                   </div>
 
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>
-                      排序值 <em>*</em>
-                    </span>
-                    <div className={styles.inputShell}>
-                      <input
-                        defaultValue={String(filteredSelectedItem.governance.sortOrder)}
-                        disabled={pageData.isFallback}
-                        inputMode="numeric"
-                        max={9999}
-                        min={0}
-                        name="sortOrder"
-                        type="number"
-                      />
-                      <span>0-9999</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>前台曝光位</span>
+                  <div className={styles.checkboxSection}>
+                    <span>允许出现在哪些页面</span>
                     <div className={styles.checkboxGrid}>
-                      {EXPOSURE_OPTIONS.map((option) => (
-                        <label key={option.value} className={styles.checkboxItem}>
-                          <input
-                            defaultChecked={filteredSelectedItem.governance.exposureFlags.includes(option.value)}
-                            disabled={pageData.isFallback}
-                            name="exposureFlags"
-                            type="checkbox"
-                            value={option.value}
-                          />
-                          <span>
-                            <strong>{option.label}</strong>
-                            <small className={styles.checkboxHint}>{option.detail}</small>
-                          </span>
-                        </label>
-                      ))}
+                      {EXPOSURE_OPTIONS.map((option) => {
+                        const checked = activeItem.governance.exposureFlags.includes(option.value);
+                        return (
+                          <label className={styles.checkboxItem} key={option.value}>
+                            <input defaultChecked={checked} name="exposureFlags" type="checkbox" value={option.value} />
+                            <span>
+                              <strong>{option.label}</strong>
+                              <em>{option.detail}</em>
+                            </span>
+                          </label>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>治理备注</span>
-                    <div className={styles.textareaShell}>
-                      <textarea
-                        defaultValue={filteredSelectedItem.governance.noteText ?? ""}
-                        disabled={pageData.isFallback}
-                        maxLength={500}
-                        name="noteText"
-                      />
-                      <span>最多 500 字</span>
-                    </div>
-                  </div>
+                  <label className={styles.formField}>
+                    <span>备注</span>
+                    <textarea
+                      defaultValue={activeItem.governance.noteText ?? ""}
+                      name="noteText"
+                      placeholder="记录这个分类的使用规则、临时说明或运营备注。"
+                      rows={4}
+                    />
+                  </label>
 
-                  <div className={styles.field}>
-                    <span className={styles.fieldLabel}>样例标题</span>
-                    <div className={styles.stackList}>
-                      {filteredSelectedItem.sampleTitles.length > 0 ? (
-                        filteredSelectedItem.sampleTitles.map((title) => <span key={`${filteredSelectedItem.value}-${title}`}>{title}</span>)
-                      ) : (
-                        <span>暂无样例标题</span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className={styles.noteBox}>
-                    <span>
-                      {filteredSelectedItem.governance.hasCustomConfig
-                        ? "当前项已存在自定义治理配置，保存后会直接覆盖现有配置。"
-                        : "当前项还没有自定义治理配置，保存后会创建配置记录。"}
-                    </span>
-                    <span className={styles.noteCount}>{pageData.isFallback ? "当前不可写" : "保存后即写入后端"}</span>
-                  </div>
-
-                  <div className={styles.editorFooter}>
-                    <button className={styles.secondaryAction} disabled={pageData.isFallback} type="submit">
-                      保存治理配置
+                  <div className={styles.formFooter}>
+                    <p className={styles.footerHint}>
+                      如果这个分类还挂着真实提示词，删除会被系统拒绝。先把资源重新绑走，再删这个分类。
+                    </p>
+                    <button className={styles.primaryButton} type="submit">
+                      保存分类设置
                     </button>
-                    <Link className={styles.rowAction} href={currentItemHref}>
-                      刷新当前项
-                    </Link>
                   </div>
                 </form>
-
-                <section className={styles.bulkCard}>
-                  <div className={styles.bulkCardHeader}>
-                    <div>
-                      <h3>待修正提示词池</h3>
-                      <p>只展示真实已发布、仍缺少 taxonomy 字段的提示词，批量提交后会直接回写真实分类字段。</p>
-                    </div>
-                    <span className={styles.readonlyPill}>
-                      {promptPool.hasError ? "接口异常" : `当前候选 ${formatNumber(promptPool.items.length)} 条`}
-                    </span>
-                  </div>
-
-                  <form className={styles.bulkFilterBar} method="get">
-                    <input name="section" type="hidden" value={activeSection?.key ?? ""} />
-                    <input name="selected" type="hidden" value={filteredSelectedItem.value} />
-                    <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
-                    <input name="scope" type="hidden" value={scopeFilter} />
-                    <input name="status" type="hidden" value={statusFilter} />
-                    <input name="exposure" type="hidden" value={exposureFilter} />
-                    <input name="config" type="hidden" value={configFilter} />
-                    <div className={styles.filterField}>
-                      <label htmlFor="taxonomy-bulk-modality">候选范围</label>
-                      <select id="taxonomy-bulk-modality" name="bulkModality" defaultValue={bulkModalityFilter}>
-                        <option value="image">图片提示词</option>
-                        <option value="video">视频提示词</option>
-                      </select>
-                    </div>
-                    <div className={styles.filterField}>
-                      <label htmlFor="taxonomy-pool-q">候选搜索</label>
-                      <input id="taxonomy-pool-q" name="poolQ" defaultValue={poolQuery} placeholder="标题 / 作者 / 业务标签" />
-                    </div>
-                    <div className={styles.bulkFilterActions}>
-                      <button className={styles.primaryAction} type="submit">
-                        刷新候选池
-                      </button>
-                    </div>
-                  </form>
-
-                  <div className={styles.bulkSummary}>
-                    <span>待修正 {formatNumber(promptPool.summary.needsAttentionItems)} 条</span>
-                    <span>图片 {formatNumber(promptPool.summary.imageItems)} / 视频 {formatNumber(promptPool.summary.videoItems)}</span>
-                    <span>当前列表只统计待修正候选，不代表该分类下全部真实已挂载内容</span>
-                  </div>
-
-                  {promptPool.hasError ? (
-                    <div className={styles.errorBanner}>
-                      <strong>候选池读取失败</strong>
-                      <span>{promptPool.errorMessage}</span>
-                    </div>
-                  ) : (
-                    <form action={bulkApplyTaxonomyAction} className={styles.bulkApplyForm}>
-                      <input name="sectionKey" type="hidden" value={activeSection?.key ?? ""} />
-                      <input name="categoryValue" type="hidden" value={filteredSelectedItem.value} />
-                      <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
-                      <input name="scope" type="hidden" value={scopeFilter} />
-                      <input name="status" type="hidden" value={statusFilter} />
-                      <input name="exposure" type="hidden" value={exposureFilter} />
-                      <input name="config" type="hidden" value={configFilter} />
-                      <input name="bulkModality" type="hidden" value={bulkModalityFilter} />
-                      <input name="poolQ" type="hidden" value={poolQuery} />
-
-                      <div className={styles.bulkFieldGrid}>
-                        <div className={styles.field}>
-                          <span className={styles.fieldLabel}>批量模态</span>
-                          <div className={styles.infoValue}>{promptModalityLabel(bulkModalityFilter)}</div>
-                        </div>
-                        <div className={styles.field}>
-                          <span className={styles.fieldLabel}>模型分类</span>
-                          <input
-                            name="bulkModelCategory"
-                            defaultValue={
-                              activeSection?.key === "image-model" || activeSection?.key === "video-model"
-                                ? filteredSelectedItem.value
-                                : ""
-                            }
-                            placeholder="如 gpt-image-2 / seedance"
-                          />
-                        </div>
-                        <div className={styles.field}>
-                          <span className={styles.fieldLabel}>内容分类</span>
-                          <input
-                            name="bulkContentCategory"
-                            defaultValue={activeSection?.key === "content-category" ? filteredSelectedItem.value : ""}
-                            placeholder="如 real-person / animation / scene"
-                          />
-                        </div>
-                        <div className={styles.field}>
-                          <span className={styles.fieldLabel}>构图分类</span>
-                          <input
-                            name="bulkCompositionCategory"
-                            defaultValue={activeSection?.key === "composition-category" ? filteredSelectedItem.value : ""}
-                            placeholder="single-model / multi-model"
-                          />
-                        </div>
-                      </div>
-
-                      <div className={styles.poolTableWrap}>
-                        <table className={styles.poolTable}>
-                          <thead>
-                            <tr>
-                              <th>选择</th>
-                              <th>标题</th>
-                              <th>模态</th>
-                              <th>作者</th>
-                              <th>当前分类</th>
-                              <th>发布时间</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {promptPool.items.length > 0 ? (
-                              promptPool.items.map((item) => (
-                                <tr key={item.promptId}>
-                                  <td>
-                                    <input name="promptIds" type="checkbox" value={item.promptId} />
-                                  </td>
-                                  <td>
-                                    <div className={styles.poolTitleCell}>
-                                      <strong>{item.title}</strong>
-                                      <span>{item.tagNames.join(" / ") || "无业务标签"}</span>
-                                    </div>
-                                  </td>
-                                  <td>
-                                    <span className={styles.statusPill}>{promptModalityLabel(item.modality)}</span>
-                                  </td>
-                                  <td>{item.authorDisplayName}</td>
-                                  <td>
-                                    <div className={styles.poolCategoryCell}>
-                                      <span>模型: {emptyCategoryLabel(item.modelCategory)}</span>
-                                      <span>内容: {emptyCategoryLabel(item.contentCategory)}</span>
-                                      <span>构图: {emptyCategoryLabel(item.compositionCategory)}</span>
-                                    </div>
-                                  </td>
-                                  <td>{item.publishedAt}</td>
-                                </tr>
-                              ))
-                            ) : (
-                              <tr>
-                                <td className={styles.emptyState} colSpan={6}>
-                                  当前条件下没有待修正提示词。
-                                </td>
-                              </tr>
-                            )}
-                          </tbody>
-                        </table>
-                      </div>
-
-                      <div className={styles.bulkNoteBox}>
-                        <span>批量修正会同步更新真实分类字段和 taxonomy 标签，但保留非 taxonomy 业务标签。</span>
-                        <button className={styles.secondaryAction} disabled={promptPool.items.length === 0} type="submit">
-                          批量应用到已勾选提示词
-                        </button>
-                      </div>
-                    </form>
-                  )}
-                </section>
-              </>
+              </div>
             ) : (
               <div className={styles.emptyState}>
-                {querySummaryParts.length > 0 ? "当前筛选条件下没有可编辑的分类项，请清空筛选或切换板块。" : "当前没有可选分类项。"}
+                <strong>先选一个分类</strong>
+                <span>左侧选中分类项后，这里才会出现分类设置。</span>
               </div>
             )}
-          </div>
-        </aside>
+          </section>
+
+          <section className={styles.panel}>
+            <header className={styles.panelHeader}>
+              <div>
+                <span className={styles.panelStep}>C</span>
+                <h2>提示词重绑区</h2>
+                <p>从真实提示词池里挑资源，重新绑定到当前分类。这里的修改会直接落库。</p>
+              </div>
+            </header>
+
+            {activeSection && activeItem ? (
+              <div className={styles.poolBody}>
+                <div className={styles.poolTopbar}>
+                  <div className={styles.poolTarget}>
+                    <span>当前目标</span>
+                    <strong>{activeItem.label}</strong>
+                    <em>
+                      {sectionShortLabel(activeSection.key)} · {currentGroup.label}
+                    </em>
+                  </div>
+
+                  <div className={styles.poolModeSwitch}>
+                    <Link
+                      className={`${styles.modeButton} ${state.poolMode === "rebind" ? styles.modeButtonActive : ""}`}
+                      href={buildTaxonomyHref({
+                        ...sectionHrefBase,
+                        section: activeSection.key,
+                        selected: activeItem.value,
+                        poolMode: "rebind",
+                        poolQ: poolQuery
+                      })}
+                      scroll={false}
+                    >
+                      全量资源池
+                    </Link>
+                    <Link
+                      className={`${styles.modeButton} ${state.poolMode === "cleanup" ? styles.modeButtonActive : ""}`}
+                      href={buildTaxonomyHref({
+                        ...sectionHrefBase,
+                        section: activeSection.key,
+                        selected: activeItem.value,
+                        poolMode: "cleanup",
+                        poolQ: poolQuery
+                      })}
+                      scroll={false}
+                    >
+                      待补齐优先
+                    </Link>
+                  </div>
+                </div>
+
+                <form className={styles.poolSearch} method="get">
+                  <input name="section" type="hidden" value={activeSection.key} />
+                  <input name="selected" type="hidden" value={activeItem.value} />
+                  <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
+                  <input name="poolMode" type="hidden" value={state.poolMode} />
+                  <label className={styles.searchField}>
+                    <span>搜索候选资源</span>
+                    <input defaultValue={poolQuery} name="poolQ" placeholder="按标题、作者、标签搜索" />
+                  </label>
+                  <button className={styles.secondaryButton} type="submit">
+                    刷新
+                  </button>
+                </form>
+
+                <div className={styles.poolSummary}>
+                  <span>当前模式：{poolModeLabel(state.poolMode)}</span>
+                  <span>共 {formatNumber(promptPool.pagination.totalItems)} 条</span>
+                  <span>待补齐 {formatNumber(promptPool.summary.needsAttentionItems)} 条</span>
+                  <span>图片 {formatNumber(promptPool.summary.imageItems)} / 视频 {formatNumber(promptPool.summary.videoItems)}</span>
+                </div>
+
+                {promptPool.errorMessage ? (
+                  <div className={styles.errorBanner}>
+                    <strong>候选池读取失败</strong>
+                    <span>{promptPool.errorMessage}</span>
+                  </div>
+                ) : null}
+
+                <form action={rebindTaxonomyPromptsAction} className={styles.rebindForm}>
+                  <input name="sectionKey" type="hidden" value={activeSection.key} />
+                  <input name="categoryValue" type="hidden" value={activeItem.value} />
+                  <input name="q" type="hidden" value={resolvedSearchParams?.q ?? ""} />
+                  <input name="poolMode" type="hidden" value={state.poolMode} />
+                  <input name="poolQ" type="hidden" value={poolQuery} />
+                  <input name="page" type="hidden" value={String(promptPool.pagination.page)} />
+
+                  <div className={styles.tableWrap}>
+                    <table className={styles.table}>
+                      <thead>
+                        <tr>
+                          <th>选择</th>
+                          <th>提示词标题</th>
+                          <th>类型</th>
+                          <th>作者</th>
+                          <th>当前绑定情况</th>
+                          <th>发布时间</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {promptPool.items.length > 0 ? (
+                          promptPool.items.map((item) => (
+                            <tr key={item.promptId}>
+                              <td>
+                                <input name="promptIds" type="checkbox" value={item.promptId} />
+                              </td>
+                              <td>
+                                <div className={styles.promptCell}>
+                                  <strong>{item.title}</strong>
+                                  <span>{item.tagNames.join(" / ") || "无业务标签"}</span>
+                                </div>
+                              </td>
+                              <td>
+                                <span className={styles.typePill}>{modalityLabel(item.modality)}</span>
+                              </td>
+                              <td>{item.authorDisplayName}</td>
+                              <td>
+                                <div className={styles.categoryCell}>
+                                  <span>模型：{item.modelCategory || "未填"}</span>
+                                  <span>内容：{item.contentCategory || "未填"}</span>
+                                  {item.modality === "video" ? (
+                                    <span>模型使用方式：{item.compositionCategory || "未填"}</span>
+                                  ) : null}
+                                </div>
+                              </td>
+                              <td>{item.publishedAt}</td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td className={styles.emptyCell} colSpan={6}>
+                              当前条件下没有可重绑的提示词。
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className={styles.paginationRow}>
+                    <span className={styles.countText}>
+                      第 {formatNumber(promptPool.pagination.page)} 页，共 {formatNumber(promptPool.pagination.totalPages)} 页
+                    </span>
+                    <div className={styles.pagination}>
+                      {promptPool.pagination.hasPrevious ? (
+                        <Link
+                          className={styles.pageButton}
+                          href={buildTaxonomyHref({
+                            ...sectionHrefBase,
+                            section: activeSection.key,
+                            selected: activeItem.value,
+                            poolPage: promptPool.pagination.page - 1
+                          })}
+                          scroll={false}
+                        >
+                          上一页
+                        </Link>
+                      ) : null}
+                      <span className={`${styles.pageButton} ${styles.pageButtonCurrent}`}>{promptPool.pagination.page}</span>
+                      {promptPool.pagination.hasNext ? (
+                        <Link
+                          className={styles.pageButton}
+                          href={buildTaxonomyHref({
+                            ...sectionHrefBase,
+                            section: activeSection.key,
+                            selected: activeItem.value,
+                            poolPage: promptPool.pagination.page + 1
+                          })}
+                          scroll={false}
+                        >
+                          下一页
+                        </Link>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className={styles.formFooter}>
+                    <p className={styles.footerHint}>
+                      这里的重绑只会改当前这个分类维度。其它分类维度和业务标签会保留，不会被一并冲掉。
+                    </p>
+                    <button className={styles.primaryButton} disabled={promptPool.items.length === 0} type="submit">
+                      绑定到当前分类
+                    </button>
+                  </div>
+                </form>
+              </div>
+            ) : (
+              <div className={styles.emptyState}>
+                <strong>先选分类再绑定资源</strong>
+                <span>选中左侧分类项后，这里才会读取对应的真实提示词资源。</span>
+              </div>
+            )}
+          </section>
+        </div>
       </div>
     </section>
   );

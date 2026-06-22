@@ -3,10 +3,11 @@ package com.dramatv.community.admin.feedops;
 import com.dramatv.community.admin.auditlogs.AdminAuditLogService;
 import com.dramatv.community.admin.auth.AdminAccessService;
 import com.dramatv.community.admin.feedops.dto.request.AdminFeedOpsPageUpdateRequest;
+import com.dramatv.community.admin.feedops.dto.response.AdminFeedOpsCandidateListResponse;
 import com.dramatv.community.admin.feedops.dto.response.AdminFeedOpsPageResponse;
 import com.dramatv.community.identity.application.CurrentUser;
-import com.dramatv.community.shared.media.JdbcMediaUrlResolver;
 import com.dramatv.community.shared.error.ApiBusinessException;
+import com.dramatv.community.shared.media.JdbcMediaUrlResolver;
 import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,7 +37,10 @@ public class AdminFeedOpsService {
 
     private static final Logger log = LoggerFactory.getLogger(AdminFeedOpsService.class);
     private static final String[] MANAGE_ROLES = {"admin", "operator"};
-    private static final int CANDIDATE_QUERY_LIMIT = 256;
+    private static final int PAGE_FALLBACK_QUERY_LIMIT = 48;
+    private static final int DEFAULT_CANDIDATE_PAGE = 1;
+    private static final int DEFAULT_CANDIDATE_PAGE_SIZE = 15;
+    private static final int MAX_CANDIDATE_PAGE_SIZE = 60;
     private static final TypeReference<List<StoredItemRef>> STORED_ITEM_TYPE = new TypeReference<>() {
     };
 
@@ -120,9 +124,7 @@ public class AdminFeedOpsService {
             )
             where prompt.publish_status = 'published'
               and prompt.deleted_at is null
-            order by coalesce(prompt.published_at, prompt.created_at) desc nulls last, prompt.title asc
-            limit %d
-            """.formatted(CANDIDATE_QUERY_LIMIT);
+            """;
 
     private static final String WORKFLOW_CANDIDATE_SQL = """
             select
@@ -151,9 +153,7 @@ public class AdminFeedOpsService {
             left join media_assets workflow_cover on workflow_cover.id = workflow.cover_asset_id
             where workflow.publish_status = 'published'
               and workflow.deleted_at is null
-            order by coalesce(workflow.published_at, workflow.created_at) desc nulls last, workflow.title asc
-            limit %d
-            """.formatted(CANDIDATE_QUERY_LIMIT);
+            """;
 
     private static final String POST_CANDIDATE_SQL = """
             select
@@ -180,9 +180,7 @@ public class AdminFeedOpsService {
             where thread.publish_status = 'published'
               and thread.deleted_at is null
               and channel.status_code = 'active'
-            order by coalesce(thread.last_activity_at, thread.published_at, thread.created_at) desc nulls last, thread.title asc
-            limit %d
-            """.formatted(CANDIDATE_QUERY_LIMIT);
+            """;
 
     private static final String CHANNEL_CANDIDATE_SQL = """
             select
@@ -204,9 +202,7 @@ public class AdminFeedOpsService {
                 channel.updated_at as published_at
             from discussion_channels channel
             where channel.status_code = 'active'
-            order by channel.sort_order asc, channel.created_at asc
-            limit %d
-            """.formatted(CANDIDATE_QUERY_LIMIT);
+            """;
 
     private static final String PROMPT_SNAPSHOT_SQL = """
             select
@@ -350,9 +346,8 @@ public class AdminFeedOpsService {
             "home",
             "首页运营",
             List.of(
-                    new SlotDefinition("home-hero", "首页轮播", "对应首页首屏 3 个滚动视频位，只允许挂载 prompt / workflow。", 3, List.of("prompt", "workflow")),
-                    new SlotDefinition("recommended-primary", "为你推荐（第一组）", "对应首页第一组“为你推荐”4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
-                    new SlotDefinition("recommended-secondary", "为你推荐（第二组）", "对应首页第二组“为你推荐”4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
+                    new SlotDefinition("home-hero", "首页轮播", "对应首页首屏 6 个滚动视频位，只允许挂载 prompt / workflow。", 6, List.of("prompt", "workflow")),
+                    new SlotDefinition("recommended-primary", "为你推荐", "对应首页唯一一组“为你推荐”4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
                     new SlotDefinition("canvas", "精选画布", "对应首页“精选画布”分区 4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
                     new SlotDefinition("commercial", "电视广告", "对应首页“电视广告”分区 4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
                     new SlotDefinition("animation", "动画", "对应首页“动画”分区 4 卡内容，只允许挂载 prompt / workflow。", 4, List.of("prompt", "workflow")),
@@ -367,13 +362,29 @@ public class AdminFeedOpsService {
             "featured",
             "精选运营",
             List.of(
-                    new SlotDefinition("featured-all", "全部首屏", "对应精选页默认“全部”tab 首屏不滚动可见的前 12 条内容，可混排 prompt / workflow / post。", 12, List.of("prompt", "workflow", "post")),
+                    new SlotDefinition("featured-all", "全部首屏", "对应精选页默认“全部”tab 首屏不滚动可见的前 12 条内容，可混排 prompt / workflow。", 12, List.of("prompt", "workflow")),
                     new SlotDefinition("featured-workflow", "工作流 tab", "对应精选页“工作流”tab 首屏不滚动可见的前 12 条内容，只允许挂载 workflow。", 12, List.of("workflow")),
                     new SlotDefinition("featured-video-prompt", "视频提示词 tab", "对应精选页“视频提示词”tab 首屏不滚动可见的前 12 条内容，只允许挂载 prompt。", 12, List.of("prompt")),
                     new SlotDefinition("featured-image-prompt", "图片提示词 tab", "对应精选页“图片提示词”tab 首屏不滚动可见的前 12 条内容，只允许挂载 prompt。", 12, List.of("prompt")),
-                    new SlotDefinition("featured-activity", "活动 tab", "对应精选页“活动”tab 首屏内容，当前先按活动 / 帖子预留位管理，只允许挂载 post。", 12, List.of("post"))
+                    new SlotDefinition("featured-activity", "活动 tab", "对应精选页“活动”tab 首屏内容，只允许挂载 prompt / workflow，帖子不进入公共精选。", 12, List.of("prompt", "workflow"))
             ),
-            List.of("prompt", "workflow", "post")
+            List.of("prompt", "workflow")
+    );
+    private static final String FEATURED_HOT_PAGE_KEY = "featured-hot";
+
+    private static final FeedOpsPageDefinition LANDING_PAGE = new FeedOpsPageDefinition(
+            "landing",
+            "落地页运营",
+            List.of(
+                    new SlotDefinition(
+                            "landing-archive-grid",
+                            "精选档案",
+                            "对应社区根首页 / 的“精选档案”区域，控制首屏 12 张资源卡片顺序，只允许挂载 prompt / workflow。",
+                            12,
+                            List.of("prompt", "workflow")
+                    )
+            ),
+            List.of("prompt", "workflow")
     );
 
     private final JdbcTemplate jdbcTemplate;
@@ -401,14 +412,67 @@ public class AdminFeedOpsService {
         return loadPageConfig(HOME_PAGE);
     }
 
-    public AdminFeedOpsPageResponse getFeaturedConfig() {
+    public AdminFeedOpsCandidateListResponse getHomeCandidates(
+            String slotKey,
+            String keyword,
+            String promptFilter,
+            Integer page,
+            Integer pageSize
+    ) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
-        return loadPageConfig(FEATURED_PAGE);
+        return loadCandidatePage(HOME_PAGE, slotKey, keyword, promptFilter, page, pageSize);
+    }
+
+    public AdminFeedOpsPageResponse getFeaturedConfig() {
+        return getFeaturedConfig(null);
+    }
+
+    public AdminFeedOpsPageResponse getFeaturedConfig(String sort) {
+        adminAccessService.requireAnyRole(MANAGE_ROLES);
+        return loadPageConfig(resolveFeaturedPageDefinition(sort));
+    }
+
+    public AdminFeedOpsCandidateListResponse getFeaturedCandidates(
+            String slotKey,
+            String keyword,
+            String promptFilter,
+            Integer page,
+            Integer pageSize
+    ) {
+        adminAccessService.requireAnyRole(MANAGE_ROLES);
+        return loadCandidatePage(FEATURED_PAGE, slotKey, keyword, promptFilter, page, pageSize);
+    }
+
+    public AdminFeedOpsPageResponse getLandingConfig() {
+        adminAccessService.requireAnyRole(MANAGE_ROLES);
+        return loadPageConfig(LANDING_PAGE);
+    }
+
+    public AdminFeedOpsCandidateListResponse getLandingCandidates(
+            String slotKey,
+            String keyword,
+            String promptFilter,
+            Integer page,
+            Integer pageSize
+    ) {
+        adminAccessService.requireAnyRole(MANAGE_ROLES);
+        return loadCandidatePage(LANDING_PAGE, slotKey, keyword, promptFilter, page, pageSize);
     }
 
     public AdminFeedOpsPageResponse getDiscussionsConfig() {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
         return loadPageConfig(buildDiscussionsPageDefinition());
+    }
+
+    public AdminFeedOpsCandidateListResponse getDiscussionCandidates(
+            String slotKey,
+            String keyword,
+            String promptFilter,
+            Integer page,
+            Integer pageSize
+    ) {
+        adminAccessService.requireAnyRole(MANAGE_ROLES);
+        return loadCandidatePage(buildDiscussionsPageDefinition(), slotKey, keyword, promptFilter, page, pageSize);
     }
 
     @Transactional
@@ -418,7 +482,17 @@ public class AdminFeedOpsService {
 
     @Transactional
     public AdminFeedOpsPageResponse updateFeaturedConfig(AdminFeedOpsPageUpdateRequest request) {
-        return updatePageConfig(FEATURED_PAGE, request);
+        return updateFeaturedConfig(request, null);
+    }
+
+    @Transactional
+    public AdminFeedOpsPageResponse updateFeaturedConfig(AdminFeedOpsPageUpdateRequest request, String sort) {
+        return updatePageConfig(resolveFeaturedPageDefinition(sort), request);
+    }
+
+    @Transactional
+    public AdminFeedOpsPageResponse updateLandingConfig(AdminFeedOpsPageUpdateRequest request) {
+        return updatePageConfig(LANDING_PAGE, request);
     }
 
     @Transactional
@@ -483,27 +557,25 @@ public class AdminFeedOpsService {
 
     private AdminFeedOpsPageResponse loadPageConfig(FeedOpsPageDefinition pageDefinition) {
         Map<String, SlotConfigRow> configRows = loadSlotConfigRows(pageDefinition.pageKey());
-        List<AdminFeedOpsPageResponse.ContentItem> candidatePool = loadCandidatePool(pageDefinition);
-        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> fallbackSlotItems = configRows.isEmpty()
-                ? buildFallbackSlotItems(pageDefinition, candidatePool)
-                : Map.of();
+        List<AdminFeedOpsPageResponse.ContentItem> pageFallbackPool = loadFallbackCandidatePool(pageDefinition);
+        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> fallbackSlotItems = buildFallbackSlotItems(pageDefinition, pageFallbackPool);
         List<AdminFeedOpsPageResponse.Slot> slots = new ArrayList<>();
         int configuredItemCount = 0;
 
         for (SlotDefinition definition : pageDefinition.slots()) {
             SlotConfigRow row = configRows.get(definition.key());
-            List<AdminFeedOpsPageResponse.ContentItem> items;
-            if (row == null && !fallbackSlotItems.isEmpty()) {
-                items = fallbackSlotItems.getOrDefault(definition.key(), List.of());
-            } else {
-                List<StoredItemRef> refs = row == null ? List.of() : readStoredItemRefs(row.itemsJsonText());
-                if (refs.size() > definition.maxItems()) {
-                    refs = List.copyOf(refs.subList(0, definition.maxItems()));
-                }
-                items = refs.stream()
-                        .map(this::resolveStoredItem)
-                        .toList();
+            List<StoredItemRef> refs = row == null
+                    ? List.of()
+                    : readStoredItemRefs(row.itemsJsonText()).stream()
+                            .filter(ref -> definition.allowedTargetTypes().contains(ref.targetType()))
+                            .toList();
+            if (refs.size() > definition.maxItems()) {
+                refs = List.copyOf(refs.subList(0, definition.maxItems()));
             }
+            List<AdminFeedOpsPageResponse.ContentItem> items = refs.stream()
+                    .map(this::resolveStoredItem)
+                    .toList();
+            List<AdminFeedOpsPageResponse.ContentItem> fallbackItems = fallbackSlotItems.getOrDefault(definition.key(), List.of());
             configuredItemCount += items.size();
             slots.add(new AdminFeedOpsPageResponse.Slot(
                     definition.key(),
@@ -511,7 +583,8 @@ public class AdminFeedOpsService {
                     definition.description(),
                     definition.maxItems(),
                     definition.allowedTargetTypes(),
-                    items
+                    items,
+                    fallbackItems
             ));
         }
         SlotConfigRow latestConfigRow = configRows.values()
@@ -538,18 +611,24 @@ public class AdminFeedOpsService {
                         updatedByDisplayName,
                         publishedAt,
                         configuredItemCount,
-                        candidatePool.size()
+                        countCandidatePool(pageDefinition)
                 ),
                 List.copyOf(slots),
-                candidatePool
+                List.of()
         );
     }
 
-    private List<AdminFeedOpsPageResponse.ContentItem> loadCandidatePool(FeedOpsPageDefinition pageDefinition) {
+    private List<AdminFeedOpsPageResponse.ContentItem> loadFallbackCandidatePool(FeedOpsPageDefinition pageDefinition) {
         List<AdminFeedOpsPageResponse.ContentItem> items = new ArrayList<>();
         for (String candidateType : pageDefinition.candidateTargetTypes()) {
-            items.addAll(jdbcTemplate.query(candidateSql(candidateType), (resultSet, rowNum) -> mapContentItem(resultSet, true)));
+            items.addAll(loadCandidatesForType(candidateType, null, CandidatePromptFilter.ALL, null, PAGE_FALLBACK_QUERY_LIMIT, 0));
         }
+        return dedupeAndSortItems(items).stream()
+                .limit(PAGE_FALLBACK_QUERY_LIMIT)
+                .toList();
+    }
+
+    private List<AdminFeedOpsPageResponse.ContentItem> dedupeAndSortItems(List<AdminFeedOpsPageResponse.ContentItem> items) {
         return items.stream()
                 .collect(Collectors.toMap(
                         item -> item.targetType() + ":" + item.targetId(),
@@ -563,13 +642,277 @@ public class AdminFeedOpsService {
                 .toList();
     }
 
+    private AdminFeedOpsCandidateListResponse loadCandidatePage(
+            FeedOpsPageDefinition pageDefinition,
+            String slotKey,
+            String keyword,
+            String promptFilter,
+            Integer page,
+            Integer pageSize
+    ) {
+        SlotDefinition slotDefinition = requireSlotDefinition(pageDefinition, slotKey);
+        CandidatePromptFilter normalizedPromptFilter = normalizeCandidatePromptFilter(promptFilter);
+        CandidatePageRequest normalizedRequest = normalizeCandidatePageRequest(page, pageSize);
+        String normalizedKeyword = normalizeKeyword(keyword);
+        String scopedDiscussionChannelSlug = "discussions".equals(pageDefinition.pageKey())
+                ? discussionSlotChannelSlug(slotDefinition.key())
+                : null;
+        List<String> queryTargetTypes = resolveQueryTargetTypes(slotDefinition, normalizedPromptFilter);
+
+        int totalCandidateItems = countCandidatePool(pageDefinition);
+        int totalItems = 0;
+        for (String targetType : queryTargetTypes) {
+            totalItems += countCandidatesForType(targetType, normalizedKeyword, normalizedPromptFilter, scopedDiscussionChannelSlug);
+        }
+
+        int totalPages = Math.max(1, (int) Math.ceil(totalItems / (double) normalizedRequest.pageSize()));
+        int safePage = Math.min(Math.max(normalizedRequest.page(), 1), totalPages);
+        int offset = totalItems == 0 ? 0 : (safePage - 1) * normalizedRequest.pageSize();
+        List<AdminFeedOpsPageResponse.ContentItem> pageItems = totalItems == 0
+                ? List.of()
+                : loadCandidatePageItems(queryTargetTypes, normalizedKeyword, normalizedPromptFilter, scopedDiscussionChannelSlug, normalizedRequest.pageSize(), offset);
+
+        return new AdminFeedOpsCandidateListResponse(
+                new AdminFeedOpsCandidateListResponse.Summary(
+                        pageDefinition.pageKey(),
+                        slotDefinition.key(),
+                        totalCandidateItems,
+                        totalItems
+                ),
+                new AdminFeedOpsCandidateListResponse.Pagination(
+                        safePage,
+                        normalizedRequest.pageSize(),
+                        totalItems,
+                        totalPages,
+                        safePage > 1,
+                        safePage < totalPages
+                ),
+                pageItems
+        );
+    }
+
+    private List<String> resolveQueryTargetTypes(
+            SlotDefinition slotDefinition,
+            CandidatePromptFilter promptFilter
+    ) {
+        return List.copyOf(new LinkedHashSet<>(slotDefinition.allowedTargetTypes()));
+    }
+
+    private int countCandidatePool(FeedOpsPageDefinition pageDefinition) {
+        int total = 0;
+        for (String targetType : pageDefinition.candidateTargetTypes()) {
+            total += countCandidatesForType(targetType, null, CandidatePromptFilter.ALL, null);
+        }
+        return total;
+    }
+
+    private int countCandidatesForType(
+            String targetType,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug
+    ) {
+        String sql = "select count(*) from (" + buildCandidateSelectSql(targetType, keyword, promptFilter, discussionChannelSlug, false) + ") candidates";
+        Integer count = jdbcTemplate.query(
+                connection -> {
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    bindCandidateQueryParameters(statement, targetType, keyword, promptFilter, discussionChannelSlug, null, null);
+                    return statement;
+                },
+                resultSet -> resultSet.next() ? resultSet.getInt(1) : 0
+        );
+        return count == null ? 0 : count;
+    }
+
+    private List<AdminFeedOpsPageResponse.ContentItem> loadCandidatePageItems(
+            List<String> targetTypes,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug,
+            int pageSize,
+            int offset
+    ) {
+        int fetchLimit = Math.max(pageSize + offset, pageSize);
+        List<AdminFeedOpsPageResponse.ContentItem> candidateItems = new ArrayList<>();
+
+        for (String targetType : targetTypes) {
+            candidateItems.addAll(loadCandidatesForType(
+                    targetType,
+                    keyword,
+                    promptFilter,
+                    discussionChannelSlug,
+                    fetchLimit,
+                    0
+            ));
+        }
+
+        List<AdminFeedOpsPageResponse.ContentItem> sortedItems = dedupeAndSortItems(candidateItems);
+        if (offset >= sortedItems.size()) {
+            return List.of();
+        }
+
+        int endIndex = Math.min(offset + pageSize, sortedItems.size());
+        return List.copyOf(sortedItems.subList(offset, endIndex));
+    }
+
+    private List<AdminFeedOpsPageResponse.ContentItem> loadCandidatesForType(
+            String targetType,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug,
+            Integer limit,
+            Integer offset
+    ) {
+        String sql = buildCandidateSelectSql(targetType, keyword, promptFilter, discussionChannelSlug, true);
+        return jdbcTemplate.query(
+                connection -> {
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    bindCandidateQueryParameters(statement, targetType, keyword, promptFilter, discussionChannelSlug, limit, offset);
+                    return statement;
+                },
+                (resultSet, rowNum) -> mapContentItem(resultSet, true)
+        );
+    }
+
+    private String buildCandidateSelectSql(
+            String targetType,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug,
+            boolean includePaging
+    ) {
+        StringBuilder sql = new StringBuilder(candidateSql(targetType));
+        appendCandidateFilters(sql, targetType, keyword, promptFilter, discussionChannelSlug);
+        sql.append(orderByClause(targetType));
+        if (includePaging) {
+            sql.append(" limit ? offset ?");
+        }
+        return sql.toString();
+    }
+
+    private void appendCandidateFilters(
+            StringBuilder sql,
+            String targetType,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug
+    ) {
+        CandidatePromptFilter effectivePromptFilter = promptFilter == null ? CandidatePromptFilter.ALL : promptFilter;
+
+        if ("prompt".equals(targetType) && effectivePromptFilter != CandidatePromptFilter.ALL) {
+            sql.append(" and prompt.modality = ?");
+        }
+
+        if ("post".equals(targetType) && discussionChannelSlug != null) {
+            sql.append(" and channel.slug = ?");
+        }
+
+        if (keyword != null && !keyword.isBlank()) {
+            switch (targetType) {
+                case "prompt" -> sql.append("""
+                         and lower(concat_ws(' ',
+                             coalesce(prompt.title, ''),
+                             coalesce(author.display_name, ''),
+                             coalesce(prompt.summary, '')
+                         )) like ?
+                        """);
+                case "workflow" -> sql.append("""
+                         and lower(concat_ws(' ',
+                             coalesce(workflow.title, ''),
+                             coalesce(author.display_name, ''),
+                             coalesce(workflow.summary, ''),
+                             coalesce(workflow.scenario_text, '')
+                         )) like ?
+                        """);
+                case "post" -> sql.append("""
+                         and lower(concat_ws(' ',
+                             coalesce(thread.title, ''),
+                             coalesce(author.display_name, ''),
+                             coalesce(channel.title, ''),
+                             coalesce(thread.excerpt_text, '')
+                         )) like ?
+                        """);
+                case "channel" -> sql.append("""
+                         and lower(concat_ws(' ',
+                             coalesce(channel.title, ''),
+                             coalesce(channel.description_text, '')
+                         )) like ?
+                        """);
+                default -> throw ApiBusinessException.internalError("ADMIN_FEED_OPS_TARGET_INVALID", "feed ops candidate target type is invalid");
+            }
+        }
+    }
+
+    private void bindCandidateQueryParameters(
+            PreparedStatement statement,
+            String targetType,
+            String keyword,
+            CandidatePromptFilter promptFilter,
+            String discussionChannelSlug,
+            Integer limit,
+            Integer offset
+    ) throws SQLException {
+        int parameterIndex = 1;
+        CandidatePromptFilter effectivePromptFilter = promptFilter == null ? CandidatePromptFilter.ALL : promptFilter;
+
+        if ("prompt".equals(targetType) && effectivePromptFilter != CandidatePromptFilter.ALL) {
+            statement.setString(parameterIndex++, effectivePromptFilter == CandidatePromptFilter.VIDEO ? "video" : "image");
+        }
+
+        if ("post".equals(targetType) && discussionChannelSlug != null) {
+            statement.setString(parameterIndex++, discussionChannelSlug);
+        }
+
+        if (keyword != null && !keyword.isBlank()) {
+            statement.setString(parameterIndex++, "%" + keyword + "%");
+        }
+
+        if (limit != null && offset != null) {
+            statement.setInt(parameterIndex++, limit);
+            statement.setInt(parameterIndex, offset);
+        }
+    }
+
+    private String orderByClause(String targetType) {
+        return switch (targetType) {
+            case "prompt" -> " order by coalesce(prompt.published_at, prompt.created_at) desc nulls last, prompt.title asc";
+            case "workflow" -> " order by coalesce(workflow.published_at, workflow.created_at) desc nulls last, workflow.title asc";
+            case "post" -> " order by coalesce(thread.last_activity_at, thread.published_at, thread.created_at) desc nulls last, thread.title asc";
+            case "channel" -> " order by channel.sort_order asc, channel.created_at asc";
+            default -> throw ApiBusinessException.internalError("ADMIN_FEED_OPS_TARGET_INVALID", "feed ops candidate target type is invalid");
+        };
+    }
+
+    private String normalizeKeyword(String keyword) {
+        String normalized = defaultString(keyword).trim().toLowerCase(Locale.ROOT);
+        return normalized.isBlank() ? null : normalized;
+    }
+
+    private CandidatePromptFilter normalizeCandidatePromptFilter(String promptFilter) {
+        String normalized = defaultString(promptFilter).trim().toLowerCase(Locale.ROOT);
+        return switch (normalized) {
+            case "", "all" -> CandidatePromptFilter.ALL;
+            case "image" -> CandidatePromptFilter.IMAGE;
+            case "video" -> CandidatePromptFilter.VIDEO;
+            default -> throw ApiBusinessException.badRequest("ADMIN_FEED_OPS_PROMPT_FILTER_INVALID", "feed ops prompt filter is invalid");
+        };
+    }
+
+    private CandidatePageRequest normalizeCandidatePageRequest(Integer page, Integer pageSize) {
+        int normalizedPage = page == null || page < 1 ? DEFAULT_CANDIDATE_PAGE : page;
+        int normalizedPageSize = pageSize == null || pageSize < 1 ? DEFAULT_CANDIDATE_PAGE_SIZE : pageSize;
+        normalizedPageSize = Math.min(normalizedPageSize, MAX_CANDIDATE_PAGE_SIZE);
+        return new CandidatePageRequest(normalizedPage, normalizedPageSize);
+    }
+
     private Map<String, List<AdminFeedOpsPageResponse.ContentItem>> buildFallbackSlotItems(
             FeedOpsPageDefinition pageDefinition,
             List<AdminFeedOpsPageResponse.ContentItem> candidatePool
     ) {
         return switch (pageDefinition.pageKey()) {
             case "home" -> buildHomeFallbackSlotItems(candidatePool);
-            case "featured" -> buildFeaturedFallbackSlotItems(candidatePool);
+            case "featured", FEATURED_HOT_PAGE_KEY -> buildFeaturedFallbackSlotItems(candidatePool);
+            case "landing" -> buildLandingFallbackSlotItems(candidatePool);
             case "discussions" -> buildDiscussionFallbackSlotItems(candidatePool, pageDefinition.slots());
             default -> Map.of();
         };
@@ -593,11 +936,6 @@ public class AdminFeedOpsService {
         List<AdminFeedOpsPageResponse.ContentItem> imagePrompts = prompts.stream()
                 .filter(item -> !videoPromptKeys.contains(contentItemKey(item)))
                 .toList();
-        List<AdminFeedOpsPageResponse.ContentItem> workflowLeads = workflows.stream()
-                .filter(this::hasVideoCapability)
-                .toList();
-        List<AdminFeedOpsPageResponse.ContentItem> workflowBase = workflowLeads.isEmpty() ? workflows : workflowLeads;
-
         List<AdminFeedOpsPageResponse.ContentItem> fallbackPool = new ArrayList<>();
         fallbackPool.addAll(videoPrompts);
         fallbackPool.addAll(imagePrompts);
@@ -607,14 +945,10 @@ public class AdminFeedOpsService {
         Set<String> shelfTaken = new LinkedHashSet<>();
 
         Map<String, List<AdminFeedOpsPageResponse.ContentItem>> slots = new LinkedHashMap<>();
-        slots.put("home-hero", takeUniqueContentItems(joinLists(videoPrompts, prompts, workflows), 3, heroTaken));
+        slots.put("home-hero", takeUniqueContentItems(joinLists(videoPrompts, prompts, workflows), 6, heroTaken));
         slots.put(
                 "recommended-primary",
                 fillUniqueContentItems(takeUniqueContentItems(videoPrompts, 4, shelfTaken), fallbackPool, 4, shelfTaken)
-        );
-        slots.put(
-                "recommended-secondary",
-                fillUniqueContentItems(takeUniqueContentItems(workflowBase, 4, shelfTaken), fallbackPool, 4, shelfTaken)
         );
         slots.put(
                 "canvas",
@@ -637,9 +971,6 @@ public class AdminFeedOpsService {
         List<AdminFeedOpsPageResponse.ContentItem> workflows = candidatePool.stream()
                 .filter(item -> "workflow".equals(item.targetType()))
                 .toList();
-        List<AdminFeedOpsPageResponse.ContentItem> posts = candidatePool.stream()
-                .filter(item -> "post".equals(item.targetType()))
-                .toList();
 
         Map<String, List<AdminFeedOpsPageResponse.ContentItem>> slots = new LinkedHashMap<>();
         slots.put("featured-all", List.copyOf(candidatePool.stream().limit(12).toList()));
@@ -652,8 +983,17 @@ public class AdminFeedOpsService {
                 "featured-image-prompt",
                 List.copyOf(prompts.stream().filter(item -> !"video".equalsIgnoreCase(item.promptModality())).limit(12).toList())
         );
-        slots.put("featured-activity", List.copyOf(posts.stream().limit(12).toList()));
+        slots.put("featured-activity", List.of());
         return Map.copyOf(slots);
+    }
+
+    private Map<String, List<AdminFeedOpsPageResponse.ContentItem>> buildLandingFallbackSlotItems(
+            List<AdminFeedOpsPageResponse.ContentItem> candidatePool
+    ) {
+        return Map.of(
+                "landing-archive-grid",
+                List.copyOf(candidatePool.stream().limit(12).toList())
+        );
     }
 
     private Map<String, List<AdminFeedOpsPageResponse.ContentItem>> buildDiscussionFallbackSlotItems(
@@ -827,6 +1167,7 @@ public class AdminFeedOpsService {
             }
 
             List<AdminFeedOpsPageResponse.ContentItem> items = readStoredItemRefs(row.itemsJsonText()).stream()
+                    .filter(ref -> definition.allowedTargetTypes().contains(ref.targetType()))
                     .map(this::resolveStoredItem)
                     .filter(AdminFeedOpsPageResponse.ContentItem::available)
                     .limit(definition.maxItems())
@@ -841,10 +1182,57 @@ public class AdminFeedOpsService {
     }
 
     public Map<String, List<AdminFeedOpsPageResponse.ContentItem>> loadPublishedFeaturedSlotItems() {
-        Map<String, SlotConfigRow> configRows = loadSlotConfigRows(FEATURED_PAGE.pageKey());
+        return loadPublishedFeaturedSlotItems(null);
+    }
+
+    public Map<String, List<AdminFeedOpsPageResponse.ContentItem>> loadPublishedFeaturedSlotItems(String sort) {
+        FeedOpsPageDefinition pageDefinition = resolveFeaturedPageDefinition(sort);
+        Map<String, SlotConfigRow> configRows = loadSlotConfigRows(pageDefinition.pageKey());
         Map<String, List<AdminFeedOpsPageResponse.ContentItem>> slotItems = new LinkedHashMap<>();
 
-        for (SlotDefinition definition : FEATURED_PAGE.slots()) {
+        for (SlotDefinition definition : pageDefinition.slots()) {
+            SlotConfigRow row = configRows.get(definition.key());
+            if (row == null || !"published".equals(row.statusCode())) {
+                continue;
+            }
+
+            List<AdminFeedOpsPageResponse.ContentItem> items = readStoredItemRefs(row.itemsJsonText()).stream()
+                    .filter(ref -> definition.allowedTargetTypes().contains(ref.targetType()))
+                    .map(this::resolveStoredItem)
+                    .filter(AdminFeedOpsPageResponse.ContentItem::available)
+                    .limit(definition.maxItems())
+                    .toList();
+
+            if (!items.isEmpty()) {
+                slotItems.put(definition.key(), items);
+            }
+        }
+
+        return Map.copyOf(slotItems);
+    }
+
+    private FeedOpsPageDefinition resolveFeaturedPageDefinition(String sort) {
+        String normalizedSort = normalizeFeaturedSort(sort);
+        if ("hot".equals(normalizedSort)) {
+            return new FeedOpsPageDefinition(
+                    FEATURED_HOT_PAGE_KEY,
+                    FEATURED_PAGE.pageLabel(),
+                    FEATURED_PAGE.slots(),
+                    FEATURED_PAGE.candidateTargetTypes()
+            );
+        }
+        return FEATURED_PAGE;
+    }
+
+    private String normalizeFeaturedSort(String sort) {
+        return "hot".equalsIgnoreCase(safeTrim(sort)) ? "hot" : "latest";
+    }
+
+    public Map<String, List<AdminFeedOpsPageResponse.ContentItem>> loadPublishedLandingSlotItems() {
+        Map<String, SlotConfigRow> configRows = loadSlotConfigRows(LANDING_PAGE.pageKey());
+        Map<String, List<AdminFeedOpsPageResponse.ContentItem>> slotItems = new LinkedHashMap<>();
+
+        for (SlotDefinition definition : LANDING_PAGE.slots()) {
             SlotConfigRow row = configRows.get(definition.key());
             if (row == null || !"published".equals(row.statusCode())) {
                 continue;
@@ -1225,10 +1613,7 @@ public class AdminFeedOpsService {
     }
 
     private String resolvePromptPreviewUrl(ResultSet resultSet) throws SQLException {
-        String previewUrl = resolveVideoMediaUrl(resultSet, "prompt_preview_example_url", "prompt_preview_example_asset_kind");
-        return previewUrl != null
-                ? previewUrl
-                : resolveVideoMediaUrl(resultSet, "prompt_primary_example_url", "prompt_primary_example_asset_kind");
+        return resolveVideoMediaUrl(resultSet, "prompt_preview_example_url", "prompt_preview_example_asset_kind");
     }
 
     private String resolvePromptSourceUrl(ResultSet resultSet) throws SQLException {
@@ -1287,6 +1672,10 @@ public class AdminFeedOpsService {
         return value == null ? "" : value;
     }
 
+    private String safeTrim(String value) {
+        return value == null ? "" : value.trim();
+    }
+
     private record FeedOpsPageDefinition(
             String pageKey,
             String pageLabel,
@@ -1330,6 +1719,18 @@ public class AdminFeedOpsService {
     private record DiscussionChannelRef(
             String slug,
             String title
+    ) {
+    }
+
+    private enum CandidatePromptFilter {
+        ALL,
+        IMAGE,
+        VIDEO
+    }
+
+    private record CandidatePageRequest(
+            int page,
+            int pageSize
     ) {
     }
 }

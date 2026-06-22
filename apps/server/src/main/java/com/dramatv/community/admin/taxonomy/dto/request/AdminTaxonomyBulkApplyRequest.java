@@ -16,6 +16,8 @@ public record AdminTaxonomyBulkApplyRequest(
         @Size(max = 64)
         String contentCategory,
         @Size(max = 64)
-        String compositionCategory
+        String compositionCategory,
+        @Size(max = 64)
+        String modelUsageCategory
 ) {
 }

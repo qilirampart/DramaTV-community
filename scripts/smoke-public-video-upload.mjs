@@ -128,7 +128,7 @@ async function uploadBinary(baseUrl, accessToken, uploadUrl, filePath) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const baseUrl = (args["base-url"] ?? process.env.DRAMATV_PUBLIC_BASE_URL ?? "http://8.141.20.130").replace(/\/$/, "");
+  const baseUrl = (args["base-url"] ?? process.env.DRAMATV_PUBLIC_BASE_URL ?? "http://community.8.141.20.130.nip.io").replace(/\/$/, "");
   const username = args.username ?? process.env.DRAMATV_SMOKE_CREATOR_USERNAME ?? "creator-a";
   const password = args.password ?? process.env.DRAMATV_SMOKE_CREATOR_PASSWORD ?? "dramatv-local-dev";
   const filePath = args.file ?? "";

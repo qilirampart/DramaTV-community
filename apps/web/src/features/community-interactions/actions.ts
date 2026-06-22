@@ -7,8 +7,8 @@ import {
   copyWorkflowToCanvas,
   getComments,
   getCreator,
+  getCreatorWorks,
   getCreatorPosts,
-  getCreatorVideos,
   getCreatorWorkflows,
   getPromptDetail,
   getRelatedVideos,
@@ -27,10 +27,13 @@ import type { ApiReportReasonCode, ApiReportTargetType } from "@/lib/contracts/c
 import {
   mapCreatorPageView,
   mapComment,
+  mapDiscussionThreadCards,
   mapPromptDetailPageView,
+  mapCreatorWorkMiniCard,
   mapVideoDetailPageView,
   mapWorkflowDetailPageView
 } from "@/lib/mappers/community";
+import { mapWorkflowMiniCard } from "@/lib/mappers/community";
 
 type CommentUpdatePayload = {
   comments: VideoDetailPageView["comments"]["items"] | WorkflowDetailPageView["comments"]["items"];
@@ -72,6 +75,29 @@ export type WorkflowCopyActionResult =
 export type ReportActionResult =
   | {
       ok: true;
+      message: string;
+    }
+  | ViewActionFailure;
+
+export type CreatorLoadMoreResult =
+  | {
+      ok: true;
+      patch:
+        | {
+            kind: "works";
+            works: CreatorPageView["works"];
+            nextWorksCursor?: string;
+          }
+        | {
+            kind: "workflows";
+            workflows: CreatorPageView["workflows"];
+            nextWorkflowCursor?: string;
+          }
+        | {
+            kind: "posts";
+            posts: CreatorPageView["posts"];
+            nextPostCursor?: string;
+          };
       message: string;
     }
   | ViewActionFailure;
@@ -272,9 +298,9 @@ export async function submitReportAction(input: {
 }
 
 async function loadCreatorView(id: string): Promise<CreatorPageView | null> {
-  const [profile, videos, workflows, posts] = await Promise.all([
+  const [profile, works, workflows, posts] = await Promise.all([
     getCreator(id),
-    getCreatorVideos(id),
+    getCreatorWorks(id),
     getCreatorWorkflows(id),
     getCreatorPosts(id)
   ]);
@@ -283,7 +309,7 @@ async function loadCreatorView(id: string): Promise<CreatorPageView | null> {
     return null;
   }
 
-  return mapCreatorPageView({ ...profile, data: profile.data }, videos, workflows, posts);
+  return mapCreatorPageView({ ...profile, data: profile.data }, works, workflows, posts);
 }
 
 function missingViewResult(message: string): ViewActionFailure {
@@ -918,6 +944,76 @@ export async function toggleCreatorFollowAction(input: {
     return {
       ok: false,
       message: toActionMessage(error, "Updating creator follow status failed.")
+    };
+  }
+}
+
+export async function loadMoreCreatorWorksAction(input: {
+  creatorId: string;
+  cursor: string;
+}): Promise<CreatorLoadMoreResult> {
+  try {
+    const works = await getCreatorWorks(input.creatorId, input.cursor);
+
+    return {
+      ok: true,
+      patch: {
+        kind: "works",
+        works: works.data.items.map(mapCreatorWorkMiniCard),
+        nextWorksCursor: works.data.nextCursor ?? undefined
+      },
+      message: "More works loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more works failed.")
+    };
+  }
+}
+
+export async function loadMoreCreatorWorkflowsAction(input: {
+  creatorId: string;
+  cursor: string;
+}): Promise<CreatorLoadMoreResult> {
+  try {
+    const workflows = await getCreatorWorkflows(input.creatorId, input.cursor);
+    return {
+      ok: true,
+      patch: {
+        kind: "workflows",
+        workflows: workflows.data.items.map(mapWorkflowMiniCard),
+        nextWorkflowCursor: workflows.data.nextCursor ?? undefined
+      },
+      message: "More workflows loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more workflows failed.")
+    };
+  }
+}
+
+export async function loadMoreCreatorPostsAction(input: {
+  creatorId: string;
+  cursor: string;
+}): Promise<CreatorLoadMoreResult> {
+  try {
+    const posts = await getCreatorPosts(input.creatorId, input.cursor);
+    return {
+      ok: true,
+      patch: {
+        kind: "posts",
+        posts: mapDiscussionThreadCards(posts.data.items),
+        nextPostCursor: posts.data.nextCursor ?? undefined
+      },
+      message: "More posts loaded."
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: toActionMessage(error, "Loading more posts failed.")
     };
   }
 }

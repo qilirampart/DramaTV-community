@@ -84,11 +84,16 @@
 .contentGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.68fr) minmax(332px, 0.76fr);
-  grid-template-areas:
-    "queue side"
-    "quick side";
+  grid-template-areas: "queue side";
   gap: 14px;
   align-items: start;
+}
+
+.primaryColumn {
+  grid-area: queue;
+  display: grid;
+  gap: 14px;
+  min-width: 0;
 }
 
 .surface {
@@ -96,12 +101,10 @@
 }
 
 .queueCard {
-  grid-area: queue;
   overflow: hidden;
 }
 
 .quickCard {
-  grid-area: quick;
   overflow: hidden;
 }
 
@@ -501,13 +504,12 @@
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 900px) {
   .contentGrid {
     grid-template-columns: 1fr;
     grid-template-areas:
       "queue"
-      "side"
-      "quick";
+      "side";
   }
 
   .quickGrid {

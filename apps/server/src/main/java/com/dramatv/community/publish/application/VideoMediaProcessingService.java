@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -109,7 +110,7 @@ public class VideoMediaProcessingService {
             }
 
             UUID previewAssetId = null;
-            if (shouldGeneratePreview(target.previewAssetId(), sourceSizeBytes)) {
+            if (shouldGeneratePreview(target.hasRealPreview(), sourceSizeBytes)) {
                 Path previewPath = transcodePreview(localSourcePath, tempDir, durationMs);
                 UploadApplicationService.StoredAsset previewAsset = uploadApplicationService.storeDerivedAsset(
                         "video",
@@ -144,8 +145,8 @@ public class VideoMediaProcessingService {
         }
     }
 
-    private boolean shouldGeneratePreview(UUID previewAssetId, long sourceSizeBytes) {
-        return previewAssetId == null
+    private boolean shouldGeneratePreview(boolean hasRealPreview, long sourceSizeBytes) {
+        return !hasRealPreview
                 && sourceSizeBytes > Math.max(1L, processingProperties.getCompressionThresholdBytes());
     }
 
@@ -213,10 +214,18 @@ public class VideoMediaProcessingService {
 
     private TargetMediaSpec loadVideoTarget(UUID targetId) {
         return jdbcTemplate.query("""
-                select id, author_id, cover_asset_id, preview_asset_id, source_asset_id, duration_ms
-                from videos
-                where id = ?
-                  and deleted_at is null
+                select
+                    video.id,
+                    video.author_id,
+                    video.cover_asset_id,
+                    video.preview_asset_id,
+                    preview_asset.asset_role as preview_asset_role,
+                    video.source_asset_id,
+                    video.duration_ms
+                from videos video
+                left join media_assets preview_asset on preview_asset.id = video.preview_asset_id
+                where video.id = ?
+                  and video.deleted_at is null
                 """,
                 resultSet -> {
                     if (!resultSet.next()) {
@@ -228,6 +237,7 @@ public class VideoMediaProcessingService {
                             (UUID) resultSet.getObject("author_id"),
                             (UUID) resultSet.getObject("cover_asset_id"),
                             (UUID) resultSet.getObject("preview_asset_id"),
+                            "preview".equalsIgnoreCase(resultSet.getString("preview_asset_role")),
                             (UUID) resultSet.getObject("source_asset_id"),
                             resultSet.getObject("duration_ms") == null ? null : resultSet.getInt("duration_ms")
                     );
@@ -250,7 +260,16 @@ public class VideoMediaProcessingService {
                           and link.role_code = 'preview'
                         order by link.sort_order asc, link.created_at asc
                         limit 1
-                    ) as preview_asset_id
+                    ) as preview_asset_id,
+                    (
+                        select asset.asset_role
+                        from prompt_example_links link
+                        left join media_assets asset on asset.id = link.media_asset_id
+                        where link.prompt_id = prompt.id
+                          and link.role_code = 'preview'
+                        order by link.sort_order asc, link.created_at asc
+                        limit 1
+                    ) as preview_asset_role
                 from prompt_entries prompt
                 where prompt.id = ?
                   and prompt.deleted_at is null
@@ -265,6 +284,7 @@ public class VideoMediaProcessingService {
                             (UUID) resultSet.getObject("author_id"),
                             (UUID) resultSet.getObject("cover_asset_id"),
                             (UUID) resultSet.getObject("preview_asset_id"),
+                            "preview".equalsIgnoreCase(resultSet.getString("preview_asset_role")),
                             (UUID) resultSet.getObject("source_asset_id"),
                             null
                     );
@@ -302,6 +322,7 @@ public class VideoMediaProcessingService {
 
     private Path materializeSourceAsset(SourceAsset sourceAsset, Path tempDir) throws IOException {
         String storageProvider = normalize(sourceAsset.storageProvider());
+        String bucketName = normalize(sourceAsset.bucketName());
         String objectKey = normalizeStoredObjectKey(sourceAsset.objectKey());
         if (objectKey == null) {
             throw new IOException("source asset object key is empty");
@@ -311,12 +332,13 @@ public class VideoMediaProcessingService {
             return downloadOssObject(sourceAsset, objectKey, tempDir);
         }
 
-        Path mediaRoot = mediaStorageProperties.resolvedLocalDirPath();
-        Path localPath = mediaRoot.resolve(objectKey.replace('/', java.io.File.separatorChar)).normalize();
-        if (!localPath.startsWith(mediaRoot) || !Files.exists(localPath) || !Files.isRegularFile(localPath)) {
-            throw new IOException("local source asset file does not exist");
+        if (isWebPublicStorage(storageProvider, bucketName)) {
+            Path webPublicRoot = resolveWorkspaceWebPublicRoot();
+            return resolveLocalObjectPath(webPublicRoot, objectKey, "local-public source asset file does not exist");
         }
-        return localPath;
+
+        Path mediaRoot = mediaStorageProperties.resolvedLocalDirPath();
+        return resolveLocalObjectPath(mediaRoot, objectKey, "local source asset file does not exist");
     }
 
     private Path downloadOssObject(SourceAsset sourceAsset, String objectKey, Path tempDir) throws IOException {
@@ -395,7 +417,7 @@ public class VideoMediaProcessingService {
         command.add("-map");
         command.add("0:a?");
         command.add("-vf");
-        command.add("scale=-2:" + Math.max(240, processingProperties.getPreviewMaxHeight()) + ":force_original_aspect_ratio=decrease");
+        command.add("scale=-2:" + Math.max(240, processingProperties.getPreviewMaxHeight()) + ":force_original_aspect_ratio=decrease,pad=ceil(iw/2)*2:ceil(ih/2)*2");
         command.add("-c:v");
         command.add("libx264");
         command.add("-preset");
@@ -419,6 +441,51 @@ public class VideoMediaProcessingService {
         runProcess(command, "ffmpeg preview");
         ensureGeneratedFile(previewPath, "preview video");
         return previewPath;
+    }
+
+    private boolean isWebPublicStorage(String storageProvider, String bucketName) {
+        return "local-public".equals(storageProvider)
+                || "apps-web-public".equals(bucketName);
+    }
+
+    private Path resolveWorkspaceWebPublicRoot() throws IOException {
+        String configuredRoot = normalize(System.getenv("DRAMATV_WEB_PUBLIC_ROOT"));
+        if (configuredRoot != null) {
+            Path configuredPath = Path.of(configuredRoot).toAbsolutePath().normalize();
+            if (Files.isDirectory(configuredPath)) {
+                return configuredPath;
+            }
+        }
+
+        String[] knownCloudCandidates = {
+                "/opt/dramatv-community-web/current/public",
+                "/opt/dramatv-community-web/shared/public"
+        };
+        for (String knownCandidate : knownCloudCandidates) {
+            Path candidate = Path.of(knownCandidate).toAbsolutePath().normalize();
+            if (Files.isDirectory(candidate)) {
+                return candidate;
+            }
+        }
+
+        Path cursor = Path.of("").toAbsolutePath().normalize();
+        while (cursor != null) {
+            Path candidate = cursor.resolve("apps").resolve("web").resolve("public").normalize();
+            if (Files.isDirectory(candidate)) {
+                return candidate;
+            }
+            cursor = cursor.getParent();
+        }
+
+        throw new IOException("workspace web public root does not exist");
+    }
+
+    private Path resolveLocalObjectPath(Path root, String objectKey, String missingMessage) throws IOException {
+        Path targetPath = root.resolve(objectKey.replace('/', File.separatorChar)).normalize();
+        if (!targetPath.startsWith(root) || !Files.exists(targetPath) || !Files.isRegularFile(targetPath)) {
+            throw new IOException(missingMessage);
+        }
+        return targetPath;
     }
 
     private int resolveVideoBitrateKbps(Integer durationMs, int audioBitrateKbps) {
@@ -576,6 +643,7 @@ public class VideoMediaProcessingService {
             UUID authorId,
             UUID coverAssetId,
             UUID previewAssetId,
+            boolean hasRealPreview,
             UUID sourceAssetId,
             Integer durationMs
     ) {
@@ -593,3 +661,4 @@ public class VideoMediaProcessingService {
     ) {
     }
 }
+

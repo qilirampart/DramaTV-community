@@ -36,12 +36,13 @@ dramatv:
   community-auth:
     provider:
       primary: ${DRAMATV_COMMUNITY_AUTH_PRIMARY:local_password}
-      local-password-enabled: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_ENABLED:true}
+      local-password-enabled: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_ENABLED:false}
+      local-password-bootstrap-secret: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_BOOTSTRAP_SECRET:}
       local-password-display-name: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_DISPLAY_NAME:开发环境账号登录}
       local-password-description: ${DRAMATV_COMMUNITY_AUTH_LOCAL_PASSWORD_DESCRIPTION:当前用于本地联调，后续会切换到公司统一登录。}
   admin-auth:
-    allow-local-bootstrap: ${DRAMATV_ADMIN_AUTH_ALLOW_LOCAL_BOOTSTRAP:true}
-    bootstrap-password: ${DRAMATV_ADMIN_AUTH_BOOTSTRAP_PASSWORD:dramatv-admin-demo}
+    allow-local-bootstrap: ${DRAMATV_ADMIN_AUTH_ALLOW_LOCAL_BOOTSTRAP:false}
+    bootstrap-password: ${DRAMATV_ADMIN_AUTH_BOOTSTRAP_PASSWORD:}
   action-rate-limit:
     enabled: ${DRAMATV_ACTION_RATE_LIMIT_ENABLED:true}
     login:
@@ -73,19 +74,35 @@ dramatv:
     key-prefix: ${DRAMATV_MEDIA_KEY_PREFIX:community/local}
     public-base-url: ${DRAMATV_MEDIA_PUBLIC_BASE_URL:}
     public-base-path: ${DRAMATV_MEDIA_PUBLIC_BASE_PATH:/media}
+    cache:
+      default-max-age-seconds: ${DRAMATV_MEDIA_CACHE_DEFAULT_MAX_AGE_SECONDS:3600}
+      avatar-max-age-seconds: ${DRAMATV_MEDIA_CACHE_AVATAR_MAX_AGE_SECONDS:86400}
+      cover-max-age-seconds: ${DRAMATV_MEDIA_CACHE_COVER_MAX_AGE_SECONDS:86400}
+      poster-max-age-seconds: ${DRAMATV_MEDIA_CACHE_POSTER_MAX_AGE_SECONDS:86400}
+      preview-max-age-seconds: ${DRAMATV_MEDIA_CACHE_PREVIEW_MAX_AGE_SECONDS:14400}
+      source-max-age-seconds: ${DRAMATV_MEDIA_CACHE_SOURCE_MAX_AGE_SECONDS:3600}
+      attachment-max-age-seconds: ${DRAMATV_MEDIA_CACHE_ATTACHMENT_MAX_AGE_SECONDS:3600}
+    proxy:
+      enabled: ${DRAMATV_MEDIA_PROXY_ENABLED:true}
+      max-concurrent-requests: ${DRAMATV_MEDIA_PROXY_MAX_CONCURRENT_REQUESTS:24}
+      slow-request-threshold-ms: ${DRAMATV_MEDIA_PROXY_SLOW_REQUEST_THRESHOLD_MS:800}
     upload:
       max-video-size-bytes: ${DRAMATV_MEDIA_UPLOAD_MAX_VIDEO_SIZE_BYTES:314572800}
       max-image-size-bytes: ${DRAMATV_MEDIA_UPLOAD_MAX_IMAGE_SIZE_BYTES:20971520}
+      max-audio-size-bytes: ${DRAMATV_MEDIA_UPLOAD_MAX_AUDIO_SIZE_BYTES:31457280}
     processing:
       worker-enabled: ${DRAMATV_MEDIA_PROCESSING_WORKER_ENABLED:true}
       worker-delay-ms: ${DRAMATV_MEDIA_PROCESSING_WORKER_DELAY_MS:2000}
       batch-size: ${DRAMATV_MEDIA_PROCESSING_BATCH_SIZE:2}
-      compression-threshold-bytes: ${DRAMATV_MEDIA_PROCESSING_COMPRESSION_THRESHOLD_BYTES:20971520}
+      compression-threshold-bytes: ${DRAMATV_MEDIA_PROCESSING_COMPRESSION_THRESHOLD_BYTES:6291456}
       preview-target-max-bytes: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_TARGET_MAX_BYTES:16777216}
       preview-max-height: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MAX_HEIGHT:720}
       preview-audio-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_AUDIO_BITRATE_KBPS:96}
       preview-min-video-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MIN_VIDEO_BITRATE_KBPS:500}
       preview-max-video-bitrate-kbps: ${DRAMATV_MEDIA_PROCESSING_PREVIEW_MAX_VIDEO_BITRATE_KBPS:2600}
+      image-cover-threshold-bytes: ${DRAMATV_MEDIA_PROCESSING_IMAGE_COVER_THRESHOLD_BYTES:1048576}
+      image-cover-max-width: ${DRAMATV_MEDIA_PROCESSING_IMAGE_COVER_MAX_WIDTH:1600}
+      image-cover-max-height: ${DRAMATV_MEDIA_PROCESSING_IMAGE_COVER_MAX_HEIGHT:1600}
       ffmpeg-path: ${DRAMATV_MEDIA_PROCESSING_FFMPEG_PATH:}
       ffprobe-path: ${DRAMATV_MEDIA_PROCESSING_FFPROBE_PATH:}
     oss:

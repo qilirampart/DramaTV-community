@@ -8,6 +8,7 @@ public record AdminTaxonomyBulkApplyResponse(
         String modelCategory,
         String contentCategory,
         String compositionCategory,
+        String modelUsageCategory,
         List<String> promptIds
 ) {
 }

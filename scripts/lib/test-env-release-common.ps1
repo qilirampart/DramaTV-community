@@ -255,3 +255,208 @@ function Write-ReleaseMetadataFile {
   $json = $Metadata | ConvertTo-Json -Depth 8 -Compress
   Set-Content -LiteralPath $Path -Value $json -Encoding UTF8
 }
+
+function Get-DefaultCommunityTestHost {
+  return "community.8.141.20.130.nip.io"
+}
+
+function Get-DefaultCommunityPublicBaseUrl {
+  return "http://$(Get-DefaultCommunityTestHost)"
+}
+
+function Get-DefaultAdminPublicBaseUrl {
+  param([string]$AdminBasePath = "/admin")
+
+  $normalizedAdminBasePath = Normalize-AdminBasePath -AdminBasePath $AdminBasePath
+  return "$(Get-DefaultCommunityPublicBaseUrl)$normalizedAdminBasePath"
+}
+
+function Normalize-AdminBasePath {
+  param([string]$AdminBasePath = "/admin")
+
+  if ([string]::IsNullOrWhiteSpace($AdminBasePath)) {
+    return "/admin"
+  }
+
+  $trimmed = $AdminBasePath.Trim()
+  if (!$trimmed.StartsWith("/")) {
+    $trimmed = "/$trimmed"
+  }
+
+  if ($trimmed.Length -gt 1) {
+    $trimmed = $trimmed.TrimEnd("/")
+  }
+
+  return $trimmed
+}
+
+function Test-IsIpLiteralHost {
+  param([string]$HostName)
+
+  if ([string]::IsNullOrWhiteSpace($HostName)) {
+    return $false
+  }
+
+  $parsedAddress = $null
+  return [System.Net.IPAddress]::TryParse($HostName.Trim(), [ref]$parsedAddress)
+}
+
+function Get-ValidatedAbsoluteUrl {
+  param(
+    [string]$Url,
+    [string]$Label
+  )
+
+  if ([string]::IsNullOrWhiteSpace($Url)) {
+    throw "$Label cannot be empty."
+  }
+
+  $normalizedUrl = $Url.Trim().TrimEnd("/")
+  try {
+    $uri = [System.Uri]$normalizedUrl
+  } catch {
+    throw "$Label must be an absolute http(s) URL: $Url"
+  }
+
+  if (!$uri.IsAbsoluteUri) {
+    throw "$Label must be an absolute http(s) URL: $Url"
+  }
+
+  if ($uri.Scheme -notin @("http", "https")) {
+    throw "$Label must use http or https: $normalizedUrl"
+  }
+
+  return $normalizedUrl
+}
+
+function Assert-DedicatedPublicBaseUrl {
+  param(
+    [string]$Url,
+    [string]$Label
+  )
+
+  $normalizedUrl = Get-ValidatedAbsoluteUrl -Url $Url -Label $Label
+  $uri = [System.Uri]$normalizedUrl
+  $publicHostName = $uri.Host.Trim().ToLowerInvariant()
+
+  if ([string]::IsNullOrWhiteSpace($publicHostName)) {
+    throw "$Label must include a hostname: $normalizedUrl"
+  }
+
+  if ($publicHostName -in @("localhost", "127.0.0.1", "::1")) {
+    throw "$Label must use a dedicated public hostname instead of localhost: $normalizedUrl"
+  }
+
+  if (Test-IsIpLiteralHost -HostName $publicHostName) {
+    throw "$Label must use a dedicated hostname instead of a bare IP: $normalizedUrl"
+  }
+
+  return $normalizedUrl
+}
+
+function Assert-RootPublicBaseUrl {
+  param(
+    [string]$Url,
+    [string]$Label
+  )
+
+  $normalizedUrl = Assert-DedicatedPublicBaseUrl -Url $Url -Label $Label
+  $uri = [System.Uri]$normalizedUrl
+  $path = $uri.AbsolutePath.Trim()
+
+  if (![string]::IsNullOrWhiteSpace($path) -and $path -ne "/") {
+    throw "$Label must not include a path segment: $normalizedUrl"
+  }
+
+  return $normalizedUrl
+}
+
+function Get-ValidatedServerNameList {
+  param([string]$ServerNames)
+
+  if ([string]::IsNullOrWhiteSpace($ServerNames)) {
+    throw "ServerNames cannot be empty."
+  }
+
+  $tokens = @(
+    $ServerNames.Split([char[]]" `t`r`n", [System.StringSplitOptions]::RemoveEmptyEntries) |
+      ForEach-Object { $_.Trim() } |
+      Where-Object { $_ -ne "" }
+  )
+
+  if ($tokens.Count -eq 0) {
+    throw "ServerNames cannot be empty."
+  }
+
+  foreach ($token in $tokens) {
+    $normalizedToken = $token.ToLowerInvariant()
+    if ($normalizedToken -eq "_" -or $normalizedToken -eq "default_server") {
+      throw "ServerNames cannot use catch-all values like '_' or 'default_server'."
+    }
+    if ($normalizedToken.Contains("*")) {
+      throw "ServerNames cannot use wildcard host patterns: $token"
+    }
+    if ($normalizedToken -in @("localhost", "127.0.0.1", "::1")) {
+      throw "ServerNames must use dedicated public hostnames instead of localhost: $token"
+    }
+    if (Test-IsIpLiteralHost -HostName $normalizedToken) {
+      throw "ServerNames must use dedicated hostnames instead of bare IPs: $token"
+    }
+  }
+
+  return $tokens
+}
+
+function Assert-ServerNamesMatchPublicBaseUrl {
+  param(
+    [string]$ServerNames,
+    [string]$PublicBaseUrl
+  )
+
+  $normalizedPublicBaseUrl = Assert-RootPublicBaseUrl -Url $PublicBaseUrl -Label "PublicBaseUrl"
+  $publicHost = ([System.Uri]$normalizedPublicBaseUrl).Host.ToLowerInvariant()
+  $tokens = Get-ValidatedServerNameList -ServerNames $ServerNames
+
+  $matchesPublicHost = $false
+  foreach ($token in $tokens) {
+    if ($token.ToLowerInvariant() -eq $publicHost) {
+      $matchesPublicHost = $true
+      break
+    }
+  }
+
+  if (!$matchesPublicHost) {
+    throw "ServerNames must include the PublicBaseUrl host '$publicHost'."
+  }
+
+  return ($tokens -join " ")
+}
+
+function Assert-AdminPublicBaseUrls {
+  param(
+    [string]$CommunityPublicBaseUrl,
+    [string]$AdminPublicBaseUrl,
+    [string]$AdminBasePath = "/admin"
+  )
+
+  $normalizedCommunityPublicBaseUrl = Assert-RootPublicBaseUrl -Url $CommunityPublicBaseUrl -Label "CommunityPublicBaseUrl"
+  $normalizedAdminPublicBaseUrl = Assert-DedicatedPublicBaseUrl -Url $AdminPublicBaseUrl -Label "AdminPublicBaseUrl"
+  $communityUri = [System.Uri]$normalizedCommunityPublicBaseUrl
+  $adminUri = [System.Uri]$normalizedAdminPublicBaseUrl
+  $normalizedAdminBasePath = Normalize-AdminBasePath -AdminBasePath $AdminBasePath
+  $adminPath = $adminUri.AbsolutePath.Trim()
+
+  if ($communityUri.Scheme -ne $adminUri.Scheme -or $communityUri.Host -ne $adminUri.Host -or $communityUri.Port -ne $adminUri.Port) {
+    throw "AdminPublicBaseUrl must use the same scheme, host, and port as CommunityPublicBaseUrl."
+  }
+
+  if ($adminPath -ne $normalizedAdminBasePath) {
+    throw "AdminPublicBaseUrl path must exactly match AdminBasePath '$normalizedAdminBasePath'."
+  }
+
+  return [pscustomobject]@{
+    CommunityPublicBaseUrl = $normalizedCommunityPublicBaseUrl
+    AdminPublicBaseUrl     = $normalizedAdminPublicBaseUrl
+    AdminBasePath          = $normalizedAdminBasePath
+  }
+}

@@ -1,5 +1,5 @@
 import { requireAdminAccess } from "@/lib/admin-auth";
-import { AdminBackendError, getAdminFeedOpsHome } from "@/lib/admin-service";
+import { AdminBackendError, getAdminFeedOpsHome, listAdminFeedOpsHomeCandidates } from "@/lib/admin-service";
 import FeedOpsPageClient from "../shared/FeedOpsPageClient";
 import {
   buildFallbackFeedOpsPageData,
@@ -56,6 +56,11 @@ export default async function FeedOpsHomePage({
       modeDetail={pageData.modeDetail}
       page="home"
       saveAction={saveFeedOpsHomeAction}
+      loadCandidates={async (query) => {
+        "use server";
+        const response = await listAdminFeedOpsHomeCandidates(query);
+        return response.data;
+      }}
     />
   );
 }

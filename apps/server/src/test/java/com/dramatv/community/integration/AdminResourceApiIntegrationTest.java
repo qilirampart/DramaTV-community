@@ -121,6 +121,7 @@ class AdminResourceApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(imageBody.at("/data/summary/totalItems").asInt()).isEqualTo(1);
         assertThat(imageBody.at("/data/items").size()).isEqualTo(1);
         assertThat(imageBody.at("/data/items/0/targetType").asText()).isEqualTo("prompt");
+        assertThat(imageBody.at("/data/items/0/promptModality").asText()).isEqualTo("image");
         assertThat(imageBody.at("/data/items/0/media/coverUrl").asText()).isNotBlank();
 
         MvcResult videoResult = mockMvc.perform(authorized(
@@ -136,8 +137,19 @@ class AdminResourceApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(videoBody.at("/data/summary/totalItems").asInt()).isEqualTo(1);
         assertThat(videoBody.at("/data/items").size()).isEqualTo(1);
         assertThat(videoBody.at("/data/items/0/targetType").asText()).isEqualTo("prompt");
+        assertThat(videoBody.at("/data/items/0/promptModality").asText()).isEqualTo("video");
         assertThat(videoBody.at("/data/items/0/media/previewUrl").asText()).isNotBlank();
         assertThat(videoBody.at("/data/items/0/media/sourceUrl").asText()).isNotBlank();
+
+        MvcResult videoDetailResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.get("/api/admin/resources/prompt/{targetId}", videoPromptId)
+                                .accept(MediaType.APPLICATION_JSON),
+                        admin.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode videoDetailBody = readBody(videoDetailResult);
+        assertThat(videoDetailBody.at("/data/promptModality").asText()).isEqualTo("video");
     }
 
     @Test

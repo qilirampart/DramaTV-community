@@ -30,6 +30,7 @@ export default async function PersonalCenterRoute({ searchParams }: PersonalCent
       <PersonalCenterPage
         backHref={backHref}
         publishedVideos={view.publishedVideos}
+        publishedPrompts={view.publishedPrompts}
         publishedWorkflows={view.publishedWorkflows}
         view={view}
       />

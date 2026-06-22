@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { CommentThread } from "@/components/comments/CommentThread";
 import { ReportModal } from "@/components/report/ReportModal";
 import { Tag } from "@/components/shared/Tag";
+import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
 import { stripDiscussionContentToPlainText } from "@/lib/discussion-content";
 import {
@@ -20,6 +22,7 @@ import {
 } from "@/features/discussions/actions";
 import type { DiscussionDetailPageView } from "@/lib/contracts/view-models";
 import { normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildCurrentRoute } from "@/lib/routes/back-anchor";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
 import { DiscussionMarkdown, extractDiscussionHeadings } from "./discussion-markdown";
 import styles from "./DiscussionDetailPage.module.css";
@@ -204,6 +207,8 @@ function ReportIcon() {
 }
 
 export function DiscussionDetailPage({ view, backHref = "/discussions" }: DiscussionDetailPageProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
@@ -245,13 +250,14 @@ export function DiscussionDetailPage({ view, backHref = "/discussions" }: Discus
     summary.length > 168
       ? `${summary.slice(0, 168).trimEnd()}...`
       : summary;
+  const currentRoute = buildCurrentRoute(pathname, searchParams);
   const threadTypeLabel = currentView.binding ? TEXT.threadTypeBound : TEXT.threadTypeStandalone;
   const readingMinutes = Math.max(1, Math.round(stripDiscussionContentToPlainText(currentView.content).length / 260));
   const readingTimeLabel = `约 ${readingMinutes} 分钟阅读`;
   const relatedThreads = currentView.relatedThreads.slice(0, 3).map((thread) => ({
     title: thread.title,
     meta: buildRelatedThreadMeta(thread),
-    href: appendBackSource(thread.href, `/discussions/${currentView.slug}`)
+    href: appendBackSource(thread.href, currentRoute)
   }));
 
   async function handleDiscussionLike() {
@@ -486,9 +492,11 @@ export function DiscussionDetailPage({ view, backHref = "/discussions" }: Discus
 
             <div className={styles.mainColumn}>
               <nav aria-label="帖子路径" className={styles.breadcrumb}>
-                <Link href="/discussions">{TEXT.breadcrumbHome}</Link>
+                <ContextBackLink href={backHref}>{TEXT.breadcrumbHome}</ContextBackLink>
                 <span className={styles.breadcrumbSeparator}>›</span>
-                <Link href={currentView.channel.href}>{currentView.channel.title}</Link>
+                <Link href={appendBackSource(currentView.channel.href, currentRoute)}>
+                  {currentView.channel.title}
+                </Link>
                 <span className={styles.breadcrumbSeparator}>›</span>
                 <span>{TEXT.breadcrumbCurrent}</span>
               </nav>
@@ -497,13 +505,13 @@ export function DiscussionDetailPage({ view, backHref = "/discussions" }: Discus
                 <div className={styles.heroContent}>
                   <div className={styles.kickerRow}>
                     <span className={styles.kicker}>{TEXT.detailLabel}</span>
-                    <Link className={styles.channelPill} href={currentView.channel.href}>
+                    <Link className={styles.channelPill} href={appendBackSource(currentView.channel.href, currentRoute)}>
                       {currentView.channel.title}
                     </Link>
                   </div>
                   <h1 className={styles.heroTitle}>{currentView.title}</h1>
                   <div className={styles.heroMeta}>
-                    <Link className={styles.heroAuthor} href={appendBackSource(currentView.author.href, backHref)}>
+                    <Link className={styles.heroAuthor} href={appendBackSource(currentView.author.href, currentRoute)}>
                       <span className={styles.authorAvatar}>
                         {authorAvatarUrl ? (
                           <span className={styles.avatarImage} style={{ backgroundImage: `url(${authorAvatarUrl})` }} />
@@ -656,7 +664,7 @@ export function DiscussionDetailPage({ view, backHref = "/discussions" }: Discus
 
               <section className={styles.sideCard}>
                 <span className={styles.sideLabel}>关于作者</span>
-                <Link className={styles.sideAuthor} href={appendBackSource(currentView.author.href, backHref)}>
+                <Link className={styles.sideAuthor} href={appendBackSource(currentView.author.href, currentRoute)}>
                   <span className={styles.authorAvatar}>
                     {authorAvatarUrl ? (
                       <span className={styles.avatarImage} style={{ backgroundImage: `url(${authorAvatarUrl})` }} />

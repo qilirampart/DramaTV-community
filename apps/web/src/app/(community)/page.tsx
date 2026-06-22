@@ -17,7 +17,14 @@ export default async function CommunityHomeRoute() {
     ]);
     const view = mergeHomePageWithDemo(mapHomePageView(publicData.homeFeed));
 
-    return <HomePage isAuthenticated={isAuthenticated} prompts={publicData.prompts.data} view={view} />;
+    return (
+      <HomePage
+        isAuthenticated={isAuthenticated}
+        landingLayout={publicData.landingLayout.data}
+        prompts={publicData.prompts.data}
+        view={view}
+      />
+    );
   } catch (error) {
     if (isCommunityBackendUnavailableError(error)) {
       return (

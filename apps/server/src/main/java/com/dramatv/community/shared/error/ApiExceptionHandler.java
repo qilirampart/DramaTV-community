@@ -126,6 +126,7 @@ public class ApiExceptionHandler {
             case NOT_FOUND -> "RESOURCE_NOT_FOUND";
             case REQUESTED_RANGE_NOT_SATISFIABLE -> "MEDIA_RANGE_NOT_SATISFIABLE";
             case BAD_GATEWAY -> "MEDIA_PROXY_FAILED";
+            case SERVICE_UNAVAILABLE -> "MEDIA_PROXY_BUSY";
             default -> status.name();
         };
 
@@ -135,6 +136,7 @@ public class ApiExceptionHandler {
                 case NOT_FOUND -> "resource not found";
                 case REQUESTED_RANGE_NOT_SATISFIABLE -> "requested media range is invalid";
                 case BAD_GATEWAY -> "media proxy failed";
+                case SERVICE_UNAVAILABLE -> "media proxy busy";
                 default -> humanizeCode(code);
             };
         }

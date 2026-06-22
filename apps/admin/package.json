@@ -6,8 +6,8 @@
     "dev": "next dev --port 3206",
     "build": "next build",
     "start": "next start --port 3206",
-    "typecheck": "tsc --noEmit",
-    "smoke": "node ../../scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --output ../../artifacts/admin-smoke/latest/summary.json"
+    "typecheck": "next typegen && tsc --noEmit",
+    "smoke": "node ../../scripts/smoke-admin-routes.mjs --base-url http://127.0.0.1:3206 --base-path /admin --output ../../artifacts/admin-smoke/latest/summary.json"
   },
   "dependencies": {
     "next": "16.2.2",

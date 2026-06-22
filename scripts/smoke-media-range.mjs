@@ -152,7 +152,7 @@ async function requestHead(url) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const backendBaseUrl = args["backend-base-url"] ?? process.env.DRAMATV_BACKEND_BASE_URL ?? "http://8.141.20.130";
+  const backendBaseUrl = args["backend-base-url"] ?? process.env.DRAMATV_BACKEND_BASE_URL ?? "http://community.8.141.20.130.nip.io";
   const username = args.username ?? process.env.DRAMATV_SMOKE_CREATOR_USERNAME ?? "creator-a";
   const password = args.password ?? process.env.DRAMATV_SMOKE_CREATOR_PASSWORD ?? "dramatv-local-dev";
   const outputPath = args.output ?? "";

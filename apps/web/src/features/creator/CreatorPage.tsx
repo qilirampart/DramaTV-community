@@ -3,9 +3,16 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { ProfileMediaCard, type ProfileMediaCardView } from "@/components/shared/ProfileMediaCard";
 import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
-import { toggleCreatorFollowAction } from "@/features/community-interactions/actions";
+import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
+import {
+  loadMoreCreatorPostsAction,
+  loadMoreCreatorWorksAction,
+  loadMoreCreatorWorkflowsAction,
+  toggleCreatorFollowAction
+} from "@/features/community-interactions/actions";
 import { copyText } from "@/lib/browser/copy-text";
 import type {
   CreatorPageView,
@@ -13,9 +20,14 @@ import type {
   VideoMiniCardView,
   WorkflowMiniCardView
 } from "@/lib/contracts/view-models";
-import { formatContentKindBadge, formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
-import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
-import { appendBackSource } from "@/lib/routes/redirect-utils";
+import { formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import {
+  buildBackAnchorSource,
+  buildCurrentRoute,
+  createBackAnchorId
+} from "@/lib/routes/back-anchor";
+import { useListPageBackRestore } from "@/lib/routes/list-page-back-restore";
+import { appendBackSource, normalizeBackTarget } from "@/lib/routes/redirect-utils";
 import styles from "./CreatorPage.module.css";
 
 type CreatorPageProps = {
@@ -28,19 +40,35 @@ type ActionNotice = {
   text: string;
 };
 
-type CreatorTab = "published" | "posts";
+type CreatorTab = "works" | "workflows" | "posts";
 
-type ArchiveCardView = {
-  id: string;
-  href: string;
-  kind: "prompt" | "workflow";
-  title: string;
-  summary?: string;
-  coverUrl?: string;
-  likeCount: number;
-  authorName: string;
-  authorAvatarUrl?: string;
+type CreatorPageSessionSnapshot = {
+  routeKey: string;
+  view: CreatorPageView;
+  storedAt: number;
 };
+
+type CreatorPageSessionSnapshotPayload = {
+  routeKey: string;
+  view: {
+    works: CreatorPageView["works"];
+    workflows: CreatorPageView["workflows"];
+    posts: CreatorPageView["posts"];
+    nextWorksCursor?: string;
+    nextWorkflowCursor?: string;
+    nextPostCursor?: string;
+  };
+  storedAt: number;
+};
+
+const CREATOR_PAGE_SESSION_STORAGE_KEY = "dramatv:creator-page-snapshot:v1";
+const CREATOR_PAGE_SESSION_MAX_AGE_MS = 30 * 60 * 1000;
+const CREATOR_PAGE_SESSION_MAX_ITEMS_PER_BUCKET = 48;
+function normalizeCreatorPageRouteKey(routeKey: string) {
+  return normalizeBackTarget(routeKey, routeKey);
+}
+
+const creatorPageMemorySnapshots = new Map<string, CreatorPageSessionSnapshot>();
 
 function formatCompactNumber(value?: number) {
   if (typeof value !== "number" || Number.isNaN(value)) {
@@ -58,6 +86,107 @@ function getAvatarFallback(name: string) {
   return name.trim().charAt(0).toUpperCase() || "D";
 }
 
+function mergeItemsById<T extends { id: string }>(current: T[], incoming: T[]) {
+  if (incoming.length === 0) {
+    return current;
+  }
+
+  const seen = new Set(current.map((item) => item.id));
+  const additions = incoming.filter((item) => !seen.has(item.id));
+
+  return additions.length > 0 ? [...current, ...additions] : current;
+}
+
+function readCreatorPageSessionSnapshot(routeKey: string): CreatorPageView | null {
+  const normalizedRouteKey = normalizeCreatorPageRouteKey(routeKey);
+  const memorySnapshot =
+    creatorPageMemorySnapshots.get(normalizedRouteKey) ?? creatorPageMemorySnapshots.get(routeKey);
+  if (memorySnapshot && Date.now() - memorySnapshot.storedAt <= CREATOR_PAGE_SESSION_MAX_AGE_MS) {
+    return memorySnapshot.view;
+  }
+
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const raw = window.sessionStorage.getItem(CREATOR_PAGE_SESSION_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+
+    const parsed = JSON.parse(raw) as CreatorPageSessionSnapshotPayload;
+    if (!parsed) {
+      return null;
+    }
+
+    const parsedRouteKey = normalizeCreatorPageRouteKey(parsed.routeKey);
+    if (parsedRouteKey !== normalizedRouteKey) {
+      return null;
+    }
+
+    if (Date.now() - parsed.storedAt > CREATOR_PAGE_SESSION_MAX_AGE_MS) {
+      return null;
+    }
+
+    return {
+      profile: {
+        id: "",
+        displayName: "",
+        followed: false
+      },
+      stats: {
+        videoCount: 0,
+        workflowCount: 0,
+        followerCount: 0,
+        likeReceivedCount: 0
+      },
+      works: parsed.view.works,
+      workflows: parsed.view.workflows,
+      posts: parsed.view.posts,
+      nextWorksCursor: parsed.view.nextWorksCursor,
+      nextWorkflowCursor: parsed.view.nextWorkflowCursor,
+      nextPostCursor: parsed.view.nextPostCursor
+    };
+  } catch {
+    return null;
+  }
+}
+
+function writeCreatorPageSessionSnapshot(routeKey: string, view: CreatorPageView) {
+  const normalizedRouteKey = normalizeCreatorPageRouteKey(routeKey);
+  creatorPageMemorySnapshots.set(routeKey, {
+    routeKey: normalizedRouteKey,
+    view,
+    storedAt: Date.now()
+  });
+  creatorPageMemorySnapshots.set(normalizedRouteKey, {
+    routeKey: normalizedRouteKey,
+    view,
+    storedAt: Date.now()
+  });
+
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    const payload: CreatorPageSessionSnapshotPayload = {
+      routeKey: normalizedRouteKey,
+      view: {
+        works: view.works.slice(0, CREATOR_PAGE_SESSION_MAX_ITEMS_PER_BUCKET),
+        workflows: view.workflows.slice(0, CREATOR_PAGE_SESSION_MAX_ITEMS_PER_BUCKET),
+        posts: view.posts.slice(0, CREATOR_PAGE_SESSION_MAX_ITEMS_PER_BUCKET),
+        nextWorksCursor: view.nextWorksCursor,
+        nextWorkflowCursor: view.nextWorkflowCursor,
+        nextPostCursor: view.nextPostCursor
+      },
+      storedAt: Date.now()
+    };
+    window.sessionStorage.setItem(CREATOR_PAGE_SESSION_STORAGE_KEY, JSON.stringify(payload));
+  } catch {}
+}
+
 function noticeClassName(tone: ActionNotice["tone"]) {
   if (tone === "success") {
     return `${styles.notice} ${styles.noticeSuccess}`;
@@ -70,38 +199,43 @@ function noticeClassName(tone: ActionNotice["tone"]) {
   return styles.notice;
 }
 
-function toArchiveCard(video: VideoMiniCardView): ArchiveCardView | null {
-  if (normalizeText(video.workflow?.id)) {
-    return null;
-  }
-
+function toCreatorWorkCard(item: VideoMiniCardView): ProfileMediaCardView {
+  const isPrompt = item.itemType === "prompt";
   return {
-    id: video.id,
-    href: `/videos/${video.id}`,
-    kind: "prompt",
-    title: normalizeText(video.title) ?? "未命名提示词作品",
-    summary:
-      normalizeText(video.summary) ??
-      "提示词资源，后续可继续进入详情页查看内容。",
-    coverUrl: normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl),
-    likeCount: video.likeCount ?? 0,
-    authorName: normalizeText(video.author.displayName) ?? "DramaTV Creator",
-    authorAvatarUrl: normalizeAssetUrl(video.author.avatarUrl)
+    id: item.id,
+    href: item.href ?? (isPrompt ? `/prompts/${item.id}` : `/videos/${item.id}`),
+    badge: formatEntityTypeBadge(isPrompt ? "prompt" : "video"),
+    title: normalizeText(item.title) ?? (isPrompt ? "未命名提示词" : "未命名提示词作品"),
+    coverUrl: normalizeAssetUrl(item.coverUrl),
+    posterUrl: normalizeAssetUrl(item.posterUrl),
+    previewUrl: normalizeAssetUrl(item.previewUrl),
+    sourceUrl: normalizeAssetUrl(item.sourceUrl),
+    promptModality: isPrompt ? item.promptModality : undefined,
+    authorName: normalizeText(item.author.displayName) ?? "DramaTV Creator",
+    authorAvatarUrl: normalizeAssetUrl(item.author.avatarUrl),
+    metrics: [
+      { icon: "heart", label: formatCompactNumber(item.likeCount ?? 0) },
+      { icon: "play", label: formatCompactNumber(item.playCount ?? 0) }
+    ]
   };
 }
 
-function toArchiveCardFromWorkflow(workflow: WorkflowMiniCardView): ArchiveCardView {
+function toWorkflowCard(workflow: WorkflowMiniCardView): ProfileMediaCardView {
   return {
     id: workflow.id,
     href: `/workflows/${workflow.id}`,
-    kind: "workflow",
+    badge: formatEntityTypeBadge("workflow"),
     title: normalizeText(workflow.title) ?? "未命名工作流",
-    summary:
+    subtitle:
       normalizeText(workflow.summary) ?? "工作流资源，后续继续联动画布入口和复制链路。",
     coverUrl: normalizeAssetUrl(workflow.coverUrl),
-    likeCount: workflow.likeCount ?? 0,
     authorName: normalizeText(workflow.author.displayName) ?? "DramaTV Creator",
-    authorAvatarUrl: normalizeAssetUrl(workflow.author.avatarUrl)
+    authorAvatarUrl: normalizeAssetUrl(workflow.author.avatarUrl),
+    resourceType: "workflow",
+    metrics: [
+      { icon: "heart", label: formatCompactNumber(workflow.likeCount ?? 0) },
+      { icon: "save", label: workflow.allowCopy ? "可复制" : "只读" }
+    ]
   };
 }
 
@@ -131,60 +265,6 @@ function SparkIcon() {
         strokeWidth="1.8"
       />
     </svg>
-  );
-}
-
-function HeartIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 16 16">
-      <path
-        d="M8 13.2 2.8 8.3A3.2 3.2 0 1 1 7.4 3.8L8 4.4l.6-.6a3.2 3.2 0 1 1 4.6 4.5L8 13.2Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-        strokeWidth="1.4"
-      />
-    </svg>
-  );
-}
-
-function ArchiveCard({ item, backSource, anchorId }: { item: ArchiveCardView; backSource: string; anchorId: string }) {
-  return (
-    <Link className={styles.archiveCard} href={appendBackSource(item.href, buildBackAnchorSource(backSource, anchorId))} id={anchorId}>
-      <div className={styles.archiveMedia}>
-        {item.coverUrl ? <div className={styles.archiveCover} style={{ backgroundImage: `url(${item.coverUrl})` }} /> : null}
-        <div className={styles.archiveShade} />
-        <span className={styles.archiveBadge}>
-          {item.kind === "workflow" ? formatEntityTypeBadge("workflow") : formatContentKindBadge("prompt")}
-        </span>
-
-        <div className={styles.archiveFooter}>
-          <h3 className={styles.archiveTitle}>{item.title}</h3>
-
-          <div className={styles.archiveMeta}>
-            <span className={styles.archiveAuthor}>
-              <span className={styles.archiveAvatar}>
-                {item.authorAvatarUrl ? (
-                  <span
-                    className={styles.archiveAvatarImage}
-                    style={{ backgroundImage: `url(${item.authorAvatarUrl})` }}
-                  />
-                ) : (
-                  <span className={styles.archiveAvatarFallback}>
-                    {getAvatarFallback(item.authorName)}
-                  </span>
-                )}
-              </span>
-              <span className={styles.archiveAuthorName}>{item.authorName}</span>
-            </span>
-
-            <span className={styles.archiveMetric}>
-              <HeartIcon />
-              {formatCompactNumber(item.likeCount)}
-            </span>
-          </div>
-        </div>
-      </div>
-    </Link>
   );
 }
 
@@ -231,16 +311,39 @@ function EmptyTabState({
   );
 }
 
+function SectionHint({ text }: { text: string }) {
+  return <p className={styles.sectionHint}>{text}</p>;
+}
+
 export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
   const [pending, setPending] = useState(false);
+  const [loadingMoreTab, setLoadingMoreTab] = useState<CreatorTab | null>(null);
   const [notice, setNotice] = useState<ActionNotice | null>(null);
 
   useEffect(() => {
-    setCurrentView(view);
+    setCurrentView((current) => {
+      if (current.profile.id !== view.profile.id) {
+        return view;
+      }
+
+      const keepCurrentWorks = current.works.length > view.works.length;
+      const keepCurrentWorkflows = current.workflows.length > view.workflows.length;
+      const keepCurrentPosts = current.posts.length > view.posts.length;
+
+      return {
+        ...view,
+        works: keepCurrentWorks ? current.works : view.works,
+        workflows: keepCurrentWorkflows ? current.workflows : view.workflows,
+        posts: keepCurrentPosts ? current.posts : view.posts,
+        nextWorksCursor: keepCurrentWorks ? current.nextWorksCursor : view.nextWorksCursor,
+        nextWorkflowCursor: keepCurrentWorkflows ? current.nextWorkflowCursor : view.nextWorkflowCursor,
+        nextPostCursor: keepCurrentPosts ? current.nextPostCursor : view.nextPostCursor
+      };
+    });
   }, [view]);
 
   const displayName = normalizeText(currentView.profile.displayName) ?? "DramaTV Creator";
@@ -249,14 +352,12 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
   const intro = headline ?? bio ?? "AI 创作者档案页，先展示作品，再逐步补齐工作流与互动信息。";
   const secondaryCopy = headline && bio && bio !== headline ? bio : undefined;
 
-  const archiveItems = [
-    ...currentView.videos.map(toArchiveCard).filter((item): item is ArchiveCardView => Boolean(item)),
-    ...currentView.workflows.map(toArchiveCardFromWorkflow)
-  ];
+  const workItems = currentView.works.map(toCreatorWorkCard);
+  const workflowItems = currentView.workflows.map(toWorkflowCard);
   const activeTab = parseCreatorTab(searchParams.get("tab"));
   const currentRoute = useMemo(() => {
     const nextParams = new URLSearchParams(searchParams.toString());
-    if (activeTab === "published") {
+    if (activeTab === "works") {
       nextParams.delete("tab");
     } else {
       nextParams.set("tab", activeTab);
@@ -264,19 +365,68 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
 
     return buildCurrentRoute(pathname, nextParams);
   }, [activeTab, pathname, searchParams]);
+  const currentRouteKey = useMemo(
+    () => normalizeCreatorPageRouteKey(currentRoute),
+    [currentRoute]
+  );
 
-  const coverFallbackUrl = archiveItems.find((item) => item.coverUrl)?.coverUrl;
-  const backdropUrl = coverFallbackUrl ?? normalizeAssetUrl(currentView.profile.avatarUrl);
-
-  const publishedCount = archiveItems.length;
+  const publishedCount = currentView.stats.videoCount;
+  const workflowCount = currentView.stats.workflowCount;
   const postCount = currentView.posts.length;
-  const avatarUrl = normalizeAssetUrl(currentView.profile.avatarUrl) ?? coverFallbackUrl;
+  const avatarUrl = normalizeAssetUrl(currentView.profile.avatarUrl);
+  const hasMoreWorks = Boolean(currentView.nextWorksCursor);
+  const hasMoreWorkflows = Boolean(currentView.nextWorkflowCursor);
+  const hasMorePosts = Boolean(currentView.nextPostCursor);
 
-  useBackAnchorRestore([activeTab, archiveItems.length, currentView.posts.length]);
+  useEffect(() => {
+    const restoredView = readCreatorPageSessionSnapshot(currentRouteKey);
+    if (!restoredView) {
+      return;
+    }
+
+    setCurrentView((current) => {
+      if (
+        restoredView.works.length <= current.works.length &&
+        restoredView.workflows.length <= current.workflows.length &&
+        restoredView.posts.length <= current.posts.length
+      ) {
+        return current;
+      }
+
+      return {
+        ...current,
+        works: restoredView.works.length > current.works.length ? restoredView.works : current.works,
+        workflows:
+          restoredView.workflows.length > current.workflows.length ? restoredView.workflows : current.workflows,
+        posts: restoredView.posts.length > current.posts.length ? restoredView.posts : current.posts,
+        nextWorksCursor:
+          restoredView.works.length > current.works.length
+            ? restoredView.nextWorksCursor
+            : current.nextWorksCursor,
+        nextWorkflowCursor:
+          restoredView.workflows.length > current.workflows.length
+            ? restoredView.nextWorkflowCursor
+            : current.nextWorkflowCursor,
+        nextPostCursor:
+          restoredView.posts.length > current.posts.length
+            ? restoredView.nextPostCursor
+            : current.nextPostCursor
+      };
+    });
+  }, [currentRouteKey]);
+
+  useEffect(() => {
+    writeCreatorPageSessionSnapshot(currentRouteKey, currentView);
+  }, [currentRouteKey, currentView]);
+
+  const { isBackAnchorRestoring } = useListPageBackRestore({
+    currentRoute,
+    dependencies: [activeTab, workItems.length, workflowItems.length, currentView.posts.length]
+  });
 
   function handleTabChange(nextTab: CreatorTab) {
     const nextParams = new URLSearchParams(searchParams.toString());
-    if (nextTab === "published") {
+    if (nextTab === "works") {
       nextParams.delete("tab");
     } else {
       nextParams.set("tab", nextTab);
@@ -337,14 +487,137 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
     }
   }
 
+  async function handleLoadMoreWorks() {
+    if (!hasMoreWorks || loadingMoreTab) {
+      return;
+    }
+
+    setLoadingMoreTab("works");
+    setNotice(null);
+
+    try {
+      const result = await loadMoreCreatorWorksAction({
+        creatorId: currentView.profile.id,
+        cursor: currentView.nextWorksCursor ?? ""
+      });
+
+      if (!result.ok) {
+        setNotice({
+          tone: "error",
+          text: result.message
+        });
+        return;
+      }
+
+      const { patch } = result;
+      if (patch.kind !== "works") {
+        setNotice({
+          tone: "error",
+          text: "加载更多作品失败。"
+        });
+        return;
+      }
+
+      setCurrentView((current) => ({
+        ...current,
+        works: mergeItemsById(current.works, patch.works),
+        nextWorksCursor: patch.nextWorksCursor
+      }));
+    } finally {
+      setLoadingMoreTab(null);
+    }
+  }
+
+  async function handleLoadMoreWorkflows() {
+    if (!currentView.nextWorkflowCursor || loadingMoreTab) {
+      return;
+    }
+
+    setLoadingMoreTab("workflows");
+    setNotice(null);
+
+    try {
+      const result = await loadMoreCreatorWorkflowsAction({
+        creatorId: currentView.profile.id,
+        cursor: currentView.nextWorkflowCursor
+      });
+
+      if (!result.ok) {
+        setNotice({
+          tone: "error",
+          text: result.message
+        });
+        return;
+      }
+
+      const { patch } = result;
+      if (patch.kind !== "workflows") {
+        setNotice({
+          tone: "error",
+          text: "加载更多工作流失败。"
+        });
+        return;
+      }
+
+      setCurrentView((current) => ({
+        ...current,
+        workflows: mergeItemsById(current.workflows, patch.workflows),
+        nextWorkflowCursor: patch.nextWorkflowCursor
+      }));
+    } finally {
+      setLoadingMoreTab(null);
+    }
+  }
+
+  async function handleLoadMorePosts() {
+    if (!currentView.nextPostCursor || loadingMoreTab) {
+      return;
+    }
+
+    setLoadingMoreTab("posts");
+    setNotice(null);
+
+    try {
+      const result = await loadMoreCreatorPostsAction({
+        creatorId: currentView.profile.id,
+        cursor: currentView.nextPostCursor
+      });
+
+      if (!result.ok) {
+        setNotice({
+          tone: "error",
+          text: result.message
+        });
+        return;
+      }
+
+      const { patch } = result;
+      if (patch.kind !== "posts") {
+        setNotice({
+          tone: "error",
+          text: "加载更多帖子失败。"
+        });
+        return;
+      }
+
+      setCurrentView((current) => ({
+        ...current,
+        posts: mergeItemsById(current.posts, patch.posts),
+        nextPostCursor: patch.nextPostCursor
+      }));
+    } finally {
+      setLoadingMoreTab(null);
+    }
+  }
+
   return (
     <PageShell variant="home" topNavActive="home">
-      <div className={styles.page}>
+      <div
+        aria-hidden={isBackAnchorRestoring}
+        className={`${styles.page}${isBackAnchorRestoring ? ` ${styles.pageRestoring}` : ""}`}
+      >
         <div aria-hidden="true" className={styles.backdrop}>
-          <div
-            className={styles.backdropImage}
-            style={backdropUrl ? { backgroundImage: `url(${backdropUrl})` } : undefined}
-          />
+          <div className={styles.backdropImage} />
           <div className={styles.backdropGlow} />
           <div className={styles.backdropNoise} />
         </div>
@@ -393,6 +666,10 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
                 <span>作品</span>
               </div>
               <div className={styles.statBlock}>
+                <strong>{formatCompactNumber(workflowCount)}</strong>
+                <span>工作流</span>
+              </div>
+              <div className={styles.statBlock}>
                 <strong>{formatCompactNumber(postCount)}</strong>
                 <span>帖子</span>
               </div>
@@ -427,11 +704,18 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
         <section className={styles.tabSection}>
           <div className={styles.tabBar}>
             <button
-              className={activeTab === "published" ? styles.tabActive : styles.tab}
+              className={activeTab === "works" ? styles.tabActive : styles.tab}
               type="button"
-              onClick={() => handleTabChange("published")}
+              onClick={() => handleTabChange("works")}
             >
               作品
+            </button>
+            <button
+              className={activeTab === "workflows" ? styles.tabActive : styles.tab}
+              type="button"
+              onClick={() => handleTabChange("workflows")}
+            >
+              工作流
             </button>
             <button
               className={activeTab === "posts" ? styles.tabActive : styles.tab}
@@ -444,50 +728,139 @@ export function CreatorPage({ view, backHref = "/home" }: CreatorPageProps) {
         </section>
 
         <section className={styles.contentSection}>
-          {activeTab === "published" ? (
-            archiveItems.length > 0 ? (
-              <div className={styles.archiveGrid}>
-                {archiveItems.map((item) => (
-                  <ArchiveCard
-                    anchorId={createBackAnchorId("creator-work", item.id)}
-                    key={`${item.kind}-${item.id}`}
-                    item={item}
-                    backSource={currentRoute}
-                  />
-                ))}
-              </div>
-            ) : (
-              <EmptyTabState
-                title="还没有发布内容"
-                description="当前创作者暂无公开档案，后续这里会继续展示提示词和工作流资源。"
-              />
-            )
+          {activeTab === "works" ? (
+            <>
+              {hasMoreWorks ? <SectionHint text="当前先展示最近公开的作品与提示词，点击下方查看更多可继续加载。" /> : null}
+              {workItems.length > 0 ? (
+                <>
+                  <div className={styles.archiveGrid}>
+                    {workItems.map((item) => (
+                      <ProfileMediaCard
+                        anchorId={createBackAnchorId("creator-work", item.id)}
+                        key={item.id}
+                        item={item}
+                        backSource={currentRoute}
+                        hideTextBlock
+                        previewGroup="creator-works"
+                      />
+                    ))}
+                  </div>
+                  {hasMoreWorks ? (
+                    <div className={styles.loadMoreRow}>
+                      <button
+                        className={styles.loadMoreButton}
+                        disabled={loadingMoreTab === "works"}
+                        type="button"
+                        onClick={handleLoadMoreWorks}
+                      >
+                        {loadingMoreTab === "works" ? "加载中..." : "查看更多"}
+                      </button>
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <EmptyTabState
+                  title="还没有发布内容"
+                  description="当前创作者暂无公开作品，后续这里会继续展示视频作品和提示词资源。"
+                />
+              )}
+            </>
+          ) : null}
+
+          {activeTab === "workflows" ? (
+            <>
+              {hasMoreWorkflows ? <SectionHint text="当前先展示最近公开的工作流，点击下方查看更多可继续加载。" /> : null}
+              {workflowItems.length > 0 ? (
+                <>
+                  <div className={styles.archiveGrid}>
+                    {workflowItems.map((item) => (
+                      <ProfileMediaCard
+                        anchorId={createBackAnchorId("creator-workflow", item.id)}
+                        key={item.id}
+                        item={item}
+                        backSource={currentRoute}
+                        hideTextBlock
+                        previewGroup="creator-workflows"
+                      />
+                    ))}
+                  </div>
+                  {hasMoreWorkflows ? (
+                    <div className={styles.loadMoreRow}>
+                      <button
+                        className={styles.loadMoreButton}
+                        disabled={loadingMoreTab === "workflows"}
+                        type="button"
+                        onClick={handleLoadMoreWorkflows}
+                      >
+                        {loadingMoreTab === "workflows" ? "加载中..." : "查看更多"}
+                      </button>
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <EmptyTabState
+                  title="还没有发布工作流"
+                  description="当前创作者暂无公开工作流，后续这里会继续沉淀流程模板与方法论。"
+                />
+              )}
+            </>
           ) : null}
 
           {activeTab === "posts" ? (
-            currentView.posts.length > 0 ? (
-              <div className={styles.postGrid}>
-                {currentView.posts.map((item) => (
-                  <PostCard
-                    anchorId={createBackAnchorId("creator-post", item.id)}
-                    key={item.id}
-                    item={item}
-                    backSource={currentRoute}
-                  />
-                ))}
-              </div>
-            ) : (
-              <EmptyTabState
-                title="还没有发布帖子"
-                description="这位创作者暂时还没有公开讨论帖，后续发布的帖子会沉淀在这里。"
-              />
-            )
+            <>
+              {hasMorePosts ? <SectionHint text="当前先展示最近公开的帖子，点击下方查看更多可继续加载。" /> : null}
+              {currentView.posts.length > 0 ? (
+                <>
+                  <div className={styles.postGrid}>
+                    {currentView.posts.map((item) => (
+                      <PostCard
+                        anchorId={createBackAnchorId("creator-post", item.id)}
+                        key={item.id}
+                        item={item}
+                        backSource={currentRoute}
+                      />
+                    ))}
+                  </div>
+                  {hasMorePosts ? (
+                    <div className={styles.loadMoreRow}>
+                      <button
+                        className={styles.loadMoreButton}
+                        disabled={loadingMoreTab === "posts"}
+                        type="button"
+                        onClick={handleLoadMorePosts}
+                      >
+                        {loadingMoreTab === "posts" ? "加载中..." : "查看更多"}
+                      </button>
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <EmptyTabState
+                  title="还没有发布帖子"
+                  description="这位创作者暂时还没有公开讨论帖，后续发布的帖子会沉淀在这里。"
+                />
+              )}
+            </>
           ) : null}
         </section>
       </div>
+      {isBackAnchorRestoring ? (
+        <div className={styles.backAnchorRestoreOverlay}>
+          <RouteVideoLoading
+            activeNav="home"
+            label="Restoring creator position"
+            useVideo={false}
+            videoActive={false}
+          />
+        </div>
+      ) : null}
     </PageShell>
   );
 }
 function parseCreatorTab(value: string | null): CreatorTab {
-  return value === "posts" ? "posts" : "published";
+  if (value === "posts" || value === "workflows") {
+    return value;
+  }
+
+  return "works";
 }

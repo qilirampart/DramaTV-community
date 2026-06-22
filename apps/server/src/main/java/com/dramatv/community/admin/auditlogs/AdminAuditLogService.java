@@ -28,128 +28,126 @@ public class AdminAuditLogService {
     private static final int DEFAULT_PAGE_SIZE = 15;
     private static final int MAX_PAGE_SIZE = 100;
 
-    private static final String FILTERED_LOG_ROWS_CTE = """
-            with log_rows as (
-                select
-                    log.id,
-                    log.operator_id,
-                    log.operator_username,
-                    log.operator_display_name,
-                    log.operator_role_code,
-                    log.module_code,
-                    log.module_label,
-                    log.action_code,
-                    log.action_label,
-                    log.target_type,
-                    log.target_id,
-                    log.target_title,
-                    log.risk_level,
-                    log.result_status,
-                    log.note_text,
-                    log.request_path,
-                    log.request_method,
-                    log.response_status,
-                    log.request_id,
-                    log.trace_id,
-                    log.metadata_text,
-                    log.created_at
-                from admin_operation_logs log
-                where (
-                        cast(? as varchar) is null
-                        or log.operator_username ilike ?
-                        or log.operator_display_name ilike ?
-                        or log.module_label ilike ?
-                        or log.action_label ilike ?
-                        or coalesce(log.target_title, '') ilike ?
-                        or coalesce(log.target_id, '') ilike ?
-                        or coalesce(log.note_text, '') ilike ?
-                        or coalesce(log.request_id, '') ilike ?
-                        or coalesce(log.trace_id, '') ilike ?
-                        or coalesce(log.request_path, '') ilike ?
-                    )
-                  and (cast(? as varchar) is null or log.module_code = cast(? as varchar))
-                  and (cast(? as varchar) is null or log.result_status = cast(? as varchar))
-                  and (cast(? as varchar) is null or log.risk_level = cast(? as varchar))
-            )
-            """;
+    private static final String FILTERED_LOG_ROWS_CTE = String.join("\n",
+            "with log_rows as (",
+            "    select",
+            "        log.id,",
+            "        log.operator_id,",
+            "        log.operator_username,",
+            "        log.operator_display_name,",
+            "        log.operator_role_code,",
+            "        log.module_code,",
+            "        log.module_label,",
+            "        log.action_code,",
+            "        log.action_label,",
+            "        log.target_type,",
+            "        log.target_id,",
+            "        log.target_title,",
+            "        log.risk_level,",
+            "        log.result_status,",
+            "        log.note_text,",
+            "        log.request_path,",
+            "        log.request_method,",
+            "        log.response_status,",
+            "        log.request_id,",
+            "        log.trace_id,",
+            "        log.metadata_text,",
+            "        log.created_at",
+            "    from admin_operation_logs log",
+            "    where (",
+            "            cast(? as varchar) is null",
+            "            or log.operator_username ilike ?",
+            "            or log.operator_display_name ilike ?",
+            "            or log.module_label ilike ?",
+            "            or log.action_label ilike ?",
+            "            or coalesce(log.target_title, '') ilike ?",
+            "            or coalesce(log.target_id, '') ilike ?",
+            "            or coalesce(log.note_text, '') ilike ?",
+            "            or coalesce(log.request_id, '') ilike ?",
+            "            or coalesce(log.trace_id, '') ilike ?",
+            "            or coalesce(log.request_path, '') ilike ?",
+            "        )",
+            "      and (cast(? as varchar) is null or log.module_code = cast(? as varchar))",
+            "      and (cast(? as varchar) is null or log.result_status = cast(? as varchar))",
+            "      and (cast(? as varchar) is null or log.risk_level = cast(? as varchar))",
+            ")"
+    );
 
-    private static final String SUMMARY_SQL = FILTERED_LOG_ROWS_CTE + """
-            select
-                count(*) filter (where created_at >= date_trunc('day', now())) as total_logs,
-                count(*) filter (where created_at >= date_trunc('day', now()) and risk_level = 'sensitive') as sensitive_logs,
-                count(*) filter (where created_at >= date_trunc('day', now()) and module_code in ('comments', 'moderation', 'reports')) as review_logs,
-                count(*) filter (where created_at >= date_trunc('day', now()) and module_code in ('taxonomy', 'feed_ops')) as publish_logs
-            from log_rows
-            """;
+    private static final String SUMMARY_SQL = FILTERED_LOG_ROWS_CTE + String.join("\n",
+            "select",
+            "    count(*) filter (where created_at >= date_trunc('day', now())) as total_logs,",
+            "    count(*) filter (where created_at >= date_trunc('day', now()) and risk_level = 'sensitive') as sensitive_logs,",
+            "    count(*) filter (where created_at >= date_trunc('day', now()) and module_code in ('comments', 'moderation', 'reports')) as review_logs,",
+            "    count(*) filter (where created_at >= date_trunc('day', now()) and module_code in ('taxonomy', 'feed_ops')) as publish_logs",
+            "from log_rows"
+    );
 
-    private static final String LIST_SQL = FILTERED_LOG_ROWS_CTE + """
-            select *
-            from log_rows
-            order by created_at desc, id desc
-            limit ?
-            offset ?
-            """;
+    private static final String LIST_SQL = FILTERED_LOG_ROWS_CTE + String.join("\n",
+            "select *",
+            "from log_rows",
+            "order by created_at desc, id desc",
+            "limit ?",
+            "offset ?"
+    );
 
-    private static final String COUNT_SQL = FILTERED_LOG_ROWS_CTE + """
-            select count(*) from log_rows
-            """;
+    private static final String COUNT_SQL = FILTERED_LOG_ROWS_CTE + "select count(*) from log_rows";
 
-    private static final String DETAIL_SQL = """
-            select
-                log.id,
-                log.operator_id,
-                log.operator_username,
-                log.operator_display_name,
-                log.operator_role_code,
-                log.module_code,
-                log.module_label,
-                log.action_code,
-                log.action_label,
-                log.target_type,
-                log.target_id,
-                log.target_title,
-                log.risk_level,
-                log.result_status,
-                log.note_text,
-                log.request_path,
-                log.request_method,
-                log.response_status,
-                log.request_id,
-                log.trace_id,
-                log.metadata_text,
-                log.created_at
-            from admin_operation_logs log
-            where log.id = ?
-            limit 1
-            """;
+    private static final String DETAIL_SQL = String.join("\n",
+            "select",
+            "    log.id,",
+            "    log.operator_id,",
+            "    log.operator_username,",
+            "    log.operator_display_name,",
+            "    log.operator_role_code,",
+            "    log.module_code,",
+            "    log.module_label,",
+            "    log.action_code,",
+            "    log.action_label,",
+            "    log.target_type,",
+            "    log.target_id,",
+            "    log.target_title,",
+            "    log.risk_level,",
+            "    log.result_status,",
+            "    log.note_text,",
+            "    log.request_path,",
+            "    log.request_method,",
+            "    log.response_status,",
+            "    log.request_id,",
+            "    log.trace_id,",
+            "    log.metadata_text,",
+            "    log.created_at",
+            "from admin_operation_logs log",
+            "where log.id = ?",
+            "limit 1"
+    );
 
-    private static final String INSERT_SQL = """
-            insert into admin_operation_logs (
-                id,
-                operator_id,
-                operator_username,
-                operator_display_name,
-                operator_role_code,
-                module_code,
-                module_label,
-                action_code,
-                action_label,
-                target_type,
-                target_id,
-                target_title,
-                risk_level,
-                result_status,
-                note_text,
-                request_path,
-                request_method,
-                response_status,
-                request_id,
-                trace_id,
-                metadata_text,
-                created_at
-            )
-            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())
-            """;
+    private static final String INSERT_SQL = String.join("\n",
+            "insert into admin_operation_logs (",
+            "    id,",
+            "    operator_id,",
+            "    operator_username,",
+            "    operator_display_name,",
+            "    operator_role_code,",
+            "    module_code,",
+            "    module_label,",
+            "    action_code,",
+            "    action_label,",
+            "    target_type,",
+            "    target_id,",
+            "    target_title,",
+            "    risk_level,",
+            "    result_status,",
+            "    note_text,",
+            "    request_path,",
+            "    request_method,",
+            "    response_status,",
+            "    request_id,",
+            "    trace_id,",
+            "    metadata_text,",
+            "    created_at",
+            ")",
+            "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())"
+    );
 
     private final JdbcTemplate jdbcTemplate;
     private final AdminAccessService adminAccessService;

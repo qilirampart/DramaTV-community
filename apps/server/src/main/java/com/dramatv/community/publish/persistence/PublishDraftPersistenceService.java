@@ -321,7 +321,7 @@ public class PublishDraftPersistenceService {
     ) {
         String categoryCode = nullableText(payloadJson, "categoryCode");
         if ("image_prompt".equals(categoryCode)) {
-            return List.of();
+            return publishAsyncTaskPersistenceService.createImagePromptSubmitTasks(savedDraft, submitMode);
         }
         if ("video_prompt".equals(categoryCode)) {
             return publishAsyncTaskPersistenceService.createVideoPromptSubmitTasks(savedDraft, submitMode);

@@ -13,6 +13,7 @@ export type HomeDemoCard = {
   posterUrl?: string;
   previewUrl?: string;
   sourceUrl?: string;
+  promptModality?: "image" | "video";
   author: {
     id: string;
     displayName: string;

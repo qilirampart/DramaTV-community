@@ -22,6 +22,7 @@ export function CommunityTransitionLink({
   onClick,
   onMouseEnter,
   onFocus,
+  onTouchStart,
   prefetch,
   target,
   rel,
@@ -73,6 +74,10 @@ export function CommunityTransitionLink({
       onMouseEnter={(event) => {
         handlePrefetch();
         onMouseEnter?.(event);
+      }}
+      onTouchStart={(event) => {
+        handlePrefetch();
+        onTouchStart?.(event);
       }}
       prefetch={prefetch}
       rel={rel}

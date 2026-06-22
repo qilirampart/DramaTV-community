@@ -8,11 +8,14 @@ import com.dramatv.community.publish.persistence.PublishDraftPersistenceService;
 import com.dramatv.community.publish.persistence.PublishDraftType;
 import com.dramatv.community.publish.persistence.PersistedPublishDraft;
 import com.dramatv.community.publish.persistence.SubmittedPublishDraft;
+import com.dramatv.community.shared.error.ApiBusinessException;
 import com.dramatv.community.shared.request.MdcBusinessContextScope;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +32,10 @@ public class VideoDraftApplicationService {
     private static final String DRAFT_STEP_SUBMITTED = "submitted";
     private static final String DRAFT_STATUS_SUBMITTED = "submitted";
     private static final String CONTENT_STATUS_PUBLISHED = "published";
+    private static final String CATEGORY_VIDEO_PROMPT = "video_prompt";
+    private static final String CATEGORY_IMAGE_PROMPT = "image_prompt";
+    private static final int MAX_REFERENCE_IMAGE_COUNT = 9;
+    private static final int MAX_REFERENCE_AUDIO_COUNT = 5;
 
     private final PublishDraftPersistenceService persistenceService;
     private final PublishDraftLifecycleQueryService lifecycleQueryService;
@@ -233,6 +240,8 @@ public class VideoDraftApplicationService {
         payload.put("visibility", "public");
         payload.putNull("coverAssetId");
         payload.putNull("sourceAssetId");
+        payload.set("referenceImageAssetIds", objectMapper.createArrayNode());
+        payload.set("referenceAudioAssetIds", objectMapper.createArrayNode());
         return payload;
     }
 
@@ -288,9 +297,7 @@ public class VideoDraftApplicationService {
             putNullableText(payload, "publishedAt", request.publishedAt());
         }
         if (request.tagNames() != null) {
-            ArrayNode tags = objectMapper.createArrayNode();
-            request.tagNames().forEach(tags::add);
-            payload.set("tagNames", tags);
+            putStringArray(payload, "tagNames", sanitizeStringList(request.tagNames()));
         }
         if (request.workflowId() != null) {
             putNullableText(payload, "workflowId", request.workflowId());
@@ -304,8 +311,24 @@ public class VideoDraftApplicationService {
         if (request.sourceAssetId() != null) {
             putNullableText(payload, "sourceAssetId", request.sourceAssetId());
         }
+        if (request.referenceImageAssetIds() != null) {
+            putStringArray(payload, "referenceImageAssetIds", sanitizeStringList(request.referenceImageAssetIds()));
+        }
+        if (request.referenceAudioAssetIds() != null) {
+            putStringArray(payload, "referenceAudioAssetIds", sanitizeStringList(request.referenceAudioAssetIds()));
+        }
+
+        sanitizePromptTaxonomyPayload(payload);
+        validateReferenceAssets(payload);
 
         return payload;
+    }
+
+    private void sanitizePromptTaxonomyPayload(ObjectNode payload) {
+        String categoryCode = nullableText(payload, "categoryCode");
+        if (!CATEGORY_VIDEO_PROMPT.equals(categoryCode)) {
+            payload.putNull("compositionCategory");
+        }
     }
 
     private void putNullableText(ObjectNode payload, String fieldName, String value) {
@@ -315,6 +338,12 @@ public class VideoDraftApplicationService {
         }
 
         payload.put(fieldName, value);
+    }
+
+    private void putStringArray(ObjectNode payload, String fieldName, List<String> values) {
+        ArrayNode arrayNode = objectMapper.createArrayNode();
+        values.forEach(arrayNode::add);
+        payload.set(fieldName, arrayNode);
     }
 
     private VideoDraftResponse toResponse(PersistedPublishDraft draft) {
@@ -335,6 +364,8 @@ public class VideoDraftApplicationService {
                 textOrDefault(payload, "visibility", "public"),
                 nullableText(payload, "coverAssetId"),
                 nullableText(payload, "sourceAssetId"),
+                stringList(payload.get("referenceImageAssetIds")),
+                stringList(payload.get("referenceAudioAssetIds")),
                 draft.statusCode(),
                 lifecycleQueryService.resolve(draft)
         );
@@ -383,13 +414,79 @@ public class VideoDraftApplicationService {
         return value == null ? fallback : value;
     }
 
+    private void validateReferenceAssets(ObjectNode payload) {
+        String categoryCode = nullableText(payload, "categoryCode");
+        List<String> referenceImageAssetIds = stringList(payload.get("referenceImageAssetIds"));
+        List<String> referenceAudioAssetIds = stringList(payload.get("referenceAudioAssetIds"));
+
+        if (!isPromptCategory(categoryCode)) {
+            if (!referenceImageAssetIds.isEmpty() || !referenceAudioAssetIds.isEmpty()) {
+                throw ApiBusinessException.badRequest(
+                        "VIDEO_DRAFT_REFERENCE_ASSET_NOT_ALLOWED",
+                        "reference assets are allowed only for prompt drafts"
+                );
+            }
+            return;
+        }
+
+        if (referenceImageAssetIds.size() > MAX_REFERENCE_IMAGE_COUNT) {
+            throw ApiBusinessException.badRequest(
+                    "VIDEO_DRAFT_REFERENCE_IMAGE_LIMIT_EXCEEDED",
+                    "reference image limit exceeded"
+            );
+        }
+
+        if (referenceAudioAssetIds.size() > MAX_REFERENCE_AUDIO_COUNT) {
+            throw ApiBusinessException.badRequest(
+                    "VIDEO_DRAFT_REFERENCE_AUDIO_LIMIT_EXCEEDED",
+                    "reference audio limit exceeded"
+            );
+        }
+
+        if (CATEGORY_IMAGE_PROMPT.equals(categoryCode) && !referenceAudioAssetIds.isEmpty()) {
+            throw ApiBusinessException.badRequest(
+                    "VIDEO_DRAFT_REFERENCE_AUDIO_NOT_ALLOWED",
+                    "reference audio is not allowed for image prompts"
+            );
+        }
+    }
+
+    private boolean isPromptCategory(String categoryCode) {
+        return CATEGORY_VIDEO_PROMPT.equals(categoryCode) || CATEGORY_IMAGE_PROMPT.equals(categoryCode);
+    }
+
     private List<String> stringList(JsonNode node) {
         if (node == null || !node.isArray()) {
             return List.of();
         }
 
-        List<String> values = new java.util.ArrayList<>();
-        node.forEach(item -> values.add(item.asText()));
+        List<String> values = new ArrayList<>();
+        LinkedHashSet<String> deduped = new LinkedHashSet<>();
+        node.forEach(item -> {
+            String value = item == null ? "" : item.asText("").trim();
+            if (!value.isEmpty() && deduped.add(value)) {
+                values.add(value);
+            }
+        });
         return List.copyOf(values);
+    }
+
+    private List<String> sanitizeStringList(List<String> values) {
+        if (values == null || values.isEmpty()) {
+            return List.of();
+        }
+
+        List<String> sanitized = new ArrayList<>();
+        LinkedHashSet<String> deduped = new LinkedHashSet<>();
+        for (String value : values) {
+            if (value == null) {
+                continue;
+            }
+            String trimmed = value.trim();
+            if (!trimmed.isEmpty() && deduped.add(trimmed)) {
+                sanitized.add(trimmed);
+            }
+        }
+        return List.copyOf(sanitized);
     }
 }

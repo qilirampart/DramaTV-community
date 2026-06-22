@@ -17,6 +17,8 @@ public class MediaStorageProperties {
     private String publicBaseUrl = "";
     private String publicBasePath = "/media";
     private final Upload upload = new Upload();
+    private final Cache cache = new Cache();
+    private final Proxy proxy = new Proxy();
     private final Oss oss = new Oss();
 
     public String getLocalDir() {
@@ -81,6 +83,14 @@ public class MediaStorageProperties {
 
     public Upload getUpload() {
         return upload;
+    }
+
+    public Cache getCache() {
+        return cache;
+    }
+
+    public Proxy getProxy() {
+        return proxy;
     }
 
     public String normalizedPublicBasePath() {
@@ -220,6 +230,7 @@ public class MediaStorageProperties {
     public static class Upload {
         private long maxVideoSizeBytes = 300L * 1024L * 1024L;
         private long maxImageSizeBytes = 20L * 1024L * 1024L;
+        private long maxAudioSizeBytes = 30L * 1024L * 1024L;
 
         public long getMaxVideoSizeBytes() {
             return maxVideoSizeBytes;
@@ -235,6 +246,110 @@ public class MediaStorageProperties {
 
         public void setMaxImageSizeBytes(long maxImageSizeBytes) {
             this.maxImageSizeBytes = maxImageSizeBytes;
+        }
+
+        public long getMaxAudioSizeBytes() {
+            return maxAudioSizeBytes;
+        }
+
+        public void setMaxAudioSizeBytes(long maxAudioSizeBytes) {
+            this.maxAudioSizeBytes = maxAudioSizeBytes;
+        }
+    }
+
+    public static class Cache {
+        private long defaultMaxAgeSeconds = 3600L;
+        private long avatarMaxAgeSeconds = 86400L;
+        private long coverMaxAgeSeconds = 86400L;
+        private long posterMaxAgeSeconds = 86400L;
+        private long previewMaxAgeSeconds = 14400L;
+        private long sourceMaxAgeSeconds = 3600L;
+        private long attachmentMaxAgeSeconds = 3600L;
+
+        public long getDefaultMaxAgeSeconds() {
+            return defaultMaxAgeSeconds;
+        }
+
+        public void setDefaultMaxAgeSeconds(long defaultMaxAgeSeconds) {
+            this.defaultMaxAgeSeconds = defaultMaxAgeSeconds;
+        }
+
+        public long getAvatarMaxAgeSeconds() {
+            return avatarMaxAgeSeconds;
+        }
+
+        public void setAvatarMaxAgeSeconds(long avatarMaxAgeSeconds) {
+            this.avatarMaxAgeSeconds = avatarMaxAgeSeconds;
+        }
+
+        public long getCoverMaxAgeSeconds() {
+            return coverMaxAgeSeconds;
+        }
+
+        public void setCoverMaxAgeSeconds(long coverMaxAgeSeconds) {
+            this.coverMaxAgeSeconds = coverMaxAgeSeconds;
+        }
+
+        public long getPosterMaxAgeSeconds() {
+            return posterMaxAgeSeconds;
+        }
+
+        public void setPosterMaxAgeSeconds(long posterMaxAgeSeconds) {
+            this.posterMaxAgeSeconds = posterMaxAgeSeconds;
+        }
+
+        public long getPreviewMaxAgeSeconds() {
+            return previewMaxAgeSeconds;
+        }
+
+        public void setPreviewMaxAgeSeconds(long previewMaxAgeSeconds) {
+            this.previewMaxAgeSeconds = previewMaxAgeSeconds;
+        }
+
+        public long getSourceMaxAgeSeconds() {
+            return sourceMaxAgeSeconds;
+        }
+
+        public void setSourceMaxAgeSeconds(long sourceMaxAgeSeconds) {
+            this.sourceMaxAgeSeconds = sourceMaxAgeSeconds;
+        }
+
+        public long getAttachmentMaxAgeSeconds() {
+            return attachmentMaxAgeSeconds;
+        }
+
+        public void setAttachmentMaxAgeSeconds(long attachmentMaxAgeSeconds) {
+            this.attachmentMaxAgeSeconds = attachmentMaxAgeSeconds;
+        }
+    }
+
+    public static class Proxy {
+        private boolean enabled = true;
+        private int maxConcurrentRequests = 24;
+        private long slowRequestThresholdMs = 800L;
+
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
+        }
+
+        public int getMaxConcurrentRequests() {
+            return maxConcurrentRequests;
+        }
+
+        public void setMaxConcurrentRequests(int maxConcurrentRequests) {
+            this.maxConcurrentRequests = maxConcurrentRequests;
+        }
+
+        public long getSlowRequestThresholdMs() {
+            return slowRequestThresholdMs;
+        }
+
+        public void setSlowRequestThresholdMs(long slowRequestThresholdMs) {
+            this.slowRequestThresholdMs = slowRequestThresholdMs;
         }
     }
 }

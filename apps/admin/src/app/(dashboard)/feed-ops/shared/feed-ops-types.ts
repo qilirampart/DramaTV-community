@@ -35,6 +35,27 @@ export type FeedOpsPageData = {
       sourceUrl?: string | null;
       available: boolean;
     }>;
+    fallbackItems?: Array<{
+      targetType: string;
+      targetId: string;
+      contentKind: string;
+      itemTypeLabel: string;
+      targetSlug?: string | null;
+      title: string;
+      authorId?: string | null;
+      authorDisplayName: string;
+      authorAvatarUrl?: string | null;
+      promptModality?: string | null;
+      channelSlug?: string | null;
+      channelTitle?: string | null;
+      summaryText?: string | null;
+      publishedAt?: string | null;
+      coverUrl?: string | null;
+      posterUrl?: string | null;
+      previewUrl?: string | null;
+      sourceUrl?: string | null;
+      available: boolean;
+    }>;
   }>;
   candidatePool: Array<{
     targetType: string;
@@ -57,4 +78,22 @@ export type FeedOpsPageData = {
     sourceUrl?: string | null;
     available: boolean;
   }>;
+};
+
+export type FeedOpsCandidateListData = {
+  summary: {
+    pageKey: string;
+    slotKey: string;
+    totalItems: number;
+    filteredItems: number;
+  };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
+  items: FeedOpsPageData["candidatePool"];
 };

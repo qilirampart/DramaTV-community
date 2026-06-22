@@ -63,6 +63,42 @@ function formatDateTime(input: string | null | undefined) {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
+function truncateInlineText(input: string, maxLength: number) {
+  if (input.length <= maxLength) {
+    return input;
+  }
+
+  return `${input.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
+}
+
+function summarizeMediaTaskError(errorMessage: string | null | undefined) {
+  const normalized = (errorMessage ?? "").replace(/\s+/g, " ").trim();
+  if (!normalized) {
+    return "待排查";
+  }
+
+  const lower = normalized.toLowerCase();
+  if (lower.includes("timeout")) {
+    return "媒体处理超时";
+  }
+  if (
+    lower.includes("ffmpeg")
+    || lower.includes("encoder")
+    || lower.includes("conversion failed")
+    || lower.includes("invalid argument")
+  ) {
+    return "FFmpeg 转码失败";
+  }
+  if (lower.includes("callback")) {
+    return "回调处理失败";
+  }
+  if (lower.includes("upload")) {
+    return "上传处理失败";
+  }
+
+  return truncateInlineText(normalized, 28);
+}
+
 function targetTypeLabel(targetType: string): QueueRow["type"] {
   if (targetType === "prompt") {
     return "视频提示词";
@@ -363,7 +399,7 @@ export default async function DashboardPage() {
         href: "/media-tasks",
         items: overview.failedMediaTasks.map((item) => ({
           title: item.targetTitle,
-          detail: `${item.targetAuthorDisplayName} · ${item.errorMessage || "待排查"} · 重试 ${item.retryCount}/${item.maxRetryCount}`,
+          detail: `${item.targetAuthorDisplayName} · ${summarizeMediaTaskError(item.errorMessage)} · 重试 ${item.retryCount}/${item.maxRetryCount}`,
           time: formatDateTime(item.createdAt),
           href: mediaTaskHref(item.taskId)
         }))
@@ -445,6 +481,7 @@ export default async function DashboardPage() {
         </section>
 
         <div className={styles.contentGrid}>
+          <div className={styles.primaryColumn}>
           <section className={`${styles.surface} ${styles.queueCard}`}>
             <header className={styles.cardHeader}>
               <h2 className={styles.cardTitle}>待审核队列</h2>
@@ -507,6 +544,30 @@ export default async function DashboardPage() {
               <ChevronRightIcon />
             </Link>
           </section>
+
+          <section className={`${styles.surface} ${styles.quickCard}`}>
+            <header className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>快捷操作</h2>
+            </header>
+
+            <div className={styles.quickGrid}>
+              {quickActions.map((action) => (
+                <Link key={action.title} className={styles.quickAction} href={action.href}>
+                  <span className={styles.quickActionIcon}>
+                    <QuickActionIcon icon={action.icon} />
+                  </span>
+                  <span className={styles.quickActionBody}>
+                    <strong>{action.title}</strong>
+                    <span>{action.description}</span>
+                  </span>
+                  <span className={styles.quickActionArrow}>
+                    <ChevronRightIcon />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          </div>
 
           <aside className={`${styles.surface} ${styles.sideCard}`}>
             <div className={styles.sideSections}>
@@ -576,29 +637,6 @@ export default async function DashboardPage() {
               </section>
             </div>
           </aside>
-
-          <section className={`${styles.surface} ${styles.quickCard}`}>
-            <header className={styles.cardHeader}>
-              <h2 className={styles.cardTitle}>快捷操作</h2>
-            </header>
-
-            <div className={styles.quickGrid}>
-              {quickActions.map((action) => (
-                <Link key={action.title} className={styles.quickAction} href={action.href}>
-                  <span className={styles.quickActionIcon}>
-                    <QuickActionIcon icon={action.icon} />
-                  </span>
-                  <span className={styles.quickActionBody}>
-                    <strong>{action.title}</strong>
-                    <span>{action.description}</span>
-                  </span>
-                  <span className={styles.quickActionArrow}>
-                    <ChevronRightIcon />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </section>
         </div>
       </section>
     );

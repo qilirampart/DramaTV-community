@@ -1,39 +1,38 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useRef, useState, useTransition, type MouseEvent as ReactMouseEvent } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition, type CSSProperties, type MouseEvent as ReactMouseEvent } from "react";
 import { useCommunitySession } from "@/components/shared/CommunitySessionProvider";
 import { PageShell } from "@/components/shared/PageShell";
+import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
 import { useInteractiveVideoPreview } from "@/components/shared/useInteractiveVideoPreview";
 import { togglePromptLikeAction } from "@/features/community-interactions/actions";
-import type { ApiPromptSummary } from "@/lib/contracts/community-api";
-import type { HomePageView, WorkflowMiniCardView } from "@/lib/contracts/view-models";
-import { toIndexedContentCards, toResourceBadge } from "@/lib/content-index";
-import { homeDemoCatalog, type HomeDemoCard, type HomeHeroSlide } from "@/lib/prefill/home-resource-catalog";
-import { formatEntityTypeBadge, isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
-import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { isVideoAssetUrl, normalizeAssetUrl } from "@/lib/presentation";
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId } from "@/lib/routes/back-anchor";
+import { useListPageBackRestore } from "@/lib/routes/list-page-back-restore";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
-import { mergeCardsPreferCatalogMedia } from "./home-card-merge";
+import type { CommunityHomePageData, HomeCard, HomeHeroSlideData } from "./home-page-data";
 import styles from "./CommunityHomePage.module.css";
 
 type CommunityHomePageProps = {
-  heroPrompts?: ApiPromptSummary[];
-  prompts?: ApiPromptSummary[];
-  view: HomePageView;
+  pageData: CommunityHomePageData;
 };
 
-type HomeCard = HomeDemoCard & {
-  badge: string;
-  likeTargetType?: "prompt";
-  viewerLiked?: boolean;
-};
+const HERO_AUTOPLAY_MS = 6500;
+const HERO_EDGE_DISTANCE = 2;
 
-type NewsItem = {
-  id: string;
-  subtitle: string;
-  title: string;
-  href: string;
+type HeroCardLayout = {
+  brightness: number;
+  distance: number;
+  opacity: number;
+  rotate: number;
+  scale: number;
+  translateX: string;
+  translateY: string;
+  translateZ: string;
+  visible: boolean;
+  zIndex: number;
 };
 
 function ChevronLeftIcon() {
@@ -48,19 +47,6 @@ function ChevronRightIcon() {
   return (
     <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
       <path d="m9 6 6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function SparkIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
-      <path
-        d="M12 3.5 14.4 9l5.6 2.4-5.6 2.4L12 19.5l-2.4-5.7L4 11.4 9.6 9 12 3.5Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-        strokeWidth="1.7"
-      />
     </svg>
   );
 }
@@ -94,268 +80,8 @@ function formatCompactNumber(value?: number) {
   return value.toLocaleString("zh-CN");
 }
 
-function toDemoCardFromWorkflow(workflow: WorkflowMiniCardView): HomeCard {
-  return {
-    id: workflow.id,
-    title: normalizeText(workflow.title) ?? "未命名工作流",
-    summary: normalizeText(workflow.summary) ?? "查看这套工作流背后的镜头组织方式。",
-    href: `/workflows/${workflow.id}`,
-    coverUrl: workflow.coverUrl,
-    author: {
-      id: workflow.author.id,
-      displayName: normalizeText(workflow.author.displayName) ?? "DramaTV Creator",
-      avatarUrl: workflow.author.avatarUrl
-    },
-    resourceType: "workflow",
-    badge: formatEntityTypeBadge("workflow"),
-    primaryMetric: workflow.likeCount ?? 0,
-    secondaryMetric: workflow.likeCount ?? 0
-  };
-}
-
-function toDemoCardFromPrompt(prompt: ApiPromptSummary): HomeCard {
-  return {
-    id: prompt.id,
-    title: normalizeText(prompt.title) ?? "未命名提示词",
-    summary: normalizeText(prompt.summary) ?? "进入详情页继续查看提示词和示例内容。",
-    href: `/prompts/${prompt.id}`,
-    coverUrl: prompt.coverUrl,
-    posterUrl: prompt.posterUrl,
-    previewUrl: prompt.previewUrl,
-    sourceUrl: prompt.sourceUrl,
-    author: {
-      id: prompt.author.id,
-      displayName: normalizeText(prompt.author.displayName) ?? "DramaTV Creator",
-      avatarUrl: prompt.author.avatarUrl
-    },
-    resourceType: "prompt",
-    badge: formatEntityTypeBadge("prompt"),
-    likeTargetType: "prompt",
-    viewerLiked: prompt.viewerActions?.liked ?? false,
-    primaryMetric: prompt.stats.exampleCount,
-    secondaryMetric: prompt.stats.likeCount
-  };
-}
-
-function toHeroSlideFromPrompt(prompt: ApiPromptSummary, index: number): HomeHeroSlide {
-  const firstTag = prompt.tagNames.find((tag) => normalizeText(tag));
-  const subtitleBase = prompt.modality === "video" ? "真实视频提示" : "真实图片提示";
-
-  return {
-    id: `hero-prompt-${prompt.id}`,
-    title: normalizeText(prompt.title) ?? `真实导入内容 ${index + 1}`,
-    subtitle: firstTag ? `${subtitleBase} · ${firstTag}` : subtitleBase,
-    description: normalizeText(prompt.summary) ?? "当前首页头图已经切到真实导入内容，继续围绕提示词和工作流做社区分发。",
-    href: `/prompts/${prompt.id}`,
-    imageUrl: prompt.posterUrl ?? prompt.coverUrl,
-    videoUrl: prompt.previewUrl,
-    resourceType: "prompt"
-  };
-}
-
-function toHeroSlideFromCard(card: HomeCard, index: number): HomeHeroSlide {
-  const subtitle =
-    card.resourceType === "workflow"
-      ? "鐪熷疄宸ヤ綔娴佸唴瀹?"
-      : card.badge || "鐪熷疄鎻愮ず璇嶅唴瀹?";
-
-  const description =
-    normalizeText(card.summary) ??
-    (card.resourceType === "workflow"
-      ? "褰撳墠棣栭〉澶村浘鍦ㄤ富 feed 鏁版嵁鍐呬紭鍏堜娇鐢ㄧ湡瀹炲伐浣滄祦鍐呭銆?"
-      : "褰撳墠棣栭〉澶村浘鍦ㄤ富 feed 鏁版嵁鍐呬紭鍏堜娇鐢ㄧ湡瀹炴彁绀鸿瘝鍐呭銆?");
-
-  return {
-    id: `hero-card-${card.id}`,
-    title: card.title || `鐪熷疄鍐呭 ${index + 1}`,
-    subtitle,
-    description,
-    href: card.href,
-    imageUrl: card.posterUrl ?? card.coverUrl,
-    videoUrl: card.previewUrl,
-    resourceType: card.resourceType
-  };
-}
-
-function getHeroMediaUrl(slide?: HomeHeroSlide) {
+function getHeroMediaUrl(slide?: HomeHeroSlideData) {
   return normalizeAssetUrl(slide?.videoUrl) ?? normalizeAssetUrl(slide?.imageUrl);
-}
-
-function getHeroSlides(prompts: ApiPromptSummary[], indexedCards: HomeCard[]) {
-  const videoPrompts = prompts.filter((prompt) => prompt.modality === "video" && Boolean(normalizeAssetUrl(prompt.previewUrl)));
-  const fallbackVideoPrompts = prompts.filter((prompt) => Boolean(normalizeAssetUrl(prompt.previewUrl)));
-  const preferredPrompts = videoPrompts.length >= 3 ? videoPrompts : fallbackVideoPrompts;
-  const preferredCards = indexedCards.filter((card) => Boolean(normalizeAssetUrl(card.previewUrl)));
-  const fallbackCards = indexedCards.filter((card) => Boolean(card.posterUrl ?? card.coverUrl));
-  const mergedSlides = [
-    ...preferredPrompts.map(toHeroSlideFromPrompt),
-    ...preferredCards.map(toHeroSlideFromCard),
-    ...fallbackCards.map(toHeroSlideFromCard)
-  ];
-
-  if (mergedSlides.length > 0) {
-    const seen = new Set<string>();
-
-    return mergedSlides
-      .filter((slide) => {
-        if (seen.has(slide.href)) {
-          return false;
-        }
-
-        seen.add(slide.href);
-        return true;
-      })
-      .slice(0, 3);
-  }
-
-  return homeDemoCatalog.heroSlides.slice(0, 3);
-}
-
-function asHomeCard(card: HomeDemoCard): HomeCard {
-  return {
-    ...card,
-    badge: card.resourceType === "workflow" ? formatEntityTypeBadge("workflow") : formatEntityTypeBadge("prompt")
-  };
-}
-
-function normalizeCards(cards: HomeCard[], fallback: HomeDemoCard[], count: number) {
-  const merged = [...cards, ...fallback.map(asHomeCard)];
-  const seen = new Set<string>();
-
-  return merged
-    .filter((item) => {
-      if (seen.has(item.href)) {
-        return false;
-      }
-
-      seen.add(item.href);
-      return true;
-    })
-    .slice(0, count);
-}
-
-function resolveCardPreviewUrl(card: HomeCard) {
-  const previewUrl = normalizeAssetUrl(card.previewUrl);
-  if (previewUrl) {
-    return previewUrl;
-  }
-
-  const sourceUrl = normalizeAssetUrl(card.sourceUrl);
-  if (sourceUrl && isVideoAssetUrl(sourceUrl)) {
-    return sourceUrl;
-  }
-
-  return undefined;
-}
-
-function withResolvedVideoPreview(card: HomeCard): HomeCard {
-  const previewUrl = resolveCardPreviewUrl(card);
-  if (previewUrl === card.previewUrl) {
-    return card;
-  }
-
-  return {
-    ...card,
-    previewUrl
-  };
-}
-
-function hasPlayableVideo(card: HomeCard) {
-  return Boolean(resolveCardPreviewUrl(card));
-}
-
-function stableHash(input: string) {
-  let hash = 2166136261;
-
-  for (let index = 0; index < input.length; index += 1) {
-    hash ^= input.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
-  }
-
-  return hash >>> 0;
-}
-
-function sortCardsBySeed(cards: HomeCard[], seed: string) {
-  return [...cards].sort((left, right) => {
-    const leftRank = stableHash(`${seed}:${left.id}`);
-    const rightRank = stableHash(`${seed}:${right.id}`);
-
-    if (leftRank !== rightRank) {
-      return leftRank - rightRank;
-    }
-
-    return left.id.localeCompare(right.id);
-  });
-}
-
-function takeUniqueCards(cards: HomeCard[], count: number, takenIds: Set<string>) {
-  const picked: HomeCard[] = [];
-
-  for (const card of cards) {
-    if (takenIds.has(card.id)) {
-      continue;
-    }
-
-    takenIds.add(card.id);
-    picked.push(card);
-
-    if (picked.length >= count) {
-      break;
-    }
-  }
-
-  return picked;
-}
-
-function pickSectionCards(pools: HomeCard[][], count: number, takenIds: Set<string>, seed: string) {
-  const orderedCards = pools
-    .flatMap((pool, poolIndex) =>
-      sortCardsBySeed(pool, `${seed}:${poolIndex}`).map((card) => ({
-        card,
-        poolIndex
-      }))
-    )
-    .sort((left, right) => {
-      if (left.poolIndex !== right.poolIndex) {
-        return left.poolIndex - right.poolIndex;
-      }
-
-      return left.card.id.localeCompare(right.card.id);
-    })
-    .map(({ card }) => card);
-
-  return takeUniqueCards(orderedCards, count, takenIds);
-}
-
-function slotItemsToHomeCards(items: HomePageView["feedItems"]): HomeCard[] {
-  return toIndexedContentCards(items)
-    .filter((item) => item.contentKind !== "post")
-    .map((item): HomeCard => ({
-      id: item.id,
-      title: item.title,
-      summary:
-        item.summary ??
-        (item.contentKind === "workflow_work"
-          ? item.workflowTitle ?? "进入详情页继续查看作品与关联工作流。"
-          : "进入详情页继续查看提示词和示例内容。"),
-      href: item.href,
-      coverUrl: item.coverUrl,
-      posterUrl: item.posterUrl,
-      previewUrl: item.previewUrl,
-      sourceUrl: item.sourceUrl,
-      author: item.author,
-      resourceType: item.contentKind === "workflow_work" ? "workflow" : "prompt",
-      badge: toResourceBadge(item.contentKind),
-      likeTargetType: item.contentKind === "prompt" ? "prompt" : undefined,
-      viewerLiked: false,
-      primaryMetric: item.primaryMetric,
-      secondaryMetric: item.secondaryMetric
-    }))
-    .map(withResolvedVideoPreview);
-}
-
-function findHomeLayoutSlot(view: HomePageView, slotKey: string) {
-  return view.homeLayoutSlots?.find((slot) => slot.key === slotKey)?.items ?? [];
 }
 
 function HomeArchiveCard({
@@ -373,13 +99,13 @@ function HomeArchiveCard({
 }) {
   const router = useRouter();
   const { currentUser } = useCommunitySession();
-  const imageUrl = normalizeAssetUrl(card.posterUrl) ?? normalizeAssetUrl(card.coverUrl);
-  const previewUrl = normalizeAssetUrl(card.previewUrl);
-  const isVideoMedia = Boolean(previewUrl);
-  const authorName = normalizeText(card.author.displayName) ?? "DramaTV Creator";
-  const isPromptLikeCard = card.likeTargetType === "prompt";
+  const imageUrl = normalizeAssetUrl(card.imageUrl);
+  const playbackUrl = normalizeAssetUrl(card.playbackUrl);
+  const isVideoMedia = Boolean(playbackUrl);
+  const authorName = card.authorName || "DramaTV Creator";
+  const isPromptLikeCard = card.likeable === true;
   const [liked, setLiked] = useState(card.viewerLiked ?? false);
-  const [likeCount, setLikeCount] = useState(card.secondaryMetric ?? card.primaryMetric);
+  const [likeCount, setLikeCount] = useState(card.likeCount);
   const [pending, startTransition] = useTransition();
   const {
     handlePreviewImmediateStart,
@@ -401,8 +127,8 @@ function HomeArchiveCard({
 
   useEffect(() => {
     setLiked(card.viewerLiked ?? false);
-    setLikeCount(card.secondaryMetric ?? card.primaryMetric);
-  }, [card.id, card.primaryMetric, card.secondaryMetric, card.viewerLiked]);
+    setLikeCount(card.likeCount);
+  }, [card.id, card.likeCount, card.viewerLiked]);
 
   function handleLikeClick(event: ReactMouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -454,7 +180,7 @@ function HomeArchiveCard({
       onMouseEnter={handlePreviewStart}
       onMouseLeave={handlePreviewStop}
     >
-      {isVideoMedia && previewUrl ? (
+      {isVideoMedia && playbackUrl ? (
         <span className={styles.archiveMediaSlot} ref={mediaRef}>
           {imageUrl ? (
             <img
@@ -477,7 +203,7 @@ function HomeArchiveCard({
               muted
               playsInline
               preload="metadata"
-              src={previewUrl}
+              src={playbackUrl}
             />
           ) : null}
         </span>
@@ -515,7 +241,7 @@ function HomeArchiveCard({
           ) : (
             <span className={styles.archiveMetric}>
               <HeartIcon />
-              {formatCompactNumber(card.secondaryMetric ?? card.primaryMetric)}
+              {formatCompactNumber(card.likeCount)}
             </span>
           )}
         </span>
@@ -539,11 +265,13 @@ function ContentShelf({
   backSource: string;
   currentRoute: string;
 }) {
+  const featuredHref = appendBackSource("/featured", currentRoute);
+
   return (
     <section className={styles.shelf}>
       <div className={styles.shelfHeader}>
         <h3>{title}</h3>
-        <Link href="/featured">查看全部</Link>
+        <Link href={featuredHref}>查看全部</Link>
       </div>
       <div className={styles.shelfGrid} data-variant={variant}>
         {items.map((item, index) => (
@@ -561,156 +289,110 @@ function ContentShelf({
   );
 }
 
-function heroToNewsItem(slide: HomeHeroSlide, index: number): NewsItem {
+function getWrappedSlideDistance(index: number, activeIndex: number, total: number) {
+  if (total <= 0) {
+    return 0;
+  }
+
+  let distance = index - activeIndex;
+  const half = total / 2;
+
+  if (distance > half) {
+    distance -= total;
+  } else if (distance < -half) {
+    distance += total;
+  }
+
+  return distance;
+}
+
+function getHeroCardLayout(distance: number): HeroCardLayout {
+  const direction = distance < 0 ? -1 : 1;
+  const absoluteDistance = Math.abs(distance);
+
+  if (absoluteDistance === 0) {
+    return {
+      brightness: 1,
+      distance: 0,
+      opacity: 1,
+      rotate: 0,
+      scale: 1,
+      translateX: "0px",
+      translateY: "0px",
+      translateZ: "0px",
+      visible: true,
+      zIndex: 4
+    };
+  }
+
+  if (absoluteDistance === 1) {
+    return {
+      brightness: 0.76,
+      distance: absoluteDistance,
+      opacity: 0.92,
+      rotate: direction * -8,
+      scale: 0.85,
+      translateX:
+        direction < 0
+          ? "calc(-1 * clamp(248px, 30vw, 500px))"
+          : "clamp(248px, 30vw, 500px)",
+      translateY: "14px",
+      translateZ: "-72px",
+      visible: true,
+      zIndex: 3
+    };
+  }
+
+  if (absoluteDistance === HERO_EDGE_DISTANCE) {
+    return {
+      brightness: 0.48,
+      distance: absoluteDistance,
+      opacity: 0,
+      rotate: direction * -14,
+      scale: 0.72,
+      translateX:
+        direction < 0
+          ? "calc(-1 * clamp(348px, 40vw, 620px))"
+          : "clamp(348px, 40vw, 620px)",
+      translateY: "22px",
+      translateZ: "-148px",
+      visible: false,
+      zIndex: 2
+    };
+  }
+
   return {
-    id: slide.id,
-    subtitle: slide.subtitle || (index === 0 ? "重构 · 碰撞 · 进化" : "全面升级AI视频创作体验"),
-    title: slide.title,
-    href: slide.href
+    brightness: 0.42,
+    distance: absoluteDistance,
+    opacity: 0,
+    rotate: direction * -22,
+    scale: 0.68,
+    translateX:
+      direction < 0
+        ? "calc(-1 * clamp(420px, 48vw, 620px))"
+        : "clamp(420px, 48vw, 620px)",
+    translateY: "30px",
+    translateZ: "-180px",
+    visible: false,
+    zIndex: 1
   };
 }
 
-export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: CommunityHomePageProps) {
+export function CommunityHomePage({ pageData }: CommunityHomePageProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
   const [heroVideoReadyMap, setHeroVideoReadyMap] = useState<Record<string, boolean>>({});
   const heroVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const indexedCards = useMemo(
-    () =>
-      toIndexedContentCards(view.feedItems)
-        .filter((item) => item.contentKind !== "post")
-        .map(
-          (item): HomeCard => ({
-      id: item.id,
-      title: item.title,
-      summary:
-        item.summary ??
-        (item.contentKind === "workflow_work"
-            ? item.workflowTitle ?? "进入详情页继续查看作品与关联工作流。"
-            : "进入详情页继续查看提示词和示例内容。"),
-      href: item.href,
-      coverUrl: item.coverUrl,
-      posterUrl: item.posterUrl,
-      previewUrl: item.previewUrl,
-      sourceUrl: item.sourceUrl,
-      author: item.author,
-      resourceType: item.contentKind === "workflow_work" ? "workflow" : "prompt",
-      badge: toResourceBadge(item.contentKind),
-      likeTargetType: item.contentKind === "prompt" ? "prompt" : undefined,
-      viewerLiked: false,
-      primaryMetric: item.primaryMetric,
-      secondaryMetric: item.secondaryMetric
-          })
-        ),
-    [view.feedItems]
-  );
-  const promptCards = useMemo(() => prompts.map(toDemoCardFromPrompt), [prompts]);
-  const workflowCards = useMemo(() => view.hotWorkflows.map(toDemoCardFromWorkflow).map(withResolvedVideoPreview), [view.hotWorkflows]);
-  const mergedPromptCards = useMemo(
-    () => mergeCardsPreferCatalogMedia(indexedCards, promptCards).map(withResolvedVideoPreview),
-    [indexedCards, promptCards]
-  );
-  const realPromptCards = useMemo(
-    () => normalizeCards(mergedPromptCards, [], Math.max(mergedPromptCards.length, 30)),
-    [mergedPromptCards]
-  );
-  const heroSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "home-hero")), [view]);
-  const recommendedPrimarySlotCards = useMemo(
-    () => slotItemsToHomeCards(findHomeLayoutSlot(view, "recommended-primary")),
-    [view]
-  );
-  const recommendedSecondarySlotCards = useMemo(
-    () => slotItemsToHomeCards(findHomeLayoutSlot(view, "recommended-secondary")),
-    [view]
-  );
-  const canvasSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "canvas")), [view]);
-  const commercialSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "commercial")), [view]);
-  const animationSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "animation")), [view]);
-  const narrativeSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "narrative")), [view]);
-  const mvSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "mv")), [view]);
-  const creativeSlotCards = useMemo(() => slotItemsToHomeCards(findHomeLayoutSlot(view, "creative")), [view]);
-  const workflowCardsNormalized = useMemo(
-    () => normalizeCards(workflowCards, homeDemoCatalog.workflowSection, Math.max(workflowCards.length, 12)),
-    [workflowCards]
-  );
-  const homeShuffleSeed = useMemo(
-    () =>
-      [
-        "home",
-        heroPrompts.map((item) => item.id).join(","),
-        prompts.map((item) => item.id).join(","),
-        view.feedItems.map((item) => item.targetId).join(","),
-        view.hotWorkflows.map((item) => item.id).join(",")
-      ].join("|"),
-    [heroPrompts, prompts, view.feedItems, view.hotWorkflows]
-  );
-  const videoPromptCards = useMemo(
-    () => realPromptCards.filter((card) => card.resourceType === "prompt" && hasPlayableVideo(card)),
-    [realPromptCards]
-  );
-  const nonVideoPromptCards = useMemo(
-    () => realPromptCards.filter((card) => card.resourceType === "prompt" && !hasPlayableVideo(card)),
-    [realPromptCards]
-  );
-  const heroSlides = useMemo(() => {
-    const heroPromptSlides = getHeroSlides(heroPrompts.length > 0 ? heroPrompts : prompts, realPromptCards).filter(
-      (slide) => Boolean(normalizeAssetUrl(slide.videoUrl))
-    );
-    const heroSlotVideoSlides = heroSlotCards.filter(hasPlayableVideo).slice(0, 3).map(toHeroSlideFromCard);
-    const catalogVideoSlides = homeDemoCatalog.heroSlides.filter((slide) => Boolean(normalizeAssetUrl(slide.videoUrl)));
-    const mergedSlides = [...heroSlotVideoSlides, ...heroPromptSlides, ...catalogVideoSlides];
-    const seen = new Set<string>();
-
-    return mergedSlides
-      .filter((slide) => {
-        if (seen.has(slide.href)) {
-          return false;
-        }
-
-        seen.add(slide.href);
-        return true;
-      })
-      .slice(0, 3);
-  }, [heroPrompts, heroSlotCards, prompts, realPromptCards]);
-  const homeShelves = useMemo(() => {
-    const takenIds = new Set<string>();
-    const videoWorkflowCards = workflowCardsNormalized.filter(hasPlayableVideo);
-    const promptAndWorkflowPool = [...videoPromptCards, ...videoWorkflowCards];
-    const mixedPool = [...promptAndWorkflowPool, ...nonVideoPromptCards, ...workflowCardsNormalized];
-
-    return {
-      recommendedPrimary: pickSectionCards(
-        [recommendedPrimarySlotCards, promptAndWorkflowPool, mixedPool],
-        4,
-        takenIds,
-        `${homeShuffleSeed}:recommended-primary`
-      ),
-      recommendedSecondary: pickSectionCards(
-        [recommendedSecondarySlotCards, promptAndWorkflowPool, mixedPool],
-        4,
-        takenIds,
-        `${homeShuffleSeed}:recommended-secondary`
-      ),
-      featuredCanvas: pickSectionCards([canvasSlotCards, promptAndWorkflowPool, mixedPool], 4, takenIds, `${homeShuffleSeed}:featured-canvas`),
-      commercial: pickSectionCards([commercialSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:commercial`),
-      animation: pickSectionCards([animationSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:animation`),
-      narrative: pickSectionCards([narrativeSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:narrative`),
-      mv: pickSectionCards([mvSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:mv`),
-      creative: pickSectionCards([creativeSlotCards, mixedPool], 4, takenIds, `${homeShuffleSeed}:creative`)
-    };
-  }, [homeShuffleSeed, nonVideoPromptCards, videoPromptCards, workflowCardsNormalized]);
-  const recommended = homeShelves.recommendedPrimary;
-  const dramaTv = homeShelves.recommendedSecondary;
-  const canvas = homeShelves.featuredCanvas;
-  const commercial = homeShelves.commercial;
-  const animation = homeShelves.animation;
-  const narrative = homeShelves.narrative;
-  const mv = homeShelves.mv;
-  const creative = homeShelves.creative;
-  const newsItems = useMemo(() => heroSlides.map(heroToNewsItem), [heroSlides]);
+  const heroSlides = pageData.heroSlides;
+  const recommended = pageData.shelves.recommendedPrimary;
+  const commercial = pageData.shelves.commercial;
+  const animation = pageData.shelves.animation;
+  const narrative = pageData.shelves.narrative;
+  const mv = pageData.shelves.mv;
+  const creative = pageData.shelves.creative;
   const currentRoute = useMemo(() => buildCurrentRoute(pathname, searchParams), [pathname, searchParams]);
-  const canvasPlaceholderHref = "/canvas/d2a551f9-8cd4-4fb3-bd72-b90a830f91e3";
 
   function setHeroVideoReady(slideId: string, ready: boolean) {
     setHeroVideoReadyMap((current) => {
@@ -765,7 +447,10 @@ export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: Comm
     });
   }, [activeSlide, heroSlides]);
 
-  useBackAnchorRestore([heroSlides.length, newsItems.length, recommended.length, dramaTv.length, canvas.length, commercial.length, animation.length, narrative.length, mv.length, creative.length]);
+  const { isBackAnchorRestoring } = useListPageBackRestore({
+    currentRoute,
+    dependencies: [heroSlides.length, recommended.length, commercial.length, animation.length, narrative.length, mv.length, creative.length]
+  });
 
   function goToPreviousSlide() {
     setActiveSlide((value) => (value > 0 ? value - 1 : heroSlides.length - 1));
@@ -782,16 +467,16 @@ export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: Comm
   }, [activeSlide, heroSlides.length]);
 
   useEffect(() => {
-    if (heroSlides.length <= 1) {
+    if (heroSlides.length <= 1 || isHeroHovered) {
       return;
     }
 
     const timer = window.setInterval(() => {
       setActiveSlide((value) => (value < heroSlides.length - 1 ? value + 1 : 0));
-    }, 6500);
+    }, HERO_AUTOPLAY_MS);
 
     return () => window.clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [heroSlides.length, isHeroHovered]);
 
   useEffect(() => {
     heroVideoRefs.current.forEach((video, index) => {
@@ -813,112 +498,135 @@ export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: Comm
     });
   }, [activeSlide, heroSlides.length]);
 
+  function handleHeroCardClick(index: number, isActive: boolean, event: ReactMouseEvent<HTMLAnchorElement>) {
+    if (isActive) {
+      return;
+    }
+
+    event.preventDefault();
+    setActiveSlide(index);
+  }
+
   return (
     <PageShell showHomeFloatingDock variant="home" topNavActive="home">
-      <div className={styles.page}>
+      <div
+        aria-hidden={isBackAnchorRestoring}
+        className={`${styles.page}${isBackAnchorRestoring ? ` ${styles.pageRestoring}` : ""}`}
+      >
         <section className={styles.hero}>
-          <div className={styles.heroFrame}>
-            {heroSlides.map((slide, index) => {
-              const mediaUrl = getHeroMediaUrl(slide);
-              const posterUrl = normalizeAssetUrl(slide.imageUrl);
-              const isVideoMedia = isVideoAssetUrl(mediaUrl);
-              const isActive = index === activeSlide;
-              const shouldWarmVideo = heroSlides.length <= 1 || index === ((activeSlide + 1) % heroSlides.length);
-              const shouldRenderVideo = isVideoMedia && mediaUrl && (isActive || shouldWarmVideo);
+          <div
+            className={styles.heroFrame}
+            onMouseEnter={() => setIsHeroHovered(true)}
+            onMouseLeave={() => setIsHeroHovered(false)}
+          >
+            <div className={styles.heroStage}>
+              {heroSlides.map((slide, index) => {
+                const mediaUrl = getHeroMediaUrl(slide);
+                const posterUrl = normalizeAssetUrl(slide.imageUrl);
+                const isVideoMedia = isVideoAssetUrl(mediaUrl);
+                const wrappedDistance = getWrappedSlideDistance(index, activeSlide, heroSlides.length);
+                const layout = getHeroCardLayout(wrappedDistance);
+                const isActive = wrappedDistance === 0;
+                const shouldWarmVideo = heroSlides.length <= 1 || Math.abs(wrappedDistance) <= 1;
+                const shouldRenderVideo = isVideoMedia && mediaUrl && (layout.visible || shouldWarmVideo);
+                const heroCardStyle = {
+                  ...(posterUrl
+                    ? { backgroundImage: `url(${posterUrl})` }
+                    : mediaUrl && !isVideoMedia
+                      ? { backgroundImage: `url(${mediaUrl})` }
+                      : null),
+                  "--hero-card-brightness": String(layout.brightness),
+                  "--hero-card-opacity": String(layout.opacity),
+                  "--hero-card-rotate": `${layout.rotate}deg`,
+                  "--hero-card-scale": String(layout.scale),
+                  "--hero-card-translate-x": layout.translateX,
+                  "--hero-card-translate-y": layout.translateY,
+                  "--hero-card-translate-z": layout.translateZ,
+                  "--hero-card-z-index": String(layout.zIndex)
+                } as CSSProperties;
 
-              return (
-                <Link
-                  aria-hidden={!isActive}
-                  className={`${styles.heroMedia} ${isActive ? styles.heroMediaActive : ""}`}
-                  href={appendBackSource(
-                    slide.href,
-                    buildBackAnchorSource(currentRoute, createBackAnchorId("home-hero", `${index}-${slide.id}`))
-                  )}
-                  id={createBackAnchorId("home-hero", `${index}-${slide.id}`)}
+                return (
+                  <Link
+                    aria-hidden={!layout.visible}
+                    aria-label={isActive ? `打开 ${slide.title}` : `切换到 ${slide.title}`}
+                    className={[
+                      styles.heroMedia,
+                      layout.visible ? styles.heroMediaVisible : styles.heroMediaHidden,
+                      layout.distance === HERO_EDGE_DISTANCE ? styles.heroMediaEdge : "",
+                      isActive ? styles.heroMediaActive : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    data-active={isActive ? "true" : "false"}
+                    data-distance={layout.distance}
+                    href={appendBackSource(
+                      slide.href,
+                      buildBackAnchorSource(currentRoute, createBackAnchorId("home-hero", `${index}-${slide.id}`))
+                    )}
+                    id={createBackAnchorId("home-hero", `${index}-${slide.id}`)}
+                    key={slide.id}
+                    onClick={(event) => handleHeroCardClick(index, isActive, event)}
+                    onFocus={() => setActiveSlide(index)}
+                    onMouseEnter={() => {
+                      if (layout.visible && !isActive) {
+                        setActiveSlide(index);
+                      }
+                    }}
+                    style={heroCardStyle}
+                    tabIndex={layout.visible ? undefined : -1}
+                  >
+                    {shouldRenderVideo ? (
+                      <video
+                        ref={(element) => {
+                          heroVideoRefs.current[index] = element;
+                        }}
+                        autoPlay={isActive}
+                        className={`${styles.heroVideo} ${heroVideoReadyMap[slide.id] ? styles.heroVideoReady : ""}`}
+                        loop
+                        muted
+                        onCanPlay={() => setHeroVideoReady(slide.id, true)}
+                        onEmptied={() => setHeroVideoReady(slide.id, false)}
+                        onLoadedData={() => setHeroVideoReady(slide.id, true)}
+                        playsInline
+                        poster={posterUrl ?? undefined}
+                        preload={isActive ? "auto" : shouldWarmVideo ? "metadata" : "none"}
+                        src={mediaUrl}
+                        style={{ opacity: heroVideoReadyMap[slide.id] ? 1 : 0 }}
+                      />
+                    ) : null}
+                    <span className={styles.heroShade} />
+                  </Link>
+                );
+              })}
+            </div>
+
+            {heroSlides.length > 1 ? (
+              <button aria-label="上一张" className={styles.heroArrow} data-side="left" onClick={goToPreviousSlide} type="button">
+                <ChevronLeftIcon />
+              </button>
+            ) : null}
+            {heroSlides.length > 1 ? (
+              <button aria-label="下一张" className={styles.heroArrow} data-side="right" onClick={goToNextSlide} type="button">
+                <ChevronRightIcon />
+              </button>
+            ) : null}
+
+            <div className={styles.dots}>
+              {heroSlides.map((slide, index) => (
+                <button
+                  aria-label={`切换到 ${slide.title}`}
+                  className={index === activeSlide ? styles.dotActive : styles.dot}
                   key={slide.id}
-                  style={posterUrl ? { backgroundImage: `url(${posterUrl})` } : mediaUrl && !isVideoMedia ? { backgroundImage: `url(${mediaUrl})` } : undefined}
-                  tabIndex={isActive ? undefined : -1}
-                >
-                  {shouldRenderVideo ? (
-                    <video
-                      ref={(element) => {
-                        heroVideoRefs.current[index] = element;
-                      }}
-                      autoPlay={isActive}
-                      className={`${styles.heroVideo} ${heroVideoReadyMap[slide.id] ? styles.heroVideoReady : ""}`}
-                      loop
-                      muted
-                      onCanPlay={() => setHeroVideoReady(slide.id, true)}
-                      onEmptied={() => setHeroVideoReady(slide.id, false)}
-                      onLoadedData={() => setHeroVideoReady(slide.id, true)}
-                      playsInline
-                      poster={posterUrl ?? undefined}
-                      preload={isActive ? "auto" : shouldWarmVideo ? "metadata" : "none"}
-                      src={mediaUrl}
-                      style={{ opacity: heroVideoReadyMap[slide.id] ? 1 : 0 }}
-                    />
-                  ) : null}
-                  <span className={styles.heroShade} />
-                </Link>
-              );
-            })}
-
-            <button aria-label="上一张" className={styles.heroArrow} data-side="left" onClick={goToPreviousSlide} type="button">
-              <ChevronLeftIcon />
-            </button>
-            <button aria-label="下一张" className={styles.heroArrow} data-side="right" onClick={goToNextSlide} type="button">
-              <ChevronRightIcon />
-            </button>
+                  onClick={() => setActiveSlide(index)}
+                  type="button"
+                />
+              ))}
+            </div>
           </div>
-
-          <div className={styles.newsStrip}>
-            {newsItems.map((item, index) => (
-              <Link
-                className={index === activeSlide ? styles.newsItemActive : styles.newsItem}
-                href={appendBackSource(
-                  item.href,
-                  buildBackAnchorSource(currentRoute, createBackAnchorId("home-news", `${index}-${item.id}`))
-                )}
-                id={createBackAnchorId("home-news", `${index}-${item.id}`)}
-                key={item.id}
-                onMouseEnter={() => setActiveSlide(index)}
-              >
-                <span>{item.subtitle}</span>
-                <strong>{item.title}</strong>
-              </Link>
-            ))}
-          </div>
-
-          <div className={styles.dots}>
-            {heroSlides.map((slide, index) => (
-              <button
-                aria-label={`切换到 ${slide.title}`}
-                className={index === activeSlide ? styles.dotActive : styles.dot}
-                key={slide.id}
-                onClick={() => setActiveSlide(index)}
-                type="button"
-              />
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.inspiration}>
-          <h2>灵感迸发</h2>
-          <Link className={styles.canvasCta} href={canvasPlaceholderHref}>
-            <span className={styles.canvasIcon}>
-              <SparkIcon />
-            </span>
-            <span>
-              <strong>进入无限画布</strong>
-              <em>立即开启您的创意之旅</em>
-            </span>
-          </Link>
         </section>
 
         <div className={styles.shelves}>
           <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={recommended} sectionKey="recommended-primary" title="为你推荐" />
-          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={dramaTv} sectionKey="recommended-secondary" title="为你推荐" />
-          <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={canvas} sectionKey="canvas" title="精选画布" />
           <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={commercial} sectionKey="commercial" title="电视广告" />
           <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={animation} sectionKey="animation" title="动画" />
           <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={narrative} sectionKey="narrative" title="叙事短片" />
@@ -926,6 +634,18 @@ export function CommunityHomePage({ heroPrompts = [], prompts = [], view }: Comm
           <ContentShelf backSource={currentRoute} currentRoute={currentRoute} items={creative} sectionKey="creative" title="创意" />
         </div>
       </div>
+      {isBackAnchorRestoring ? (
+        <div className={styles.backAnchorRestoreOverlay}>
+          <RouteVideoLoading
+            activeNav="home"
+            label="Restoring home position"
+            useVideo={false}
+            videoActive={false}
+          />
+        </div>
+      ) : null}
     </PageShell>
   );
 }
+
+

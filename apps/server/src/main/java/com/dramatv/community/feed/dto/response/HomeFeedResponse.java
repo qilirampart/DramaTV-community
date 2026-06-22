@@ -22,7 +22,9 @@ public record HomeFeedResponse(
             String sourceUrl,
             AuthorSummary author,
             WorkflowSummary workflow,
-            ItemStats stats
+            ItemStats stats,
+            Integer width,
+            Integer height
     ) {
     }
 

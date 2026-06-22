@@ -40,6 +40,8 @@ export type HomeFeedCardView = {
 
 export type VideoMiniCardView = {
   id: string;
+  itemType?: "video" | "prompt";
+  promptModality?: "image" | "video";
   title: string;
   href?: string;
   coverUrl?: string;
@@ -116,6 +118,21 @@ export type CommentPageView = {
   hasMore: boolean;
 };
 
+export type PromptAssetView = {
+  id: string;
+  role: "example" | "reference_image" | "reference_audio";
+  assetKind: "image" | "video" | "audio";
+  url?: string;
+  fileName: string;
+  sizeBytes?: number;
+  width?: number;
+  height?: number;
+  durationMs?: number;
+  badgeLabel: string;
+  metaLabel?: string;
+  previewImageUrl?: string;
+};
+
 export type VideoDetailPageView = {
   id: string;
   title: string;
@@ -140,6 +157,12 @@ export type VideoDetailPageView = {
     id: string;
     title: string;
     allowCopy: boolean;
+  };
+  promptAssets?: {
+    primary?: PromptAssetView;
+    referenceImages: PromptAssetView[];
+    referenceAudios: PromptAssetView[];
+    all: PromptAssetView[];
   };
   commentPolicy: CommentPolicyView;
   stats: {
@@ -212,10 +235,10 @@ export type CreatorPageView = {
     followerCount: number;
     likeReceivedCount: number;
   };
-  videos: VideoMiniCardView[];
+  works: VideoMiniCardView[];
   workflows: WorkflowMiniCardView[];
   posts: DiscussionThreadCardView[];
-  nextVideoCursor?: string;
+  nextWorksCursor?: string;
   nextWorkflowCursor?: string;
   nextPostCursor?: string;
 };
@@ -236,6 +259,7 @@ export type PersonalCenterPageView = {
     };
   };
   publishedVideos: VideoMiniCardView[];
+  publishedPrompts: VideoMiniCardView[];
   publishedWorkflows: WorkflowMiniCardView[];
   likedItems: PersonalCenterItemView[];
   favoritedItems: PersonalCenterItemView[];
@@ -337,6 +361,8 @@ export type VideoDraftView = {
   visibility: "public" | "link" | "private";
   coverAssetId?: string;
   sourceAssetId?: string;
+  referenceImageAssetIds: string[];
+  referenceAudioAssetIds: string[];
   statusCode: string;
   lifecycle: DraftLifecycleView;
 };

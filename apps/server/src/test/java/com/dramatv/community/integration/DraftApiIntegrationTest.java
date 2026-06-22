@@ -111,7 +111,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        null
+                                        null,
+                                        List.of("image-ref-1", "image-ref-2"),
+                                        List.of("audio-ref-1")
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isOk())
@@ -123,6 +125,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(updateBody.at("/data/modelCategory").asText()).isEqualTo("seedance");
         assertThat(updateBody.at("/data/contentCategory").asText()).isEqualTo("real-person");
         assertThat(updateBody.at("/data/compositionCategory").asText()).isEqualTo("single-model");
+        assertThat(updateBody.at("/data/referenceImageAssetIds/0").asText()).isEqualTo("image-ref-1");
+        assertThat(updateBody.at("/data/referenceImageAssetIds/1").asText()).isEqualTo("image-ref-2");
+        assertThat(updateBody.at("/data/referenceAudioAssetIds/0").asText()).isEqualTo("audio-ref-1");
 
         MvcResult getResult = mockMvc.perform(authorized(
                         MockMvcRequestBuilders.get("/api/video-drafts/{id}", draftId),
@@ -135,6 +140,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(getBody.at("/data/modelCategory").asText()).isEqualTo("seedance");
         assertThat(getBody.at("/data/contentCategory").asText()).isEqualTo("real-person");
         assertThat(getBody.at("/data/compositionCategory").asText()).isEqualTo("single-model");
+        assertThat(getBody.at("/data/referenceImageAssetIds/0").asText()).isEqualTo("image-ref-1");
+        assertThat(getBody.at("/data/referenceImageAssetIds/1").asText()).isEqualTo("image-ref-2");
+        assertThat(getBody.at("/data/referenceAudioAssetIds/0").asText()).isEqualTo("audio-ref-1");
 
         mockMvc.perform(authorized(
                         MockMvcRequestBuilders.delete("/api/video-drafts/{id}", draftId),
@@ -149,6 +157,96 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
 
         JsonNode deletedBody = readBody(deletedResult);
         assertThat(deletedBody.path("code").asText()).isEqualTo("VIDEO_DRAFT_NOT_FOUND");
+    }
+
+    @Test
+    void imagePromptDraftClearsModelUsageCategory() throws Exception {
+        LoginSession session = loginAsRandomUser("image-prompt-model-usage-clear");
+
+        MvcResult createResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/video-drafts")
+                                .accept(MediaType.APPLICATION_JSON),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String draftId = readBody(createResult).at("/data/draftId").asText();
+        assertThat(draftId).isNotBlank();
+
+        MvcResult updateResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.put("/api/video-drafts/{id}", draftId)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(new VideoDraftPayload(
+                                        "Image prompt draft",
+                                        "Image prompt summary",
+                                        "image_prompt",
+                                        "gpt-image-2",
+                                        "animation",
+                                        "single-model",
+                                        List.of("integration", "image"),
+                                        null,
+                                        "public",
+                                        null,
+                                        null,
+                                        List.of("image-ref-1"),
+                                        List.of()
+                                ))),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode updateBody = readBody(updateResult);
+        assertThat(updateBody.at("/data/categoryCode").asText()).isEqualTo("image_prompt");
+        assertThat(updateBody.at("/data/compositionCategory").isMissingNode() || updateBody.at("/data/compositionCategory").isNull()).isTrue();
+
+        MvcResult getResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.get("/api/video-drafts/{id}", draftId),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode getBody = readBody(getResult);
+        assertThat(getBody.at("/data/compositionCategory").isMissingNode() || getBody.at("/data/compositionCategory").isNull()).isTrue();
+    }
+
+    @Test
+    void imagePromptDraftRejectsReferenceAudioAssets() throws Exception {
+        LoginSession session = loginAsRandomUser("image-prompt-audio-reject");
+
+        MvcResult createResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/video-drafts")
+                                .accept(MediaType.APPLICATION_JSON),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String draftId = readBody(createResult).at("/data/draftId").asText();
+        assertThat(draftId).isNotBlank();
+
+        MvcResult updateResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.put("/api/video-drafts/{id}", draftId)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(new VideoDraftPayload(
+                                        "Invalid image prompt draft",
+                                        "Image prompt summary",
+                                        "image_prompt",
+                                        "gpt-image-2",
+                                        "animation",
+                                        "single-model",
+                                        List.of("integration", "image"),
+                                        null,
+                                        "public",
+                                        null,
+                                        null,
+                                        List.of("image-ref-1"),
+                                        List.of("audio-ref-1")
+                                ))),
+                        session.accessToken()))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+        JsonNode updateBody = readBody(updateResult);
+        assertThat(updateBody.path("code").asText()).isEqualTo("VIDEO_DRAFT_REFERENCE_AUDIO_NOT_ALLOWED");
     }
 
     @Test
@@ -263,7 +361,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        sourceAsset.assetId()
+                                        sourceAsset.assetId(),
+                                        null,
+                                        null
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isOk());
@@ -318,7 +418,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        sourceAsset.assetId()
+                                        sourceAsset.assetId(),
+                                        null,
+                                        null
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isConflict())
@@ -457,7 +559,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
             String workflowId,
             String visibility,
             String coverAssetId,
-            String sourceAssetId
+            String sourceAssetId,
+            List<String> referenceImageAssetIds,
+            List<String> referenceAudioAssetIds
     ) {
     }
 
@@ -482,7 +586,9 @@ class DraftApiIntegrationTest extends ApiIntegrationTestSupport {
             String workflowId,
             String visibility,
             String coverAssetId,
-            String sourceAssetId
+            String sourceAssetId,
+            List<String> referenceImageAssetIds,
+            List<String> referenceAudioAssetIds
     ) {
     }
 

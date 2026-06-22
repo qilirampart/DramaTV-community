@@ -6,42 +6,32 @@ import {
   getPrompts,
   isCommunityBackendUnavailableError
 } from "@/lib/api/community-service";
-import { hasCommunitySession } from "@/lib/auth/community-auth";
+import { getVerifiedCommunitySession } from "@/lib/auth/community-auth";
 import { loadCommunityHomePublicData } from "@/lib/api/community-public-cache";
 import { mapHomePageView } from "@/lib/mappers/community";
 import { mergeHomePageWithDemo } from "@/lib/prefill/home-resource-catalog";
+import { buildCommunityHomePageData, HOME_PROMPT_FETCH_LIMIT } from "@/features/home/home-page-data";
 
 export default async function CommunityContentHomeRoute() {
   try {
-    const isAuthenticated = await hasCommunitySession();
+    const session = await getVerifiedCommunitySession();
 
-    if (isAuthenticated) {
-      const [homeFeed, prompts, heroPrompts] = await Promise.all([
+    if (session) {
+      const [homeFeed, prompts] = await Promise.all([
         getHomeFeed(),
-        getPrompts({ modality: "all", sort: "latest", limit: 60 }),
-        getPrompts({ modality: "video", sort: "latest", limit: 12 })
+        getPrompts({ modality: "all", sort: "latest", limit: HOME_PROMPT_FETCH_LIMIT })
       ]);
       const view = mergeHomePageWithDemo(mapHomePageView(homeFeed));
+      const pageData = buildCommunityHomePageData(view, prompts.data);
 
-      return (
-        <CommunityHomePage
-          heroPrompts={heroPrompts.data}
-          prompts={prompts.data}
-          view={view}
-        />
-      );
+      return <CommunityHomePage pageData={pageData} />;
     }
 
     const publicData = await loadCommunityHomePublicData();
     const view = mergeHomePageWithDemo(mapHomePageView(publicData.homeFeed));
+    const pageData = buildCommunityHomePageData(view, publicData.prompts.data);
 
-    return (
-      <CommunityHomePage
-        heroPrompts={publicData.heroPrompts.data}
-        prompts={publicData.prompts.data}
-        view={view}
-      />
-    );
+    return <CommunityHomePage pageData={pageData} />;
   } catch (error) {
     if (isCommunityBackendUnavailableError(error)) {
       return (

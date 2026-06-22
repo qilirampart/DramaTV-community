@@ -37,11 +37,35 @@ class AdminFeedOpsDiscussionsApiIntegrationTest extends ApiIntegrationTestSuppor
 
         JsonNode initialBody = readBody(initialResult);
         assertThat(initialBody.at("/data/summary/pageKey").asText()).isEqualTo("discussions");
-        assertThat(findCandidate(initialBody.at("/data/candidatePool"), channelId).path("targetType").asText()).isEqualTo("channel");
-        assertThat(findCandidate(initialBody.at("/data/candidatePool"), threadId).path("targetType").asText()).isEqualTo("post");
+        assertThat(initialBody.at("/data/candidatePool").isArray()).isTrue();
+        assertThat(initialBody.at("/data/candidatePool").size()).isEqualTo(0);
         assertThat(findSlot(initialBody, "discussion-all-thread-stream").isMissingNode()).isFalse();
         assertThat(findSlot(initialBody, "discussion-channel-official-events-thread-stream").isMissingNode()).isFalse();
         assertThat(findSlot(initialBody, "discussion-channel-prompt-lab-thread-stream").isMissingNode()).isFalse();
+
+        MvcResult channelCandidateResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.get("/api/admin/feed-ops/discussions/candidates")
+                                .param("slotKey", "discussion-channel-order")
+                                .param("page", "1")
+                                .param("pageSize", "20")
+                                .accept(MediaType.APPLICATION_JSON),
+                        admin.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+        JsonNode channelCandidateBody = readBody(channelCandidateResult);
+        assertThat(findCandidate(channelCandidateBody.at("/data/items"), channelId).path("targetType").asText()).isEqualTo("channel");
+
+        MvcResult threadCandidateResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.get("/api/admin/feed-ops/discussions/candidates")
+                                .param("slotKey", "discussion-all-thread-stream")
+                                .param("page", "1")
+                                .param("pageSize", "20")
+                                .accept(MediaType.APPLICATION_JSON),
+                        admin.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+        JsonNode threadCandidateBody = readBody(threadCandidateResult);
+        assertThat(findCandidate(threadCandidateBody.at("/data/items"), threadId).path("targetType").asText()).isEqualTo("post");
 
         MvcResult updateResult = mockMvc.perform(authorized(
                         MockMvcRequestBuilders.put("/api/admin/feed-ops/discussions")

@@ -4,14 +4,27 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { AdminBackendError, updateAdminFeedOpsFeatured } from "@/lib/admin-service";
 
-function buildRedirect(message?: string | null, success = false) {
-  if (!message) {
-    revalidatePath("/feed-ops/featured");
-    redirect("/feed-ops/featured");
+function normalizeFeaturedSort(value: string | null | undefined) {
+  return value === "hot" ? "hot" : "latest";
+}
+
+function buildRedirect(sort: "latest" | "hot", message?: string | null, success = false) {
+  const params = new URLSearchParams();
+  if (sort === "hot") {
+    params.set("sort", "hot");
   }
 
-  const key = success ? "success" : "error";
-  redirect(`/feed-ops/featured?${key}=${encodeURIComponent(message)}`);
+  if (message) {
+    params.set(success ? "success" : "error", message);
+  }
+
+  const suffix = params.size > 0 ? `?${params.toString()}` : "";
+  if (!message) {
+    revalidatePath("/feed-ops/featured");
+    redirect(`/feed-ops/featured${suffix}`);
+  }
+
+  redirect(`/feed-ops/featured${suffix}`);
 }
 
 function resolveErrorMessage(error: unknown, fallbackMessage: string) {
@@ -22,9 +35,10 @@ function resolveErrorMessage(error: unknown, fallbackMessage: string) {
 }
 
 export async function saveFeedOpsFeaturedAction(formData: FormData) {
+  const sort = normalizeFeaturedSort(String(formData.get("sort") ?? "").trim());
   const payloadRaw = String(formData.get("payload") ?? "").trim();
   if (!payloadRaw) {
-    buildRedirect("精选运营配置参数不完整。");
+    buildRedirect(sort, "精选运营配置参数不完整。");
   }
 
   let payload: {
@@ -41,19 +55,19 @@ export async function saveFeedOpsFeaturedAction(formData: FormData) {
   try {
     payload = JSON.parse(payloadRaw) as typeof payload;
   } catch {
-    buildRedirect("精选运营配置参数无效。");
+    buildRedirect(sort, "精选运营配置参数无效。");
     return;
   }
 
   if (!payload.statusCode || !Array.isArray(payload.slots)) {
-    buildRedirect("精选运营配置参数不完整。");
+    buildRedirect(sort, "精选运营配置参数不完整。");
   }
 
   try {
-    await updateAdminFeedOpsFeatured(payload);
+    await updateAdminFeedOpsFeatured(payload, sort);
   } catch (error) {
-    buildRedirect(resolveErrorMessage(error, "精选运营配置保存失败，请稍后重试。"));
+    buildRedirect(sort, resolveErrorMessage(error, "精选运营配置保存失败，请稍后重试。"));
   }
 
-  buildRedirect("精选运营配置已保存。", true);
+  buildRedirect(sort, "精选运营配置已保存。", true);
 }

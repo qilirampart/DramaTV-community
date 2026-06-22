@@ -58,6 +58,7 @@ apps/server/*.log
 /.codex/*.out.log
 /.codex/*.err.log
 /.codex/*.html
+/.codex/测试环境资源清单.md
 /archive/workspace-artifacts/
 /artifacts/
 /apps/web/.next-*/

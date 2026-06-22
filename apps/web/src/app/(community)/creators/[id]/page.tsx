@@ -4,8 +4,8 @@ import { CreatorPage } from "@/features/creator/CreatorPage";
 import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
 import {
   getCreator,
+  getCreatorWorks,
   getCreatorPosts,
-  getCreatorVideos,
   getCreatorWorkflows,
   isCommunityBackendUnavailableError
 } from "@/lib/api/community-service";
@@ -29,7 +29,7 @@ export default async function CreatorRoute({ params, searchParams }: CreatorRout
   const backHref = normalizeBackTarget(resolvedSearchParams?.from, "/home");
 
   let profile: Awaited<ReturnType<typeof getCreator>>;
-  let videos: Awaited<ReturnType<typeof getCreatorVideos>>;
+  let works: Awaited<ReturnType<typeof getCreatorWorks>>;
   let workflows: Awaited<ReturnType<typeof getCreatorWorkflows>>;
   let posts: Awaited<ReturnType<typeof getCreatorPosts>>;
 
@@ -55,8 +55,8 @@ export default async function CreatorRoute({ params, searchParams }: CreatorRout
   }
 
   try {
-    [videos, workflows, posts] = await Promise.all([
-      getCreatorVideos(id),
+    [works, workflows, posts] = await Promise.all([
+      getCreatorWorks(id),
       getCreatorWorkflows(id),
       getCreatorPosts(id)
     ]);
@@ -75,6 +75,6 @@ export default async function CreatorRoute({ params, searchParams }: CreatorRout
     throw error;
   }
 
-  const view = mapCreatorPageView({ ...profile, data: profile.data }, videos, workflows, posts);
+  const view = mapCreatorPageView({ ...profile, data: profile.data }, works, workflows, posts);
   return <CreatorPage view={view} backHref={backHref} />;
 }

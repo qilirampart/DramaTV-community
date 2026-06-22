@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-23T12:30:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="pre-switch-overview" name="1. 阅读说明">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="10" value="切换到 80 之前的部署说明图&#xa;范围：社区前台 + 管理后台 + 共享后端，本地和云端都画清楚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1880" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="11" value="这张图故意只描述“后台公网入口还在 :3206 时”的状态。&#xa;今天切到 80 之后的新结构，不放在这份图里，避免两套口径混在一起。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="860" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="一句话先记住&#xa;前台 apps/web 和 后台 apps/admin 不是两套后端。&#xa;它们共用同一个 Spring Boot 后端 apps/server。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="150" width="900" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" value="本地你会看到的地址&#xa;1. 社区前台：http://127.0.0.1:3106&#xa;2. 管理后台：http://127.0.0.1:3206/login&#xa;3. 共享后端健康检查：http://127.0.0.1:18080/actuator/health&#xa;4. 可选云镜像：http://localhost:3107" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="560" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="云端在切换前你会看到的地址&#xa;1. 社区前台公网入口：http://8.141.20.130&#xa;2. 管理后台公网入口：http://8.141.20.130:3206&#xa;3. 共享后端内部端口：127.0.0.1:18080&#xa;4. 管理后台运行端口：0.0.0.0:3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;fontColor=#1E3A8A;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="320" width="580" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="本地图里要看的核心端口&#xa;3106 = 社区前台进程&#xa;3206 = 管理后台进程&#xa;18080 = 共用后端进程&#xa;5432 = PostgreSQL&#xa;6379 = Redis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#14532D;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="320" width="260" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="云端图里要看的核心入口&#xa;80 = 社区公网入口，先到 Nginx&#xa;3206 = 后台公网入口，直接到后台服务&#xa;18080 = 共享后端内网端口&#xa;RDS / Redis / OSS = 后端再往下用的数据和资源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="320" width="260" height="190" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="17" value="看图顺序建议&#xa;1. 先看你在浏览器打开了哪个地址&#xa;2. 再看这个地址落到哪个前端服务&#xa;3. 再看这个前端服务是不是继续请求共享后端 18080&#xa;4. 最后看数据到底来自本地 Docker，还是来自云上的 RDS / Redis / OSS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF4FF;strokeColor=#C026D3;fontColor=#86198F;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="580" width="900" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" value="最容易混淆的地方&#xa;1. 前台和后台是两套前端，不是两套后端。&#xa;2. 本地 3206 和 云端 3206 名字一样，但不是同一个进程。&#xa;3. 18080 通常不是给普通用户直接打开的地址，它更像内部 API 服务口。&#xa;4. 本地 3107 只是辅助联调入口，不是正式站点。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="580" width="860" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="19" value="为什么你今天会觉得乱&#xa;因为原来后台是独立端口 :3206，社区前台是 80；现在你们在做的是把后台入口并到 80 体系里。&#xa;所以这份图先把“旧结构”单独讲清，再画“新结构”，就不容易串线。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;fontColor=#9A3412;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="820" width="1820" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="20" value="这份图不处理的内容&#xa;1. 今天切换后的 /admin on 80 新入口&#xa;2. 未来正式域名方案&#xa;3. 更细的 CI/CD 和回滚脚本内部细节&#xa;这次只解决：切换前到底是谁访问谁，谁再去请求谁。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;fontColor=#334155;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1010" width="820" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="颜色约定&#xa;绿色 = 本地开发链路&#xa;蓝色 = 云端链路&#xa;橙色 = 说明 / 提醒&#xa;红色 = 容易出故障的点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;fontColor=#334155;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="940" y="1010" width="420" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" value="建议你的阅读方式&#xa;先看第 2 页本地，再看第 3 页云端。&#xa;第 4 页是把两边的典型访问路径和容易误会的点串起来。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#0C4A6E;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="1010" width="460" height="150" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="pre-switch-local" name="2. 本地部署">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="100" value="本地部署状态（切换前）&#xa;你电脑上同时跑着社区前台、管理后台、共享后端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1880" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="101" value="你的本地电脑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="1860" height="1060" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="102" value="你在浏览器打开社区前台&#xa;http://127.0.0.1:3106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="103" value="社区前端进程&#xa;Next.js apps/web&#xa;监听 3106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="250" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="104" value="共享后端进程&#xa;Spring Boot apps/server&#xa;监听 18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBF7D0;strokeColor=#16A34A;fontColor=#14532D;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="250" width="250" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="105" value="本地 PostgreSQL&#xa;Docker&#xa;5432" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#4ADE80;fontColor=#14532D;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="660" y="450" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="106" value="本地 Redis&#xa;Docker&#xa;6379" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#4ADE80;fontColor=#14532D;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="840" y="450" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="107" value="本地媒体目录&#xa;/media/...&#xa;local_fs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#4ADE80;fontColor=#14532D;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="480" y="450" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="108" value="前端静态资源&#xa;apps/web/public&#xa;/seedance-videos&#xa;/nano-banana-images" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#4ADE80;fontColor=#14532D;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="220" y="440" width="210" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="109" value="你在浏览器打开管理后台&#xa;http://127.0.0.1:3206/login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;fontColor=#1E3A8A;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="260" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="110" value="管理后台前端进程&#xa;Next.js apps/admin&#xa;监听 3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="250" width="240" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="111" value="关键事实&#xa;本地社区前台和本地管理后台，是两个独立的 Next.js 进程。&#xa;它们不是一个页面，也不是一个端口。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="450" width="600" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="112" value="更关键的事实&#xa;不管你打开的是 3106 还是 3206，最后真正读写业务数据时，都会落到同一个 18080。&#xa;所以本地其实是“两套前端 + 一套共用后端”结构。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="610" width="710" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="113" value="可选辅助链路&#xa;本地云镜像 http://localhost:3107&#xa;它不是正式站点，只是为了让本机页面去联调云环境。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#0C4A6E;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="700" width="340" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="114" value="本地云镜像前端&#xa;Next.js apps/web&#xa;监听 3107" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAE6FD;strokeColor=#0EA5E9;fontColor=#0C4A6E;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="700" width="210" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="115" value="它通常会把请求引向云端入口&#xa;用于看真实云数据、云资源、云 OSS 展示。&#xa;但它依然是在你本机打开的，不是别人也能访问的公网地址。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F9FF;strokeColor=#38BDF8;fontColor=#0C4A6E;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="810" y="700" width="560" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="116" value="本地总结&#xa;1. 社区前台：3106&#xa;2. 管理后台：3206&#xa;3. 共享后端：18080&#xa;4. 社区前台和管理后台都共用 18080&#xa;5. 3107 只是辅助验收入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;fontColor=#9A3412;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="900" width="520" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="117" value="本地最容易误解的点&#xa;很多人会下意识以为“后台是另一套后端”。&#xa;在这个项目里不是。后台只是另一套前端壳，业务核心还是同一个 apps/server。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1F2;strokeColor=#FB7185;fontColor=#9F1239;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="900" width="1010" height="190" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="150" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;endArrow=block;endFill=1;" edge="1" parent="1" source="102" target="103">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;endArrow=block;endFill=1;" edge="1" parent="1" source="103" target="104">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;endArrow=block;endFill=1;" edge="1" parent="1" source="104" target="105">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="153" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;endArrow=block;endFill=1;" edge="1" parent="1" source="104" target="106">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;endArrow=block;endFill=1;" edge="1" parent="1" source="104" target="107">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="155" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;endArrow=block;endFill=1;" edge="1" parent="1" source="103" target="108">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;" edge="1" parent="1" source="109" target="110">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="157" value="后台页面动作也会走这里" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;fontSize=13;fontColor=#1E3A8A;" edge="1" parent="1" source="110" target="104">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="158" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0EA5E9;endArrow=block;endFill=1;" edge="1" parent="1" source="113" target="114">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="pre-switch-cloud" name="3. 云端部署（切换前）">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="200" value="云端部署状态（切换前）&#xa;社区前台走 80，管理后台走独立端口 3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1880" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="201" value="公网浏览器访问社区前台&#xa;http://8.141.20.130&#xa;默认就是 80" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;fontColor=#1E3A8A;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="260" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="202" value="公网浏览器访问管理后台&#xa;http://8.141.20.130:3206&#xa;这是切换前的旧入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="203" value="阿里云 ECS 测试机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#0C4A6E;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="150" width="1460" height="1030" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="204" value="Nginx&#xa;监听 80&#xa;负责接社区公网入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="240" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="205" value="社区前端服务&#xa;dramatv-community-web&#xa;/opt/dramatv-community-web&#xa;运行在 127.0.0.1:3106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="200" width="320" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="206" value="共享后端服务&#xa;dramatv-community-server&#xa;/opt/dramatv-community-server&#xa;运行在 127.0.0.1:18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#93C5FD;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="200" width="340" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="207" value="管理后台前端服务&#xa;dramatv-community-admin&#xa;/opt/dramatv-community-admin&#xa;监听 0.0.0.0:3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C7D2FE;strokeColor=#4F46E5;fontColor=#312E81;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="420" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="208" value="RDS PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#93C5FD;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="470" width="170" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="209" value="Redis 实例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#93C5FD;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="470" width="170" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="210" value="OSS 私有桶&#xa;dz-ailab-community" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF5FF;strokeColor=#A855F7;fontColor=#581C87;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="470" width="190" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="211" value="社区公网 80 入口的典型分工&#xa;1. / 和普通页面 -> 反代给社区前端 3106&#xa;2. /api/** -> 反代给共享后端 18080&#xa;3. /media/** -> 反代给共享后端 18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F9FF;strokeColor=#38BDF8;fontColor=#0C4A6E;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="520" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="212" value="管理后台在切换前的典型分工&#xa;1. 用户直接打开 :3206&#xa;2. 页面本身由 apps/admin 返回&#xa;3. 页面内真正的业务数据，再去请求共享后端 18080&#xa;4. 所以它不是另一套 Java 服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#6366F1;fontColor=#312E81;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="650" width="600" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="213" value="部署目录口径（切换前也成立）&#xa;社区前端 release：/opt/dramatv-community-web/releases/...&#xa;后台前端 release：/opt/dramatv-community-admin/releases/...&#xa;共享后端 release：/opt/dramatv-community-server/releases/..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;fontColor=#9A3412;fontSize=17;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="870" width="700" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="214" value="很重要的风险点&#xa;安全组 / 防火墙必须同时放通 80 和 3206。&#xa;如果只放通 3206，就会出现：后台能打开，社区前台却打不开。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="870" width="500" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="215" value="切换前的结构本质&#xa;公网 80 只代表社区前台体系。&#xa;管理后台还是独立端口 :3206，和 80 不是同一路由入口。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1070" width="820" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="250" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;" edge="1" parent="1" source="201" target="204">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="251" value="/ 和普通页面" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;fontSize=13;fontColor=#1E3A8A;" edge="1" parent="1" source="204" target="205">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="252" value="/api 和 /media" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;fontSize=13;fontColor=#1E3A8A;" edge="1" parent="1" source="204" target="206">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="253" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4F46E5;endArrow=block;endFill=1;" edge="1" parent="1" source="202" target="207">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="254" value="后台页面里的真实数据请求" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4F46E5;endArrow=block;endFill=1;fontSize=13;fontColor=#312E81;" edge="1" parent="1" source="207" target="206">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="255" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3B82F6;endArrow=block;endFill=1;" edge="1" parent="1" source="206" target="208">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="256" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3B82F6;endArrow=block;endFill=1;" edge="1" parent="1" source="206" target="209">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="257" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#A855F7;endArrow=block;endFill=1;" edge="1" parent="1" source="206" target="210">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="pre-switch-flows" name="4. 访问路径和易混点">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="300" value="典型访问路径和最容易混淆的点&#xa;把“你打开一个地址后，后面到底发生了什么”串起来看" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#0F172A;fontColor=#F8FAFC;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1880" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="301" value="A. 本地开发社区前台时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#166534;strokeColor=#14532D;fontColor=#F0FDF4;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="160" width="860" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="302" value="1. 你打开 http://127.0.0.1:3106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="90" y="270" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="303" value="2. 页面来自 apps/web 进程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#14532D;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="320" y="270" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="304" value="3. 页面里的业务数据请求发给 18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBF7D0;strokeColor=#16A34A;fontColor=#14532D;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="550" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="305" value="4. 18080 再去查本地 PostgreSQL / Redis / 本地媒体" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#4ADE80;fontColor=#14532D;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="790" y="270" width="120" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="306" value="B. 本地开发管理后台时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1D4ED8;strokeColor=#1E40AF;fontColor=#EFF6FF;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="160" width="860" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="307" value="1. 你打开 http://127.0.0.1:3206/login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="308" value="2. 页面来自 apps/admin 进程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="270" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="309" value="3. 页面里的列表、详情、操作请求，同样发给 18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#93C5FD;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="310" value="4. 所以后台治理动作会直接影响同一套社区数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#3B82F6;fontColor=#1E3A8A;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="270" width="120" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="311" value="C. 云端访问社区前台（切换前）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0C4A6E;strokeColor=#0369A1;fontColor=#E0F2FE;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="500" width="860" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="312" value="1. 浏览器打开 http://8.141.20.130" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#38BDF8;fontColor=#0C4A6E;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="90" y="610" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="313" value="2. 先到云机上的 Nginx:80" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAE6FD;strokeColor=#0EA5E9;fontColor=#0C4A6E;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="320" y="610" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="314" value="3. 页面请求通常转到社区前端 3106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#38BDF8;fontColor=#0C4A6E;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="530" y="610" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="315" value="4. API 和 media 再被转去 18080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAE6FD;strokeColor=#0EA5E9;fontColor=#0C4A6E;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="770" y="610" width="140" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="316" value="D. 云端访问管理后台（切换前）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#312E81;strokeColor=#4338CA;fontColor=#EEF2FF;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="500" width="860" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="317" value="1. 浏览器打开 http://8.141.20.130:3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#818CF8;fontColor=#312E81;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="610" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="318" value="2. 直接命中后台前端服务 3206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E7FF;strokeColor=#6366F1;fontColor=#312E81;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="610" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="319" value="3. 后台页面里的真实业务数据，还是去 18080 取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C7D2FE;strokeColor=#4F46E5;fontColor=#312E81;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="610" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="320" value="4. 所以它和社区前台其实是在共用同一套业务后端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5B4FC;strokeColor=#4F46E5;fontColor=#312E81;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="610" width="120" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="321" value="你之后自己排查时，可以优先这样判断" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;fontColor=#9A3412;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="830" width="760" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="322" value="如果社区前台打不开&#xa;先看 80 / Nginx / 社区前端 3106 链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FB923C;fontColor=#9A3412;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="90" y="930" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="323" value="如果后台 3206 打不开&#xa;先看后台前端进程、端口监听、防火墙放通" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FB923C;fontColor=#9A3412;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="340" y="930" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="324" value="如果页面能打开但数据为空&#xa;重点看 18080 和它后面的 DB / Redis / OSS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FB923C;fontColor=#9A3412;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="590" y="930" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="325" value="最后再记一句最核心的话" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="830" width="900" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="326" value="切换前的旧结构里：&#xa;社区前台公网入口 = 80&#xa;管理后台公网入口 = 3206&#xa;两边真正共用的业务后端 = 18080&#xa;所以你看到的是两个入口，不是一套东西；但它们背后又不是完全独立，因为业务后端是同一个。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="930" width="860" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="350" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;endArrow=block;endFill=1;" edge="1" parent="1" source="302" target="303">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="351" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;endArrow=block;endFill=1;" edge="1" parent="1" source="303" target="304">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="352" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16A34A;endArrow=block;endFill=1;" edge="1" parent="1" source="304" target="305">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="353" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;" edge="1" parent="1" source="307" target="308">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="354" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;" edge="1" parent="1" source="308" target="309">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="355" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;endArrow=block;endFill=1;" edge="1" parent="1" source="309" target="310">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="356" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;endArrow=block;endFill=1;" edge="1" parent="1" source="312" target="313">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="357" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;endArrow=block;endFill=1;" edge="1" parent="1" source="313" target="314">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="358" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284C7;endArrow=block;endFill=1;" edge="1" parent="1" source="314" target="315">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="359" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4338CA;endArrow=block;endFill=1;" edge="1" parent="1" source="317" target="318">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="360" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4338CA;endArrow=block;endFill=1;" edge="1" parent="1" source="318" target="319">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="361" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4338CA;endArrow=block;endFill=1;" edge="1" parent="1" source="319" target="320">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

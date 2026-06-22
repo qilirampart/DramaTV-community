@@ -1,10 +1,25 @@
-﻿# 当前快照
+# 当前快照
 <!-- CODEX:SNAPSHOT -->
+
+- 2026-06-11 宸叉柊寤衡€滄祴璇曠幆澧冨ぇ鐗堟湰鍚屾鈥濊法绾夸换鍔℃澘锛歚docs/04_瀹炴柦璁捐/测试环境大版本同步任务板-2026-06-11.md`锛涜繖杞笉鎸夆€滃墠鍙板皬鏀瑰姩鈥濆彛寰勫彂浜戯紝鑰屾槸鎸?`apps/server -> apps/admin -> apps/web` 鐨勫垎娈靛彂甯冨勭悊锛屽厛鍥哄寲澶囦唤銆侀獙鏀躲€佸洖婊氶敋鐐瑰啀鎵ц銆?
 
 - 2026-04-29 起，进度记录正式拆分为三层：`.codex/progress.md` 只保留总索引、跨线状态、全局阻塞和关键里程碑；社区主线详细记录改写到 `.codex/progress-community.md`；后台管理线详细记录改写到 `.codex/progress-admin.md`。历史混合日志继续保留在本文件归档，不做整段迁移，避免大文档再次被重写弄乱。
 - 2026-04-29 进度记录已支持前后台并行推进：社区主线继续以 `apps/web + apps/server` 为准，后台管理线继续以 `apps/admin + apps/server` 为准；两条线分账记录，避免一边开发另一边“看起来像停滞”。
 - 2026-05-22 已把仓库级 Git 版本管理约定从四分支收口为双分支：当前仓库仍是 `apps/web + apps/admin + apps/server` 的单一 Git 仓库，但正式稳定分支只保留 `main / dev`；后续按 `feature/* -> dev -> main` 流转，`pre / test` 仅按历史分支看待，不再作为标准流程的一部分。
 - 2026-05-21 已补充项目级回滚口径：`git` 负责代码历史和源代码回滚，`release` 负责云端运行时快照和回滚；release 备份只在重大更新、稳定里程碑和云端发版前后做，不把每个小改动都做成一次 release。
+- 2026-05-22 已修复一条跨线云端入口事故：社区公网 `http://8.141.20.130` 异常并不是 `apps/web` 或 `nginx -> 3106` 挂掉，而是云机 `firewalld` 的 `public` zone 只剩 `3206/tcp`、漏掉了 `http`。现已补回 `firewall-cmd --permanent --add-service=http` 并 `reload`；修复后公网 `/ -> 200`、`/discussions/new -> 307 跳登录`、后台 `:3206/login -> 200` 均已复验通过。
+- 2026-05-22 已把首页双 `为你推荐` 收口成单推荐位，并同步更新前后台共享编排：前台 `/home` 不再渲染第二组同名分区；后台 `/feed-ops/home` 与公共 `/api/feed/home` 也不再定义或产出 `recommended-secondary`。当前首页共享槽位从 `9` 个降为 `8` 个，旧 `recommended-secondary` 历史配置视为 legacy 数据，不再消费；口径已同步写入 `.codex/community-admin-shared-sync.md`。
+- 2026-05-22 上述“首页单推荐位”改动已同步到测试云环境：backend release=`20260522-201207`、web release=`20260522-201251`、admin release=`20260522-201500`。公网复验通过：`http://8.141.20.130/api/feed/home` 当前 slot key 为 `home-hero,recommended-primary,canvas,commercial,animation,narrative,mv,creative`，登录后公网 `/home` 页面标题区也只剩一组 `为你推荐`。
+- 2026-05-22 已补后台发布验收脚本兼容：`scripts/smoke-admin-routes.mjs` 现在同时接受传统 `307` 跳转和 Next 16 流式 `200 + NEXT_REDIRECT/meta refresh` 登录跳转表现；用公网地址复跑后，后台 `:3206` 公共守卫与登录后页面验收均已通过。
+- 2026-06-02 已把测试云 Host 隔离口径继续扩到关键手册与接手提示词：社区默认公网入口统一为 `http://community.8.141.20.130.nip.io`，后台统一为 `http://community.8.141.20.130.nip.io/admin`，`http://8.141.20.130` 只保留为机器级探活和链路排障入口，避免后续新会话和人工验收继续把裸 IP 当默认业务地址。
+- 2026-05-23 已为社区前台新增“无 CDN / 私有 OSS 阶段媒体优化”专题账本：当前相关任务不再继续散落写入长篇社区日志，而是单独收口到 `.codex/progress-community-t6-private-oss.md`，后续按子任务逐项勾销。
+- 2026-05-25 “发布页参考素材增强”已在社区主线收口为可交付状态：`R1-1 ~ R1-6` 已全部完成，详细过程与验证证据统一记录在 `.codex/progress-community.md`。
+- 2026-05-23 已完成媒体优化专题 `T6-1 媒体消费分层固化`：首页卡片、详情相关推荐卡片已不再把 `source` 当悬浮预览兜底；后端 `/api/feed/home`、`/api/prompts`、`/api/prompts/{id}`、`/api/prompts/{id}/related` 也已收口为“没有 preview 就返回空 preview，而不是把 source 冒充成 preview”。增量记录写入 `.codex/progress-community-t6-private-oss-t6-1-2026-05-23.md`，作为现有专题账本的补充说明。
+- 2026-05-23 已完成媒体优化专题 `T6-2 /media/** 协商缓存`：本地 `/media/**` 已统一走 `MediaProxyController`，补齐 `ETag / Last-Modified / 304 / Range 206` 行为；运行态缺头问题的根因已确认是本地 `MediaResourceConfig` 静态资源处理器与代理控制器抢同一路径，现已删除冲突注册。增量记录写入 `.codex/progress-community-t6-private-oss-t6-2-2026-05-23.md`。
+- 2026-05-23 媒体优化专题 `T6-3` 已完成第一阶段：应用层 `/media/**` 已按 `asset_role` 下发角色化 `Cache-Control`，当前 `cover/poster/avatar=86400`、`preview=14400`、`source/attachment=3600`；下一阶段才是把同一套口径搬到云上 `Nginx / 网关`。同时 `T6-4 派生资源补齐` 已完成视频侧第一阶段：默认 `preview` 条件派生阈值已收口到 `6MB`，本地已真实 backfill `6` 条视频 prompt preview + `1` 条视频 preview，最终 `> 6MB` 候选数降到 `0`；图片侧缩略图策略仍待继续。期间还修复了两个共享层问题：历史 `local-public` prompt 视频源路径 materialize 兼容，以及“`preview_asset_id` 非空但实际指向 `asset_role=source` 时被误判为已有 preview`”的逻辑缺口。详细记录见 `.codex/progress-community-t6-private-oss.md` 与 `.codex/progress-community-t6-private-oss-t6-3-2026-05-23.md`。
+- 2026-05-24 媒体优化专题 `T6-6` 已进入第一阶段完成态：后端 `/media/**` 现已补进程内 `Semaphore` 限并发、`503 MEDIA_PROXY_BUSY` 错误码映射、慢请求结构化日志与 5xx 失败日志；这轮仍保持既有 `ETag / Last-Modified / 304 / Range 206` 契约不变，并已通过 `MediaProxyServiceTest + MediaProxyApiIntegrationTest` 共 `10 passed / 0 failed`、本地 `18080` 重启和真实 `/media/**` `HEAD` 冒烟复验。
+- 2026-05-24 已把后台 `feed-ops` 共享口径从“3 页运营配置”补齐到“4 页运营配置”：新增并显式暴露 `landing / 落地页运营`，用于真实控制社区根首页 `/` 的“精选档案”12 卡编排；共享台账已同步更新到 `.codex/community-admin-shared-sync.md`，详细实现与本地构建验证记入 `.codex/progress-admin.md`。
+
 - 2026-05-21 已补后台资源治理页 `/resources`，把前台真实资源（视频提示词、图片提示词、工作流、帖子、视频作品）纳入后台列表、详情和下线/恢复治理；列表和详情已接真实后端，资源治理动作复用既有 `offline / restore` 口径，执行后应立即影响前台公开可见性。更细的实现与回归记录已写入 `.codex/progress-admin.md`。
 - 2026-05-21 已继续细化后台资源治理页的详情展示，把提示词正文从摘要里拆开，提示词资源现在能在右侧详情直接看到真实 prompt body；展示层细化记录已写入 `.codex/progress-admin.md`。
 - 2026-05-21 已修正后台资源治理页的提示词正文来源，prompt 详情现优先读取 `prompt_text_raw` 而不是较短的 `prompt_text`，并已补 `AdminResourceApiIntegrationTest` 回归保护；这条修复也已同步写入 `.codex/progress-admin.md`。
@@ -174,10 +189,17 @@
 # 当前看板
 <!-- CODEX:BOARD -->
 
+- 2026-06-11 release sync track opened: `docs/04_瀹炴柦璁捐/测试环境大版本同步任务板-2026-06-11.md`
+- In progress: `R11-1` 澶т换鍔′笂浜戝墠澶囦唤涓庡彂甯冨墠棰勬锛屽彂甯冮『搴忓浐瀹氫负 `backend -> admin -> web`銆?
+
+- 2026-06-02 code-review optimization track opened: `docs/04_实施设计/project-code-review-optimization-board-2026-06-02.md`
+- In progress: `O7-1` harden admin bootstrap auth defaults and remove admin demo credential prefills.
+
 - 记录规则已切换：社区主线的详细快照 / 看板 / 追加日志只写 `.codex/progress-community.md`；后台管理线的详细快照 / 看板 / 追加日志只写 `.codex/progress-admin.md`；本文件后续只保留跨线索引、全局阻塞和大里程碑。
 - 当前并行线：社区主线、后台管理线。
 - 已切换当前工作口径：前后台允许并行推进，但必须按独立进度文件分别追加，避免信息串线。
 - 社区详细执行入口：`.codex/progress-community.md`
+- 社区媒体优化专题入口：`.codex/progress-community-t6-private-oss.md`
 - 后台详细执行入口：`.codex/progress-admin.md`
 - 当前跨线里程碑：后台 `comments` 已从纯占位页推进到“后端真接口 + 页面真数据读取”的阶段。
 - 当前跨线共识：
@@ -192,9 +214,27 @@
   - `.codex/deploy-cloud-frontend-2026-04-27.md`
   - `.codex/incident-public-upload-fix-2026-04-28.md`
   - `.codex/backup-progress-acl-fix-2026-04-27.md`
+  - `.codex/progress-community-t6-private-oss.md`
 
 # 追加日志
 <!-- CODEX:LOG -->
+
+## 2026-06-11 large cloud sync board initialized
+
+- 宸叉妸杩欒疆鈥滄渶杩戠ぞ鍖轰富椤?+ 绮鹃€夐〉 + 鍚庡彴杩愯惀 + 鍏变韩鍚庣鈥濈殑涓婁簯鍚屾锛屼粠閫氱敤閮ㄧ讲娓呭崟閲屽崟鐙媶鎴愪簡涓€浠芥湁鐘舵€佺殑浠诲姟鏉裤€?
+- 鏂板浠诲姟鏉匡細`docs/04_瀹炴柦璁捐/测试环境大版本同步任务板-2026-06-11.md`
+- 杩欒疆鍥哄畾鎺掓湡涓猴細`R11-1 澶囦唤 -> R11-2 棰勬 -> R11-3 backend -> R11-4 admin -> R11-5 web -> R11-6 鎬婚獙鏀?-> R11-7 鍙板笎鏀跺彛`
+- 褰撳墠鏄庣‘楂橀闄╃偣涓?3 绫伙細
+  - `web` 浼氶噸鍐?community Nginx Host 路由
+  - `backend` 鍖呭惈 Flyway `V24~V27`
+  - `admin` 闇€鍚屾 featured/latest-hot 鍜?landing/taxonomy 绠＄悊鍙ｅ緞
+- 鏈疆鍏堝仛浠诲姟鏉垮拰杩涘害鍥哄寲锛屾殏鏈紑濮嬪疄闄呬簯绔儴缃层€?
+
+## 2026-06-02 code review optimization board initialized
+
+- Added review findings and the new optimization task board in `docs/04_实施设计/project-code-review-optimization-board-2026-06-02.md`.
+- Locked execution order for this track to: `O7-1 admin bootstrap auth` -> `O7-2 community local auth` -> `O7-3/O7-4 creator data contract` -> `O7-5 typecheck pipeline`.
+- Current active slice is `O7-1`, and the rule is fixed to: document first, add regression protection, then change defaults.
 
 ## 2026-04-29 progress routing split
 
@@ -4006,3 +4046,836 @@
 - 共享说明与实施文档已同步：
   - `.codex/community-admin-shared-sync.md`
   - `docs/04_实施设计/测试环境管理后台云发布补充-2026-05-21.md`
+
+## 2026-05-23 media cache routing fixed
+
+- 已完成 `T6-2 /media/**` 协商缓存的真实运行态修复，不再停留在“单测通过但运行态无效”的状态。
+- 本轮根因已确认：
+  - 本地 `serveLocally=true` 时，`MediaResourceConfig` 额外挂了一条 `/media/**` 的静态资源处理器。
+  - `MediaProxyController` 也映射了 `/media/**`。
+  - 结果是本地媒体请求被静态资源链路截走，看起来像“`Cache-Control / Accept-Ranges` 有了，但 `ETag / Last-Modified` 没有”。
+- 本轮修复：
+  - 删除 `apps/server/src/main/java/com/dramatv/community/shared/config/MediaResourceConfig.java`
+  - 保持 `/media/**` 统一走 `MediaProxyController + MediaProxyService`
+  - 新增 `MediaProxyApiIntegrationTest` 补 HTTP 级回归
+- 本轮验证：
+  - `MediaProxyServiceTest` + `MediaProxyApiIntegrationTest` 已通过
+  - 本地 `HEAD /media/...` 现在可见 `ETag` 与 `Last-Modified`
+  - `If-None-Match -> 304`
+  - `If-Modified-Since -> 304`
+  - `Range + If-None-Match -> 206`，并保留 `ETag / Last-Modified`
+- 详细补充记录已写入：
+  - `.codex/progress-community-t6-private-oss-t6-2-2026-05-23.md`
+
+## 2026-05-24 preview optional hover-play fallback fixed
+
+- 已修正列表卡片层把 `previewUrl` 当成“唯一可悬浮播放地址”的过窄判断。
+- 当前统一策略：
+  - 卡片悬浮播放地址优先使用真实 `previewUrl`
+  - 若没有 `previewUrl`，但 `sourceUrl` 本身是视频资源，则允许回退使用 `sourceUrl`
+  - 图片提示词与工作流卡片不会因为存在 `sourceUrl` 被误判成可悬浮播放视频
+- 本轮已同步修正页面：
+  - `/featured`
+  - `/home`
+  - `/`
+- 本轮实现备注：
+  - 新增前端统一 helper：`apps/web/src/lib/media-playback.ts`
+  - 不再通过前端把 `sourceUrl` 覆写进 `previewUrl` 字段，继续保留 `preview` 与 `source` 的语义分离
+- 验证：
+  - `apps/web` 执行 `npx tsc --noEmit` 已通过
+
+## 2026-05-24 T6-4 image prompt derived cover slice completed
+
+- 已继续推进媒体优化专题 `T6-4 派生资源补齐`，这轮落的是图片侧第一条真实纵向切片，而不是继续停留在策略讨论：
+  - `image_prompt` 提交时，若主图源资源体积超过阈值且当前没有显式 `coverAssetId`，后端会创建 `image_media_process` 任务
+  - 新增 `ImageMediaProcessingService` 与 `ImageMediaTaskScheduler`，可消费该任务并生成派生 `cover`
+  - 草稿生命周期查询、用户媒体任务查询、后台媒体任务列表与后台总览统计，现都已识别 `image_media_process`
+- 这轮刻意保持最小范围：
+  - 先只补 `cover`，不额外引入新的前端 `thumb` 契约
+  - 详情与列表仍继续复用现有 `cover -> poster` 的回退口径
+  - 历史图片资源批量 backfill 还没开始，仍留在 `T6-4` 后续子步
+- 过程中顺手修了一处真实阻塞：
+  - `PublishDraftLifecycleQueryService` 里把 SQL 常量拼进 Java text block 的写法是非法语法，已改成固定 SQL 常量并顺手修复该文件里受历史编码影响的中文提示文案
+- 本轮验证：
+  - `scripts/use-local-java17-maven.ps1 -f apps/server/pom.xml '-Dtest=PublishPipelineIntegrationTest,AdminMediaTaskApiIntegrationTest,AdminDashboardOverviewApiIntegrationTest' test` 通过，`16 passed / 0 failed`
+  - `scripts/run-backend-integration-suite.ps1 -Suite core` 通过，`42 passed / 0 failed`
+- 当前做到哪一步：
+  - `T6-4` 的视频侧第一阶段和图片侧首个真实处理切片都已落地
+  - 图片侧现在已经不是“永远依赖手传封面”，而是具备了条件触发的后端派生能力
+- 下次先做什么：
+  - 继续判断图片侧是否需要历史 backfill
+  - 再决定要不要把图片 `cover/thumb` 进一步细分，而不是现在就提前扩前端字段
+
+## 2026-05-24 Goal Mode T6-4 T1 inventory completed
+
+- 已进入 Goal Mode，按 `goal-1/tasks.md` 只执行了第一项未完成任务 `T1`，本轮没有改业务代码，只做了本地事实盘点与运行态核对。
+- 本地 PostgreSQL 盘点结果：
+  - `imagePromptTotal = 44`
+  - `imagePromptOver1mb = 1`
+  - `imagePromptMissingCover = 14`
+  - `largeImageMissingCover = 0`
+- 进一步细查发现，缺 cover 的 14 条全是小图：
+  - 最大仅 `318194 bytes` (`0.3035 MB`)
+  - 分布为 `<=256KB: 10`、`256KB~512KB: 4`、`512KB~1MB: 0`、`>1MB: 0`
+- 但 `T1` 没有因此直接关闭历史大图 backfill，而是确认出一条真实脏数据：
+  - 唯一 `>1MB` 图片提示词 `067736ea-1c9d-5ffd-a946-40f3f1043442`
+  - 原图大小 `7779837 bytes` (`7.4194 MB`)
+  - `coverAssetId` 虽然非空，但它指向的资产 `asset_role = source`，对象键仍是原图 `nano-banana-images/000002-6847/01.png`
+- 本地运行态 API 已复核：
+  - `GET /api/prompts/067736ea-1c9d-5ffd-a946-40f3f1043442`
+  - 返回 `coverUrl = /nano-banana-images/000002-6847/01.png`
+  - 返回 `posterUrl = /nano-banana-images/000002-6847/01.png`
+  - 说明当前前端列表实际吃到的仍是原始大图，不是派生轻量封面
+- 当前结论：
+  - 历史大图 backfill 不能简单按“`coverAssetId` 是否为空”关闭
+  - 下一步 `T2` 需要补一条一次性、本地、可验证的 backfill 路径，覆盖“cover 指向 source 原图 / 非派生 cover”的历史记录
+
+## 2026-05-24 T6-4 image historical backfill path completed locally
+
+- 已把社区媒体优化专题 `T6-4` 的图片侧第二阶段补完，不再停留在“知道有历史脏数据，但没有回填路径”的状态。
+- 本轮代码收口点：
+  - `PublishAsyncTaskPersistenceService`
+    - 图片提示词提交时不再只按 `coverAssetId != null` 跳过任务
+    - 若 `coverAssetId` 等于 source、缺资产、不是图片，或 `asset_role != cover`，仍会创建 `image_media_process`
+  - `ImageMediaProcessingService`
+    - 不再只看 `coverAssetId is null`
+    - 现在能识别“cover 指向 source 原图 / 非派生 cover”的历史记录并生成派生 cover
+  - `PublishModerationPersistenceService`
+    - 图片提示词媒体回调现在允许把无效历史 cover 替换成真正的派生 cover
+  - `scripts/backfill-media-derivative-tasks.mjs`
+    - 已扩成同时支持视频与图片库存扫描
+    - 图片候选会识别 `coverState=missing/source/missing-asset/wrong-kind/role-*`
+- 本轮回归保护：
+  - `PublishPipelineIntegrationTest` 新增了“图片提示词提交时 cover 指向 source 仍能入队并被替换”的集成场景
+- 本轮真实验证：
+  - `scripts/use-local-java17-maven.ps1 -f apps/server/pom.xml '-Dtest=PublishPipelineIntegrationTest' test` -> `13 passed / 0 failed`
+  - 本地库存扫描：
+    - `node scripts/backfill-media-derivative-tasks.mjs` -> 初始候选 `1`
+  - 本地回填执行：
+    - 已重启 `18080` 到新代码
+    - `node scripts/backfill-media-derivative-tasks.mjs --apply` -> 入队 `1`
+    - 再次扫描 -> 候选 `0`
+  - 运行态接口复核：
+    - `GET /api/prompts/067736ea-1c9d-5ffd-a946-40f3f1043442`
+    - 现在返回
+      - `coverUrl = /media/community/local/image/cover/7a56c39f-9647-4316-bec6-72adda280a1b/01-cover.jpg`
+      - `posterUrl = /media/community/local/image/cover/7a56c39f-9647-4316-bec6-72adda280a1b/01-cover.jpg`
+  - 数据库复核：
+    - `coverAssetRole = cover`
+    - `coverObjectKey = community/local/image/cover/7a56c39f-9647-4316-bec6-72adda280a1b/01-cover.jpg`
+    - `sourceObjectKey = nano-banana-images/000002-6847/01.png`
+- 同轮顺手把图片 `thumb` 契约也收口了：
+  - 后端 `PromptQueryService` 继续固定 `posterUrl -> coverUrl`
+  - 前端现有消费点继续走 `posterUrl ?? coverUrl`
+  - 在大图已能落轻量派生 `cover` 的前提下，现阶段没有必要再新增独立 `thumb` 字段
+- 当前结论：
+  - `T6-4` 已完成
+  - 下一步切到 `.codex/progress-community-t6-private-oss.md` 中的 `T6-6 代理层保护与观测`
+
+## 2026-05-24 T6-6 proxy guard phase 1
+
+- 已按社区媒体优化专题任务板继续推进 `T6-6`，这轮只落最小有效切片，不扩大到云上或前端。
+- 后端当前新增能力：`dramatv.media.proxy` 配置、进程内 `Semaphore` 限并发、`MEDIA_PROXY_BUSY` 稳定错误码、`media_proxy_busy / media_proxy_slow / media_proxy_failure` 三类结构化日志。
+- 现有 `/media/**` 行为保持不变：`ETag / Last-Modified / 304 / Range 206` 回归未被破坏。
+- 定向验证已完成：`MediaProxyServiceTest + MediaProxyApiIntegrationTest -> 10 passed / 0 failed`；本地 `18080` 重启后 `GET /actuator/health -> UP`，已实测 `HEAD /media/.../01-cover.jpg -> 200` 且返回 `Cache-Control / ETag / Last-Modified / Accept-Ranges`。
+- 当前判断：`T6-6` 可记为“进行中，第一阶段已完成”，下一步按专题账本继续评估热点聚合统计，否则切回 `T6-5 资源去重`。
+## 2026-05-24 T6-5 asset dedup phase 1 completed locally
+
+- 社区媒体优化专题 `T6-5 资源去重` 已推进到第一阶段完成：`apps/server` 正式上传链路与派生资源链路都已接入真实二进制 `SHA-256`，命中同 `asset_kind + asset_role + storage_provider + bucket_name + checksum + size_bytes` 的 `ready` 资产时会复用已有 `object_key`，但仍保留独立 `media_assets` 行。
+- 这轮刻意保持边界收窄：不跨 `asset_role` 复用对象，不直接把 `media_assets` 改成全局唯一资产表，也不提前改云端库存脚本；先把本地正式后端写入口径做稳。
+- 回归保护已补：`UploadValidationIntegrationTest` 新增二次上传复用与派生资源复用两条测试；`UploadLoggingIntegrationTest` 继续验证上传成功日志；`PublishPipelineIntegrationTest` 复跑确认现有发布/派生链路未回退。
+- 本轮真实验证：
+  - `UploadValidationIntegrationTest + UploadLoggingIntegrationTest -> 7 passed / 0 failed`
+  - `PublishPipelineIntegrationTest -> 13 passed / 0 failed`
+- 详细过程与下一步已同步写入：`.codex/progress-community-t6-private-oss.md`
+
+## 2026-05-24 T6 importer parity and prompt media callback regression fixed
+
+- 社区媒体优化专题继续推进到“导入脚本与正式上传口径对齐”这一层：`scripts/import-youmind-prompts.mjs` 现已支持真实本地文件 `SHA-256`、`asset_role` 正确落表，以及按阈值生成 `video_media_process / image_media_process` 入队 SQL，不再让历史导入链路长期游离在正式后端写入口径之外。
+- 同轮修复了一处真实回归：`PublishModerationPersistenceService.applyPromptMediaResult(...)` 在 PostgreSQL 上会因参数类型推断失败而阻断 prompt 封面回填，现已改成显式 UUID 分支更新；定向回归 `PublishPipelineIntegrationTest` 已恢复为 `13 passed / 0 failed`。
+- 本地运行态与库存复核已补齐：`18080 /actuator/health -> UP`，`node scripts/backfill-media-derivative-tasks.mjs -> Found media derivative candidates: 0`。这说明当前本地库存按既定阈值已没有待补的 preview/cover 候选，后续重点应转向云端大库存的批量预处理与执行顺序。
+
+## 2026-05-24 cloud derivative backfill preview path prepared
+
+- 社区前台媒体优化这条线已补齐“云测试库大库存 preview/cover 候选盘点”执行入口：`scripts/backfill-media-derivative-tasks.mjs` 现支持 `--target remote`，可通过 `.codex/测试环境资源清单.md + SSH tunnel + docker psql` 直接只读扫描云测试库。
+- 已验证本地回归未破坏：`node --check scripts/backfill-media-derivative-tasks.mjs` passed；`node scripts/backfill-media-derivative-tasks.mjs --target local --limit 5` 仍为 `0` 候选。
+- 已完成云测试库只读盘点：`node scripts/backfill-media-derivative-tasks.mjs --target remote` -> `261` 个候选，其中 `video_media_process=257`、`image_media_process=4`。
+- 当前结论：本地逻辑分叉暂时可以收口，下一步应转入“确认云后端版本 -> 小批次 apply -> 复扫 summary”的云端执行节奏，而不是继续补本地脚本分支。
+
+## 2026-05-24 cloud derivative backfill first apply succeeded partially
+
+- 云测试库 preview/cover 预处理已经从“只读盘点”进入“真实小批次执行”：在确认并更新云后端到 `20260524-131800` 后，`backfill-media-derivative-tasks.mjs --target remote --apply --limit 10` 的最新一批结果为 `8 succeeded / 2 failed`。
+- 已确认链路级修复生效：历史 `local-public + apps-web-public` 视频源现在可通过云上 web release 的 `public` 目录被媒体处理器读取，不再整批报 `workspace web public root does not exist`。
+- 全量候选数已从 `261` 降到 `249`，说明云端库存确实在收缩。
+- 当前剩余问题已收口到两个独立坏样本方向：
+  - `videoId=22968e91-49c1-4ae4-8b61-05f4a74a5aad`：云端缺少对应 `local_fs` 源文件
+  - `promptId=23d40bdd-e65e-407b-8209-f45ae58cf636`：ffmpeg preview 转码失败
+
+## 2026-05-24 T6 cloud preview retry validated after even-dimension fix
+
+- 社区媒体优化专题继续推进云端大库存 preview backfill，这一轮没有盲目放大全量批次，而是先把上一轮 ffmpeg 失败的 3 个 prompt 目标单独重试，验证“偶数尺寸修复”是否真的在云后端闭环。
+- 根因已确认并修复：纵向视频在 `scale=-2:720` 后会出现奇数宽 `405x720`，`libx264` 会直接拒绝；后端 `VideoMediaProcessingService` 现已补 `pad=ceil(iw/2)*2:ceil(ih/2)*2`，把 preview 输出收口到偶数尺寸。
+- 本地验证证据已齐：真实 ffmpeg 复现产物在 `artifacts/media-derivative-backfill/ffmpeg-repro/preview-from-url-fixed.mp4`，`ffprobe` 已确认输出为可用的 `406x720` H.264 preview；`PublishPipelineIntegrationTest -> 13 passed / 0 failed`。
+- 云后端修复已同步：release label=`media-preview-even-dimension-fix-2026-05-24`，release dir=`/opt/dramatv-community-server/releases/20260524-140356`，deploy readiness=`11/11 passed`。
+- 云端定向复核结果：
+  - `node scripts/backfill-media-derivative-tasks.mjs --target remote --skip-failed-hours 0 --only-target-ids ... --apply` -> `Queued media derivative candidates: 3`
+  - 等待约 `25s` 后复扫 `--skip-failed-hours 24 --only-target-ids ...` -> `Found media derivative candidates: 0`
+- 当前结论：云端“纵向视频 preview 偶数尺寸”问题已经被实测清掉；当前明确剩余阻塞只剩 `1` 条历史 `local_fs` 丢源视频 `22968e91-49c1-4ae4-8b61-05f4a74a5aad`。后续继续放量时需要固定带上 `--exclude-target-ids 22968e91-49c1-4ae4-8b61-05f4a74a5aad` 与 `--skip-failed-hours 24`。
+- 详细账本已同步写入：`.codex/progress-community-t6-private-oss.md`
+
+## 2026-05-24 T6 cloud bulk backfill drained to single blocker
+
+- 社区媒体优化专题继续推进云测试库大库存 preview/cover 回补。在“纵向视频偶数尺寸修复”完成并经定向重试验证通过后，这一轮恢复了批量 backfill，但固定带 `--skip-failed-hours 24` 与 `--exclude-target-ids 22968e91-49c1-4ae4-8b61-05f4a74a5aad`，避免把已知坏样本反复打进队列。
+- 执行节奏保持保守可观测，而不是一口气全量 apply：`20 -> 20 -> 20 -> 40 -> 40 -> 40 -> 37`，且每批都做了 wait + rescan。库存从 `218/217` 逐步收缩到 `1/0`，说明云端当前“可自动修复”的历史 preview/cover 候选已经被真实清空。
+- 尾部定向复核已确认剩余唯一阻塞：`node scripts/backfill-media-derivative-tasks.mjs --target remote --skip-failed-hours 0 --only-target-ids 22968e91-49c1-4ae4-8b61-05f4a74a5aad` -> `Found media derivative candidates: 1`。这条样本仍是历史 `local_fs` 源文件缺失，不是新的链路性失败。
+- 当前结论：云测试库 preview/cover 历史回补已经收敛到单一人工异常样本；只要不补回该源文件，自动 backfill 就无法处理它。详细批次记录与产物路径已同步到 `.codex/progress-community-t6-private-oss.md`。
+
+## 2026-05-24 T6 cloud derivative backfill fully cleared
+
+- 云测试库历史 preview/cover 回补已经从“只剩单点阻塞”推进到“彻底清空”。
+- 之前那条 `local_fs` 丢源视频 `22968e91-49c1-4ae4-8b61-05f4a74a5aad` 已确认可从本地仓库补档：源文件就是 `apps/web/public/prefill-videos/014-dance-test.mp4`，现已上传到云机共享 media 路径 `/opt/dramatv-community-server/shared/media/video/8dadbeba-c666-4959-96c5-b625f50233be/014-dance-test.mp4`，补档后定向重试已归零。
+- 另一条被 `skipFailedHours` 暂时跳过的 prompt 视频样本 `5f99cf79-273f-4886-893c-8796349d62df` 也已在新后端上定向重试成功；它不是新问题，而是偶数尺寸修复上线前的旧失败残留。
+- 最终总览复核已通过：`artifacts/media-derivative-backfill/cloud/final-remote-preview-after-all-retries.json` 显示 `Found media derivative candidates: 0 (inventory=0, skippedRecentFailures=0)`。
+- 同步记录一条执行规则：`backfill-media-derivative-tasks.mjs --target remote` 当前复用固定本地 tunnel 端口 `15432`，remote preview/apply 需要串行执行，不能并发复扫。
+
+## 2026-05-24 T6 cloud verification closed and release ledger synced
+
+- 社区媒体优化专题 `T6` 这轮不再只是“云后端已部署 + 库存已回补”，还补齐了云端运行态专项复检。
+- `T6-5` 云端去重实证已通过：同一张小图以两个不同文件名重复上传，数据库中两条 `media_assets` 记录共享同一 `object_key` 与同一 `checksum`，且都落在 `storage_provider=oss / bucket_name=dz-ailab-community / asset_role=attachment`。这说明 checksum 去重复用在云端正式上传链路已真实生效。
+- `T6-6` 云端代理层实证也已通过：真实 `cover` 与 `source` 路径均返回角色化 `Cache-Control`、`ETag`、`Last-Modified`、`Accept-Ranges`；条件请求返回 `304`，视频 `Range` 请求返回 `206`；并发挂起 `40` 个视频源 GET 时实际得到 `24 x 200 + 16 x 503`，`503` 响应体明确为 `MEDIA_PROXY_BUSY`。
+- 本轮正式验收产物：`artifacts/runtime-readiness/test/t6-cloud-upload-media-verification-20260524.json`；云端历史派生资源清零产物仍为 `artifacts/media-derivative-backfill/cloud/final-remote-preview-after-all-retries.json`。
+- 发布台账已补齐：`ops/releases/test-env-release-ledger.md` 现已追加 `2026-05-24 / t6-media-upload-cloud-r1 / web=20260523-122542 (unchanged) / backend=20260524-140356`。
+
+## 2026-05-24 cloud web hover-play fallback sync completed
+
+- 新增修复了一条云端前台与媒体优化专题交叉问题：公网精选页里“无 preview 的视频提示词卡片无法悬浮播放”并不是云后端或 OSS 代理故障，而是云前端 release 没带上本地已经存在的 `sourceUrl` 兜底播放逻辑。
+- 已确认事实链：
+  - 云接口能返回 `previewUrl=null + sourceUrl=/media/...mp4`
+  - 本地 `apps/web/src/lib/media-playback.ts` 已支持 `video prompt` 从 `previewUrl` 回退到 `sourceUrl`
+  - 云前端旧 release 仍停在 `20260523-122542`
+- 已完成云前端发布：
+  - web release=`20260524-154158`
+  - label=`hover-play-source-fallback-sync-2026-05-24`
+- 已完成真实验收：
+  - `apps/web` typecheck/build 均通过
+  - `artifacts/runtime-readiness/test/web-deploy-20260524-154158-summary.json` -> `11 passed / 0 failed`
+  - Playwright 登录公网 `creator-b / 123456` 后，已看到无 preview 卡片悬浮插入 `<video src="/media/.../source/...mp4">`，并产生真实 `206` source 请求
+- 详细执行记录已同步写入：`.codex/progress-community-t6-private-oss.md`
+
+## 2026-05-24 功能规划清单已刷新同步
+
+- 已更新 docs/03_架构/DramaTV社区功能规划清单-已同步.xlsx，同步口径覆盖到 2026-05-24。
+- 本次主要刷新四块：
+  - 社区前台发布/帖子富文本/通知现状
+  - 社区后台一期：dashboard、resources、media-tasks、audit-logs、reports、moderation、feed-ops
+  - 媒体云化 T6：私有 OSS + /media/** 代理、派生资源 backfill、去重、代理保护与观测
+  - 工程化与测试环境：Flyway 版本、测试环境 release/rollback、当前上线差距
+- 说明页也已同步到当前阶段判断：前台主链路、云测试链路与后台一期已跑通，后续重点转向生产化补齐。
+### 2026-05-24 前台公共页缓存导致后台发布看似未生效
+
+- 本轮定位到一个真实联动问题：后台 `feed-ops` 发布已写入后端并能直接从 `/api/feed/landing` 读到最新数据，但前台公共页 `loadLandingPagePublicData / loadCommunityHomePublicData / loadFeaturedArchivePublicData` 仍被 `unstable_cache` 卡住，导致页面短时间内看起来没变。
+- 实际修复：
+  - `apps/web/src/lib/api/community-public-cache.ts`
+  - 去掉 landing / home / featured 三个公共页读链路的 `unstable_cache`
+  - 保持底层 `requestBackend(... cache: "no-store")` 直接生效
+- 验证：
+  - `apps/web -> npm.cmd run build`
+  - `npm.cmd run deploy:test:web -VerifyBeforeDeploy -VerifyAfterDeploy`
+  - 云端 web release：`20260524-222205`
+  - 发布后公网首页相关数据链路验收通过
+
+## 2026-05-24 后续优化方向补记
+
+- 已确认这两组方向可作为社区项目前后台后续优化的正式候选，不属于偏题需求：
+  - Redis 扩展方向：
+    - 评论频控从数据库计数逐步收口到 Redis 短窗计数
+    - 通知未读数缓存
+    - 热门榜 / 首页短时缓存
+    - 上传任务短状态缓存
+    - 媒体处理任务节流
+    - 登录失败次数、封禁窗口、设备 / IP 风控
+    - 后台仪表盘短时聚合缓存
+  - 生产化标准形态：
+    - Nginx + CDN
+    - 独立媒体 Worker / Queue
+    - 预签名直传 / 分片上传
+    - 更完整监控告警 / CI/CD
+- 当前判断：
+  - 方向本身没有问题，且和当前项目现状高度相关。
+  - 但不能并行一口气铺开，后续应按“稳定性 -> 媒体链路 -> 生产化基建”分阶段推进。
+- 当前建议优先级：
+  1. 登录 / 上传 / 评论风控继续补强，其中 Redis 更适合先接评论短窗限流与登录失败风控。
+  2. 媒体链路继续往独立 Worker、任务节流、上传短状态缓存推进。
+  3. 前台热点内容与通知未读数再逐步引入短时缓存，避免过早把数据一致性搞复杂。
+  4. 最后统一推进 Nginx + CDN、预签名直传、监控告警与标准 CI/CD。
+
+## 2026-05-24 首页 CTA 去除与参考素材增强需求分析
+
+- 首页“灵感迸发 / 进入无限画布”模块已从正式前台主线移除，代码位置在 `apps/web/src/features/home/CommunityHomePage.tsx`，本地 `apps/web` typecheck 已通过。
+- 已完成发布链路现状梳理：
+  - 当前提示词/视频草稿只支持 `coverAssetId + sourceAssetId` 这类“单主素材”结构。
+  - 当前工作流草稿只支持 `coverAssetId + exampleAssetId`。
+  - 当前上传服务只支持图片/视频，不支持音频。
+- 已确认新需求不适合继续塞进 `sourceAssetId` 或 `tagNames`，更合适的方向是：
+  - 保留主素材字段不变。
+  - 为草稿新增“参考素材关联”能力，独立支持参考图片与参考音频，多条、有序、可校验上限。
+- 当前建议实现口径：
+  - 图片提示词：主示例图片 `1` 张 + 参考图片 `0-9` 张。
+  - 视频提示词：主演示视频 `1` 条 + 参考图片 `0-9` 张 + 参考音频 `0-5` 条。
+  - 工作流发布先不接参考素材，继续保持占位，避免把发布模型提前做乱。
+- 下一步如果开始实现，应按“数据库关联表 / 上传音频支持 / 草稿 DTO 扩展 / 发布页多参考资源 UI / 服务端上限校验”的顺序推进。
+
+## 2026-05-24 首页 /home 画布 CTA 清理与运行态修正
+
+- 已确认用户截图中的“灵感迸发 / 进入无限画布 / 精选画布”不是缓存误判，而是 `/home` 仍在渲染 `canvas` 这条首页内容链路，同时 3106 跑的是 `next start` 生产 bundle。
+- 已从 `apps/web/src/features/home/CommunityHomePage.tsx` 删除：
+  - `canvasSlotCards`
+  - `featuredCanvas`
+  - `canvasPlaceholderHref`
+  - 首页正文中的 CTA section
+  - `精选画布` shelf 渲染
+- 定位过程中该文件曾被错误脚本误写空，已从本地 `.next` 构建缓存恢复到最近可用版本后完成清理。
+- 本地验证：`npm.cmd --prefix apps/web run typecheck` 通过，`npm.cmd --prefix apps/web run build` 通过。
+- 下一步：重启 3106 这路 `next start` 运行态并复检 `/home` 页面文本，确认旧 CTA 不再出现。
+
+
+## 2026-05-24 R1 publish reference asset enhancement routed to community ledger
+
+- 已把“发布页参考素材增强”从聊天口径正式收口到 `.codex/progress-community.md`，避免后续压缩对话后丢进度。
+- 当前范围固定为 `apps/web + apps/server`，不扩散到后台或上云：
+  - 图片提示词：主示例图片 `1` + 参考图片 `0-9`
+  - 视频提示词：主示例视频 `1` + 参考图片 `0-9` + 参考音频 `0-5`
+  - 工作流：本轮不接参考素材
+- 当前真实状态：
+  - `R1-1` 草稿模型扩展已完成，并已通过 `DraftApiIntegrationTest`
+  - 下一步按顺序推进 `R1-2 上传层音频支持 -> R1-3 发布持久化 -> R1-4 前端接入 -> R1-5 本地验收`
+
+## 2026-05-25 R1 prompt reference assets closed locally
+
+- 社区前台这轮已把“提示词参考素材”补成真实闭环：
+  - 发布页现在支持 `图片提示词: 主图 + 参考图`、`视频提示词: 主视频 + 参考图 + 参考音频`
+  - 前端上传代理已新增 `/api/uploads/audio-policy`
+  - 提示词详情页已补“参考素材 / 下载素材”分组展示与下载入口
+- 本轮验证证据：
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json` 通过
+  - `apps/web -> npm.cmd run build` 通过，构建产物已包含 `/api/uploads/audio-policy`
+- 详细任务状态、后端验证与共享层改动继续统一记在 `.codex/progress-community.md` 对应 `R1` 条目下。
+
+## 2026-05-25 local publish runtime recovered
+
+- 本地 `3106` 发布页异常已确认不是业务代码新缺陷，而是本地前台误跑在 `next start` 的旧产物上，导致 `/publish` 登录后依赖 chunk 返回 `500` 并触发 `ChunkLoadError`。
+- 已停掉错误进程，并按标准方式用 `scripts/start-web-3100.ps1 -Mode dev -Port 3106` 重新拉起本地社区前台。
+- Playwright 复验已通过：登录后访问 `http://127.0.0.1:3106/publish`，页面恢复正常渲染。
+- 详细排查过程与运行时经验已追加到 `.codex/progress-community.md` 和 `memory/MEMORY.md`。
+
+## 2026-05-25 cloud audio upload root cause closed
+
+- 公网发布页参考音频上传失败的根因已确认并处理：不是素材文件异常，而是云后端缺少 `/api/uploads/audio-policy`。
+- 证据链已经闭环：
+  - 公网实际返回：`POST /api/uploads/audio-policy -> 404 RESOURCE_NOT_FOUND`
+  - 本地后端相关测试：`UploadValidationIntegrationTest + PublishPipelineIntegrationTest = 24 passed / 0 failed`
+  - 云后端已同步到 `20260525-144731`
+  - 云前端随后同步到 `20260525-145458`
+- 同轮顺手收口了发布页参考素材区布局：改成固定高度 + 内部滚动，避免图片/音频数量多时把整段发布页撑长。
+- 详细过程、验证证据与发布编号统一记在 `.codex/progress-community.md` 和 `ops/releases/test-env-release-ledger.md`。
+
+## 2026-05-29 admin cloud proxy fix live and authenticated public load rerun completed
+
+- 管理后台测试云 `admin release=20260529-095822` 已完成同步并复核通过：`DRAMATV_WEB_BASE_URL` 现已独立指向 `http://127.0.0.1:3106`，admin 服务端媒体代理不再绕公网 `8.141.20.130:80` 自回环；public/internal smoke 分别为 `14 passed / 0 failed` 和 `34 passed / 0 failed`。
+- 社区公网压测已按真实登录态重跑，不再参考旧的匿名 `307 -> /login` 报告：
+  - 混合 50 VU：`avg=6002.97ms`，`p95=19145.64ms`，`fail=1.063%`
+  - `/home`：`p95=32489.54ms`，`fail=2.493%`
+  - `/featured`：`p95=20303.95ms`，`fail=1.014%`
+  - `/discussions`：`p95=3951.46ms`，`fail=0.038%`
+- 当前跨线结论已经明确：
+  - admin 云端静态资源代理自调问题已关闭
+  - 社区公网真实性能瓶颈优先级为 `/home -> /featured -> /discussions`
+  - 真实慢点主要落在响应接收阶段而不是首字节等待阶段，下一步应围绕云端路由级日志和响应体积继续排查
+
+## 2026-05-29 community web first-screen performance slice landed locally
+
+- Community frontend first-screen performance slice is now landed locally in pps/web:
+  - /home now SSR-builds a minimal hero + shelf payload and reduces prompt fetch size from 60 to 30
+  - /featured reduces default first page size from 24 to 12 and defers default inventory hydration while keeping curated slots visible first
+- Verification completed locally:
+  - pps/web typecheck/build passed
+  - local Playwright check passed for /home and /featured
+- Important boundary:
+  - the follow-up public k6 reruns on 2026-05-29 still targeted http://8.141.20.130, so they measured the old cloud web release, not this new local slice
+  - direct local reuse of scripts/k6/public-auth-load.js is currently blocked because local 3106 does not expose POST /api/auth/login
+- Next step: sync this pps/web slice to test cloud before drawing any conclusion from authenticated public load numbers.
+
+## 2026-05-29 community web first-screen performance slice synced and public load verified
+
+- 社区前台 `web release=20260529-114158` 已同步测试云，`artifacts/runtime-readiness/test/web-deploy-20260529-114158-summary.json` 验证 `13 passed / 0 failed`。
+- 这轮公网登录态压测已经从“本地优化、云端未验证”推进到“云端真实结果已闭环”：
+  - `/home`：`avg 8761.44ms -> 5275.71ms`，`p95 32489.54ms -> 16489.43ms`，`fail 2.493% -> 0.632%`
+  - `/featured`：`avg 7339.79ms -> 3945.29ms`，`p95 20303.95ms -> 12463.72ms`，`fail 1.014% -> 0.241%`
+  - 混合 `/featured + /home + /discussions`：`avg 6002.97ms -> 3431.21ms`，`p95 19145.64ms -> 10925.85ms`，`fail 1.063% -> 0.406%`
+- 当前跨线结论更新为：
+  - 社区前台首屏减载对公网真实性能有效，不是只在本地 build 或浏览器体感层有效
+  - 改善主要来自响应接收阶段和响应体积下降，`waiting` 基本不变
+  - `/home` 仍是下一轮首要优化对象，但 `/home` 与 `/featured` 已经从“明显超长且超时率偏高”压到“仍慢但已显著下降”的新状态
+
+## 2026-05-29 /home second-round client trim landed locally
+
+- Community web continued the second `/home` performance slice locally after the first cloud-validated SSR payload reduction.
+- `apps/web/src/features/home/CommunityHomePage.tsx` no longer keeps the old client-side home data shaping chain; home hero/shelf assembly now stays server-side in `apps/web/src/features/home/home-page-data.ts`, while the client component is narrowed to rendering and interaction logic.
+- Local verification passed:
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+- Next step across the performance track: deploy the new web slice and rerun authenticated public `/home` plus mixed k6 before deciding whether the next bottleneck is still bundle/client weight or below-the-fold first-screen output.
+
+## 2026-05-29 /home second-round client trim synced and load-tested
+
+- Community web release `20260529-123950` is now live on the test cloud; readiness artifact `artifacts/runtime-readiness/test/web-deploy-20260529-123950-summary.json` passed `13 / 0`.
+- Authenticated public k6 reruns show the second-round client trim only moved the needle slightly:
+  - `/home`: `avg 5275.71ms -> 4988.85ms`, `p95 16489.43ms -> 16262.35ms`, but `fail 0.632% -> 0.699%`
+  - mixed: `avg 3431.21ms -> 3415.08ms`, `p95 10925.85ms -> 11182.40ms`, `fail 0.406% -> 0.368%`
+  - per-request received size stayed effectively flat on both runs
+- Cross-line conclusion update:
+  - the big public win still came from SSR first-screen payload reduction, not client helper cleanup
+  - next `/home` optimization should focus on server-returned first-screen shelf/card payload or document size directly, not another round of `CommunityHomePage.tsx` bundle trimming
+## 2026-06-02 O7 creator works unified feed closed
+
+- `O7-3` is now closed on the local branch.
+- backend side:
+  - added `/api/creators/{id}/works`
+  - unified creator works into one mixed cursor page instead of separate video/prompt pages
+  - regression coverage added in `CreatorReadApiIntegrationTest`
+- frontend side:
+  - creator page now reads one `works` list and one `nextWorksCursor`
+  - load-more no longer merges separate video/prompt requests on the client
+- verification:
+  - `CreatorReadApiIntegrationTest`
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+- next board item: `O7-4` creator pagination contract cleanup
+
+## 2026-06-02 O7 auth hardening first slice closed
+
+- 本轮已按代码审查任务板先完成 `O7-1` 和 `O7-2`，暂未开始作者主页数据契约与 `.next/types` 清理。
+- 后台本地 bootstrap 默认入口已收口：
+  - `dramatv.admin-auth.allow-local-bootstrap=false`
+  - `dramatv.admin-auth.bootstrap-password` 默认留空
+  - `apps/admin` 登录页已移除内置演示账号密码预填
+- 社区本地密码登录默认入口已收口：
+  - `dramatv.community-auth.provider.local-password-enabled=false`
+  - 自动建号 / 初始化本地密码不再接受硬编码 `dramatv-local-dev`
+  - 新增显式配置口径 `dramatv.community-auth.provider.local-password-bootstrap-secret`
+- 为避免回归测试被生产默认值反向影响，`ApiIntegrationTestSupport` 已显式启用：
+  - `dramatv.community-auth.provider.local-password-enabled=true`
+  - `dramatv.community-auth.provider.local-password-bootstrap-secret=dramatv-local-dev`
+- 后台创建本地账号时，空密码输入已改为生成 `DT` 前缀 12 位临时密码；后台用户页文案已同步改成“留空自动生成临时密码”。
+- 本轮验证：
+  - `CommunityAuthDefaultsIntegrationTest`
+  - `AdminUserGovernanceApiIntegrationTest`
+  - `AuthMeApiIntegrationTest`
+  - `apps/admin -> npm.cmd run build`
+- 下一步保持任务板顺序，继续处理 `O7-3` 作者主页作品流真实混排问题。
+
+## 2026-06-02 O7 creator pagination contract cleanup closed
+
+- `O7-4` is now closed on the local branch.
+- contract cleanup:
+  - removed the unimplemented public `sort` parameter from creator legacy list endpoints: `/videos` `/prompts` `/workflows` `/posts`
+  - creator list `nextCursor` now emits opaque values instead of raw `offset:N`
+  - backend keeps parsing historical `offset:*` cursors for compatibility during rollout
+- implementation scope:
+  - `apps/server/src/main/java/com/dramatv/community/creator/controller/CreatorQueryController.java`
+  - `apps/server/src/main/java/com/dramatv/community/creator/application/CreatorQueryService.java`
+  - `apps/server/src/main/java/com/dramatv/community/publish/application/PublishBootstrapQueryService.java`
+- verification:
+  - `CreatorReadApiIntegrationTest`
+- next board item: move to `O7-5` and remove the repo-level `.next/types` hidden dependency from typecheck flow
+
+## 2026-06-02 O7 repo typecheck `.next/types` dependency cleanup closed
+
+- `O7-5` is now closed on the local branch.
+- root cause confirmed:
+  - both `apps/web/next-env.d.ts` and `apps/admin/next-env.d.ts` import `./.next/types/routes.d.ts`
+  - both app `typecheck` scripts were plain `tsc --noEmit`
+  - on a cold generated-types state, `apps/web` typecheck failed with `TS2307 Cannot find module './routes.js'`
+- fix:
+  - `apps/web/package.json` typecheck is now `next typegen && tsc --noEmit`
+  - `apps/admin/package.json` typecheck is now `next typegen && tsc --noEmit`
+  - root `verify:quick` / `verify:full` order stays unchanged because `typecheck` is now self-sufficient
+- verification:
+  - cold-state repro: `npm.cmd --prefix apps/web run typecheck` failed before the script fix after temporarily hiding generated route types
+  - cold-state validation after the fix: `npm.cmd run typecheck` regenerated route types for both apps and passed
+- result:
+  - the 2026-06-02 review-board slices `O7-1` through `O7-5` are now all closed locally
+
+## 2026-06-09 cloud community media URL regression closed
+
+- confirmed failure shape:
+  - public community APIs were already returning relative `/media/...`
+  - the live web runtime still expanded those paths into `http://8.141.20.130/media/...`
+  - public landing images then failed in browser runtime after the business entry moved to `community.8.141.20.130.nip.io`
+- implemented repair:
+  - `apps/web/src/lib/presentation.ts` now keeps `/media/**` same-origin and rewrites legacy bare-IP community media URLs back to relative `/media/...`
+  - `apps/web/src/features/video-detail/detail-image-preview.ts` got the same legacy bare-IP rewrite rule
+  - shared deploy helper `scripts/lib/test-env-release-common.ps1` was fixed to stop colliding with PowerShell's read-only `$Host`, which was blocking `deploy-test-web.ps1`
+- verification and rollout:
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `node --test apps/web/src/features/video-detail/detail-image-preview.test.mjs`
+  - `apps/web -> npm.cmd run build`
+  - test cloud web release `20260609-135718`
+  - readiness artifact `artifacts/runtime-readiness/test/web-deploy-20260609-135718-summary.json` passed `13 / 0`
+  - post-deploy Playwright public check confirmed landing-page images now load from `http://community.8.141.20.130.nip.io/media/...` instead of bare-IP media URLs
+
+## 2026-06-02 测试云公网入口 Host 隔离护栏已在本地落地
+
+- 已完成根因收口：当前测试 ECS 上已并存多个项目，社区脚本过去默认使用裸 IP `http://8.141.20.130` 与 `server_name _`，会把社区误部署成共享 `:80` 的兜底站点，导致浏览器历史、readiness、回滚验活和压测都可能打到错误项目。
+- 本轮只改本仓库，不碰云端现网：
+  - `scripts/deploy-test-web.ps1` 默认入口改为 `http://community.8.141.20.130.nip.io`
+  - 同脚本新增参数护栏，拒绝 `_`、通配 host、裸 IP 和 `localhost`
+  - `deploy/rollback/readiness` 的 `web/admin/backend` 默认公网入口统一改为社区专属 host
+  - `k6`、`start-web-cloud` 与相关 smoke/import 脚本默认入口一并跟随调整
+- 共享口径已同步补记到 `.codex/community-admin-shared-sync.md`；这轮只做本地脚本与文档收口，不直接改线上 Nginx，因此不会影响同事当前项目。
+
+## 2026-06-02 测试云社区专属 Host 已修复到云端
+
+- 用户复核后确认 `http://community.8.141.20.130.nip.io` 与 `/admin` 仍会落到同事 DramaLoom 项目；根因不是 DNS 或浏览器缓存，而是云端社区 Nginx 配置仍保留 `server_name _`，且同机 DramaLoom 站点在当前加载顺序下接住了未精确匹配的 Host。
+- 本轮只修改社区自己的 `/etc/nginx/conf.d/dramatv-community-http.conf`，已备份到 `/etc/nginx/conf.d/dramatv-community-http.conf.bak-20260602-hostfix`，并把 `server_name _` 改成 `server_name community.8.141.20.130.nip.io`。
+- `nginx -t` 与 `systemctl reload nginx` 已完成；公网复验确认：
+  - `http://community.8.141.20.130.nip.io` 返回 `DramaTV 社区`
+  - `http://community.8.141.20.130.nip.io/admin` 返回 `DramaTV 社区后台`
+  - `http://dramaloom.8.141.20.130.nip.io` 仍返回 `DramaLoom - AI剧本协作编辑器`
+  - `http://novel-similarity.8.141.20.130.nip.io` 仍返回 `小说库相似度比对平台`
+- 当前默认入口正式以社区专属 Host 为准；裸 IP `http://8.141.20.130` 仍只作为机器级探活和排障入口。
+
+- 2026-06-11 云端同步完成后，community.8.141.20.130.nip.io 公网访问被阿里云 ICP/接入校验页拦截，但 ECS 内部 Host 头访问社区 / 与 /login 仍为 200，确认不是应用故障而是入口层问题。为不影响同机 DramaLoom 与 novel-similarity 的 :80 独立 Host，已新增社区临时高位端口入口脚本 scripts/open-test-community-temp-ports.ps1，并在云端打开前台 http://8.141.20.130:8086/login 与后台 http://8.141.20.130:8206/admin/login；当前 firewalld public 已放行 8086/tcp 与 8206/tcp，Nginx 新配置为 /etc/nginx/conf.d/dramatv-community-temp-ports.conf。
+
+- 2026-06-11 已新增共享测试服务器状态收口文档 docs/03_架构/测试ECS三项目共享现状说明-2026-06-11.md，明确记录当前 8.141.20.130 单机承载的三个项目（DramaTV 社区 / DramaLoom / 法务相似度平台）、各自域名与 Nginx 分流方式、社区当前公网入口被阿里云备案接入层拦截的真实原因，以及临时高位端口恢复方案与后续安全组待核查项。
+- 2026-06-11 新增 [个人域名接入共享ECS判断-2026-06-11.md](/E:/点众/DramaTV社区搭建/docs/03_架构/个人域名接入共享ECS判断-2026-06-11.md)，收口“个人域名是否可先挂公司中国内地共享 ECS”的判断：根据阿里云官方备案文档，备案需通过实际接入商完成，接入备案时域名与备案主体不一致需先修改域名所有者信息，因此个人域名只适合做内部 Host 演练，不建议作为当前社区正式公网入口。
+- 2026-06-11 已开始对用户个人域名 `skpy.ltd` 做“只影响社区、不影响同事项目”的内部 Host 演练：社区云端 Nginx `server_name` 已成功追加 `skpy.ltd`，ECS 内部 `curl -H 'Host: skpy.ltd' http://127.0.0.1/login` 与 `/admin/login` 已命中 DramaTV 社区前台/后台，说明当前共享 ECS 上的 Host 分流已能接住该域名；当前未打通的是公网 DNS 层，外部探测仍显示 `Could not resolve host: skpy.ltd`，需先在 Cloudflare 增加解析记录后再继续做公网验证。
+- 2026-06-11 新增 [共享ECS公网入口现状总结-2026-06-11.md](/E:/点众/DramaTV社区搭建/docs/03_架构/共享ECS公网入口现状总结-2026-06-11.md)，收口当前公网入口判断：共享 ECS 当前同时承载社区、DramaLoom、法务相似度 3 个项目，`:80` 多项目共存依赖独立域名做 `server_name` 分流；社区原 `community.8.141.20.130.nip.io` 与新尝试 `skpy.ltd` 均被阿里云备案/接入校验拦截，裸 IP `http://8.141.20.130` 只能落到一个默认站点且当前已由 DramaLoom 接住，因此社区短期应先走 `8086/8206` 临时端口恢复测试，中长期需切回公司可备案/可接入备案的正式域名。
+- 2026-06-11 新增 [社区公网入口问题说明与运维支持申请-2026-06-11.md](/E:/点众/DramaTV社区搭建/docs/04_实施设计/社区公网入口问题说明与运维支持申请-2026-06-11.md)，将当前问题整理为面向运维/备案经办人的协作文档，明确“遇到的问题、当前已确认事实、短期高位端口恢复方案、正式域名恢复方案、所需支持事项”，便于后续直接转发和推进。
+- 2026-06-15 featured search quality expanded locally
+
+- `apps/server/src/main/java/com/dramatv/community/feed/application/FeaturedInventoryQueryService.java`
+  - prompt inventory search now covers `summary / prompt_text / prompt_text_zh / prompt_text_en / prompt_text_raw / author / tag / model_category / content_category / composition_category`
+  - semantic query mapping now expands `真人 -> real-person` and `动画 -> animation`
+- `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - front-end search terms now include `topicTokens` plus taxonomy aliases so already loaded items are not under-filtered
+- `apps/server/src/test/java/com/dramatv/community/integration/FeedReadApiIntegrationTest.java`
+  - added `featuredInventorySearchesSemanticRealPersonCategory`
+  - local Maven verification passed
+- boundary:
+  - cloud replay on `drama-community-dev.dzkjm.cn` completed for `q=真人` and `q=动画`
+  - `featured-inventory` returned prompt-only hits with counts:
+    - `真人` => `all=19`, `videoPrompt=12`, `imagePrompt=7`
+    - `动画` => `all=70`, `videoPrompt=54`, `imagePrompt=16`
+## 2026-06-18 youmind seedance current-page extraction switched to live pagination api
+
+- Continued the new `YouMind Seedance 2.0` refresh under `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/`.
+- Confirmed the current explore page no longer carries page 2+ prompt inventory inside the initial HTML / Next Flight payload. The initial page still exposes only the first `12` cards even though `hasMore=true`.
+- Verified the real load-more path in browser runtime:
+  - runtime scroll on `https://youmind.com/zh-CN/seedance-2-0-prompts/explore?sortBy=time&sortOrder=desc`
+  - triggers `POST https://youmind.com/youmarketing-api/video-prompts`
+  - verified request body shape: `{"model":"seedance-2.0","page":2,"limit":12,"locale":"zh-CN","sortBy":"time","sortOrder":"desc"}`
+- Updated `docs/02_研究/fetch-youmind-seedance-current.js`:
+  - preserved the earlier Flight-payload fallback logic
+  - but switched the main current-batch extraction path to the verified `youmarketing-api/video-prompts` pagination API
+  - extraction no longer depends on page 2+ being embedded in the first response HTML
+- Updated `docs/02_研究/download-youmind-videos.js`:
+  - if a prompt has no `streamId`, local video filename now falls back to `rank + id + slug`
+  - this closes the bad-name case like `22-.mp4`
+- New outputs generated and validated on `2026-06-18`:
+  - batch 2 metadata:
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/seedance-items.current.2026-06-18.batch2.json`
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/seedance-items.current.2026-06-18.batch2.report.json`
+  - batch 2 videos:
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/videos-current-2026-06-18-batch2/`
+  - batch 3 metadata:
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/seedance-items.current.2026-06-18.batch3.json`
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/seedance-items.current.2026-06-18.batch3.report.json`
+  - batch 3 videos:
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/videos-current-2026-06-18-batch3/`
+- Verification:
+  - `node --check docs/02_研究/fetch-youmind-seedance-current.js`
+  - `node --check docs/02_研究/download-youmind-videos.js`
+  - live extraction succeeded for:
+    - `--start 12 --count 12`
+    - `--start 24 --count 12`
+  - both batch downloads completed successfully with `12/12` video files each
+
+## 2026-06-18 youmind seedance current-window expanded to 800 items in batched local extraction
+
+- Added reusable batch runner `docs/02_研究/run-youmind-seedance-current-batches.js` so current-page Seedance extraction no longer needs manual one-batch-at-a-time commands.
+- Executed:
+  - `node .\docs\02_研究\run-youmind-seedance-current-batches.js --start 36 --count 764 --batchSize 12 --dateTag 2026-06-18`
+- Result:
+  - continued from the already validated first `36` items
+  - pulled the next `764` items in batches `batch4` through `batch67`
+  - combined with the existing first-window files, the current local refresh now covers `800` items total
+- Output layout now is:
+  - first window:
+    - `seedance-items.current.2026-06-18.json`
+    - `seedance-items.current.2026-06-18.batch2.json`
+    - `seedance-items.current.2026-06-18.batch3.json`
+  - continued bulk window:
+    - `seedance-items.current.2026-06-18.batch4.json` through `seedance-items.current.2026-06-18.batch67.json`
+    - matching `videos-current-2026-06-18-batch4` through `videos-current-2026-06-18-batch67`
+  - run summary:
+    - `docs/02_研究/youmind-video-assets/youmind-seedance-extracted/seedance-current-bulk-run.2026-06-18.start36.count764.summary.json`
+- Verification:
+  - metadata batch files present: `66` (`batch2` through `batch67`, `batch1` remains the base current file)
+  - video batch directories present: `66`
+  - bulk-run summary confirms every executed batch completed and no batch-level skips or failures occurred
+  - edge cases with missing `streamId` were still downloaded successfully via `sourceUrl` fallback and stable `id + slug` filenames
+
+## 2026-06-19 cloud Seedance bulk import resumed on the non-upload path
+
+- Confirmed again that the normal cloud bulk-import route is not suitable for large backfills:
+  - `scripts/import-youmind-assets-via-api.mjs` and `scripts/run-cloud-import-stage.mjs` still go through `/api/uploads/*`
+  - cloud upload rate limiting still applies there, even when the target author is `community` and already has `admin`
+- Continued with the new direct cloud path in `scripts/import-youmind-seedance-current-to-cloud-localfs.mjs`:
+  - copy source videos into `/opt/dramatv-community-server/shared/media`
+  - insert `prompt_entries / media_assets / prompt_example_links / async_task_records` directly through remote `psql`
+  - no dependence on `/api/uploads`
+- Fixed two restart-safety issues in that script before resuming:
+  - resume windows no longer `ffprobe` all earlier items before the `offset`; the collector now skips pre-offset eligible items first, then probes only the target window
+  - local batch work and archive output moved from `%TEMP%` to repo `artifacts/youmind-import/tmp`, with per-batch cleanup after upload/DB write so Windows `tar.exe` temp buildup does not reoccur
+- Fixed one late-batch data issue:
+  - some source rows carried `sourcePublishedAt` like `2026年6月18日`
+  - script now normalizes Chinese date strings and compact date-only strings to ISO before casting to `timestamptz`
+- Verification on 2026-06-19:
+  - single public upload smoke remained available with `psk / 123456` via `node .\scripts\smoke-public-video-upload.mjs ...`
+  - resumed non-upload import command from `offset=1400 limit=200 batch-size=10` completed successfully
+  - result summary: `collectedCount=198`, `skippedExistingCount=180`, `18` new items imported in two batches
+  - sample API checks passed:
+    - `GET /api/prompts/e33b1ba6-1bf7-502d-b1a6-913e5d8b578f`
+    - `GET /api/prompts/a46ee9c1-6718-5807-8b44-93fbc82db349`
+- sample media check passed:
+  - `HEAD /media/community/test/imports/youmind-seedance/video/source/6159-youmind.mp4 -> 200`
+
+## 2026-06-20 YouMind 图片资源库构建完成
+
+- 目标分类：
+  - `gpt-image-2-prompts / comic-storyboard / views desc`
+- 数据源目录：
+  - `E:\点众\DramaTV社区搭建\docs\02_研究\youmind-image-assets\gpt-image-2-comic-storyboard-views-20260619`
+- 关键处理：
+  - 将 `top500` 总清单与 5 个分批下载结果回写合并，补齐 `localMediaFiles`
+  - 兼容 PowerShell 导出的 `.download.json` BOM，避免 `JSON.parse` 失败
+  - 继续沿用仓库既有构库脚本 `docs/02_研究/build-youmind-image-library.js`
+- 最终结果：
+  - 原始条目 `500`
+  - 本地已落盘媒体 `709`
+  - 可构建入库条目 `497`
+  - 跳过条目 `3`（源数据无媒体）
+- 输出目录：
+  - `E:\点众\DramaTV社区搭建\docs\02_研究\youmind-image-assets\gpt-image-2-comic-storyboard-library-views-20260619-top500`
+- 关键文件：
+  - `library-manifest.json`
+  - `library-skip-report.json`
+- 说明：
+  - 本轮已经形成可直接继续转社区导入包的图片资源库
+  - 后续如果继续抓图，优先保持“分批下载 + 可见进度 + 合并回总清单 + 构库”这条链路
+
+## 2026-06-20 图片资源直导云端链路补齐
+
+- 新增脚本：
+  - `scripts/import-youmind-image-library-to-cloud-localfs.mjs`
+- 目标：
+  - 不走 `/api/uploads/*`
+  - 直接把图片资源批量复制到测试机共享媒体目录
+  - 通过远程 `psql` 写入 `prompt_entries / media_assets / prompt_example_links`
+  - 规避大批量导入时的上传限流问题
+- 本地验证：
+  - `--dry-run true --limit 5 --batch-size 2` 已通过
+  - 已确认采样条目的标题、分类、素材数量、sourceCampaign、taxonomy 输出正常
+- 当前阻塞：
+  - 尝试对测试环境做 5 条小窗导入 smoke 时，远程 `plink -> psql` 超时
+  - 同时 `ping 8.141.20.130` 也超时，当前更像测试机网络不可达，而不是脚本逻辑错误
+- 下次恢复网络后优先动作：
+  - 先重新跑 5 条 smoke：
+    - `node .\scripts\import-youmind-image-library-to-cloud-localfs.mjs --limit 5 --batch-size 2 --author-username community`
+  - smoke 通过后再跑全量 `497` 条
+
+- 2026-06-20 同日补充：
+  - 测试环境链路恢复后，5 条图片资源 smoke 已通过
+  - 结果：
+    - `collectedCount=5`
+    - `skippedExistingCount=2`
+    - 实际新导入 `3` 条
+  - 已验证写入的示例 promptId：
+    - `f60ffa0c-3db7-5e47-8134-87192e741ac1`
+    - `c32c90a5-ed4b-5703-80ef-aa54627e30a5`
+    - `a097e307-36ba-5a48-b47e-cc5d932826d2`
+  - 结论：
+    - 图片直导云端链路可继续放大到全量批次
+
+## 2026-06-20 个人能力画像与项目认知拆解文档已补齐
+
+- 新增文档：
+  - `docs/04_实施设计/彭时康当前能力画像与DramaTV社区项目认知拆解-2026-06-20.md`
+- 目的：
+  - 基于用户两版简历、GitHub 公开信息与当前 `DramaTV` 仓库真实结构，收口一份面向“自我定位 + 项目理解 + 后续交接”的分析稿
+- 结论摘要：
+  - 当前用户不是零基础，也不是传统稳定型全栈工程师，更接近“有计算机基础、能借助 AI 推动产品交付的产品型技术 owner / builder”
+  - 当前焦虑根因不是单纯“基础差”，而是“交付能力已明显跑在解释能力、排障模型和结构化认知前面”
+  - 当前项目已经是中等复杂度真实工程，应按“产品层 / 页面层 / 领域对象层 / 契约层 / 媒体基础设施层 / 测试发布层”六层重新理解，而不能继续按零散页面和功能记忆
+  - 文档同时给出交接时必须讲清的 8 类内容，以及后续 2 至 4 周更适合的反向补课路径
+
+## 2026-06-20 个人状态总结分析文档补齐到多项目视角
+
+- 新增文档：
+  - `docs/04_实施设计/彭时康个人状态总结分析-2026-06-20.md`
+- 新增纳入的项目样本：
+  - `E:\点众\DramaTV社区搭建`
+  - `E:\点众\小说库相似度比对服务工作区`
+  - `E:\点众\自动化工具\侵权巡检助手工作区\源码`
+- 本轮判断重点：
+  - 当前用户已不只是“做了一个社区项目”，而是连续推进了三类不同形态的 vibecoding 产品：社区平台、桌面工作台、检索比对服务
+  - 这说明当前能力不是一次性偶然产出，而是已经形成“围绕真实业务目标组织模块、调用 AI 与工程工具持续交付”的稳定工作模式
+  - 更准确的个人定位应为“有计算机基础、能借助 AI 做出真实产品，但工程解释力、排障模型和可交接性仍需补强的产品型技术 builder”
+  - 后续成长方向不应再泛泛扩张新项目，而应优先把现有三类项目收口成自己的系统地图、主链路解释稿、问题分类法与交接材料
+
+## 2026-06-20 跨项目通用版个人状态速览文档已补齐
+
+- 新增文档：
+  - `docs/04_实施设计/彭时康个人状态速览-跨项目通用版-2026-06-20.md`
+- 本轮补充：
+  - 将文档改为“任何项目的接手人都可快速阅读”的跨项目通用版本，而不是默认读者已了解 `DramaTV`
+  - 补入真实入口：
+    - GitHub：`https://github.com/qilirampart`
+    - 两版简历的本机绝对路径
+    - 三个主要项目目录的本机绝对路径
+    - 两份长版分析文档的直接跳转入口
+- 当前用途：
+  - 可作为后续跨项目交接时的个人状态速览页，帮助陌生读者先快速建立对“能力结构 / 项目样本 / 强项 / 短板 / 协作预期”的基本判断
+
+## 2026-06-20 项目现状总览与数据结构说明文档已补齐
+
+- 新增文档：
+  - `docs/04_实施设计/项目现状总览与数据结构说明-2026-06-20.md`
+- 本轮补充重点：
+  - 把项目现状从“页面视角”升级为“系统总览 + 数据结构 + 业务流程 + 工程债务”四合一说明
+  - 明确当前正式前台、后台、后端与迁移文件已经进入真实工程维护阶段
+  - 记录当前核心表：`users / creator_profiles / media_assets / videos / workflows / feed_items / publish_drafts / audit_records / report_tickets / comments / interaction_actions / follow_relations / canvas_bindings / canvas_workflow_runtimes / canvas_runtime_assets / canvas_copy_tasks / async_task_records / task_callback_logs`
+  - 记录当前最关键的关系：用户-作者、作者-视频、视频-工作流、工作流-画布、内容-评论、内容-审核、内容-异步任务、复制任务-运行时-资源
+- 当前用途：
+  - 可直接给新接手人作为项目现状说明的主文档，配合数据库设计、API 清单和页面契约一起看
+
+## 2026-06-20 项目现状总览文档已升级为正式交接版
+
+- 文档：
+  - `docs/04_实施设计/项目现状总览与数据结构说明-2026-06-20.md`
+- 本轮升级重点：
+  - 从“项目说明文”重写为“正式交接 / 接手 / 排障总览文档”
+  - 显式补齐当前测试环境正式入口、历史入口、临时入口、裸 IP 的入口矩阵
+  - 补齐前台 / 后端 / 后台的部署命令速查、远端目录结构、代码级回滚边界、最近可参考 release 锚点
+  - 把数据库说明从单纯核心表罗列扩展为“数据域分组 + 主骨架表 + 页面/API/表映射 + migration 演进现状”
+  - 显式强调共享 ECS、Host 分流、备案 / 接入校验问题会伪装成应用故障，要求后续排障先分入口层与应用层
+- 当前用途：
+  - 作为项目对内交接、后续新会话接手、排障定位和运维沟通的主参考文档
+
+## 2026-06-20 DramaTV 项目工程理解学习主题已初始化
+
+- 新增学习目录：
+  - `docs/04_实施设计/学习-DramaTV项目工程理解/`
+- 新增文件：
+  - `进度.md`
+  - `错题与遗漏.md`
+  - `复习计划.md`
+  - `01_从功能到实现链路.md`
+- 学习定位：
+  - 面向“已熟悉功能，但不清楚功能如何实现”的阶段
+  - 先从页面层、接口层、后端服务层、数据层、运行环境层五层拆解开始
+  - 第一课以精选页为样本，建立从功能到实现链路的排查与解释方法
+- 下一步：
+  - 用户回答第一课检查站后，再判断是否进入“精选页真实代码链路”或先补“接口和数据库关系怎么看”
+
+## 2026-06-20 学习文档已迁出实施设计目录
+
+- 新学习总入口：
+  - `docs/05_学习/README.md`
+- DramaTV 项目工程理解学习目录：
+  - `docs/05_学习/DramaTV项目工程理解/`
+- 当前学习文件：
+  - `00_学习入口.md`
+  - `01_从功能到实现链路.md`
+  - `进度.md`
+  - `错题与遗漏.md`
+  - `复习计划.md`
+- 口径调整：
+  - 学习课程、练习、错题、复习计划统一放到 `docs/05_学习`
+  - `docs/04_实施设计` 继续用于工程方案、部署方案、问题复盘和实施设计
+  - 旧路径 `docs/04_实施设计/学习-DramaTV项目工程理解/` 不再作为学习材料入口
+
+## 2026-06-21 新增精选页真实代码链路学习文档
+
+- 新增学习文档：
+  - `docs/05_学习/DramaTV项目工程理解/02_精选页真实代码链路拆解.md`
+- 本课拆解对象：
+  - 前端 `/featured` 页面状态与瀑布流：`apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - Next.js API Route：`apps/web/src/app/api/featured-inventory/route.ts`
+  - 前端 API 封装：`apps/web/src/lib/api/featured-inventory.ts`
+  - Spring Controller：`apps/server/src/main/java/com/dramatv/community/feed/controller/HomeFeedController.java`
+  - 后端服务与查询：`HomeFeedQueryService`、`FeaturedInventoryQueryService`
+  - DTO 契约：`FeaturedInventoryResponse`
+- 学习口径：
+  - `application` 可先按传统 `service` 理解
+  - 精选页最接近传统 `DAO / Repository` 的真实查询职责目前主要落在 `FeaturedInventoryQueryService + JdbcTemplate`
+  - 精选页问题需按“页面状态 -> API 参数 -> Controller -> QueryService -> SQL/表 -> DTO -> 前端缓存/瀑布流布局”排查
+- 同步状态：
+  - 已确认 `E:\agent开发学习\llm-learning-skills` 中存在 `learning-skill-plus` 与 `project-driven-tech-learning`
+  - 如需把 DramaTV 学习材料同步到 `E:\agent开发学习\learning-progress\DramaTV项目工程理解`，需单独授权写入该目录
+
+## 2026-06-21 新增后端运行基础学习记录
+
+- 新增学习文档：
+  - `docs/05_学习/DramaTV项目工程理解/03_后端运行基础：微服务、JVM、线程池与连接池.md`
+- 已记录本轮问答中的关键概念：
+  - 微服务不是 `Service` 层，而是多个独立后端应用组成的系统架构
+  - JVM 是 Java 程序运行环境，承担 Java 字节码到不同操作系统的运行适配
+  - Tomcat 请求线程池控制 HTTP 请求处理并发
+  - 数据库连接池控制同时借出多少 PostgreSQL 连接执行 SQL
+  - 接口慢时不能只调大 Tomcat 线程池，应同时检查 SQL、接口数据量、数据库连接池、数据库承载能力、JVM 和请求线程排队情况
+- 已更新：
+  - `docs/05_学习/DramaTV项目工程理解/进度.md`
+  - `docs/05_学习/DramaTV项目工程理解/错题与遗漏.md`
+  - `docs/05_学习/DramaTV项目工程理解/复习计划.md`
+- 复习安排：
+  - 第 1 次复习日期：`2026-06-22`
+
+## 2026-06-21 新增项目运行链路学习任务板与第 4 课
+
+- 新增学习路线任务板：
+  - `docs/05_学习/DramaTV项目工程理解/学习路线任务板.md`
+- 新增第 4 课：
+  - `docs/05_学习/DramaTV项目工程理解/04_本地到云端运行链路：端口、域名、Nginx、Spring Boot、数据库与OSS.md`
+- 本轮学习路线收口：
+  - 阶段 1：功能到代码链路
+  - 阶段 2：项目运行链路
+  - 阶段 3：Git 与版本安全
+  - 阶段 4：自动化部署与发布
+  - 阶段 5：综合排障训练
+- 第 4 课重点：
+  - 本地 `3106 / 3107 / 18080 / 3206 / 5432 / 6379` 的职责
+  - 云端 `域名 -> Nginx -> web/admin/server -> PostgreSQL/Redis/OSS` 的链路
+  - 当前测试入口、历史 `nip.io` 入口、临时端口、裸 IP 的区别
+  - `/api/**` 与 `/media/**` 都需要正确反代到后端
+  - 代码 release 回滚不等于数据库、运营配置、OSS 状态完整回滚
+- 已更新：
+  - `docs/05_学习/DramaTV项目工程理解/00_学习入口.md`
+  - `docs/05_学习/DramaTV项目工程理解/进度.md`
+
+## 2026-06-21 第 4 课检查站已完成并进入 Git 基础
+
+- 第 4 课用户当前掌握情况：
+  - 已能正确区分本地 `3106 / 3107 / 18080`
+  - 已能判断裸 IP 打开不对，可能属于 Nginx 转发或入口层问题
+  - 已能意识到代码回滚与数据状态回滚不是一回事
+- 本轮纠偏重点：
+  - 云端访问链路不能只写到“浏览器 -> Nginx -> 后端”，还要区分前台服务入口层，以及 `/api/**`、`/media/**` 进入后端后的数据与媒体链路
+  - 入口层问题不仅是 Nginx 转发，还包括 Host 分流、同机其他项目兜底、历史域名口径变化
+  - 数据修复不能简单等同于标准回滚，SQL 只是部分补救手段
+- 新增第 5 课：
+  - `docs/05_学习/DramaTV项目工程理解/05_Git基础：工作区、暂存区、提交、分支到底是什么.md`
+- 新增学习重点：
+  - 用 DramaTV 当前脏工作区理解 `工作区 / 暂存区 / commit / branch`
+  - 理解 `git status / git diff / git add / git commit` 在 AI 协作中的风险控制价值

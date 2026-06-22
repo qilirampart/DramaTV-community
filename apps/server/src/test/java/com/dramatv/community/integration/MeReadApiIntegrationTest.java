@@ -124,6 +124,9 @@ class MeReadApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(publishedVideo).isNotNull();
         assertThat(publishedVideo.path("title").asText()).isEqualTo("Owned video for notifications");
 
+        JsonNode publishedPrompt = findItemById(hubBody.at("/data/publishedContent/prompts"), ownVideoId);
+        assertThat(publishedPrompt).isNull();
+
         JsonNode publishedWorkflow = findItemById(hubBody.at("/data/publishedContent/workflows"), ownWorkflowId);
         assertThat(publishedWorkflow).isNotNull();
         assertThat(publishedWorkflow.path("title").asText()).isEqualTo("Owned workflow for me hub");
@@ -242,6 +245,33 @@ class MeReadApiIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(replyNotificationItem.at("/actor/id").asText()).isEqualTo(replier.userId());
         assertThat(replyNotificationItem.path("excerpt").asText()).contains("reply for prompt owner");
         assertThat(replyNotificationItem.path("commentId").asText()).isNotBlank();
+    }
+
+    @Test
+    void meHubIncludesPublishedPromptInPublishedContent() throws Exception {
+        LoginSession session = loginAsRandomUser("me-published-prompt");
+
+        String promptId = createPublishedPrompt(
+                session.userId(),
+                "Me published prompt",
+                "video",
+                "Me published prompt summary",
+                "Me published prompt body"
+        );
+
+        MvcResult hubResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.get("/api/me/hub")
+                                .accept(MediaType.APPLICATION_JSON),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode hubBody = readBody(hubResult);
+        JsonNode publishedPrompt = findItemById(hubBody.at("/data/publishedContent/prompts"), promptId);
+        assertThat(hubBody.path("code").asText()).isEqualTo("OK");
+        assertThat(publishedPrompt).isNotNull();
+        assertThat(publishedPrompt.path("title").asText()).isEqualTo("Me published prompt");
+        assertThat(publishedPrompt.path("modality").asText()).isEqualTo("video");
     }
 
     @Test

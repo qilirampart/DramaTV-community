@@ -1,10 +1,10 @@
 import { stripDiscussionContentToPlainText } from "@/lib/discussion-content";
+import {
+  isVideoAssetUrl as isVideoAssetUrlBase,
+  normalizeCommunityMediaAssetUrl
+} from "@/lib/media-asset-url";
 
 const BLOCKED_ASSET_HOSTS = ["cdn.dramatv.local"];
-const COMMUNITY_API_BASE_URL =
-  process.env.NEXT_PUBLIC_DRAMATV_API_BASE_URL?.trim() ||
-  process.env.DRAMATV_API_BASE_URL?.trim() ||
-  "";
 const DISCUSSION_LABEL_OVERRIDES: Array<{
   pattern: RegExp;
   label: string;
@@ -76,22 +76,16 @@ export function normalizeAssetUrl(value?: string | null): string | undefined {
     return undefined;
   }
 
-  const normalizedUrl = rewriteLocalDevelopmentAssetUrl(url);
-  if (normalizedUrl.startsWith("/media/") && COMMUNITY_API_BASE_URL) {
-    return `${COMMUNITY_API_BASE_URL.replace(/\/$/, "")}${normalizedUrl}`;
+  const normalizedUrl = normalizeCommunityMediaAssetUrl(url);
+  if (normalizedUrl && isMediaPath(normalizedUrl)) {
+    return normalizedUrl;
   }
 
   return normalizedUrl;
 }
 
 export function isVideoAssetUrl(value?: string | null): boolean {
-  const url = normalizeAssetUrl(value);
-  if (!url) {
-    return false;
-  }
-
-  const pathname = url.split("?")[0]?.split("#")[0]?.toLowerCase() ?? "";
-  return [".mp4", ".webm", ".mov", ".m4v", ".ogg", ".ogv", ".m3u8"].some((ext) => pathname.endsWith(ext));
+  return isVideoAssetUrlBase(normalizeAssetUrl(value));
 }
 
 function containsCjk(value: string): boolean {
@@ -108,18 +102,8 @@ function decodeEscapedUnicodeText(value: string): string {
   );
 }
 
-function rewriteLocalDevelopmentAssetUrl(url: string): string {
-  try {
-    const parsed = new URL(url);
-    if (!["127.0.0.1", "localhost"].includes(parsed.hostname)) {
-      return url;
-    }
-
-    const rewrittenPath = `${parsed.pathname}${parsed.search}${parsed.hash}`;
-    return rewrittenPath || url;
-  } catch {
-    return url;
-  }
+function isMediaPath(pathname: string): boolean {
+  return pathname === "/media" || pathname.startsWith("/media/");
 }
 
 function isAsciiHeavy(value: string): boolean {

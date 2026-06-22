@@ -138,7 +138,7 @@ function expectBrandText(response, label) {
 }
 
 const args = parseArgs(process.argv.slice(2));
-const publicBaseUrl = (args["public-base-url"] ?? process.env.DRAMATV_TEST_PUBLIC_BASE_URL ?? "http://8.141.20.130").replace(/\/$/, "");
+const publicBaseUrl = (args["public-base-url"] ?? process.env.DRAMATV_TEST_PUBLIC_BASE_URL ?? "http://community.8.141.20.130.nip.io").replace(/\/$/, "");
 const apiBaseUrl = (args["api-base-url"] ?? process.env.DRAMATV_TEST_API_BASE_URL ?? publicBaseUrl).replace(/\/$/, "");
 const backendHealthUrl = normalizeMaybeUrl(args["backend-health-url"] ?? process.env.DRAMATV_TEST_BACKEND_HEALTH_URL ?? "", "/actuator/health");
 const creatorUsername = args["creator-username"] ?? process.env.DRAMATV_TEST_CREATOR_USERNAME ?? "";
@@ -219,6 +219,33 @@ await runCase(results, "public.api.prompts", async () => {
   return `items=${items.length}`;
 });
 
+await runCase(results, "public.web.featured-prompts", async () => {
+  const response = await request(buildUrl(publicBaseUrl, "/api/featured-prompts"), {
+    requestId: requestId("featured-prompts"),
+  });
+  assert(response.status >= 200 && response.status < 300, `/api/featured-prompts expected 2xx but got ${response.status}`);
+  const items = Array.isArray(response.json?.items)
+    ? response.json.items
+    : Array.isArray(response.json?.page?.items)
+      ? response.json.page.items
+      : [];
+  assert(items.length > 0, `/api/featured-prompts missing items array: ${response.text}`);
+  return `items=${items.length}`;
+});
+
+await runCase(results, "public.web.featured-inventory", async () => {
+  const response = await request(buildUrl(publicBaseUrl, "/api/public/featured-inventory?limit=1"), {
+    requestId: requestId("featured-inventory-public"),
+  });
+  assert(
+    response.status >= 200 && response.status < 300,
+    `/api/public/featured-inventory expected 2xx but got ${response.status}`
+  );
+  const items = Array.isArray(response.json?.page?.items) ? response.json.page.items : [];
+  assert(items.length > 0, `/api/public/featured-inventory missing page.items: ${response.text}`);
+  return `items=${items.length}`;
+});
+
 await runCase(results, "public.api.discussions-home", async () => {
   const response = await request(buildUrl(apiBaseUrl, "/api/discussions/home"), {
     requestId: requestId("discussions-home"),
@@ -268,6 +295,18 @@ if (authChecksEnabled) {
     });
     assert(response.status >= 200 && response.status < 300, `/home expected 2xx for authenticated user but got ${response.status}`);
     return buildUrl(publicBaseUrl, "/home");
+  });
+
+  await runCase(results, "auth.web.featured-inventory", async () => {
+    assert(accessToken, "accessToken unavailable");
+    const response = await request(buildUrl(publicBaseUrl, "/api/featured-inventory?limit=1"), {
+      cookie: `dramatv_access_token=${accessToken}`,
+      requestId: requestId("featured-inventory-auth"),
+    });
+    assert(response.status >= 200 && response.status < 300, `/api/featured-inventory expected 2xx but got ${response.status}`);
+    const items = Array.isArray(response.json?.page?.items) ? response.json.page.items : [];
+    assert(items.length > 0, `/api/featured-inventory missing page.items: ${response.text}`);
+    return `items=${items.length}`;
   });
 }
 

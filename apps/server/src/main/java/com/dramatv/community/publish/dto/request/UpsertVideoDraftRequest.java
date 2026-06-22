@@ -23,6 +23,8 @@ public record UpsertVideoDraftRequest(
         String workflowId,
         String visibility,
         String coverAssetId,
-        String sourceAssetId
+        String sourceAssetId,
+        List<String> referenceImageAssetIds,
+        List<String> referenceAudioAssetIds
 ) {
 }

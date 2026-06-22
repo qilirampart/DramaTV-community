@@ -6,10 +6,11 @@ const API_BASE_URL =
   process.env.NEXT_PUBLIC_DRAMATV_API_BASE_URL?.trim() ||
   "";
 const COMMUNITY_ACCESS_TOKEN_COOKIE = "dramatv_access_token";
+const COMMUNITY_SESSION_COOKIE_MAX_AGE_SECONDS = 7200;
 const AUTHORIZATION_HEADER_NAME = "Authorization";
 const REQUEST_ID_HEADER_NAME = "X-Request-Id";
 
-const PUBLIC_PATHS = new Set(["/", "/login", "/icon.svg"]);
+const PUBLIC_PATHS = new Set(["/", "/login", "/icon.svg", "/canvas"]);
 
 function isPublicPath(pathname: string) {
   if (PUBLIC_PATHS.has(pathname)) {
@@ -70,6 +71,15 @@ async function verifyCommunitySession(token: string) {
   }
 }
 
+function refreshCommunitySessionCookie(response: NextResponse, token: string) {
+  response.cookies.set(COMMUNITY_ACCESS_TOKEN_COOKIE, token, {
+    httpOnly: true,
+    sameSite: "lax",
+    path: "/",
+    maxAge: COMMUNITY_SESSION_COOKIE_MAX_AGE_SECONDS
+  });
+}
+
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
@@ -81,7 +91,9 @@ export async function proxy(request: NextRequest) {
   if (token) {
     const verification = await verifyCommunitySession(token);
     if (verification !== "invalid") {
-      return NextResponse.next();
+      const response = NextResponse.next();
+      refreshCommunitySessionCookie(response, token);
+      return response;
     }
   }
 

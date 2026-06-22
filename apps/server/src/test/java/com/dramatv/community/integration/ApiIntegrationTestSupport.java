@@ -30,7 +30,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(
         classes = DramaTvCommunityServerApplication.class,
-        properties = "dramatv.media.processing.worker-enabled=false"
+        properties = {
+                "dramatv.media.processing.worker-enabled=false",
+                "dramatv.community-auth.provider.local-password-enabled=true",
+                "dramatv.community-auth.provider.local-password-bootstrap-secret=dramatv-local-dev"
+        }
 )
 @AutoConfigureMockMvc
 abstract class ApiIntegrationTestSupport {
@@ -577,7 +581,7 @@ abstract class ApiIntegrationTestSupport {
                 promptText,
                 "image".equals(modality) ? "gpt-image-2" : "seedance",
                 "real-person",
-                "single-model"
+                "image".equals(modality) ? null : "single-model"
         );
         return promptId.toString();
     }

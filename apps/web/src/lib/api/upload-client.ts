@@ -16,7 +16,8 @@ type ApiEnvelope<T> = {
 const REQUEST_ID_HEADER_NAME = "X-Request-Id";
 const MAX_UPLOAD_SIZE_BYTES = {
   image: 20 * 1024 * 1024,
-  video: 300 * 1024 * 1024
+  video: 300 * 1024 * 1024,
+  audio: 30 * 1024 * 1024
 } as const;
 
 function createRequestId() {
@@ -35,6 +36,10 @@ function formatMaxUploadSize(sizeBytes: number) {
 function resolveUploadTargetLabel(kind: ApiUploadAssetKind, assetRole?: ApiUploadAssetRole) {
   if (kind === "image") {
     return assetRole === "avatar" ? "头像图片" : "图片";
+  }
+
+  if (kind === "audio") {
+    return "音频素材";
   }
 
   return "视频";
@@ -111,6 +116,30 @@ async function parseEnvelope<T>(
   };
 }
 
+function resolveUploadPolicyPath(kind: ApiUploadAssetKind) {
+  switch (kind) {
+    case "image":
+      return "/api/uploads/image-policy";
+    case "audio":
+      return "/api/uploads/audio-policy";
+    case "video":
+    default:
+      return "/api/uploads/video-policy";
+  }
+}
+
+function resolveUploadKindLabel(kind: ApiUploadAssetKind) {
+  switch (kind) {
+    case "image":
+      return "Image";
+    case "audio":
+      return "Audio";
+    case "video":
+    default:
+      return "Video";
+  }
+}
+
 export async function uploadAssetFromClient(input: {
   kind: ApiUploadAssetKind;
   assetRole?: ApiUploadAssetRole;
@@ -119,8 +148,8 @@ export async function uploadAssetFromClient(input: {
   validateUploadFile(input);
 
   const requestId = createRequestId();
-  const policyPath = input.kind === "image" ? "/api/uploads/image-policy" : "/api/uploads/video-policy";
-  const kindLabel = input.kind === "image" ? "Image" : "Video";
+  const policyPath = resolveUploadPolicyPath(input.kind);
+  const kindLabel = resolveUploadKindLabel(input.kind);
   const customErrorMessages = {
     UPLOAD_FILE_TOO_LARGE: resolveFileTooLargeMessage(input.kind, input.assetRole)
   };
@@ -143,7 +172,7 @@ export async function uploadAssetFromClient(input: {
   const policyEnvelope = await parseEnvelope<ApiUploadPolicy>(
     policyResponse,
     requestId,
-    `${kindLabel}上传策略申请失败。`,
+    `${kindLabel} 上传策略申请失败。`,
     customErrorMessages
   );
 
@@ -160,7 +189,7 @@ export async function uploadAssetFromClient(input: {
   const uploadEnvelope = await parseEnvelope<ApiUploadedAsset>(
     uploadResponse,
     requestId,
-    `${kindLabel}上传失败。`,
+    `${kindLabel} 上传失败。`,
     customErrorMessages
   );
 

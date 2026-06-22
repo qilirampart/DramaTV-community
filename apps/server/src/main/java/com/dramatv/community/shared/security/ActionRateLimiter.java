@@ -3,6 +3,7 @@ package com.dramatv.community.shared.security;
 import com.dramatv.community.shared.error.ApiBusinessException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.Locale;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +40,14 @@ public class ActionRateLimiter {
     }
 
     public void checkReport(UUID userId) {
+        checkReport(userId, null);
+    }
+
+    public void checkReport(UUID userId, String roleCode) {
+        if (isPrivilegedReportActor(roleCode)) {
+            return;
+        }
+
         enforce(
                 "report-create",
                 userId == null ? "anonymous" : userId.toString(),
@@ -119,5 +128,12 @@ public class ActionRateLimiter {
 
     private String normalize(String value) {
         return StringUtils.hasText(value) ? value.trim().toLowerCase() : "unknown";
+    }
+
+    private boolean isPrivilegedReportActor(String roleCode) {
+        String normalizedRole = roleCode == null ? "" : roleCode.trim().toLowerCase(Locale.ROOT);
+        return "admin".equals(normalizedRole)
+                || "operator".equals(normalizedRole)
+                || "moderator".equals(normalizedRole);
     }
 }

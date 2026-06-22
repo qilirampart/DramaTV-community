@@ -24,6 +24,7 @@ public class MediaTaskApplicationService {
 
     private static final Logger log = LoggerFactory.getLogger(MediaTaskApplicationService.class);
     private static final String VIDEO_MEDIA_PROCESS = "video_media_process";
+    private static final String IMAGE_MEDIA_PROCESS = "image_media_process";
 
     private final JdbcTemplate jdbcTemplate;
     private final CurrentUserService currentUserService;
@@ -50,7 +51,7 @@ public class MediaTaskApplicationService {
                 .orElseThrow(() -> ApiBusinessException.notFound("MEDIA_TASK_NOT_FOUND", "media task not found"));
 
         try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(retryContext(task))) {
-            if (!VIDEO_MEDIA_PROCESS.equals(task.taskType())) {
+            if (!isSupportedTaskType(task.taskType())) {
                 log.warn(
                         "media task retry rejected: ownerId={} taskId={} targetType={} targetId={} taskType={} reason=unsupported_type",
                         currentUser.id(),
@@ -134,14 +135,13 @@ public class MediaTaskApplicationService {
                     task.started_at,
                     task.finished_at
                 from async_task_records task
-                where task.task_type = ?
+                where task.task_type in ('video_media_process', 'image_media_process')
                   and task.target_type = ?
                   and task.target_id = ?
                 order by task.created_at desc
                 limit 1
                 """,
                 resultSet -> resultSet.next() ? toSummaryResponse(mapOwnedTask(resultSet, null)) : null,
-                VIDEO_MEDIA_PROCESS,
                 targetType,
                 targetId
         );
@@ -178,7 +178,7 @@ public class MediaTaskApplicationService {
                     limit 1
                 ) owner on true
                 where task.id = ?
-                  and task.task_type = ?
+                  and task.task_type in ('video_media_process', 'image_media_process')
                 """,
                 resultSet -> {
                     if (!resultSet.next()) {
@@ -190,8 +190,7 @@ public class MediaTaskApplicationService {
                     }
                     return Optional.of(task);
                 },
-                taskId,
-                VIDEO_MEDIA_PROCESS
+                taskId
         );
     }
 
@@ -255,6 +254,10 @@ public class MediaTaskApplicationService {
             return false;
         }
         return "failed".equalsIgnoreCase(statusCode.trim()) && retryCount < Math.max(0, maxRetryCount);
+    }
+
+    private boolean isSupportedTaskType(String taskType) {
+        return VIDEO_MEDIA_PROCESS.equals(taskType) || IMAGE_MEDIA_PROCESS.equals(taskType);
     }
 
     private Map<String, String> retryContext(OwnedMediaTaskRecord task) {

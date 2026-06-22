@@ -27,7 +27,6 @@ public class AuthApplicationService {
     private static final long SESSION_EXPIRES_IN_SECONDS = 7200;
     private static final String LOCAL_IDENTITY_PROVIDER = "local";
     private static final String LOCAL_PASSWORD_LOGIN_TYPE = "local_password";
-    private static final String DEFAULT_LOCAL_PASSWORD = "dramatv-local-dev";
 
     private final JdbcTemplate jdbcTemplate;
     private final PasswordEncoder passwordEncoder;
@@ -192,9 +191,7 @@ public class AuthApplicationService {
     }
 
     private LocalUser createLocalDeveloperUser(String username, String password) {
-        if (!DEFAULT_LOCAL_PASSWORD.equals(password)) {
-            throw new ApiBusinessException(HttpStatus.UNAUTHORIZED, "AUTH_INVALID_CREDENTIALS", "username or password is invalid");
-        }
+        requireLocalPasswordBootstrapSecret(password);
 
         UUID userId = UUID.randomUUID();
         String normalizedUsername = username.trim();
@@ -231,9 +228,7 @@ public class AuthApplicationService {
     }
 
     private LocalUser initializeLocalDeveloperPassword(LocalUser user, String password) {
-        if (!DEFAULT_LOCAL_PASSWORD.equals(password)) {
-            throw new ApiBusinessException(HttpStatus.UNAUTHORIZED, "AUTH_INVALID_CREDENTIALS", "username or password is invalid");
-        }
+        requireLocalPasswordBootstrapSecret(password);
 
         String passwordHash = passwordEncoder.encode(password);
         jdbcTemplate.update(
@@ -244,6 +239,13 @@ public class AuthApplicationService {
         );
 
         return new LocalUser(user.id(), user.username(), user.displayName(), passwordHash, user.roleCode());
+    }
+
+    private void requireLocalPasswordBootstrapSecret(String password) {
+        String configuredSecret = communityAuthProperties.getProvider().getLocalPasswordBootstrapSecret();
+        if (configuredSecret == null || configuredSecret.isBlank() || !configuredSecret.equals(password)) {
+            throw new ApiBusinessException(HttpStatus.UNAUTHORIZED, "AUTH_INVALID_CREDENTIALS", "username or password is invalid");
+        }
     }
 
     private String extractBearerToken(String authorizationHeader) {

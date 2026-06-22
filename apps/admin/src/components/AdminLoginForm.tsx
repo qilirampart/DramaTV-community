@@ -8,9 +8,6 @@ type AdminLoginFormProps = {
   redirectTo?: string;
 };
 
-const DEMO_USERNAME = "admin-chief";
-const DEMO_PASSWORD = "dramatv-admin-demo";
-
 const initialState = {
   message: null as string | null
 };
@@ -78,8 +75,8 @@ function FooterBadgeIcon({ kind }: { kind: "shield" | "building" }) {
 }
 
 export function AdminLoginForm({ redirectTo }: AdminLoginFormProps) {
-  const [username, setUsername] = useState(DEMO_USERNAME);
-  const [password, setPassword] = useState(DEMO_PASSWORD);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [state, formAction, pending] = useActionState(signInAction, initialState);
 

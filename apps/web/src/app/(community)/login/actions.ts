@@ -1,41 +1,51 @@
 "use server";
 
 import { RedirectType, redirect } from "next/navigation";
-import { loginCommunity } from "@/lib/api/community-service";
 import { formatCommunityActionError } from "@/lib/api/community-error-presenter";
+import { loginCommunity } from "@/lib/api/community-service";
 import { normalizeRedirectTarget } from "@/lib/routes/redirect-utils";
 
-export type LoginActionResult =
-  | {
-      ok: true;
-    }
-  | {
-      ok: false;
-      message: string;
-    };
+export type LoginFormState = {
+  message: string | null;
+};
+
+const EMPTY_CREDENTIAL_NOTICE = "\u8bf7\u8f93\u5165\u7528\u6237\u540d\u548c\u5bc6\u7801\u3002";
+const LOGIN_FAILED_NOTICE = "\u767b\u5f55\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\u3002";
 
 function resolveRedirectTarget(redirectTo?: string) {
   return normalizeRedirectTarget(redirectTo);
 }
 
-export async function loginAction(input: {
-  loginType?: string;
-  username: string;
-  password: string;
-  redirectTo?: string;
-}): Promise<LoginActionResult> {
-  try {
-    await loginCommunity({
-      loginType: input.loginType,
-      username: input.username,
-      password: input.password
-    });
-  } catch (error) {
+function readText(formData: FormData, key: string) {
+  return String(formData.get(key) ?? "");
+}
+
+export async function submitLoginAction(
+  _previousState: LoginFormState,
+  formData: FormData
+): Promise<LoginFormState> {
+  const loginType = readText(formData, "loginType").trim() || undefined;
+  const redirectTo = readText(formData, "redirectTo");
+  const username = readText(formData, "username").trim();
+  const password = readText(formData, "password");
+
+  if (username.length === 0 || password.trim().length === 0) {
     return {
-      ok: false,
-      message: formatCommunityActionError(error, "登录失败，请稍后重试。")
+      message: EMPTY_CREDENTIAL_NOTICE
     };
   }
 
-  redirect(resolveRedirectTarget(input.redirectTo), RedirectType.replace);
+  try {
+    await loginCommunity({
+      loginType,
+      username,
+      password
+    });
+  } catch (error) {
+    return {
+      message: formatCommunityActionError(error, LOGIN_FAILED_NOTICE)
+    };
+  }
+
+  redirect(resolveRedirectTarget(redirectTo), RedirectType.replace);
 }

@@ -104,7 +104,7 @@ export type CreateUserActionState = {
   requestId: string | null;
   createdUserId: string | null;
   temporaryPassword: string | null;
-  passwordMode: "custom" | "default" | null;
+  passwordMode: "custom" | "generated" | null;
   createdUsername: string | null;
   createdDisplayName: string | null;
 };

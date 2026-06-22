@@ -15,7 +15,8 @@ public class CommunityAuthProperties {
 
     public static class Provider {
         private String primary = "local_password";
-        private boolean localPasswordEnabled = true;
+        private boolean localPasswordEnabled = false;
+        private String localPasswordBootstrapSecret = "";
         private String localPasswordDisplayName = "开发环境账号登录";
         private String localPasswordDescription = "当前用于本地联调，后续会切换到公司统一登录。";
 
@@ -33,6 +34,14 @@ public class CommunityAuthProperties {
 
         public void setLocalPasswordEnabled(boolean localPasswordEnabled) {
             this.localPasswordEnabled = localPasswordEnabled;
+        }
+
+        public String getLocalPasswordBootstrapSecret() {
+            return localPasswordBootstrapSecret;
+        }
+
+        public void setLocalPasswordBootstrapSecret(String localPasswordBootstrapSecret) {
+            this.localPasswordBootstrapSecret = localPasswordBootstrapSecret;
         }
 
         public String getLocalPasswordDisplayName() {

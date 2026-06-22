@@ -281,6 +281,8 @@ class PublishDraftSubmitLoggingTest {
                             null,
                             "public",
                             null,
+                            null,
+                            null,
                             null
                     )
             );

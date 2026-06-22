@@ -1,16 +1,21 @@
 package com.dramatv.community.integration;
 
+import com.dramatv.community.publish.application.ImageMediaProcessingService;
 import com.dramatv.community.publish.application.VideoMediaProcessingService;
 import com.dramatv.community.shared.media.VideoMediaProcessingProperties;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import javax.imageio.ImageIO;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -25,6 +30,9 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
 
     @Autowired
     private VideoMediaProcessingService videoMediaProcessingService;
+
+    @Autowired
+    private ImageMediaProcessingService imageMediaProcessingService;
 
     @Autowired
     private VideoMediaProcessingProperties videoMediaProcessingProperties;
@@ -105,7 +113,7 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
                                         "Nano Banana",
                                         "nanobanana",
                                         "animation",
-                                        "single-model",
+                                        null,
                                         "youmind",
                                         "youmind-nano-banana",
                                         "nano-banana-asset-001",
@@ -115,7 +123,9 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        sourceAsset.assetId()
+                                        sourceAsset.assetId(),
+                                        List.of(),
+                                        List.of()
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isOk());
@@ -135,7 +145,7 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(submitBody.at("/data/publishStatus").asText()).isEqualTo("submitted");
         assertThat(submitBody.at("/data/lifecycle/draftStatus").asText()).isEqualTo("submitted");
         assertThat(submitBody.at("/data/lifecycle/moderationStatus").asText()).isEqualTo("not_applicable");
-        assertThat(submitBody.at("/data/lifecycle/processingStatus").asText()).isEqualTo("not_applicable");
+        assertThat(submitBody.at("/data/lifecycle/processingStatus").asText()).isEqualTo("not_requested");
         assertThat(submitBody.at("/data/taskIds").size()).isEqualTo(0);
 
         String promptId = submitBody.at("/data/videoId").asText();
@@ -159,7 +169,7 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(promptRow.get("model_name")).isEqualTo("Nano Banana");
         assertThat(promptRow.get("model_category")).isEqualTo("nanobanana");
         assertThat(promptRow.get("content_category")).isEqualTo("animation");
-        assertThat(promptRow.get("composition_category")).isEqualTo("single-model");
+        assertThat(promptRow.get("composition_category")).isNull();
         assertThat(promptRow.get("source_platform")).isEqualTo("youmind");
         assertThat(promptRow.get("source_campaign")).isEqualTo("youmind-nano-banana");
         assertThat(promptRow.get("source_item_id")).isEqualTo("nano-banana-asset-001");
@@ -187,6 +197,302 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
                 UUID.fromString(promptId)
         );
         assertThat(feedCount).isEqualTo(2);
+    }
+
+    @Test
+    void imagePromptSubmitPersistsReferenceImagesIntoPromptExampleLinks() throws Exception {
+        LoginSession session = loginAsRandomUser("prompt-image-reference");
+        UploadedAsset sourceAsset = uploadAsset(
+                session,
+                "/api/uploads/image-policy",
+                "prompt-image-reference-source.jpg",
+                "image/jpeg",
+                "source",
+                "fake-image-reference-source".getBytes(StandardCharsets.UTF_8)
+        );
+        UploadedAsset referenceImageOne = uploadAsset(
+                session,
+                "/api/uploads/image-policy",
+                "prompt-image-reference-1.jpg",
+                "image/jpeg",
+                "attachment",
+                "fake-image-reference-1".getBytes(StandardCharsets.UTF_8)
+        );
+        UploadedAsset referenceImageTwo = uploadAsset(
+                session,
+                "/api/uploads/image-policy",
+                "prompt-image-reference-2.jpg",
+                "image/jpeg",
+                "attachment",
+                "fake-image-reference-2".getBytes(StandardCharsets.UTF_8)
+        );
+
+        SubmittedVideo submittedPrompt = submitImagePromptDraft(
+                session,
+                sourceAsset.assetId(),
+                "Prompt image with references",
+                null,
+                List.of(referenceImageOne.assetId(), referenceImageTwo.assetId()),
+                false
+        );
+
+        Integer exampleCount = jdbcTemplate.queryForObject("""
+                select example_count
+                from prompt_entries
+                where id = ?
+                """,
+                Integer.class,
+                UUID.fromString(submittedPrompt.videoId())
+        );
+        assertThat(exampleCount).isEqualTo(3);
+
+        List<Map<String, Object>> links = jdbcTemplate.queryForList("""
+                select role_code, media_asset_id, sort_order
+                from prompt_example_links
+                where prompt_id = ?
+                order by
+                    case role_code
+                        when 'example' then 0
+                        when 'reference_image' then 1
+                        when 'reference_audio' then 2
+                        else 9
+                    end,
+                    sort_order asc,
+                    created_at asc
+                """,
+                UUID.fromString(submittedPrompt.videoId())
+        );
+
+        assertThat(links)
+                .extracting(row -> String.valueOf(row.get("role_code")), row -> String.valueOf(row.get("media_asset_id")))
+                .containsExactly(
+                        org.assertj.core.groups.Tuple.tuple("example", sourceAsset.assetId()),
+                        org.assertj.core.groups.Tuple.tuple("reference_image", referenceImageOne.assetId()),
+                        org.assertj.core.groups.Tuple.tuple("reference_image", referenceImageTwo.assetId())
+                );
+    }
+
+    @Test
+    void videoPromptSubmitPersistsReferenceImagesAndAudioIntoPromptExampleLinks() throws Exception {
+        LoginSession session = loginAsRandomUser("prompt-video-reference");
+        UploadedAsset sourceAsset = uploadAsset(
+                session,
+                "/api/uploads/video-policy",
+                "prompt-video-reference-source.mp4",
+                "video/mp4",
+                "source",
+                "fake-video-reference-source".getBytes(StandardCharsets.UTF_8)
+        );
+        UploadedAsset referenceImage = uploadAsset(
+                session,
+                "/api/uploads/image-policy",
+                "prompt-video-reference-image.jpg",
+                "image/jpeg",
+                "attachment",
+                "fake-video-reference-image".getBytes(StandardCharsets.UTF_8)
+        );
+        UploadedAsset referenceAudio = uploadAsset(
+                session,
+                "/api/uploads/audio-policy",
+                "prompt-video-reference-audio.mp3",
+                "audio/mpeg",
+                "attachment",
+                "fake-video-reference-audio".getBytes(StandardCharsets.UTF_8)
+        );
+
+        SubmittedVideo submittedPrompt = submitVideoPromptDraft(
+                session,
+                sourceAsset.assetId(),
+                "Prompt video with references",
+                List.of(referenceImage.assetId()),
+                List.of(referenceAudio.assetId())
+        );
+
+        Integer exampleCount = jdbcTemplate.queryForObject("""
+                select example_count
+                from prompt_entries
+                where id = ?
+                """,
+                Integer.class,
+                UUID.fromString(submittedPrompt.videoId())
+        );
+        assertThat(exampleCount).isEqualTo(2);
+
+        List<Map<String, Object>> links = jdbcTemplate.queryForList("""
+                select role_code, media_asset_id, sort_order
+                from prompt_example_links
+                where prompt_id = ?
+                order by
+                    case role_code
+                        when 'example' then 0
+                        when 'reference_image' then 1
+                        when 'reference_audio' then 2
+                        else 9
+                    end,
+                    sort_order asc,
+                    created_at asc
+                """,
+                UUID.fromString(submittedPrompt.videoId())
+        );
+
+        assertThat(links)
+                .extracting(row -> String.valueOf(row.get("role_code")), row -> String.valueOf(row.get("media_asset_id")))
+                .containsExactly(
+                        org.assertj.core.groups.Tuple.tuple("example", sourceAsset.assetId()),
+                        org.assertj.core.groups.Tuple.tuple("reference_image", referenceImage.assetId()),
+                        org.assertj.core.groups.Tuple.tuple("reference_audio", referenceAudio.assetId())
+                );
+    }
+
+    @Test
+    void imagePromptSubmitQueuesImageMediaTaskAndGeneratesDerivedCover() throws Exception {
+        long originalThresholdBytes = videoMediaProcessingProperties.getImageCoverThresholdBytes();
+        try {
+            videoMediaProcessingProperties.setImageCoverThresholdBytes(1024L);
+
+            LoginSession session = loginAsRandomUser("prompt-image-worker");
+            UploadedAsset sourceAsset = uploadAsset(
+                    session,
+                    "/api/uploads/image-policy",
+                    "prompt-image-worker-source.png",
+                    "image/png",
+                    "source",
+                    createSampleImageBytes()
+            );
+
+            SubmittedVideo submittedPrompt = submitImagePromptDraft(session, sourceAsset.assetId(), "Prompt image worker");
+
+            Map<String, Object> taskRow = jdbcTemplate.queryForMap("""
+                    select task_type, target_type, target_id, status_code, payload_json::text as payload_json
+                    from async_task_records
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.taskId())
+            );
+
+            assertThat(taskRow.get("task_type")).isEqualTo("image_media_process");
+            assertThat(taskRow.get("target_type")).isEqualTo("prompt");
+            assertThat(String.valueOf(taskRow.get("target_id"))).isEqualTo(submittedPrompt.videoId());
+            assertThat(taskRow.get("status_code")).isEqualTo("queued");
+            assertThat(String.valueOf(taskRow.get("payload_json"))).contains(sourceAsset.assetId());
+
+            int processedCount = imageMediaProcessingService.processAvailableTasks();
+            assertThat(processedCount).isEqualTo(1);
+
+            Map<String, Object> promptRow = jdbcTemplate.queryForMap("""
+                    select cover_asset_id, primary_example_asset_id
+                    from prompt_entries
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.videoId())
+            );
+
+            assertThat(promptRow.get("cover_asset_id")).isNotNull();
+            assertThat(String.valueOf(promptRow.get("cover_asset_id"))).isNotEqualTo(sourceAsset.assetId());
+            assertThat(String.valueOf(promptRow.get("primary_example_asset_id"))).isEqualTo(sourceAsset.assetId());
+
+            MvcResult detailResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/prompts/{id}", submittedPrompt.videoId())
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andReturn();
+
+            JsonNode detailBody = readBody(detailResult);
+            assertThat(detailBody.path("code").asText()).isEqualTo("OK");
+            assertThat(detailBody.at("/data/coverUrl").asText()).isNotBlank();
+            assertThat(detailBody.at("/data/posterUrl").asText()).isNotBlank();
+            assertThat(detailBody.at("/data/previewUrl").isMissingNode() || detailBody.at("/data/previewUrl").isNull()).isTrue();
+        } finally {
+            videoMediaProcessingProperties.setImageCoverThresholdBytes(originalThresholdBytes);
+        }
+    }
+
+    @Test
+    void imagePromptSubmitQueuesMediaTaskWhenCoverPointsToSourceAndReplacesIt() throws Exception {
+        long originalThresholdBytes = videoMediaProcessingProperties.getImageCoverThresholdBytes();
+        try {
+            videoMediaProcessingProperties.setImageCoverThresholdBytes(1024L);
+
+            LoginSession session = loginAsRandomUser("prompt-image-source-cover");
+            UploadedAsset sourceAsset = uploadAsset(
+                    session,
+                    "/api/uploads/image-policy",
+                    "prompt-image-source-cover.png",
+                    "image/png",
+                    "source",
+                    createSampleImageBytes()
+            );
+
+            SubmittedVideo submittedPrompt = submitImagePromptDraft(
+                    session,
+                    sourceAsset.assetId(),
+                    "Prompt image source cover",
+                    sourceAsset.assetId()
+            );
+
+            Map<String, Object> taskRow = jdbcTemplate.queryForMap("""
+                    select task_type, target_type, target_id, status_code, payload_json::text as payload_json
+                    from async_task_records
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.taskId())
+            );
+
+            assertThat(taskRow.get("task_type")).isEqualTo("image_media_process");
+            assertThat(taskRow.get("target_type")).isEqualTo("prompt");
+            assertThat(String.valueOf(taskRow.get("target_id"))).isEqualTo(submittedPrompt.videoId());
+            assertThat(taskRow.get("status_code")).isEqualTo("queued");
+            assertThat(String.valueOf(taskRow.get("payload_json"))).contains(sourceAsset.assetId());
+
+            Map<String, Object> promptBeforeRow = jdbcTemplate.queryForMap("""
+                    select cover_asset_id, primary_example_asset_id
+                    from prompt_entries
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.videoId())
+            );
+
+            assertThat(String.valueOf(promptBeforeRow.get("cover_asset_id"))).isEqualTo(sourceAsset.assetId());
+            assertThat(String.valueOf(promptBeforeRow.get("primary_example_asset_id"))).isEqualTo(sourceAsset.assetId());
+
+            int processedCount = imageMediaProcessingService.processAvailableTasks();
+            assertThat(processedCount).isEqualTo(1);
+
+            Map<String, Object> promptAfterRow = jdbcTemplate.queryForMap("""
+                    select cover_asset_id, primary_example_asset_id
+                    from prompt_entries
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.videoId())
+            );
+
+            assertThat(promptAfterRow.get("cover_asset_id")).isNotNull();
+            assertThat(String.valueOf(promptAfterRow.get("cover_asset_id"))).isNotEqualTo(sourceAsset.assetId());
+            assertThat(String.valueOf(promptAfterRow.get("primary_example_asset_id"))).isEqualTo(sourceAsset.assetId());
+
+            Map<String, Object> coverAssetRow = jdbcTemplate.queryForMap("""
+                    select asset_kind, asset_role
+                    from media_assets
+                    where id = ?
+                    """,
+                    UUID.fromString(String.valueOf(promptAfterRow.get("cover_asset_id")))
+            );
+
+            assertThat(coverAssetRow.get("asset_kind")).isEqualTo("image");
+            assertThat(coverAssetRow.get("asset_role")).isEqualTo("cover");
+
+            MvcResult detailResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/prompts/{id}", submittedPrompt.videoId())
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andReturn();
+
+            JsonNode detailBody = readBody(detailResult);
+            assertThat(detailBody.path("code").asText()).isEqualTo("OK");
+            assertThat(detailBody.at("/data/coverUrl").asText()).isNotBlank();
+            assertThat(detailBody.at("/data/posterUrl").asText()).isNotBlank();
+            assertThat(detailBody.at("/data/coverUrl").asText()).isNotEqualTo(detailBody.at("/data/sourceUrl").asText());
+        } finally {
+            videoMediaProcessingProperties.setImageCoverThresholdBytes(originalThresholdBytes);
+        }
     }
 
     @Test
@@ -422,6 +728,66 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
     }
 
     @Test
+    void videoMediaProcessorRebuildsPreviewWhenExistingPreviewAssetIsNotDerivedPreview() throws Exception {
+        Assumptions.assumeTrue(isFfmpegReady(), "ffmpeg/ffprobe is required for media processing integration");
+
+        long originalThresholdBytes = videoMediaProcessingProperties.getCompressionThresholdBytes();
+        try {
+            videoMediaProcessingProperties.setCompressionThresholdBytes(1024L);
+
+            LoginSession session = loginAsRandomUser("media-worker-preview-fix");
+            Path sampleVideoPath = createSampleVideoFile();
+            UploadedAsset sourceAsset = uploadAsset(
+                    session,
+                    "/api/uploads/video-policy",
+                    "worker-preview-fix-source.mp4",
+                    "video/mp4",
+                    "source",
+                    Files.readAllBytes(sampleVideoPath)
+            );
+            SubmittedVideo submittedVideo = submitVideoDraft(session, sourceAsset.assetId(), "Integration worker preview fix");
+
+            jdbcTemplate.update("""
+                    update videos
+                    set preview_asset_id = source_asset_id,
+                        updated_at = now()
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedVideo.videoId())
+            );
+
+            int processedCount = videoMediaProcessingService.processAvailableTasks();
+            assertThat(processedCount).isEqualTo(1);
+
+            Map<String, Object> videoRow = jdbcTemplate.queryForMap("""
+                    select preview_asset_id, poster_asset_id
+                    from videos
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedVideo.videoId())
+            );
+
+            UUID previewAssetId = (UUID) videoRow.get("preview_asset_id");
+            assertThat(previewAssetId).isNotNull();
+            assertThat(previewAssetId.toString()).isNotEqualTo(sourceAsset.assetId());
+            assertThat(videoRow.get("poster_asset_id")).isNotNull();
+
+            Map<String, Object> previewAssetRow = jdbcTemplate.queryForMap("""
+                    select asset_kind, asset_role
+                    from media_assets
+                    where id = ?
+                    """,
+                    previewAssetId
+            );
+
+            assertThat(previewAssetRow.get("asset_kind")).isEqualTo("video");
+            assertThat(previewAssetRow.get("asset_role")).isEqualTo("preview");
+        } finally {
+            videoMediaProcessingProperties.setCompressionThresholdBytes(originalThresholdBytes);
+        }
+    }
+
+    @Test
     void videoPromptSubmitQueuesMediaTaskAndGeneratesDerivedAssets() throws Exception {
         Assumptions.assumeTrue(isFfmpegReady(), "ffmpeg/ffprobe is required for media processing integration");
 
@@ -521,6 +887,83 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
             assertThat(detailBody.at("/data/sourceUrl").asText()).contains(sourceAsset.assetId());
         } finally {
             videoMediaProcessingProperties.setCompressionThresholdBytes(originalThresholdBytes);
+        }
+    }
+
+    @Test
+    void videoPromptMediaProcessorSupportsLocalPublicSourceAssets() throws Exception {
+        Assumptions.assumeTrue(isFfmpegReady(), "ffmpeg/ffprobe is required for media processing integration");
+
+        long originalThresholdBytes = videoMediaProcessingProperties.getCompressionThresholdBytes();
+        Path webPublicVideoPath = null;
+        try {
+            videoMediaProcessingProperties.setCompressionThresholdBytes(1024L);
+
+            LoginSession session = loginAsRandomUser("prompt-local-public-worker");
+            Path sampleVideoPath = createSampleVideoFile();
+            String objectKey = "integration-media/local-public-" + UUID.randomUUID() + ".mp4";
+            webPublicVideoPath = resolveWebPublicAssetPath(objectKey);
+            Files.createDirectories(webPublicVideoPath.getParent());
+            Files.copy(sampleVideoPath, webPublicVideoPath, StandardCopyOption.REPLACE_EXISTING);
+
+            String sourceAssetId = createPublicMediaAsset(session.userId(), "video", objectKey, "video/mp4");
+            jdbcTemplate.update("""
+                    update media_assets
+                    set size_bytes = ?,
+                        updated_at = now()
+                    where id = ?
+                    """,
+                    Files.size(webPublicVideoPath),
+                    UUID.fromString(sourceAssetId)
+            );
+
+            SubmittedVideo submittedPrompt = submitVideoPromptDraft(
+                    session,
+                    sourceAssetId,
+                    "Prompt local public worker"
+            );
+
+            int processedCount = videoMediaProcessingService.processAvailableTasks();
+            assertThat(processedCount).isEqualTo(1);
+
+            UUID previewAssetId = jdbcTemplate.queryForObject("""
+                    select media_asset_id
+                    from prompt_example_links
+                    where prompt_id = ?
+                      and role_code = 'preview'
+                    order by sort_order asc, created_at asc
+                    limit 1
+                    """,
+                    UUID.class,
+                    UUID.fromString(submittedPrompt.videoId())
+            );
+
+            Map<String, Object> promptRow = jdbcTemplate.queryForMap("""
+                    select cover_asset_id
+                    from prompt_entries
+                    where id = ?
+                    """,
+                    UUID.fromString(submittedPrompt.videoId())
+            );
+
+            assertThat(promptRow.get("cover_asset_id")).isNotNull();
+            assertThat(previewAssetId).isNotNull();
+
+            MvcResult detailResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/prompts/{id}", submittedPrompt.videoId())
+                            .accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andReturn();
+
+            JsonNode detailBody = readBody(detailResult);
+            assertThat(detailBody.path("code").asText()).isEqualTo("OK");
+            assertThat(detailBody.at("/data/coverUrl").asText()).isNotBlank();
+            assertThat(detailBody.at("/data/previewUrl").asText()).contains(previewAssetId.toString());
+            assertThat(detailBody.at("/data/sourceUrl").asText()).contains(objectKey);
+        } finally {
+            videoMediaProcessingProperties.setCompressionThresholdBytes(originalThresholdBytes);
+            if (webPublicVideoPath != null) {
+                Files.deleteIfExists(webPublicVideoPath);
+            }
         }
     }
 
@@ -751,7 +1194,9 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        sourceAssetId
+                                        sourceAssetId,
+                                        List.of(),
+                                        List.of()
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isOk());
@@ -782,6 +1227,16 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
     }
 
     private SubmittedVideo submitVideoPromptDraft(LoginSession session, String sourceAssetId, String title) throws Exception {
+        return submitVideoPromptDraft(session, sourceAssetId, title, List.of(), List.of());
+    }
+
+    private SubmittedVideo submitVideoPromptDraft(
+            LoginSession session,
+            String sourceAssetId,
+            String title,
+            List<String> referenceImageAssetIds,
+            List<String> referenceAudioAssetIds
+    ) throws Exception {
         MvcResult createDraftResult = mockMvc.perform(authorized(
                         MockMvcRequestBuilders.post("/api/video-drafts")
                                 .accept(MediaType.APPLICATION_JSON),
@@ -816,7 +1271,9 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
                                         null,
                                         "public",
                                         null,
-                                        sourceAssetId
+                                        sourceAssetId,
+                                        referenceImageAssetIds,
+                                        referenceAudioAssetIds
                                 ))),
                         session.accessToken()))
                 .andExpect(status().isOk());
@@ -838,6 +1295,100 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
         assertThat(submitBody.at("/data/lifecycle/moderationStatus").asText()).isEqualTo("not_applicable");
         assertThat(submitBody.at("/data/lifecycle/processingStatus").asText()).isEqualTo("queued");
         assertThat(submitBody.at("/data/taskIds").size()).isEqualTo(1);
+
+        return new SubmittedVideo(
+                draftId,
+                submitBody.at("/data/videoId").asText(),
+                submitBody.at("/data/taskIds/0").asText()
+        );
+    }
+
+    private SubmittedVideo submitImagePromptDraft(LoginSession session, String sourceAssetId, String title) throws Exception {
+        return submitImagePromptDraft(session, sourceAssetId, title, null, List.of(), true);
+    }
+
+    private SubmittedVideo submitImagePromptDraft(
+            LoginSession session,
+            String sourceAssetId,
+            String title,
+            String coverAssetId
+    ) throws Exception {
+        return submitImagePromptDraft(session, sourceAssetId, title, coverAssetId, List.of(), true);
+    }
+
+    private SubmittedVideo submitImagePromptDraft(
+            LoginSession session,
+            String sourceAssetId,
+            String title,
+            String coverAssetId,
+            List<String> referenceImageAssetIds
+    ) throws Exception {
+        return submitImagePromptDraft(session, sourceAssetId, title, coverAssetId, referenceImageAssetIds, true);
+    }
+
+    private SubmittedVideo submitImagePromptDraft(
+            LoginSession session,
+            String sourceAssetId,
+            String title,
+            String coverAssetId,
+            List<String> referenceImageAssetIds,
+            boolean expectProcessingQueued
+    ) throws Exception {
+        MvcResult createDraftResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/video-drafts")
+                                .accept(MediaType.APPLICATION_JSON),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String draftId = readBody(createDraftResult).at("/data/draftId").asText();
+        assertThat(draftId).isNotBlank();
+
+        mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.put("/api/video-drafts/{id}", draftId)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(new VideoDraftPayload(
+                                        title,
+                                        "Integration prompt image summary",
+                                        "image_prompt",
+                                        "Integration prompt image text",
+                                        "集成测试图片提示词",
+                                        "Integration prompt image text",
+                                        "Integration prompt image raw text",
+                                        "GPT-Image-2",
+                                        "gpt-image-2",
+                                        "animation",
+                                        null,
+                                        "integration",
+                                        "integration-image-prompt",
+                                        "integration-image-prompt-001",
+                                        "https://integration.example/prompts/image-001",
+                                        null,
+                                        List.of("integration", "image-prompt"),
+                                        null,
+                                        "public",
+                                        coverAssetId,
+                                        sourceAssetId,
+                                        referenceImageAssetIds,
+                                        List.of()
+                                ))),
+                        session.accessToken()))
+                .andExpect(status().isOk());
+
+        MvcResult submitResult = mockMvc.perform(authorized(
+                        MockMvcRequestBuilders.post("/api/video-drafts/{id}/submit", draftId)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(new SubmitDraftPayload("publish"))),
+                        session.accessToken()))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        JsonNode submitBody = readBody(submitResult);
+        assertThat(submitBody.path("code").asText()).isEqualTo("OK");
+        if (expectProcessingQueued) {
+            assertThat(submitBody.at("/data/lifecycle/processingStatus").asText()).isEqualTo("queued");
+            assertThat(submitBody.at("/data/taskIds").size()).isEqualTo(1);
+        }
 
         return new SubmittedVideo(
                 draftId,
@@ -887,10 +1438,40 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
         return sampleVideo;
     }
 
+    private byte[] createSampleImageBytes() throws IOException {
+        BufferedImage image = new BufferedImage(640, 360, BufferedImage.TYPE_INT_RGB);
+        for (int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                int red = (x * 255) / Math.max(1, image.getWidth() - 1);
+                int green = (y * 255) / Math.max(1, image.getHeight() - 1);
+                int blue = (x + y) % 256;
+                image.setRGB(x, y, (red << 16) | (green << 8) | blue);
+            }
+        }
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        boolean written = ImageIO.write(image, "png", outputStream);
+        assertThat(written).isTrue();
+        return outputStream.toByteArray();
+    }
+
     private Path resolveAssetFilePath(String objectKey) {
         return mediaStorageProperties.resolvedLocalDirPath()
                 .resolve(Path.of(objectKey.replace('/', java.io.File.separatorChar)))
                 .normalize();
+    }
+
+    private Path resolveWebPublicAssetPath(String objectKey) {
+        Path cursor = Path.of("").toAbsolutePath().normalize();
+        while (cursor != null) {
+            Path publicRoot = cursor.resolve("apps").resolve("web").resolve("public").normalize();
+            if (Files.isDirectory(publicRoot)) {
+                return publicRoot.resolve(objectKey).normalize();
+            }
+            cursor = cursor.getParent();
+        }
+
+        throw new IllegalStateException("workspace web public root does not exist");
     }
 
     private record UploadPolicyPayload(
@@ -922,7 +1503,9 @@ class PublishPipelineIntegrationTest extends ApiIntegrationTestSupport {
             String workflowId,
             String visibility,
             String coverAssetId,
-            String sourceAssetId
+            String sourceAssetId,
+            List<String> referenceImageAssetIds,
+            List<String> referenceAudioAssetIds
     ) {
     }
 

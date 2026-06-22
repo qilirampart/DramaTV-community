@@ -25,7 +25,8 @@ public record AdminFeedOpsPageResponse(
             String description,
             int maxItems,
             List<String> allowedTargetTypes,
-            List<ContentItem> items
+            List<ContentItem> items,
+            List<ContentItem> fallbackItems
     ) {
     }
 

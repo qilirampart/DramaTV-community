@@ -1,13 +1,13 @@
 .page {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
   padding: 2px 2px 0;
 }
 
@@ -34,8 +34,8 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 24vw);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1.84fr) clamp(308px, 24vw, 348px);
+  gap: 12px;
   align-items: start;
 }
 
@@ -419,8 +419,10 @@
 }
 
 .rowSelected {
-  background: linear-gradient(90deg, rgba(66, 90, 143, 0.14) 0%, rgba(245, 248, 255, 0.96) 22%, #ffffff 100%);
-  box-shadow: inset 3px 0 0 #425a8f;
+  background: linear-gradient(90deg, rgba(53, 92, 168, 0.24) 0%, rgba(229, 237, 255, 0.96) 18%, rgba(248, 250, 255, 0.98) 100%);
+  box-shadow:
+    inset 4px 0 0 #355ca8,
+    inset 0 0 0 1px rgba(53, 92, 168, 0.12);
 }
 
 .rowSelected td {
@@ -577,16 +579,6 @@
   font-weight: 600;
 }
 
-.rowAssist {
-  color: var(--admin-muted);
-  font-size: 0.76rem;
-  font-weight: 600;
-}
-
-.rowSelected .rowAssist {
-  color: #425a8f;
-}
-
 .emptyState {
   display: grid;
   gap: 8px;
@@ -644,7 +636,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 16px 12px;
+  padding: 12px 14px 10px;
   border-bottom: 1px solid var(--admin-line);
 }
 
@@ -679,8 +671,8 @@
 .drawerBody {
   display: grid;
   gap: 14px;
-  max-height: calc(100vh - 176px);
-  padding: 14px 16px 12px;
+  max-height: calc(100vh - 164px);
+  padding: 12px 14px 10px;
   overflow: auto;
 }
 
@@ -732,6 +724,10 @@
   color: var(--admin-ink-soft);
   font-size: 0.84rem;
   line-height: 1.62;
+  max-height: 148px;
+  overflow: auto;
+  padding-right: 2px;
+  scrollbar-gutter: stable;
 }
 
 .targetCard strong {
@@ -751,6 +747,10 @@
 .logList {
   display: grid;
   gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 2px;
+  scrollbar-gutter: stable;
 }
 
 .threadItem {
@@ -761,6 +761,9 @@
   border-radius: 12px;
   background: #fbfcfe;
   position: relative;
+  max-height: 126px;
+  overflow: auto;
+  scrollbar-gutter: stable;
 }
 
 .threadItem::before {
@@ -791,10 +794,11 @@
   color: var(--admin-ink-soft);
   font-size: 0.8rem;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .logList {
-  padding: 2px 0 0 2px;
+  padding: 2px 4px 0 2px;
 }
 
 .logItem {
@@ -818,6 +822,13 @@
 
 .logBody strong {
   font-size: 0.78rem;
+}
+
+.logBody p {
+  max-height: 56px;
+  overflow: auto;
+  padding-right: 2px;
+  scrollbar-gutter: stable;
 }
 
 .noteBox {
@@ -934,13 +945,114 @@
   font-size: 0.76rem;
 }
 
-@media (max-width: 1520px) {
+@media (max-width: 1600px) {
   .layout {
-    grid-template-columns: minmax(0, 1.72fr) minmax(286px, 23vw);
+    grid-template-columns: minmax(0, 1.96fr) clamp(292px, 22vw, 332px);
+  }
+
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 118px;
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 158px;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 88px;
+  }
+
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    width: 144px;
+  }
+
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    width: 82px;
+  }
+
+  .table th:nth-child(6),
+  .table td:nth-child(6) {
+    width: 96px;
+  }
+
+  .table th:nth-child(7),
+  .table td:nth-child(7) {
+    width: 76px;
+  }
+
+  .table th:nth-child(8),
+  .table td:nth-child(8) {
+    width: 86px;
+  }
+
+  .table th:nth-child(9),
+  .table td:nth-child(9) {
+    width: 94px;
   }
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1440px) {
+  .layout {
+    grid-template-columns: minmax(0, 2.06fr) clamp(272px, 20.8vw, 308px);
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 104px;
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 138px;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 80px;
+  }
+
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    width: 128px;
+  }
+
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    width: 74px;
+  }
+
+  .table th:nth-child(6),
+  .table td:nth-child(6) {
+    width: 84px;
+  }
+
+  .table th:nth-child(7),
+  .table td:nth-child(7) {
+    width: 70px;
+  }
+
+  .table th:nth-child(8),
+  .table td:nth-child(8) {
+    width: 78px;
+  }
+
+  .table th:nth-child(9),
+  .table td:nth-child(9) {
+    width: 88px;
+  }
+}
+
+@media (max-width: 1260px) {
   .layout {
     grid-template-columns: 1fr;
   }

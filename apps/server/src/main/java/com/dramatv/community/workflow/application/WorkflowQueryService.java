@@ -28,4 +28,8 @@ public class WorkflowQueryService {
     public List<WorkflowSummaryResponse> summariesForAuthor(String creatorId) {
         return jdbcQueryService.workflowsForAuthor(creatorId);
     }
+
+    public List<WorkflowSummaryResponse> summariesForAuthor(String creatorId, int limit, int offset) {
+        return jdbcQueryService.workflowsForAuthor(creatorId, limit, offset);
+    }
 }

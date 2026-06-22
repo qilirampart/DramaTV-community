@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CommentThread } from "@/components/comments/CommentThread";
 import { ReportModal } from "@/components/report/ReportModal";
@@ -21,6 +21,7 @@ import {
 } from "@/features/community-interactions/actions";
 import type { WorkflowDetailPageView } from "@/lib/contracts/view-models";
 import { normalizeAssetUrl, normalizeText } from "@/lib/presentation";
+import { buildCurrentRoute } from "@/lib/routes/back-anchor";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
 import styles from "./WorkflowDetailPage.module.css";
 
@@ -233,7 +234,9 @@ function buildWorkflowArchiveText(
 }
 
 export function WorkflowDetailPage({ view, backHref = "/featured" }: WorkflowDetailPageProps) {
+  const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
@@ -256,7 +259,8 @@ export function WorkflowDetailPage({ view, backHref = "/featured" }: WorkflowDet
   const authorId = normalizeText(currentView.author.id);
   const authorName = normalizeText(currentView.author.displayName) ?? "DramaTV Creator";
   const authorAvatarUrl = normalizeAssetUrl(currentView.author.avatarUrl);
-  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, backHref) : undefined;
+  const currentRoute = buildCurrentRoute(pathname, searchParams);
+  const authorHref = authorId ? appendBackSource(`/creators/${authorId}`, currentRoute) : undefined;
   const openUrl = normalizeText(currentView.canvasBinding?.openUrl);
   const summary =
     normalizeText(currentView.summary) ?? "这个工作流详情页会承接方法说明、画布入口和复制链路。";
@@ -825,7 +829,7 @@ export function WorkflowDetailPage({ view, backHref = "/featured" }: WorkflowDet
                     return (
                       <Link
                         className={styles.recommendCard}
-                        href={appendBackSource(`/videos/${video.id}`, backHref)}
+                        href={appendBackSource(`/videos/${video.id}`, currentRoute)}
                         key={video.id}
                       >
                         <span

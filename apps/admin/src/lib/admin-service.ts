@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import type { FeedOpsPageData } from "@/app/(dashboard)/feed-ops/shared/feed-ops-types";
+import type { FeedOpsCandidateListData, FeedOpsPageData } from "@/app/(dashboard)/feed-ops/shared/feed-ops-types";
 import {
   ADMIN_ACCESS_TOKEN_COOKIE,
   ADMIN_ROLE_LABELS,
@@ -276,6 +276,7 @@ type BackendAdminResourceListResponse = {
     channelTitle?: string | null;
     bindingTargetType?: string | null;
     bindingTargetId?: string | null;
+    promptModality?: string | null;
     media: {
       coverUrl?: string | null;
       posterUrl?: string | null;
@@ -306,6 +307,7 @@ type BackendAdminResourceDetailResponse = {
   channelTitle?: string | null;
   bindingTargetType?: string | null;
   bindingTargetId?: string | null;
+  promptModality?: string | null;
   media: {
     coverUrl?: string | null;
     posterUrl?: string | null;
@@ -399,8 +401,9 @@ type BackendAdminTaxonomyResponse = {
     needsAttentionPrompts: number;
     imageModelCategories: number;
     videoModelCategories: number;
-    contentCategories: number;
-    compositionCategories: number;
+    imageContentCategories: number;
+    videoContentCategories: number;
+    videoModelUsageCategories: number;
   };
   sections: Array<{
     key: string;
@@ -436,6 +439,14 @@ type BackendAdminTaxonomyPromptListResponse = {
     imageItems: number;
     videoItems: number;
   };
+  pagination: {
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+    hasPrevious: boolean;
+    hasNext: boolean;
+  };
   items: Array<{
     promptId: string;
     title: string;
@@ -456,11 +467,26 @@ type BackendAdminTaxonomyBulkApplyResponse = {
   updatedCount: number;
   modelCategory: string;
   contentCategory: string;
-  compositionCategory: string;
+  compositionCategory?: string;
+  modelUsageCategory?: string;
+  promptIds: string[];
+};
+
+type BackendAdminTaxonomyCategoryDeleteResponse = {
+  sectionKey: string;
+  categoryValue: string;
+  deleted: boolean;
+};
+
+type BackendAdminTaxonomyPromptRebindResponse = {
+  sectionKey: string;
+  categoryValue: string;
+  updatedCount: number;
   promptIds: string[];
 };
 
 type BackendAdminFeedOpsPageResponse = FeedOpsPageData;
+type BackendAdminFeedOpsCandidateListResponse = FeedOpsCandidateListData;
 
 type BackendAdminMediaTaskListResponse = {
   summary: {
@@ -692,7 +718,10 @@ export type AdminTaxonomyData = BackendAdminTaxonomyResponse;
 export type AdminTaxonomyItemData = BackendAdminTaxonomyResponse["sections"][number]["items"][number];
 export type AdminTaxonomyPromptListData = BackendAdminTaxonomyPromptListResponse;
 export type AdminTaxonomyBulkApplyData = BackendAdminTaxonomyBulkApplyResponse;
+export type AdminTaxonomyCategoryDeleteData = BackendAdminTaxonomyCategoryDeleteResponse;
+export type AdminTaxonomyPromptRebindData = BackendAdminTaxonomyPromptRebindResponse;
 export type AdminFeedOpsPageData = FeedOpsPageData;
+export type AdminFeedOpsCandidateListData = FeedOpsCandidateListData;
 export type AdminMediaTaskListData = BackendAdminMediaTaskListResponse;
 export type AdminMediaTaskDetailData = BackendAdminMediaTaskDetailResponse;
 export type AdminAuditLogListData = BackendAdminAuditLogListResponse;
@@ -794,6 +823,9 @@ type AdminTaxonomyPromptListQuery = {
   modelCategory?: string;
   contentCategory?: string;
   compositionCategory?: string;
+  modelUsageCategory?: string;
+  page?: number;
+  pageSize?: number;
 };
 
 type AdminTaxonomyBulkApplyInput = {
@@ -802,6 +834,18 @@ type AdminTaxonomyBulkApplyInput = {
   modelCategory?: string;
   contentCategory?: string;
   compositionCategory?: string;
+  modelUsageCategory?: string;
+};
+
+type AdminTaxonomyCreateInput = {
+  sectionKey: string;
+  categoryValue: string;
+};
+
+type AdminTaxonomyPromptRebindInput = {
+  sectionKey: string;
+  categoryValue: string;
+  promptIds: string[];
 };
 
 type AdminFeedOpsPageUpdateInput = {
@@ -1451,6 +1495,19 @@ export async function listAdminTaxonomyPrompts(query?: AdminTaxonomyPromptListQu
     searchParams.set("compositionCategory", normalizedCompositionCategory);
   }
 
+  const normalizedModelUsageCategory = query?.modelUsageCategory?.trim();
+  if (normalizedModelUsageCategory) {
+    searchParams.set("compositionCategory", normalizedModelUsageCategory);
+  }
+
+  if (typeof query?.page === "number" && Number.isFinite(query.page) && query.page > 0) {
+    searchParams.set("page", String(Math.floor(query.page)));
+  }
+
+  if (typeof query?.pageSize === "number" && Number.isFinite(query.pageSize) && query.pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(query.pageSize)));
+  }
+
   const path = searchParams.size > 0 ? `/api/admin/taxonomy/prompts?${searchParams.toString()}` : "/api/admin/taxonomy/prompts";
   const backend = await requestAdminBackend<BackendAdminTaxonomyPromptListResponse>(path);
   if (!backend) {
@@ -1469,7 +1526,8 @@ export async function bulkApplyAdminTaxonomy(input: AdminTaxonomyBulkApplyInput)
       promptIds: input.promptIds,
       modelCategory: input.modelCategory?.trim() || undefined,
       contentCategory: input.contentCategory?.trim() || undefined,
-      compositionCategory: input.compositionCategory?.trim() || undefined
+      compositionCategory: input.compositionCategory?.trim() || undefined,
+      modelUsageCategory: input.modelUsageCategory?.trim() || undefined
     })
   });
   if (!backend) {
@@ -1479,10 +1537,97 @@ export async function bulkApplyAdminTaxonomy(input: AdminTaxonomyBulkApplyInput)
   return ok(backend.data, backend.requestId);
 }
 
+export async function createAdminTaxonomyCategory(input: AdminTaxonomyCreateInput) {
+  const path = "/api/admin/taxonomy/categories";
+  const backend = await requestAdminBackend<AdminTaxonomyItemData>(path, {
+    method: "POST",
+    body: JSON.stringify({
+      sectionKey: input.sectionKey,
+      categoryValue: input.categoryValue.trim()
+    })
+  });
+  if (!backend) {
+    throw new AdminBackendError("Admin taxonomy create response is empty.", path);
+  }
+
+  return ok(backend.data, backend.requestId);
+}
+
+export async function deleteAdminTaxonomyCategory(sectionKey: string, categoryValue: string) {
+  const path = `/api/admin/taxonomy/categories/${encodeURIComponent(sectionKey)}/${encodeURIComponent(categoryValue)}`;
+  const backend = await requestAdminBackend<BackendAdminTaxonomyCategoryDeleteResponse>(path, {
+    method: "DELETE"
+  });
+  if (!backend) {
+    throw new AdminBackendError("Admin taxonomy delete response is empty.", path);
+  }
+
+  return ok(backend.data, backend.requestId);
+}
+
+export async function rebindAdminTaxonomyPrompts(input: AdminTaxonomyPromptRebindInput) {
+  const path = "/api/admin/taxonomy/prompts/rebind";
+  const backend = await requestAdminBackend<BackendAdminTaxonomyPromptRebindResponse>(path, {
+    method: "POST",
+    body: JSON.stringify({
+      sectionKey: input.sectionKey,
+      categoryValue: input.categoryValue,
+      promptIds: input.promptIds
+    })
+  });
+  if (!backend) {
+    throw new AdminBackendError("Admin taxonomy rebind response is empty.", path);
+  }
+
+  return ok(backend.data, backend.requestId);
+}
+
 async function getAdminFeedOpsPage(path: string) {
   const backend = await requestAdminBackend<BackendAdminFeedOpsPageResponse>(path);
   if (!backend) {
     throw new AdminBackendError("Admin feed ops page response is empty.", path);
+  }
+
+  return ok(backend.data, backend.requestId);
+}
+
+async function listAdminFeedOpsCandidates(
+  path: string,
+  query: {
+    slotKey: string;
+    q?: string;
+    promptFilter?: "all" | "image" | "video";
+    page?: number;
+    pageSize?: number;
+  }
+) {
+  const searchParams = new URLSearchParams();
+  searchParams.set("slotKey", query.slotKey);
+
+  const normalizedQuery = query.q?.trim();
+  if (normalizedQuery) {
+    searchParams.set("q", normalizedQuery);
+  }
+
+  const normalizedPromptFilter = query.promptFilter?.trim();
+  if (normalizedPromptFilter && normalizedPromptFilter !== "all") {
+    searchParams.set("promptFilter", normalizedPromptFilter);
+  } else if (normalizedPromptFilter === "all") {
+    searchParams.set("promptFilter", normalizedPromptFilter);
+  }
+
+  if (typeof query.page === "number" && Number.isFinite(query.page) && query.page > 0) {
+    searchParams.set("page", String(Math.floor(query.page)));
+  }
+
+  if (typeof query.pageSize === "number" && Number.isFinite(query.pageSize) && query.pageSize > 0) {
+    searchParams.set("pageSize", String(Math.floor(query.pageSize)));
+  }
+
+  const requestPath = `${path}?${searchParams.toString()}`;
+  const backend = await requestAdminBackend<BackendAdminFeedOpsCandidateListResponse>(requestPath);
+  if (!backend) {
+    throw new AdminBackendError("Admin feed ops candidate response is empty.", requestPath);
   }
 
   return ok(backend.data, backend.requestId);
@@ -1507,20 +1652,73 @@ export async function getAdminFeedOpsHome() {
   return getAdminFeedOpsPage("/api/admin/feed-ops/home");
 }
 
+export async function listAdminFeedOpsHomeCandidates(query: {
+  slotKey: string;
+  q?: string;
+  promptFilter?: "all" | "image" | "video";
+  page?: number;
+  pageSize?: number;
+}) {
+  return listAdminFeedOpsCandidates("/api/admin/feed-ops/home/candidates", query);
+}
+
 export async function updateAdminFeedOpsHome(input: AdminFeedOpsPageUpdateInput) {
   return updateAdminFeedOpsPage("/api/admin/feed-ops/home", input);
 }
 
-export async function getAdminFeedOpsFeatured() {
-  return getAdminFeedOpsPage("/api/admin/feed-ops/featured");
+export async function getAdminFeedOpsFeatured(sort: "latest" | "hot" = "latest") {
+  const path = sort === "hot" ? "/api/admin/feed-ops/featured?sort=hot" : "/api/admin/feed-ops/featured";
+  return getAdminFeedOpsPage(path);
 }
 
-export async function updateAdminFeedOpsFeatured(input: AdminFeedOpsPageUpdateInput) {
-  return updateAdminFeedOpsPage("/api/admin/feed-ops/featured", input);
+export async function listAdminFeedOpsFeaturedCandidates(query: {
+  slotKey: string;
+  q?: string;
+  promptFilter?: "all" | "image" | "video";
+  page?: number;
+  pageSize?: number;
+}) {
+  return listAdminFeedOpsCandidates("/api/admin/feed-ops/featured/candidates", query);
+}
+
+export async function updateAdminFeedOpsFeatured(
+  input: AdminFeedOpsPageUpdateInput,
+  sort: "latest" | "hot" = "latest"
+) {
+  const path = sort === "hot" ? "/api/admin/feed-ops/featured?sort=hot" : "/api/admin/feed-ops/featured";
+  return updateAdminFeedOpsPage(path, input);
+}
+
+export async function getAdminFeedOpsLanding() {
+  return getAdminFeedOpsPage("/api/admin/feed-ops/landing");
+}
+
+export async function listAdminFeedOpsLandingCandidates(query: {
+  slotKey: string;
+  q?: string;
+  promptFilter?: "all" | "image" | "video";
+  page?: number;
+  pageSize?: number;
+}) {
+  return listAdminFeedOpsCandidates("/api/admin/feed-ops/landing/candidates", query);
+}
+
+export async function updateAdminFeedOpsLanding(input: AdminFeedOpsPageUpdateInput) {
+  return updateAdminFeedOpsPage("/api/admin/feed-ops/landing", input);
 }
 
 export async function getAdminFeedOpsDiscussions() {
   return getAdminFeedOpsPage("/api/admin/feed-ops/discussions");
+}
+
+export async function listAdminFeedOpsDiscussionCandidates(query: {
+  slotKey: string;
+  q?: string;
+  promptFilter?: "all" | "image" | "video";
+  page?: number;
+  pageSize?: number;
+}) {
+  return listAdminFeedOpsCandidates("/api/admin/feed-ops/discussions/candidates", query);
 }
 
 export async function updateAdminFeedOpsDiscussions(input: AdminFeedOpsPageUpdateInput) {

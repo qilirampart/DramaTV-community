@@ -104,7 +104,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.72fr) minmax(288px, 22vw);
+  grid-template-columns: minmax(0, 1.72fr) minmax(320px, 24vw);
   gap: 14px;
   align-items: start;
 }
@@ -347,8 +347,10 @@
 }
 
 .rowSelected {
-  background: linear-gradient(90deg, rgba(215, 151, 53, 0.16) 0%, rgba(255, 247, 232, 0.92) 18%, #fffdf8 100%);
-  box-shadow: inset 3px 0 0 #d79735;
+  background: linear-gradient(90deg, rgba(53, 92, 168, 0.24) 0%, rgba(229, 237, 255, 0.96) 18%, rgba(248, 250, 255, 0.98) 100%);
+  box-shadow:
+    inset 4px 0 0 #355ca8,
+    inset 0 0 0 1px rgba(53, 92, 168, 0.12);
 }
 
 .rowSelected td {
@@ -633,6 +635,14 @@
   overflow-wrap: anywhere;
 }
 
+.detailTextBox {
+  display: block;
+  max-height: 88px;
+  overflow: auto;
+  padding-right: 2px;
+  scrollbar-gutter: stable;
+}
+
 .detailFull {
   align-items: start;
 }
@@ -705,6 +715,15 @@
   color: var(--admin-ink);
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.statValueClamp {
+  display: -webkit-box;
+  min-height: calc(1.45em * 2);
+  overflow: hidden;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .governanceForm,
@@ -872,6 +891,11 @@
 
 .recentTitle {
   line-height: 1.5;
+  display: -webkit-box;
+  min-height: 3em;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .recentPreviewFrame {
@@ -974,7 +998,7 @@
 
 @media (max-width: 1440px) {
   .layout {
-    grid-template-columns: minmax(0, 1.88fr) minmax(276px, 21vw);
+    grid-template-columns: minmax(0, 1.88fr) minmax(304px, 23vw);
   }
 }
 

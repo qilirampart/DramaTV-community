@@ -3,7 +3,7 @@ param(
   [string]$RemoteBaseDir = "/opt/dramatv-community-server",
   [string]$ServiceName = "dramatv-community-server",
   [int]$ServerPort = 18080,
-  [string]$PublicBaseUrl = "http://8.141.20.130",
+  [string]$PublicBaseUrl = "http://community.8.141.20.130.nip.io",
   [string]$DbPortOverride = "",
   [string]$ReleaseLabel = "",
   [string]$ReleaseNotes = "",
@@ -221,7 +221,7 @@ if ($bucketLineIndex -lt 0) {
 }
 $bucketName = Get-LineValue -Line $lines[$bucketLineIndex]
 $bucketDomain = Get-RequiredMatch -InputText $resource -Pattern "([A-Za-z0-9.-]+\.oss-cn-beijing-internal\.aliyuncs\.com)" -Label "bucket domain"
-$normalizedPublicBaseUrl = $PublicBaseUrl.TrimEnd("/")
+$normalizedPublicBaseUrl = Assert-RootPublicBaseUrl -Url $PublicBaseUrl -Label "PublicBaseUrl"
 
 if ($VerifyBeforeDeploy) {
   Invoke-LocalCommand -Executable $npm -Arguments @("run", "deploy:verify:pre") -Label "deploy:verify:pre"

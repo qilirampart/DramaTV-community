@@ -49,7 +49,7 @@ public class ReportApplicationService {
     @Transactional
     public ReportResponse createReport(CreateReportRequest request) {
         CurrentUser currentUser = currentUserService.requireCurrentUser();
-        actionRateLimiter.checkReport(currentUser.id());
+        actionRateLimiter.checkReport(currentUser.id(), currentUser.roleCode());
         String targetType = normalizeTargetType(request.targetType());
         UUID targetId = parseUuid(request.targetId());
         String reasonCode = normalizeReasonCode(request.reasonCode());

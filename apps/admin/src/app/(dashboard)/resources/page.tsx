@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminAccess } from "@/lib/admin-auth";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   AdminBackendError,
   getAdminResource,
@@ -54,6 +55,7 @@ type ResourceRow = {
   channelTitle: string | null;
   bindingTargetType: string | null;
   bindingTargetId: string | null;
+  promptModality: string | null;
   media: MediaAsset;
   modelTags: readonly string[];
 };
@@ -80,6 +82,7 @@ type DetailItem = {
   channelTitle: string | null;
   bindingTargetType: string | null;
   bindingTargetId: string | null;
+  promptModality: string | null;
   media: MediaAsset;
   modelTags: readonly string[];
   riskItems: readonly {
@@ -176,11 +179,11 @@ function rowKey(targetType: string, targetId: string) {
   return `${targetType}:${targetId}`;
 }
 
-function promptTypeLabel(media?: Partial<MediaAsset> | null): ContentType {
-  return media?.previewUrl?.trim() || media?.sourceUrl?.trim() ? "视频提示词" : "图片提示词";
+function promptTypeLabel(promptModality?: string | null): ContentType {
+  return promptModality === "video" ? "视频提示词" : "图片提示词";
 }
 
-function typeLabel(item: { targetType: string; media?: Partial<MediaAsset> | null }): ContentType {
+function typeLabel(item: { targetType: string; promptModality?: string | null }): ContentType {
   if (item.targetType === "workflow") {
     return "工作流";
   }
@@ -190,7 +193,7 @@ function typeLabel(item: { targetType: string; media?: Partial<MediaAsset> | nul
   if (item.targetType === "video") {
     return "视频作品";
   }
-  return promptTypeLabel(item.media);
+  return promptTypeLabel(item.promptModality);
 }
 
 function previewTone(type: ContentType): ResourceRow["previewTone"] {
@@ -263,7 +266,7 @@ function riskMeta(level?: string | null) {
 
 function mapRow(item: AdminResourceListData["items"][number]): ResourceRow {
   const media = normalizeMedia(item.media);
-  const type = typeLabel({ targetType: item.targetType, media });
+  const type = typeLabel({ targetType: item.targetType, promptModality: item.promptModality });
   const status = governanceMeta(item.governanceStatusCode);
   const risk = riskMeta(item.riskLevel);
 
@@ -289,6 +292,7 @@ function mapRow(item: AdminResourceListData["items"][number]): ResourceRow {
     channelTitle: item.channelTitle ?? null,
     bindingTargetType: item.bindingTargetType ?? null,
     bindingTargetId: item.bindingTargetId ?? null,
+    promptModality: item.promptModality ?? null,
     media,
     modelTags: item.modelTags
   };
@@ -296,7 +300,7 @@ function mapRow(item: AdminResourceListData["items"][number]): ResourceRow {
 
 function mapDetail(item: AdminResourceDetailData): DetailItem {
   const media = normalizeMedia(item.media);
-  const type = typeLabel({ targetType: item.targetType, media });
+  const type = typeLabel({ targetType: item.targetType, promptModality: item.promptModality });
   const status = governanceMeta(item.governanceStatusCode);
   const risk = riskMeta(item.riskLevel);
 
@@ -322,6 +326,7 @@ function mapDetail(item: AdminResourceDetailData): DetailItem {
     channelTitle: item.channelTitle ?? null,
     bindingTargetType: item.bindingTargetType ?? null,
     bindingTargetId: item.bindingTargetId ?? null,
+    promptModality: item.promptModality ?? null,
     media,
     modelTags: item.modelTags,
     riskItems: item.riskSignals.map((signal) => ({
@@ -355,6 +360,7 @@ function buildSummaryDetail(row: ResourceRow): DetailItem {
     channelTitle: row.channelTitle,
     bindingTargetType: row.bindingTargetType,
     bindingTargetId: row.bindingTargetId,
+    promptModality: row.promptModality,
     media: normalizeMedia(row.media),
     modelTags: row.modelTags,
     riskItems: [
@@ -759,7 +765,7 @@ export default async function ResourcesPage({
           </section>
 
           <section className={styles.filterCard}>
-            <form action="/resources" className={styles.filterForm} method="get">
+            <form action={buildAdminBrowserPath("/resources")} className={styles.filterForm} method="get">
               <input name="page" type="hidden" value="1" />
 
               <div className={styles.filterGrid}>
@@ -841,7 +847,6 @@ export default async function ResourcesPage({
                           <th>治理状态</th>
                           <th>风险提示</th>
                           <th>处理人</th>
-                          <th>操作入口</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -901,9 +906,6 @@ export default async function ResourcesPage({
                                 <span className={`${styles.riskPill} ${RiskToneClass(row.riskTone)}`}>{row.risk}</span>
                               </td>
                               <td>{row.reviewer}</td>
-                              <td>
-                                <span className={styles.rowAssist}>{isSelected ? "当前查看中" : "点击行查看"}</span>
-                              </td>
                             </tr>
                           );
                         })}

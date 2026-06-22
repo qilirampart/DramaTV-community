@@ -3,8 +3,9 @@ param(
   [string]$ResourceFile = "",
   [string]$RemoteBaseDir = "/opt/dramatv-community-admin",
   [string]$ServiceName = "dramatv-community-admin",
-  [string]$AdminPublicBaseUrl = "http://8.141.20.130:3206",
-  [string]$CommunityPublicBaseUrl = "http://8.141.20.130",
+  [string]$AdminPublicBaseUrl = "http://community.8.141.20.130.nip.io/admin",
+  [string]$CommunityPublicBaseUrl = "http://community.8.141.20.130.nip.io",
+  [string]$AdminBasePath = "/admin",
   [switch]$VerifyAfterRollback,
   [switch]$SkipStart
 )
@@ -35,8 +36,13 @@ Require-File -Path $helperPath -Label "release helper"
 . $helperPath
 
 $connection = Get-TestEnvConnectionInfo -Workspace $workspace -ResourceFile $ResourceFile
-$normalizedAdminPublicBaseUrl = $AdminPublicBaseUrl.TrimEnd("/")
-$normalizedCommunityPublicBaseUrl = $CommunityPublicBaseUrl.TrimEnd("/")
+$validatedPublicBaseUrls = Assert-AdminPublicBaseUrls `
+  -CommunityPublicBaseUrl $CommunityPublicBaseUrl `
+  -AdminPublicBaseUrl $AdminPublicBaseUrl `
+  -AdminBasePath $AdminBasePath
+$normalizedAdminPublicBaseUrl = $validatedPublicBaseUrls.AdminPublicBaseUrl
+$normalizedCommunityPublicBaseUrl = $validatedPublicBaseUrls.CommunityPublicBaseUrl
+$normalizedAdminBasePath = $validatedPublicBaseUrls.AdminBasePath
 $remoteReleaseDir = "$RemoteBaseDir/releases/$ReleaseName"
 $skipStartFlag = if ($SkipStart) { "1" } else { "0" }
 
@@ -73,7 +79,7 @@ Invoke-TestEnvRemote -PlinkPath $plink -HostKey $hostKey -ConnectionInfo $connec
 if ($VerifyAfterRollback) {
   $verifyOutput = Join-Path $workspace "artifacts\runtime-readiness\test\admin-rollback-$ReleaseName-summary.json"
   $verifyScript = Join-Path $workspace "scripts\smoke-admin-routes.mjs"
-  & $node $verifyScript --base-url $normalizedAdminPublicBaseUrl --backend-base-url $normalizedCommunityPublicBaseUrl --output $verifyOutput
+  & $node $verifyScript --base-url $normalizedAdminPublicBaseUrl --base-path $normalizedAdminBasePath --backend-base-url $normalizedCommunityPublicBaseUrl --output $verifyOutput
   if ($LASTEXITCODE -ne 0) {
     throw "Admin rollback smoke verification failed with exit code $LASTEXITCODE"
   }

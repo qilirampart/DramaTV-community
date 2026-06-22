@@ -217,20 +217,40 @@
   - 后端 `prompt_entries` 分类字段
 - 当前真实口径：
   - 分类不再只靠前端猜测
-  - 后端已正式提供：
+  - 后端正式字段仍是：
     - `model_category`
     - `content_category`
     - `composition_category`
+  - 但当前业务语义已经明确拆分为两套：
+    - `图片提示词`：只使用 `模型分类 + 内容分类`
+    - `视频提示词`：使用 `模型分类 + 内容分类 + 视频模型使用方式`
+  - 当前 `composition_category` 不再按“构图分类”理解：
+    - 它只作为 `视频模型使用方式` 的兼容承载字段
+    - 当前允许值仍为 `single-model / multi-model`
+  - 后台 taxonomy 页当前应固定为 5 个治理板块：
+    - `image-model`
+    - `video-model`
+    - `image-content-category`
+    - `video-content-category`
+    - `video-model-usage`
+  - 完整度判定口径：
+    - `image prompt` 只要求 `model_category + content_category`
+    - `video prompt` 要求 `model_category + content_category + composition_category`
 - 前台状态：
   - 已优先消费后端 taxonomy 字段
+  - 发布页图片提示词不再展示/要求第三维
 - 后台状态：
   - 已有最小真实管理闭环
+  - taxonomy 治理页必须按图片/视频分开显示内容分类，不再把两端内容分类混为同一组
+  - taxonomy 候选池里，图片提示词不再显示“缺少第三维就是待补齐”
 - 验证状态：
-  - 已有接口与页面联动基础验证
+  - 当前正在补齐接口、页面、草稿持久化与集成测试的一致性回归
 - 当前风险：
-  - 后台如果改分类 key 或默认值，前台筛选和资源归类会直接受影响
+  - 后台如果继续沿用旧的 `content-category / composition-category / 构图分类` 口径，前台筛选、发布和资源归类会直接错位
+  - 历史 image prompt 草稿/标签如果带着 `single-model / multi-model`，会把视频侧 taxonomy 污染回图片侧
 - 维护要求：
-  - 新增模型类、题材类、组合类时，必须先在这里补口径，再改前台和后台
+  - 新增 taxonomy 维度或分类值时，必须先明确是 `图片专属 / 视频专属 / 共享`
+  - 任何涉及 taxonomy 的改动，都先更新这份共享台账，再分别改前台、后台、后端
 
 ### S5 feed-ops 运营编排
 
@@ -238,9 +258,11 @@
   - 后台：
     - `feed-ops/home`
     - `feed-ops/featured`
+    - `feed-ops/landing`
     - `feed-ops/discussions`
   - 前台：
     - `/home`
+    - `/`
     - `/featured`
     - `/discussions`
 - 当前真实口径：
@@ -251,13 +273,14 @@
   - 前台已对接真实接口
 - 后台状态：
   - 后台管理页已具备最小真实闭环
-  - `home / featured / discussions` 三页都已补显式保存成功反馈，不再只靠静默跳转
-- 验证状态：
-  - `home / featured / discussions` 的发布生效与 draft 隔离已有后端回归
+  - `home / featured / landing / discussions` 四页都已补显式保存成功反馈，不再只靠静默跳转
+  - 验证状态：
+  - `home / featured / landing / discussions` 的发布生效与 draft 隔离已有后端回归
   - 已补当前本地 runtime 真验收：
     - `discussions`：后台发布后，`/api/admin/feed-ops/discussions`、`/api/discussions/home`、前台 `/discussions` 左侧频道顺序一致
-    - `home`：后台发布后，`/api/admin/feed-ops/home` 与公共 `/api/feed/home` 的 9 个首页槽位顺序一致，前台 `/home` 首屏分区随之变化
+    - `home`：后台发布后，`/api/admin/feed-ops/home` 与公共 `/api/feed/home` 的 8 个首页槽位顺序一致，前台 `/home` 首屏分区随之变化
     - `featured`：后台发布后，`/api/admin/feed-ops/featured` 与公共 `/api/feed/featured` 的首项顺序一致，前台 `/featured` 默认首卡随之变化
+    - `landing`：后台发布后，`/api/admin/feed-ops/landing` 与公共 `/api/feed/landing` 的 `landing-archive-grid` 顺序一致，前台根首页 `/` 的“精选档案”12 卡随之变化
 - 当前风险：
   - 后台若只改 slot 结构、不同步前台数据契约，前台会出现“有配置但渲染错位”
   - 后续如果调整页面槽位定义，必须先更新这份台账，再分别改 `apps/admin / apps/web / apps/server`
@@ -349,6 +372,7 @@
 - `/taxonomy`
 - `/feed-ops/home`
 - `/feed-ops/featured`
+- `/feed-ops/landing`
 - `/feed-ops/discussions`
 - `/media-tasks`
 - `/audit-logs`
@@ -386,7 +410,12 @@
 - `/api/admin/taxonomy`
   - 获取、更新、prompt 列表、bulk apply
 - `/api/admin/feed-ops`
-  - `home / featured / discussions` 的读取与更新
+  - `home / featured / landing / discussions` 的读取与更新
+  - `home / featured / landing / discussions` 的候选池分页读取：
+    - `/api/admin/feed-ops/home/candidates`
+    - `/api/admin/feed-ops/featured/candidates`
+    - `/api/admin/feed-ops/landing/candidates`
+    - `/api/admin/feed-ops/discussions/candidates`
 - `/api/admin/media-tasks`
   - 列表、详情、重试
 - `/api/admin/audit-logs`
@@ -409,9 +438,10 @@
   - `model_category`
   - `content_category`
   - `composition_category`
-- feed-ops 三页配置面：
+- feed-ops 四页配置面：
   - `home`
   - `featured`
+  - `landing`
   - `discussions`
 - 媒体任务重试链路：
   - 已有任务列表、详情、retry
@@ -905,13 +935,38 @@
 
 - `home-hero`
 - `recommended-primary`
-- `recommended-secondary`
 - `canvas`
 - `commercial`
 - `animation`
 - `narrative`
 - `mv`
 - `creative`
+
+2026-05-22 补充口径：
+
+- 首页只保留一组 `为你推荐`，当前前后台共享 slot key 只认 `recommended-primary`
+- 历史 `recommended-secondary` 仍可能留在数据库旧配置中，但从现在开始前台 `/home`、后台 `/feed-ops/home`、公共 `/api/feed/home` 都不再消费这组 legacy 配置
+- 如果后续要清理这批历史配置，应视为数据治理动作，不要再把它恢复成真实首页结构的一部分
+
+2026-05-22 cloud sync note:
+
+- This shared home-feed contract change has been deployed to test cloud.
+- Active releases:
+  - backend: `/opt/dramatv-community-server/releases/20260522-201207`
+  - web: `/opt/dramatv-community-web/releases/20260522-201251`
+  - admin: `/opt/dramatv-community-admin/releases/20260522-201500`
+- Public verification result:
+  - `http://8.141.20.130/api/feed/home` now returns only:
+    - `home-hero`
+    - `recommended-primary`
+    - `canvas`
+    - `commercial`
+    - `animation`
+    - `narrative`
+    - `mv`
+    - `creative`
+  - Public `/home` after login shows only one `为你推荐` section.
+  - Public admin `:3206/feed-ops/home` is aligned to the same single-slot contract.
 
 精选页 pinned order 当前真实消费的 slot key：
 
@@ -952,6 +1007,57 @@
   - `coverUrl / posterUrl / previewUrl / sourceUrl`
 - 后端如果改媒体策略，不能把这几个字段重新混成一个 `url`
 - slot key 改名、删除、换语义，会直接导致首页/精选页整块内容错位或回退到兜底数据
+
+### 2026-05-26 `/featured` 统一切到 shared `featured-inventory` 分页口径
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：直接影响。`/featured` 的首屏 SSR、hydration、分类切换、排序、搜索、二级 facet、`查看更多` 现在统一消费同一套分页库存接口。
+  - 管理后台：间接影响。后台 `feed-ops/featured` 仍只负责 pinned slot 顺序，不再承担 `/featured` 各 tab 真库存来源。
+  - 后端：直接影响。共享读口径新增并正式启用 `GET /api/feed/featured-inventory`。
+- 当前真实口径：
+  - `/featured` 不再采用“SSR 用 `homeFeed + hotWorkflows`，客户端再补拉 prompt inventory”的双源模式。
+  - 当前单一事实源为：
+    - `GET /api/feed/featured-inventory`
+  - 支持查询参数：
+    - `filter=all|workflow|video_prompt|image_prompt|activity`
+    - `sort=latest|hot`
+    - `q`
+    - `modelCategory`
+    - `contentCategory`
+    - `workflowType=copyable|placeholder`
+    - `limit`
+    - `cursor`
+  - 当前 `/featured` 五个 tab 的真实库存来源已统一为：
+    - `全部`
+    - `工作流`
+    - `视频提示词`
+    - `图片提示词`
+    - `活动`
+  - `工作流` 不再继续依赖 `homeFeed.sections.hotWorkflows` 作为主数据源。
+  - `活动` 不再继续固定为占位 `0`。
+- 前台状态：
+  - `apps/web/src/app/(community)/featured/page.tsx`
+  - `apps/web/src/lib/api/community-public-cache.ts`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+  - 已统一切到 `featured-inventory`
+  - 本地同源代理路由已补齐：
+    - `/api/featured-inventory`
+    - `/api/public/featured-inventory`
+- 后端状态：
+  - `apps/server` 已提供共享分页接口 `GET /api/feed/featured-inventory`
+  - `FeedReadApiIntegrationTest` 已覆盖 `all / workflow / prompts / activity` 主要读取场景
+- pinned / 运营位边界：
+  - 精选页 pinned 顺序仍继续消费 `featured-all / featured-workflow / featured-video-prompt / featured-image-prompt / featured-activity`
+  - 但 pinned 只负责排序前置，不再负责生成 tab 库存总量
+- 当前验证证据：
+  - 本地 `GET /api/feed/featured-inventory?limit=1 -> 200`
+  - 本地 `GET /api/public/featured-inventory?limit=1 -> 200`
+  - `/featured` 首屏计数与 unified summary 一致
+  - `查看更多` 继续走 `cursor` 分页，不是前端假分页
+- 当前风险 / 后续约束：
+  - 后台如后续继续改 `featured` tab 结构、slot key 或 facet 语义，必须先看这条共享台账，避免又回到“双源数据口径不一致”
+  - 如果后续继续优化 `/featured` 体感，优先在共享分页读取和前端预取/预热上做，不回退到整池全量拉取
 
 ### 4B.7 社区帖子 / 讨论区当前真实消费频道与绑定关系字段
 
@@ -1262,7 +1368,7 @@
 
 ### 2026-05-22 用户管理创建账号链路补齐
 
-- 状态：`verified-local`
+- 状态：`verified-cloud`
 - 影响范围：
   - 社区前台：间接影响。后台现在可以直接创建本地账号，这类账号后续可直接走社区 `/api/auth/login` 的本地密码登录链路。
   - 管理后台：直接影响。`/users` 已新增真实“创建账号”弹窗与提交链路。
@@ -1376,6 +1482,51 @@
   - 本轮修复的是“后台浏览器访问真实资源”的云端公开链路
   - 后续只要保持后台同源代理口径，社区公网根入口短时异常也不会直接拖垮后台审核预览
 
+### 2026-05-22 feed-ops 候选池改为轻页壳 + 异步分页契约
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：无直接接口消费变更。前台 `/home`、`/featured`、`/discussions` 的发布生效口径不变，仍只消费已发布配置。
+  - 管理后台：直接影响。`/feed-ops/home`、`/feed-ops/featured`、`/feed-ops/discussions` 进入页面时不再先等待整池候选内容返回，页面壳和候选池改为分步加载。
+  - 后端：直接影响。`/api/admin/feed-ops/{page}` 不再承担整池候选内容返回，新增候选池分页接口承接 `slotKey / keyword / promptFilter / page / pageSize` 查询。
+- 当前真实口径：
+  - 页面主配置接口：
+    - `GET /api/admin/feed-ops/home`
+    - `GET /api/admin/feed-ops/featured`
+    - `GET /api/admin/feed-ops/discussions`
+  - 上述主配置接口当前只返回页面摘要、slot 配置和每个 slot 的 `fallbackItems`，`candidatePool` 固定为空数组，不再承载整池候选数据。
+  - 候选池读取统一拆到新接口：
+    - `GET /api/admin/feed-ops/home/candidates`
+    - `GET /api/admin/feed-ops/featured/candidates`
+    - `GET /api/admin/feed-ops/discussions/candidates`
+  - 候选池接口当前支持：
+    - `slotKey`
+    - `q`
+    - `promptFilter=all|image|video`
+    - `page`
+    - `pageSize`
+  - 后端查询口径已从“整池查出后前端/内存筛选”收口为“数据库侧筛选 + 分页返回”。
+- 管理后台状态：
+  - 三个 `feed-ops` 页面都已切到：
+    - 路由级 `loading.tsx`
+    - 页面主配置先返回
+    - 候选池异步单独加载
+    - 候选池翻页与关键词筛选走真实分页接口
+- 后端状态：
+  - 候选池分页接口已落地
+  - `fallbackItems` 仍作为页面首屏兜底预览使用
+  - 页面 fallback 池 prompt 读取已修正，不再把 `promptFilter=null` 误判成“图片提示词”
+- 验证状态：
+  - 已补后端定向集成测试：
+    - `AdminFeedOpsHomeApiIntegrationTest`
+    - `AdminFeedOpsFeaturedApiIntegrationTest`
+    - `AdminFeedOpsDiscussionsApiIntegrationTest`
+  - 已补本地后台构建验证：
+    - `apps/admin -> npm run build`
+- 风险 / 未对齐点：
+  - 这轮状态还是 `verified-local`，还没补云端这版共享后端是否已实际重启到新候选池契约的复验。
+  - 后续如果继续调整 `slotKey`、候选类型或筛选参数，必须先同步这里，再改 `apps/admin / apps/server`，否则最容易再次出现“新前端读旧后端”的错配。
+
 ### 2026-05-22 历史四分支推进记录归档
 
 - 状态：`historical`
@@ -1416,3 +1567,611 @@
   - 从当前策略开始，后续统一按 `feature/* -> dev -> main` 执行，不再继续补 `test / pre` 口径
 - 建议的下一步：
   - 如果确认不再需要保留历史环境分支，可在后续单独执行 `pre / test` 本地与远端清理
+
+- 2026-05-24 已将后台 `运营配置` 单入口 + `首页/精选页/落地页/讨论区` 四 tab 结构同步到测试云，发布版本 `20260524-193217`。
+- 公网 smoke 通过，唯一 full-smoke 失败项是 `root.redirect` 断言口径和当前 `/admin` basePath 不一致，不影响页面本身。
+
+### 2026-05-24 前台公共页取消缓存，发布立即生效
+
+- 前台公共页的 landing/home/featured 数据读取此前包了一层 `unstable_cache`，而底层后端请求已经是 `no-store`。
+- 结果是后台发布后，前台可能在缓存窗口内看起来没变，容易误判为“发布没生效”。
+- 本轮已在 `apps/web/src/lib/api/community-public-cache.ts` 去掉这层缓存，并同步到测试云。
+- 验证结果：
+  - `apps/web -> npm.cmd run build`
+  - `npm.cmd run deploy:test:web -VerifyBeforeDeploy -VerifyAfterDeploy`
+  - web release：`20260524-222205`
+- 当前结论：
+  - 后台发布 landing / home / featured 后，前台会直接读最新后端数据
+  - 共享链路不再依赖 15 秒的公共读缓存窗口
+
+### 2026-05-25 taxonomy 后台页按“分类定义 + 提示词重绑”重构
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：间接影响。后台 taxonomy 对提示词分类的新增、删除、重绑会直接改写共享 `prompt_entries` 分类字段和 taxonomy 标签，前台后续读到的是同一套真实数据。
+  - 管理后台：直接影响。`/taxonomy` 不再沿用旧的“统计板 + 分类治理 + 待补齐池”混合页面，改成两块真实工作区：
+    - `分类定义管理`
+    - `提示词资源重绑`
+  - 后端：直接影响。`/api/admin/taxonomy` 这组接口现在正式支持：
+    - `POST /api/admin/taxonomy/categories`
+    - `DELETE /api/admin/taxonomy/categories/{sectionKey}/{categoryValue}`
+    - `POST /api/admin/taxonomy/prompts/rebind`
+    - `GET /api/admin/taxonomy/prompts?page=&pageSize=`
+- 当前真实口径：
+  - taxonomy 后台页当前不是“分类统计看板”，而是面向运营/治理的工作台。
+  - 上半区只处理分类项本身：
+    - 选维度
+    - 新增分类
+    - 删除分类
+    - 调整启停 / 排序 / 曝光位 / 备注
+  - 下半区只处理真实提示词和分类绑定：
+    - `全量重绑`
+    - `待补齐优先`
+    - 分页读取候选池
+    - 勾选后批量绑定到当前分类
+  - 删除分类的安全口径已固定：
+    - 如果仍有 prompt 在使用该分类，则删除失败
+  - 重绑分类的保留口径已固定：
+    - 只改当前维度
+    - 其它 taxonomy 维度保留
+    - 非 taxonomy 的业务标签保留
+    - 旧 taxonomy 标签会随这次重绑一起刷新，避免残留旧值
+- 前台状态：
+  - 前台当前继续直接消费共享后端里的 prompt taxonomy 字段和标签，不需要单独改一套 taxonomy 逻辑。
+- 后台状态：
+  - `/taxonomy` 已切换到新结构。
+  - 候选提示词池已统一分页，当前页大小固定 `15`。
+  - 图片 / 视频分类维度继续分开，后台不再把它们混成一个“通用分类池”。
+- 验证状态：
+  - 后端定向集成测试已通过：
+    - `AdminTaxonomyApiIntegrationTest`
+    - `AdminTaxonomyLoggingIntegrationTest`
+  - 本轮新增覆盖点已通过：
+    - 创建空分类后仍会出现在 taxonomy 列表
+    - 未被使用的分类可删除
+    - 被 prompt 使用中的分类不可删除
+    - prompt 候选池分页元数据正确
+    - 重绑分类时其它维度保留且 taxonomy 标签刷新
+  - 后台前端本地验证已通过：
+    - `apps/admin -> npm.cmd run build`
+    - `apps/admin -> npm.cmd run typecheck`
+  - 2026-05-25 已同步到测试云：
+    - shared backend active release：`/opt/dramatv-community-server/releases/20260525-221644`
+    - admin active release：`/opt/dramatv-community-admin/releases/20260525-224039`
+    - backend post-deploy readiness：`artifacts/runtime-readiness/test/backend-deploy-20260525-221644-summary.json`
+      - 结果：`11 passed / 0 failed`
+    - admin public smoke：`artifacts/runtime-readiness/test/admin-deploy-20260525-224039-public-summary.json`
+      - 结果：`13 passed / 0 failed`
+    - admin internal smoke：`artifacts/runtime-readiness/test/admin-deploy-20260525-224039-internal-summary.json`
+      - 结果：`25 passed / 0 failed`
+- 本轮云同步范围说明：
+  - 这次实际需要同步的是 `apps/server + apps/admin`
+  - `apps/web` 只有本地 TypeScript 收口，未涉及当前 taxonomy 云端运行时行为，因此本轮没有单独发社区前台
+- 重要补充：
+  - admin 云端 full smoke 已补齐 `basePath=/admin` 的根路由验收口径
+  - 当前内网直连 `3206/` 的合法行为是：`/ -> /admin -> /admin/login?redirectTo=%2F`
+  - 这属于后台部署验收脚本收口，不是 taxonomy 页面功能缺陷
+- 当前结论：
+  - taxonomy 后台这次已经从“难理解的混合页”收口成真实可用的后台工作台。
+  - taxonomy 相关共享后端与管理后台前端都已同步到测试云，当前云端口径与本地一致。
+
+### 2026-05-25 taxonomy 标准分类集口径补齐
+
+- 状态：`verified-cloud`
+- 影响范围：
+  - 社区前台：直接影响。精选页里视频模型、内容分类看到的是一套固定标准分类口径，后台 taxonomy 现在要与这套口径对齐。
+  - 管理后台：直接影响。`/taxonomy` 不再只展示“当前数据库偶然落库到的分类值”，而是要稳定展示项目标准分类集。
+  - 后端：直接影响。`/api/admin/taxonomy` 的 section 聚合、分类标签展示名、内置分类的增删边界统一收口到共享后端。
+- 当前真实口径：
+  - 前台精选页的模型/内容分类按钮本身是固定选项集，并不等于数据库里当前真实已落库了多少分类。
+  - 后台 taxonomy 原实现按 `prompt_entries.model_category / content_category / composition_category` 聚合，只能看到当前真实落库值，因此会出现“前台能看到 `kling / wan / happyhorse / 其他`，后台只看到 `seedance / 真人 / 其他`”的错位。
+  - 当前修复策略已经明确：
+    - 后端统一内置标准分类集：
+      - `image-model`: `gpt-image-2 / nanobanana / midjourney / other-image-model`
+      - `video-model`: `seedance / kling / happyhorse / wan / other-video-model`
+      - `image-content-category`: `real-person / animation / scene / prop / other`
+      - `video-content-category`: `real-person / animation / other`
+      - `video-model-usage`: `single-model / multi-model`
+    - `/api/admin/taxonomy` 返回时先带标准分类，再用真实聚合数据覆盖对应项。
+    - 后台展示名同步按标准标签映射，不再直接把数据库 value 原样当 label。
+    - 内置标准分类视为真实治理口径的一部分：
+      - 不能重复创建
+      - 不能被删除
+- 当前代码状态：
+  - `apps/server/src/main/java/com/dramatv/community/admin/taxonomy/AdminTaxonomyService.java`
+    - 已补内置标准分类集常量
+    - 已补分类 label 映射
+    - 已补 section 默认项注入
+    - 已补内置分类保护删除逻辑
+  - `apps/server/src/main/resources/db/migration/V26__seed_builtin_admin_taxonomy_categories.sql`
+    - 已补 admin taxonomy 配置表的标准分类初始化迁移
+  - `apps/server/src/test/java/com/dramatv/community/integration/AdminTaxonomyApiIntegrationTest.java`
+    - 已补“标准分类返回存在”与“内置分类不可删”回归
+- 验证状态：
+  - 本地定向后端回归已通过：
+    - `AdminTaxonomyApiIntegrationTest`
+    - `AdminTaxonomyLoggingIntegrationTest`
+  - 当前已确认 `/api/admin/taxonomy` 会稳定返回标准分类集，不再依赖当前 prompt 是否正好落库到这些值。
+  - 云端共享后端回归已通过：
+    - `npm.cmd run smoke:api`
+      - 结果：`19 passed / 0 failed`
+    - `npm.cmd run smoke:auth-session`
+      - 结果：`12 passed / 0 failed`
+    - `npm.cmd run deploy:test:backend`
+      - backend active release：`/opt/dramatv-community-server/releases/20260525-234447`
+    - `artifacts/runtime-readiness/test/backend-deploy-20260525-234447-summary.json`
+      - 结果：`11 passed / 0 failed`
+  - 这轮只需要同步共享后端，不需要单独发 `apps/admin`：
+    - 原因是 taxonomy 页面前端本身已是泛化渲染
+    - 本轮真实缺口在后端返回口径，而不是后台页面结构
+- 当前风险 / 未对齐点：
+  - 这一步先解决“后台 taxonomy 分类范围和前台标准分类不一致”的问题。
+  - 还没有彻底解决“前台提示词单条分类来源有时是字段、有时是标题/摘要/标签推断”的更深层共享口径漂移；后续仍需继续把提示词 taxonomy 解析规则进一步收口。
+
+### 2026-05-26 首页 hero 运营位容量与公开出参统一扩到 6
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：直接影响。公共 `/api/feed/home` 的 `layout.slots[home-hero]` 不再最多只吐 `3` 条，当前会按已发布配置和 fallback 规则最多返回 `6` 条。
+  - 管理后台：直接影响。`/feed-ops/home` 的 `home-hero` 配置位上限、fallback 预览和右侧首页轮播预览都已从 `3` 扩到 `6`。
+  - 后端：直接影响。`admin feed-ops` 的 slot 定义、保存校验、published 读取和公共首页布局组装都已统一按 `6` 执行。
+- 当前真实口径：
+  - `home-hero` 现在是“首页首屏轮播池 6 条”，不是旧的 3 条。
+  - 前台首页真实展示策略仍是：
+    - 首屏同时可见 `3` 张
+    - 轮播池总量 `6` 张
+  - 后台运营配置现在只负责这 `6` 条轮播池内容，不再和旧的 3 条上限混用。
+  - 共享实现已同步覆盖 4 层：
+    - `apps/admin` slot 元数据与预览
+    - `apps/server` `AdminFeedOpsService` slot 定义 / fallback / 校验
+    - `apps/server` `CommunityCatalogJdbcQueryService` 公共 `/api/feed/home` 布局组装
+    - 定向集成测试对 admin 读写与 public 出参的保护
+- 验证状态：
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/server -> .\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=AdminFeedOpsHomeApiIntegrationTest,FeedReadApiIntegrationTest test`
+    - 结果：`12 passed / 0 failed`
+  - 当前已补的关键断言：
+    - 后台 `GET /api/admin/feed-ops/home` 里 `home-hero.maxItems = 6`
+    - 后台可真实保存并读回 `6` 条 `home-hero` 内容
+    - 公共 `GET /api/feed/home` 里 `home-hero.items.size = 6`
+- 当前结论：
+  - 这次不是单纯后台工作台视觉调整，而是“后台配置上限 -> 后端保存校验 -> 公共首页返回”三层共享契约已重新对齐到 6
+  - 当前状态为本地验证完成，尚未同步测试云
+
+### 2026-05-27 featured feed-ops fallback 语义收口并清理历史污染配置
+
+- 状态：`verified-cloud`
+- 影响范围：
+  - 社区前台：直接影响。`/featured` 的首屏 pinned order 不再把 fallback 伪装成真实运营编排，前台首屏顺序回到 `featured-inventory` 的真实库存顺序，除非后台明确发布了精选配置。
+  - 管理后台：直接影响。`/admin/feed-ops/featured` 当前“手工配置位”和“前台真实展示”语义已重新对齐；空配置位不再被公共 `/api/feed/featured` 自动补成假编排。
+  - 后端：直接影响。公共 `GET /api/feed/featured` 对 `featured-all / featured-workflow / featured-video-prompt / featured-image-prompt / featured-activity` 五个 slot 的语义已从“configured + fallback merge”收口为“configured only”。
+- 根因确认：
+  - 这批“几十条脏数据”不是前台 hydration 闪页自己写回，也不是随机数据库坏数据。
+  - 已有历史证据指向 `.codex/progress-admin.md` 的 `2026-05-17 feed-ops empty-config recovery after reboot`：
+    - 当时 `admin_feed_slot_configs` 变空
+    - 系统把 fallback 可见内容重新发布成了 `featured` 真实配置
+    - 后续又同步到了测试云
+  - 同时，旧后端 `CommunityCatalogJdbcQueryService.loadFeaturedArchive()` 仍会对 featured slots 调用 `fillHomeLayoutSlot(configuredItems, fallbackPool, maxItems)`，导致“没有手工配置时也像是有配置”。
+- 当前真实口径：
+  - `GET /api/feed/featured`
+    - 只返回后台已发布的人工配置项
+    - 空 slot 返回空数组
+    - 不再把 fallback 作为 featured pinned order 输出
+  - `GET /api/featured-inventory`
+    - 继续承担 `/featured` 页面真实库存与分页来源
+    - 在没有精选手工配置时，前台应按 inventory 顺序显示，而不是按 `/api/feed/featured` 假配置排序
+  - `GET /api/feed/landing`
+    - 仍保留 landing 自身的 fallback merge 语义
+    - 这次收口只针对 featured，不把 landing 一起改坏
+- 当前代码状态：
+  - `apps/server/src/main/java/com/dramatv/community/shared/persistence/CommunityCatalogJdbcQueryService.java`
+    - 新增 `addFeaturedArchiveConfiguredSlot(...)`
+    - `loadFeaturedArchive()` 现统一改走 configured-only
+    - `loadLandingArchive()` 继续保留 fallback merge
+  - `apps/server/src/test/java/com/dramatv/community/integration/FeedReadApiIntegrationTest.java`
+    - 已补回归：`featuredFeedReturnsEmptyPromptPinsWhenNoPublishedFeaturedConfigExists`
+    - 当前显式断言 featured 无配置时 `featured-all / featured-image-prompt / featured-video-prompt` 返回空 `items`
+- 验证状态：
+  - 本地验证已通过：
+    - `.\scripts\use-local-java17-maven.ps1 -f apps/server/pom.xml -Dtest=FeedReadApiIntegrationTest test`
+    - 结果：`14 passed / 0 failed`
+  - 云端共享后端已实际生效：
+    - `npm.cmd run deploy:test:backend` 本轮尾部因远端 `curl 127.0.0.1:18080` 探活过早而报错
+    - 但浏览器直接复核 `http://8.141.20.130/api/feed/featured` 已确认新后端运行态生效
+    - 清理前：`featured-workflow=3`、`featured-activity=3` 仍被 fallback 补位
+    - 清理后：二者已回到 `0`
+  - 云端后台污染配置已清理：
+    - 清理前 `/admin/feed-ops/featured` 可见：
+      - `全部首屏 12/12`
+      - `视频提示词 tab 12/12`
+      - `图片提示词 tab 12/12`
+      - 合计 `36` 条真实已发布脏配置
+    - 当前已在云端后台逐个清空并发布：
+      - `featured-all`
+      - `featured-video-prompt`
+      - `featured-image-prompt`
+    - 清理后 `/api/feed/featured` 五个 slot 全部为空
+- 当前结论：
+  - featured 页的共享契约已重新明确：
+    - feed-ops `featured` 只表达“人工精选置顶位”
+    - inventory 才表达“真实库存”
+  - 后续再出现 `admin_feed_slot_configs` 空配置恢复，不允许把 fallback 推断结果重新发布成 featured 真配置
+
+### 2026-05-27 featured 默认首屏消费口径从“排序提示”收口为“真实首屏来源”
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：直接影响。`/featured` 默认首屏现在会真正使用后台 `featured` 已发布配置作为首屏来源，而不是只把它当作当前 inventory 结果里的排序提示。
+  - 管理后台：直接影响。`/admin/feed-ops/featured` 当前运营位语义终于和前台默认首屏一致，后台配置不再要求“配置的项必须恰好也出现在当前 inventory 首批里”才会生效。
+  - 后端：本轮不改共享接口；继续沿用：
+    - `GET /api/feed/featured` = 人工精选配置
+    - `GET /api/featured-inventory` = 实时库存与分页
+- 历史问题：
+  - 前一轮虽然已经把 `/api/feed/featured` 的 fallback 污染清掉了，但前台 `FeaturedArchivePage.tsx` 仍然存在一个实现缺口：
+    - 渲染列表完全来自 `featured-inventory`
+    - `featuredSlots` 只参与 `pinnedRank` 排序
+    - 如果后台配置项不在当前 inventory 首批里，就不会真正出现在默认首屏
+  - 这正是用户看到“后台配置已经变了，但前台展示还是没变”的剩余根因。
+- 当前真实口径：
+  - `/featured` 默认首屏视图：
+    - `sort=latest`
+    - 无搜索词
+    - `workflow` 无二级筛选
+    - `prompt` 无 `model/content` facet
+  - 只有在这组默认条件下，前台才会把 `/api/feed/featured` 的 slot 项映射成真实卡片并注入到首屏前部。
+  - 一旦用户切到：
+    - `最热`
+    - 搜索
+    - `workflow` 二级筛选
+    - `video_prompt / image_prompt` 的 model 或 content facet
+    - 前台就回到纯 `featured-inventory` 实时结果，不让运营位污染筛选视图。
+- 当前代码状态：
+  - `apps/web/src/lib/featured/featured-curation.ts`
+    - 新增共享前台消费规则：
+      - `shouldUseCuratedFeaturedItems(...)`
+      - `mergeCuratedFeaturedItems(...)`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 已改为：
+      - 把 `featuredSlots` 映射成与 inventory 同构的卡片项
+      - 默认首屏执行“精选配置注入 + 去重 + inventory 续接”
+      - 非默认视图走纯 inventory
+    - 已移除旧的 `pinnedRank` 伪排序逻辑，避免继续留下“配置像生效又没真生效”的灰区
+  - `apps/web/src/lib/featured/featured-curation.test.mjs`
+    - 已补回归测试，保护：
+      - 默认视图会真实插入精选配置
+      - 过滤视图不会误用精选配置
+- 验证状态：
+  - 本地已通过：
+    - `apps/web -> npm.cmd run typecheck`
+    - `apps/web -> npm.cmd run build`
+    - `featured-curation.test.mjs -> 3 passed / 0 failed`
+  - 当前还没同步测试云，因此状态先记 `verified-local`
+- 当前结论：
+  - 现在 shared contract 已经完整闭环：
+    - 后台 `featured` 配的是“默认首屏运营位”
+    - 前台默认首屏会真实使用它
+    - inventory 继续承担筛选、搜索、查看更多和实时库存
+### 2026-05-28 admin resources prompt modality contract exposed explicitly
+- 状态：`verified-local`
+- 影响范围：
+  - 后台：`/admin/resources`
+  - 后端：`GET /api/admin/resources`
+  - 后端：`GET /api/admin/resources/{targetType}/{targetId}`
+- 本轮共享契约收口：
+  - `AdminResourceListResponse.Item` 新增 `promptModality`
+  - `AdminResourceDetailResponse` 新增 `promptModality`
+  - `AdminResourceQueryService` 列表/详情映射显式下发 `prompt_modality`
+  - `apps/admin/src/lib/admin-service.ts` 同步补齐返回类型
+  - `apps/admin/src/app/(dashboard)/resources/page.tsx` 改为基于 `promptModality` 渲染 `图片提示词 / 视频提示词`
+- 根因说明：
+  - 之前 `/resources` 前端把 `previewUrl/sourceUrl` 误当成 prompt 类型判据
+  - 这会把带有媒体资源的图片提示词误渲染成 `视频提示词`
+  - 现在资源类型与后端筛选逻辑统一都以 `prompt_entries.modality` 为准
+- 本轮验证：
+  - `apps/admin -> npm.cmd run typecheck` 通过
+  - `apps/admin -> npm.cmd run build` 通过
+  - `apps/server -> AdminResourceApiIntegrationTest` 通过
+
+### 2026-05-28 featured 活动分类保留，但帖子不再进入公共精选
+
+- 状态：`verified-local`
+- 影响范围：
+  - 社区前台：`/featured`
+  - 管理后台：`/admin/feed-ops/featured`
+  - 后端：
+    - `GET /api/feed/featured`
+    - `GET /api/feed/featured-inventory`
+    - `GET /api/admin/feed-ops/featured`
+    - `GET /api/admin/feed-ops/featured/candidates`
+    - `PUT /api/admin/feed-ops/featured`
+- 当前真实口径：
+  - `活动` tab 继续保留
+  - 但 `post / 帖子` 不再属于公共精选资源池
+  - `featured-all` 当前只允许 `prompt / workflow`
+  - `featured-activity` 当前也只允许 `prompt / workflow`
+  - 公共 `featured-inventory` 的 `activity` 过滤当前返回空库存，活动 tab 的真实展示改为完全消费后台 `featured-activity` 已发布配置
+- 根因说明：
+  - 历史上 `featured` 存在两层口径漂移：
+    - 公共 inventory 会把 `discussion thread` 混进 `all / activity`
+    - 后台 `featured-activity` 又允许挂 `post`
+  - 这会导致：
+    - 帖子进入精选公共页
+    - 活动 tab 变成帖子池
+    - 历史旧配置里的 `post` ref 即使不该再展示，也会继续影响前台
+- 本轮共享收口：
+  - `apps/server/src/main/java/com/dramatv/community/feed/application/FeaturedInventoryQueryService.java`
+    - `filter=activity` 现在返回空库存页
+    - `summary.counts.activity=0`
+    - `all` 库存不再拉 `discussion thread`
+    - `all` 库存新增图片/视频提示词混排逻辑，避免后续库存单边偏成图片提示词
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsService.java`
+    - `featured-all` 允许目标收口为 `prompt / workflow`
+    - `featured-activity` 允许目标收口为 `prompt / workflow`
+    - 历史已存的非法 `post` ref 在后台读取和公共 published 读取时都会被过滤
+    - `PUT /api/admin/feed-ops/featured` 对 `featured-activity -> post` 现在会返回 `400 ADMIN_FEED_OPS_TARGET_UNSUPPORTED`
+  - `apps/web/src/features/featured/FeaturedArchivePage.tsx`
+    - 继续保留 `活动` tab
+    - `活动` tab 改为直接消费 `featured-activity` curated items
+    - `activity` 计数改为用 curated items 长度兜底，不再依赖公共 inventory
+- 验证状态：
+  - 后端定向集成测试已通过：
+    - `FeedReadApiIntegrationTest`
+    - `AdminFeedOpsFeaturedApiIntegrationTest`
+    - 结果：`17 passed / 0 failed`
+  - 前端本地验证已通过：
+    - `apps/web -> npm.cmd --prefix apps/web run typecheck`
+    - `apps/web -> npm.cmd --prefix apps/web run build`
+    - `node --test apps/web/src/lib/featured/featured-curation.test.mjs apps/web/src/lib/featured/featured-back-anchor.test.mjs`
+      - 结果：`6 passed / 0 failed`
+- 当前结论：
+  - 前后台共享契约已重新明确：
+    - `activity` 是精选页的一个运营 tab，不是帖子聚合页
+    - 公共精选库存只面向 `prompt / workflow`
+    - 帖子应继续留在讨论区体系，不再回流到精选公共页
+
+### 2026-05-28 featured 帖子退出公共精选口径已同步测试云
+
+- 状态：`verified-cloud`
+- 云同步范围：
+  - backend：`20260528-161045`
+  - web：`20260528-161330`
+- 云端验证结果：
+  - 公网 `GET /api/feed/featured-inventory?filter=all&limit=3`
+    - 当前 `summary.counts.activity=0`
+  - 公网 `GET /api/feed/featured`
+    - 当前 `featured-activity.items=[]`
+  - `artifacts/runtime-readiness/test/web-deploy-20260528-161330-summary.json`
+    - 结果：`13 passed / 0 failed`
+  - `npm.cmd run readiness:test -- --creator-username creator-b --creator-password 123456`
+    - 结果：`17 passed / 0 failed`
+    - 已确认登录态 `auth.web.featured-inventory` 正常
+- 同步过程补充说明：
+  - backend 首次发布失败不是共享契约问题，而是本地 `18080` Java 进程锁住了 `apps/server/target` 的 jar
+  - backend 第二次发布脚本尾部仍因为远端健康探活时序窗口报错，但公网接口复核和当前 active release 已确认新版本真实生效
+- 当前结论：
+  - 这条共享契约现在不再只是本地成立，而是已在测试云前后端联动态上生效：
+    - `活动` tab 保留
+    - 帖子退出公共精选库存
+    - 帖子退出 `featured-activity` 运营位
+### 2026-05-28 admin reports bypass rate limit
+- 状态：`verified-local`
+- 影响范围：
+  - 前台：`POST /api/reports`
+  - 后台：`/api/admin/reports`
+- 新共享口径：
+  - 普通用户举报仍保留频控
+  - `admin / operator / moderator` 举报不限频
+  - 同一举报人对同一目标若仍有 `pending / processing` 工单，继续返回 `REPORT_DUPLICATE`
+- 根因：
+  - 旧逻辑对举报统一按 `userId` 限流，默认 `60 秒 / 5 次`
+  - 这会阻断管理员通过前台连续标记多条资源进行下架处理
+- 共享代码改动：
+  - `apps/server/src/main/java/com/dramatv/community/shared/security/ActionRateLimiter.java`
+  - `apps/server/src/main/java/com/dramatv/community/publish/application/ReportApplicationService.java`
+- 回归验证：
+  - `ActionRateLimitIntegrationTest`
+  - `ReportApiIntegrationTest`
+  - `AdminReportApiIntegrationTest`
+  - 结果：`14 passed / 0 failed`
+
+### 2026-05-29 admin cloud media proxy internal-origin split已同步测试云
+
+- 状态：`verified-cloud`
+- 影响范围：
+  - 后台：`/admin/__admin_proxy__/seedance-videos/*`
+  - 后台：`/admin/__admin_proxy__/nano-banana-images/*`
+  - 后台：`/admin/feed-ops/*` 等依赖服务端媒体代理的管理页面
+  - 云端 admin env：
+    - `DRAMATV_ADMIN_API_BASE_URL`
+    - `DRAMATV_WEB_BASE_URL`
+    - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL`
+- 当前共享口径：
+  - `DRAMATV_WEB_BASE_URL` 只用于 admin 服务端 rewrite / 代理目标，必须指向 ECS 内部上游，如 `http://127.0.0.1:3106`
+  - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL` 继续保留浏览器可见的公网地址，如 `http://8.141.20.130`
+  - admin 服务端媒体代理不得再自调公网 `8.141.20.130:80`
+- 云同步结果：
+  - admin release：`20260529-095822`
+  - 远端 env 已确认：
+    - `DRAMATV_ADMIN_API_BASE_URL=http://127.0.0.1:18080`
+    - `DRAMATV_WEB_BASE_URL=http://127.0.0.1:3106`
+    - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=http://8.141.20.130`
+- 云端验证：
+  - `curl -I http://127.0.0.1:3206/admin/__admin_proxy__/nano-banana-images/000029-13311/01.jpg -> 200 OK`
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-095822-public-summary.json`
+    - 结果：`14 passed / 0 failed`
+  - `artifacts/runtime-readiness/test/admin-deploy-20260529-095822-internal-summary.json`
+    - 结果：`34 passed / 0 failed`
+  - `journalctl -u dramatv-community-admin -n 30`
+    - 本轮重启后未再出现新的 `connect ETIMEDOUT 8.141.20.130:80`
+- 当前结论：
+  - 这条共享链路已经从“本地收口”推进到“测试云已验证生效”
+  - 后续只要 admin 新增同类服务端媒体代理，也必须继续遵守“内部上游 / 公网前缀分拆”的同一口径
+
+### 2026-05-29 featured feed-ops 按最新/最热分配置已本地收口
+
+- 状态：`verified-local`
+- 影响范围：
+  - 后台：`/admin/feed-ops/featured`
+  - 前台：`/featured`、`/featured?sort=latest`
+  - 后端：
+    - `GET/PUT /api/admin/feed-ops/featured?sort=hot|latest`
+    - `GET /api/feed/featured?sort=hot|latest`
+- 当前真实口径：
+  - `featured` 继续作为“最新”配置桶
+  - 新增 `featured-hot` 作为“最热”配置桶
+  - 后台精选运营页现在有显式 `最新 / 最热` 切换
+  - 公共 `/featured` 默认 `sort=hot`，会消费 `featured-hot`
+  - 公共 `/featured?sort=latest` 会消费原有 `featured`
+- 本轮根因补记：
+  - 这次不是 controller 或前端参数丢失，而是数据库 `admin_feed_slot_configs.page_key` 约束仍只允许旧值
+  - `sort=hot` 首次保存时会因 `chk_admin_feed_slot_configs_page_key` 拒绝 `featured-hot`
+  - 当前已通过 `V27__allow_featured_hot_admin_feed_slot_configs.sql` 把允许值扩到 `featured-hot`
+- 当前代码状态：
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsController.java`
+  - `apps/server/src/main/java/com/dramatv/community/admin/feedops/AdminFeedOpsService.java`
+  - `apps/server/src/main/java/com/dramatv/community/feed/controller/HomeFeedController.java`
+  - `apps/server/src/main/java/com/dramatv/community/feed/application/HomeFeedQueryService.java`
+  - `apps/server/src/main/java/com/dramatv/community/shared/persistence/CommunityCatalogJdbcQueryService.java`
+  - `apps/admin/src/app/(dashboard)/feed-ops/featured/page.tsx`
+  - `apps/admin/src/app/(dashboard)/feed-ops/featured/actions.ts`
+  - `apps/admin/src/app/(dashboard)/feed-ops/shared/FeedOpsPageClient.tsx`
+  - `apps/admin/src/lib/admin-service.ts`
+  - `apps/web/src/app/(community)/featured/page.tsx`
+  - `apps/web/src/lib/api/community-service.ts`
+  - `apps/web/src/lib/api/community-public-cache.ts`
+- 验证状态：
+  - 后端定向集成测试：
+    - `AdminFeedOpsFeaturedApiIntegrationTest`
+    - `FeedReadApiIntegrationTest`
+    - 结果：`19 passed / 0 failed`
+  - 前端构建：
+    - `apps/admin -> npm.cmd run build`
+    - `apps/web -> npm.cmd run build`
+- 当前结论：
+  - 这条共享契约已经在本地前后台和公共读链路上闭环
+  - 还没有同步测试云，云端当前仍只有“公共 `/featured` 默认最热”的旧一半能力，尚未带上后台分桶配置
+### 2026-06-02 creator works API unified across server and web
+
+- shared read contract changed for creator public works:
+  - new endpoint: `GET /api/creators/{id}/works`
+  - response shape: one mixed cursor page carrying both `video` and `prompt` items with a shared `itemType`
+- shared frontend contract changed:
+  - `CreatorPageView` now uses `works` + `nextWorksCursor`
+  - creator load-more no longer depends on separate `nextVideoCursor` / `nextPromptCursor`
+- compatibility note:
+  - legacy `/api/creators/{id}/videos` and `/api/creators/{id}/prompts` still exist for now
+  - the public creator page has already switched to the unified works feed
+- verification:
+  - `CreatorReadApiIntegrationTest`
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+
+### 2026-06-02 local auth defaults hardened across community/admin/server
+
+- shared runtime default changed:
+  - `dramatv.community-auth.provider.local-password-enabled=false`
+  - `dramatv.community-auth.provider.local-password-bootstrap-secret=` (empty by default)
+- community login semantics changed:
+  - `/api/auth/login` with `local_password` now returns `AUTH_LOGIN_TYPE_DISABLED` unless the environment explicitly enables the provider
+  - auto-create local creator accounts and initialize blank local passwords no longer accept the hardcoded shared password path by default
+- admin user governance semantics changed:
+  - creating a local user with blank password now returns a generated temporary password (`DT` + 10 chars) instead of falling back to `dramatv-local-dev`
+  - admin users page copy now matches the new generated-password behavior
+- test contract note:
+  - backend integration base `ApiIntegrationTestSupport` now explicitly opts into local-password auth for tests with `local-password-enabled=true` and `local-password-bootstrap-secret=dramatv-local-dev`
+- verification:
+  - `CommunityAuthDefaultsIntegrationTest`
+  - `AdminUserGovernanceApiIntegrationTest`
+  - `AuthMeApiIntegrationTest`
+  - `apps/admin -> npm.cmd run build`
+
+### 2026-06-02 creator pagination contract cleaned up across shared read surfaces
+
+- shared creator read contract changed again after the unified works feed landed:
+  - legacy creator list endpoints `/api/creators/{id}/videos|prompts|workflows|posts` no longer advertise an unimplemented public `sort` parameter
+  - creator list `nextCursor` values are now opaque on fresh responses instead of leaking raw `offset:N`
+- rollout compatibility note:
+  - backend still accepts historical `offset:*` creator cursors so older callers do not break during transition
+  - public creator page is already on `/api/creators/{id}/works`, so this slice mainly removes misleading legacy contract surface
+- verification:
+  - `CreatorReadApiIntegrationTest`
+
+### 2026-06-09 shared deploy helper `Host` collision fix
+
+- status: `verified-cloud`
+- shared change:
+  - `scripts/lib/test-env-release-common.ps1` no longer uses the PowerShell-reserved name `Host` for helper variables or parameters
+  - renamed the absolute-url validator local variable from `$host` to `$publicHostName`
+  - renamed `Test-IsIpLiteralHost` parameter from `Host` to `HostName`
+- why this matters:
+  - `deploy-test-web.ps1 -VerifyAfterDeploy` was blocked before the actual upload/build phase with `Cannot overwrite variable Host because it is read-only or constant`
+  - the failure came from the shared helper, so the same collision risk applied to other deploy/rollback/readiness flows that dot-source `test-env-release-common.ps1`
+- verification:
+  - after the helper fix, `./scripts/deploy-test-web.ps1 -VerifyAfterDeploy` completed successfully
+  - cloud web release `20260609-135718` went live and readiness passed `13 / 0`
+
+### 2026-06-02 测试云公网入口 Host 隔离已收口到社区专属域名
+
+- 状态：`verified-cloud`
+- 共享口径：
+  - 社区前台默认公网入口改为 `http://community.8.141.20.130.nip.io`
+  - 管理后台默认公网入口改为 `http://community.8.141.20.130.nip.io/admin`
+  - 社区 `web` 部署脚本不再允许 `server_name _`、通配 host、裸 IP 或 `localhost`
+  - `web / admin / backend` 的 deploy、rollback、readiness、k6 与 smoke 默认测试入口统一跟随上述专属 host
+- 根因：
+  - 当前测试 ECS 已并存多个项目，共用同一个 `:80` 入口
+  - 使用裸 IP 或 catch-all `server_name` 时，浏览器历史、验活和压测都可能命中错误项目
+- 本轮云端修复：
+  - 已确认云端 `/etc/nginx/conf.d/dramatv-community-http.conf` 仍是 `server_name _`
+  - 同机同事项目 `dramaloom.conf` 是精确 Host，但因加载顺序实际承接了所有未命中的默认请求
+  - 已只修改社区自己的 Nginx 配置，把 `server_name _` 改为 `server_name community.8.141.20.130.nip.io`
+  - 修改前已备份：`/etc/nginx/conf.d/dramatv-community-http.conf.bak-20260602-hostfix`
+  - `nginx -t` 通过并已 `systemctl reload nginx`
+- 云端复验：
+  - `http://community.8.141.20.130.nip.io` 返回 `DramaTV 社区`
+  - `http://community.8.141.20.130.nip.io/admin` 返回 `DramaTV 社区后台`
+  - `http://dramaloom.8.141.20.130.nip.io` 仍返回 `DramaLoom - AI剧本协作编辑器`
+  - `http://novel-similarity.8.141.20.130.nip.io` 仍返回 `小说库相似度比对平台`
+- 当前边界：
+  - 本轮只修社区 Nginx Host 绑定，不修改同事 `dramaloom.conf` 和法务相似度项目配置
+  - 裸 IP `http://8.141.20.130` 仍不作为社区业务入口
+### 2026-06-09 featured public ratio metadata contract wired, admin semantics unchanged
+
+- 状态: `local-verified`
+- 影响范围:
+  - 社区前台: `direct`
+    - `/featured` 的分档布局现在会优先消费后端返回的 `width / height`
+  - 管理后台: `reviewed-no-ui-change`
+    - `/admin/feed-ops/featured` 当前槽位语义、首屏 `12` 条口径、候选池分页和 tab 定义都不变
+    - 本轮没有要求后台预览区达到前台所见即所得，也没有改后台运营配置协议
+  - 后端共享读口径: `direct`
+    - `GET /api/feed/featured-inventory`
+    - `GET /api/feed/featured`
+    - `GET /api/feed/home`
+    - 相关返回项已支持可选 `width / height`
+- 共享契约收口:
+  - `apps/server`
+    - `HomeFeedResponse.FeedItemResponse`
+    - `FeaturedInventoryResponse.Item`
+    - `FeaturedInventoryQueryService`
+    - `CommunityCatalogJdbcQueryService`
+    - 已补 `width / height` 查询与映射
+  - `apps/web`
+    - `community-api.ts`
+    - `community-service.ts`
+    - `FeaturedArchivePage.tsx`
+    - 前台布局已改成 backend-ratio-first，缺失时继续回退客户端自然尺寸测量
+- 本轮额外确认的真实边界:
+  - 当前本地真实库存里，很多历史资源的 `width / height` 仍为空
+  - 这说明共享契约已经打通，但后台或共享数据层暂时还不需要为运营页新增预览 UI；当前首先缺的是历史媒体维度回填，而不是 admin feed-ops 语义重写
+  - 如果后续要让后台精选运营页也看到接近前台的真实拼贴效果，再单独重开 admin preview 跟进，不在这轮直接扩散
+- 验证:
+  - `apps/web -> npm.cmd run typecheck`
+  - `apps/web -> npm.cmd run build`
+  - 浏览器复验 `http://127.0.0.1:3106/featured`
+    - console error `0`
+    - 首屏 `12` 条
+    - `查看更多` 后 `24` 条
+  - 浏览器抓取 `/api/public/featured-inventory?limit=12`
+    - 已确认当前 live inventory 仍存在大量 `width / height = null`

@@ -1,5 +1,106 @@
 # MEMORY
 
+## 2026-06-09 community external canvas entry must bypass internal login redirect
+
+- For this repo, do not gate an external canvas entry through the community login page's `redirectTo` parameter.
+- The validated failure pattern is:
+  - community UI points the canvas entry at an external URL
+  - but the entry is still wrapped as `/login?redirectTo=...`
+  - `normalizeRedirectTarget()` only accepts internal paths
+  - after login, the user falls back to `/home` instead of reaching the external canvas site
+- The stable rule is:
+  - if the destination is an external canvas host, the community entry should link to that external URL directly
+  - keep `/canvas` only as a compatibility route that redirects outward
+  - if `/canvas` is expected to redirect publicly, add it to the web proxy public-path allowlist so old bookmarks do not get trapped behind community auth first
+- Verified in this repo on 2026-06-09:
+  - `apps/web/src/components/shared/PageShell.tsx` now points the floating canvas entry directly at `https://dz-ailab-stage.dzkjm.cn/marketcanvas/`
+  - `apps/web/src/app/(community)/canvas/page.tsx` now redirects straight to that external URL instead of showing the old pending page
+  - `apps/web/src/proxy.ts` now treats `/canvas` as a public path so the compatibility redirect is not blocked by login
+## 2026-06-02 community test deploy must never claim the shared `:80` catch-all
+
+- For this repo's shared ECS test box, do not deploy the community web with `server_name _`, wildcard hosts, or a bare-IP public base URL.
+- The validated safe default is `http://community.8.141.20.130.nip.io`, with admin under `http://community.8.141.20.130.nip.io/admin`.
+- The validated failure pattern is:
+  - multiple projects share the same ECS `:80` entry
+  - community deploy/test scripts default to `http://8.141.20.130` or `server_name _`
+  - browser history, readiness checks, rollback verification, or k6 traffic can land on the wrong project
+- The stable rule is:
+  - community deploy/rollback/readiness tooling must require a dedicated hostname
+  - the Nginx `server_name` used by community deploy must match that dedicated public host
+  - bare IP can stay a machine address, but it is no longer a stable community business entry
+- Verified follow-up on 2026-06-02:
+  - changing local deploy defaults alone is not enough if the live ECS still keeps the old `/etc/nginx/conf.d/dramatv-community-http.conf` with `server_name _`
+  - in a shared `:80` setup, an unrelated project with a loaded server block can still catch unmatched hosts such as `community.8.141.20.130.nip.io`
+  - the minimal safe runtime repair is to update the live community Nginx block to an exact host such as `server_name community.8.141.20.130.nip.io`
+
+## 2026-06-02 Next app typecheck must generate `.next/types` before plain `tsc`
+
+- For this repo, do not rely on a prior `next build` or `next dev` run to make Next app typecheck pass.
+- The validated failure pattern is:
+  - `apps/web/next-env.d.ts` and `apps/admin/next-env.d.ts` both import `./.next/types/routes.d.ts`
+  - app `tsconfig.json` also includes `.next/types/**/*.ts`
+  - a cold `tsc --noEmit` therefore fails as soon as generated route types are missing
+- The stable rule is:
+  - app-level typecheck scripts must follow the official Next 16 flow: `next typegen && tsc --noEmit`
+  - once app-level typecheck is self-sufficient, root `verify:quick` / `verify:full` can keep `typecheck` before `build`
+- Verified in this repo on 2026-06-02:
+  - temporarily hiding `apps/web/.next/types/routes.d.ts` made the old script fail with `TS2307 Cannot find module './routes.js'`
+  - after changing both apps to `next typegen && tsc --noEmit`, root `npm run typecheck` regenerated route types and passed from the same cold state
+
+## 2026-05-23 real preview must be validated by `asset_role`, not only by `preview_asset_id`
+
+- For this repo, do not treat a non-null `preview_asset_id` as proof that a video already has a real preview.
+- The validated failure pattern is:
+  - historical rows can have `preview_asset_id` filled
+  - but the pointed `media_assets.asset_role` is still `source`
+  - backfill candidate SQL correctly flags it as missing a real preview
+  - old processing logic skips regeneration because it only checks `preview_asset_id != null`
+  - result: the same video remains a backfill candidate forever even though the task reports success
+- The stable rule is:
+  - `preview` exists only when the pointed asset has `asset_role = 'preview'`
+  - media processing and backfill decisions must check role validity, not just id presence
+- Verified fix in this repo:
+  - `VideoMediaProcessingService` now loads preview asset role and treats non-`preview` rows as missing preview
+  - regression coverage exists in `PublishPipelineIntegrationTest.videoMediaProcessorRebuildsPreviewWhenExistingPreviewAssetIsNotDerivedPreview`
+
+## 2026-05-24 real image cover must be validated by semantic role, not only by `cover_asset_id`
+
+- For this repo, a non-null `cover_asset_id` is not enough proof that an image prompt already has a usable lightweight cover.
+- The validated failure pattern is:
+  - a historical image prompt row had `cover_asset_id` filled
+  - but that id pointed back to the primary source image
+  - API `coverUrl/posterUrl` therefore still returned the original large image instead of a derived lightweight cover
+  - naive checks such as `cover_asset_id is null` missed the row, so backfill and processing were silently skipped
+- The stable rule is:
+  - treat image cover as valid only when the pointed asset is an `image` with `asset_role = 'cover'`
+  - also treat `cover_asset_id = primary_example_asset_id` as invalid for derived-cover purposes
+  - submit-time image task creation, image media processing, and historical backfill scans must all use that semantic check instead of raw id presence
+
+## 2026-05-23 do not overlap `/media/**` resource handlers with proxy controllers
+
+- For this repo, do not register a Spring static `ResourceHandler` on the same `/media/**` path that is already owned by `MediaProxyController`.
+- The validated failure pattern is:
+  - source code in `MediaProxyService` already computes `ETag / Last-Modified / 304`
+  - unit tests pass
+  - but runtime local `HEAD /media/...` still only shows generic static-file headers
+  - `Range 206` still works, which can mislead debugging
+- The root cause already confirmed here was `MediaResourceConfig` registering `/media/**` while the controller also mapped `/media/**`, so local requests were intercepted by Spring's static resource chain instead of the proxy controller.
+- The stable fix is: keep `/media/**` owned by the proxy controller only, and let local-file serving happen through the same proxy path as OSS so caching, range, 404, and request-id behavior stay unified.
+
+## 2026-05-22 cloud firewall port changes must be additive
+
+- On the ECS test environment, opening admin port `3206` must not leave the public firewall zone without `http`.
+- The validated failure pattern is:
+  - `dramatv-community-web` and `nginx` are healthy locally
+  - `curl http://127.0.0.1/` returns `200`
+  - community public `http://8.141.20.130/` fails or times out from outside
+  - external hits do not appear in `/var/log/nginx/access.log`
+  - admin `http://8.141.20.130:3206` can still remain reachable
+- The stable repair is:
+  - `firewall-cmd --permanent --add-service=http`
+  - `firewall-cmd --reload`
+- Treat cloud firewall updates as additive changes. Do not open a new admin port and assume the existing public `80/http` allowance is still present.
+
 ## 2026-05-21 git history and release rollback are both needed
 
 - For this repo, `git` and `release` solve different problems and both are necessary:
@@ -699,3 +800,696 @@
   - `campaign`
   - `categories`
   - source / author attribution
+
+## 2026-05-24 remote derivative backfill execution rule
+
+- For this repo, `scripts/backfill-media-derivative-tasks.mjs --target remote` currently reuses a fixed local SSH tunnel port `15432`.
+- Do not run two remote preview/apply scans in parallel from the same workstation session. The validated failure symptom is:
+  - `server closed the connection unexpectedly`
+  - `connection to server was lost`
+- Safe operator sequence is always serial:
+  - remote preview/apply
+  - wait
+  - remote rescan
+  - then start the next remote step
+- If a remote backfill summary shows `inventory=1, skippedRecentFailures=1`, do not assume there is still unresolved inventory. First inspect the skipped target and check whether it is only a pre-fix stale failure record.
+- When an admin publish looks ineffective on the public site, check the Next public-read cache layer first. If the underlying backend `fetch` is already `no-store`, the stale `unstable_cache` wrapper is usually the real cause.
+
+## 2026-05-25 local `3106` must stay on `next dev`, not stale `next start`
+
+- For this repo, local community frontend port `3106` is the active development runtime and should normally be recovered with `npm run dev:web`, not left running on an old `next start` process.
+- The validated failure pattern is:
+  - `3106` is listening, so it looks alive
+  - but the process command line is `next start`
+  - after source changes, `/publish` loads route chunks that no longer match the old `.next` output
+  - browser then hits `/_next/static/chunks/*.js|*.css -> 500`, followed by `ChunkLoadError` and the fallback page `This page couldn't load`
+- The stable recovery path is:
+  - inspect the listening process on `3106`
+  - if it is a stale `next start`, stop it
+  - restart local frontend in dev mode on `3106`
+  - recheck the broken route in a real browser, not only the root page
+- Verified in this repo on 2026-05-25:
+  - before repair: `/publish` redirected to login, then after login failed with static chunk `500` and `ChunkLoadError`
+  - after stopping the stale `next start` process and relaunching `3106` in `next dev`, `/publish` rendered normally again
+
+## 2026-05-25 cloud upload proxy 404 can mean frontend is newer than backend
+
+- For this repo, when a public upload action fails through the Next upload proxy with `RESOURCE_NOT_FOUND`, do not assume the browser upload itself is broken.
+- The validated failure pattern is:
+  - local code already has a new proxy route such as `/api/uploads/audio-policy`
+  - public web has been deployed and does expose that proxy route
+  - the proxy forwards successfully, but the cloud backend is still on an older release
+  - public request then becomes `POST /api/uploads/audio-policy -> 404 RESOURCE_NOT_FOUND`
+- The stable diagnosis path is:
+  - inspect the public network response body and request id first
+  - confirm whether the same endpoint exists in local backend controller code
+  - compare current cloud backend release with the local feature completion point before touching frontend code
+- Verified in this repo on 2026-05-25:
+  - public reference-audio upload failed with `POST http://8.141.20.130/api/uploads/audio-policy -> 404`
+  - local backend already contained `UploadController#@PostMapping("/audio-policy")`
+  - deploying backend release `20260525-144731` restored the cloud upload path
+
+## 2026-05-26 featured page must not split SSR inventory and client inventory
+
+- For `/featured`, do not let the server-rendered first screen use only `homeFeed + featuredLayout` while the real prompt inventory arrives later through a client `useEffect` fetch.
+- The validated failure pattern in this repo was:
+  - refresh first showed a tiny wrong catalog such as `全部 15 / 工作流 3 / 视频提示词 1 / 图片提示词 11`
+  - after hydration, the page jumped to the real large inventory
+  - root cause was `FeaturedArchivePage` receiving `prompts=[]` on SSR and then filling `promptInventory` from `/api/public/featured-prompts` or `/api/featured-prompts` on the client
+- The stable rule is:
+  - first-screen featured inventory and hydrated featured inventory must come from the same loader
+  - client-side featured prompt fetches can stay only as retry/degrade fallback, not as the primary source of truth for the initial render
+
+## 2026-05-27 cloud web nginx must explicitly whitelist new Next API routes before the generic `/api/` backend proxy
+
+- In this repo's test cloud, Nginx does not send every `/api/**` request to Next. The default rule is still:
+  - a small explicit whitelist goes to `apps/web` on `3106`
+  - the generic `location /api/` goes to `apps/server` on `18080`
+- The validated failure pattern is:
+  - local `next build` clearly includes a new same-origin route such as `/api/featured-inventory`
+  - cloud web deploy succeeds
+  - direct public request to `http://8.141.20.130/api/featured-inventory` still returns backend `RESOURCE_NOT_FOUND`
+  - page-level symptoms then look unrelated, for example `/featured` bottom CTA flickers between `加载中...` and `查看更多` because the client keeps retrying a `404`
+- The stable rule is:
+  - whenever `apps/web` adds a new Next route under `/api/**` that must stay same-origin, update `scripts/deploy-test-web.ps1` Nginx whitelist in the same change
+  - also add a readiness check for that exact public path, otherwise a successful deploy can still leave the route invisible in cloud runtime
+- Verified in this repo on 2026-05-27:
+  - missing whitelist entries for `/api/featured-inventory` and `/api/public/featured-inventory` sent traffic to Spring Boot instead of Next
+  - after adding explicit proxy rules and redeploying web release `20260527-211040`, both routes returned `200` and `/featured` stopped entering the repeated load-more error loop
+
+## 2026-05-27 featured feed-ops fallback must never be republished as real curated config
+
+- For this repo, `featured` feed-ops slots and `featured-inventory` serve different purposes:
+  - `/api/feed/featured` = manually curated pinned order only
+  - `/api/featured-inventory` = full real inventory and pagination
+- The validated failure pattern was:
+  - after an empty-config recovery, fallback-visible featured content was republished into `admin_feed_slot_configs`
+  - historical polluted config then looked like a legitimate curated order on `/featured`
+  - users perceived this as “refresh flashed wrong data and then polluted the real page”
+- The stable rule is:
+  - never treat featured fallback output as publishable manual config
+  - when `admin_feed_slot_configs` for `featured` is empty, `/api/feed/featured` should return empty slot items, not fallback-filled pseudo-curation
+  - if polluted featured config already exists, clean the admin config itself in addition to fixing backend semantics, otherwise the dirty order remains real
+
+## 2026-05-27 featured default first screen must inject curated config, not just reprioritize inventory overlap
+
+- For `/featured`, do not treat `/api/feed/featured` as a weak sort hint layered on top of `featured-inventory`.
+- The validated failure pattern in this repo was:
+  - public page rendered cards only from `featured-inventory`
+  - `featuredSlots` were converted into `pinnedRank` and only reordered items already present in the current inventory page
+  - if an operator-configured featured item was not already in the current inventory first page, it never appeared on the public default first screen
+  - users then saw “后台配置已发布，但前台精选首屏没有变化”
+- The stable rule is:
+  - default `/featured` first screen must use backend curated slot items as real first-screen inputs
+  - search, sort, workflow secondary filters, and prompt facets should continue to use pure `featured-inventory`
+  - merging should dedupe by stable item identity and prefer the richer inventory copy when a curated item also exists in the inventory page
+
+## 2026-05-28 featured back-navigation restore must be pagination-aware
+
+- For `/featured`, do not assume the return target card already exists in the DOM when the page restores from `from=/featured#featured-item-...`.
+- The validated failure pattern in this repo was:
+  - before featured inventory switched to incremental pagination, return-position restore worked because all cards were already mounted
+  - after switching to `featured-inventory` paged loading, only the first batch was mounted initially
+  - returning from a detail page to an item beyond the first batch left the hash anchor missing in the DOM, so restore logic exited early and the page stayed at the top
+- The stable rule is:
+  - when `/featured` is opened with a featured-card hash anchor and the target card is not mounted yet, the page must keep loading more inventory batches until the target card appears or inventory is exhausted
+  - only featured-card anchors should trigger this auto-load path; unrelated hashes must not
+
+## 2026-05-27 admin basePath must only be applied to browser-native URLs, never to Next internal routes
+
+- In this repo, `apps/admin` runs under `basePath=/admin`, but that does **not** mean every admin route helper should return `"/admin/..."`.
+- The validated failure pattern was:
+  - a filter page such as `/resources` used a raw browser form submit
+  - its `action` stayed at `"/resources"` and the cloud browser navigated to the public site root path instead of the admin app
+  - a later over-fix then spread `buildAdminBrowserPath("/comments")` / `("/moderation")` / `("/reports")` into `Link`, `redirect`, and return-path builders
+  - that made internal Next navigation semantics drift away from the rest of the app
+- The stable rule is:
+  - use plain app paths like `"/resources"` / `"/comments"` / `"/moderation"` for:
+    - `Link`
+    - `router.push` / `router.replace`
+    - `next/navigation redirect`
+    - auth guard return paths such as `requireAdminAccess(..., "/resources")`
+  - use explicit browser paths like `"/admin/resources"` only for browser-native URLs:
+    - raw `<form action>`
+    - raw `<a href>`
+- The current safe helper in this repo is:
+  - `apps/admin/src/lib/admin-routes.ts -> buildAdminBrowserPath(routePath)`
+  - and it should stay scoped to browser-native navigation only
+- Regression protection now exists in:
+  - `scripts/smoke-admin-routes.mjs`
+  - authenticated `/resources` HTML must contain `action="/admin/resources"`
+
+## 2026-05-28 admin filter-form basePath regressions must be checked across all known GET filter pages
+
+- For this repo, do not stop after fixing one representative admin filter page such as `/resources`.
+- The validated follow-up failure pattern was:
+  - `/resources` had already been fixed
+  - but the same raw browser GET form bug still remained in:
+    - `apps/admin/src/app/(dashboard)/users/UsersPageClient.tsx`
+    - `apps/admin/src/app/(dashboard)/moderation/page.tsx`
+  - both still used bare `action="/users"` / `action="/moderation"`
+  - under cloud `basePath=/admin`, those submits would still jump out to the public site root path
+- The stable rule is:
+  - every browser-native admin GET filter form must use `buildAdminBrowserPath(...)`
+  - this applies even inside client components such as `UsersPageClient.tsx`
+  - reset links and other internal Next navigation can stay on plain app paths like `"/users"` / `"/moderation"`
+- Regression protection should cover the full known filter-page set, not only one sample page.
+- Current protected set in `scripts/smoke-admin-routes.mjs` is:
+  - `/users`
+  - `/comments`
+  - `/moderation`
+  - `/reports`
+  - `/resources`
+  - `/media-tasks`
+  - `/audit-logs`
+
+## 2026-05-28 admin-only cloud deploy may need to bypass unrelated workspace pre-verify failures
+
+- In this repo, `npm run deploy:test:admin` currently runs a workspace-level pre-verify chain before the actual admin deploy.
+- The validated operator pitfall is:
+  - the admin frontend change itself is locally verified
+  - but deploy is still blocked by an unrelated backend test outside the admin change scope
+  - example seen here: `PublishPipelineIntegrationTest.videoMediaProcessorRebuildsPreviewWhenExistingPreviewAssetIsNotDerivedPreview`
+- The stable release tactic for an admin-only sync is:
+  - first verify the admin change locally with `apps/admin build + typecheck + smoke-admin-routes`
+  - then use `./scripts/deploy-test-admin.ps1 -VerifyAfterDeploy`
+  - keep post-deploy smoke on, so the cloud admin runtime is still verified even when the workspace pre-verify is skipped
+
+## 2026-05-28 admin resource prompt type must come from backend modality, not media URLs
+
+- For this repo, the admin `资源治理 /resources` page must not infer `图片提示词 / 视频提示词` from whether a prompt row happens to have `previewUrl` or `sourceUrl`.
+- The validated failure pattern was:
+  - backend filtering by `targetType=image_prompt|video_prompt` was already correct because it used `prompt_entries.modality`
+  - but the admin frontend still rendered type labels with `previewUrl || sourceUrl ? "视频提示词" : "图片提示词"`
+  - image prompts that carried imported example media or derived media references were therefore mislabeled as `视频提示词`
+- The stable rule is:
+  - backend resource DTOs must explicitly expose `promptModality`
+  - frontend resource-type rendering must use `promptModality === "video" ? "视频提示词" : "图片提示词"`
+  - `modelTags` can stay as a display tag, but must not be the source of truth for prompt type
+
+## 2026-05-28 admin cloud media proxy must not self-call the public web origin
+
+- For this repo's cloud admin runtime, do not point the admin server-side media proxy at the public community origin such as `http://8.141.20.130`.
+- The validated failure pattern was:
+  - `dramatv-community-admin` stayed `active`
+  - public community root `http://8.141.20.130/` could already be back to `200`
+  - but admin logs still showed `Failed to proxy http://8.141.20.130/nano-banana-images/...` with `connect ETIMEDOUT 8.141.20.130:80`
+  - current cloud env confirmed `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL=http://8.141.20.130`, and admin `next.config.ts` rewrites were using that value for `/__admin_proxy__/seedance-videos/*` and `/__admin_proxy__/nano-banana-images/*`
+- The stable rule is:
+  - split admin web-origin config into two layers:
+    - `DRAMATV_WEB_BASE_URL` for server-side/admin rewrite targets, using the ECS-local upstream such as `http://127.0.0.1:3106`
+    - `NEXT_PUBLIC_DRAMATV_WEB_BASE_URL` for browser-visible public origin when the client actually needs it
+  - admin server-to-server proxy hops inside the same ECS should prefer `127.0.0.1` / internal upstream, not loop back through the public `80` entry
+
+## 2026-05-29 authenticated public load must use a real session and disable redirects
+
+- For this repo, do not assess public community performance for `/home`, `/featured`, or `/discussions` with anonymous k6 requests.
+- The validated failure pattern was:
+  - unauthenticated public requests to those routes returned `307 -> /login`
+  - an older public stress report looked healthy because it mostly measured redirect/login flow, not real logged-in content pages
+  - once k6 logged in first and reused `dramatv_access_token`, the real content-page latency and timeout rate were much worse
+- The stable load-test pattern is:
+  - log in once in `setup()`
+  - reuse `dramatv_access_token`
+  - set `redirects: 0`
+  - treat any redirect back to `/login` as a failed page hit
+  - when reading `k6 --summary-export` JSON, use raw metric values / console output for failure-rate judgment; do not trust the threshold booleans alone
+- The validated route priority on 2026-05-29 was:
+  - `/home` worst
+  - `/featured` second
+  - `/discussions` much lighter, but still over the target p95 at `50 VU`
+- The most important performance signal was:
+  - `http_req_waiting` stayed relatively low under authenticated load
+  - `http_req_receiving` dominated total time
+  - so the next investigation should focus on response body size / streaming / transfer behavior before blaming backend TTFB
+
+## 2026-05-29 featured defer inventory and k6 environment notes
+
+- When deferring default featured inventory on the web frontend, the first hydration pass must ignore the default featured cache key from sessionStorage; otherwise server HTML and client initial render can diverge and trigger a hydration mismatch.
+- The existing authenticated k6 scripts under scripts/k6/ default to PUBLIC_BASE_URL=http://8.141.20.130. If the new frontend code has not been deployed yet, a public rerun does not validate local changes.
+- The same k6 login script cannot be pointed directly at local http://127.0.0.1:3106 in the current dev setup, because that Next dev entry does not expose POST /api/auth/login; the script fails in setup() with 404.
+
+## 2026-05-29 when authenticated public k6 is dominated by `http_req_receiving`, shrink SSR first-screen payload before touching backend TTFB
+
+- This repo now has a validated performance pattern for authenticated community pages such as `/home` and `/featured`:
+  - if `http_req_waiting` stays relatively low
+  - but `http_req_receiving` dominates total time
+  - then the first move should be shrinking SSR first-screen payload and response body size, not blaming backend TTFB first
+- The validated frontend tactics here were:
+  - `/home`: server-build a minimal hero + shelf payload instead of sending a larger view-model bundle to the client, and cut prompt fetch size from `60` to `30`
+  - `/featured`: reduce default first page size from `24` to `12`, keep curated slots visible first, and defer default inventory hydration
+  - when deferring featured inventory, ignore the default featured sessionStorage cache key during the first hydration pass to avoid a mismatch
+- Verified public authenticated impact after deploying web release `20260529-114158`:
+  - `/home` p95 dropped from `32489.54ms` to `16489.43ms`
+  - `/featured` p95 dropped from `20303.95ms` to `12463.72ms`
+  - mixed-route p95 dropped from `19145.64ms` to `10925.85ms`
+  - per-request received body size also dropped by roughly `40%+`
+- Stable takeaway:
+  - for this repo's Next community pages, reducing first-screen HTML/RSC payload is a real lever on公网 authenticated load
+  - response-size cuts should be verified with public authenticated k6 and `data_received/http_reqs`, not only local browser feel
+
+## 2026-05-29 once `/home` route passes `pageData`, keep `CommunityHomePage.tsx` render-only
+
+- For this repo's `/home`, do not keep the old client-side home data shaping helpers after the route has already switched to `buildCommunityHomePageData(...)`.
+- The validated failure pattern was:
+  - `apps/web/src/app/(community)/home/page.tsx` already did `getHomeFeed/getPrompts -> mapHomePageView -> mergeHomePageWithDemo -> buildCommunityHomePageData`
+  - but `apps/web/src/features/home/CommunityHomePage.tsx` still retained prompt/workflow/card conversion, hero assembly, slot-to-shelf mixing, and dedupe helpers from the pre-refactor version
+  - those stale helpers were no longer used for behavior, but they still inflated the client module and confused the source of truth
+- The stable rule is:
+  - keep `apps/web/src/features/home/home-page-data.ts` as the single place for `/home` data shaping
+  - keep `CommunityHomePage.tsx` focused on render/interaction only: hero playback, hover preview, like action, and back-anchor restore
+- Local verification after trimming the stale helpers:
+  - `npx.cmd tsc --noEmit -p apps/web/tsconfig.json`
+  - `apps/web -> npm.cmd run build`
+- Real impact should still be judged with the next authenticated public k6 rerun after deploy, not from local build success alone.
+
+## 2026-05-29 authenticated public k6 on page HTML will barely reflect client-only `/home` helper cleanup
+
+- For this repo's current `scripts/k6/public-auth-load.js`, the main measurement is the authenticated page document request itself (`GET /home`, `/featured`, `/discussions`), not a real browser's full JS chunk download and hydration path.
+- The validated follow-up pattern was:
+  - after trimming stale helpers from `apps/web/src/features/home/CommunityHomePage.tsx`, the cloud `/home` rerun improved only slightly
+  - `/home` `avg` and `http_req_receiving` dropped a bit, but per-request received size stayed flat at about `92.3 KiB`
+  - mixed-route results were essentially flat as well
+- Stable takeaway:
+  - client-component cleanup is still worth doing for code health and browser runtime, but do not expect it to materially change authenticated k6 page-load numbers unless it also changes the server-returned document or route payload
+  - when k6 still shows flat `per-request KiB`, shift the next optimization back to SSR output shape, shelf payload, or route-level response size
+
+## 2026-05-29 featured back-anchor restore must be cleared on route replace, not only on `hashchange`
+
+- For `/featured`, do not rely on `hashchange` alone to clear a back-anchor after filter/sort/facet switches.
+- The validated failure pattern in this repo was:
+  - detail return restored a `featured-item-*` hash anchor
+  - before restore settled, the user switched facet/filter through `router.replace(...)`
+  - URL hash disappeared, but no browser `hashchange` fired for the shared restore hook
+  - stale anchor state remained alive inside the page
+  - the new filtered route then kept auto-loading paginated inventory to chase a card that belonged to the old route
+  - visible symptom became `Loading featured -> Restoring featured position` stuck overlay plus runaway `/api/featured-inventory?...cursor=offset:*`
+- The stable rule is:
+  - shared back-anchor restore state must resync from `window.location.hash` on route updates themselves, not only on initial mount and `hashchange`
+  - if a route change removes the hash, the old `featured-item-*` anchor must be cleared before any new-page restore logic runs
+
+## 2026-05-29 featured deferred inventory must not hydrate from same-key session cache on the first client frame
+
+- For deferred `/featured` inventory, do not seed the initial client render from same-route `sessionStorage` cache by default.
+- The validated failure pattern in this repo was:
+  - SSR first screen intentionally sent a trimmed featured payload
+  - client hydration immediately restored a larger cached inventory for the same route key
+  - server HTML and client first frame diverged
+  - cloud runtime then surfaced React hydration mismatch errors and intermittent wrong first-screen data
+- The stable rule is:
+  - initial hydration must match SSR payload exactly
+  - same-key featured inventory cache can only be restored after hydration, and only for real detail-return flows that still carry a `featured-item-*` hash anchor
+
+## 2026-06-09 keep community `/media/**` same-origin on the web frontend
+
+- For this repo, do not expand relative `/media/...` asset paths with `NEXT_PUBLIC_DRAMATV_API_BASE_URL` or any other build-time base URL in the frontend presentation layer.
+- The validated failure pattern was:
+  - backend APIs such as `/api/feed/home` and `/api/feed/featured` already returned relative `/media/...`
+  - `apps/web/src/lib/presentation.ts -> normalizeAssetUrl()` prefixed those paths with the configured public base URL
+  - after the public entry moved from bare IP to `community.8.141.20.130.nip.io`, the live web runtime still rendered `http://8.141.20.130/media/...`
+  - browser runtime then failed the landing-page images with `net::ERR_BLOCKED_BY_ORB`
+- The stable rule is:
+  - keep `/media/**` as same-origin relative paths on the web frontend
+  - if the frontend sees legacy absolute community media URLs on `8.141.20.130`, `community.8.141.20.130.nip.io`, `127.0.0.1`, `localhost`, or `::1`, rewrite them back to relative `/media/...`
+  - leave third-party absolute asset URLs such as Cloudflare Stream thumbnails untouched
+
+## 2026-06-09 shared PowerShell deploy helpers must not use `Host` as a writable name
+
+- For this repo's deploy/rollback/readiness PowerShell helpers, do not use `Host` as a local variable name or parameter name.
+- The validated failure pattern was:
+  - `scripts/lib/test-env-release-common.ps1` used `$host = ...` and `param([string]$Host)`
+  - PowerShell treated that as the built-in read-only `$Host`
+  - `deploy-test-web.ps1 -VerifyAfterDeploy` then failed before upload/build with `Cannot overwrite variable Host because it is read-only or constant`
+- The stable rule is:
+  - use names such as `publicHostName` and `HostName` instead
+  - when a shared helper changes, assume every deploy/readiness entry that dot-sources it may inherit the same failure mode
+
+## 2026-06-09 local background backend starter must load `apps/server/.env`
+
+- For this repo, do not assume `scripts/start-server-18080.ps1` and `scripts/run-server-local-db.ps1` share the same local env-loading behavior unless it is explicitly implemented.
+- The validated failure pattern was:
+  - backend auth defaults were hardened to disable local password login unless explicitly re-enabled
+  - local machine rebooted
+  - backend was restarted through `scripts/start-server-18080.ps1`
+  - that starter launched the jar directly but did not import `apps/server/.env`
+  - local login page then fell back to `provider.enabled=false` and rendered `登录方式暂不可用`
+- The stable rule is:
+  - the background jar starter must import `apps/server/.env.example` and `apps/server/.env` before launching Java
+  - local-only auth/media/runtime overrides that are expected to survive reboot should live in ignored `apps/server/.env`, not in implicit shell state
+
+## 2026-06-09 community login forms must not depend on controlled input state for autofill correctness
+
+- For this repo, do not gate login submission on client-side `useState` values for `username/password` when the page is expected to work with paste, browser remembered passwords, and pre-hydration submit.
+- The validated failure pattern was:
+  - login provider was enabled
+  - form fields were controlled by React state and only updated the submit gate through client events
+  - password manager / browser autofill could populate the DOM without producing the exact state transition the UI relied on
+  - if hydration timing was poor, `onSubmit`-only login handling could also be bypassed by a native form submit path
+- The stable rule is:
+  - community login should use real named form fields (`username`, `password`) and a form-backed server action
+  - empty-credential validation can happen in the server action result path, but submission itself must not depend on client-only state synchronization
+
+## 2026-06-11 when Aliyun ICP interception blocks shared `:80` hostnames, restore test access with dedicated high ports
+
+- For this repo's shared ECS test machine, a public hostname can become unusable even when the app and Nginx are healthy, because Aliyun can intercept `:80` traffic with an ICP/接入校验 page before the request reaches the app.
+- The validated recovery pattern is:
+  - keep the existing host-based `:80` routes for each project unchanged
+  - add dedicated temporary high-port Nginx entry points for the community only
+  - open those ports explicitly in the `public` firewall zone
+- Verified here on 2026-06-11:
+  - community temporary frontend port: `8086`
+  - community temporary admin port: `8206`
+  - config file: `/etc/nginx/conf.d/dramatv-community-temp-ports.conf`
+  - helper script landed in repo: `scripts/open-test-community-temp-ports.ps1`
+- Stable rule:
+  - use this only as a temporary test-environment recovery path
+  - do not rewrite or loosen colleague projects' `:80` host isolation just to recover community access
+  - long-term fix is still a compliant company-owned domain /备案接入口径
+
+## 2026-06-09 local community web must proxy `/media/**` to backend when running on 3106
+
+- For this repo, keeping frontend asset URLs as same-origin relative `/media/...` is correct, but local `apps/web` dev/runtime still needs an explicit proxy path for that route.
+- The validated failure pattern was:
+  - backend `18080` already served `HEAD /media/... -> 200`
+  - frontend presentation kept `/media/...` relative on purpose
+  - local browser then requested `http://127.0.0.1:3106/media/...`
+  - `apps/web/next.config.ts` had no rewrite for `/media/:path*`
+  - result: local homepage/login/avatar/card media all fell into repeated `404` even though backend media was healthy
+- The stable rule is:
+  - keep cloud/test asset URLs same-origin relative
+  - add a local-only Next rewrite for `/media/:path* -> ${DRAMATV_API_BASE_URL}/media/:path*` when the configured API base is a loopback host
+- after changing `next.config.ts`, always restart `3106`; this fix will not land through HMR alone
+
+## 2026-06-12 local `3106` dev must bind `127.0.0.1` or explicitly allow it as a dev origin
+
+- For this repo, do not leave `apps/web` dev running on the default `localhost` host while the team accesses the app through `http://127.0.0.1:3106`.
+- The validated failure pattern was:
+  - `npm run dev:web` started `next dev --port 3106`
+  - Next 16 treated `127.0.0.1` as a blocked cross-origin dev resource origin
+  - `/_next/webpack-hmr` returned `404` with `Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1"`
+  - visible symptom became: `/featured` category buttons, theme toggle, and infinite-load behavior all looked broken even though page HTML rendered
+- The stable fix is:
+  - bind dev explicitly to `127.0.0.1`
+  - and keep `allowedDevOrigins` including both `127.0.0.1` and `localhost`
+- Verified in this repo on 2026-06-12:
+  - `apps/web/package.json` dev script now uses `next dev --hostname 127.0.0.1 --port 3106`
+  - `apps/web/next.config.ts` now includes `allowedDevOrigins: ["127.0.0.1", "localhost"]`
+  - after restarting `3106`, Playwright confirmed:
+    - no more HMR cross-origin console errors
+    - `/featured` filter button click updated URL to `?filter=video_prompt`
+    - theme toggle changed `dark -> light`
+    - page height increased after bottom scroll, confirming load-more resumed
+
+## 2026-06-12 company-domain test deploys must override old `nip.io` defaults explicitly
+
+- For this repo, do not run `deploy-test-web.ps1` against the current community test site without explicitly passing the active company domain.
+- The validated failure pattern is:
+  - repo deploy/readiness defaults still point at `http://community.8.141.20.130.nip.io`
+  - the active public community entry has moved to `http://drama-community-dev.dzkjm.cn`
+  - the old `nip.io` host now returns `403` at the public access layer
+  - `deploy-test-web.ps1` also writes nginx `server_name`, so using defaults can silently rewrite the cloud entry back to the stale host
+- The stable rule is:
+  - when deploying community web to the shared test ECS, pass both:
+    - `-PublicBaseUrl http://drama-community-dev.dzkjm.cn`
+    - `-ServerNames drama-community-dev.dzkjm.cn`
+- Verified in this repo on 2026-06-12:
+  - web release `20260612-191508` deployed successfully only after using the explicit company-domain parameters
+  - post-deploy readiness on `http://drama-community-dev.dzkjm.cn` passed `13 / 0`
+
+## 2026-06-12 deep back-anchor restore must retry until page height catches up
+
+- For this repo, do not treat one successful call to `window.scrollTo(storedScrollY)` as proof that a deep return-position restore has actually completed.
+- The validated failure pattern on `/featured` was:
+  - detail page `返回列表` brought the user back with a valid `#featured-item-*` anchor and a valid stored `scrollY`
+  - the list route had not yet rebuilt enough total height when the first restore ran
+  - the browser clamped the scroll position to a shallower value
+  - the old hook then marked restore complete and never retried, which could surface as drifted deep return and even an apparently empty masonry column until later loading/layout settled
+- The stable rule is:
+  - shared back-anchor restore must keep retrying for a short bounded window until either:
+    - the stored scroll position becomes reachable, or
+    - the anchor target is back near the viewport
+  - only then should the stored back-scroll key be cleared
+  - on `/featured`, measured card aspect ratios should also survive route re-entry through `sessionStorage`, otherwise masonry columns can reshuffle before images re-report dimensions
+
+## 2026-06-14 creator-page return restore needs list-state restore, not only hash-anchor plumbing
+
+- For this repo, do not assume creator-page return positioning is solved just because creator cards append `from=/creators/...#creator-*` and the route mounts `useBackAnchorRestore(...)`.
+- The validated failure pattern is:
+  - a creator page loads only the first batch of `works`, `workflows`, or `posts`
+  - the user clicks `鏌ョ湅鏇村`, enters a detail page from a later batch, then returns
+  - the route-level hash anchor is still correct, but the target card does not exist yet because the creator page has forgotten the extra loaded batches
+  - visible symptom becomes: creator-page return falls back near the top or does not restore at all for deeper items
+- The stable rule is:
+  - creator-page return restore requires both:
+    - the existing shared back-anchor/hash restore
+    - session-scoped restoration of the already loaded creator list batches and their `nextCursor` state before scrolling runs
+  - treat this as a list-state problem first, not as another generic anchor-hook bug
+
+## 2026-06-14 featured return restore can fail in two distinct ways after masonry/infinite-load changes
+
+- For this repo's `/featured` masonry page, do not treat “roughly scrolled back near the old area” as proof that return restore is healthy.
+- The validated regression shapes now explicitly include both:
+  - after returning from detail, the left masonry column can appear blank until the user scrolls farther and triggers another incremental load
+  - after returning from detail, the page can stay stuck behind `Restoring featured position` instead of releasing the overlay
+- Stable rule:
+  - `/featured` return verification must assert all three together:
+    - scroll position is restored
+    - restored batches are already render-complete across columns without waiting for another load
+    - the restore overlay always settles and exits on its own
+- Treat this as a combined “list-state + masonry assignment + restore-completion” problem, not only a generic scroll-anchor issue.
+
+## 2026-06-09 back-anchor restore must sync on route-key changes, not every render
+
+- For this repo, shared return-position restore should keep hash-anchor state aligned with route replaces, but it must not call `setState` from a dependency-free layout effect on every render.
+- The validated failure pattern was:
+  - `apps/web/src/lib/routes/back-anchor.ts -> useBackAnchorRestore()`
+  - one `useLayoutEffect` ran after every render and called `setHashAnchorId(...)`
+  - on `/home` this eventually reproduced `Maximum update depth exceeded`
+  - the render loop also caused repeated `/api/me/notifications/recent` refreshes, which made the symptom look like generic local runtime noise
+- The stable rule is:
+  - sync the hash-anchor state only when the route key changes, e.g. `pathname + searchParams.toString()`
+  - keep a separate `hashchange` listener for real hash-only updates
+  - if the hook needs to clear stale anchors after `router.replace(...)`, use route-aware dependencies rather than a render-wide effect
+
+## 2026-06-09 featured ratio metadata only helps when historical media dimensions are really populated
+
+- For this repo's `/featured` collage layout, adding `width / height` to backend DTOs and frontend contracts is necessary but not sufficient.
+- The validated failure pattern was:
+  - contract wiring was completed for `GET /api/feed/featured-inventory` and the web-side featured inventory route
+  - frontend layout selection already preferred backend ratio metadata first
+  - but live local inventory still returned many `width / height = null`
+  - result: first-paint layout still fell back to client natural-size measurement for a large portion of historical items
+- The stable rule is:
+  - keep the backend-ratio-first path in place
+  - keep the client natural-size fallback as a required safety net
+  - if the goal is to improve first-paint layout stability rather than only post-load refinement, the next real lever is historical media dimension backfill, not more frontend template tuning alone
+- Same-round runtime note:
+  - `FeaturedArchivePage` ratio-map reads and writes should also stay defensive against `undefined` cache state, otherwise dev/HMR transitions can surface `resolveFeaturedLayoutBucket(...)` crashes even when the layout logic itself is correct
+
+## 2026-06-11 personal domain is for internal host rehearsal, not as the long-term public entry on the shared mainland ECS
+
+- For this repo's shared mainland-Aliyun ECS, do not assume a personally owned domain is a safe long-term public entry just because the domain itself may already have a filing history.
+- The validated Aliyun filing rules checked on 2026-06-11 were:
+  - filing must be handled through the actual access provider
+  - when the service uses Aliyun mainland resources, Aliyun must be the access-filing provider
+  - if the domain owner and the filing主体 do not match during access filing, the domain ownership must be changed first
+  - the filing order must be associated with the actual Aliyun server instance or filing service code
+- Stable rule:
+  - align `domain owner -> filing主体 -> actual access provider -> actual ECS service`
+  - use the personal domain only for internal `server_name` / `hosts` / `curl --resolve` rehearsal
+  - reserve the real public cutover for a company-owned domain that can complete compliant Aliyun filing/access under the intended主体
+
+## 2026-06-11 custom domain rehearsal on shared ECS must separate Host-routing success from public-DNS success
+
+- For this repo's shared ECS, a custom domain can already be usable at the Nginx host-routing layer even when public access still fails.
+- Verified with `skpy.ltd` on 2026-06-11:
+  - community Nginx `server_name` successfully accepted the added alias
+  - ECS-internal requests with `Host: skpy.ltd` to `/login` and `/admin/login` both hit the DramaTV community web/admin correctly
+  - external probing still failed at the DNS layer because the domain had not yet been resolved publicly to the ECS
+- Stable rule:
+  - first verify `Host`-based routing on the ECS itself
+  - only after that, diagnose DNS, security-group, and ICP/access-layer failures as separate outer-layer issues
+
+## 2026-06-11 bare IP `:80` on the shared ECS is only a single default-site entry, not a multi-project business entry
+
+- For this repo's shared ECS, do not treat `http://8.141.20.130` as a stable community public entry once multiple projects share the same `:80`.
+- The validated failure pattern on 2026-06-11 was:
+  - community exact-host routing still existed at the Nginx layer
+  - community hostnames were blocked by Aliyun ICP/access interception
+  - the bare IP remained publicly reachable
+  - but `Host: 8.141.20.130` did not match the community `server_name`
+  - the request therefore fell into the current default site, which was DramaLoom
+- Stable rule:
+  - on a shared `:80` ECS, bare IP can only prove the machine or one default site is alive
+  - bare IP cannot serve as the long-term public business entry for multiple projects
+  - multi-project public recovery must use either compliant per-project hostnames or temporary per-project high ports such as `8086/8206`
+
+## 2026-06-15 featured cloud hydration verification must use fresh-tab evidence
+
+- For this repo's `/featured` cloud checks, do not conclude that the current deployed build still reproduces hydration mismatch based on console errors accumulated in an older browser tab.
+- The validated failure pattern was:
+  - one browser session had already accumulated local `127.0.0.1:3106` HMR websocket noise and an older cloud `React #418` entry
+  - later cloud checks reused that same session history
+  - this made the current cloud runtime look broken even though a fresh cloud-tab replay was clean
+- The stable rule is:
+  - when verifying whether a deployed cloud `/featured` build still has a live hydration issue, open a fresh tab directly on the cloud route and inspect only that tab's post-navigation console
+  - treat old-tab console history as archived evidence, not as the current-runtime verdict
+
+## 2026-06-15 featured buffered next page must not commit merely because `scrollY > 0`
+
+- For this repo's `/featured` waterfall page, do not treat any non-zero `window.scrollY` as sufficient proof that the user is ready for the hidden next page to be committed into the visible masonry.
+- The validated failure pattern was:
+  - first screen correctly rendered `12` cards
+  - next page was prefetched into the hidden buffer
+  - the page then retained only a shallow scroll offset such as `scrollY = 100`
+  - old commit gating `window.scrollY > 0` allowed the buffered page to merge immediately
+  - visible symptom became first-screen auto-expansion back to `24` cards even though the user was not near the bottom
+- The stable rule is:
+  - buffered next-page commit should require one of:
+    - an explicit forced restore path
+    - or actual remaining distance to bottom being within the commit threshold
+  - shallow scroll offset alone is not a safe commit signal
+
+## 2026-06-15 featured deep return is not complete just because stored `scrollY` was reached
+
+- For this repo's `/featured` return restore, do not mark stored-scroll mode complete solely because `window.scrollY` numerically matches the saved deep position.
+- The validated failure pattern was:
+  - list size and deep `scrollY` both looked restored
+  - restore overlay also exited
+  - but the target `featured-item-*` anchor was still far outside the viewport because masonry/list rebuilding had not aligned the anchor position yet
+- The stable rule is:
+  - stored-scroll restore completion must require both:
+    - stored scroll reached
+    - target anchor already near the viewport
+  - otherwise continue retrying or fall back to anchor-based restore
+
+## 2026-06-15 profile-entry returns need route-scroll restore, not only hash-anchor restore
+
+- For this repo, do not assume return positioning is covered just because detail cards append `from=/route#anchor` and list pages mount `useBackAnchorRestore(...)`.
+- The validated failure pattern was:
+  - list page such as `/featured` or `/discussions` scrolled deep
+  - user entered `/me`, creator page, or another non-card route from a topbar/profile entry
+  - `PageShell` did persist the origin route scroll snapshot through `rememberBackAnchorSource(from)`
+  - but the returning list route had no `#anchor`, so hash-only restore hooks never activated
+  - visible symptom became: return route was correct, but scroll fell back near the top
+- The stable rule is:
+  - shared return restore must support two distinct paths:
+    - hash-anchor restore for card/detail returns
+    - plain stored route-scroll restore for no-anchor returns such as profile-entry jumps
+  - when a hash exists, anchor restore remains the primary path; route-scroll restore should not compete with it
+
+## 2026-06-15 server tests require JDK 17, not the machine default Java 8
+
+- The backend Maven test run for this repo failed at first because `mvn -version` resolved to Java 8 (`1.8.0_152`) even though the project uses Java 17 features such as text blocks.
+- The stable rule is:
+  - set `JAVA_HOME` to a local JDK 17 or newer before running server compile/test commands
+  - do not treat text block parse errors as source bugs until the JDK version has been confirmed
+
+## 2026-06-15 backend integration tests should not import package-private helpers from production code
+
+- The `CommunitySessionExpiryIntegrationTest` initially failed to compile because it imported the package-private `AuthTokenSupport`.
+- The stable rule is:
+  - test code should compute its own hash or use public APIs
+  - do not widen production helper visibility just to satisfy one test unless that helper is genuinely part of the public contract
+
+## 2026-06-16 deep featured or creator returns should not persist full large list snapshots to sessionStorage on every route hop
+
+- For this repo, do not rely on `sessionStorage` as the primary restore store for deep-scroll `/featured` or creator-page list state.
+- The validated failure pattern is:
+  - featured page loads many incremental batches
+  - user hops through detail -> creator -> more detail -> back
+  - both `/featured` and `/creators/[id]` keep serializing large arrays into `sessionStorage`
+  - repeated `JSON.stringify/parse` on large list snapshots can stall the browser main thread and amplify restore-loop jank or freezes
+- The stable rule is:
+  - same-tab returns should prefer module-memory caches for full list/view restore
+  - `sessionStorage` should stay only as a bounded fallback with capped key count and capped item count per list bucket
+  - if a deep-return freeze reappears, inspect large client persistence first before blaming API latency
+
+## 2026-06-16 list-page back-anchor restore must actually depend on list rebuild signals
+
+- For this repo, do not pass dependency arrays into `useBackAnchorRestore(...)` and then ignore them inside the shared hook.
+- The validated failure pattern was:
+  - creator page and other list pages passed signals such as active tab and loaded item count
+  - shared hook ignored those dependencies
+  - first return from detail could run before the target card had remounted
+  - page-level restore state then marked completion too early on `!target`
+  - later returns appeared normal only because the list was already warm in memory
+- The stable rule is:
+  - shared back-anchor restore must really rerun when list rebuild signals change
+  - page-level wrappers such as creator-page restore should not mark `completed=true` immediately when the target is temporarily absent; they should allow a short bounded wait window first
+
+## 2026-06-16 nested `from` routes must re-encode inner hashes before using them as back targets
+
+- For this repo, do not trust a decoded nested `from` string as a ready-to-use href when the path itself already contains another route with its own `#anchor`.
+- The validated failure pattern was:
+  - `featured -> prompt detail -> creator -> creator work detail -> creator`
+  - decoded creator back target became:
+    - `/creators/{id}?from=/prompts/{id}?from=/featured#featured-item-...#creator-work-...`
+  - the browser treated only the last `#creator-work-...` as the real hash
+  - the earlier `#featured-item-...` stayed in the query string value and corrupted the route/anchor split
+  - creator restore then searched for an impossible anchor and could remain stuck behind `Restoring creator position`
+- The stable rule is:
+  - when normalizing nested internal back targets, keep only the current route's outer hash as the real browser hash
+  - any inner hash that belongs to a nested route inside query params must be re-encoded back to `%23...`
+  - if a restore bug appears only after multi-hop detail/creator chains, inspect decoded `from` values before debugging animation or fetch timing
+
+## 2026-06-16 creator-page snapshot keys must be normalized before restore lookup
+
+- For this repo, do not key creator-page list snapshots by the raw route string when that route contains nested encoded `from` chains.
+- The validated failure pattern was:
+  - first entry into `/creators/[id]` stored snapshot state under an encoded route key
+  - return from creator work detail reconstructed the same logical creator page under a decoded normalized route key
+  - both strings pointed to the same page, but snapshot restore treated them as different buckets
+  - visible symptom became: creator `查看更多` expansion such as `24 -> 48` was lost after returning from detail, even though anchor restore itself was already healthy
+- The stable rule is:
+  - creator-page snapshot read/write must normalize the route key first, using the same nested-route normalization rules as back-target handling
+  - if creator list-state survives in one direction but not after detail return, compare encoded and decoded route-key variants before blaming pagination or data fetch timing
+
+## 2026-06-17 cloud notification 502s can come from nginx hitting a restarting Next process, not from the notification route logic itself
+
+- For this repo's cloud test environment, do not assume intermittent `GET /api/me/notifications/recent -> 502` means the notification polling code is too aggressive or the Next route fallback is broken.
+- The validated failure pattern was:
+  - browser saw mixed `200` and `502` on `/api/me/notifications/recent`
+  - nginx error log recorded `connect() failed (111: Connection refused)` to upstream `http://127.0.0.1:3106/api/me/notifications/recent`
+  - the same timestamp matched `dramatv-community-web` stop/start events in `systemd`
+- The stable rule is:
+  - first check whether the web process was in a restart/deploy window before changing client polling behavior
+  - the Next route fallback can only return a safe `200` after the request has already reached the web process
+  - if nginx cannot connect to `127.0.0.1:3106`, the failure is an ingress/runtime-availability issue, not an in-route fallback issue
+- Verified hardening on 2026-06-17:
+  - the lowest-risk repair for this specific route was an nginx exact-route fallback, not a backend auth refactor
+  - `scripts/deploy-test-web.ps1` now makes `/api/me/notifications/recent` return a static empty `200` payload when upstream `3106` is temporarily unavailable
+  - cloud replay with an actual `systemctl restart dramatv-community-web` during 25 repeated client requests produced `25/25` `200` responses
+
+## 2026-06-18 current YouMind Seedance pagination no longer lives in initial HTML payload
+
+- For `https://youmind.com/zh-CN/seedance-2-0-prompts/explore?sortBy=time&sortOrder=desc`, do not assume `--start 12` can be satisfied by parsing the first page HTML / Next Flight payload.
+- The validated current behavior is:
+  - initial HTML / Flight payload only carries the first `12` prompt cards
+  - further cards are loaded at runtime by `POST https://youmind.com/youmarketing-api/video-prompts`
+  - verified request body shape: `{"model":"seedance-2.0","page":N,"limit":12,"locale":"zh-CN","sortBy":"time","sortOrder":"desc"}`
+- Stable rule for future extraction:
+  - use the live pagination API for current-batch Seedance refreshes
+  - keep HTML / Flight parsing only as a fallback or for detail-page research
+- Also validated on the same batch:
+  - some prompt cards can lack `streamId` while still exposing a usable direct `sourceUrl`
+  - downloader naming must fall back to `rank + id + slug`, not assume `streamId` always exists
+
+## 2026-06-19 cloud YouMind Seedance bulk import must bypass `/api/uploads` and must skip before probing on resume
+
+- For this repo's cloud Seedance backfill, do not use the normal user upload chain for bulk import.
+- The validated failure pattern is:
+  - API-based import scripts still call `/api/uploads/*`
+  - cloud upload rate limiting is enforced there
+  - promoting the target author to `admin` does not exempt upload-policy/upload-binary rate limiting
+- The stable rule is:
+  - large historical prompt imports should go through the direct path:
+    - copy media into the cloud shared media root
+    - write prompt/media/link/task rows directly through controlled DB inserts
+  - keep `/api/uploads` only for small smoke checks, not for the real backfill path
+- Same-round resume rule:
+  - when resuming a deep import window with `offset`, do not `ffprobe` or otherwise fully materialize all earlier eligible items first
+  - skip pre-offset eligible rows before video probing and metadata enrichment, otherwise tail resumes become artificially slow or look hung
+- Same-round data hygiene rule:
+  - imported `sourcePublishedAt` values may arrive as localized strings such as `2026年6月18日`
+  - normalize them to ISO before sending them into Postgres `timestamptz`

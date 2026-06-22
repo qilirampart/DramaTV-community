@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminAccess } from "@/lib/admin-auth";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   AdminBackendError,
   getAdminMediaTask,
@@ -745,7 +746,7 @@ export default async function MediaTasksPage({
       <div className={styles.layout}>
         <div className={styles.mainColumn}>
           <section className={styles.filterCard}>
-            <form action="/media-tasks" className={styles.filterForm} method="get">
+            <form action={buildAdminBrowserPath("/media-tasks")} className={styles.filterForm} method="get">
               <input name="page" type="hidden" value="1" />
               <div className={styles.filterGrid}>
                 <label className={styles.selectField}>
@@ -794,9 +795,9 @@ export default async function MediaTasksPage({
 
               <div className={styles.filterFooter}>
                 <div className={styles.filterActions}>
-                  <a className={styles.resetButton} href="/media-tasks">
+                  <Link className={styles.resetButton} href="/media-tasks" scroll={false}>
                     重置筛选
-                  </a>
+                  </Link>
                   <button className={styles.primaryAction} type="submit">
                     应用筛选
                   </button>
@@ -825,7 +826,6 @@ export default async function MediaTasksPage({
                           <th>当前状态</th>
                           <th>错误摘要</th>
                           <th>重试次数</th>
-                          <th>操作</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -851,9 +851,6 @@ export default async function MediaTasksPage({
                               </td>
                               <td className={styles.errorCell}>{row.errorSummary}</td>
                               <td>{row.retryCount}</td>
-                              <td>
-                                <span className={styles.rowAssist}>{isSelected ? "当前查看中" : "点击行查看"}</span>
-                              </td>
                             </tr>
                           );
                         })}
@@ -946,7 +943,9 @@ export default async function MediaTasksPage({
                   </div>
                   <div className={styles.metaRow}>
                     <span>关联内容标题</span>
-                    <strong>{selectedDetail.title}</strong>
+                    <strong className={styles.detailTextBox} title={selectedDetail.title}>
+                      {selectedDetail.title}
+                    </strong>
                   </div>
                   <div className={styles.metaRow}>
                     <span>内容类型</span>
@@ -972,7 +971,7 @@ export default async function MediaTasksPage({
                     </div>
 
                     <div className={styles.previewMeta}>
-                      <strong>{selectedDetail.title}</strong>
+                      <strong title={selectedDetail.title}>{selectedDetail.title}</strong>
                       <div className={styles.previewFacts}>
                         {selectedDetail.previewFacts.map((item) => (
                           <span key={item}>{item}</span>
@@ -994,7 +993,9 @@ export default async function MediaTasksPage({
                   </div>
                   <div className={styles.metaRow}>
                     <span>错误摘要</span>
-                    <strong>{selectedDetail.errorSummary}</strong>
+                    <strong className={styles.detailTextBox} title={selectedDetail.errorSummary}>
+                      {selectedDetail.errorSummary}
+                    </strong>
                   </div>
                   <div className={styles.metaRow}>
                     <span>重试次数</span>
@@ -1014,7 +1015,9 @@ export default async function MediaTasksPage({
                   </div>
                   <div className={styles.metaRow}>
                     <span>内容摘要</span>
-                    <strong>{selectedDetail.targetSummary}</strong>
+                    <strong className={styles.detailTextBox} title={selectedDetail.targetSummary}>
+                      {selectedDetail.targetSummary}
+                    </strong>
                   </div>
                 </section>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminAccess } from "@/lib/admin-auth";
+import { buildAdminBrowserPath } from "@/lib/admin-routes";
 import {
   AdminBackendError,
   getAdminAuditLog,
@@ -658,7 +659,7 @@ export default async function AuditLogsPage({
       <div className={styles.layout}>
         <div className={styles.mainColumn}>
           <section className={styles.filterCard}>
-            <form action="/audit-logs" className={styles.filterForm} method="get">
+            <form action={buildAdminBrowserPath("/audit-logs")} className={styles.filterForm} method="get">
               <input name="page" type="hidden" value="1" />
               <div className={styles.formGrid}>
                 <label className={styles.selectField}>
@@ -723,12 +724,12 @@ export default async function AuditLogsPage({
 
               <div className={styles.filterFooter}>
                 <div className={styles.filterActions}>
-                  <a className={styles.resetButton} href="/audit-logs">
+                  <Link className={styles.resetButton} href="/audit-logs" scroll={false}>
                     <span className={styles.resetIcon}>
                       <RefreshIcon />
                     </span>
                     重置筛选
-                  </a>
+                  </Link>
                   <button className={styles.primaryAction} type="submit">
                     应用筛选
                   </button>
@@ -753,7 +754,6 @@ export default async function AuditLogsPage({
                           <th>对象类型</th>
                           <th>结果</th>
                           <th>摘要</th>
-                          <th>操作</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -781,9 +781,6 @@ export default async function AuditLogsPage({
                                 <span className={`${styles.resultPill} ${resultToneClass(row.resultTone)}`}>{row.result}</span>
                               </td>
                               <td className={styles.noteCell}>{row.note}</td>
-                              <td>
-                                <span className={styles.rowAssist}>{isSelected ? "当前查看中" : "点击行查看"}</span>
-                              </td>
                             </tr>
                           );
                         })}

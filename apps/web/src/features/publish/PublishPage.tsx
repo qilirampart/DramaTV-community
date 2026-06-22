@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation";
 import { type ChangeEvent, useState, useTransition } from "react";
 import { PageShell } from "@/components/shared/PageShell";
 import { uploadAssetFromClient } from "@/lib/api/upload-client";
-import type { ApiVideoDraftUpdateInput, ApiWorkflowDraftUpdateInput } from "@/lib/contracts/community-api";
+import type {
+  ApiUploadAssetKind,
+  ApiUploadAssetRole,
+  ApiVideoDraftUpdateInput,
+  ApiWorkflowDraftUpdateInput
+} from "@/lib/contracts/community-api";
 import type {
   MediaTaskSummaryView,
   PublishPageView,
@@ -21,16 +26,16 @@ import {
 import type {
   ImagePromptContentCategory,
   ImagePromptModelCategory,
-  PromptCompositionCategory,
   VideoPromptContentCategory,
-  VideoPromptModelCategory
+  VideoPromptModelCategory,
+  VideoPromptModelUsageCategory
 } from "@/lib/taxonomy/prompt-taxonomy";
 import {
   IMAGE_PROMPT_CONTENT_OPTIONS,
   IMAGE_PROMPT_MODEL_OPTIONS,
-  PROMPT_COMPOSITION_OPTIONS,
   VIDEO_PROMPT_CONTENT_OPTIONS,
   VIDEO_PROMPT_MODEL_OPTIONS,
+  VIDEO_PROMPT_MODEL_USAGE_OPTIONS,
   buildPromptTaxonomyTags,
   parsePromptTaxonomySelection
 } from "@/lib/taxonomy/prompt-taxonomy";
@@ -61,11 +66,13 @@ type VideoDraftFormState = {
   promptText: string;
   modelCategory: ImagePromptModelCategory | VideoPromptModelCategory | "";
   contentCategory: ImagePromptContentCategory | VideoPromptContentCategory | "";
-  compositionCategory: PromptCompositionCategory;
+  compositionCategory: VideoPromptModelUsageCategory | "";
   workflowId: string;
   visibility: VideoDraftView["visibility"];
   coverAssetId: string;
   sourceAssetId: string;
+  referenceImageAssetIds: string[];
+  referenceAudioAssetIds: string[];
 };
 
 type WorkflowDraftFormState = {
@@ -78,6 +85,31 @@ type WorkflowDraftFormState = {
   coverAssetId: string;
   exampleAssetId: string;
 };
+
+const REFERENCE_IMAGE_LIMIT = 9;
+const REFERENCE_AUDIO_LIMIT = 5;
+const FILE_KIND_NAME_PATTERNS: Record<ApiUploadAssetKind, RegExp> = {
+  image: /\.(png|jpe?g|webp|gif|bmp)$/i,
+  video: /\.(mp4|mov|m4v|webm)$/i,
+  audio: /\.(mp3|wav|m4a|ogg|webm)$/i
+};
+
+function matchesExpectedUploadKind(file: File, kind: ApiUploadAssetKind) {
+  const mimeType = file.type.trim().toLowerCase();
+  if (mimeType.startsWith(`${kind}/`)) {
+    return true;
+  }
+
+  return FILE_KIND_NAME_PATTERNS[kind].test(file.name);
+}
+
+function dedupeAssetIds(assetIds: string[]) {
+  return [...new Set(assetIds.map((assetId) => assetId.trim()).filter(Boolean))];
+}
+
+function summarizeAssetId(assetId: string) {
+  return assetId.slice(0, 8);
+}
 
 const MODE_OPTIONS: Array<{
   value: PublishMode;
@@ -135,10 +167,16 @@ function toVideoFormState(draft: VideoDraftView): VideoDraftFormState {
     ].filter(Boolean),
     modelCategory: draft.modelCategory as ImagePromptModelCategory | VideoPromptModelCategory | undefined,
     contentCategory: draft.contentCategory as ImagePromptContentCategory | VideoPromptContentCategory | undefined,
-    compositionCategory: draft.compositionCategory as PromptCompositionCategory | undefined,
+    compositionCategory: draft.compositionCategory as VideoPromptModelUsageCategory | undefined,
     title: draft.title,
     summary: draft.summary ?? draft.promptText
   });
+  const persistedCompositionCategory =
+    categoryCode === "video_prompt"
+      ? (draft.compositionCategory as VideoPromptModelUsageCategory | undefined)
+      : undefined;
+  const taxonomyCompositionCategory =
+    taxonomy.categoryCode === "video_prompt" ? taxonomy.compositionCategory : undefined;
 
   return {
     title: textOrEmpty(draft.title),
@@ -147,11 +185,15 @@ function toVideoFormState(draft: VideoDraftView): VideoDraftFormState {
     promptText: textOrEmpty(draft.promptText),
     modelCategory: (draft.modelCategory as ImagePromptModelCategory | VideoPromptModelCategory | undefined) ?? taxonomy.modelCategory ?? "",
     contentCategory: (draft.contentCategory as ImagePromptContentCategory | VideoPromptContentCategory | undefined) ?? taxonomy.contentCategory ?? "",
-    compositionCategory: (draft.compositionCategory as PromptCompositionCategory | undefined) ?? taxonomy.compositionCategory,
+    compositionCategory: categoryCode === "video_prompt"
+      ? persistedCompositionCategory ?? taxonomyCompositionCategory ?? "single-model"
+      : "",
     workflowId: textOrEmpty(draft.workflowId),
     visibility: draft.visibility,
     coverAssetId: textOrEmpty(draft.coverAssetId),
-    sourceAssetId: textOrEmpty(draft.sourceAssetId)
+    sourceAssetId: textOrEmpty(draft.sourceAssetId),
+    referenceImageAssetIds: dedupeAssetIds(draft.referenceImageAssetIds ?? []),
+    referenceAudioAssetIds: dedupeAssetIds(draft.referenceAudioAssetIds ?? [])
   };
 }
 
@@ -177,7 +219,7 @@ function getPromptTaxonomyTags(form: VideoDraftFormState) {
     categoryCode: form.categoryCode,
     modelCategory: form.modelCategory || undefined,
     contentCategory: form.contentCategory || undefined,
-    compositionCategory: form.compositionCategory
+    compositionCategory: form.categoryCode === "video_prompt" ? form.compositionCategory || undefined : undefined
   });
 }
 
@@ -330,6 +372,23 @@ function ImageIcon() {
   );
 }
 
+function AudioIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 28 28">
+      <path
+        d="M11 10.3 16.8 8v10.6L11 16.3"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+      />
+      <path d="M16.8 8v10.6" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+      <path d="M8.8 12.1H11v2.4H8.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7" />
+      <path d="M20.4 11.1a4.4 4.4 0 0 1 0 5.8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
 export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
   const router = useRouter();
   const [mode, setMode] = useState<PublishMode>(() => normalizeMode(view.videoDraft.categoryCode));
@@ -357,10 +416,18 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
     ? workflowForm.exampleAssetId.trim().length > 0
     : videoForm.sourceAssetId.trim().length > 0;
   const promptReady = videoForm.promptText.trim().length > 0;
-  const taxonomyReady = isWorkflowMode || (videoForm.modelCategory.length > 0 && videoForm.contentCategory.length > 0);
+  const taxonomyReady =
+    isWorkflowMode ||
+    (
+      videoForm.modelCategory.length > 0 &&
+      videoForm.contentCategory.length > 0 &&
+      (isImagePrompt || videoForm.compositionCategory.length > 0)
+    );
   const canSubmit = !busy && !locked && (isWorkflowMode ? sourceReady : sourceReady && promptReady && taxonomyReady);
   const selectedPromptTags = isWorkflowMode ? [] : getPromptTaxonomyTags(videoForm);
   const sourceAssetKind: "image" | "video" = isWorkflowMode ? "video" : isImagePrompt ? "image" : "video";
+  const referenceImageCount = videoForm.referenceImageAssetIds.length;
+  const referenceAudioCount = videoForm.referenceAudioAssetIds.length;
   const sourceLabel = isWorkflowMode ? "成果视频" : isImagePrompt ? "示例图片" : "演示视频";
   const sourceAction = isWorkflowMode ? "上传成果视频" : isImagePrompt ? "上传图片" : "上传视频";
   const contentTargetLabel = isWorkflowMode
@@ -379,23 +446,26 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
       : `${sourceAction}并补全提示词后发布`;
   const primaryModeMeta = MODE_OPTIONS.find((item) => item.value === mode);
 
-  function buildVideoPayload(): ApiVideoDraftUpdateInput {
+  function buildVideoPayload(form: VideoDraftFormState = videoForm): ApiVideoDraftUpdateInput {
     return {
-      title: videoForm.title,
-      summary: videoForm.summary,
-      categoryCode: videoForm.categoryCode,
-      promptText: videoForm.promptText,
-      modelName: getPromptModelName(videoForm),
-      modelCategory: videoForm.modelCategory || undefined,
-      contentCategory: videoForm.contentCategory || undefined,
-      compositionCategory: videoForm.compositionCategory,
+      title: form.title,
+      summary: form.summary,
+      categoryCode: form.categoryCode,
+      promptText: form.promptText,
+      modelName: getPromptModelName(form),
+      modelCategory: form.modelCategory || undefined,
+      contentCategory: form.contentCategory || undefined,
+      compositionCategory: form.categoryCode === "video_prompt" ? form.compositionCategory || undefined : undefined,
       sourcePlatform: "community",
       sourceCampaign: "community-manual-publish",
-      tagNames: getPromptTaxonomyTags(videoForm),
-      workflowId: textOrEmpty(videoForm.workflowId),
-      visibility: videoForm.visibility,
-      coverAssetId: videoForm.coverAssetId,
-      sourceAssetId: videoForm.sourceAssetId
+      tagNames: getPromptTaxonomyTags(form),
+      workflowId: textOrEmpty(form.workflowId),
+      visibility: form.visibility,
+      coverAssetId: form.coverAssetId,
+      sourceAssetId: form.sourceAssetId,
+      referenceImageAssetIds: dedupeAssetIds(form.referenceImageAssetIds),
+      referenceAudioAssetIds:
+        form.categoryCode === "image_prompt" ? [] : dedupeAssetIds(form.referenceAudioAssetIds)
     };
   }
 
@@ -455,6 +525,15 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
     if (result.href) {
       router.push(result.href);
     }
+  }
+
+  async function persistVideoDraft(nextForm: VideoDraftFormState) {
+    const result = await saveVideoDraftAction({
+      draftId: videoDraft.draftId,
+      payload: buildVideoPayload(nextForm)
+    });
+    applyVideoResult(result);
+    return result.ok;
   }
 
   function handleSaveDraft() {
@@ -517,14 +596,15 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
       return;
     }
 
-    setVideoForm((current) => ({
-      ...current,
-      categoryCode: nextMode,
-      modelCategory: "",
-      contentCategory: "",
-      compositionCategory: "single-model",
-      sourceAssetId: current.categoryCode === nextMode ? current.sourceAssetId : ""
-    }));
+      setVideoForm((current) => ({
+        ...current,
+        categoryCode: nextMode,
+        modelCategory: "",
+        contentCategory: "",
+        compositionCategory: nextMode === "video_prompt" ? "single-model" : "",
+        sourceAssetId: current.categoryCode === nextMode ? current.sourceAssetId : "",
+        referenceAudioAssetIds: nextMode === "image_prompt" ? [] : current.referenceAudioAssetIds
+      }));
 
     setNotice({
       tone: "neutral",
@@ -588,7 +668,7 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
     });
   }
 
-  async function uploadAsset(file: File, kind: "image" | "video", assetRole: "cover" | "source") {
+  async function uploadAsset(file: File, kind: ApiUploadAssetKind, assetRole: ApiUploadAssetRole) {
     return uploadAssetFromClient({
       kind,
       assetRole,
@@ -604,7 +684,7 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
       return;
     }
 
-    if (!file.type.startsWith("image/")) {
+    if (!matchesExpectedUploadKind(file, "image")) {
       setNotice({
         tone: "error",
         text: "封面必须是图片文件。"
@@ -674,7 +754,7 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
       return;
     }
 
-    if (!file.type.startsWith(`${sourceAssetKind}/`)) {
+    if (!matchesExpectedUploadKind(file, sourceAssetKind)) {
       setNotice({
         tone: "error",
         text: isWorkflowMode
@@ -713,21 +793,11 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
         });
         applyWorkflowResult(result);
       } else {
-        const nextPayload = {
-          ...buildVideoPayload(),
+        const nextForm = {
+          ...videoForm,
           sourceAssetId: uploadResponse.assetId
         };
-
-        setVideoForm((current) => ({
-          ...current,
-          sourceAssetId: uploadResponse.assetId
-        }));
-
-        const result = await saveVideoDraftAction({
-          draftId: videoDraft.draftId,
-          payload: nextPayload
-        });
-        applyVideoResult(result);
+        await persistVideoDraft(nextForm);
       }
     } catch (error) {
       setNotice({
@@ -737,6 +807,152 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
     } finally {
       setUploadPending(false);
       input.value = "";
+    }
+  }
+
+  async function handleReferenceAssetSelect(
+    event: ChangeEvent<HTMLInputElement>,
+    kind: "image" | "audio"
+  ) {
+    const input = event.currentTarget;
+    const files = Array.from(input.files ?? []);
+
+    if (files.length === 0) {
+      return;
+    }
+
+    if (kind === "audio" && isImagePrompt) {
+      setNotice({
+        tone: "error",
+        text: "图片提示词当前不支持参考音频。"
+      });
+      input.value = "";
+      return;
+    }
+
+    const invalidFile = files.find((file) => !matchesExpectedUploadKind(file, kind));
+    if (invalidFile) {
+      setNotice({
+        tone: "error",
+        text: kind === "image" ? "参考素材里只能上传图片。" : "参考素材里只能上传音频。"
+      });
+      input.value = "";
+      return;
+    }
+
+    const currentAssetIds =
+      kind === "image" ? videoForm.referenceImageAssetIds : videoForm.referenceAudioAssetIds;
+    const limit = kind === "image" ? REFERENCE_IMAGE_LIMIT : REFERENCE_AUDIO_LIMIT;
+
+    if (currentAssetIds.length + files.length > limit) {
+      setNotice({
+        tone: "error",
+        text:
+          kind === "image"
+            ? `参考图片最多 ${REFERENCE_IMAGE_LIMIT} 张。`
+            : `参考音频最多 ${REFERENCE_AUDIO_LIMIT} 条。`
+      });
+      input.value = "";
+      return;
+    }
+
+    setUploadPending(true);
+    setNotice({
+      tone: "neutral",
+      text: kind === "image" ? "正在上传参考图片..." : "正在上传参考音频..."
+    });
+
+    try {
+      const uploadedAssetIds: string[] = [];
+
+      for (let index = 0; index < files.length; index += 1) {
+        const file = files[index];
+        setNotice({
+          tone: "neutral",
+          text:
+            kind === "image"
+              ? `正在上传参考图片 ${index + 1}/${files.length}: ${file.name}`
+              : `正在上传参考音频 ${index + 1}/${files.length}: ${file.name}`
+        });
+        const uploadResponse = await uploadAsset(file, kind, "attachment");
+        uploadedAssetIds.push(uploadResponse.assetId);
+      }
+
+      const nextForm: VideoDraftFormState =
+        kind === "image"
+          ? {
+              ...videoForm,
+              referenceImageAssetIds: dedupeAssetIds([
+                ...videoForm.referenceImageAssetIds,
+                ...uploadedAssetIds
+              ])
+            }
+          : {
+              ...videoForm,
+              referenceAudioAssetIds: dedupeAssetIds([
+                ...videoForm.referenceAudioAssetIds,
+                ...uploadedAssetIds
+              ])
+            };
+
+      const saved = await persistVideoDraft(nextForm);
+      if (saved) {
+        setNotice({
+          tone: "success",
+          text:
+            kind === "image"
+              ? `已补充 ${uploadedAssetIds.length} 张参考图片，详情页会提供下载。`
+              : `已补充 ${uploadedAssetIds.length} 条参考音频，详情页会提供下载。`
+        });
+      }
+    } catch (error) {
+      setNotice({
+        tone: "error",
+        text: error instanceof Error ? error.message : "参考素材上传失败。"
+      });
+    } finally {
+      setUploadPending(false);
+      input.value = "";
+    }
+  }
+
+  async function handleReferenceAssetRemove(kind: "image" | "audio", assetId: string) {
+    if (busy || locked) {
+      return;
+    }
+
+    setUploadPending(true);
+    setNotice({
+      tone: "neutral",
+      text: kind === "image" ? "正在移除参考图片..." : "正在移除参考音频..."
+    });
+
+    try {
+      const nextForm: VideoDraftFormState =
+        kind === "image"
+          ? {
+              ...videoForm,
+              referenceImageAssetIds: videoForm.referenceImageAssetIds.filter((id) => id !== assetId)
+            }
+          : {
+              ...videoForm,
+              referenceAudioAssetIds: videoForm.referenceAudioAssetIds.filter((id) => id !== assetId)
+            };
+
+      const saved = await persistVideoDraft(nextForm);
+      if (saved) {
+        setNotice({
+          tone: "success",
+          text: kind === "image" ? "参考图片已移除。" : "参考音频已移除。"
+        });
+      }
+    } catch (error) {
+      setNotice({
+        tone: "error",
+        text: error instanceof Error ? error.message : "参考素材移除失败。"
+      });
+    } finally {
+      setUploadPending(false);
     }
   }
 
@@ -869,7 +1085,11 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
                     <div className={styles.taxonomyHeader}>
                       <div>
                         <strong>标准标签</strong>
-                        <p>先选模型分类、内容母类和是否模型组合，系统会自动生成规范标签。</p>
+                        <p>
+                          {isImagePrompt
+                            ? "先选模型分类和内容分类，系统会自动生成规范标签。"
+                            : "先选模型分类、内容分类和模型使用方式，系统会自动生成规范标签。"}
+                        </p>
                       </div>
                       <span className={styles.taxonomyStatus}>
                         {taxonomyReady ? "分类已补齐" : "分类待补齐"}
@@ -920,27 +1140,29 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
                       </div>
                     </div>
 
-                    <div className={styles.taxonomyGroup}>
-                      <span className={styles.taxonomyLabel}>模型关系</span>
-                      <div className={styles.taxonomyChips}>
-                        {PROMPT_COMPOSITION_OPTIONS.map((option) => (
-                          <button
-                            key={option.id}
-                            type="button"
-                            disabled={!canEdit}
-                            className={videoForm.compositionCategory === option.id ? styles.taxonomyChipActive : styles.taxonomyChip}
-                            onClick={() =>
-                              setVideoForm((current) => ({
-                                ...current,
-                                compositionCategory: option.id
-                              }))
-                            }
-                          >
-                            {option.label}
-                          </button>
-                        ))}
+                    {!isImagePrompt ? (
+                      <div className={styles.taxonomyGroup}>
+                        <span className={styles.taxonomyLabel}>模型使用方式</span>
+                        <div className={styles.taxonomyChips}>
+                          {VIDEO_PROMPT_MODEL_USAGE_OPTIONS.map((option) => (
+                            <button
+                              key={option.id}
+                              type="button"
+                              disabled={!canEdit}
+                              className={videoForm.compositionCategory === option.id ? styles.taxonomyChipActive : styles.taxonomyChip}
+                              onClick={() =>
+                                setVideoForm((current) => ({
+                                  ...current,
+                                  compositionCategory: option.id
+                                }))
+                              }
+                            >
+                              {option.label}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    ) : null}
 
                     <div className={styles.taxonomyPreview}>
                       {selectedPromptTags.map((tag) => (
@@ -1237,6 +1459,130 @@ export function PublishPage({ view, availableWorkflows }: PublishPageProps) {
               </div>
             </div>
           </div>
+
+          {isPromptMode ? (
+            <div className={styles.referenceGrid}>
+              <article className={styles.referenceCard}>
+                <div className={styles.referenceHeader}>
+                  <div className={styles.referenceTitleBlock}>
+                    <span className={styles.sectionEyebrow}>参考素材</span>
+                    <h3 className={styles.referenceTitle}>参考图片</h3>
+                    <p className={styles.referenceHint}>
+                      最多 {REFERENCE_IMAGE_LIMIT} 张。发布后会在提示词详情页作为可下载素材展示。
+                    </p>
+                  </div>
+                  <span className={styles.referenceCount}>
+                    {referenceImageCount}/{REFERENCE_IMAGE_LIMIT}
+                  </span>
+                </div>
+
+                <label className={styles.referenceUploader}>
+                  <input
+                    accept="image/*"
+                    disabled={!canEdit || referenceImageCount >= REFERENCE_IMAGE_LIMIT}
+                    multiple
+                    type="file"
+                    onChange={(event) => void handleReferenceAssetSelect(event, "image")}
+                  />
+                  <span className={styles.referenceUploaderInner}>
+                    <PlusIcon />
+                    添加参考图片
+                  </span>
+                </label>
+
+                <div className={styles.referenceBody}>
+                  {referenceImageCount > 0 ? (
+                    <ul className={styles.referenceAssetList}>
+                      {videoForm.referenceImageAssetIds.map((assetId, index) => (
+                        <li className={styles.referenceAssetItem} key={assetId}>
+                          <span className={styles.referenceAssetMeta}>
+                            <span className={styles.referenceAssetIcon}>
+                              <ImageIcon />
+                            </span>
+                            <span className={styles.referenceAssetText}>
+                              <strong>{`参考图片 ${String(index + 1).padStart(2, "0")}`}</strong>
+                              <code>{summarizeAssetId(assetId)}</code>
+                            </span>
+                          </span>
+                          <button
+                            className={styles.referenceRemoveButton}
+                            disabled={!canEdit}
+                            type="button"
+                            onClick={() => void handleReferenceAssetRemove("image", assetId)}
+                          >
+                            移除
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className={styles.referenceEmpty}>还没有参考图片，当前只会展示主素材。</p>
+                  )}
+                </div>
+              </article>
+
+              {!isImagePrompt ? (
+                <article className={styles.referenceCard}>
+                  <div className={styles.referenceHeader}>
+                    <div className={styles.referenceTitleBlock}>
+                      <span className={styles.sectionEyebrow}>参考素材</span>
+                      <h3 className={styles.referenceTitle}>参考音频</h3>
+                      <p className={styles.referenceHint}>
+                        最多 {REFERENCE_AUDIO_LIMIT} 条。适合上传配音、节奏或音效参考，详情页同样支持下载。
+                      </p>
+                    </div>
+                    <span className={styles.referenceCount}>
+                      {referenceAudioCount}/{REFERENCE_AUDIO_LIMIT}
+                    </span>
+                  </div>
+
+                  <label className={styles.referenceUploader}>
+                    <input
+                      accept="audio/*,.mp3,.wav,.m4a,.ogg,.webm"
+                      disabled={!canEdit || referenceAudioCount >= REFERENCE_AUDIO_LIMIT}
+                      multiple
+                      type="file"
+                      onChange={(event) => void handleReferenceAssetSelect(event, "audio")}
+                    />
+                    <span className={styles.referenceUploaderInner}>
+                      <AudioIcon />
+                      添加参考音频
+                    </span>
+                  </label>
+
+                  <div className={styles.referenceBody}>
+                    {referenceAudioCount > 0 ? (
+                      <ul className={styles.referenceAssetList}>
+                        {videoForm.referenceAudioAssetIds.map((assetId, index) => (
+                          <li className={styles.referenceAssetItem} key={assetId}>
+                            <span className={styles.referenceAssetMeta}>
+                              <span className={styles.referenceAssetIcon}>
+                                <AudioIcon />
+                              </span>
+                              <span className={styles.referenceAssetText}>
+                                <strong>{`参考音频 ${String(index + 1).padStart(2, "0")}`}</strong>
+                                <code>{summarizeAssetId(assetId)}</code>
+                              </span>
+                            </span>
+                            <button
+                              className={styles.referenceRemoveButton}
+                              disabled={!canEdit}
+                              type="button"
+                              onClick={() => void handleReferenceAssetRemove("audio", assetId)}
+                            >
+                              移除
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className={styles.referenceEmpty}>还没有参考音频，当前只会展示主视频。</p>
+                    )}
+                  </div>
+                </article>
+              ) : null}
+            </div>
+          ) : null}
 
           <div className={styles.actionRow}>
             <button

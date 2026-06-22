@@ -3,9 +3,13 @@ package com.dramatv.community.admin.taxonomy;
 import com.dramatv.community.admin.auditlogs.AdminAuditLogService;
 import com.dramatv.community.admin.auth.AdminAccessService;
 import com.dramatv.community.admin.taxonomy.dto.request.AdminTaxonomyBulkApplyRequest;
+import com.dramatv.community.admin.taxonomy.dto.request.AdminTaxonomyCreateRequest;
+import com.dramatv.community.admin.taxonomy.dto.request.AdminTaxonomyPromptRebindRequest;
 import com.dramatv.community.admin.taxonomy.dto.request.AdminTaxonomyUpdateRequest;
 import com.dramatv.community.admin.taxonomy.dto.response.AdminTaxonomyBulkApplyResponse;
+import com.dramatv.community.admin.taxonomy.dto.response.AdminTaxonomyCategoryDeleteResponse;
 import com.dramatv.community.admin.taxonomy.dto.response.AdminTaxonomyPromptListResponse;
+import com.dramatv.community.admin.taxonomy.dto.response.AdminTaxonomyPromptRebindResponse;
 import com.dramatv.community.admin.taxonomy.dto.response.AdminTaxonomyResponse;
 import com.dramatv.community.identity.application.CurrentUser;
 import com.dramatv.community.shared.error.ApiBusinessException;
@@ -36,21 +40,55 @@ public class AdminTaxonomyService {
     private static final String[] MANAGE_ROLES = {"admin", "operator"};
     private static final int DEFAULT_SORT_ORDER = 1000;
     private static final int DEFAULT_PROMPT_LIST_LIMIT = 80;
+    private static final int DEFAULT_PROMPT_PAGE = 1;
     private static final List<String> EXPOSURE_FLAG_ORDER = List.of("homepage", "featured", "publish");
     private static final Set<String> EXPOSURE_FLAGS = Set.copyOf(EXPOSURE_FLAG_ORDER);
     private static final Set<String> SUPPORTED_PROMPT_MODALITIES = Set.of("image", "video");
-    private static final Set<String> IMAGE_MODEL_CATEGORIES = Set.of("gpt-image-2", "nanobanana", "midjourney", "other-image-model");
-    private static final Set<String> VIDEO_MODEL_CATEGORIES = Set.of("seedance", "kling", "happyhorse", "wan", "other-video-model");
-    private static final Set<String> IMAGE_CONTENT_CATEGORIES = Set.of("real-person", "animation", "scene", "prop", "other");
-    private static final Set<String> VIDEO_CONTENT_CATEGORIES = Set.of("real-person", "animation", "other");
-    private static final Set<String> COMPOSITION_CATEGORIES = Set.of("single-model", "multi-model");
-    private static final Set<String> PROMPT_TAXONOMY_TAGS = buildPromptTaxonomyTagUniverse();
+    private static final AdminTaxonomyResponse.Governance DEFAULT_GOVERNANCE = new AdminTaxonomyResponse.Governance(
+            false,
+            "enabled",
+            DEFAULT_SORT_ORDER,
+            List.of(),
+            null,
+            null,
+            null
+    );
+    private static final List<CategoryDefinition> IMAGE_MODEL_STANDARD_CATEGORIES = List.of(
+            new CategoryDefinition("gpt-image-2", "gpt-image-2"),
+            new CategoryDefinition("nanobanana", "nanobanana"),
+            new CategoryDefinition("midjourney", "midjourney"),
+            new CategoryDefinition("other-image-model", "其他模型")
+    );
+    private static final List<CategoryDefinition> VIDEO_MODEL_STANDARD_CATEGORIES = List.of(
+            new CategoryDefinition("seedance", "seedance"),
+            new CategoryDefinition("kling", "kling"),
+            new CategoryDefinition("happyhorse", "happyhorse"),
+            new CategoryDefinition("wan", "wan"),
+            new CategoryDefinition("other-video-model", "其他模型")
+    );
+    private static final List<CategoryDefinition> IMAGE_CONTENT_STANDARD_CATEGORIES = List.of(
+            new CategoryDefinition("real-person", "真人"),
+            new CategoryDefinition("animation", "动画"),
+            new CategoryDefinition("scene", "场景"),
+            new CategoryDefinition("prop", "道具"),
+            new CategoryDefinition("other", "其他")
+    );
+    private static final List<CategoryDefinition> VIDEO_CONTENT_STANDARD_CATEGORIES = List.of(
+            new CategoryDefinition("real-person", "真人"),
+            new CategoryDefinition("animation", "动画"),
+            new CategoryDefinition("other", "其他")
+    );
+    private static final List<CategoryDefinition> VIDEO_MODEL_USAGE_STANDARD_CATEGORIES = List.of(
+            new CategoryDefinition("single-model", "单模型"),
+            new CategoryDefinition("multi-model", "模型组合")
+    );
 
     private static final List<SectionDefinition> SECTION_DEFINITIONS = List.of(
-            new SectionDefinition("image-model", "图片模型", "读取 prompt_entries.model_category（仅 image 模态）"),
-            new SectionDefinition("video-model", "视频模型", "读取 prompt_entries.model_category（仅 video 模态）"),
-            new SectionDefinition("content-category", "内容母类", "读取 prompt_entries.content_category"),
-            new SectionDefinition("composition-category", "构图分类", "读取 prompt_entries.composition_category")
+            new SectionDefinition("image-model", "图片模型", "读取 prompt_entries.model_category（仅 image 模态）", "image", IMAGE_MODEL_STANDARD_CATEGORIES),
+            new SectionDefinition("video-model", "视频模型", "读取 prompt_entries.model_category（仅 video 模态）", "video", VIDEO_MODEL_STANDARD_CATEGORIES),
+            new SectionDefinition("image-content-category", "图片内容分类", "读取 prompt_entries.content_category（仅 image 模态）", "image", IMAGE_CONTENT_STANDARD_CATEGORIES),
+            new SectionDefinition("video-content-category", "视频内容分类", "读取 prompt_entries.content_category（仅 video 模态）", "video", VIDEO_CONTENT_STANDARD_CATEGORIES),
+            new SectionDefinition("video-model-usage", "视频模型使用方式", "读取 prompt_entries.composition_category（仅 video 模态）", "video", VIDEO_MODEL_USAGE_STANDARD_CATEGORIES)
     );
 
     private static final Map<String, SectionDefinition> SECTION_LOOKUP = buildSectionLookup();
@@ -70,12 +108,15 @@ public class AdminTaxonomyService {
                 count(*) filter (
                     where model_category is not null
                       and content_category is not null
-                      and composition_category is not null
+                      and (
+                        modality = 'image'
+                        or (modality = 'video' and composition_category is not null)
+                      )
                 ) as fully_categorized_prompts,
                 count(*) filter (
                     where model_category is null
                        or content_category is null
-                       or composition_category is null
+                       or (modality = 'video' and composition_category is null)
                 ) as needs_attention_prompts,
                 count(distinct model_category) filter (
                     where modality = 'image'
@@ -86,11 +127,17 @@ public class AdminTaxonomyService {
                       and model_category is not null
                 ) as video_model_categories,
                 count(distinct content_category) filter (
-                    where content_category is not null
-                ) as content_categories,
+                    where modality = 'image'
+                      and content_category is not null
+                ) as image_content_categories,
+                count(distinct content_category) filter (
+                    where modality = 'video'
+                      and content_category is not null
+                ) as video_content_categories,
                 count(distinct composition_category) filter (
-                    where composition_category is not null
-                ) as composition_categories
+                    where modality = 'video'
+                      and composition_category is not null
+                ) as video_model_usage_categories
             from active_prompts
             """;
 
@@ -135,26 +182,41 @@ public class AdminTaxonomyService {
                 union all
 
                 select
-                    'content-category' as section_key,
+                    'image-content-category' as section_key,
                     content_category as category_value,
                     modality,
                     author_id,
                     title,
                     sort_at
                 from active_prompts
-                where content_category is not null
+                where modality = 'image'
+                  and content_category is not null
 
                 union all
 
                 select
-                    'composition-category' as section_key,
+                    'video-content-category' as section_key,
+                    content_category as category_value,
+                    modality,
+                    author_id,
+                    title,
+                    sort_at
+                from active_prompts
+                where modality = 'video'
+                  and content_category is not null
+
+                union all
+
+                select
+                    'video-model-usage' as section_key,
                     composition_category as category_value,
                     modality,
                     author_id,
                     title,
                     sort_at
                 from active_prompts
-                where composition_category is not null
+                where modality = 'video'
+                  and composition_category is not null
             ),
             ranked_items as (
                 select
@@ -193,6 +255,31 @@ public class AdminTaxonomyService {
                     ) as sample_titles
                 from ranked_items
                 group by section_key, category_value
+            ),
+            configured_items as (
+                select
+                    config.section_key,
+                    config.category_value,
+                    0::bigint as prompt_count,
+                    0::bigint as author_count,
+                    null::timestamptz as latest_published_at,
+                    case
+                        when config.section_key in ('image-model', 'image-content-category') then 'image'
+                        else 'video'
+                    end as modality_scope,
+                    '{}'::text[] as sample_titles
+                from admin_taxonomy_configs config
+                where not exists(
+                    select 1
+                    from aggregated_items aggregated
+                    where aggregated.section_key = config.section_key
+                      and aggregated.category_value = config.category_value
+                )
+            ),
+            final_items as (
+                select * from aggregated_items
+                union all
+                select * from configured_items
             )
             """;
 
@@ -212,7 +299,7 @@ public class AdminTaxonomyService {
                 updater.display_name as governance_updated_by_display_name,
                 config.updated_at as governance_updated_at,
                 (config.section_key is not null) as governance_has_custom_config
-            from aggregated_items aggregated
+            from final_items aggregated
             left join admin_taxonomy_configs config
                 on config.section_key = aggregated.section_key
                and config.category_value = aggregated.category_value
@@ -225,8 +312,9 @@ public class AdminTaxonomyService {
                 case aggregated.section_key
                     when 'image-model' then 0
                     when 'video-model' then 1
-                    when 'content-category' then 2
-                    else 3
+                    when 'image-content-category' then 2
+                    when 'video-content-category' then 3
+                    else 4
                 end,
                 case
                     when coalesce(config.status_code, 'enabled') = 'enabled' then 0
@@ -247,7 +335,7 @@ public class AdminTaxonomyService {
     private static final String ITEM_EXISTS_SQL = TAXONOMY_AGGREGATES_CTE + """
             select exists(
                 select 1
-                from aggregated_items
+                from final_items
                 where section_key = ?
                   and category_value = ?
             )
@@ -295,7 +383,10 @@ public class AdminTaxonomyService {
                     (
                         nullif(btrim(prompt.model_category), '') is null
                         or nullif(btrim(prompt.content_category), '') is null
-                        or nullif(btrim(prompt.composition_category), '') is null
+                        or (
+                            prompt.modality = 'video'
+                            and nullif(btrim(prompt.composition_category), '') is null
+                        )
                     ) as needs_attention
                 from prompt_entries prompt
                 join users author on author.id = prompt.author_id
@@ -317,20 +408,30 @@ public class AdminTaxonomyService {
                             and (
                                 nullif(btrim(prompt.model_category), '') is null
                                 or nullif(btrim(prompt.content_category), '') is null
-                                or nullif(btrim(prompt.composition_category), '') is null
+                                or (
+                                    prompt.modality = 'video'
+                                    and nullif(btrim(prompt.composition_category), '') is null
+                                )
                             )
                         )
                         or (
                             cast(? as varchar) = 'false'
                             and nullif(btrim(prompt.model_category), '') is not null
                             and nullif(btrim(prompt.content_category), '') is not null
-                            and nullif(btrim(prompt.composition_category), '') is not null
+                            and (
+                                prompt.modality = 'image'
+                                or nullif(btrim(prompt.composition_category), '') is not null
+                            )
                         )
                     )
                   and (cast(? as varchar) is null or nullif(btrim(prompt.model_category), '') = cast(? as varchar))
                   and (cast(? as varchar) is null or nullif(btrim(prompt.content_category), '') = cast(? as varchar))
                   and (cast(? as varchar) is null or nullif(btrim(prompt.composition_category), '') = cast(? as varchar))
             )
+            """;
+
+    private static final String COUNT_PROMPT_ROWS_SQL = FILTERED_PROMPT_ROWS_CTE + """
+            select count(*) from prompt_rows
             """;
 
     private static final String PROMPT_SUMMARY_SQL = FILTERED_PROMPT_ROWS_CTE + """
@@ -360,6 +461,7 @@ public class AdminTaxonomyService {
                 case when needs_attention then 0 else 1 end,
                 published_at desc,
                 id desc
+            offset ?
             limit ?
             """;
 
@@ -369,6 +471,9 @@ public class AdminTaxonomyService {
                 prompt.modality,
                 prompt.author_id,
                 prompt.title,
+                nullif(btrim(prompt.model_category), '') as model_category,
+                nullif(btrim(prompt.content_category), '') as content_category,
+                nullif(btrim(prompt.composition_category), '') as composition_category,
                 prompt.tag_names
             from prompt_entries prompt
             where prompt.deleted_at is null
@@ -386,6 +491,20 @@ public class AdminTaxonomyService {
             where id = ?
               and deleted_at is null
               and publish_status = 'published'
+            """;
+
+    private static final String COUNT_PROMPTS_USING_CATEGORY_SQL = """
+            select count(*)
+            from prompt_entries
+            where deleted_at is null
+              and publish_status = 'published'
+              and (
+                    (? = 'image-model' and modality = 'image' and nullif(btrim(model_category), '') = ?)
+                 or (? = 'video-model' and modality = 'video' and nullif(btrim(model_category), '') = ?)
+                 or (? = 'image-content-category' and modality = 'image' and nullif(btrim(content_category), '') = ?)
+                 or (? = 'video-content-category' and modality = 'video' and nullif(btrim(content_category), '') = ?)
+                 or (? = 'video-model-usage' and modality = 'video' and nullif(btrim(composition_category), '') = ?)
+              )
             """;
 
     private final JdbcTemplate jdbcTemplate;
@@ -413,8 +532,9 @@ public class AdminTaxonomyService {
                         resultSet.getLong("needs_attention_prompts"),
                         resultSet.getLong("image_model_categories"),
                         resultSet.getLong("video_model_categories"),
-                        resultSet.getLong("content_categories"),
-                        resultSet.getLong("composition_categories")
+                        resultSet.getLong("image_content_categories"),
+                        resultSet.getLong("video_content_categories"),
+                        resultSet.getLong("video_model_usage_categories")
                 )
         );
 
@@ -443,10 +563,46 @@ public class AdminTaxonomyService {
 
         return new AdminTaxonomyResponse(
                 summary == null
-                        ? new AdminTaxonomyResponse.Summary(0, 0, 0, 0, 0, 0, 0)
+                        ? new AdminTaxonomyResponse.Summary(0, 0, 0, 0, 0, 0, 0, 0)
                         : summary,
                 responseSections
         );
+    }
+
+    @Transactional
+    public AdminTaxonomyResponse.Item createCategory(AdminTaxonomyCreateRequest request) {
+        CurrentUser operator = adminAccessService.requireAnyRole(MANAGE_ROLES);
+        SectionDefinition section = requireSectionDefinition(request.sectionKey());
+        String categoryValue = normalizeCategoryValue(request.categoryValue());
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(taxonomyContext(section.key(), categoryValue))) {
+            if (taxonomyItemExists(section.key(), categoryValue)) {
+                throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_CATEGORY_EXISTS", "taxonomy category already exists");
+            }
+
+            upsertConfig(section.key(), categoryValue, "enabled", DEFAULT_SORT_ORDER, List.of(), null, operator.id());
+            AdminTaxonomyResponse.Item createdItem = loadTaxonomyItem(section.key(), categoryValue);
+            if (createdItem == null) {
+                throw ApiBusinessException.internalError("ADMIN_TAXONOMY_ITEM_REFRESH_FAILED", "taxonomy item refresh failed");
+            }
+
+            adminAuditLogService.recordSuccessfulOperation(
+                    operator,
+                    "taxonomy",
+                    "分类治理",
+                    "create_taxonomy_category",
+                    "新增分类",
+                    "taxonomy",
+                    section.key() + ":" + categoryValue,
+                    categoryValue,
+                    "sensitive",
+                    "分类已创建",
+                    "/api/admin/taxonomy/categories",
+                    "POST",
+                    "sectionKey=%s".formatted(section.key())
+            );
+            return createdItem;
+        }
     }
 
     public AdminTaxonomyPromptListResponse listPrompts(
@@ -455,7 +611,9 @@ public class AdminTaxonomyService {
             String needsAttention,
             String modelCategory,
             String contentCategory,
-            String compositionCategory
+            String compositionCategory,
+            Integer page,
+            Integer pageSize
     ) {
         adminAccessService.requireAnyRole(MANAGE_ROLES);
 
@@ -465,7 +623,33 @@ public class AdminTaxonomyService {
         String normalizedNeedsAttention = normalizeBooleanFilter(needsAttention, "ADMIN_TAXONOMY_NEEDS_ATTENTION_INVALID");
         String normalizedModelCategory = normalizeModelCategory(normalizedModality, modelCategory);
         String normalizedContentCategory = normalizeContentCategory(normalizedModality, contentCategory);
-        String normalizedCompositionCategory = normalizeCompositionCategory(compositionCategory);
+        String normalizedCompositionCategory = normalizeCompositionCategory(normalizedModality, compositionCategory);
+        int resolvedPageSize = normalizePromptPageSize(pageSize);
+        int resolvedPage = normalizePromptPage(page);
+        long totalItems = jdbcTemplate.queryForObject(
+                COUNT_PROMPT_ROWS_SQL,
+                Long.class,
+                normalizedQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                likeQuery,
+                normalizedModality,
+                normalizedModality,
+                normalizedNeedsAttention,
+                normalizedNeedsAttention,
+                normalizedNeedsAttention,
+                normalizedModelCategory,
+                normalizedModelCategory,
+                normalizedContentCategory,
+                normalizedContentCategory,
+                normalizedCompositionCategory,
+                normalizedCompositionCategory
+        );
+        int totalPages = Math.max(1, (int) Math.ceil((double) totalItems / resolvedPageSize));
+        int safePage = Math.min(resolvedPage, totalPages);
+        int offset = (safePage - 1) * resolvedPageSize;
 
         AdminTaxonomyPromptListResponse.Summary summary = jdbcTemplate.queryForObject(
                 PROMPT_SUMMARY_SQL,
@@ -526,11 +710,20 @@ public class AdminTaxonomyService {
                 normalizedContentCategory,
                 normalizedCompositionCategory,
                 normalizedCompositionCategory,
-                DEFAULT_PROMPT_LIST_LIMIT
+                offset,
+                resolvedPageSize
         );
 
         return new AdminTaxonomyPromptListResponse(
                 summary == null ? new AdminTaxonomyPromptListResponse.Summary(0, 0, 0, 0) : summary,
+                new AdminTaxonomyPromptListResponse.Pagination(
+                        safePage,
+                        resolvedPageSize,
+                        totalItems,
+                        totalPages,
+                        safePage > 1,
+                        safePage < totalPages
+                ),
                 items
         );
     }
@@ -620,7 +813,10 @@ public class AdminTaxonomyService {
         List<UUID> promptIds = normalizePromptIds(request.promptIds());
         String modelCategory = requireBulkModelCategory(modality, request.modelCategory());
         String contentCategory = requireBulkContentCategory(modality, request.contentCategory());
-        String compositionCategory = requireBulkCompositionCategory(request.compositionCategory());
+        String rawModelUsageCategory = request.modelUsageCategory() != null
+                ? request.modelUsageCategory()
+                : request.compositionCategory();
+        String compositionCategory = requireBulkCompositionCategory(modality, rawModelUsageCategory);
 
         try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(Map.of(
                 "targetType", "taxonomy_prompt_batch",
@@ -643,6 +839,9 @@ public class AdminTaxonomyService {
             for (PromptBulkTarget target : targets) {
                 List<String> normalizedTagNames = mergePromptTaxonomyTags(
                         target.tagNames(),
+                        target.modelCategory(),
+                        target.contentCategory(),
+                        target.modelUsageCategory(),
                         modality,
                         modelCategory,
                         contentCategory,
@@ -697,8 +896,120 @@ public class AdminTaxonomyService {
                     modelCategory,
                     contentCategory,
                     compositionCategory,
+                    compositionCategory,
                     promptIds.stream().map(UUID::toString).toList()
             );
+        }
+    }
+
+    @Transactional
+    public AdminTaxonomyPromptRebindResponse rebindPrompts(AdminTaxonomyPromptRebindRequest request) {
+        CurrentUser operator = adminAccessService.requireAnyRole(MANAGE_ROLES);
+        SectionDefinition section = requireSectionDefinition(request.sectionKey());
+        String categoryValue = normalizeCategoryValue(request.categoryValue());
+        List<UUID> promptIds = normalizePromptIds(request.promptIds());
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(Map.of(
+                "targetType", "taxonomy_prompt_rebind",
+                "targetId", section.key() + ":" + promptIds.size()
+        ))) {
+            if (!taxonomyItemExists(section.key(), categoryValue)) {
+                throw ApiBusinessException.notFound("ADMIN_TAXONOMY_ITEM_NOT_FOUND", "taxonomy item not found");
+            }
+
+            List<PromptBulkTarget> targets = loadBulkTargets(promptIds);
+            if (targets.size() != promptIds.size()) {
+                throw ApiBusinessException.notFound("ADMIN_TAXONOMY_PROMPT_NOT_FOUND", "taxonomy prompt item not found");
+            }
+
+            for (PromptBulkTarget target : targets) {
+                PromptTaxonomyValue taxonomyValue = resolveRebindTaxonomyValue(section.key(), categoryValue, target);
+                List<String> normalizedTagNames = mergePromptTaxonomyTags(
+                        target.tagNames(),
+                        target.modelCategory(),
+                        target.contentCategory(),
+                        target.modelUsageCategory(),
+                        target.modality(),
+                        taxonomyValue.modelCategory(),
+                        taxonomyValue.contentCategory(),
+                        taxonomyValue.modelUsageCategory()
+                );
+                jdbcTemplate.update(connection -> {
+                    PreparedStatement statement = connection.prepareStatement(UPDATE_PROMPT_TAXONOMY_SQL);
+                    statement.setString(1, taxonomyValue.modelCategory());
+                    statement.setString(2, taxonomyValue.contentCategory());
+                    statement.setString(3, taxonomyValue.modelUsageCategory());
+                    statement.setArray(4, connection.createArrayOf("text", normalizedTagNames.toArray(String[]::new)));
+                    statement.setObject(5, target.promptId());
+                    return statement;
+                });
+            }
+
+            adminAuditLogService.recordSuccessfulOperation(
+                    operator,
+                    "taxonomy",
+                    "分类治理",
+                    "rebind_prompt_taxonomy",
+                    "重绑提示词分类",
+                    "prompt_batch",
+                    section.key() + ":" + promptIds.size(),
+                    categoryValue,
+                    "sensitive",
+                    "提示词分类已重绑",
+                    "/api/admin/taxonomy/prompts/rebind",
+                    "POST",
+                    "sectionKey=%s,promptCount=%s".formatted(section.key(), promptIds.size())
+            );
+
+            return new AdminTaxonomyPromptRebindResponse(
+                    section.key(),
+                    categoryValue,
+                    promptIds.size(),
+                    promptIds.stream().map(UUID::toString).toList()
+            );
+        }
+    }
+
+    @Transactional
+    public AdminTaxonomyCategoryDeleteResponse deleteCategory(String sectionKey, String categoryValue) {
+        CurrentUser operator = adminAccessService.requireAnyRole(MANAGE_ROLES);
+        SectionDefinition section = requireSectionDefinition(sectionKey);
+        String normalizedCategoryValue = normalizeCategoryValue(categoryValue);
+
+        try (MdcBusinessContextScope ignored = MdcBusinessContextScope.open(taxonomyContext(section.key(), normalizedCategoryValue))) {
+            if (isStandardCategory(section.key(), normalizedCategoryValue)) {
+                throw ApiBusinessException.badRequest(
+                        "ADMIN_TAXONOMY_CATEGORY_PROTECTED",
+                        "builtin taxonomy category cannot be deleted"
+                );
+            }
+            long inUseCount = countPromptsUsingCategory(section.key(), normalizedCategoryValue);
+            if (inUseCount > 0) {
+                throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_CATEGORY_IN_USE", "taxonomy category is still used by prompts");
+            }
+
+            int deletedCount = jdbcTemplate.update(DELETE_CONFIG_SQL, section.key(), normalizedCategoryValue);
+            if (deletedCount == 0) {
+                throw ApiBusinessException.notFound("ADMIN_TAXONOMY_ITEM_NOT_FOUND", "taxonomy item not found");
+            }
+
+            adminAuditLogService.recordSuccessfulOperation(
+                    operator,
+                    "taxonomy",
+                    "分类治理",
+                    "delete_taxonomy_category",
+                    "删除分类",
+                    "taxonomy",
+                    section.key() + ":" + normalizedCategoryValue,
+                    normalizedCategoryValue,
+                    "sensitive",
+                    "分类已删除",
+                    "/api/admin/taxonomy/categories/" + section.key() + "/" + normalizedCategoryValue,
+                    "DELETE",
+                    "sectionKey=%s".formatted(section.key())
+            );
+
+            return new AdminTaxonomyCategoryDeleteResponse(section.key(), normalizedCategoryValue, true);
         }
     }
 
@@ -710,9 +1021,11 @@ public class AdminTaxonomyService {
     }
 
     private AdminTaxonomyResponse.Item mapItem(ResultSet resultSet) throws SQLException {
+        String sectionKey = resultSet.getString("section_key");
+        String categoryValue = resultSet.getString("category_value");
         return new AdminTaxonomyResponse.Item(
-                resultSet.getString("category_value"),
-                resultSet.getString("category_value"),
+                categoryValue,
+                resolveCategoryLabel(sectionKey, categoryValue),
                 resultSet.getString("modality_scope"),
                 resultSet.getLong("prompt_count"),
                 resultSet.getLong("author_count"),
@@ -832,16 +1145,6 @@ public class AdminTaxonomyService {
             return null;
         }
         String normalized = category.trim();
-        Set<String> allowed = "video".equals(modality) ? VIDEO_MODEL_CATEGORIES : IMAGE_MODEL_CATEGORIES;
-        if (modality == null) {
-            if (IMAGE_MODEL_CATEGORIES.contains(normalized) || VIDEO_MODEL_CATEGORIES.contains(normalized)) {
-                return normalized;
-            }
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODEL_CATEGORY_INVALID", "taxonomy model category is invalid");
-        }
-        if (!allowed.contains(normalized)) {
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODEL_CATEGORY_INVALID", "taxonomy model category is invalid");
-        }
         return normalized;
     }
 
@@ -850,28 +1153,20 @@ public class AdminTaxonomyService {
             return null;
         }
         String normalized = category.trim();
-        Set<String> allowed = "video".equals(modality) ? VIDEO_CONTENT_CATEGORIES : IMAGE_CONTENT_CATEGORIES;
-        if (modality == null) {
-            if (IMAGE_CONTENT_CATEGORIES.contains(normalized) || VIDEO_CONTENT_CATEGORIES.contains(normalized)) {
-                return normalized;
-            }
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_CONTENT_CATEGORY_INVALID", "taxonomy content category is invalid");
-        }
-        if (!allowed.contains(normalized)) {
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_CONTENT_CATEGORY_INVALID", "taxonomy content category is invalid");
-        }
         return normalized;
     }
 
-    private String normalizeCompositionCategory(String category) {
+    private String normalizeCompositionCategory(String modality, String category) {
         if (category == null || category.isBlank()) {
             return null;
         }
-        String normalized = category.trim();
-        if (!COMPOSITION_CATEGORIES.contains(normalized)) {
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_COMPOSITION_CATEGORY_INVALID", "taxonomy composition category is invalid");
+        if (!"video".equals(modality) && modality != null) {
+            throw ApiBusinessException.badRequest(
+                    "ADMIN_TAXONOMY_MODEL_USAGE_CATEGORY_NOT_ALLOWED",
+                    "taxonomy model usage category is only available for video prompts"
+            );
         }
-        return normalized;
+        return category.trim();
     }
 
     private int normalizeSortOrder(Integer sortOrder) {
@@ -919,12 +1214,29 @@ public class AdminTaxonomyService {
         return normalized;
     }
 
-    private String requireBulkCompositionCategory(String compositionCategory) {
-        String normalized = normalizeCompositionCategory(compositionCategory);
-        if (normalized == null) {
-            throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_COMPOSITION_CATEGORY_REQUIRED", "taxonomy composition category is required");
+    private String requireBulkCompositionCategory(String modality, String compositionCategory) {
+        String normalized = normalizeCompositionCategory(modality, compositionCategory);
+        if ("video".equals(modality) && normalized == null) {
+            throw ApiBusinessException.badRequest(
+                    "ADMIN_TAXONOMY_MODEL_USAGE_CATEGORY_REQUIRED",
+                    "taxonomy model usage category is required"
+            );
         }
         return normalized;
+    }
+
+    private int normalizePromptPage(Integer page) {
+        if (page == null || page < 1) {
+            return DEFAULT_PROMPT_PAGE;
+        }
+        return page;
+    }
+
+    private int normalizePromptPageSize(Integer pageSize) {
+        if (pageSize == null || pageSize < 1) {
+            return DEFAULT_PROMPT_LIST_LIMIT;
+        }
+        return Math.min(pageSize, DEFAULT_PROMPT_LIST_LIMIT);
     }
 
     private List<String> normalizeExposureFlags(List<String> exposureFlags) {
@@ -972,8 +1284,83 @@ public class AdminTaxonomyService {
                 resultSet.getString("modality"),
                 resultSet.getObject("author_id", UUID.class),
                 resultSet.getString("title"),
+                readNullableText(resultSet, "model_category"),
+                readNullableText(resultSet, "content_category"),
+                readNullableText(resultSet, "composition_category"),
                 readStringList(resultSet, "tag_names")
         ));
+    }
+
+    private boolean taxonomyConfigExists(String sectionKey, String categoryValue) {
+        Boolean exists = jdbcTemplate.queryForObject(
+                """
+                        select exists(
+                            select 1
+                            from admin_taxonomy_configs
+                            where section_key = ?
+                              and category_value = ?
+                        )
+                        """,
+                Boolean.class,
+                sectionKey,
+                categoryValue
+        );
+        return Boolean.TRUE.equals(exists);
+    }
+
+    private long countPromptsUsingCategory(String sectionKey, String categoryValue) {
+        Long count = jdbcTemplate.queryForObject(
+                COUNT_PROMPTS_USING_CATEGORY_SQL,
+                Long.class,
+                sectionKey,
+                categoryValue,
+                sectionKey,
+                categoryValue,
+                sectionKey,
+                categoryValue,
+                sectionKey,
+                categoryValue,
+                sectionKey,
+                categoryValue
+        );
+        return count == null ? 0L : count;
+    }
+
+    private PromptTaxonomyValue resolveRebindTaxonomyValue(String sectionKey, String categoryValue, PromptBulkTarget target) {
+        String modality = target.modality();
+        return switch (sectionKey) {
+            case "image-model" -> {
+                if (!"image".equals(modality)) {
+                    throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODALITY_MISMATCH", "taxonomy prompt modality does not match category section");
+                }
+                yield new PromptTaxonomyValue(categoryValue, target.contentCategory(), null);
+            }
+            case "video-model" -> {
+                if (!"video".equals(modality)) {
+                    throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODALITY_MISMATCH", "taxonomy prompt modality does not match category section");
+                }
+                yield new PromptTaxonomyValue(categoryValue, target.contentCategory(), target.modelUsageCategory());
+            }
+            case "image-content-category" -> {
+                if (!"image".equals(modality)) {
+                    throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODALITY_MISMATCH", "taxonomy prompt modality does not match category section");
+                }
+                yield new PromptTaxonomyValue(target.modelCategory(), categoryValue, null);
+            }
+            case "video-content-category" -> {
+                if (!"video".equals(modality)) {
+                    throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODALITY_MISMATCH", "taxonomy prompt modality does not match category section");
+                }
+                yield new PromptTaxonomyValue(target.modelCategory(), categoryValue, target.modelUsageCategory());
+            }
+            case "video-model-usage" -> {
+                if (!"video".equals(modality)) {
+                    throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_MODALITY_MISMATCH", "taxonomy prompt modality does not match category section");
+                }
+                yield new PromptTaxonomyValue(target.modelCategory(), target.contentCategory(), categoryValue);
+            }
+            default -> throw ApiBusinessException.badRequest("ADMIN_TAXONOMY_SECTION_INVALID", "taxonomy section is invalid");
+        };
     }
 
     private List<String> buildPromptTaxonomyTags(
@@ -986,7 +1373,9 @@ public class AdminTaxonomyService {
         tags.add("image".equals(modality) ? "image-prompt" : "video-prompt");
         tags.add(modelCategory);
         tags.add(contentCategory);
-        tags.add(compositionCategory);
+        if ("video".equals(modality)) {
+            tags.add(compositionCategory);
+        }
         return tags.stream()
                 .filter(value -> value != null && !value.isBlank())
                 .distinct()
@@ -995,11 +1384,19 @@ public class AdminTaxonomyService {
 
     private List<String> mergePromptTaxonomyTags(
             List<String> existingTagNames,
-            String modality,
-            String modelCategory,
-            String contentCategory,
-            String compositionCategory
+            String currentModelCategory,
+            String currentContentCategory,
+            String currentCompositionCategory,
+            String nextModality,
+            String nextModelCategory,
+            String nextContentCategory,
+            String nextCompositionCategory
     ) {
+        Set<String> taxonomyTokensToRemove = buildReservedPromptTaxonomyTokens(
+                currentModelCategory,
+                currentContentCategory,
+                currentCompositionCategory
+        );
         LinkedHashSet<String> mergedTags = new LinkedHashSet<>();
         for (String existingTag : existingTagNames) {
             if (existingTag == null) {
@@ -1007,14 +1404,62 @@ public class AdminTaxonomyService {
             }
 
             String normalized = existingTag.trim();
-            if (normalized.isEmpty() || PROMPT_TAXONOMY_TAGS.contains(normalized)) {
+            if (normalized.isEmpty()) {
+                continue;
+            }
+            if (taxonomyTokensToRemove.contains(normalized)) {
                 continue;
             }
             mergedTags.add(normalized);
         }
 
-        mergedTags.addAll(buildPromptTaxonomyTags(modality, modelCategory, contentCategory, compositionCategory));
+        mergedTags.addAll(buildPromptTaxonomyTags(
+                nextModality,
+                nextModelCategory,
+                nextContentCategory,
+                nextCompositionCategory
+        ));
         return List.copyOf(mergedTags);
+    }
+
+    private Set<String> buildReservedPromptTaxonomyTokens(
+            String currentModelCategory,
+            String currentContentCategory,
+            String currentCompositionCategory
+    ) {
+        LinkedHashSet<String> reserved = new LinkedHashSet<>();
+        reserved.add("image-prompt");
+        reserved.add("video-prompt");
+        reserved.add("single-model");
+        reserved.add("multi-model");
+        if (currentModelCategory != null && !currentModelCategory.isBlank()) {
+            reserved.add(currentModelCategory.trim());
+        }
+        if (currentContentCategory != null && !currentContentCategory.isBlank()) {
+            reserved.add(currentContentCategory.trim());
+        }
+        if (currentCompositionCategory != null && !currentCompositionCategory.isBlank()) {
+            reserved.add(currentCompositionCategory.trim());
+        }
+        return Set.copyOf(reserved);
+    }
+
+    private String resolveCategoryLabel(String sectionKey, String categoryValue) {
+        SectionDefinition definition = SECTION_LOOKUP.get(sectionKey);
+        return definition == null ? categoryValue : definition.resolveLabel(categoryValue);
+    }
+
+    private boolean isStandardCategory(String sectionKey, String categoryValue) {
+        SectionDefinition definition = SECTION_LOOKUP.get(sectionKey);
+        return definition != null && definition.hasStandardCategory(categoryValue);
+    }
+
+    private AdminTaxonomyResponse.Item buildStandardTaxonomyItem(String sectionKey, String categoryValue) {
+        SectionDefinition definition = SECTION_LOOKUP.get(sectionKey);
+        if (definition == null || !definition.hasStandardCategory(categoryValue)) {
+            return null;
+        }
+        return definition.buildDefaultItem(categoryValue);
     }
 
     private String normalizeNoteText(String noteText) {
@@ -1027,6 +1472,9 @@ public class AdminTaxonomyService {
     }
 
     private boolean taxonomyItemExists(String sectionKey, String categoryValue) {
+        if (isStandardCategory(sectionKey, categoryValue)) {
+            return true;
+        }
         Boolean exists = jdbcTemplate.queryForObject(
                 ITEM_EXISTS_SQL,
                 Boolean.class,
@@ -1071,24 +1519,16 @@ public class AdminTaxonomyService {
     }
 
     private AdminTaxonomyResponse.Item loadTaxonomyItem(String sectionKey, String categoryValue) {
-        return jdbcTemplate.query(
+        AdminTaxonomyResponse.Item item = jdbcTemplate.query(
                 ITEM_SQL,
                 resultSet -> resultSet.next() ? mapItem(resultSet) : null,
                 sectionKey,
                 categoryValue
         );
-    }
-
-    private static Set<String> buildPromptTaxonomyTagUniverse() {
-        LinkedHashSet<String> tags = new LinkedHashSet<>();
-        tags.add("image-prompt");
-        tags.add("video-prompt");
-        tags.addAll(IMAGE_MODEL_CATEGORIES);
-        tags.addAll(VIDEO_MODEL_CATEGORIES);
-        tags.addAll(IMAGE_CONTENT_CATEGORIES);
-        tags.addAll(VIDEO_CONTENT_CATEGORIES);
-        tags.addAll(COMPOSITION_CATEGORIES);
-        return Set.copyOf(tags);
+        if (item != null) {
+            return item;
+        }
+        return buildStandardTaxonomyItem(sectionKey, categoryValue);
     }
 
     private static Map<String, SectionDefinition> buildSectionLookup() {
@@ -1102,33 +1542,68 @@ public class AdminTaxonomyService {
     private record SectionDefinition(
             String key,
             String label,
-            String description
+            String description,
+            String modalityScope,
+            List<CategoryDefinition> standardCategories
+    ) {
+        private boolean hasStandardCategory(String categoryValue) {
+            return standardCategories.stream().anyMatch(item -> item.value().equals(categoryValue));
+        }
+
+        private String resolveLabel(String categoryValue) {
+            for (CategoryDefinition item : standardCategories) {
+                if (item.value().equals(categoryValue)) {
+                    return item.label();
+                }
+            }
+            return categoryValue;
+        }
+
+        private AdminTaxonomyResponse.Item buildDefaultItem(String categoryValue) {
+            return new AdminTaxonomyResponse.Item(
+                    categoryValue,
+                    resolveLabel(categoryValue),
+                    modalityScope,
+                    0,
+                    0,
+                    null,
+                    List.of(),
+                    DEFAULT_GOVERNANCE
+            );
+        }
+    }
+
+    private record CategoryDefinition(
+            String value,
+            String label
     ) {
     }
 
     private static final class SectionAccumulator {
 
         private final SectionDefinition definition;
-        private final List<AdminTaxonomyResponse.Item> items = new ArrayList<>();
-        private long promptCount;
+        private final LinkedHashMap<String, AdminTaxonomyResponse.Item> items = new LinkedHashMap<>();
 
         private SectionAccumulator(SectionDefinition definition) {
             this.definition = definition;
+            for (CategoryDefinition standardCategory : definition.standardCategories()) {
+                items.put(standardCategory.value(), definition.buildDefaultItem(standardCategory.value()));
+            }
         }
 
         private void addItem(AdminTaxonomyResponse.Item item) {
-            items.add(item);
-            promptCount += item.promptCount();
+            items.put(item.value(), item);
         }
 
         private AdminTaxonomyResponse.Section toResponse() {
+            List<AdminTaxonomyResponse.Item> responseItems = List.copyOf(items.values());
             return new AdminTaxonomyResponse.Section(
                     definition.key(),
                     definition.label(),
                     definition.description(),
-                    promptCount,
-                    items.size(),
-                    List.copyOf(items)
+                    responseItems.stream().mapToLong(AdminTaxonomyResponse.Item::promptCount).sum(),
+                    responseItems.size(),
+                    responseItems
             );
         }
     }
@@ -1138,7 +1613,17 @@ public class AdminTaxonomyService {
             String modality,
             UUID authorId,
             String title,
+            String modelCategory,
+            String contentCategory,
+            String modelUsageCategory,
             List<String> tagNames
+    ) {
+    }
+
+    private record PromptTaxonomyValue(
+            String modelCategory,
+            String contentCategory,
+            String modelUsageCategory
     ) {
     }
 }

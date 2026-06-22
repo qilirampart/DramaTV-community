@@ -3,6 +3,16 @@
   gap: 0;
 }
 
+.pageRestoring {
+  pointer-events: none;
+}
+
+.backAnchorRestoreOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+}
+
 .hero,
 .archiveSection,
 .footer {
@@ -109,7 +119,7 @@
   background: rgba(9, 12, 15, 0.42);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(10px);
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -196,7 +206,7 @@
 
 .searchHint {
   min-width: 0;
-  color: rgba(255, 255, 255, 0.34);
+  color: rgba(255, 255, 255, 0.54);
   font-size: 0.8rem;
   line-height: 1.4;
   text-align: left;
@@ -322,7 +332,7 @@
 
 .archiveTitle {
   margin: 0;
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.66);
   font-size: 0.82rem;
   font-weight: 500;
   line-height: 1.7;
@@ -331,22 +341,27 @@
 .archiveLink {
   min-height: 36px;
   padding: 0 0.2rem;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.78rem;
   font-weight: 500;
 }
 
 .archiveGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.archiveRow {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 20px;
 }
 
 .archiveCard {
   position: relative;
   display: block;
+  width: 100%;
   min-height: 0;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
@@ -359,12 +374,37 @@
     border-color 180ms ease,
     box-shadow 180ms ease;
   content-visibility: auto;
-  contain-intrinsic-size: 300px 170px;
+  contain-intrinsic-size: 320px 220px;
 }
 
 .archiveCard:hover {
   border-color: rgba(255, 255, 255, 0.16);
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.28);
+}
+
+.archiveCardHero {
+  grid-column: span 6;
+  aspect-ratio: 3 / 2;
+}
+
+.archiveCardPortrait {
+  grid-column: span 3;
+  aspect-ratio: 3 / 4;
+}
+
+.archiveCardSquare {
+  grid-column: span 3;
+  aspect-ratio: 1 / 1;
+}
+
+.archiveCardLandscape {
+  grid-column: span 4;
+  aspect-ratio: 4 / 3;
+}
+
+.archiveCardWide {
+  grid-column: span 6;
+  aspect-ratio: 2 / 1;
 }
 
 .archiveCardMediaSlot,
@@ -456,6 +496,17 @@
   padding: 0 14px 14px;
 }
 
+.archiveCardHero .archiveCardHeader,
+.archiveCardWide .archiveCardHeader {
+  padding: 16px 16px 0;
+}
+
+.archiveCardHero .archiveCardFooter,
+.archiveCardWide .archiveCardFooter {
+  gap: 12px;
+  padding: 0 18px 18px;
+}
+
 .archiveCardTitle {
   display: -webkit-box;
   overflow: hidden;
@@ -469,11 +520,43 @@
   letter-spacing: -0.03em;
 }
 
+.archiveCardHero .archiveCardTitle {
+  max-width: min(78%, 26rem);
+  font-size: 1.36rem;
+  line-height: 1.08;
+}
+
+.archiveCardPortrait .archiveCardTitle {
+  font-size: 1rem;
+  line-height: 1.18;
+  -webkit-line-clamp: 3;
+}
+
+.archiveCardSquare .archiveCardTitle {
+  font-size: 0.96rem;
+  line-height: 1.18;
+}
+
+.archiveCardWide .archiveCardTitle {
+  max-width: min(80%, 24rem);
+  font-size: 1.08rem;
+}
+
+.archiveCardLandscape .archiveCardTitle {
+  font-size: 0.94rem;
+  line-height: 1.18;
+}
+
 .archiveCardMeta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
+
+.archiveCardPortrait .archiveCardMeta,
+.archiveCardLandscape .archiveCardMeta {
+  gap: 8px;
 }
 
 .archiveCardAuthor {
@@ -515,7 +598,7 @@
 
 .archiveCardAuthorName,
 .archiveCardMetric {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.7rem;
   line-height: 1.4;
 }
@@ -532,6 +615,24 @@
   flex-shrink: 0;
 }
 
+.archiveCardHero .archiveCardMediaHasImage {
+  filter: brightness(0.62) saturate(0.9);
+}
+
+.archiveCardWide .archiveCardMediaHasImage {
+  filter: brightness(0.58) saturate(0.88);
+}
+
+.archiveCardHero .archiveCardShade {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.12) 32%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+.archiveCardPortrait .archiveCardShade {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.16) 26%, rgba(0, 0, 0, 0.88) 100%);
+}
+
 .unlockButton {
   justify-self: center;
   min-height: 44px;
@@ -543,6 +644,47 @@
   font-size: 0.82rem;
   font-weight: 600;
   box-shadow: 0 20px 38px rgba(0, 0, 0, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .archiveCardFooter {
+    gap: 0;
+  }
+
+  .archiveCardHero .archiveCardFooter,
+  .archiveCardWide .archiveCardFooter {
+    gap: 0;
+  }
+
+  .archiveCardTitle {
+    display: none;
+  }
+
+  .archiveCardMeta {
+    display: none;
+  }
+
+  .archiveCard:hover .archiveCardFooter,
+  .archiveCard:focus-within .archiveCardFooter {
+    gap: 10px;
+  }
+
+  .archiveCardHero:hover .archiveCardFooter,
+  .archiveCardHero:focus-within .archiveCardFooter,
+  .archiveCardWide:hover .archiveCardFooter,
+  .archiveCardWide:focus-within .archiveCardFooter {
+    gap: 12px;
+  }
+
+  .archiveCard:hover .archiveCardTitle,
+  .archiveCard:focus-within .archiveCardTitle {
+    display: -webkit-box;
+  }
+
+  .archiveCard:hover .archiveCardMeta,
+  .archiveCard:focus-within .archiveCardMeta {
+    display: flex;
+  }
 }
 
 @keyframes gradientFlow {
@@ -607,7 +749,7 @@
 
 .footerBrandCopy span,
 .footerLinks a {
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.72rem;
   line-height: 1.5;
 }
@@ -717,7 +859,7 @@
 
 :global(:root[data-theme="light"]) .heroSummary,
 :global(:root[data-theme="light"]) .searchHint {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 8px 22px rgba(0, 0, 0, 0.26);
 }
 
@@ -736,7 +878,7 @@
 :global(:root[data-theme="light"]) .footerBrandCopy span,
 :global(:root[data-theme="light"]) .footerLinks a,
 :global(:root[data-theme="light"]) .footerIcon {
-  color: rgba(89, 67, 42, 0.68);
+  color: rgba(89, 67, 42, 0.82);
 }
 
 :global(:root[data-theme="light"]) .searchButton {
@@ -820,8 +962,23 @@
 }
 
 @media (max-width: 1100px) {
-  .archiveGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .archiveRow {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .archiveCardHero,
+  .archiveCardWide {
+    grid-column: span 6;
+  }
+
+  .archiveCardPortrait,
+  .archiveCardSquare {
+    grid-column: span 3;
+  }
+
+  .archiveCardLandscape {
+    grid-column: span 2;
   }
 
   .footerInner {
@@ -870,8 +1027,31 @@
   }
 
   .archiveGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
+  }
+
+  .archiveRow {
+    display: contents;
+  }
+
+  .archiveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .archiveCardHero,
+  .archiveCardWide {
+    grid-column: span 2;
+  }
+
+  .archiveCardPortrait,
+  .archiveCardSquare,
+  .archiveCardLandscape {
+    grid-column: span 1;
+  }
+
+  .archiveCardHero .archiveCardTitle {
+    max-width: 100%;
+    font-size: 1.22rem;
   }
 }
 
@@ -900,8 +1080,23 @@
     grid-template-columns: 1fr;
   }
 
+  .archiveCardHero,
+  .archiveCardPortrait,
+  .archiveCardSquare,
+  .archiveCardLandscape,
+  .archiveCardWide {
+    grid-column: span 1;
+  }
+
   .archiveCard {
     min-height: 176px;
   }
 
+  .archiveCardTitle,
+  .archiveCardHero .archiveCardTitle,
+  .archiveCardWide .archiveCardTitle {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
 }

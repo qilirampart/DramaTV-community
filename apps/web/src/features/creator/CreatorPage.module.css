@@ -5,6 +5,16 @@
   padding: 34px 0 84px;
 }
 
+.pageRestoring {
+  pointer-events: none;
+}
+
+.backAnchorRestoreOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+}
+
 .backRow {
   margin-bottom: 22px;
 }
@@ -37,28 +47,18 @@
 }
 
 .backdropImage {
-  background:
-    radial-gradient(circle at 18% 24%, rgba(83, 134, 128, 0.28), transparent 26%),
-    radial-gradient(circle at 72% 44%, rgba(255, 233, 187, 0.1), transparent 24%),
-    linear-gradient(180deg, rgba(4, 4, 5, 0.18), rgba(4, 4, 5, 0.94)),
-    linear-gradient(90deg, rgba(5, 5, 7, 0.3), rgba(5, 5, 7, 0.1));
-  background-position: center;
-  background-size: cover;
-  filter: blur(4px) saturate(0.72) brightness(0.44);
-  transform: scale(1.05);
+  background: #05070a;
 }
 
 .backdropGlow {
   z-index: -2;
   background:
-    radial-gradient(circle at 18% 26%, rgba(242, 207, 137, 0.14), transparent 24%),
-    radial-gradient(circle at 74% 38%, rgba(255, 255, 255, 0.05), transparent 28%),
-    linear-gradient(180deg, rgba(5, 5, 6, 0.1), rgba(5, 5, 6, 0.86));
+    linear-gradient(180deg, rgba(5, 5, 6, 0.04), rgba(5, 5, 6, 0.2));
 }
 
 .backdropNoise {
   z-index: -1;
-  opacity: 0.22;
+  opacity: 0.08;
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.025), transparent 26%, transparent 74%, rgba(255, 255, 255, 0.025)),
     repeating-linear-gradient(
@@ -346,6 +346,50 @@
   position: relative;
 }
 
+.sectionHint {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.loadMoreRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.loadMoreButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.loadMoreButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.loadMoreButton:disabled {
+  opacity: 0.62;
+  cursor: default;
+}
+
 .archiveGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -612,6 +656,124 @@
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.9rem;
   line-height: 1.72;
+}
+
+:global(:root[data-theme="light"]) .backdropImage {
+  background: #ffffff;
+}
+
+:global(:root[data-theme="light"]) .backdropGlow {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+}
+
+:global(:root[data-theme="light"]) .backdropNoise {
+  opacity: 0.04;
+  background:
+    linear-gradient(115deg, rgba(23, 23, 23, 0.018), transparent 26%, transparent 74%, rgba(23, 23, 23, 0.018)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(23, 23, 23, 0.01) 0,
+      rgba(23, 23, 23, 0.01) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+:global(:root[data-theme="light"]) .backLink,
+:global(:root[data-theme="light"]) .intro,
+:global(:root[data-theme="light"]) .bio,
+:global(:root[data-theme="light"]) .statBlock span,
+:global(:root[data-theme="light"]) .notice,
+:global(:root[data-theme="light"]) .archiveAuthorName,
+:global(:root[data-theme="light"]) .archiveMetric,
+:global(:root[data-theme="light"]) .postCardTop,
+:global(:root[data-theme="light"]) .postMetaRow,
+:global(:root[data-theme="light"]) .sectionHint,
+:global(:root[data-theme="light"]) .postCard p,
+:global(:root[data-theme="light"]) .emptyState p {
+  color: rgba(17, 18, 20, 0.62);
+}
+
+:global(:root[data-theme="light"]) .backLink:hover,
+:global(:root[data-theme="light"]) .title,
+:global(:root[data-theme="light"]) .statBlock strong,
+:global(:root[data-theme="light"]) .tabActive,
+:global(:root[data-theme="light"]) .archiveTitle,
+:global(:root[data-theme="light"]) .postCard h3,
+:global(:root[data-theme="light"]) .emptyState strong {
+  color: #111214;
+}
+
+:global(:root[data-theme="light"]) .creatorPill,
+:global(:root[data-theme="light"]) .followButtonActive,
+:global(:root[data-theme="light"]) .iconButton,
+:global(:root[data-theme="light"]) .loadMoreButton,
+:global(:root[data-theme="light"]) .archiveBadge,
+:global(:root[data-theme="light"]) .postTags span,
+:global(:root[data-theme="light"]) .emptyState,
+:global(:root[data-theme="light"]) .postCard {
+  border-color: rgba(17, 18, 20, 0.08);
+}
+
+:global(:root[data-theme="light"]) .creatorPill {
+  background: rgba(17, 18, 20, 0.06);
+  color: rgba(17, 18, 20, 0.68);
+}
+
+:global(:root[data-theme="light"]) .followButtonActive,
+:global(:root[data-theme="light"]) .iconButton,
+:global(:root[data-theme="light"]) .loadMoreButton {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111214;
+}
+
+:global(:root[data-theme="light"]) .tab,
+:global(:root[data-theme="light"]) .tabActive {
+  color: rgba(17, 18, 20, 0.42);
+}
+
+:global(:root[data-theme="light"]) .tabActive::after {
+  background: #111214;
+}
+
+:global(:root[data-theme="light"]) .tabSection {
+  border-bottom-color: rgba(17, 18, 20, 0.08);
+}
+
+:global(:root[data-theme="light"]) .postCard,
+:global(:root[data-theme="light"]) .emptyState {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 247, 248, 0.96)),
+    radial-gradient(circle at top left, rgba(17, 18, 20, 0.03), transparent 34%);
+  box-shadow: 0 20px 40px rgba(17, 18, 20, 0.06);
+}
+
+:global(:root[data-theme="light"]) .archiveMedia {
+  border-color: rgba(17, 18, 20, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 34%),
+    linear-gradient(144deg, rgba(225, 228, 232, 0.88), rgba(239, 241, 244, 0.96));
+  box-shadow: 0 20px 40px rgba(17, 18, 20, 0.08);
+}
+
+:global(:root[data-theme="light"]) .archiveShade {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.08) 32%, rgba(255, 255, 255, 0.56) 100%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04));
+}
+
+:global(:root[data-theme="light"]) .archiveBadge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111214;
+}
+
+:global(:root[data-theme="light"]) .postTags span {
+  background: rgba(17, 18, 20, 0.06);
+  color: rgba(17, 18, 20, 0.64);
+}
+
+:global(:root[data-theme="light"]) .archiveAvatar {
+  background: rgba(17, 18, 20, 0.08);
 }
 
 @media (max-width: 1080px) {

@@ -12,6 +12,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class PublishDraftLifecycleQueryService {
 
+    private static final String MEDIA_TASK_TYPES_SQL = "'video_media_process', 'image_media_process'";
+    private static final String LATEST_PROCESSING_STATUS_SQL = """
+            select status_code
+            from async_task_records
+            where task_type in (%s)
+              and target_type = ?
+              and target_id = ?
+            order by created_at desc
+            limit 1
+            """.formatted(MEDIA_TASK_TYPES_SQL);
+    private static final String LATEST_PROCESSING_ERROR_SQL = """
+            select error_message
+            from async_task_records
+            where task_type in (%s)
+              and target_type = ?
+              and target_id = ?
+            order by created_at desc
+            limit 1
+            """.formatted(MEDIA_TASK_TYPES_SQL);
+
     private final JdbcTemplate jdbcTemplate;
     private final MediaTaskApplicationService mediaTaskApplicationService;
 
@@ -45,7 +65,6 @@ public class PublishDraftLifecycleQueryService {
         if (targetType == null || draft.targetId() == null || "draft".equals(draftStatus)) {
             return null;
         }
-
         return mediaTaskApplicationService.latestSummaryForTarget(targetType, draft.targetId());
     }
 
@@ -83,15 +102,8 @@ public class PublishDraftLifecycleQueryService {
             return "not_submitted";
         }
 
-        String latestStatus = jdbcTemplate.query("""
-                select status_code
-                from async_task_records
-                where task_type = 'video_media_process'
-                  and target_type = ?
-                  and target_id = ?
-                order by created_at desc
-                limit 1
-                """,
+        String latestStatus = jdbcTemplate.query(
+                LATEST_PROCESSING_STATUS_SQL,
                 resultSet -> resultSet.next() ? normalizeProcessingStatus(resultSet.getString("status_code")) : null,
                 targetType,
                 draft.targetId()
@@ -114,11 +126,10 @@ public class PublishDraftLifecycleQueryService {
         }
 
         String categoryCode = nullableText(draft.payloadJson(), "categoryCode");
-        if ("image_prompt".equals(categoryCode)) {
-            return null;
+        if ("video_prompt".equals(categoryCode) || "image_prompt".equals(categoryCode)) {
+            return "prompt";
         }
-
-        return "video_prompt".equals(categoryCode) ? "prompt" : "video";
+        return "video";
     }
 
     private boolean isPromptDraft(ObjectNode payloadJson) {
@@ -175,7 +186,6 @@ public class PublishDraftLifecycleQueryService {
         if (statusCode == null || statusCode.isBlank()) {
             return null;
         }
-
         return statusCode.trim().toLowerCase(Locale.ROOT);
     }
 
@@ -203,45 +213,31 @@ public class PublishDraftLifecycleQueryService {
         if ("not_submitted".equals(processingStatus)) {
             return "草稿尚未提交，媒体处理尚未开始";
         }
-
         if ("not_requested".equals(processingStatus)) {
             return "当前内容已提交，但暂未触发媒体处理任务";
         }
-
         if ("queued".equals(processingStatus)) {
             return "媒体任务已排队，等待处理";
         }
-
         if ("processing".equals(processingStatus)) {
             return "媒体处理中，系统正在生成封面、预览或压缩结果";
         }
-
         if ("succeeded".equals(processingStatus)) {
             return "媒体处理已完成";
         }
-
         if (!"failed".equals(processingStatus)) {
             return null;
         }
-
         if (draft.targetId() == null || "draft".equals(draftStatus)) {
             return "媒体处理失败";
         }
 
-        String errorMessage = jdbcTemplate.query("""
-                select error_message
-                from async_task_records
-                where task_type = 'video_media_process'
-                  and target_type = ?
-                  and target_id = ?
-                order by created_at desc
-                limit 1
-                """,
+        String errorMessage = jdbcTemplate.query(
+                LATEST_PROCESSING_ERROR_SQL,
                 resultSet -> resultSet.next() ? normalizeErrorMessage(resultSet.getString("error_message")) : null,
                 processingTargetType(draft),
                 draft.targetId()
         );
-
         return errorMessage == null ? "媒体处理失败" : errorMessage;
     }
 

@@ -2,6 +2,7 @@ package com.dramatv.community.feed.controller;
 
 import com.dramatv.community.feed.dto.response.FeaturedArchiveResponse;
 import com.dramatv.community.feed.application.HomeFeedQueryService;
+import com.dramatv.community.feed.dto.response.FeaturedInventoryResponse;
 import com.dramatv.community.feed.dto.response.HomeFeedResponse;
 import com.dramatv.community.shared.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,37 @@ public class HomeFeedController {
     }
 
     @GetMapping("/featured")
-    public ResponseEntity<ApiResponse<FeaturedArchiveResponse>> featured() {
-        return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadFeaturedArchive()));
+    public ResponseEntity<ApiResponse<FeaturedArchiveResponse>> featured(
+            @RequestParam(value = "sort", required = false) String sort
+    ) {
+        return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadFeaturedArchive(sort)));
+    }
+
+    @GetMapping("/featured-inventory")
+    public ResponseEntity<ApiResponse<FeaturedInventoryResponse>> featuredInventory(
+            @RequestParam(defaultValue = "all") String filter,
+            @RequestParam(defaultValue = "latest") String sort,
+            @RequestParam(required = false) String q,
+            @RequestParam(required = false) String modelCategory,
+            @RequestParam(required = false) String contentCategory,
+            @RequestParam(required = false) String workflowType,
+            @RequestParam(required = false) Integer limit,
+            @RequestParam(required = false) String cursor
+    ) {
+        return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadFeaturedInventory(
+                filter,
+                sort,
+                q,
+                modelCategory,
+                contentCategory,
+                workflowType,
+                limit,
+                cursor
+        )));
+    }
+
+    @GetMapping("/landing")
+    public ResponseEntity<ApiResponse<FeaturedArchiveResponse>> landing() {
+        return ResponseEntity.ok(ApiResponse.ok(homeFeedQueryService.loadLandingArchive()));
     }
 }

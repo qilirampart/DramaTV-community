@@ -4,8 +4,10 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { ChangeEvent, FormEvent } from "react";
 import { useEffect, useMemo, useState, useTransition } from "react";
+import { ProfileMediaCard, type ProfileMediaCardView } from "@/components/shared/ProfileMediaCard";
 import { ContextBackLink } from "@/components/shared/ContextBackLink";
 import { PageShell } from "@/components/shared/PageShell";
+import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
 import { uploadAssetFromClient } from "@/lib/api/upload-client";
 import type {
   DiscussionThreadCardView,
@@ -16,7 +18,12 @@ import type {
   WorkflowMiniCardView
 } from "@/lib/contracts/view-models";
 import { formatContentKindBadge, formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
-import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import {
+  buildBackAnchorSource,
+  buildCurrentRoute,
+  createBackAnchorId
+} from "@/lib/routes/back-anchor";
+import { useListPageBackRestore } from "@/lib/routes/list-page-back-restore";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
 import { deleteMeDraftAction, updateMeProfileAction } from "./actions";
 import styles from "./PersonalCenterPage.module.css";
@@ -24,29 +31,12 @@ import styles from "./PersonalCenterPage.module.css";
 type PersonalCenterPageProps = {
   view: PersonalCenterPageView;
   publishedVideos: VideoMiniCardView[];
+  publishedPrompts: VideoMiniCardView[];
   publishedWorkflows: WorkflowMiniCardView[];
   backHref?: string;
 };
 
-type PersonalCenterTab = "works" | "posts" | "drafts" | "likes" | "favorites";
-
-type GalleryMetric = {
-  icon: "heart" | "play" | "clock" | "save";
-  label: string;
-};
-
-type GalleryCardView = {
-  id: string;
-  href: string;
-  badge: string;
-  tone: "prompt" | "work" | "workflow" | "discussion" | "favorite";
-  title: string;
-  subtitle?: string;
-  coverUrl?: string;
-  authorName: string;
-  authorAvatarUrl?: string;
-  metrics: GalleryMetric[];
-};
+type PersonalCenterTab = "works" | "workflows" | "posts" | "drafts" | "likes" | "favorites";
 
 type ProfileFormState = {
   displayName: string;
@@ -116,52 +106,6 @@ function dedupeItems(items: PersonalCenterItemView[]) {
   });
 }
 
-function HeartIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 16 16">
-      <path
-        d="M8 13.2 2.8 8.3A3.2 3.2 0 1 1 7.4 3.8L8 4.4l.6-.6a3.2 3.2 0 1 1 4.6 4.5L8 13.2Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-        strokeWidth="1.3"
-      />
-    </svg>
-  );
-}
-
-function PlayIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 16 16">
-      <path
-        d="M5.2 3.8a.8.8 0 0 1 1.2-.7l5.2 3.1a.8.8 0 0 1 0 1.4L6.4 10.7a.8.8 0 0 1-1.2-.7V3.8Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 16 16">
-      <circle cx="8" cy="8" r="5.7" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M8 4.8v3.5l2.2 1.3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.3" />
-    </svg>
-  );
-}
-
-function SaveIcon() {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 16 16">
-      <path
-        d="M4.6 2.8h6.8c.6 0 1 .4 1 1v9.4L8 10.4l-4.4 2.8V3.8c0-.6.4-1 1-1Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-        strokeWidth="1.3"
-      />
-    </svg>
-  );
-}
-
 function SettingsIcon() {
   return (
     <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
@@ -180,134 +124,109 @@ function SettingsIcon() {
   );
 }
 
-function renderMetricIcon(icon: GalleryMetric["icon"]) {
-  switch (icon) {
-    case "heart":
-      return <HeartIcon />;
-    case "play":
-      return <PlayIcon />;
-    case "clock":
-      return <ClockIcon />;
-    case "save":
-      return <SaveIcon />;
-    default:
-      return null;
-  }
-}
-
 function buildPublishedCards(
   videos: VideoMiniCardView[],
+  prompts: VideoMiniCardView[],
   workflows: WorkflowMiniCardView[]
-): GalleryCardView[] {
-  const videoCards = videos
-    .filter((video) => !normalizeText(video.workflow?.id))
-    .map(
-    (video): GalleryCardView => ({
-    id: `video-${video.id}`,
-    href: `/videos/${video.id}`,
-    badge: formatContentKindBadge("prompt"),
-    tone: "prompt",
-    title: normalizeText(video.title) ?? "未命名作品",
-    subtitle:
-      normalizeText(video.summary) ??
-      normalizeText(video.workflow?.title) ??
-      "电影感视觉练习与创作片段归档。",
-    coverUrl: normalizeAssetUrl(video.posterUrl) ?? normalizeAssetUrl(video.coverUrl),
-    authorName: normalizeText(video.author.displayName) ?? "DramaTV Creator",
-    authorAvatarUrl: normalizeAssetUrl(video.author.avatarUrl),
-    metrics: [
-      { icon: "heart", label: formatCompactNumber(video.likeCount ?? 0) },
-      { icon: "play", label: formatCompactNumber(video.playCount ?? 0) }
-    ]
-    })
-  );
+): {
+  workCards: ProfileMediaCardView[];
+  workflowCards: ProfileMediaCardView[];
+} {
+  const workCards = [
+    ...videos.map((video): ProfileMediaCardView => ({
+      id: `video-${video.id}`,
+      href: `/videos/${video.id}`,
+      badge: formatEntityTypeBadge("video"),
+      title: normalizeText(video.title) ?? "未命名作品",
+      coverUrl: normalizeAssetUrl(video.coverUrl),
+      posterUrl: normalizeAssetUrl(video.posterUrl),
+      previewUrl: normalizeAssetUrl(video.previewUrl),
+      sourceUrl: normalizeAssetUrl(video.sourceUrl),
+      authorName: normalizeText(video.author.displayName) ?? "DramaTV Creator",
+      authorAvatarUrl: normalizeAssetUrl(video.author.avatarUrl),
+      metrics: [
+        { icon: "heart", label: formatCompactNumber(video.likeCount ?? 0) },
+        { icon: "play", label: formatCompactNumber(video.playCount ?? 0) }
+      ]
+    })),
+    ...prompts.map((prompt): ProfileMediaCardView => ({
+      id: `prompt-${prompt.id}`,
+      href: `/prompts/${prompt.id}`,
+      badge: formatEntityTypeBadge("prompt"),
+      title: normalizeText(prompt.title) ?? "未命名提示词",
+      coverUrl: normalizeAssetUrl(prompt.coverUrl),
+      posterUrl: normalizeAssetUrl(prompt.posterUrl),
+      previewUrl: normalizeAssetUrl(prompt.previewUrl),
+      sourceUrl: normalizeAssetUrl(prompt.sourceUrl),
+      promptModality: prompt.sourceUrl || prompt.previewUrl ? "video" : "image",
+      authorName: normalizeText(prompt.author.displayName) ?? "DramaTV Creator",
+      authorAvatarUrl: normalizeAssetUrl(prompt.author.avatarUrl),
+      metrics: [
+        { icon: "heart", label: formatCompactNumber(prompt.likeCount ?? 0) },
+        { icon: "play", label: formatCompactNumber(prompt.playCount ?? 0) }
+      ]
+    }))
+  ];
 
-  const workflowCards = workflows.map(
-    (workflow): GalleryCardView => ({
+  const workflowCards = workflows.map((workflow): ProfileMediaCardView => ({
     id: `workflow-${workflow.id}`,
     href: `/workflows/${workflow.id}`,
     badge: formatEntityTypeBadge("workflow"),
-    tone: "workflow" as const,
     title: normalizeText(workflow.title) ?? "未命名工作流",
-    subtitle: normalizeText(workflow.summary) ?? "流程结构、参数策略与复用方式说明。",
     coverUrl: normalizeAssetUrl(workflow.coverUrl),
     authorName: normalizeText(workflow.author.displayName) ?? "DramaTV Creator",
     authorAvatarUrl: normalizeAssetUrl(workflow.author.avatarUrl),
+    resourceType: "workflow",
     metrics: [
       { icon: "heart", label: formatCompactNumber(workflow.likeCount ?? 0) },
       { icon: "save", label: workflow.allowCopy ? "可复制" : "只读" }
     ]
-    })
-  );
+  }));
 
-  const mixed: GalleryCardView[] = [];
-  const max = Math.max(videoCards.length, workflowCards.length);
-
-  for (let index = 0; index < max; index += 1) {
-    if (videoCards[index]) {
-      mixed.push(videoCards[index]);
-    }
-
-    if (workflowCards[index]) {
-      mixed.push(workflowCards[index]);
-    }
-  }
-
-  return mixed;
+  return { workCards, workflowCards };
 }
 
 function buildLibraryCards(
   items: PersonalCenterItemView[],
   mode: "like" | "favorite"
-): GalleryCardView[] {
+): ProfileMediaCardView[] {
   return items.map(
-    (item): GalleryCardView => ({
-    id: `${mode}-${item.itemType}-${item.targetId}`,
-    href: item.href,
-    badge:
-      item.itemType === "workflow"
-        ? formatEntityTypeBadge("workflow")
-        : item.itemType === "prompt"
-          ? formatEntityTypeBadge("prompt")
-          : item.itemType === "post"
-            ? formatContentKindBadge("post")
-            : formatContentKindBadge("workflow_work"),
-    tone: item.itemType === "post" ? "discussion" : "favorite",
-    title: normalizeText(item.title) ?? "未命名内容",
-    subtitle:
-      normalizeText(item.summary) ??
-      normalizeText(item.workflowTitle) ??
-      normalizeText(item.channelTitle) ??
-      "社区互动记录与灵感回看入口。",
-    coverUrl: normalizeAssetUrl(item.coverUrl),
-    authorName: normalizeText(item.author.displayName) ?? "DramaTV Creator",
-    authorAvatarUrl: normalizeAssetUrl(item.author.avatarUrl),
-    metrics:
-      mode === "like"
-        ? [
-            { icon: "heart", label: "已点赞" },
-            { icon: "clock", label: item.actedAtLabel }
-          ]
-        : [
-            { icon: "save", label: "已收藏" },
-            { icon: "clock", label: item.actedAtLabel }
-          ]
+    (item): ProfileMediaCardView => ({
+      id: `${mode}-${item.itemType}-${item.targetId}`,
+      href: item.href,
+      badge:
+        item.itemType === "workflow"
+          ? formatEntityTypeBadge("workflow")
+          : item.itemType === "prompt"
+            ? formatEntityTypeBadge("prompt")
+            : item.itemType === "post"
+              ? formatContentKindBadge("post")
+              : formatContentKindBadge("workflow_work"),
+      title: normalizeText(item.title) ?? "未命名内容",
+      coverUrl: normalizeAssetUrl(item.coverUrl),
+      authorName: normalizeText(item.author.displayName) ?? "DramaTV Creator",
+      authorAvatarUrl: normalizeAssetUrl(item.author.avatarUrl),
+      metrics:
+        mode === "like"
+          ? [
+              { icon: "heart", label: "已点赞" },
+              { icon: "clock", label: item.actedAtLabel }
+            ]
+          : [
+              { icon: "save", label: "已收藏" },
+              { icon: "clock", label: item.actedAtLabel }
+            ]
     })
   );
 }
 
-function buildPostCards(items: DiscussionThreadCardView[]): GalleryCardView[] {
+function buildPostCards(items: DiscussionThreadCardView[]): ProfileMediaCardView[] {
   return items.map(
-    (item): GalleryCardView => ({
+    (item): ProfileMediaCardView => ({
       id: `post-${item.id}`,
       href: item.href,
       badge: formatContentKindBadge("post"),
-      tone: "discussion",
       title: normalizeText(item.title) ?? "未命名帖子",
-      subtitle:
-        normalizeText(item.excerpt) ??
-        normalizeText(item.binding?.targetTitle) ??
-        "社区讨论内容与创作过程记录。",
       coverUrl: undefined,
       authorName: "我",
       authorAvatarUrl: undefined,
@@ -529,67 +448,10 @@ function ProfileEditModal({
   );
 }
 
-function GalleryCard({
-  card,
-  backSource,
-  anchorId
-}: {
-  card: GalleryCardView;
-  backSource: string;
-  anchorId: string;
-}) {
-  return (
-    <Link className={styles.galleryCard} href={appendBackSource(card.href, buildBackAnchorSource(backSource, anchorId))} id={anchorId}>
-      <div className={`${styles.galleryMedia} ${styles[`galleryMedia${card.tone[0].toUpperCase()}${card.tone.slice(1)}`]}`}>
-        {card.coverUrl ? (
-          <div className={styles.galleryCover} style={{ backgroundImage: `url(${card.coverUrl})` }} />
-        ) : null}
-        <div className={styles.galleryShade} />
-        <span className={`${styles.galleryBadge} ${styles[`galleryBadge${card.tone[0].toUpperCase()}${card.tone.slice(1)}`]}`}>
-          {card.badge}
-        </span>
-
-        <div className={styles.galleryFooter}>
-          <div className={styles.galleryTextBlock}>
-            <h3 className={styles.galleryTitle}>{card.title}</h3>
-            <p className={styles.gallerySubtitle}>{card.subtitle}</p>
-          </div>
-
-          <div className={styles.galleryMetaRow}>
-            <span className={styles.galleryAuthor}>
-              <span className={styles.galleryAuthorAvatar}>
-                {card.authorAvatarUrl ? (
-                  <span
-                    className={styles.galleryAuthorAvatarImage}
-                    style={{ backgroundImage: `url(${card.authorAvatarUrl})` }}
-                  />
-                ) : (
-                  <span className={styles.galleryAuthorAvatarFallback}>
-                    {getAvatarFallback(card.authorName)}
-                  </span>
-                )}
-              </span>
-              <span className={styles.galleryAuthorName}>{card.authorName}</span>
-            </span>
-
-            <span className={styles.galleryMetrics}>
-              {card.metrics.map((metric) => (
-                <span className={styles.galleryMetric} key={`${card.id}-${metric.icon}-${metric.label}`}>
-                  {renderMetricIcon(metric.icon)}
-                  <span>{metric.label}</span>
-                </span>
-              ))}
-            </span>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
 export function PersonalCenterPage({
   view,
   publishedVideos,
+  publishedPrompts,
   publishedWorkflows,
   backHref = "/"
 }: PersonalCenterPageProps) {
@@ -622,9 +484,9 @@ export function PersonalCenterPage({
   const headline = resolveHeadline(pageView.profile.headline);
   const bio = resolveBio(pageView.profile.bio);
 
-  const publishedCards = buildPublishedCards(publishedVideos, publishedWorkflows);
+  const { workCards, workflowCards } = buildPublishedCards(publishedVideos, publishedPrompts, publishedWorkflows);
   const avatarUrl =
-    normalizeAssetUrl(pageView.profile.avatarUrl) ?? publishedCards.find((card) => card.coverUrl)?.coverUrl;
+    normalizeAssetUrl(pageView.profile.avatarUrl) ?? workCards.find((card) => card.coverUrl)?.coverUrl;
   const likedCards = buildLibraryCards(dedupeItems(pageView.likedItems), "like");
   const favoriteCards = buildLibraryCards(dedupeItems(pageView.favoritedItems), "favorite");
   const postCards = buildPostCards(pageView.posts);
@@ -646,8 +508,12 @@ export function PersonalCenterPage({
       label: "粉丝"
     },
     {
-      value: formatCompactNumber(publishedCards.length),
+      value: formatCompactNumber(workCards.length),
       label: "作品"
+    },
+    {
+      value: formatCompactNumber(workflowCards.length),
+      label: "工作流"
     },
     {
       value: formatCompactNumber(pageView.profile.stats.likeReceivedCount),
@@ -665,14 +531,19 @@ export function PersonalCenterPage({
 
   const currentCards =
     activeTab === "works"
-      ? publishedCards
+      ? workCards
+      : activeTab === "workflows"
+        ? workflowCards
       : activeTab === "posts"
         ? postCards
       : activeTab === "likes"
         ? likedCards
         : favoriteCards;
 
-  useBackAnchorRestore([activeTab, currentCards.length, pageView.draftItems.length]);
+  const { isBackAnchorRestoring } = useListPageBackRestore({
+    currentRoute,
+    dependencies: [activeTab, currentCards.length, pageView.draftItems.length]
+  });
 
   function handleTabChange(nextTab: PersonalCenterTab) {
     const nextParams = new URLSearchParams(searchParams.toString());
@@ -824,7 +695,10 @@ export function PersonalCenterPage({
       topNavActive="featured"
       variant="home"
     >
-      <div className={styles.page}>
+      <div
+        aria-hidden={isBackAnchorRestoring}
+        className={`${styles.page}${isBackAnchorRestoring ? ` ${styles.pageRestoring}` : ""}`}
+      >
         <div className={styles.backRow}>
           <ContextBackLink className={styles.backLink} href={backHref}>
             ← 返回首页
@@ -880,6 +754,13 @@ export function PersonalCenterPage({
               作品
             </button>
             <button
+              className={activeTab === "workflows" ? styles.tabActive : styles.tab}
+              type="button"
+              onClick={() => handleTabChange("workflows")}
+            >
+              工作流
+            </button>
+            <button
               className={activeTab === "posts" ? styles.tabActive : styles.tab}
               type="button"
               onClick={() => handleTabChange("posts")}
@@ -930,22 +811,25 @@ export function PersonalCenterPage({
               />
             )
           ) : currentCards.length > 0 ? (
-            <div className={styles.galleryGrid}>
-              {currentCards.map((card, index) => (
-                <GalleryCard
-                  anchorId={createBackAnchorId(`me-${activeTab}`, `${index}-${card.id}`)}
-                  backSource={currentRoute}
-                  card={card}
-                  key={card.id}
-                />
-              ))}
-            </div>
+              <div className={styles.galleryGrid}>
+                {currentCards.map((card, index) => (
+                  <ProfileMediaCard
+                    anchorId={createBackAnchorId(`me-${activeTab}`, `${index}-${card.id}`)}
+                    backSource={currentRoute}
+                    item={card}
+                    key={card.id}
+                    previewGroup={`me-${activeTab}`}
+                  />
+                ))}
+              </div>
           ) : (
             <EmptyState
               description="这里先保留当前标签的占位，等后端补齐更多个人内容数据后再接入。"
               title={
                 activeTab === "works"
                   ? "暂时还没有发布内容"
+                  : activeTab === "workflows"
+                    ? "暂时还没有发布工作流"
                   : activeTab === "posts"
                     ? "暂时还没有发布帖子"
                   : activeTab === "likes"
@@ -974,11 +858,22 @@ export function PersonalCenterPage({
           onSubmit={handleProfileSubmit}
         />
       ) : null}
+      {isBackAnchorRestoring ? (
+        <div className={styles.backAnchorRestoreOverlay}>
+          <RouteVideoLoading
+            activeNav="home"
+            label="Restoring personal position"
+            useVideo={false}
+            videoActive={false}
+          />
+        </div>
+      ) : null}
     </PageShell>
   );
 }
 function parsePersonalCenterTab(value: string | null): PersonalCenterTab {
   switch (value) {
+    case "workflows":
     case "posts":
     case "drafts":
     case "likes":

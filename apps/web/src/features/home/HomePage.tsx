@@ -4,19 +4,23 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { PageShell } from "@/components/shared/PageShell";
+import { RouteVideoLoading } from "@/components/shared/RouteVideoLoading";
 import { useInteractiveVideoPreview } from "@/components/shared/useInteractiveVideoPreview";
-import type { ApiPromptSummary } from "@/lib/contracts/community-api";
+import type { ApiFeaturedArchiveResponse, ApiPromptSummary } from "@/lib/contracts/community-api";
 import type { CreatorMiniCardView, HomePageView, WorkflowMiniCardView } from "@/lib/contracts/view-models";
 import { toIndexedContentCards, toResourceBadge } from "@/lib/content-index";
+import { resolveCardVideoPlaybackUrl } from "@/lib/media-playback";
 import { homeDemoCatalog, type HomeDemoCard } from "@/lib/prefill/home-resource-catalog";
 import { formatEntityTypeBadge, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
-import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId, useBackAnchorRestore } from "@/lib/routes/back-anchor";
+import { buildBackAnchorSource, buildCurrentRoute, createBackAnchorId } from "@/lib/routes/back-anchor";
+import { useListPageBackRestore } from "@/lib/routes/list-page-back-restore";
 import { appendBackSource } from "@/lib/routes/redirect-utils";
 import { mergeCardsPreferCatalogMedia } from "./home-card-merge";
 import styles from "./HomePage.module.css";
 
 type HomePageProps = {
   isAuthenticated: boolean;
+  landingLayout?: ApiFeaturedArchiveResponse;
   prompts?: ApiPromptSummary[];
   view: HomePageView;
 };
@@ -24,6 +28,23 @@ type HomePageProps = {
 type HomeArchiveCardData = HomeDemoCard & {
   badge?: string;
   metricLabel?: string;
+};
+
+type HomeArchiveLayoutBucket = "portrait" | "square" | "landscape" | "wide";
+type HomeArchiveLayoutVariant = "hero" | "portrait" | "square" | "landscape" | "wide";
+
+type HomeArchiveLayoutCandidate = {
+  card: HomeArchiveCardData;
+  bucket: HomeArchiveLayoutBucket;
+};
+
+type HomeArchiveLayoutSlot = {
+  card: HomeArchiveCardData;
+  variant: HomeArchiveLayoutVariant;
+};
+
+type HomeArchiveLayoutRow = {
+  slots: HomeArchiveLayoutSlot[];
 };
 
 type ThemeMode = "dark" | "light";
@@ -41,6 +62,31 @@ const REFERENCE_HERO_AVATARS = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBret60CDBEykekJs5Rbq93q0IMXbtFyV6YQsmD-vT0OD2OfMivDXASA9lFtTyqbUiKQbfSHSld_su1beOasq1CM-PHV9LXj_VGTUx5L-wJRnbIzJaNwhKKfalhB21Uea38JWrbqjS78BU8Q8cT-gstLC0u9n1ax4IJm60d4RMapTtzICcktdZU5LAcgGT_9lGuMTNj2oqOBYJd5-NmGq4zz-k7rzGk-RlQ7gXwNGNgkZeEH8Bmvn_eiKgOUTL6Q0_70mHqsIM7BJY0",
   "https://lh3.googleusercontent.com/aida-public/AB6AXuADQAniqhZ9TkLog3HUrK4sImr3EafVA_UTsf3YgN1mNCNLwpTM6P81bTVNpKxGq_Z8IX6Qm27iWxdAi_qc41_nTePiBmybpOtIO12EXfUq46eyNBD8Y8smNdZy3pqx-Ynoo_GUEjO2U_73jVO8r_r4frDEW3n2QfWkmknWL9Y5QY5gzqaUo7cSIO_wH2Cp6AmDfZpIBoobChVeht4ml7ZKShkruQJmAw92JDNcGy7gGKkaaIxX_8a071qpz5JglMWHBjzhnF_NPZJD"
 ];
+
+// First phase uses fixed slot templates so the collage can stay tight without waiting for
+// homepage-wide ratio metadata to be plumbed through every card contract.
+const HOME_ARCHIVE_LAYOUT_ROWS: HomeArchiveLayoutVariant[][] = [
+  ["hero", "portrait", "portrait"],
+  ["square", "square", "wide"],
+  ["wide", "square", "square"],
+  ["landscape", "landscape", "landscape"]
+];
+
+const HOME_ARCHIVE_VARIANT_BUCKET_PRIORITY: Record<HomeArchiveLayoutVariant, HomeArchiveLayoutBucket[]> = {
+  hero: ["wide", "landscape", "square", "portrait"],
+  portrait: ["portrait", "square", "landscape", "wide"],
+  square: ["square", "portrait", "landscape", "wide"],
+  landscape: ["landscape", "wide", "square", "portrait"],
+  wide: ["wide", "landscape", "square", "portrait"]
+};
+
+const HOME_ARCHIVE_VARIANT_CLASS_NAMES: Record<HomeArchiveLayoutVariant, string> = {
+  hero: styles.archiveCardHero,
+  portrait: styles.archiveCardPortrait,
+  square: styles.archiveCardSquare,
+  landscape: styles.archiveCardLandscape,
+  wide: styles.archiveCardWide
+};
 
 function GlobeIcon() {
   return (
@@ -127,22 +173,100 @@ function readThemeMode(): ThemeMode {
   return document.documentElement.dataset.theme === "light" ? "light" : "dark";
 }
 
+function resolveArchiveBucket(card: HomeArchiveCardData, index: number): HomeArchiveLayoutBucket {
+  if (card.resourceType === "workflow") {
+    return index % 2 === 0 ? "landscape" : "wide";
+  }
+
+  if (card.promptModality === "video") {
+    return index % 3 === 0 ? "wide" : "landscape";
+  }
+
+  return index % 3 === 0 ? "portrait" : index % 2 === 0 ? "square" : "portrait";
+}
+
+function takeArchiveCandidateForVariant(
+  remaining: HomeArchiveLayoutCandidate[],
+  variant: HomeArchiveLayoutVariant
+) {
+  for (const bucket of HOME_ARCHIVE_VARIANT_BUCKET_PRIORITY[variant]) {
+    const matchIndex = remaining.findIndex((candidate) => candidate.bucket === bucket);
+    if (matchIndex >= 0) {
+      return remaining.splice(matchIndex, 1)[0];
+    }
+  }
+
+  return remaining.shift();
+}
+
+function buildArchiveCollageRows(cards: HomeArchiveCardData[]): HomeArchiveLayoutRow[] {
+  const remaining = cards.map((card, index) => ({
+    card,
+    bucket: resolveArchiveBucket(card, index)
+  }));
+  const rows: HomeArchiveLayoutRow[] = [];
+
+  for (const rowTemplate of HOME_ARCHIVE_LAYOUT_ROWS) {
+    if (remaining.length === 0) {
+      break;
+    }
+
+    const slots: HomeArchiveLayoutSlot[] = [];
+    for (const variant of rowTemplate) {
+      const candidate = takeArchiveCandidateForVariant(remaining, variant);
+      if (!candidate) {
+        break;
+      }
+
+      slots.push({
+        card: candidate.card,
+        variant
+      });
+    }
+
+    if (slots.length > 0) {
+      rows.push({ slots });
+    }
+  }
+
+  if (remaining.length > 0) {
+    rows.push({
+      slots: remaining.map((candidate) => ({
+        card: candidate.card,
+        variant:
+          candidate.bucket === "portrait"
+            ? "portrait"
+            : candidate.bucket === "wide"
+              ? "wide"
+              : candidate.bucket === "landscape"
+                ? "landscape"
+                : "square"
+      }))
+    });
+  }
+
+  return rows;
+}
+
 function ArchiveCard({
   card,
   isAuthenticated,
   backSource,
-  anchorId
+  anchorId,
+  variant
 }: {
   card: HomeArchiveCardData;
   isAuthenticated: boolean;
   backSource: string;
   anchorId: string;
+  variant: HomeArchiveLayoutVariant;
 }) {
   const authorName = normalizeText(card.author.displayName) ?? "DramaTV Creator";
   const authorAvatarUrl = normalizeAssetUrl(card.author.avatarUrl);
   const imageUrl = normalizeAssetUrl(card.posterUrl) ?? normalizeAssetUrl(card.coverUrl);
-  const previewUrl = normalizeAssetUrl(card.previewUrl);
-  const isVideoMedia = Boolean(previewUrl);
+  const playbackUrl = resolveCardVideoPlaybackUrl(card);
+  const isVideoMedia = Boolean(playbackUrl);
+  const [imageFailed, setImageFailed] = useState(false);
   const {
     handlePreviewImmediateStart,
     handlePreviewStart,
@@ -160,9 +284,16 @@ function ArchiveCard({
     previewStartDelayMs: 160
     });
 
+  useEffect(() => {
+    setImageFailed(false);
+  }, [imageUrl, card.id]);
+
+  const showImage = Boolean(imageUrl) && !imageFailed;
+
   return (
     <Link
-      className={styles.archiveCard}
+      className={`${styles.archiveCard} ${HOME_ARCHIVE_VARIANT_CLASS_NAMES[variant]}`}
+      data-archive-variant={variant}
       href={resolveActionHref(isAuthenticated, appendBackSource(card.href, buildBackAnchorSource(backSource, anchorId)))}
       id={anchorId}
       onBlur={handlePreviewStop}
@@ -170,15 +301,16 @@ function ArchiveCard({
       onMouseEnter={handlePreviewStart}
       onMouseLeave={handlePreviewStop}
     >
-      {isVideoMedia && previewUrl ? (
+      {isVideoMedia && playbackUrl ? (
         <span className={styles.archiveCardMediaSlot} ref={mediaRef}>
-          {imageUrl ? (
+          {showImage ? (
             <img
               alt={card.title}
               className={`${styles.archiveCardMediaImage} ${styles.archiveCardMediaHasImage}`}
               decoding="async"
               draggable={false}
               loading="lazy"
+              onError={() => setImageFailed(true)}
               sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
               src={imageUrl}
             />
@@ -193,17 +325,18 @@ function ArchiveCard({
               muted
               playsInline
               preload="metadata"
-              src={previewUrl}
+              src={playbackUrl}
             />
           ) : null}
         </span>
-      ) : imageUrl ? (
+      ) : showImage ? (
         <img
           alt={card.title}
           className={`${styles.archiveCardMediaImage} ${styles.archiveCardMediaHasImage}`}
           decoding="async"
           draggable={false}
           loading="lazy"
+          onError={() => setImageFailed(true)}
           sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
           src={imageUrl}
         />
@@ -244,6 +377,7 @@ function toPromptArchiveCard(prompt: ApiPromptSummary): HomeDemoCard {
     posterUrl: prompt.posterUrl,
     previewUrl: prompt.previewUrl,
     sourceUrl: prompt.sourceUrl,
+    promptModality: prompt.modality,
     author: {
       id: prompt.author.id,
       displayName: normalizeText(prompt.author.displayName) ?? "DramaTV Creator",
@@ -273,7 +407,7 @@ function toWorkflowArchiveCard(workflow: WorkflowMiniCardView): HomeDemoCard {
   };
 }
 
-export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps) {
+export function HomePage({ view, prompts = [], landingLayout, isAuthenticated }: HomePageProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [themeMode, setThemeMode] = useState<ThemeMode>("dark");
@@ -327,7 +461,28 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
   }, []);
 
   const archiveCards = useMemo<HomeArchiveCardData[]>(() => {
-    const indexedCards = toIndexedContentCards(view.feedItems)
+    const landingSlotItems =
+      landingLayout?.slots.find((slot) => slot.key === "landing-archive-grid")?.items ??
+      [];
+    const indexedCards = toIndexedContentCards(
+      landingSlotItems.length > 0
+        ? landingSlotItems.map((item) => ({
+            contentKind: item.contentKind,
+            promptModality: item.promptModality,
+            itemType: item.itemType,
+            targetId: item.targetId,
+            title: item.title,
+            summary: item.summary,
+            coverUrl: item.coverUrl,
+            posterUrl: item.posterUrl,
+            previewUrl: item.previewUrl,
+            sourceUrl: item.sourceUrl,
+            author: item.author,
+            workflow: item.workflow,
+            stats: item.stats
+          }))
+        : view.feedItems
+    )
       .filter((item) => item.contentKind !== "post")
       .map((item) => ({
       id: item.id,
@@ -342,12 +497,17 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
       posterUrl: item.posterUrl,
       previewUrl: item.previewUrl,
       sourceUrl: item.sourceUrl,
+      promptModality: item.promptModality,
       author: item.author,
       resourceType: item.contentKind === "workflow_work" ? ("workflow" as const) : ("prompt" as const),
       primaryMetric: item.primaryMetric,
       secondaryMetric: item.secondaryMetric,
       badge: toResourceBadge(item.contentKind)
     }));
+    if (landingSlotItems.length > 0) {
+      return indexedCards.slice(0, 12);
+    }
+
     const promptCards = prompts.map(toPromptArchiveCard);
     const workflows =
       view.hotWorkflows.length > 0 ? view.hotWorkflows.map(toWorkflowArchiveCard) : homeDemoCatalog.workflowSection;
@@ -377,13 +537,17 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
       seen.add(card.id);
       return true;
     });
-  }, [prompts, view.feedItems, view.hotWorkflows]);
+  }, [landingLayout, prompts, view.feedItems, view.hotWorkflows]);
+  const archiveRows = useMemo(() => buildArchiveCollageRows(archiveCards), [archiveCards]);
   const currentRoute = useMemo(() => buildCurrentRoute(pathname, searchParams), [pathname, searchParams]);
 
-  useBackAnchorRestore([archiveCards.length]);
+  const { isBackAnchorRestoring } = useListPageBackRestore({
+    currentRoute,
+    dependencies: [archiveCards.length]
+  });
 
-  const featuredArchiveHref = resolveActionHref(isAuthenticated, "/featured");
-  const meHref = resolveActionHref(isAuthenticated, "/me");
+  const featuredArchiveHref = resolveActionHref(isAuthenticated, appendBackSource("/featured", currentRoute));
+  const meHref = resolveActionHref(isAuthenticated, appendBackSource("/me", currentRoute));
   const unlockHref = isAuthenticated ? "/home" : "/login?redirectTo=%2Fhome";
 
   return (
@@ -393,7 +557,10 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
       variant="home"
       topNavActive="landing"
     >
-      <div className={styles.page}>
+      <div
+        aria-hidden={isBackAnchorRestoring}
+        className={`${styles.page}${isBackAnchorRestoring ? ` ${styles.pageRestoring}` : ""}`}
+      >
         <section className={styles.hero}>
           <span className={styles.heroMedia} />
           {heroVideoUrl ? (
@@ -469,14 +636,19 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
             </div>
 
             <div className={styles.archiveGrid}>
-              {archiveCards.map((card, index) => (
-                <ArchiveCard
-                  anchorId={createBackAnchorId("landing-card", `${index}-${card.id}`)}
-                  backSource={currentRoute}
-                  card={card}
-                  isAuthenticated={isAuthenticated}
-                  key={card.id}
-                />
+              {archiveRows.map((row, rowIndex) => (
+                <div className={styles.archiveRow} key={`archive-row-${rowIndex}`}>
+                  {row.slots.map((slot, slotIndex) => (
+                    <ArchiveCard
+                      anchorId={createBackAnchorId("landing-card", `${rowIndex}-${slotIndex}-${slot.card.id}`)}
+                      backSource={currentRoute}
+                      card={slot.card}
+                      isAuthenticated={isAuthenticated}
+                      key={slot.card.id}
+                      variant={slot.variant}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
 
@@ -516,6 +688,16 @@ export function HomePage({ view, prompts = [], isAuthenticated }: HomePageProps)
           </div>
         </footer>
       </div>
+      {isBackAnchorRestoring ? (
+        <div className={styles.backAnchorRestoreOverlay}>
+          <RouteVideoLoading
+            activeNav="home"
+            label="Restoring home position"
+            useVideo={false}
+            videoActive={false}
+          />
+        </div>
+      ) : null}
     </PageShell>
   );
 }
