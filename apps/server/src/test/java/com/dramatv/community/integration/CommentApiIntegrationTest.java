@@ -13,7 +13,8 @@ class CommentApiIntegrationTest extends ApiIntegrationTestSupport {
 
     @Test
     void anonymousListIsPublicButCreateRequiresLogin() throws Exception {
-        String videoId = anyPublishedVideoId();
+        LoginSession owner = loginAsRandomUser("comment-anon-owner");
+        String videoId = createPublishedVideo(owner.userId(), "Anonymous comment list test video");
 
         MvcResult listResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/comments")
                         .param("targetType", "video")
