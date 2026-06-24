@@ -52,6 +52,16 @@ apps/server/tmp/
 /*.err.log
 /*.png
 /*.zip
+/*.txt
+/*.yml
+/*.yaml
+*.drawio.dtmp
+/.codex/
+/memory/
+/goal-*/
+/runs/
+/测试数据/
+/适配问题/
 apps/web/*.log
 apps/server/*.log
 /.codex/*.log
