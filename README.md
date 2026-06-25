@@ -1,131 +1,106 @@
-# DramaTV 社区仓库入口
+# DramaTV 社区
 
-当前正式工程已经固定为：
+DramaTV 是一个面向 AI 视频生成场景的社区产品。
+
+它不只是展示结果，也要展示结果背后的提示词、工作流和创作方法，并为后续与画布软件联动预留清晰入口。
+
+## 当前定位
+
+当前阶段固定为 `PGC 冷启动阶段`。
+
+这一阶段的目标不是先做复杂的开放生态，而是先把社区主线跑通：
+
+- 用户能发现内容
+- 用户能进入详情页继续浏览
+- 用户能看到作者与方法来源
+- 创作者能发布内容并绑定工作流
+- 社区具备最小互动闭环
+
+一句话约束：
+
+- 先把社区做成社区
+- 再把社区和画布接得更强
+
+## 当前核心内容
+
+当前社区围绕三类内容展开：
+
+- 视频作品
+- 工作流
+- 提示词与参考素材
+
+其中，工作流不是附件，而是一级内容。
+
+## 第一阶段重点页面
+
+第一阶段优先围绕 5 个核心页面建设：
+
+1. 社区首页
+2. 视频详情页
+3. 工作流详情页
+4. 作者主页
+5. 发布页
+
+这 5 个页面共同承担当前主线闭环：
+
+- 首页分发作品与工作流
+- 从作品进入详情页
+- 从详情页继续找到来源工作流
+- 进入作者主页继续浏览
+- 通过发布页完成内容发布与绑定
+
+## 工作流与画布的关系
+
+DramaTV 后续不是孤立社区，而是会和画布软件形成联动。
+
+当前已经明确的联动方向包括：
+
+- 从工作流详情页进入画布
+- 复制工作流到自己的画布空间
+- 发布视频时绑定来源工作流
+- 在视频详情页展示来源工作流
+
+现阶段的原则是：
+
+- 先预留产品位、数据位、接口位
+- 不让画布 runtime 反过来抢占社区 `P0` 主线
+
+## 当前产品方向约束
+
+这个项目当前明确不做下面几种方向：
+
+- 不做成普通短视频平台
+- 不做成偏营销口径的官网
+- 不把工作流降级成下载附件
+- 不让复杂交易、复杂审核系统提前挤占主线
+
+我们要做的是一个更接近“作品 + 方法 + 作者 + 讨论”的 AI 创作社区。
+
+## 仓库主线说明
+
+当前正式工程主线是：
 
 - 前端：`apps/web`
 - 后端：`apps/server`
 
-根目录里最早期的 `React + Vite` 页面原型已经迁移到：
+历史页面原型已经归档到：
 
 - `archive/legacy-react-vite-prototype`
 
-默认开发和后续迭代都以 `apps/web` 这套正式社区工程为准，不再以旧原型作为主线。
+后续新增能力、联调和验收，都以当前正式工程为准。
 
-## 常用命令
+## 进一步阅读
 
-- 启动正式前端：`npm run dev:web`
-- 启动后台前端：`npm run dev:admin`
-- 构建正式前端：`npm run build:web`
-- 构建后台前端：`npm run build:admin`
-- 启动归档原型：`npm run dev:prototype`
-- 构建归档原型：`npm run build:prototype`
+如果要继续看项目全貌，优先读这些文档：
 
-## 统一验证入口
-
-当前仓库已经把常用验证动作统一成根目录脚本，推荐优先使用这组入口：
-
-- `npm run typecheck`
-  - 同时检查 `apps/web` 与 `apps/admin`
-- `npm run typecheck:web`
-  - 只检查 `apps/web`
-- `npm run typecheck:admin`
-  - 只检查 `apps/admin`
-- `npm run build`
-  - 同时构建 `apps/web` 与 `apps/admin`
-- `npm run backend-test`
-  - 运行后端最小关键集成测试
-- `npm run backend-test:read`
-  - 运行前台公共读链路集成测试
-- `npm run backend-test:admin`
-  - 运行后台治理主链路集成测试
-- `npm run backend-test:logging`
-  - 运行日志 / requestId / traceId 相关集成测试
-- `npm run api-smoke`
-  - 运行社区 API smoke
-- `npm run auth-session-smoke`
-  - 运行登录 / 会话回归
-- `npm run smoke:web`
-  - 运行社区前台路由最小 smoke
-- `npm run smoke:admin`
-  - 运行社区后台路由最小 smoke
-- `npm run browser-smoke`
-  - 运行浏览器级社区 smoke
-- `npm run perf:frontend:baseline`
-  - 运行首页 / 精选 / 详情往返 / 评论区 的前端性能基线
-- `npm run readiness:test`
-  - 运行测试环境 / 公网最小可用性检查
-- `npm run verify:quick`
-  - 快速回归：`typecheck + backend-test + api-smoke + auth-session-smoke`
-- `npm run verify:full`
-  - 完整回归：`typecheck + build + backend-test + api-smoke + auth-session-smoke + browser-smoke`
-- `npm run deploy:verify:pre`
-  - 部署前固定动作，当前等价于 `verify:quick`
-- `npm run deploy:verify:post:test`
-  - 部署到测试环境后固定动作，当前等价于 `readiness:test`
-- `npm run deploy:test:web`
-  - 按标准口径部署社区前台到测试环境，并默认执行部署前/后验证
-- `npm run deploy:test:backend`
-  - 按标准口径部署社区后端到测试环境，并默认执行部署前/后验证
-- `npm run release:list:test`
-  - 查看测试环境当前 web / server release 列表与 `current` 指向
-- `npm run release:stamp:baseline:test`
-  - 一次性给当前云端稳定基线补远端 `release.json`
-- `npm run rollback:test:web -- -ReleaseName 20260509-141400 -VerifyAfterRollback`
-  - 把测试环境前台回退到指定 release
-- `npm run rollback:test:backend -- -ReleaseName 20260509-123834 -VerifyAfterRollback`
-  - 把测试环境后端回退到指定 release
-
-推荐口径：
-
-- 日常改动后先跑：`npm run verify:quick`
-- 准备同步云端或做阶段性验收前再跑：`npm run verify:full`
-- 部署到测试环境前先跑：`npm run deploy:verify:pre`
-- 部署完成后再跑：`npm run deploy:verify:post:test`
-- 需要确认当前版本或准备回滚时先跑：`npm run release:list:test`
-
-`readiness:test` 默认面向当前测试环境公网入口 `http://8.141.20.130`，第一轮固定检查：
-
-- 根页 / 登录页是否可打开
-- `/home` `/featured` `/discussions` `/me` `/publish` 这些受保护页是否正确跳登录
-- `feed home / prompts / discussions home` 三条公开 API 是否可用
-- 匿名通知代理是否保持 `200 + 空列表` 降级
-
-如果需要把这套检查扩展到登录态或直连后端健康检查，可额外传入：
-
-- `DRAMATV_TEST_CREATOR_USERNAME`
-- `DRAMATV_TEST_CREATOR_PASSWORD`
-- `DRAMATV_TEST_BACKEND_HEALTH_URL`
-
-## 执行手册入口
-
-这轮已经把常用执行动作收口成短手册，优先按这些文档操作：
-
-- `docs/04_实施设计/本地开发标准动作清单-2026-05-18.md`
-- `docs/04_实施设计/测试环境部署前检查清单-2026-05-18.md`
-- `docs/04_实施设计/测试环境部署后验收清单-2026-05-18.md`
-- `docs/04_实施设计/本地手动启动操作指南-2026-05-21.md`
-- `docs/04_实施设计/故障排查入口速查表-2026-05-18.md`
-- `docs/04_实施设计/测试环境部署回滚与故障排查清单-2026-05-18.md`
-- `docs/04_实施设计/最小 CI 草案-2026-05-18.md`
-- `docs/04_实施设计/前端性能基线说明-2026-05-18.md`
-- `docs/04_实施设计/测试环境社区前台发布与回滚方案-2026-05-19.md`
-- `ops/releases/test-env-release-ledger.md`
-
-## 测试环境版本管理
-
-当前已经把测试环境版本管理收口到“release 目录 + current 切换 + 本地发布台账”这一层：
-
-- 远端当前稳定基线：`test-stable-2026-05-19-community-r1`
-- 稳定基线记录：`ops/releases/test-env-release-ledger.md`
-- 当前稳定基线与后续新发版都会在远端 release 目录里保留 `release.json`
-- 回滚入口固定为：
-  - `npm run release:list:test`
-  - `npm run rollback:test:web -- -ReleaseName <release>`
-  - `npm run rollback:test:backend -- -ReleaseName <release>`
-
-当前这套仍然不是完整 CI/CD，但已经从“手工记忆版部署”推进到“可追踪、可比对、可回退”的测试环境发布规范。
+- [文档导航](docs/README.md)
+- [社区全栈项目总览与推进路线](docs/01_总览/社区全栈项目总览与推进路线.md)
+- [PGC阶段社区主线闭环与优先级](docs/01_总览/PGC阶段社区主线闭环与优先级.md)
+- [社区全栈业务流程](docs/03_架构/社区全栈业务流程.md)
+- [工作流存储与复制机制设计](docs/03_架构/工作流存储与复制机制设计.md)
+- [第一阶段 API 清单](docs/04_实施设计/第一阶段 API 清单.md)
 
 ## 说明
 
-- 旧原型保留仅用于回看早期页面思路，不再承接新需求。
-- 页面美化、交互优化、真实接口联调都继续在 `apps/web` 中完成。
+- 根目录 `README` 只保留社区产品口径与项目入口说明
+- 更细的工程实现、部署、排障、环境信息统一沉到 `docs/`
