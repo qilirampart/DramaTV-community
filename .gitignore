@@ -52,6 +52,17 @@ apps/server/tmp/
 /*.err.log
 /*.png
 /*.zip
+/*.txt
+/*.yml
+/*.yaml
+/*.drawio.dtmp
+*.drawio.dtmp
+*_backup_*
+/.codex/
+/goal-*/
+/runs/
+/测试数据/
+/适配问题/
 apps/web/*.log
 apps/server/*.log
 /.codex/*.log
@@ -72,6 +83,8 @@ apps/server/*.log
 /apps/web/public/external-samples/
 /docs/02_研究/youmind-image-assets/
 /docs/02_研究/youmind-video-assets/
+/docs/02_研究/youmind-resource-capture-method-package-*/
+/docs/02_研究/youmind-resource-capture-method-package-*.zip
 /archive/legacy-react-vite-prototype/public/prefill-videos/
 /docs/98_外部参考/awesome-design-md/
 /playwright-*.md
