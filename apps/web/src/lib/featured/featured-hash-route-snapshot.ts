@@ -105,6 +105,7 @@ export function serializeFeaturedHashRouteSnapshot(
   now = Date.now(),
   options?: {
     maxItems?: number;
+    retainItemHref?: string;
   }
 ) {
   if (!snapshot.hasLoaded || snapshot.items.length === 0) {
@@ -112,6 +113,43 @@ export function serializeFeaturedHashRouteSnapshot(
   }
 
   const maxItems = options?.maxItems ?? FEATURED_HASH_ROUTE_SNAPSHOT_MAX_ITEMS;
+  const retainItemHref = options?.retainItemHref?.trim();
+  let persistedItems = snapshot.items;
+
+  if (persistedItems.length > maxItems) {
+    if (retainItemHref) {
+      const retainIndex = persistedItems.findIndex((item) => {
+        if (item.itemType === "workflow") {
+          return `/workflows/${item.targetId}` === retainItemHref;
+        }
+
+        if (item.itemType === "post") {
+          if (item.targetSlug?.trim()) {
+            return `/discussions/${item.targetSlug.trim()}` === retainItemHref;
+          }
+
+          if (item.channelSlug?.trim()) {
+            return `/discussions?channel=${encodeURIComponent(item.channelSlug.trim())}` === retainItemHref;
+          }
+
+          return "/discussions" === retainItemHref;
+        }
+
+        return `/prompts/${item.targetId}` === retainItemHref;
+      });
+
+      if (retainIndex >= 0) {
+        const maxStart = Math.max(0, persistedItems.length - maxItems);
+        const centeredStart = Math.max(0, retainIndex - Math.floor(maxItems / 2));
+        const sliceStart = Math.min(centeredStart, maxStart);
+        persistedItems = persistedItems.slice(sliceStart, sliceStart + maxItems);
+      } else {
+        persistedItems = persistedItems.slice(0, maxItems);
+      }
+    } else {
+      persistedItems = persistedItems.slice(0, maxItems);
+    }
+  }
 
   return JSON.stringify({
     version: FEATURED_HASH_ROUTE_SNAPSHOT_VERSION,
@@ -119,7 +157,7 @@ export function serializeFeaturedHashRouteSnapshot(
     routeKey: snapshot.routeKey,
     cacheKey: snapshot.cacheKey,
     summary: snapshot.summary,
-    items: snapshot.items.slice(0, maxItems),
+    items: persistedItems,
     nextCursor: snapshot.nextCursor ?? null,
     hasMore: snapshot.hasMore,
     hasLoaded: true,

@@ -51,6 +51,26 @@ test("featured hash route snapshot trims oversized item lists", () => {
   assert.equal(parsed?.items.length, 3);
 });
 
+test("featured hash route snapshot retains the current detail item when trimming", () => {
+  const raw = serializeFeaturedHashRouteSnapshot(
+    {
+      ...sampleSnapshot,
+      items: Array.from({ length: 5 }, (_, index) => ({ itemType: "prompt", targetId: String(index) }))
+    },
+    100,
+    {
+      maxItems: 3,
+      retainItemHref: "/prompts/3"
+    }
+  );
+
+  const parsed = parseFeaturedHashRouteSnapshot(raw, 100);
+  assert.deepEqual(
+    parsed?.items.map((item) => item.targetId),
+    ["2", "3", "4"]
+  );
+});
+
 test("featured hash route snapshot keeps optional aspect ratio and masonry state", () => {
   const raw = serializeFeaturedHashRouteSnapshot(
     {

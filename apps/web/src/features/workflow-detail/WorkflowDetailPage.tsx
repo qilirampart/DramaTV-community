@@ -619,9 +619,11 @@ export function WorkflowDetailPage({ view, backHref = "/featured" }: WorkflowDet
     <PageShell variant="home" topNavActive="featured">
       <div className={styles.page}>
         <section className={styles.heroSection} id="canvas-entry">
-          <ContextBackLink className={styles.backLink} href={backHref}>
-            ← 返回列表
-          </ContextBackLink>
+          <div className={styles.backRow}>
+            <ContextBackLink className={styles.backLink} href={backHref}>
+              ← 返回列表
+            </ContextBackLink>
+          </div>
 
           <div className={styles.heroGrid}>
             <div className={styles.stageColumn}>

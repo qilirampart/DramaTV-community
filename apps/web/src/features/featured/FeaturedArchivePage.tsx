@@ -202,8 +202,8 @@ const EMPTY_FEATURED_INVENTORY: ApiFeaturedInventoryResponse = {
   }
 };
 const FEATURED_PREWARM_VIDEO_CARD_LIMIT = 6;
-const FEATURED_PREFETCH_TRIGGER_DISTANCE_PX = 1100;
-const FEATURED_BUFFER_COMMIT_DISTANCE_PX = 520;
+const FEATURED_PREFETCH_TRIGGER_DISTANCE_PX = 1800;
+const FEATURED_BUFFER_COMMIT_DISTANCE_PX = 900;
 const FEATURED_ASPECT_RATIO_SESSION_CACHE_STORAGE_KEY = "dramatv:featured-aspect-ratios:v1";
 const FEATURED_ASPECT_RATIO_SESSION_CACHE_VERSION = 1;
 const FEATURED_ASPECT_RATIO_SESSION_CACHE_MAX_AGE_MS = 30 * 60 * 1000;
@@ -2494,7 +2494,6 @@ export function FeaturedArchivePage({
         const bufferedItems = dedupeFeaturedItems(
           (inventory.page.items ?? []).map((item, index) => toFeaturedArchiveItem(item, index))
         );
-        await prepareFeaturedItemAspectRatios(bufferedItems);
 
         bufferedPageKeyRef.current = featuredInventoryCacheKey;
         bufferedPageRef.current = {
@@ -2504,6 +2503,8 @@ export function FeaturedArchivePage({
           hasMore: inventory.page.hasMore ?? false
         };
         setBufferedPageVersion((current) => current + 1);
+
+        void prepareFeaturedItemAspectRatios(bufferedItems);
       })
       .catch((error: unknown) => {
         console.warn("[featured-archive] failed to load more featured inventory", error);

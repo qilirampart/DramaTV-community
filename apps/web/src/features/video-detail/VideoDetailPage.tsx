@@ -30,6 +30,14 @@ import {
 } from "@/features/community-interactions/actions";
 import { copyText } from "@/lib/browser/copy-text";
 import type { VideoDetailPageView } from "@/lib/contracts/view-models";
+import {
+  extendFeaturedDetailNavigationSnapshotFromSession,
+  isFeaturedDetailBackHref,
+  readFeaturedDetailNavigationFromSession,
+  readFeaturedDetailNavigationStateFromSession,
+  type FeaturedDetailNavigation,
+  type FeaturedDetailNavigationTarget
+} from "@/lib/featured/featured-detail-navigation";
 import { promptPreviewVideoId } from "@/lib/prefill/prompt-detail-demo";
 import { resolvePrefillVideoForDetail } from "@/lib/prefill/prefill-videos";
 import { isVideoAssetUrl, normalizeAssetUrl, normalizeText } from "@/lib/presentation";
@@ -210,6 +218,22 @@ function LayersIcon() {
       <ellipse cx="10" cy="5.1" rx="5.6" ry="2.2" stroke="currentColor" strokeWidth="1.45" />
       <path d="M4.4 5.1v4.4c0 1.2 2.5 2.2 5.6 2.2s5.6-1 5.6-2.2V5.1" stroke="currentColor" strokeWidth="1.45" />
       <path d="M4.4 9.5v4.4c0 1.2 2.5 2.2 5.6 2.2s5.6-1 5.6-2.2V9.5" stroke="currentColor" strokeWidth="1.45" />
+    </svg>
+  );
+}
+
+function ChevronLeftIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="m15 18-6-6 6-6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function ChevronRightIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="m9 6 6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 }
@@ -475,6 +499,33 @@ function formatRelativeTime(value: string) {
   return `${Math.max(1, Math.round(deltaMs / day))}天前`;
 }
 
+function resolveVideoMiniCardHref(item: Pick<NonNullable<VideoDetailPageView["relatedVideos"]>[number], "id" | "href" | "itemType">) {
+  const normalizedHref = normalizeText(item.href);
+  if (normalizedHref) {
+    return normalizedHref;
+  }
+
+  return item.itemType === "prompt" ? `/prompts/${item.id}` : `/videos/${item.id}`;
+}
+
+function createFallbackNavigationTarget(
+  item?: NonNullable<VideoDetailPageView["relatedVideos"]>[number]
+): FeaturedDetailNavigationTarget | null {
+  if (!item) {
+    return null;
+  }
+
+  const title = normalizeText(item.title);
+  if (!title) {
+    return null;
+  }
+
+  return {
+    href: resolveVideoMiniCardHref(item),
+    title
+  };
+}
+
 function RelatedVideoCard({
   href,
   title,
@@ -561,6 +612,7 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [currentView, setCurrentView] = useState(view);
+  const [featuredNavigation, setFeaturedNavigation] = useState<FeaturedDetailNavigation | null>(null);
   const [interactionPendingKey, setInteractionPendingKey] = useState<string | null>(null);
   const [interactionNotice, setInteractionNotice] = useState<ActionNotice | null>(null);
   const [commentPending, setCommentPending] = useState(false);
@@ -579,10 +631,81 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
   const [isPlaybackActive, setIsPlaybackActive] = useState(false);
   const [isMediaVideoReady, setIsMediaVideoReady] = useState(false);
   const mediaVideoRef = useRef<HTMLVideoElement | null>(null);
+  const featuredNavigationLoadRef = useRef<{ key: string; requestId: number } | null>(null);
+  const featuredNavigationLoadRequestIdRef = useRef(0);
 
   useEffect(() => {
     setCurrentView(view);
   }, [view]);
+
+  useEffect(() => {
+    const initialNavigation = readFeaturedDetailNavigationFromSession({
+      pathname,
+      backHref
+    });
+    setFeaturedNavigation(initialNavigation);
+
+    if (!isFeaturedDetailBackHref(backHref)) {
+      return;
+    }
+
+    const navigationState = readFeaturedDetailNavigationStateFromSession({
+      pathname,
+      backHref
+    });
+
+    if (
+      !navigationState ||
+      !navigationState.snapshot.hasMore ||
+      !navigationState.snapshot.nextCursor ||
+      navigationState.currentIndex < navigationState.snapshot.items.length - 2
+    ) {
+      return;
+    }
+
+    const inFlightKey = `${navigationState.snapshot.routeKey}:${navigationState.snapshot.nextCursor}`;
+    if (featuredNavigationLoadRef.current?.key === inFlightKey) {
+      return;
+    }
+
+    const requestId = featuredNavigationLoadRequestIdRef.current + 1;
+    featuredNavigationLoadRequestIdRef.current = requestId;
+    featuredNavigationLoadRef.current = {
+      key: inFlightKey,
+      requestId
+    };
+    const controller = new AbortController();
+    const releaseInFlightRequest = () => {
+      const currentRequest = featuredNavigationLoadRef.current;
+      if (currentRequest?.key === inFlightKey && currentRequest.requestId === requestId) {
+        featuredNavigationLoadRef.current = null;
+      }
+    };
+
+    void extendFeaturedDetailNavigationSnapshotFromSession({
+      pathname,
+      backHref,
+      signal: controller.signal
+    })
+      .then((nextState) => {
+        if (!controller.signal.aborted) {
+          setFeaturedNavigation(nextState?.navigation ?? initialNavigation);
+        }
+      })
+      .catch((error: unknown) => {
+        if ((error as { name?: string } | null)?.name !== "AbortError") {
+          console.warn("[video-detail] failed to extend featured detail navigation", error);
+        }
+      })
+      .finally(() => {
+        releaseInFlightRequest();
+      });
+
+    return () => {
+      releaseInFlightRequest();
+      controller.abort();
+    };
+  }, [backHref, pathname]);
 
   const coverUrl =
     normalizeAssetUrl(currentView.media.coverUrl) ?? normalizeAssetUrl(currentView.media.posterUrl);
@@ -636,6 +759,16 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
   const renderedComments = currentView.comments;
   const isCommentEmpty = currentView.comments.items.length === 0;
   const recommendationVideos = currentView.relatedVideos.slice(0, isPromptResource ? 4 : 2);
+  const fallbackPreviousTarget = createFallbackNavigationTarget(recommendationVideos[0]);
+  const fallbackNextTarget = createFallbackNavigationTarget(recommendationVideos[1]);
+  const previousResourceTarget = isFeaturedDetailBackHref(backHref)
+    ? (featuredNavigation?.previous ?? null)
+    : (featuredNavigation?.previous ?? fallbackPreviousTarget);
+  const nextResourceTarget = isFeaturedDetailBackHref(backHref)
+    ? (featuredNavigation?.next ?? null)
+    : (featuredNavigation?.next ?? fallbackNextTarget);
+  const previousResourceHref = previousResourceTarget ? appendBackSource(previousResourceTarget.href, backHref) : null;
+  const nextResourceHref = nextResourceTarget ? appendBackSource(nextResourceTarget.href, backHref) : null;
   const summaryText = isPromptResource
     ? summary ?? "这条提示词详情页会承接画面描述、镜头语言和可复制内容。"
     : summary ?? "这条作品暂时还没有补充简介。后续会在这里对齐参考页里的作品描述。";
@@ -1046,9 +1179,11 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
     <PageShell variant="home" topNavActive="featured">
       <div className={styles.page}>
         <section className={styles.heroSection}>
-          <ContextBackLink className={styles.backLink} href={backHref}>
-            ← 返回列表
-          </ContextBackLink>
+          <div className={styles.backRow}>
+            <ContextBackLink className={styles.backLink} href={backHref}>
+              ← 返回列表
+            </ContextBackLink>
+          </div>
 
           <div className={styles.heroGrid}>
             <div className={styles.mediaColumn}>
@@ -1060,6 +1195,28 @@ export function VideoDetailPage({ view, backHref = "/featured" }: VideoDetailPag
                   }
                 }}
               >
+                {previousResourceHref ? (
+                  <Link
+                    aria-label={`查看上一个资源：${previousResourceTarget?.title ?? ""}`}
+                    className={`${styles.mediaNavButton} ${styles.mediaNavButtonPrev}`}
+                    href={previousResourceHref}
+                    title={previousResourceTarget?.title ?? "上一个资源"}
+                  >
+                    <ChevronLeftIcon />
+                  </Link>
+                ) : null}
+
+                {nextResourceHref ? (
+                  <Link
+                    aria-label={`查看下一个资源：${nextResourceTarget?.title ?? ""}`}
+                    className={`${styles.mediaNavButton} ${styles.mediaNavButtonNext}`}
+                    href={nextResourceHref}
+                    title={nextResourceTarget?.title ?? "下一个资源"}
+                  >
+                    <ChevronRightIcon />
+                  </Link>
+                ) : null}
+
                 <div
                   className={styles.mediaPoster}
                   style={posterImageUrl ? { backgroundImage: `url(${posterImageUrl})` } : undefined}

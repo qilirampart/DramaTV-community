@@ -16,7 +16,32 @@
 }
 
 .backRow {
+  position: sticky;
+  top: 104px;
+  z-index: 35;
+  display: flex;
+  width: fit-content;
   margin-bottom: 22px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(8, 10, 14, 0.72);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.backRow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  pointer-events: none;
+}
+
+.backRow > * {
+  position: relative;
+  z-index: 1;
 }
 
 .backLink {
@@ -666,6 +691,12 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
 }
 
+:global(:root[data-theme="light"]) .backRow {
+  border-color: rgba(17, 18, 20, 0.08);
+  background: rgba(255, 252, 247, 0.82);
+  box-shadow: 0 14px 28px rgba(129, 98, 67, 0.12);
+}
+
 :global(:root[data-theme="light"]) .backdropNoise {
   opacity: 0.04;
   background:
@@ -808,6 +839,11 @@
 @media (max-width: 720px) {
   .page {
     padding-top: 20px;
+  }
+
+  .backRow {
+    top: 92px;
+    padding: 8px 12px;
   }
 
   .hero {
