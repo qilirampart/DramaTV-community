@@ -1,1 +1,0 @@
-A {argument name="style" default="photobook-style portrait"} of a {argument name="character" default="gentle woman with glasses"}

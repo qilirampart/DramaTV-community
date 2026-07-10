@@ -1,1 +1,0 @@
-一张宽幅引言卡片，上面印有一位名人，背景为棕色，引言文字为浅金色衬线字体：“{argument name="famous_quote" default="Stay Hungry, Stay Foolish"}”，下方是较小的文字：“—{argument name="author" default="Steve Jobs"}”。文字前面有一个大而柔和的引号。人物肖像在左侧，文字在右侧。文字占据图片的三分之二，肖像占据三分之一，肖像部分带有轻微的渐变过渡效果。
